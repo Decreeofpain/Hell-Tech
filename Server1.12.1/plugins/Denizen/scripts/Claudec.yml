@@ -1,0 +1,144 @@
+"Claudec":
+    type: assignment
+
+    actions:
+      on assignment:
+      - trigger name:CHAT toggle:false
+      - trigger name:click toggle:true
+      - trigger name:proximity toggle:true radius:4
+
+    interact scripts:
+    - 14 Claudscriptsouls
+    - 12 Claudscript
+
+'Claudscriptsouls':
+  Type: Interact
+  Requirements:
+    Mode: all
+    List:
+    - valueof <global.flag[capitulos].contains[CAPITULO1P2OK]>
+    - valueof <player.flag[progreso].contains[tutorial_ok]>
+  Steps:
+    '1':
+      click trigger:
+        Script:
+          - ^inventory open d:in@inv_piedras
+      proximity trigger:
+        entry:
+          radius: 4
+          Script:
+          - ^narrate '<dark_red>Claudec: <gold><player.name>, <yellow>Tienes <dark_purple><player.flag[piedrasdelalma].asint> <yellow>Piedras del alma'
+
+'Claudscript':
+  Type: Interact
+  Requirements:
+    Mode: all
+    List:
+    - valueof <global.flag[capitulos].contains[CAPITULO1P2OK]>
+    - -valueof <player.flag[progreso].contains[tutorial_ok]>
+  Steps:
+    '1':
+      proximity trigger:
+        entry:
+          radius: 4
+          Script:
+          - ^if <player.flag[misiones].as_list> contains tuto_06 && <player.flag[misiones].as_list> !contains tuto_07 {
+            - ^inventory open d:in@inv_stats
+            - ^playsound <player> sound:complete custom
+            }
+#- adjust <server> delete_file:personal/<player.name>.yml
+ClaudecSistem:
+  type: world
+  events:
+    on player death:
+    - ^flag <player> muerto:si
+    - ^modifyblock location:2990,105,3224,Esparcraft 96,1
+    - ^modifyblock location:2991,105,3224,Esparcraft 96,1
+    - ^sign type:automatic "<dark_red><player.name>|<red>Murio|<blue><util.date.replace[<&sp>]>" location:2992,106,3224,Esparcraft direction:W
+    - ^define inventorydead <player.inventory.list_contents>
+    - ^define inventoryhelmet <player.equipment.helmet>
+    - ^define inventorychest <player.equipment.chestplate>
+    - ^define inventoryleggins <player.equipment.leggings>
+    - ^define inventoryboots <player.equipment.boots>
+    - wait 10t
+    - ^if <player.has_flag[safe].not> {
+      - ^yaml load:personal/<player.name>.yml id:personal<player.name>
+      - ^yaml id:personal<player.name> set inv.dead.all:<def[inventorydead]>
+      - ^yaml id:personal<player.name> set inv.dead.helmet:<def[inventoryhelmet]>
+      - ^yaml id:personal<player.name> set inv.dead.chestplate:<def[inventorychest]>
+      - ^yaml id:personal<player.name> set inv.dead.leggings:<def[inventoryleggins]>
+      - ^yaml id:personal<player.name> set inv.dead.boots:<def[inventoryboots]>
+      - ^yaml savefile:personal/<player.name>.yml id:personal<player.name>
+      - ^yaml unload id:personal<player.name>
+      }
+    - ^if <player.has_flag[inarena].not> && <global.flag[capitulos].as_list> contains CAPITULO1P2OK && <player.flag[progreso].as_list> contains tutorial_ok && <player.has_flag[safe].not> {
+      - ^if <player.flag[piedrasdelalma].asint> <= 1 {
+        - ^if <player.flag[raza]> == lobo && <player.has_flag[iniciado]> {
+          - ^execute as_server "ww toggle <player.name>"
+          }
+        - ^if <player.flag[raza]> == vampiro && <player.has_flag[iniciado]> {
+          - ^execute as_server "v set v <player.name> no"
+          }
+        - ^execute as_server "money set <player.name> 0"
+        - ^yaml create id:personal<player.name>
+        - ^yaml id:personal<player.name> set bk.pj.nivel:<player.skillapi.class_level[<player.skillapi.main_class>]>
+        - ^yaml id:personal<player.name> set bk.pj.class:<player.skillapi.main_class>
+        - ^yaml id:personal<player.name> set bk.pj.obj:<player.flag[objetivo]>
+        - ^yaml id:personal<player.name> set bk.pj.misiones:<player.flag[misiones].as_list>
+        - ^define jugador <player.name>
+        - ^sql id:GlobalSQL "query:SELECT user_id FROM phpbb_users WHERE username='<def[jugador]>';" save:resultado
+        - ^yaml id:<player.name> set UserID:<entry[resultado].result.parse[replace[/]].formatted>
+        - sql id:GlobalSQL "update:UPDATE phpbb_profile_fields_data SET pf_pb_wow_race='1' WHERE user_id=<yaml[<player.name>].read[UserID]>;"
+        - sql id:GlobalSQL "update:UPDATE phpbb_profile_fields_data SET pf_pb_wow_class='1' WHERE user_id=<yaml[<player.name>].read[UserID]>;"
+        - sql id:GlobalSQL "update:UPDATE phpbb_profile_fields_data SET pf_pb_wow_level='1' WHERE user_id=<yaml[<player.name>].read[UserID]>;"
+        - sql id:GlobalSQL "update:UPDATE phpbb_profile_fields_data SET pf_pb_wow_guild='' WHERE user_id=<yaml[<player.name>].read[UserID]>;"
+        - ^yaml savefile:personal/<player.name>.yml id:personal<player.name>
+        - ^reset <player> saves
+        - ^execute as_op "class reset" silent
+        - ^execute as_op "class reset confirm" silent
+        - ^execute as_server "jobs fireall <player.name>"
+        - ^execute as_server "pex user <player.name> group set iniciado"
+        - ^title "title:<dark_red>Claudec" "subtitle:<red>Tu alma me pertenece <aqua><player.name> <dark_red>Buajajaja" stay:15s
+        - ^bossbar remove obj<player.name>
+        - ^define objetivo "<red>Claudec: <green>Perdiste todo jajaja te lo dijeeee jajajajaja"
+        - ^flag <player> objetivo:<def[objetivo]>
+        - ^bossbar obj<player.name> players:<player> "title:<player.flag[objetivo]>" color:BLUE
+        - ^compass <npc.location.simple> npc:27
+        - ^flag <player> resetplayer:si
+        - ^run 's@Checkusercap'
+        } else {
+        - ^flag <player> piedrasdelalma:-:1
+        - ^title "title:<dark_red>Claudec" "subtitle:<gray>Ahora te quedan <gold><player.flag[piedrasdelalma].asint> <dark_purple>piedras del alma" stay:15s
+        }
+      }
+
+    on player respawns:
+    - ^flag <player> muerto:!
+    - ^if <player.has_flag[safe]> {
+      - wait 10t
+      - ^yaml load:personal/<player.name>.yml id:personal<player.name>
+      - inventory set d:<player.inventory> o:<yaml[personal<player.name>].read[inv_outsoul]>
+      - equip <player> head:<yaml[personal<player.name>].read[inv_outsoul_helmet]>
+      - equip <player> chest:<yaml[personal<player.name>].read[inv_outsoul_chestplate]>
+      - equip <player> legs:<yaml[personal<player.name>].read[inv_outsoul_leggings]>
+      - equip <player> boots:<yaml[personal<player.name>].read[inv_outsoul_boots]>
+      - ^yaml unload id:personal<player.name>
+      }
+    - ^if <player.has_flag[resetplayer]> {
+      - ^flag <player> resetplayer:!
+      - ^flag <player> piedrasdelalma:15
+      - ^bossbar remove obj<player.name>
+      - ^define objetivo "<dark_red>Claudec: <red>Perdiste todo jajaja te lo dijeeee hahahaha!"
+      - ^flag <player> objetivo:<def[objetivo]>
+      - ^bossbar obj<player.name> players:<player> "title:<player.flag[objetivo]>" color:BLUE
+      - ^compass <npc.location.simple> npc:27
+      - wait 10t
+      - inventory clear d:<player.inventory>
+      - equip <player> head:i@air
+      - equip <player> chest:i@air
+      - equip <player> legs:i@air
+      - equip <player> boots:i@air
+      - wait 10t
+      - ^give i@panelgui slot:9
+      - ^title "title:<dark_red>Claudec" "subtitle:<red><player.name> Ahora nadie te recuerda" stay:10s
+      }

@@ -1,0 +1,171 @@
+# 
+# These example files show you some of the basic attributes and
+# skills MythicMobs can use. Far more is possible!
+Aracboss1:
+  MobType: SPIDER
+  Health: 60
+  Damage: 5
+  LevelModifiers:
+    Health: 2
+    Power: 1
+  Display: '&5Girsha &7lvl &6- &8[&4<mob.level>&8]&f'
+  Options:
+    MovementSpeed: 0.3
+    MaxCombatDistance: 25
+  Skills:
+  - potion{type=SLOW;duration10;level=1} @target ~onAttack >0 0.1
+  - potion{type=BLINDNESS;duration10;level=1} @target ~onAttack >0 0.2
+  - summon{mob=Aracboss1esbirro;amount=1;radius=5} @PIR{r=10} >0 0.25
+  - message{m="<mob.name>&f<&co> &4Mi Veneno te Matara!"} @PlayersInRadius{r=5} ~onAttack >0 0.1
+  - message{m="<mob.name>&f<&co> &4Esto Posiblemente te Duela... mucho..."} @PlayersInRadius{r=5} ~onAttack >0 0.1
+  - damage{amount=0.25} @target ~onAttack
+  DropsPerLevel:
+  - skillapi-exp 1 1
+  - money 0.25 1
+
+Aracboss1esbirro:
+  MobType: CAVE_SPIDER
+  Health: 8
+  Damage: 2
+  Skills:
+  - potion{type=POISON;duration4;level=1} @target ~onAttack >0 0.9
+  - damage{amount=0.25} @target ~onAttack
+  LevelModifiers:
+    Health: 2
+    Power: 1
+  Display: '&7Cria &7lvl &6- &8[&4<mob.level>&8]&f'
+  Options:
+    MovementSpeed: 0.3
+    MaxCombatDistance: 15
+  DropsPerLevel:
+  - skillapi-exp 1 1
+  - money 0.25 1
+
+Aeon:
+  Type: WITHER_SKELETON
+  Display: '&8A&7eon &7lvl &6- &8[&4<mob.level>&8]&f'
+  Health: 90
+  Damage: 15
+  Skills:
+  - message{cooldown=20;m="<mob.name><&co> Nadie puede desafiarme!"} @PlayersInRadius{r=10} ~onCombat >0 0.2
+  - message{m="<mob.name><&co> Ahahahahah! Muere, <trigger.name>!"} @PlayersInRadius{r=30} ~onPlayerKill >0 1
+  - skill{s=SummonSkeletons} @Self 0.25
+  - skill{s=SmashAttack} @Target >0 0.2
+  - damage{amount=0.25} @target ~onAttack
+  LevelModifiers:
+    Health: 2
+    Power: 1
+#  Equipment:
+#  - Iron_Sword:0
+  Options:
+    AlwaysShowName: true
+    MovementSpeed: 0.2
+    MaxCombatDistance: 15
+    PreventOtherDrops: true
+  DropsPerLevel:
+  - skillapi-exp 1 1
+  - money 0.25 1
+
+AeonMinion:
+  Type: SKELETON
+  Display: '&8Esbirro &7lvl &6- &8[&4<mob.level>&8]&f'
+  Health: 20
+  Damage: 3
+  Options:
+    MovementSpeed: 0.1
+    MaxCombatDistance: 25
+    PreventOtherDrops: true
+  LevelModifiers:
+    Health: 2
+    Power: 1
+  DropsPerLevel:
+  - skillapi-exp 1 1
+  - money 0.25 1
+  Skills:
+  - damage{amount=0.25} @target ~onAttack
+
+SlimeOP:
+  Type: SLIME
+  Display: '&aB&2lozz &7lvl &6- &8[&4<mob.level>&8]&f'
+  Health: 80
+  Damage: 2
+  Options:
+    Size: 15
+    MovementSpeed: 0.1
+    PreventOtherDrops: true
+    MaxCombatDistance: 30
+    KnockbackResistance: 2
+  Skills:
+  - skill{s=AngrySludgePoison} 0.25
+  - damage{amount=0.25} @target ~onAttack
+  LevelModifiers:
+    Health: 2
+    Power: 1
+
+Gigante:
+  Type: GIANT
+  Display: '&aSuper Geedo &7lvl &6- &8[&4<mob.level>&8]&f'
+  Health: 250
+  Damage: 6
+  Despawn: false
+  Persistent: false
+  Equipment:
+  - Iron_Sword:0
+  AIGoalSelectors:
+  - 0 clear
+  - 2 meleeattack
+  AITargetSelectors:
+  - 0 clear
+  - 1 players
+  - 2 hurtbytarget
+  Options:
+    PreventOtherDrops: true
+    MaxCombatDistance: 30
+    KnockbackResistance: 2
+  Skills:
+  - skill{s=SummonEsbirros1} @Self ~onDeath
+  - damage{amount=0.25} @target ~onAttack
+  LevelModifiers:
+    Health: 2
+    Power: 1
+
+Zombiesbirrogiant1:
+  Type: ZOMBIE
+  Display: '&aGeedo &7lvl &6- &8[&4<mob.level>&8]&f'
+  Health: 60
+  Damage: 4
+  Equipment:
+  - Stone_Sword:0
+  Options:
+    MovementSpeed: 0.3
+    MaxCombatDistance: 25
+    PreventOtherDrops: true
+  Skills:
+  - skill{s=SummonEsbirros2} @Self ~onDeath
+  - damage{amount=0.25} @target ~onAttack
+  LevelModifiers:
+    Health: 2
+    Power: 1
+  DropsPerLevel:
+  - skillapi-exp 1 1
+  - money 0.25 1
+
+Zombiesbirrogiant2:
+  Type: BABY_ZOMBIE
+  Display: '&aGeedito &7lvl &6- &8[&4<mob.level>&8]&f'
+  Health: 20
+  Damage: 2
+  Equipment:
+  - Wood_Sword:0
+  Options:
+    MovementSpeed: 0.4
+    MaxCombatDistance: 25
+    PreventOtherDrops: true
+  LevelModifiers:
+    Health: 2
+    Power: 1
+  DropsPerLevel:
+  - skillapi-exp 1 1
+  - money 0.25 1
+  Skills:
+  - damage{amount=0.25} @target ~onAttack

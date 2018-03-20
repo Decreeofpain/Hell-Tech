@@ -1,0 +1,114 @@
+# 
+# This example file shows you how to change default values for 
+# vanilla mobs. Most MythicMobs options will work here, including
+# skills and effects! **Despawn: FALSE does not work, though.**
+CAVE_SPIDER:
+  Health: 8
+  Damage: 2
+  LevelModifiers:
+    Health: 2
+    Power: 1
+  Display: '&7Aracnido &7lvl &6- &8[&4<mob.level>&8]&f'
+  DropsPerLevel:
+  - skillapi-exp 1 1
+  - money 0.25 1
+  Skills:
+  - damage{amount=0.25} @target ~onAttack
+ZOMBIE:
+  Health: 8
+  Damage: 2
+  LevelModifiers:
+    Health: 2
+    Power: 1
+  Display: '&aZombie &6lvl &a- &7[&4<mob.level>&7]&f'
+  DropsPerLevel:
+  - skillapi-exp 1 1
+  - money 0.25 1
+  Skills:
+  - damage{amount=0.25} @target ~onAttack
+ZOMBIE_VILLAGER:
+  Health: 8
+  Damage: 2
+  LevelModifiers:
+    Health: 2
+    Power: 1
+  Display: '&aZombie &6lvl &a- &7[&4<mob.level>&7]&f'
+  DropsPerLevel:
+  - skillapi-exp 1 1
+  - money 0.25 1
+  Skills:
+  - damage{amount=0.25} @target ~onAttack
+SPIDER:
+  Health: 8
+  Damage: 2
+  LevelModifiers:
+    Health: 2
+    Power: 1
+  Display: '&7Aracnido &7lvl &6- &8[&4<mob.level>&8]&f'
+  DropsPerLevel:
+  - skillapi-exp 1 1
+  - money 0.25 1
+  Skills:
+  - damage{amount=0.25} @target ~onAttack
+SKELETON:
+  Health: 8
+  Damage: 2
+  LevelModifiers:
+    Health: 2
+    Power: 1
+  Display: '&7Esqueleto &6lvl &7- &7[&4<mob.level>&7]&f'
+  DropsPerLevel:
+  - skillapi-exp 1 1
+  - money 0.25 1
+#  Skills:
+#  - damage{amount=0.25} @target ~onAttack
+BABY_ZOMBIE:
+  Health: 8
+  Damage: 2
+  LevelModifiers:
+    Health: 2
+    Power: 1
+  Display: '&aZombie &6lvl &a- &7[&4<mob.level>&7]&f'
+  DropsPerLevel:
+  - skillapi-exp 1 1
+  - money 0.25 1
+  Skills:
+  - damage{amount=0.25} @target ~onAttack
+BABY_ZOMBIE_VILLAGER:
+  Health: 8
+  Damage: 2
+  LevelModifiers:
+    Health: 2
+    Power: 1
+  Display: '&aZombie &6lvl &a- &7[&4<mob.level>&7]&f'
+  DropsPerLevel:
+  - skillapi-exp 1 1
+  - money 0.25 1
+  Skills:
+  - damage{amount=0.25} @target ~onAttack
+ENDERMAN:
+  Health: 8
+  Damage: 2
+  LevelModifiers:
+    Health: 2
+    Power: 1
+  Display: '&5Enderman &5lvl &a- &7[&5<mob.level>&7]&f'
+  DropsPerLevel:
+  - skillapi-exp 1 1
+  - money 0.25 1
+  Skills:
+  - damage{amount=0.25} @target ~onAttack
+CREEPER:
+  Health: 8
+  Damage: 2
+  LevelModifiers:
+    Health: 2
+    Power: 1
+  Options:
+    MovementSpeed: 0.3
+  Display: '&2Creeper &2lvl &a- &7[&4<mob.level>&7]&f'
+  DropsPerLevel:
+  - skillapi-exp 1 1
+  - money 0.25 1
+  Skills:
+  - basedamage{m=0.35} @PlayersInRadius{r=8;ignore=animals,monsters} ~onExplode 

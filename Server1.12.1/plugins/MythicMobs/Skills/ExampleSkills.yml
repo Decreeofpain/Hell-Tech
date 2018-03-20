@@ -1,0 +1,255 @@
+# 
+# These example files show you some VERY basic meta skills.
+# You can copy and expand them however you'd like.
+# Conducta Skills
+FireBolt:
+  Skills:
+  - projectile{onTick=FireBolt-Tick;onHit=FireBolt-Hit;v=8;i=1;hR=1;vR=1}
+FireBolt-Tick:
+  Skills:
+  - effect:particles{p=flame;amount=20;speed=0;hR=0.2;vR=0.2} @origin
+FireBolt-Hit:
+  Skills:
+  - sendtitle{title="&6Golpeado";subtitle="&7por &cAliento volcanico!";d=30} @target
+  - damage{a=2} @target
+  - ignite{ticks=50} @target
+
+BlindBolt:
+  Skills:
+  - projectile{onTick=BlindBolt-Tick;onHit=BlindBolt-Hit;v=8;i=1;hR=1;vR=1}
+BlindBolt-Tick:
+  Skills:
+  - effect:particles{p=mobSpell;amount=20;speed=0;hR=0.2;vR=0.2} @origin
+BlindBolt-Hit:
+  Skills:
+  - sendtitle{title="&6Golpeado";subtitle="&7por &5Mirada siniestra!";d=30} @target
+  - damage{a=4} @target
+  - potion{type=BLINDNESS;duration=80;lvl=9} @target
+
+PoisonBolt:
+  Skills:
+  - projectile{onTick=PoisonBolt-Tick;onHit=PoisonBolt-Hit;v=8;i=1;hR=1;vR=1}
+PoisonBolt-Tick:
+  Skills:
+  - effect:particles{p=happyVillager;amount=20;speed=0;hR=0.2;vR=0.2} @origin
+PoisonBolt-Hit:
+  Skills:
+  - sendtitle{title="&6Golpeado";subtitle="&7por &2Aliento putrefacto!";d=30} @target
+  - potion{type=POISON;duration=60;lvl=2} @target
+  - damage{a=2} @target
+
+SmashAttack:
+  Cooldown: 8
+  Conditions:
+  - targetwithin 25
+  Skills:
+  - message{cooldown=30;m="<mob.name><&co> Haha te aplastare insecto!"} @PlayersInRadius{r=15}
+  - teleport @target
+  - effect:sound{s=mob.endermen.portal;volume=1.0;pitch=0.5}
+  - delay 10
+  - damage{amount=0.125} @PlayersInRadius{r=5}
+  - throw{velocity=10;velocityY=5} @PlayersInRadius{r=5}
+  - effect:explosion @Self
+SummonSkeletons:
+  Cooldown: 15
+  Skills:
+  - message{m="<mob.name><&co> Contempla mis esbirros!"} @PlayersInRadius{r=40}
+  - delay 20
+  - summon{mob=AeonMinion;amount=2;noise=5} @Self
+  - delay 20
+  - summon{mob=AeonMinion;amount=2;noise=5} @Self
+  - delay 20
+  - summon{mob=AeonMinion;amount=2;noise=5} @Self
+AngrySludgePoison:
+  Cooldown: 10
+  Skills:
+  - potion{type=POISON;lvl=2;duration=100} @PlayersInRadius{r=15}
+  - effect:particles{p=happyVillager;amount=1000;hSpread=15;ySpread=1;speed=0;yOFfset=0.5} @Self
+SummonEsbirros1:
+  Cooldown: 15
+  Skills:
+  - message{m="<mob.name><&co> Que creiste maldito jajajaja!"} @PlayersInRadius{r=15}
+  - delay 20
+  - summon{mob=Zombiesbirrogiant1;amount=2;noise=5} @Self
+  - delay 20
+  - summon{mob=Zombiesbirrogiant1;amount=2;noise=5} @Self
+SummonEsbirros2:
+  Cooldown: 15
+  Skills:
+  - message{m="<mob.name><&co> A la cargaaa!!!"} @PlayersInRadius{r=15}
+  - delay 20
+  - summon{mob=Zombiesbirrogiant2;amount=2;noise=5} @Self
+
+ShootAttacker:
+  Skills:
+  - shoot{t=arrow}
+ShootAttacker2:
+  Skills:
+  - potion{type=POISON;lvl=1;duration=100} @PlayersInRadius{r=10}
+  - effect:particles{p=happyVillager;amount=100;hSpread=5;ySpread=1;speed=0;yOFfset=0.5} @Self
+
+Homer:
+  Skills:
+  - missile{ot=Homer_TICK;oh=Homer_HIT;v=4;i=1;hR=1;vR=1;in=0.75}
+
+Homer_TICK:
+  Skills:
+  - effect:particles{p=flame;a=1} @origin
+
+Homer_HIT:
+  Skills:
+  - effect:particles{p=lava;a=50;hS=1;vS=1}
+  - effect:sound{s=random.explode;v=1;p=0}
+  - damage{a=1337;i=false}
+
+# Motur
+Iceprision:
+  Conditions:
+  - incombat
+  Cooldown: 0
+  Skills:
+  - sendtitle{title="&6Golpeado";subtitle="&7por &bAlma prisionera!";d=10} @target
+  - potion{type=POISON;lvl=4;duration=50}
+  - potion{type=SLOW;lvl=5;duration=150}
+  - effect:particles{p=blockcrack_79;amount=100;hSpread=18;ySpread=1;speed=0;yOFfset=0.5} @Self
+  - prison{material=IRON_BLOCK;duration=50;breakable=false}
+IceBolt:
+  Skills:
+  - projectile{onTick=IceBolt-Tick;onHit=IceBolt-Hit;v=8;i=1;hR=1;vR=1}
+IceBolt-Tick:
+  Skills:
+  - effect:particles{p=snowballpoof;amount=20;speed=0;hR=0.2;vR=0.2} @origin
+IceBolt-Hit:
+  Skills:
+  - sendtitle{title="&6Golpeado";subtitle="&7por &bGolpe gelido!";d=10} @target
+  - potion{type=SLOW;duration=80;lvl=9} @target
+  - damage{a=4} @target
+
+# Glaciem
+Icewind:
+  Conditions:
+  - incombat
+  Skills:
+  - effect:particletornado{p=sweepAttack;cp=largeexplode;mr=1;h=3;i=4;d=10;rs=1;sh=1;cs=0;ca=0;chs=0.1;cvs=0.1;cps=1;cyo=2} @self
+  - projectile{onTick=Icewind-Tick;onHit=Icewind-Hit;v=9;i=1;hR=1;vR=1}
+Icewind-Tick:
+  Skills:
+  - effect:particles{p=sweepAttack;amount=20;hSpread=1;vSpread=0.1;speed=0.1;yOffset=0} @origin
+Icewind-Hit:
+  Skills:
+  - sendtitle{title="&6Golpeado";subtitle="&7por &bViento Gelido!";d=10} @target
+  - throw{velocity=10;velocityY=10} @Target
+  - damage{a=1;ignoreArmor=false} @target
+Iceblade:
+  Cooldown: 3
+  Skills:
+  - sendtitle{title="&6Golpeado";subtitle="&7por &bHoja fria!";d=15} @target
+  - potion{type=SLOW;duration=300;lvl=9} @Target
+  - damage{a=10;ignoreArmor=false} @Target
+
+# Nacaruh
+deathcold:
+  Conditions:
+  - incombat
+  - stance armado
+  Skills:
+  - damage{a=30;ignoreArmor=false} @PlayersInRadius{r=30}
+
+vulnerable:
+  Conditions:
+  - incombat
+  Skills:
+  - sendtitle{title="&6Nucleo";subtitle="&7Desarmado";d=40} @PlayersInRadius{r=10}
+  - setstance{stance=default} @self
+  - summon{mob=NacEsbirro;amount=6;radius=2} @Self
+  - skill{s=decayefects}
+  - potion{type=SLOW;duration=400;lvl=1} @PlayersInRadius{r=10}
+  - disguise{d=block:IRON_BLOCK}
+  - delay 500
+  - disguise{d=ender_crystal}
+  - sendtitle{title="&6Nucleo";subtitle="&aEstable";d=40} @PlayersInRadius{r=10}
+  - setstance{stance=armado} @self
+  - effect:particletornado{p=flame;cp=largeexplode;mr=1;h=3;i=4;d=50;rs=1;sh=1;cs=0;ca=0;chs=0.1;cvs=0.1;cps=1;cyo=2} @self
+  - consume{d=5000;h=80} @MobsInRadius{type=NacEsbirro;r=40}
+
+decayefects:
+  Skills:
+  - effect:particlesphere{p=explode;amount=20;hSpread=1;vSpread=0;speed=0.1;yOffset=1} @Self
+  - effect:particlesphere{particle=flame;amount=10;radius=2;yOffset=1} @self
+  - delay 40
+  - effect:particlesphere{p=explode;amount=20;hSpread=1;vSpread=0;speed=0.1;yOffset=1} @Self
+  - effect:particlesphere{particle=flame;amount=10;radius=2;yOffset=1} @self
+  - delay 40
+  - effect:particlesphere{p=explode;amount=20;hSpread=1;vSpread=0;speed=0.1;yOffset=1} @Self
+  - effect:particlesphere{particle=flame;amount=10;radius=2;yOffset=1} @self
+  - delay 40
+  - effect:particlesphere{p=explode;amount=20;hSpread=1;vSpread=0;speed=0.1;yOffset=1} @Self
+  - effect:particlesphere{particle=flame;amount=10;radius=2;yOffset=1} @self
+  - delay 40
+  - effect:particlesphere{p=explode;amount=20;hSpread=1;vSpread=0;speed=0.1;yOffset=1} @Self
+  - effect:particlesphere{particle=flame;amount=10;radius=2;yOffset=1} @self
+  - delay 40
+  - effect:particlesphere{p=explode;amount=20;hSpread=1;vSpread=0;speed=0.1;yOffset=1} @Self
+  - effect:particlesphere{particle=flame;amount=10;radius=2;yOffset=1} @self
+  - delay 40
+  - effect:particlesphere{p=explode;amount=20;hSpread=1;vSpread=0;speed=0.1;yOffset=1} @Self
+  - effect:particlesphere{particle=flame;amount=10;radius=2;yOffset=1} @self
+  - delay 40
+  - effect:particlesphere{p=explode;amount=20;hSpread=1;vSpread=0;speed=0.1;yOffset=1} @Self
+  - effect:particlesphere{particle=flame;amount=10;radius=2;yOffset=1} @self
+  - delay 40
+  - effect:particlesphere{p=explode;amount=20;hSpread=1;vSpread=0;speed=0.1;yOffset=1} @Self
+  - effect:particlesphere{particle=flame;amount=10;radius=2;yOffset=1} @self
+  - delay 40
+  - effect:particlesphere{p=explode;amount=20;hSpread=1;vSpread=0;speed=0.1;yOffset=1} @Self
+  - effect:particlesphere{particle=flame;amount=10;radius=2;yOffset=1} @self
+  - delay 40
+  - effect:particlesphere{p=explode;amount=20;hSpread=1;vSpread=0;speed=0.1;yOffset=1} @Self
+  - effect:particlesphere{particle=flame;amount=10;radius=2;yOffset=1} @self
+
+huracan:
+  Conditions:
+  - incombat
+  Skills:
+  - sendtitle{title="&6Nucleo";subtitle="&4Inestable";d=40} @PlayersInRadius{r=15}
+  - disguise{d=block:REDSTONE_BLOCK}
+  - delay 20
+  - sendtitle{title="";subtitle="&4Corre Jajaja!";d=60} @PlayersInRadius{r=15}
+  - delay 80
+  - disguise{d=ender_crystal}
+  - sendtitle{title="&6Nucleo";subtitle="&bFuiste arrojado por el huracan";d=50} @PlayersInRadius{r=20}
+  - throw{velocity=100;velocityY=100} @PIR{r=20}
+
+# Uglan kul
+Firewind:
+  Conditions:
+  - incombat
+  Skills:
+  - projectile{onTick=Firewind-Tick;onHit=Firewind-Hit;v=2;i=1;hR=1;vR=1}
+Firewind-Tick:
+  Skills:
+  - effect:particles{p=mobSpell;amount=20;speed=0;hR=0.2;vR=0.2} @origin
+Firewind-Hit:
+  Skills:
+  - sendtitle{title="&6Golpeado";subtitle="&7por &cViento Igneo!";d=10} @target
+  - throw{velocity=5;velocityY=5} @Target
+  - ignite{ticks=50} @target
+
+# Gros malkin
+pirosombrico:
+  Conditions:
+  - incombat
+  Cooldown: 0
+  Skills:
+  - sendtitle{title="&6Golpeado";subtitle="&7por &5Golpe &8sombrico!";d=10} @target
+  - ignite{ticks=200} @target
+  - potion{type=BLINDNESS;duration=250;lvl=1} @target
+
+soulaoe:
+  Conditions:
+  - incombat
+  Cooldown: 0
+  Skills:
+  - sendtitle{title="&6Golpeado";subtitle="&7por &5Nova &8sombria!";d=10}
+  - effect:particles{p=depthsuspend;amount=100;hSpread=10;ySpread=1;speed=0;yOFfset=0.5} @Self
+  - potion{type=BLINDNESS;duration=120;lvl=1}

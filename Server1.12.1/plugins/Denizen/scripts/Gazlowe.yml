@@ -1,0 +1,56 @@
+"Gazlowe":
+    type: assignment
+
+    actions:
+      on assignment:
+      - trigger name:CHAT toggle:false
+      - trigger name:click toggle:true
+      - trigger name:proximity toggle:true radius:5
+
+    interact scripts:
+    - 10 Gazloweinicio
+
+'Gazloweinicio':
+  Type: Interact
+  Requirements:
+    Mode: all
+    List:
+    - PERMISSION 'esparcraft.class.off'
+
+  Steps:
+    '1':
+      Click Trigger:
+        Script:
+          - engage now
+          - trigger name:CHAT toggle:true
+          - execute as_player "playeffect http://esparcraft.corpmore.com/sonidos/voces/Gazlowenuevo.ogg"
+          - NARRATE "<yellow>Hola <white><player.name> <yellow>vienes a escojer una clase?"
+          - WAIT 1
+          - NARRATE "<dark_gray>Escribe"
+          - NARRATE "<green>SI<white> o <red>NO <dark_gray>en el Chat"
+          - disengage
+          - ZAP
+    '2':
+      Chat Trigger:
+        '1':
+          Trigger: /Si/
+          Script:
+          - engage now
+          - execute as_player "playeffect http://esparcraft.corpmore.com/sonidos/voces/Gazlowetrabajo.ogg"
+          - NARRATE "<gray>Muy bien, entonces escoje una clase en el siguiente menu"
+          - WAIT 3
+          - execute as_player "os 10"
+          - trigger name:CHAT toggle:false
+          - disengage
+          - ZAP 1
+        '2':
+          Trigger: /No/
+          Script:
+          - engage now
+          - execute as_player "playeffect http://esparcraft.corpmore.com/sonidos/voces/Gazlowehoras.ogg"
+          - NARRATE "<gray>..."
+          - WAIT 2
+          - NARRATE "<yellow>Regresa cuando quieras cambiar tu clase"
+          - trigger name:CHAT toggle:false
+          - disengage
+          - ZAP 1

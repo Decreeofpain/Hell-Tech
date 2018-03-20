@@ -1,0 +1,98 @@
+# Attributes.yml
+
+# For full details, visit
+# http://dev.bukkit.org/bukkit-plugins/skillapi/pages/attributes/
+
+# List of available stats to modify:
+#   health           - the max health of the player
+#   mana             - the amount of mana the player has
+#   mana-regen       - how much mana the player regenerates over time
+#   physical-damage  - damage dealt without using skills
+#   physical-defense - damage taken from non-skill attacks
+#   skill-damage     - damage dealt with skills
+#   skill-defense    - damage taken from skills
+#   move-speed       - movement speed of the player
+vitality: 
+  display: 'Vitalidad'
+  max: '999'
+  icon: 'ink sack'
+  icon-data: '1'
+  icon-lore: 
+  - '&6Vitalidad &7(&2{amount}&7)'
+  - ''
+  - '&7Otorga 10 de vida'
+  - '&7por punto usado.'
+  global:
+    condition:  {}
+    mechanic:  {}
+    target:  {}
+  stats: 
+    health: '(a*10)+(v)'
+spirit: 
+  display: 'Esencia'
+  max: '999'
+  icon: 'ink sack'
+  icon-data: '6'
+  icon-lore: 
+  - '&6Spirit &7(&2{amount}&7)'
+  - ''
+  - '&7Grants 1 mana and 2.5%'
+  - '&7mana regeneration per'
+  - '&7point invested.'
+  global: 
+    condition:  {}
+    mechanic:  {}
+    target:  {}
+  stats: 
+    mana: 'a+v'
+    mana-regen: 'a*0.025+1*v'
+intelligence: 
+  display: 'Inteligencia'
+  max: '999'
+  icon: 'ink sack'
+  icon-data: '5'
+  icon-lore: 
+  - '&Inteligencia &7(&2{amount}&7)'
+  - ''
+  - '&7Otorga 1 de resistencia magica'
+  - '&7por punto usado.'
+  global: 
+    condition:  {}
+    mechanic:  {}
+    target:  {}
+  stats: 
+    skill-defense: 'a+v'
+dexterity: 
+  display: 'Destreza'
+  max: '999'
+  icon: 'ink sack'
+  icon-data: '10'
+  icon-lore: 
+  - '&Destreza &7(&2{amount}&7)'
+  - ''
+  - '&7Otorga 1 de armadura'
+  - '&7Otorga 1 de daño'
+  - '&7por punto usado.'
+  global: 
+    condition:  {}
+    mechanic:  {}
+    target:  {}
+  stats: 
+    physical-defense: 'a+v'
+    physical-damage: 'a+v'
+strength: 
+  display: 'Fuerza'
+  max: '999'
+  icon: 'ink sack'
+  icon-data: '14'
+  icon-lore: 
+  - '&Fuerza &7(&2{amount}&7)'
+  - ''
+  - '&7Otorga 1 de armadura'
+  - '&7por punto usado.'
+  global: 
+    condition:  {}
+    mechanic:  {}
+    target:  {}
+  stats: 
+    physical-defense: 'a+v'

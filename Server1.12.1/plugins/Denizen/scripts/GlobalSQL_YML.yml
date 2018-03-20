@@ -1,0 +1,55 @@
+SQLEsparcraft:
+  type: world
+  events:
+    on server start:
+    - ~sql id:GlobalSQL connect:esparcraft.net/esparcraft username:drAkeNess password:drakness666
+    - ANNOUNCE "<gold>Coneccion esparcraftana RDY :D"
+    
+    on shutdown:
+    - sql disconnect id:GlobalSQL
+    - ANNOUNCE "<red>Coneccion esparcraftana Off D:"
+
+    on skillapi player levels up:
+    - ^yaml load:personal/<player.name>.yml id:<player.name>
+    - ~sql id:LevelSAPI<player.name> connect:corpmore.com/lmacias_esparcraft username:lmacias_drakness password:DRf@QARz^Hak
+    - ^define nivel <player.skillapi.class_level[<player.skillapi.main_class>]>
+    - ^sql id:LevelSAPI<player.name> "update:UPDATE phpbb_profile_fields_data SET pf_pb_wow_level='<def[nivel]>' WHERE user_id=<yaml[<player.name>].read[UserID]>;"
+    - sql disconnect id:LevelSAPI<player.name>
+    - ^yaml unload id:<player.name>
+
+testsqlskillapi:
+    type: task
+    script:
+    - ^yaml load:personal/<player.name>.yml id:<player.name>
+    - ~sql id:LevelSAPI<player.name> connect:corpmore.com/lmacias_esparcraft username:lmacias_drakness password:DRf@QARz^Hak
+    - ^define nivel <player.skillapi.class_level[<player.skillapi.main_class>]>
+    - ^sql id:LevelSAPI<player.name> "update:UPDATE phpbb_profile_fields_data SET pf_pb_wow_level='<def[nivel]>' WHERE user_id=<yaml[<player.name>].read[UserID]>;"
+    - ^sql id:LevelSAPI<player.name> "update:UPDATE phpbb_profile_fields_data SET pf_pb_wow_race='3' WHERE user_id=<yaml[<player.name>].read[UserID]>;"
+    - ^narrate "ID:<yaml[<player.name>].read[UserID]> "
+    - sql disconnect id:LevelSAPI<player.name>
+    - ^yaml unload id:<player.name>
+    
+#    on player joins:
+#    - ^define jugador <player.name>
+#    - ~sql id:consultas connect:corpmore.com:3306/lmacias_esparcraft username:lmacias_drakness password:drakness666
+#    - sql id:consultas "query:SELECT username FROM phpbb_users WHERE username='<def[jugador]>';" save:resultado
+#    - if <entry[resultado].result.as_cslist> = <def[jugador]>/ {
+#      - narrate "Todo chingon"
+#      } else {
+#      - narrate "Seras botado en 10 segundos"
+#      - wait 10
+#      - execute as_server "kick <player.name>"
+#      }
+#    - sql disconnect id:consultas
+#    on player joins:
+#    - ^define jugador <player.name>
+#    - ~sql id:consultas connect:corpmore.com:3306/lmacias_esparcraft username:lmacias_drakness password:drakness666
+#    - sql id:consultas "query:SELECT username FROM phpbb_users WHERE username='<def[jugador]>';" save:resultado
+#    - if <entry[resultado].result.as_cslist> = <def[jugador]>/ {
+#      - narrate "Todo chingon"
+#      } else {
+#      - narrate "Seras botado en 10 segundos"
+#      - wait 10
+#      - execute as_server "kick <player.name>"
+#      }
+#    - sql disconnect id:consultas

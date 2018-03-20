@@ -1,0 +1,30 @@
+#config for the freshcoal api
+freshcoal:
+    ## server to look for the category heads
+    predefinedcategoriesurl: http://heads.freshcoal.com/mainapi.php?query=
+
+    ## server to look for the custom heads
+    customcategoriesurl: http://heads.freshcoal.com/api.php?query=
+
+#config for the mineskin api
+mineskin:
+    ## server to look for the custom heads using the mineskin api
+    customcategoriesurl: http://api.mineskin.org/get/
+    
+    ## server to save new custom heads to using the mineskin api
+    generateurl: http://api.mineskin.org/generate/user/
+
+## maximum responce time from the server to respond
+connectiontimeout: 20000
+
+## DEPRECATED, variable not used anymore. headsplugin account name (will be set automatically)
+accountname: ""
+
+## DEPRECATED, variable not used anymore. headsplugin server name (will be set automatically)
+servername: ""
+
+## DEPRECATED, variable not used anymore. authentication key to be able to use this plugin. CHANGE THIS VALUE
+authenticationkey: "0"
+
+## DEPRECATED, variable not used anymore. world name of the world that is used to verify the server's authenticity CHANGE THIS VALUE IF NEEDED
+world: "world"

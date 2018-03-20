@@ -1,0 +1,54 @@
+"Wylmot":
+    type: assignment
+
+    actions:
+      on assignment:
+      - trigger name:CHAT toggle:true
+      - trigger name:click toggle:false
+      - trigger name:proximity toggle:true radius:3
+      on Build Start:
+      - ANNOUNCE "Let's do this!"
+      on Build Complete:
+      - ANNOUNCE "I have finished!"
+      on Build Cancel:
+      - ANNOUNCE "Tan Tan xD"
+
+    interact scripts:
+    - 16 buildpueblo1
+
+'buildpueblo1':
+  Type: Interact
+  Steps:
+    '1':
+      proximity trigger:
+        entry:
+          radius: 4
+          Script:
+          - engage
+          - ^narrate "Hola <player.name>, veamos que traes"
+          - ^yaml load:pueblos/pueblo1.yml id:pueblo<player.name>
+          - ^flag <global> EconomiaP1:<yaml[pueblo<player.name>].read[Economia]> duration:2s
+          - ^inventory open d:in@inv_materiales
+          - ^animatechest l@3005,99,2849,Esparcraft open
+          - yaml unload id:pueblo<player.name>
+          - disengage
+        exit:
+          radius: 4
+          Script:
+          - ^resume waypoints
+    '2':
+      proximity trigger:
+        entry:
+          radius: 4
+          Script:
+          - ^narrate "<dark_aqua>Wylmot: <aqua>Estoy ocupado... <player.name>"
+
+startbuildp1:
+    type: task
+    script:
+    - ^yaml load:pueblos/pueblo1.yml id:pueblo<player.name>
+    - ^inventory open d:in@inv_materiales
+    - ^if <yaml[pueblo<player.name>].read[Economia]> <= 0 {
+      - ^execute as_npc "builder 84 build" npc:84
+      }
+    - yaml unload id:pueblo<player.name>

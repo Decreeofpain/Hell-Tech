@@ -1,0 +1,727 @@
+Camarada: 
+  name: 'Camarada'
+  type: 'Invocacion'
+  max-level: 5
+  skill-req: 'None'
+  skill-req-lvl: 1
+  needs-permission: 'false'
+  combo: 'L R R L'
+  attributes: 
+    level-base: '1'
+    level-scale: '0'
+    cost-base: '2'
+    cost-scale: '2'
+    cooldown-base: '120'
+    cooldown-scale: '-10'
+    mana-base: '10'
+    mana-scale: '3'
+    points-spent-req-base: '0'
+    points-spent-req-scale: '0'
+    incompatible: ' {}'
+  msg: '&6{player} &2Invoco un camarada'
+  icon: 'BONE'
+  icon-data: 0
+  icon-lore: 
+  - '&d{name} &7({level}/{max})'
+  - '&2Tipo: &6{type}'
+  - '{req:cost}Puntos necesarios: {attr:cost}'
+  - ''
+  - '&8Descripcion: &7Invocas un lobo que pelea'
+  - '&7a tu lado durante unos segundos.'
+  - ''
+  - '&2Mana: {attr:mana}'
+  - '&2Cooldown: {attr:cooldown}'
+  - '&2Duracion: {attr:wolf.repetitions} &2seg.'
+  desc:  []
+  components: 
+    Cast: 
+      type: 'trigger'
+      indicator: '3D'
+      data: 
+        icon-key: ''
+        indicator: '2D'
+      children: 
+        Flag-b: 
+          type: 'condition'
+          indicator: '3D'
+          data: 
+            icon-key: ''
+            type: 'Set'
+            key: 'colmillos'
+            indicator: '2D'
+          children: 
+            Skill Level-c: 
+              type: 'condition'
+              indicator: '3D'
+              data: 
+                icon-key: ''
+                skill: 'Colmillos'
+                min-level: '1'
+                max-level: '1'
+                indicator: '2D'
+              children: 
+                Skill Level-d: 
+                  type: 'condition'
+                  indicator: '3D'
+                  data: 
+                    icon-key: ''
+                    skill: 'Pelaje'
+                    min-level: '0'
+                    max-level: '0'
+                    indicator: '2D'
+                  children: 
+                    Wolf-e: 
+                      type: 'mechanic'
+                      indicator: '3D'
+                      data: 
+                        icon-key: ''
+                        counts: 'True'
+                        color: 'Black'
+                        name: '{player} Lobo'
+                        health-base: '10'
+                        health-scale: '0'
+                        damage-base: '6'
+                        damage-scale: '0'
+                        seconds-base: '10'
+                        seconds-scale: '10'
+                        amount-base: '1'
+                        amount-scale: '0'
+                        skills: 
+                        - ''
+                        indicator: '2D'
+                      children:  {}
+                    Message-f: 
+                      type: 'mechanic'
+                      indicator: '3D'
+                      data: 
+                        icon-key: ''
+                        counts: 'True'
+                        message: 'Pelaje 0 colmillos 1'
+                        indicator: '2D'
+                      children:  {}
+                Skill Level-g: 
+                  type: 'condition'
+                  indicator: '3D'
+                  data: 
+                    icon-key: ''
+                    skill: 'Pelaje'
+                    min-level: '1'
+                    max-level: '1'
+                    indicator: '2D'
+                  children: 
+                    Wolf-h: 
+                      type: 'mechanic'
+                      indicator: '3D'
+                      data: 
+                        icon-key: ''
+                        counts: 'True'
+                        color: 'Black'
+                        name: '{player} Lobo'
+                        health-base: '20'
+                        health-scale: '0'
+                        damage-base: '6'
+                        damage-scale: '0'
+                        seconds-base: '10'
+                        seconds-scale: '10'
+                        amount-base: '1'
+                        amount-scale: '0'
+                        skills: 
+                        - ''
+                        indicator: '2D'
+                      children:  {}
+                    Message-i: 
+                      type: 'mechanic'
+                      indicator: '3D'
+                      data: 
+                        icon-key: ''
+                        counts: 'True'
+                        message: 'Pelaje 1 colmillos 1'
+                        indicator: '2D'
+                      children:  {}
+                Skill Level-j: 
+                  type: 'condition'
+                  indicator: '3D'
+                  data: 
+                    icon-key: ''
+                    skill: 'Pelaje'
+                    min-level: '2'
+                    max-level: '2'
+                    indicator: '2D'
+                  children: 
+                    Wolf-k: 
+                      type: 'mechanic'
+                      indicator: '3D'
+                      data: 
+                        icon-key: ''
+                        counts: 'True'
+                        color: 'Black'
+                        name: '{player} Lobo'
+                        health-base: '30'
+                        health-scale: '0'
+                        damage-base: '6'
+                        damage-scale: '0'
+                        seconds-base: '10'
+                        seconds-scale: '10'
+                        amount-base: '1'
+                        amount-scale: '0'
+                        skills: 
+                        - ''
+                        indicator: '2D'
+                      children:  {}
+                    Message-l: 
+                      type: 'mechanic'
+                      indicator: '3D'
+                      data: 
+                        icon-key: ''
+                        counts: 'True'
+                        message: 'Pelaje 2 colmillos 1'
+                        indicator: '2D'
+                      children:  {}
+                Skill Level-m: 
+                  type: 'condition'
+                  indicator: '3D'
+                  data: 
+                    icon-key: ''
+                    skill: 'Pelaje'
+                    min-level: '3'
+                    max-level: '3'
+                    indicator: '2D'
+                  children: 
+                    Wolf-n: 
+                      type: 'mechanic'
+                      indicator: '3D'
+                      data: 
+                        icon-key: ''
+                        counts: 'True'
+                        color: 'Black'
+                        name: '{player} Lobo'
+                        health-base: '40'
+                        health-scale: '0'
+                        damage-base: '6'
+                        damage-scale: '0'
+                        seconds-base: '10'
+                        seconds-scale: '10'
+                        amount-base: '1'
+                        amount-scale: '0'
+                        skills: 
+                        - ''
+                        indicator: '2D'
+                      children:  {}
+                    Message-o: 
+                      type: 'mechanic'
+                      indicator: '3D'
+                      data: 
+                        icon-key: ''
+                        counts: 'True'
+                        message: 'Pelaje 3 colmillos 1'
+                        indicator: '2D'
+                      children:  {}
+            Skill Level-p: 
+              type: 'condition'
+              indicator: '3D'
+              data: 
+                icon-key: ''
+                skill: 'Colmillos'
+                min-level: '2'
+                max-level: '2'
+                indicator: '2D'
+              children: 
+                Skill Level-q: 
+                  type: 'condition'
+                  indicator: '3D'
+                  data: 
+                    icon-key: ''
+                    skill: 'Pelaje'
+                    min-level: '0'
+                    max-level: '0'
+                    indicator: '2D'
+                  children: 
+                    Wolf-r: 
+                      type: 'mechanic'
+                      indicator: '3D'
+                      data: 
+                        icon-key: ''
+                        counts: 'True'
+                        color: 'Black'
+                        name: '{player} Lobo'
+                        health-base: '10'
+                        health-scale: '0'
+                        damage-base: '9'
+                        damage-scale: '0'
+                        seconds-base: '10'
+                        seconds-scale: '10'
+                        amount-base: '1'
+                        amount-scale: '0'
+                        skills: 
+                        - ''
+                        indicator: '2D'
+                      children:  {}
+                    Message-s: 
+                      type: 'mechanic'
+                      indicator: '3D'
+                      data: 
+                        icon-key: ''
+                        counts: 'True'
+                        message: 'Pelaje 0 colmillos 2'
+                        indicator: '2D'
+                      children:  {}
+                Skill Level-t: 
+                  type: 'condition'
+                  indicator: '3D'
+                  data: 
+                    icon-key: ''
+                    skill: 'Pelaje'
+                    min-level: '1'
+                    max-level: '1'
+                    indicator: '2D'
+                  children: 
+                    Wolf-u: 
+                      type: 'mechanic'
+                      indicator: '3D'
+                      data: 
+                        icon-key: ''
+                        counts: 'True'
+                        color: 'Black'
+                        name: '{player} Lobo'
+                        health-base: '20'
+                        health-scale: '0'
+                        damage-base: '9'
+                        damage-scale: '0'
+                        seconds-base: '10'
+                        seconds-scale: '10'
+                        amount-base: '1'
+                        amount-scale: '0'
+                        skills: 
+                        - ''
+                        indicator: '2D'
+                      children:  {}
+                    Message-v: 
+                      type: 'mechanic'
+                      indicator: '3D'
+                      data: 
+                        icon-key: ''
+                        counts: 'True'
+                        message: 'Pelaje 1 colmillos 2'
+                        indicator: '2D'
+                      children:  {}
+                Skill Level-w: 
+                  type: 'condition'
+                  indicator: '3D'
+                  data: 
+                    icon-key: ''
+                    skill: 'Pelaje'
+                    min-level: '2'
+                    max-level: '2'
+                    indicator: '2D'
+                  children: 
+                    Wolf-x: 
+                      type: 'mechanic'
+                      indicator: '3D'
+                      data: 
+                        icon-key: ''
+                        counts: 'True'
+                        color: 'Black'
+                        name: '{player} Lobo'
+                        health-base: '30'
+                        health-scale: '0'
+                        damage-base: '9'
+                        damage-scale: '0'
+                        seconds-base: '10'
+                        seconds-scale: '10'
+                        amount-base: '1'
+                        amount-scale: '0'
+                        skills: 
+                        - ''
+                        indicator: '2D'
+                      children:  {}
+                    Message-y: 
+                      type: 'mechanic'
+                      indicator: '3D'
+                      data: 
+                        icon-key: ''
+                        counts: 'True'
+                        message: 'Pelaje 2 colmillos 2'
+                        indicator: '2D'
+                      children:  {}
+                Skill Level-z: 
+                  type: 'condition'
+                  indicator: '3D'
+                  data: 
+                    icon-key: ''
+                    skill: 'Pelaje'
+                    min-level: '3'
+                    max-level: '3'
+                    indicator: '2D'
+                  children: 
+                    Wolf-ab: 
+                      type: 'mechanic'
+                      indicator: '3D'
+                      data: 
+                        icon-key: ''
+                        counts: 'True'
+                        color: 'Black'
+                        name: '{player} Lobo'
+                        health-base: '40'
+                        health-scale: '0'
+                        damage-base: '9'
+                        damage-scale: '0'
+                        seconds-base: '10'
+                        seconds-scale: '10'
+                        amount-base: '1'
+                        amount-scale: '0'
+                        skills: 
+                        - ''
+                        indicator: '2D'
+                      children:  {}
+                    Message-bb: 
+                      type: 'mechanic'
+                      indicator: '3D'
+                      data: 
+                        icon-key: ''
+                        counts: 'True'
+                        message: 'Pelaje 3 colmillos 2'
+                        indicator: '2D'
+                      children:  {}
+            Skill Level-cb: 
+              type: 'condition'
+              indicator: '3D'
+              data: 
+                icon-key: ''
+                skill: 'Colmillos'
+                min-level: '3'
+                max-level: '3'
+                indicator: '2D'
+              children: 
+                Skill Level-db: 
+                  type: 'condition'
+                  indicator: '3D'
+                  data: 
+                    icon-key: ''
+                    skill: 'Pelaje'
+                    min-level: '0'
+                    max-level: '0'
+                    indicator: '2D'
+                  children: 
+                    Wolf-eb: 
+                      type: 'mechanic'
+                      indicator: '3D'
+                      data: 
+                        icon-key: ''
+                        counts: 'True'
+                        color: 'Black'
+                        name: '{player} Lobo'
+                        health-base: '10'
+                        health-scale: '0'
+                        damage-base: '15'
+                        damage-scale: '0'
+                        seconds-base: '10'
+                        seconds-scale: '10'
+                        amount-base: '1'
+                        amount-scale: '0'
+                        skills: 
+                        - ''
+                        indicator: '2D'
+                      children:  {}
+                    Message-fb: 
+                      type: 'mechanic'
+                      indicator: '3D'
+                      data: 
+                        icon-key: ''
+                        counts: 'True'
+                        message: 'Pelaje 0 colmillos 3'
+                        indicator: '2D'
+                      children:  {}
+                Skill Level-gb: 
+                  type: 'condition'
+                  indicator: '3D'
+                  data: 
+                    icon-key: ''
+                    skill: 'Pelaje'
+                    min-level: '1'
+                    max-level: '1'
+                    indicator: '2D'
+                  children: 
+                    Wolf-hb: 
+                      type: 'mechanic'
+                      indicator: '3D'
+                      data: 
+                        icon-key: ''
+                        counts: 'True'
+                        color: 'Black'
+                        name: '{player} Lobo'
+                        health-base: '20'
+                        health-scale: '0'
+                        damage-base: '15'
+                        damage-scale: '0'
+                        seconds-base: '10'
+                        seconds-scale: '10'
+                        amount-base: '1'
+                        amount-scale: '0'
+                        skills: 
+                        - ''
+                        indicator: '2D'
+                      children:  {}
+                    Message-ib: 
+                      type: 'mechanic'
+                      indicator: '3D'
+                      data: 
+                        icon-key: ''
+                        counts: 'True'
+                        message: 'Pelaje 1 colmillos 3'
+                        indicator: '2D'
+                      children:  {}
+                Skill Level-jb: 
+                  type: 'condition'
+                  indicator: '3D'
+                  data: 
+                    icon-key: ''
+                    skill: 'Pelaje'
+                    min-level: '2'
+                    max-level: '2'
+                    indicator: '2D'
+                  children: 
+                    Wolf-kb: 
+                      type: 'mechanic'
+                      indicator: '3D'
+                      data: 
+                        icon-key: ''
+                        counts: 'True'
+                        color: 'Black'
+                        name: '{player} Lobo'
+                        health-base: '30'
+                        health-scale: '0'
+                        damage-base: '15'
+                        damage-scale: '0'
+                        seconds-base: '10'
+                        seconds-scale: '10'
+                        amount-base: '1'
+                        amount-scale: '0'
+                        skills: 
+                        - ''
+                        indicator: '2D'
+                      children:  {}
+                    Message-lb: 
+                      type: 'mechanic'
+                      indicator: '3D'
+                      data: 
+                        icon-key: ''
+                        counts: 'True'
+                        message: 'Pelaje 2 colmillos 3'
+                        indicator: '2D'
+                      children:  {}
+                Skill Level-mb: 
+                  type: 'condition'
+                  indicator: '3D'
+                  data: 
+                    icon-key: ''
+                    skill: 'Pelaje'
+                    min-level: '3'
+                    max-level: '3'
+                    indicator: '2D'
+                  children: 
+                    Wolf-nb: 
+                      type: 'mechanic'
+                      indicator: '3D'
+                      data: 
+                        icon-key: ''
+                        counts: 'True'
+                        color: 'Black'
+                        name: '{player} Lobo'
+                        health-base: '40'
+                        health-scale: '0'
+                        damage-base: '15'
+                        damage-scale: '0'
+                        seconds-base: '10'
+                        seconds-scale: '10'
+                        amount-base: '1'
+                        amount-scale: '0'
+                        skills: 
+                        - ''
+                        indicator: '2D'
+                      children:  {}
+                    Message-ob: 
+                      type: 'mechanic'
+                      indicator: '3D'
+                      data: 
+                        icon-key: ''
+                        counts: 'True'
+                        message: 'Pelaje 3 colmillos 3'
+                        indicator: '2D'
+                      children:  {}
+        Flag-pb: 
+          type: 'condition'
+          indicator: '3D'
+          data: 
+            icon-key: ''
+            type: 'Not Set'
+            key: 'colmillos'
+            indicator: '2D'
+          children: 
+            Skill Level-qb: 
+              type: 'condition'
+              indicator: '3D'
+              data: 
+                icon-key: ''
+                skill: 'Pelaje'
+                min-level: '0'
+                max-level: '0'
+                indicator: '2D'
+              children: 
+                Wolf-rb: 
+                  type: 'mechanic'
+                  indicator: '3D'
+                  data: 
+                    icon-key: ''
+                    counts: 'True'
+                    color: 'Black'
+                    name: '{player} Lobo'
+                    health-base: '10'
+                    health-scale: '0'
+                    damage-base: '3'
+                    damage-scale: '0'
+                    seconds-base: '10'
+                    seconds-scale: '10'
+                    amount-base: '1'
+                    amount-scale: '0'
+                    skills: 
+                    - ''
+                    indicator: '2D'
+                  children:  {}
+                Message-sb: 
+                  type: 'mechanic'
+                  indicator: '3D'
+                  data: 
+                    icon-key: ''
+                    counts: 'True'
+                    message: 'Pelaje 0 colmillos 0'
+                    indicator: '2D'
+                  children:  {}
+            Skill Level-tb: 
+              type: 'condition'
+              indicator: '3D'
+              data: 
+                icon-key: ''
+                skill: 'Pelaje'
+                min-level: '1'
+                max-level: '1'
+                indicator: '2D'
+              children: 
+                Wolf-ub: 
+                  type: 'mechanic'
+                  indicator: '3D'
+                  data: 
+                    icon-key: ''
+                    counts: 'True'
+                    color: 'Black'
+                    name: '{player} Lobo'
+                    health-base: '20'
+                    health-scale: '0'
+                    damage-base: '3'
+                    damage-scale: '0'
+                    seconds-base: '10'
+                    seconds-scale: '10'
+                    amount-base: '1'
+                    amount-scale: '0'
+                    skills: 
+                    - ''
+                    indicator: '2D'
+                  children:  {}
+                Message-vb: 
+                  type: 'mechanic'
+                  indicator: '3D'
+                  data: 
+                    icon-key: ''
+                    counts: 'True'
+                    message: 'Pelaje 1 colmillos 0'
+                    indicator: '2D'
+                  children:  {}
+            Skill Level-wb: 
+              type: 'condition'
+              indicator: '3D'
+              data: 
+                icon-key: ''
+                skill: 'Pelaje'
+                min-level: '2'
+                max-level: '2'
+                indicator: '2D'
+              children: 
+                Wolf-xb: 
+                  type: 'mechanic'
+                  indicator: '3D'
+                  data: 
+                    icon-key: ''
+                    counts: 'True'
+                    color: 'Black'
+                    name: '{player} Lobo'
+                    health-base: '30'
+                    health-scale: '0'
+                    damage-base: '3'
+                    damage-scale: '0'
+                    seconds-base: '10'
+                    seconds-scale: '10'
+                    amount-base: '1'
+                    amount-scale: '0'
+                    skills: 
+                    - ''
+                    indicator: '2D'
+                  children:  {}
+                Message-yb: 
+                  type: 'mechanic'
+                  indicator: '3D'
+                  data: 
+                    icon-key: ''
+                    counts: 'True'
+                    message: 'Pelaje 2 colmillos 0'
+                    indicator: '2D'
+                  children:  {}
+            Skill Level-zb: 
+              type: 'condition'
+              indicator: '3D'
+              data: 
+                icon-key: ''
+                skill: 'Pelaje'
+                min-level: '3'
+                max-level: '3'
+                indicator: '2D'
+              children: 
+                Wolf-ac: 
+                  type: 'mechanic'
+                  indicator: '3D'
+                  data: 
+                    icon-key: ''
+                    counts: 'True'
+                    color: 'Black'
+                    name: '{player} Lobo'
+                    health-base: '40'
+                    health-scale: '0'
+                    damage-base: '3'
+                    damage-scale: '0'
+                    seconds-base: '10'
+                    seconds-scale: '10'
+                    amount-base: '1'
+                    amount-scale: '0'
+                    skills: 
+                    - ''
+                    indicator: '2D'
+                  children:  {}
+                Message-bc: 
+                  type: 'mechanic'
+                  indicator: '3D'
+                  data: 
+                    icon-key: ''
+                    counts: 'True'
+                    message: 'Pelaje 3 colmillos 0'
+                    indicator: '2D'
+                  children:  {}
+        Repeat-cc: 
+          type: 'mechanic'
+          indicator: '3D'
+          data: 
+            icon-key: 'wolf'
+            counts: 'True'
+            repetitions-base: '10'
+            repetitions-scale: '10'
+            period: '1'
+            delay: '0'
+            indicator: '2D'
+          children:  {}

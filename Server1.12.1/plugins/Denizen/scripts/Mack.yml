@@ -1,0 +1,120 @@
+"Mack":
+    type: assignment
+
+    actions:
+      on assignment:
+      - trigger name:CHAT toggle:true
+      - trigger name:click toggle:false
+      - trigger name:proximity toggle:true radius:3
+
+      on Build Complete:
+      - ^run 's@armeriaend'
+
+    interact scripts:
+    - 14 Mackscript1
+    - 12 M2
+
+'M2':
+  Type: Interact
+  Requirements:
+    Mode: all
+    List:
+    - valueof <global.flag[capitulos].contains[CAPITULO1P2OK]>
+    - -valueof <player.flag[progreso].contains[tutorialok]>
+  Steps:
+    '1':
+      proximity trigger:
+        entry:
+          radius: 4
+          Script:
+          - ^if <player.flag[misiones].as_list> contains tuto_03 && <player.flag[misiones].as_list> !contains tuto_04 {
+            - ^inventory open d:in@inv_esencias
+            }
+    '2':
+      proximity trigger:
+        entry:
+          radius: 4
+          Script:
+          - ^if <player.flag[misiones].as_list> contains tuto_03 && <player.flag[misiones].as_list> !contains tuto_04 {
+            - ^NARRATE "<green>Mack: <yellow>Elige una piel con <green>Jurian"
+            - ^compass <npc.location.simple> npc:7
+            }
+
+'Mackscript1':
+  Type: Interact
+  Requirements:
+    Mode: all
+    List:
+    - valueof <global.flag[capitulos].contains[CAPITULO1ESCALERASOK]>
+    - -valueof <global.flag[capitulos].contains[CAPITULO1ARMERIAOK]>
+    - -valueof <global.flag[capitulos].contains[CAPITULO1P2OK]>
+  Steps:
+    '1':
+      proximity trigger:
+        entry:
+          radius: 4
+          Script:
+          - ^if <global.flag[capituloactivo]> == CAPITULO1P2 {
+            - ^run 's@bookCap1part17'
+            - ^if <player.flag[objetivo]> !contains reconstruir {
+              - ^bossbar remove obj<player.name>
+              - ^define objetivo "<gold>Objetivo: <yellow>Ayuda a reconstruir todo el pueblo."
+              - ^flag <player> objetivo:<def[objetivo]>
+              - ^bossbar obj<player.name> players:<player> "title:<player.flag[objetivo]>" color:BLUE
+              }
+            - ^if <player.flag[misiones].as_list> !contains cap1m6ok {
+              - ^flag <player> misiones:->:cap1m6ok
+              }
+            - ^zap step:2
+            }
+    '2':
+      proximity trigger:
+        entry:
+          radius: 4
+          Script:
+          - ^yaml load:capitulos/capitulo1.yml id:capitulo<player.name>
+          - ^inventory open d:in@inv_mack
+          - ^yaml unload id:capitulo<player.name>
+
+armeriaend:
+    type: task
+    script:
+    - ^schematic load name:armeria
+    - ^schematic paste name:armeria location:<cu@armeria.min>
+    - ^schematic unload name:armeria
+    - ^foreach <server.list_online_players> {
+      - ^title "title:<green>Mack" "subtitle:<yellow>Armeria reconstruida" stay:5s targets:%value%
+      }
+    - ^flag <server> tempmeslajho:->:armeria
+    - ^if <server.flag[tempmeslajho].as_list.contains[taberna|herreria|armeria|establo|cocina|arcano|fragua|deshuesadero|libreria|aserradero|cantera|molino]> {
+      - ^foreach li@n@1|n@2|n@3|n@5|n@6|n@7|n@8|n@9|n@10|n@35|n@66|n@85|n@91|n@94|n@96|n@99|n@100 {
+        - ^define npctarget %value%
+        - ^teleport <def[npctarget]> <def[npctarget].anchor[construct]>
+        }
+      }
+
+inv_mack:
+  type: inventory
+  inventory: dispenser
+  slots:
+  - "[i@cancelslot] [i@infomes] [i@cancelslot]"
+  - "[i@logarmeria] [i@Entregar] [i@stnarmeria]"
+  - "[i@cancelslot] [i@cancelslot] [i@cancelslot]"
+
+logarmeria:
+  type: item
+  material: 17
+  display name: '<yellow>Troncos de Madera'
+  lore:
+  - ''
+  - '<dark_aqua>Necesarios: <gold>800'
+  - '<gray>Se han recolectado: <yellow><yaml[capitulo<player.name>].read[meslajho.materiales.armeriamdr].asint>'
+stnarmeria:
+  type: item
+  material: 4
+  display name: '<yellow>Bloques de cobblestone'
+  lore:
+  - ''
+  - '<dark_aqua>Necesarios: <gold>800'
+  - '<gray>Se han recolectado: <yellow><yaml[capitulo<player.name>].read[meslajho.materiales.armeriastn].asint>'
+            

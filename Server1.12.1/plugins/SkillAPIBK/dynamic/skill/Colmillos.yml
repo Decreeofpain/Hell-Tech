@@ -1,0 +1,63 @@
+Colmillos: 
+  name: 'Colmillos'
+  type: 'Mejora'
+  max-level: 3
+  skill-req: 'Camarada'
+  skill-req-lvl: 1
+  needs-permission: 'false'
+  attributes: 
+    cost-base: '11'
+    cooldown-scale: '0'
+    cost-scale: '5'
+    level-scale: '0'
+    level-base: '1'
+    mana-base: '0'
+    mana-scale: '0'
+    cooldown-base: '0'
+  msg: '&6{player} &2has cast &6{skill}'
+  icon: 'MAGMA_CREAM'
+  icon-data: 0
+  desc:  []
+  components: 
+    Initialize: 
+      type: 'trigger'
+      data: 
+        icon-key: ''
+      children: 
+        Passive-b: 
+          type: 'mechanic'
+          data: 
+            counts: 'True'
+            icon-key: ''
+            seconds-scale: '0'
+            seconds-base: '10'
+          children: 
+            Flag-c: 
+              type: 'mechanic'
+              data: 
+                counts: 'True'
+                icon-key: ''
+                key: 'colmillos'
+                seconds-scale: '1'
+                seconds-base: '10'
+              children:  {}
+        Value-d: 
+          type: 'condition'
+          data: 
+            min-value-scale: '0'
+            max-value-scale: '0'
+            icon-key: ''
+            max-value-base: '999'
+            key: 'value2'
+            min-value-base: '1'
+          children: 
+            Repeat-e: 
+              type: 'mechanic'
+              data: 
+                period: '1'
+                delay: '0'
+                repetitions-base: '3'
+                counts: 'True'
+                icon-key: 'colmillos'
+                repetitions-scale: '3'
+              children:  {}

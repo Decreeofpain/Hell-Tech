@@ -1,0 +1,146 @@
+"Hammon":
+    type: assignment
+
+    actions:
+      on assignment:
+      - trigger name:CHAT toggle:true
+      - trigger name:click toggle:false
+      - trigger name:proximity toggle:true radius:2
+
+      on Build Complete:
+      - ^run 's@herreriaend'
+
+    interact scripts:
+    - 18 Hammonscript
+    - 16 Hammonscript1
+    - 14 Hammonscript2
+
+'Hammonscript':
+  Type: Interact
+  Requirements:
+    Mode: all
+    List:
+    - valueof <global.flag[capitulos].contains[CAPITULO1P2OK]>
+    - -valueof <player.flag[progreso].contains[tutorial_ok]>
+  Steps:
+    '1':
+      proximity trigger:
+        entry:
+          radius: 4
+          Script:
+          - ^if <player.flag[misiones].as_list> contains tuto_04 && <player.flag[misiones].as_list> !contains tuto_05 {
+            - ^run 's@bookq5'
+            - ^bossbar remove obj<player.name>
+            - ^define objetivo "<gold>Tutorial: <green>Visitar a <gold>Jurian <green>en la herreria"
+            - ^flag <player> objetivo:<def[objetivo]>
+            - ^bossbar obj<player.name> players:<player> "title:<player.flag[objetivo]>" color:BLUE
+            - ^compass <npc.location.simple> npc:7
+            - ^zap step:5 script:Jurianscript
+            - ^ZAP step:2
+            - ^playsound <player> sound:complete custom
+            }
+
+    '2':
+      proximity trigger:
+        entry:
+          radius: 4
+          Script:
+          - ^if <player.flag[misiones].as_list> contains tuto_04 && <player.flag[misiones].as_list> !contains tuto_05 {
+            - ^NARRATE "<gold>Hammon: <yellow>Regresa despues caray... Quiza <green>Jurian <yellow>ya tenga tu armadura"
+            - ^compass <npc.location.simple> npc:7
+            }
+    '3':
+      proximity trigger:
+        entry:
+          radius: 4
+          Script:
+          - ^if <player.flag[misiones].as_list> contains tuto_04 && <player.flag[misiones].as_list> !contains tuto_05 {
+            - ^inventory open d:in@inv_espadas
+            }
+    '4':
+      proximity trigger:
+        entry:
+          radius: 4
+          Script:
+          - ^if <player.flag[misiones].as_list> contains tuto_05 && <player.flag[misiones].as_list> !contains tuto_06 {
+            - ^NARRATE "<gold>Hammon: <gold><player.name> <yellow>busca al inutil de <red>Telmo"
+            - ^compass <npc.location.simple> npc:33
+            }
+
+herreriaend:
+    type: task
+    script:
+    - ^schematic load name:herreria
+    - ^schematic paste name:herreria location:<cu@herreria.min>
+    - ^schematic unload name:herreria
+    - ^foreach <server.list_online_players> {
+      - ^title "title:<yellow>Hammon" "subtitle:<yellow>Herreria reconstruida" stay:5s targets:%value%
+      }
+    - ^flag <server> tempmeslajho:->:herreria
+    - ^if <server.flag[tempmeslajho].as_list.contains[taberna|herreria|armeria|establo|cocina|arcano|fragua|deshuesadero|libreria|aserradero|cantera|molino]> {
+      - ^foreach li@n@1|n@2|n@3|n@5|n@6|n@7|n@8|n@9|n@10|n@35|n@66|n@85|n@91|n@94|n@96|n@99|n@100 {
+        - ^define npctarget %value%
+        - ^teleport <def[npctarget]> <def[npctarget].anchor[construct]>
+        }
+      }
+
+'Hammonscript1':
+  Type: Interact
+  Requirements:
+    Mode: all
+    List:
+    - valueof <global.flag[capitulos].contains[CAPITULO1ESCALERASOK]>
+    - -valueof <global.flag[capitulos].contains[CAPITULO1HERRERIAOK]>
+    - -valueof <global.flag[capitulos].contains[CAPITULO1P2OK]>
+  Steps:
+    '1':
+      proximity trigger:
+        entry:
+          radius: 4
+          Script:
+          - ^if <global.flag[capituloactivo]> == CAPITULO1P2 {
+            - ^run 's@bookCap1part16'
+            - ^if <player.flag[objetivo]> !contains reconstruir {
+              - ^bossbar remove obj<player.name>
+              - ^define objetivo "<gold>Objetivo: <yellow>Ayuda a reconstruir todo el pueblo."
+              - ^flag <player> objetivo:<def[objetivo]>
+              - ^bossbar obj<player.name> players:<player> "title:<player.flag[objetivo]>" color:BLUE
+              }
+            - ^if <player.flag[misiones].as_list> !contains cap1m6ok {
+              - ^flag <player> misiones:->:cap1m6ok
+              }
+            - ^zap step:2
+            }
+    '2':
+      proximity trigger:
+        entry:
+          radius: 4
+          Script:
+          - ^yaml load:capitulos/capitulo1.yml id:capitulo<player.name>
+          - ^inventory open d:in@inv_hammon
+          - ^yaml unload id:capitulo<player.name>
+
+inv_hammon:
+  type: inventory
+  inventory: dispenser
+  slots:
+  - "[i@cancelslot] [i@infomes] [i@cancelslot]"
+  - "[i@logherreria] [i@Entregar] [i@stnherreria]"
+  - "[i@cancelslot] [i@cancelslot] [i@cancelslot]"
+
+logherreria:
+  type: item
+  material: 17
+  display name: '<yellow>Troncos de Madera'
+  lore:
+  - ''
+  - '<dark_aqua>Necesarios: <gold>800'
+  - '<gray>Se han recolectado: <yellow><yaml[capitulo<player.name>].read[meslajho.materiales.herreriamdr].asint>'
+stnherreria:
+  type: item
+  material: 4
+  display name: '<yellow>Bloques de cobblestone'
+  lore:
+  - ''
+  - '<dark_aqua>Necesarios: <gold>800'
+  - '<gray>Se han recolectado: <yellow><yaml[capitulo<player.name>].read[meslajho.materiales.herreriastn].asint>'

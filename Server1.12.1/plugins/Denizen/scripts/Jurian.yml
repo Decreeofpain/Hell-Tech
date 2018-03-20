@@ -1,0 +1,99 @@
+"Jurian":
+    type: assignment
+
+    actions:
+      on assignment:
+      - trigger name:CHAT toggle:true
+      - trigger name:click toggle:false
+      - trigger name:proximity toggle:true radius:2
+
+      on Build Complete:
+      - ^run 's@fraguaend'
+
+    interact scripts:
+    - 18 Jurianscript
+
+'Jurianscript':
+  Type: Interact
+  Requirements:
+    Mode: all
+    List:
+    - valueof <global.flag[capitulos].contains[CAPITULO1P2OK]>
+    - -valueof <player.flag[progreso].contains[tutorial_ok]>
+  Steps:
+    '1':
+      proximity trigger:
+        entry:
+          radius: 4
+          Script:
+          - ^if <player.flag[misiones].as_list> contains tuto_02 && <player.flag[misiones].as_list> !contains tuto_03 {
+            - ^run 's@bookq2'
+            - ^flag <player> misiones:->:tuto_03
+            - ^playsound <player> sound:complete custom
+            - ^bossbar remove obj<player.name>
+            - ^define objetivo "<gold>Tutorial: <green>Visitar a <gold>Mack <green>en la armeria"
+            - ^flag <player> objetivo:<def[objetivo]>
+            - ^bossbar obj<player.name> players:<player> "title:<player.flag[objetivo]>" color:BLUE
+            - ^compass <npc.location.simple> npc:8
+            - ZAP step:2
+            }
+    '2':
+      proximity trigger:
+        entry:
+          radius: 4
+          Script:
+          - ^if <player.flag[misiones].as_list> contains tuto_03 && <player.flag[misiones].as_list> !contains tuto_04 {
+            - ^NARRATE "<green>Jurian: <gold><player.name> <yellow>Elije una <blue>Esencia <yellow>con <green>Mack"
+            - ^NARRATE "<green>Jurian: <yellow>buscalo en la armeria"
+            - ^compass <npc.location.simple> npc:8
+            }
+    '3':
+      proximity trigger:
+        entry:
+          radius: 4
+          Script:
+          - ^if <player.flag[misiones].as_list> contains tuto_03 && <player.flag[misiones].as_list> !contains tuto_04 {
+            - ^inventory open d:in@inv_pieles
+            }
+    '4':
+      proximity trigger:
+        entry:
+          radius: 4
+          Script:
+          - ^if <player.flag[misiones].as_list> contains tuto_04 && <player.flag[misiones].as_list> !contains tuto_05 {
+            - ^NARRATE "<green>Jurian: <gold><player.name> <yellow>visita a <gold>Hammon <yellow>en la herreria"
+            - ^compass <npc.location.simple> npc:10
+            }
+    '5':
+      proximity trigger:
+        entry:
+          radius: 4
+          Script:
+          - ^if <player.flag[misiones].as_list> contains tuto_04 && <player.flag[misiones].as_list> !contains tuto_05 {
+            - ^inventory open d:in@inv_armaduras
+            }
+    '6':
+      proximity trigger:
+        entry:
+          radius: 4
+          Script:
+          - ^if <player.flag[misiones].as_list> contains tuto_04 && <player.flag[misiones].as_list> !contains tuto_05 {
+            - NARRATE "<green>Jurian: <gold><player.name> <yellow>regresa con <gold>Hammon"
+            }
+
+fraguaend:
+    type: task
+    script:
+    - ^schematic load name:fragua
+    - ^schematic paste name:fragua location:<cu@fragua.min>
+    - ^schematic unload name:fragua
+    - ^foreach <server.list_online_players> {
+      - ^title "title:<aqua>Jurian" "subtitle:<yellow>Fragua reconstruida" stay:5s targets:%value%
+      }
+    - ^flag <server> tempmeslajho:->:fragua
+    - ^if <server.flag[tempmeslajho].as_list.contains[taberna|herreria|armeria|establo|cocina|arcano|fragua|deshuesadero|libreria|aserradero|cantera|molino]> {
+      - ^foreach li@n@1|n@2|n@3|n@5|n@6|n@7|n@8|n@9|n@10|n@35|n@66|n@85|n@91|n@94|n@96|n@99|n@100 {
+        - ^define npctarget %value%
+        - ^teleport <def[npctarget]> <def[npctarget].anchor[construct]>
+        }
+      }

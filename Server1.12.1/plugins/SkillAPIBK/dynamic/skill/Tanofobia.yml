@@ -1,0 +1,133 @@
+Tanofobia: 
+  name: 'Tanofobia'
+  type: 'Passive'
+  max-level: 5
+  skill-req-lvl: 1
+  needs-permission: 'false'
+  attributes: 
+    cost-base: '3'
+    cooldown-scale: '0'
+    cost-scale: '0'
+    level-scale: '0'
+    level-base: '1'
+    mana-base: '0'
+    mana-scale: '0'
+    cooldown-base: '0'
+  msg: '&6{player} &2has cast &6{skill}'
+  icon: 'TORCH'
+  icon-data: 0
+  icon-lore: 
+  - '&d{name} &7({level}/{max})'
+  - '&2Tipo: &6Pasiva'
+  - '{req:cost}Costo: {attr:cost}'
+  - ''
+  - '&fDescripcion: &7Naturalmente tienes miedo al dia'
+  - '&7Con esta habilidad podras generar resistencia'
+  - '&7a esta fobia.'
+  desc:  []
+  components: 
+    Initialize: 
+      type: 'trigger'
+      data: 
+        icon-key: ''
+      children: 
+        Passive-b: 
+          type: 'mechanic'
+          data: 
+            counts: 'True'
+            icon-key: ''
+            seconds-scale: '0'
+            seconds-base: '1'
+          children: 
+            Time-c: 
+              type: 'condition'
+              data: 
+                icon-key: ''
+                time: 'Day'
+              children: 
+                Speed-d: 
+                  type: 'mechanic'
+                  data: 
+                    multiplier-base: '0.5'
+                    duration-base: '3'
+                    counts: 'True'
+                    icon-key: ''
+                    multiplier-scale: '0.1'
+                    duration-scale: '1'
+                  children:  {}
+                Skill Level-e: 
+                  type: 'condition'
+                  data: 
+                    skill: 'Resistencia'
+                    max-level: '1'
+                    icon-key: ''
+                    min-level: '0'
+                  children: 
+                    Damage Buff-f: 
+                      type: 'mechanic'
+                      data: 
+                        counts: 'True'
+                        value-scale: '0'
+                        icon-key: ''
+                        type: 'Flat'
+                        value-base: '-40'
+                        seconds-scale: '0'
+                        seconds-base: '3'
+                      children:  {}
+                Skill Level-g: 
+                  type: 'condition'
+                  data: 
+                    skill: 'Resistencia'
+                    max-level: '2'
+                    icon-key: ''
+                    min-level: '2'
+                  children: 
+                    Damage Buff-h: 
+                      type: 'mechanic'
+                      data: 
+                        counts: 'True'
+                        value-scale: '0'
+                        icon-key: ''
+                        type: 'Flat'
+                        value-base: '-30'
+                        seconds-scale: '0'
+                        seconds-base: '3'
+                      children:  {}
+                Skill Level-i: 
+                  type: 'condition'
+                  data: 
+                    skill: 'Resistencia'
+                    max-level: '3'
+                    icon-key: ''
+                    min-level: '3'
+                  children: 
+                    Damage Buff-j: 
+                      type: 'mechanic'
+                      data: 
+                        counts: 'True'
+                        value-scale: '0'
+                        icon-key: ''
+                        type: 'Flat'
+                        value-base: '-20'
+                        seconds-scale: '0'
+                        seconds-base: '3'
+                      children:  {}
+                Skill Level-k: 
+                  type: 'condition'
+                  data: 
+                    skill: 'Resistencia'
+                    max-level: '4'
+                    icon-key: ''
+                    min-level: '4'
+                  children: 
+                    Damage Buff-l: 
+                      type: 'mechanic'
+                      data: 
+                        counts: 'True'
+                        value-scale: '0'
+                        icon-key: ''
+                        type: 'Flat'
+                        value-base: '-10'
+                        seconds-scale: '0'
+                        seconds-base: '3'
+                      children:  {}

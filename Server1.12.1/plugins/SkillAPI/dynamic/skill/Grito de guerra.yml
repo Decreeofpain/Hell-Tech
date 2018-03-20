@@ -1,0 +1,73 @@
+Grito de guerra: 
+  name: 'Grito de guerra'
+  type: 'Activo AOE'
+  max-level: 7
+  skill-req: 'Golpe sismico'
+  skill-req-lvl: 6
+  needs-permission: 'false'
+  attributes: 
+    level-base: '1'
+    level-scale: '0'
+    cost-base: '15'
+    cost-scale: '5'
+    cooldown-base: '240'
+    cooldown-scale: '-10'
+    mana-base: '20'
+    mana-scale: '2'
+    points-spent-req-base: '0'
+    points-spent-req-scale: '0'
+    incompatible: ' {}'
+  msg: '&6{player} &2uso &6{skill}'
+  icon: 'IRON_SWORD'
+  icon-data: 0
+  icon-lore: 
+  - '&d{name} &7({level}/{max})'
+  - '&2Tipo: &6{type}'
+  - '&2Requiere: &6Pelaje lvl 5'
+  - '{req:cost}Puntos necesarios: {attr:cost}'
+  - ''
+  - '&8Descripcion: &7Grita con valor'
+  - '&7otorgando a tus aliados mas daño.'
+  - ''
+  - '&2Mana: {attr:mana}'
+  - '&2Cooldown: {attr:cooldown}'
+  - '&2Radio: {attr:areaferoz.radius}'
+  - '&2Daño obtenid: {attr:dmgguerra.value}&2%'
+  - '&2Duracion: {attr:dmgguerra.seconds}'
+  desc:  []
+  components: 
+    Cast: 
+      type: 'trigger'
+      indicator: '3D'
+      data: 
+        icon-key: ''
+        indicator: '2D'
+      children: 
+        Area-b: 
+          type: 'target'
+          indicator: '3D'
+          data: 
+            icon-key: 'areaferoz'
+            radius-base: '4'
+            radius-scale: '2'
+            group: 'Ally'
+            wall: 'False'
+            caster: 'True'
+            max-base: '99'
+            max-scale: '0'
+            indicator: '2D'
+          children: 
+            Damage Buff-c: 
+              type: 'mechanic'
+              indicator: '3D'
+              data: 
+                icon-key: 'dmgguerra'
+                counts: 'True'
+                type: 'Multiplier'
+                skill: 'False'
+                value-base: '1.5'
+                value-scale: '0.3'
+                seconds-base: '120'
+                seconds-scale: '10'
+                indicator: '2D'
+              children:  {}

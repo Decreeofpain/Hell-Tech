@@ -1,0 +1,68 @@
+Porrazo: 
+  name: 'Porrazo'
+  type: 'Activo'
+  max-level: 5
+  skill-req-lvl: 1
+  needs-permission: 'false'
+  attributes: 
+    cost-base: '2'
+    cooldown-scale: '-2'
+    cost-scale: '2'
+    level-scale: '0'
+    level-base: '1'
+    mana-base: '6'
+    mana-scale: '2'
+    cooldown-base: '10'
+  msg: '&6{player} &2uso &6{skill}'
+  icon: 'BRICK'
+  icon-data: 0
+  icon-lore: 
+  - '&d{name} &7({level}/{max})'
+  - '&2Tipo: &6{type}'
+  - '{req:cost}Puntos necesarios: {attr:cost}'
+  - ''
+  - '&8Descripcion: &7Golpeas cuertemente'
+  - '&7a tu oponente dejándolo conmocionado '
+  - ''
+  - '&2Mana: {attr:mana}'
+  - '&2Cooldown: {attr:cooldown}'
+  - '&2Rango: {attr:tbqrange.range}'
+  - '&2Tiempo: {attr:tbqduration.duration}'
+  - '&2Daño: {attr:tbqdmg.value}'
+  desc:  []
+  components: 
+    Cast: 
+      type: 'trigger'
+      data: 
+        icon-key: ''
+      children: 
+        Single-b: 
+          type: 'target'
+          data: 
+            range-scale: '1'
+            range-base: '2'
+            tolerance-scale: '0'
+            tolerance-base: '4'
+            icon-key: 'tbqrange'
+            wall: 'False'
+            group: 'Enemy'
+          children: 
+            Status-c: 
+              type: 'mechanic'
+              data: 
+                duration-base: '1'
+                counts: 'True'
+                icon-key: 'tbqduration'
+                duration-scale: '0.2'
+                status: 'Stun'
+              children:  {}
+            Damage-d: 
+              type: 'mechanic'
+              data: 
+                counts: 'True'
+                value-scale: '2'
+                true: 'False'
+                icon-key: 'tbqdmg'
+                type: 'Damage'
+                value-base: '1'
+              children:  {}

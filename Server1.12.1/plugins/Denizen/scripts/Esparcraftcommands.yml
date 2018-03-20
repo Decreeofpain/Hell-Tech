@@ -1,0 +1,81 @@
+Esparcraftlist:
+  type: command
+  name: esparcraft
+  description: Comandos de esparcraft
+  usage: /esparcraft
+  aliases: 
+  - esp
+  tab complete:  
+  - if !<player.is_op||<context.server>> queue clear 
+  - determine <server.list_online_players.parse[name].include[cuboid|schematic|create|build|select].filter[starts_with[<context.args.last>]]>
+  script:
+  - ^if !<player.is_op||<context.server>> { 
+    - narrate "<red>no eres parte del Staff." 
+    - queue clear 
+    }
+  - ^if <context.args.size> == 0 { 
+    - ^narrate "<gold>========<green> ESPARCRAFT CMDs <gold>======== <context.args.size>" 
+    - ^narrate "<dark_aqua>list <gray>lista de cuboids existentes"
+    - ^narrate "<gold>/esp cuboid <aqua>requiere seleccionar con WordEdit"
+    - ^narrate "<dark_aqua>create <green>name <gray>crea un cuboid con ese nombre"
+    - ^narrate "<dark_aqua>select <green>name <gray>selecciona un cuboid"
+    - ^narrate "<dark_aqua>schematic <green>name <gray>crea una schematic con ese nombre"
+    - ^narrate "<dark_aqua>build <green>cuboid newname <gray>crea un schematic con otro nombre"
+    }
+###################### Argumentos
+# Cuboid
+  - ^if <context.args.get[1]> == cuboid {
+    - ^if <context.args.get[2]> == create {
+      - ^note cu@<player.selected_region.min.simple>|<player.selected_region.max.simple> as:<context.args.get[3]>
+      - ^narrate "<gold>Cuboid <context.args.get[3]> creada"
+      - queue clear 
+      } else if <context.args.get[2]> == schematic {
+      - ^if <server.list_notables[cuboids].contains[cu@<context.args.get[3]>]> {
+        - ^define cuboidname <context.args.get[3]>
+        - schematic create name:%cuboidname% cu@%cuboidname% location:<cu@%cuboidname%.min>
+        - schematic save name:%cuboidname%
+        - ^narrate "<gold>Schematic %cuboidname% creada"
+        - queue clear 
+        } else {
+        - ^narrate "<dark_gray><server.list_notables[cuboids].space_separated.replace[regex:cu@]>>"
+        - ^narrate "<red>Coboide incorrecta"
+        - queue clear
+        }
+      } else if <context.args.get[2]> == build {
+      - ^if <server.list_notables[cuboids].contains[cu@<context.args.get[3]>]> {
+        - ^define cuboidname <context.args.get[3]>
+        - ^define schematicname <context.args.get[4]>
+        - schematic create name:%schematicname% cu@%cuboidname% location:<cu@%cuboidname%.min>
+        - schematic save name:%schematicname%
+        - ^narrate "<gold>Schematic %schematicname% creada"
+        - queue clear 
+        } else {
+        - ^narrate "<dark_gray><server.list_notables[cuboids].space_separated.replace[regex:cu@]>>"
+        - ^narrate "<red>Coboide incorrecta"
+        - queue clear
+        }
+      } else if <context.args.get[2]> == select {
+      - ^if <server.list_notables[cuboids].contains[cu@<context.args.get[3]>]> {
+        - ^define cuboidname <context.args.get[3]>
+        - execute as_op "//pos1 <cu@%cuboidname%.min.replace[regex:,Esparcraft|l@].replace[.0]>"
+        - execute as_op "//pos2 <cu@%cuboidname%.max.replace[regex:,Esparcraft|l@].replace[.0]>"
+        } else {
+        - ^narrate "<dark_gray><server.list_notables[cuboids].space_separated.replace[regex:cu@]>>"
+        - ^narrate "<red>Coboide incorrecta"
+        - queue clear
+        }
+      } else if <context.args.get[2]> == list {
+      - ^narrate "<dark_gray><server.list_notables[cuboids].space_separated.replace[regex:cu@]>>"
+      } else if <context.args.get[2]> == delete {
+      - ^if <server.list_notables[cuboids].contains[cu@<context.args.get[3]>]> {
+        - ^note remove as:<context.args.get[3]>
+        - ^narrate "<gold>Cuboid <context.args.get[3]> eliminada"
+        - queue clear 
+        } else {
+        - ^narrate "<dark_gray><server.list_notables[cuboids].space_separated.replace[regex:cu@]>>"
+        - ^narrate "<red>Coboide incorrecta"
+        - queue clear
+        }
+      }
+    }
+

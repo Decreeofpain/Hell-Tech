@@ -1,0 +1,535 @@
+inv_guis_players:
+  type: world
+  events:
+##############################Block SLOT##
+    on player joins:
+#    - ^if <player.inventory.slot[9].scriptname||false> != panel && !<player.inventory.contains[panelgui]> {
+    - ^take slot:9
+    - ^give i@panelgui slot:9
+    - ^if <player.has_flag[objetivo].not> {
+      - ^define objetivomis "<gold>Objetivo: <green>Busca la taberna y habla con <dark_red>Alvar"
+      - ^flag <player> objetivo:<def[objetivomis]>
+      - ^bossbar obj<player.name> players:<player> "title:<player.flag[objetivo]>" color:BLUE
+      } else {
+      - ^bossbar obj<player.name> players:<player> "title:<player.flag[objetivo]>" color:BLUE
+      - ^wait 4s
+      - ^compass <player.flag[objloc]>
+      }
+    on player swaps items:
+    - ^if <context.offhand.scriptname> == panelgui {
+      - ^DETERMINE cancelled
+      }
+    on panel command:
+    - ^inventory open d:in@inv_GUIprincipal
+    - DETERMINE cancelled
+    on player quits:
+    - ^bossbar remove obj<player.name>
+    on player clicks with compass:
+    - ^inventory open d:in@inv_GUIprincipal
+    - DETERMINE cancelled
+    on player clicks compass in inventory:
+    - ^inventory open d:in@inv_GUIprincipal
+    - DETERMINE cancelled
+##########################################
+    on player clicks in inv_GUIprincipal:
+    - DETERMINE cancelled
+    on player drags in inv_GUIprincipal:
+    - DETERMINE cancelled
+    on player clicks in inv_personaje:
+    - DETERMINE cancelled
+    on player drags in inv_personaje:
+    - DETERMINE cancelled
+    on player clicks in inv_profesionhann:
+    - DETERMINE cancelled
+    on player drags in inv_profesionhann:
+    - DETERMINE cancelled
+    on player clicks in inv_profesionyorick:
+    - DETERMINE cancelled
+    on player drags in inv_profesionyorick:
+    - DETERMINE cancelled
+    on player clicks in inv_profesioneudes:
+    - DETERMINE cancelled
+    on player drags in inv_profesioneudes:
+    - DETERMINE cancelled
+    on player clicks in inv_profesiontielo:
+    - DETERMINE cancelled
+    on player drags in inv_profesiontielo:
+    - DETERMINE cancelled
+    on player clicks in inv_habilidades:
+    - DETERMINE cancelled
+    on player drags in inv_habilidades:
+    - DETERMINE cancelled
+    on player clicks in inv_estadisticas:
+    - DETERMINE cancelled
+    on player drags in inv_estadisticas:
+    - DETERMINE cancelled
+    on player clicks in inv_misiones_diarias:
+    - DETERMINE cancelled
+    on player drags in inv_misiones_diarias:
+    - DETERMINE cancelled
+    on player clicks in inv_grimorio:
+    - DETERMINE cancelled
+    on player drags in inv_grimorio:
+    - DETERMINE cancelled
+    on player clicks in inv_alvar_invite:
+    - DETERMINE cancelled
+    on player drags in inv_alvar_invite:
+    - DETERMINE cancelled
+
+#--------------PRINCIPAL------------------------
+    on player clicks SkillsAPI in inv_GUIprincipal:
+    - ^execute as_op "class skill"
+    on player clicks Atributos in inv_GUIprincipal:
+    - ^execute as_op "class attr"
+    on player clicks Profesion in inv_GUIprincipal:
+    - ^if <player.flag[profesion].as_list> contains Minero {
+      - ^inventory open d:in@inv_profesionhann
+      } else if <player.flag[profesion].as_list> contains Carpintero {
+      - ^inventory open d:in@inv_profesionyorick
+      } else if <player.flag[profesion].as_list> contains Alquimista {
+      - ^inventory open d:in@inv_profesioneudes
+      } else if <player.flag[profesion].as_list> contains Ganadero {
+      - ^inventory open d:in@inv_profesiontielo
+      }
+    on player clicks HistoriaP in inv_GUIprincipal:
+    - ^inventory close d:in@inv_GUIprincipal
+    - ^title "title:<gold>[<gold>DIARIO<dark_purple>]" "subtitle:<dark_red>[<dark_aqua>Buscando en la biblioteca<gold>]" stay:1s
+    - ^wait 2s
+    - ^run 's@bookMPersonal'
+    on player clicks Grimorio in inv_GUIprincipal:
+    - ^inventory open d:in@inv_grimorio
+#--------------Grimorio-----------------------
+    on player clicks vendedores in inv_grimorio:
+    - ^run 's@bookvendedores'
+    on player clicks almakos in inv_grimorio:
+    - ^run 's@bookalmakos'
+    on player clicks recursos in inv_grimorio:
+    - ^run 's@bookrecursos'
+    on player clicks Regresar in inv_grimorio:
+    - ^inventory open d:in@inv_GUIprincipal
+#--------------Profesion-----------------------
+    on player clicks Regresar in inv_profesionhann:
+    - ^inventory open d:in@inv_GUIprincipal
+    on player clicks Regresar in inv_profesionyorick:
+    - ^inventory open d:in@inv_GUIprincipal
+    on player clicks Regresar in inv_profesioneudes:
+    - ^inventory open d:in@inv_GUIprincipal
+    on player clicks Regresar in inv_profesiontielo:
+    - ^inventory open d:in@inv_GUIprincipal
+#--------------------HANN
+    on player clicks Prof_craft in inv_profesionhann:
+    - ^inventory open d:in@inv_profesionhanncraftminer
+
+    on player clicks Prof_smelt in inv_profesionhann:
+    - ^inventory open d:in@inv_profesionhannsmeltminer
+
+    on player clicks Prof_place_hann in inv_profesionhann:
+    - ^inventory open d:in@inv_profesionhannplaceminer
+
+    on player clicks Prof_use_hann in inv_profesionhann:
+    - ^inventory open d:in@inv_profesionhannuseminer
+
+    on player clicks Prof_break_hann in inv_profesionhann:
+    - ^inventory open d:in@inv_profesionhannbreackminer
+#--------------------Yorick
+    on player clicks Prof_craft in inv_profesionyorick:
+    - ^inventory open d:in@inv_profesionyorickcraftcarp
+
+    on player clicks Prof_smelt in inv_profesionyorick:
+    - ^inventory open d:in@inv_profesionyoricksmeltcarp
+
+    on player clicks Prof_place_yorick in inv_profesionyorick:
+    - ^inventory open d:in@inv_profesionyorickplacecarp
+
+    on player clicks Prof_use_yorick in inv_profesionyorick:
+    - ^inventory open d:in@inv_profesionyorickusecarp
+
+    on player clicks Prof_break_yorick in inv_profesionyorick:
+    - ^inventory open d:in@inv_profesionyorickbreackcarp
+#--------------------Eudes
+    on player clicks Prof_craft in inv_profesioneudes:
+    - ^inventory open d:in@inv_profesioneudescraftalqu
+
+    on player clicks Prof_smelt in inv_profesioneudes:
+    - ^inventory open d:in@inv_profesioneudessmeltalqu
+
+    on player clicks Prof_place_eudes in inv_profesioneudes:
+    - ^inventory open d:in@inv_profesioneudesplacealqu
+
+    on player clicks Prof_use_eudes in inv_profesioneudes:
+    - ^inventory open d:in@inv_profesioneudesusealqu
+
+    on player clicks Prof_break_eudes in inv_profesioneudes:
+    - ^inventory open d:in@inv_profesioneudesbreackalqu
+
+    on player clicks Prof_brew in inv_profesioneudes:
+    - ^inventory open d:in@inv_profesioneudesbrewalqu
+#--------------------Tielo
+    on player clicks Prof_craft in inv_profesiontielo:
+    - ^inventory open d:in@inv_profesiontielocraftgana
+
+    on player clicks Prof_smelt in inv_profesiontielo:
+    - ^inventory open d:in@inv_profesiontielosmeltgana
+
+    on player clicks Prof_place_tielo in inv_profesiontielo:
+    - ^inventory open d:in@inv_profesiontieloplacegana
+
+    on player clicks Prof_use_tielo in inv_profesiontielo:
+    - ^inventory open d:in@inv_profesiontielousegana
+
+    on player clicks Prof_fish in inv_profesiontielo:
+    - ^inventory open d:in@inv_profesiontielofishgana
+
+    on player clicks Prof_kill_tielo in inv_profesiontielo:
+    - ^inventory open d:in@inv_profesiontielokillgana
+#--------------TIPO DE LIBROS MISIONES DIARIAS
+    on player clicks MisionesDiarias in inv_GUIprincipal:
+    - if <player.flag[MisionType]> == MinaMes {
+      - ^run 's@bookq2personalcheck'
+      } else if <player.flag[MisionType]> == FulbertLog {
+      - ^run 's@bookq1personalcheck'
+      } else {
+      - ^title "title:<dark_purple>[<light_purple>Manfredo<dark_purple>]" "subtitle:<dark_red>[<dark_red>NO TIENES MISION<dark_red>]" stay:3s
+      }
+    on player clicks MisionG in inv_GUIprincipal:
+    - ^inventory close d:in@inv_GUIprincipal
+    - ^title "title:<gold>[<gold>ESPARCRAFT<dark_purple>]" "subtitle:<dark_red>[<dark_aqua>Buscando en la biblioteca<gold>]" stay:1s
+    - ^wait 2s
+    - ^run 's@bookGCapitulaje'
+
+    on player clicks Sipregunta in inv_misiones_diarias:
+    - ^inventory close d:in@inv_misiones_diarias
+    - ^title "title:<dark_purple>[<light_purple>Manfredo<dark_purple>]" "subtitle:<dark_red>[<dark_red>Buscando misiones<dark_red>]" stay:6s
+    - ^if <server.flag[questdiarias].as_list> !contains <player> {
+      - ^flag <server> questdiarias:->:<player>
+      }
+    - ^flag <player> qdiariaCD duration:24h
+    - ^flag <player> qdiariaStatus:activa
+    - ^zap step:2 script:MisionesDiarias
+    - wait 2
+    - ^random 2
+    - ^run 's@bookq1personal'
+    - ^run 's@bookq2personal'
+    on player clicks Nopregunta in inv_misiones_diarias:
+    - ^inventory close d:in@inv_misiones_diarias
+    - ^title "title:<dark_purple>[<light_purple>Manfredo<dark_purple>]" "subtitle:<dark_red>[<dark_red>Regresa pronto<dark_red>]" stay:6s
+
+# Reclutas ================== ESPARCRAFT ===================
+    on player clicks reclutar in inv_alvar_invite:
+    - ^trigger name:CHAT toggle:true npc:27
+    - ^narrate "<red>Alvar: <dark_gray>Ingresa el nombre del amigo"
+    - ^narrate "<red>Alvar: <dark_gray>que estas invitando a Esparcraft"
+    - ^narrate "<red>Alvar: <dark_gray>tienes <gray>20 Seg. <gold>(coloca solo el nombre)"
+    - ^inventory close d:in@inv_alvar_invite
+    - ^wait 20s
+    - ^trigger name:CHAT toggle:false npc:27
+
+    on player clicks aceptinvi in inv_alvar_accept:
+    - ^if <player.has_flag[refer].not> {
+      - ^yaml load:personal/<player.flag[master]>.yml id:<player.name>2
+      - ^yaml id:<player.name>2 set PJ.reclutas.sons:->:<player.name>
+      - ^yaml savefile:personal/<player.flag[master]>.yml id:<player.name>2
+      - ^yaml unload id:<player.name>2
+      - ^narrate "<red>Alvar: <gray>Aceptaste correctamente la invitacion de <player.flag[master]>"
+      - ^flag <player> progreso:->:master_ok
+      - ^flag <player> refer:->:<player.flag[master]>
+      - ^inventory close d:in@inv_alvar_invite
+      } else {
+      - ^inventory close d:in@inv_alvar_invite
+      - ^narrate "<red>Alvar: <gray>No puedes ya fuiste invitado por <gold><player.flag[refer]>."
+      }
+    - ^yaml unload id:<player.name>
+    on player clicks denyinvi in inv_alvar_accept:
+    - ^inventory close d:in@inv_alvar_invite
+
+inv_GUIprincipal:
+  type: inventory
+  title: '<yellow><magic>0<reset><gold>Esparcraft<yellow><magic>0'
+  size: 9
+  slots:
+  - "[i@Personaje] [i@SkillsAPI] [i@Atributos] [i@Profesion] [i@MisionG] [i@cancelslot] [i@cancelslot] [i@HistoriaP] [i@Grimorio]"
+#i@human_skull[display_name=&ss6Ciudadanos;lore=&ss7Mira lo que tienen;skull_skin=Ryl]
+
+inv_profesionhann:
+  type: inventory
+  title: '<gold>Mineria'
+  size: 9
+  slots:
+  - "[i@cancelslot] [i@Prof_use_hann] [i@Prof_craft] [i@Prof_smelt] [i@Prof_place_hann] [i@Prof_break_hann] [i@cancelslot] [i@cancelslot] [i@Regresar]"
+inv_profesionyorick:
+  type: inventory
+  title: '<gold>Carpinteria'
+  size: 9
+  slots:
+  - "[i@cancelslot] [i@Prof_use_yorick] [i@Prof_craft] [i@Prof_place_yorick] [i@Prof_break_yorick] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@Regresar]"
+inv_profesioneudes:
+  type: inventory
+  title: '<gold>Alquimia'
+  size: 9
+  slots:
+  - "[i@cancelslot] [i@Prof_use_eudes] [i@Prof_craft] [i@Prof_smelt] [i@Prof_place_eudes] [i@Prof_break_eudes] [i@Prof_brew] [i@cancelslot] [i@Regresar]"
+inv_profesiontielo:
+  type: inventory
+  title: '<gold>Profesiones'
+  size: 9
+  slots:
+  - "[i@cancelslot] [i@Prof_use_tielo] [i@Prof_craft] [i@Prof_smelt] [i@Prof_place_tielo] [i@Prof_kill_tielo] [i@Prof_fish] [i@cancelslot] [i@Regresar]"
+
+inv_misiones_diarias:
+  type: inventory
+  inventory: dispenser
+  title: <gold>Depositar
+  size: 9
+  slots:
+  - "[i@cancelslot] [i@MisionDquester] [i@cancelslot] "
+  - "[i@Sipregunta] [i@cancelslot] [i@Nopregunta]"
+  - "[i@cancelslot] [i@cancelslot] [i@cancelslot]"
+
+inv_grimorio:
+  type: inventory
+  title: '<gold>Profesiones'
+  size: 9
+  slots:
+  - "[i@almakos] [i@vendedores] [i@recursos] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@Regresar]"
+
+
+#=====================================ITEMS===================================
+panelgui:
+  type: item
+  material: 345
+  display name: '<yellow><magic>0<reset><gold>Panel principal<yellow><magic>0'
+Personaje:
+  type: item
+  material: '397:3'
+  display name: '<dark_purple>+ <red><player.name> nivel <yellow>[<gold><player.skillapi.class_level[<player.skillapi.main_class>]><yellow>]<dark_purple> +'
+  lore:
+  - '<green>Experiencia: <yellow><player.skillapi.class_exp[<player.skillapi.main_class>].asint><white>/<green><player.skillapi.class_required_exp[<player.skillapi.main_class>]>'
+  - '<green>Raza: <yellow><player.skillapi.main_class.name>'
+  - ''
+  - '<gold>= DOMINIO DE ALMAS ='
+  - '<light_purple>Piedras del Alma: <dark_purple><player.flag[piedrasdelalma].asint>'
+  - '<green>Almakos: <yellow><player.money.asint>'
+  - ''
+  - '<gold>= MISION PERSONAL ='
+  - '<dark_green><player.flag[objetivo]>'
+Atributos:
+  type: item
+  material: '260'
+  display name: '<yellow>Atributos'
+  lore:
+  - ''
+  - '<green>Click para ver tus atributos'
+SkillsAPI:
+  type: item
+  material: '347'
+  display name: '<yellow>Habilidades'
+  lore:
+  - ''
+  - '<green>Click para ver tus habilidades'
+Profesion:
+  type: item
+  material: '58'
+  display name: '<yellow>Profesion'
+  lore:
+  - ''
+  - '<gold>Principal: <player.flag[profesion].get[1]||<red>Sin<black>_<red>aprender> <gold><player.jobs[<player.flag[profesion].get[1]>].xp.level||> <gray>Exp: <gold><player.jobs[<player.flag[profesion].get[1]>].xp.level||>/<player.jobs[<player.flag[profesion].get[1]>].xp.max||>'
+  - '<gold>Especialidad: <player.flag[profesion].get[2]||<red>Sin<black>_<red>aprender> <gold><player.jobs[<player.flag[profesion].get[2]>].xp.level||> <gray>Exp: <gold><player.jobs[<player.flag[profesion].get[2]>].xp.level||>/<player.jobs[<player.flag[profesion].get[2]>].xp.max||>'
+  - ''
+  - '<blue>(click para ver tus crafteos)'
+MisionG:
+  type: item
+  material: '386'
+  display name: '<yellow>Mision Global'
+  lore:
+  - '<light_purple>Conoce la mision del Servidor'
+  - '<green>Proximamente...'
+
+Prof_craft:
+  type: item
+  material: '58'
+  display name: '<gold>Crafteos'
+Prof_smelt:
+  type: item
+  material: '61'
+  display name: '<gold>Fundiciones'
+Prof_place_hann:
+  type: item
+  material: '70'
+  display name: '<gold>Colocar'
+Prof_place_yorick:
+  type: item
+  material: '72'
+  display name: '<gold>Colocar'
+Prof_place_eudes:
+  type: item
+  material: '38,4'
+  display name: '<gold>Colocar'
+Prof_place_tielo:
+  type: item
+  material: '171,4'
+  display name: '<gold>Colocar'
+Prof_use_hann:
+  type: item
+  material: '257'
+  display name: '<gold>Usos'
+Prof_use_yorick:
+  type: item
+  material: '258'
+  display name: '<gold>Usos'
+Prof_use_eudes:
+  type: item
+  material: '258'
+  display name: '<gold>Usos'
+Prof_use_tielo:
+  type: item
+  material: '346'
+  display name: '<gold>Usos'
+Prof_break_hann:
+  type: item
+  material: '98,2'
+  display name: '<gold>Romper'
+Prof_break_yorick:
+  type: item
+  material: '17'
+  display name: '<gold>Romper'
+Prof_break_eudes:
+  type: item
+  material: '38,1'
+  display name: '<gold>Romper'
+Prof_kill_tielo:
+  type: item
+  material: '397'
+  display name: '<gold>Matar'
+Prof_brew:
+  type: item
+  material: '379'
+  display name: '<gold>Alquimia'
+Prof_fish:
+  type: item
+  material: '349'
+  display name: '<gold>Pesca'
+
+Habilidades:
+  type: item
+  material: '368'
+  display name: '<green>Habilidades'
+  lore:
+  - '<dark_purple>Conoce tus poderes'
+  - '<green>Proximamente...'
+
+Estadisticas:
+  type: item
+  material: '395'
+  display name: '<yellow>Estadisticas'
+  lore:
+  - '<dark_purple>Tus logros actuales'
+  - '<green>Proximamente...'
+
+Grimorio:
+  type: item
+  material: '403'
+  display name: '<light_purple>Grimorio'
+  lore:
+  - ''
+  - '<dark_purple>Libro del conocimiento'
+  - '<green>Aqui ecuentras todas las guias'
+  - '<green>e Informacion del servidor.'
+
+HistoriaP:
+  type: item
+  material: '339'
+  display name: '<yellow>Diario'
+  lore:
+  - '<gold>Revisa tu historia'
+  - '<gold>en Esparcraft'
+
+MisionDquester:
+  type: item
+  material: '339'
+  display name: '<yellow>Mision Diaria'
+  lore:
+  - '<yellow>Hola amigo'
+  - '<green>Tengo una mision para ti'
+  - '<gold>Aceptas el reto?'
+
+Piedra:
+  type: item
+  material: nether_star
+  display name: '<dark_red>P<red>iedr<dark_red>a <dark_gray>del <dark_red>A<red>lm<dark_red>a'
+  lore:
+  - ''
+  - '<aqua>Las almas corrompidas'
+  - '<yellow>Por el Demonio <red>Claudec'
+  - '<dark_purple>Hacen una piedra del Alma'
+  - ''
+  - '<green>Precio: <gold><math.asint:<player.skillapi.class_level[<player.skillapi.main_class>]>*200> <yellow>Almakos'
+Sipregunta:
+  type: item
+  material: '35:13'
+  display name: '<green>SI'
+Nopregunta:
+  type: item
+  material: '35:14'
+  display name: '<red>NO'
+
+Deposit100:
+  type: item
+  material: '371'
+  display name: '<gold>Depositar'
+  lore:
+  - '<yellow>100 Almakos'
+Deposit1000:
+  type: item
+  material: '371'
+  display name: '<gold>Depositar'
+  lore:
+  - '<yellow>1000 Almakos'
+Deposit5000:
+  type: item
+  material: '371'
+  display name: '<gold>Depositar'
+  lore:
+  - '<yellow>5000 Almakos'
+Requisitosp1:
+  type: item
+  material: chest
+  display name: '<aqua>Pueblo <dark_aqua>Ronsel'
+  lore:
+  - ''
+  - '<dark_red>REQUISITOS'
+  - '<green>El pueblo necesita <gold><global.flag[EconomiaP1]> Almakos'
+  - '<dark_green>Para su reconstruccion'
+Regresar:
+  type: item
+  material: 2258
+  display name: '<green>Regresar'
+Siguiente:
+  type: item
+  material: 2256
+  display name: '<green>Siguiente'
+Atras:
+  type: item
+  material: 2266
+  display name: '<green>Anterior'
+
+vendedores:
+  type: item
+  material: 340
+  display name: '<gold>Vendedores'
+  lore:
+  - '<green>Como comprar y vender items'
+  - '<green>con los ciudadanos'
+recursos:
+  type: item
+  material: 340
+  display name: '<gold>Minas y Bosques'
+  lore:
+  - '<green>Como conseguir recursos'
+  - '<green>para tus crafteos'
+almakos:
+  type: item
+  material: 340
+  display name: '<gold>Almakos'
+  lore:
+  - '<green>Como conseguir dinero en el servidor'
+  - '<green>las formas mas rapidas de hacerlo'

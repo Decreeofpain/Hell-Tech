@@ -1,0 +1,81 @@
+Porrazo: 
+  name: 'Porrazo'
+  type: 'Activo'
+  max-level: 5
+  skill-req: 'None'
+  skill-req-lvl: 1
+  needs-permission: 'false'
+  attributes: 
+    level-base: '1'
+    level-scale: '0'
+    cost-base: '2'
+    cost-scale: '2'
+    cooldown-base: '10'
+    cooldown-scale: '-2'
+    mana-base: '6'
+    mana-scale: '2'
+    points-spent-req-base: '0'
+    points-spent-req-scale: '0'
+    incompatible: ' {}'
+  msg: '&6{player} &2uso &6{skill}'
+  icon: 'BRICK'
+  icon-data: 0
+  icon-lore: 
+  - '&d{name} &7({level}/{max})'
+  - '&2Tipo: &6{type}'
+  - '{req:cost}Puntos necesarios: {attr:cost}'
+  - ''
+  - '&8Descripcion: &7Golpeas cuertemente'
+  - '&7a tu oponente dejándolo conmocionado '
+  - ''
+  - '&2Mana: {attr:mana}'
+  - '&2Cooldown: {attr:cooldown}'
+  - '&2Rango: {attr:tbqrange.range}'
+  - '&2Tiempo: {attr:tbqduration.duration}'
+  - '&2Daño: {attr:tbqdmg.value}'
+  desc:  []
+  components: 
+    Cast: 
+      type: 'trigger'
+      indicator: '3D'
+      data: 
+        icon-key: ''
+        indicator: '2D'
+      children: 
+        Single-b: 
+          type: 'target'
+          indicator: '3D'
+          data: 
+            icon-key: 'tbqrange'
+            range-base: '2'
+            range-scale: '1'
+            tolerance-base: '4'
+            tolerance-scale: '0'
+            group: 'Enemy'
+            wall: 'False'
+            indicator: '2D'
+          children: 
+            Status-c: 
+              type: 'mechanic'
+              indicator: '3D'
+              data: 
+                icon-key: 'tbqduration'
+                counts: 'True'
+                status: 'Stun'
+                duration-base: '1'
+                duration-scale: '0.2'
+                indicator: '2D'
+              children:  {}
+            Damage-d: 
+              type: 'mechanic'
+              indicator: '3D'
+              data: 
+                icon-key: 'tbqdmg'
+                counts: 'True'
+                type: 'Damage'
+                value-base: '1'
+                value-scale: '2'
+                true: 'False'
+                classifier: 'default'
+                indicator: '2D'
+              children:  {}

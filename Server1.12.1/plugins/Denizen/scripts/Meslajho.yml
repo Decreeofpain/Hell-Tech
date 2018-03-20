@@ -1,0 +1,432 @@
+looprain:
+    type: task
+    script:
+    - ^repeat 27 {
+      - ^if !<server.has_flag[rainstorm]> queue clear
+      - ^foreach <server.list_online_players> {
+        - define victima "%value%"
+        - ^if <cu@taberna.list_players> !contains <def[victima]> {
+          - ^hurt targets:<def[victima]>
+          - ^wait 2s
+          } else {
+          - ^wait 2s
+          }
+        }
+      }
+
+meslajholive:
+  type: world
+  events:
+    on time changes:
+    - ^if !<server.has_flag[rainstorm]> queue clear
+    - ^run looprain
+    # - ^narrate lol targets:<server.list_online_players>
+
+animegrua:
+    type: task
+    script:
+    - ^yaml load:pueblos/meslajho.yml id:grua<player.name>
+    - ^if <yaml[grua<player.name>].read[grua.cantidad]> <= 64 && <yaml[grua<player.name>].read[grua.fase].as_list> !contains 1 && <yaml[grua<player.name>].read[grua.mechanims]> != on {
+      - ^schematic load name:contmesmin1
+      - ^schematic paste name:contmesmin1 location:<cu@contmesmin.min>
+      - ^schematic unload name:contmesmin1
+      - ^yaml id:grua<player.name> set grua.cantidad:+:<player.flag[cursoridqty]>
+      - ^yaml id:grua<player.name> set grua.fase:->:1
+      - ^yaml savefile:pueblos/meslajho.yml id:grua<player.name>
+      } else if <yaml[grua<player.name>].read[grua.cantidad]> >= 64 && <yaml[grua<player.name>].read[grua.cantidad]> <= 128 && <yaml[grua<player.name>].read[grua.fase].as_list> !contains 2 && <yaml[grua<player.name>].read[grua.mechanims]> != on {
+      - ^schematic load name:contmesmin2
+      - ^schematic paste name:contmesmin2 location:<cu@contmesmin.min>
+      - ^schematic unload name:contmesmin3
+      - ^yaml id:grua<player.name> set grua.cantidad:+:<player.flag[cursoridqty]>
+      - ^yaml id:grua<player.name> set grua.fase:->:2
+      - ^yaml savefile:pueblos/meslajho.yml id:grua<player.name>
+      } else if <yaml[grua<player.name>].read[grua.cantidad]> >= 128 && <yaml[grua<player.name>].read[grua.cantidad]> <= 192 && <yaml[grua<player.name>].read[grua.fase].as_list> !contains 3 && <yaml[grua<player.name>].read[grua.mechanims]> != on {
+      - ^schematic load name:contmesmin3
+      - ^schematic paste name:contmesmin3 location:<cu@contmesmin.min>
+      - ^schematic unload name:contmesmin3
+      - ^yaml id:grua<player.name> set grua.cantidad:+:<player.flag[cursoridqty]>
+      - ^yaml id:grua<player.name> set grua.fase:->:3
+      - ^yaml savefile:pueblos/meslajho.yml id:grua<player.name>
+      } else if <yaml[grua<player.name>].read[grua.cantidad]> >= 192 && <yaml[grua<player.name>].read[grua.cantidad]> <= 256 && <yaml[grua<player.name>].read[grua.fase].as_list> !contains 4 && <yaml[grua<player.name>].read[grua.mechanims]> != on {
+      - ^schematic load name:contmesmin4
+      - ^schematic paste name:contmesmin4 location:<cu@contmesmin.min>
+      - ^schematic unload name:contmesmin4
+      - ^yaml id:grua<player.name> set grua.cantidad:+:<player.flag[cursoridqty]>
+      - ^yaml id:grua<player.name> set grua.fase:->:4
+      - ^yaml savefile:pueblos/meslajho.yml id:grua<player.name>
+      } else if <yaml[grua<player.name>].read[grua.cantidad]> >= 256 && <yaml[grua<player.name>].read[grua.cantidad]> <= 320 && <yaml[grua<player.name>].read[grua.fase].as_list> !contains 5 && <yaml[grua<player.name>].read[grua.mechanims]> != on {
+      - ^schematic load name:contmesmin5
+      - ^schematic paste name:contmesmin5 location:<cu@contmesmin.min>
+      - ^schematic unload name:contmesmin5
+      - ^yaml id:grua<player.name> set grua.cantidad:+:<player.flag[cursoridqty]>
+      - ^yaml id:grua<player.name> set grua.fase:->:5
+      - ^yaml savefile:pueblos/meslajho.yml id:grua<player.name>
+      } else if <yaml[grua<player.name>].read[grua.cantidad]> >= 320 && <yaml[grua<player.name>].read[grua.cantidad]> <= 384 && <yaml[grua<player.name>].read[grua.fase].as_list> !contains 6 && <yaml[grua<player.name>].read[grua.mechanims]> != on {
+      - ^schematic load name:contmesmin6
+      - ^schematic paste name:contmesmin6 location:<cu@contmesmin.min>
+      - ^schematic unload name:contmesmin6
+      - ^yaml id:grua<player.name> set grua.cantidad:0
+      - ^yaml id:grua<player.name> set grua.fase:0
+      - ^yaml id:grua<player.name> set grua.mechanims:on
+      - ^yaml savefile:pueblos/meslajho.yml id:grua<player.name>
+      - ^run 's@gruames'
+      }
+    - ^yaml unload id:grua<player.name>
+    - ^queue clear
+
+animedesase:
+    type: task
+    script:
+    - ^modifyblock location:2295,71,1936,Esparcraft 17,8
+    - ^modifyblock location:2295,71,1937,Esparcraft 17,8
+    - ^wait 0.8s
+    - ^modifyblock location:2295,71,1936,Esparcraft 0
+    - ^playeffect location:2295,71,1938,Esparcraft effect:blockcrack_17 quantity:50 data:1 offset:0.8
+    - ^playeffect location:2296,71,1938,Esparcraft effect:blockcrack_17 quantity:50 data:1 offset:0.8
+    - ^wait 0.8s
+    - ^modifyblock location:2295,71,1937,Esparcraft 0
+    - ^playeffect location:2295,71,1938,Esparcraft effect:blockcrack_17 quantity:50 data:1 offset:0.8
+    - ^playeffect location:2296,71,1938,Esparcraft effect:blockcrack_17 quantity:50 data:1 offset:0.8
+    - ^queue clear
+
+
+gruames:
+    type: task
+    script:
+    - ^wait 0.8s
+    - ^schematic load name:grua1
+    - ^schematic paste name:grua1 location:<cu@grua.min>
+    - ^schematic unload name:grua1
+    - ^wait 0.8s
+    - ^schematic load name:grua2
+    - ^schematic paste name:grua2 location:<cu@grua.min>
+    - ^schematic unload name:grua2
+    - ^wait 0.8s
+    - ^schematic load name:grua3
+    - ^schematic paste name:grua3 location:<cu@grua.min>
+    - ^schematic unload name:grua3
+    - ^wait 0.8s
+    - ^schematic load name:grua4
+    - ^schematic paste name:grua4 location:<cu@grua.min>
+    - ^schematic unload name:grua4
+    - ^wait 0.8s
+    - ^schematic load name:grua5
+    - ^schematic paste name:grua5 location:<cu@grua.min>
+    - ^schematic unload name:grua5
+    - ^wait 0.8s
+    - ^schematic load name:grua6
+    - ^schematic paste name:grua6 location:<cu@grua.min>
+    - ^schematic unload name:grua6
+    - ^wait 0.8s
+    - ^schematic load name:grua7
+    - ^schematic paste name:grua7 location:<cu@grua.min>
+    - ^schematic unload name:grua7
+    - ^wait 0.8s
+    - ^schematic load name:grua8
+    - ^schematic paste name:grua8 location:<cu@grua.min>
+    - ^schematic unload name:grua8
+    - ^wait 0.8s
+    - ^schematic load name:grua9
+    - ^schematic paste name:grua9 location:<cu@grua.min>
+    - ^schematic unload name:grua9
+    - ^wait 0.8s
+    - ^schematic load name:grua10
+    - ^schematic paste name:grua10 location:<cu@grua.min>
+    - ^schematic unload name:grua10
+    - ^wait 0.4s
+    - ^modifyblock location:2346,74,1897,Esparcraft 0
+    - ^modifyblock location:2347,74,1897,Esparcraft 0
+    - ^modifyblock location:2348,74,1897,Esparcraft 0
+    - ^modifyblock location:2346,74,1896,Esparcraft 0
+    - ^modifyblock location:2347,74,1896,Esparcraft 0
+    - ^modifyblock location:2348,74,1896,Esparcraft 0
+    - ^modifyblock location:2346,74,1895,Esparcraft 0
+    - ^modifyblock location:2347,74,1895,Esparcraft 0
+    - ^modifyblock location:2348,74,1895,Esparcraft 0
+    - ^playeffect location:2346,74,1897,Esparcraft effect:blockcrack_4 quantity:50 data:1 offset:0.8
+    - ^playeffect location:2347,74,1897,Esparcraft effect:blockcrack_4 quantity:50 data:1 offset:0.8
+    - ^playeffect location:2348,74,1897,Esparcraft effect:blockcrack_4 quantity:50 data:1 offset:0.8
+    - ^playeffect location:2346,74,1896,Esparcraft effect:blockcrack_4 quantity:50 data:1 offset:0.8
+    - ^playeffect location:2347,74,1896,Esparcraft effect:blockcrack_4 quantity:50 data:1 offset:0.8
+    - ^playeffect location:2348,74,1896,Esparcraft effect:blockcrack_4 quantity:50 data:1 offset:0.8
+    - ^playeffect location:2346,74,1895,Esparcraft effect:blockcrack_4 quantity:50 data:1 offset:0.8
+    - ^playeffect location:2347,74,1895,Esparcraft effect:blockcrack_4 quantity:50 data:1 offset:0.8
+    - ^playeffect location:2348,74,1895,Esparcraft effect:blockcrack_4 quantity:50 data:1 offset:0.8
+    - ^wait 0.4s
+    - ^modifyblock location:2346,75,1897,Esparcraft 0
+    - ^modifyblock location:2347,75,1897,Esparcraft 0
+    - ^modifyblock location:2348,75,1897,Esparcraft 0
+    - ^modifyblock location:2346,75,1896,Esparcraft 0
+    - ^modifyblock location:2347,75,1896,Esparcraft 0
+    - ^modifyblock location:2348,75,1896,Esparcraft 0
+    - ^modifyblock location:2346,75,1895,Esparcraft 0
+    - ^modifyblock location:2347,75,1895,Esparcraft 0
+    - ^modifyblock location:2348,75,1895,Esparcraft 0
+    - ^drop i@stone location:2346,74,1897,Esparcraft quantity:32
+    - ^drop i@stone location:2347,74,1897,Esparcraft quantity:32
+    - ^drop i@stone location:2348,74,1897,Esparcraft quantity:32
+    - ^drop i@stone location:2346,74,1896,Esparcraft quantity:32
+    - ^drop i@stone location:2347,74,1896,Esparcraft quantity:32
+    - ^drop i@stone location:2348,74,1896,Esparcraft quantity:32
+    - ^drop i@stone location:2346,74,1895,Esparcraft quantity:32
+    - ^drop i@stone location:2347,74,1895,Esparcraft quantity:32
+    - ^drop i@stone location:2348,74,1895,Esparcraft quantity:32
+    - ^playeffect location:2346,75,1897,Esparcraft effect:blockcrack_4 quantity:50 data:1 offset:0.8
+    - ^playeffect location:2347,75,1897,Esparcraft effect:blockcrack_4 quantity:50 data:1 offset:0.8
+    - ^playeffect location:2348,75,1897,Esparcraft effect:blockcrack_4 quantity:50 data:1 offset:0.8
+    - ^playeffect location:2346,75,1896,Esparcraft effect:blockcrack_4 quantity:50 data:1 offset:0.8
+    - ^playeffect location:2347,75,1896,Esparcraft effect:blockcrack_4 quantity:50 data:1 offset:0.8
+    - ^playeffect location:2348,75,1896,Esparcraft effect:blockcrack_4 quantity:50 data:1 offset:0.8
+    - ^playeffect location:2346,75,1895,Esparcraft effect:blockcrack_4 quantity:50 data:1 offset:0.8
+    - ^playeffect location:2347,75,1895,Esparcraft effect:blockcrack_4 quantity:50 data:1 offset:0.8
+    - ^playeffect location:2348,75,1895,Esparcraft effect:blockcrack_4 quantity:50 data:1 offset:0.8
+    - ^wait 0.4s
+    - ^modifyblock location:2346,76,1897,Esparcraft 0
+    - ^modifyblock location:2347,76,1897,Esparcraft 0
+    - ^modifyblock location:2348,76,1897,Esparcraft 0
+    - ^modifyblock location:2346,76,1896,Esparcraft 0
+    - ^modifyblock location:2347,76,1896,Esparcraft 0
+    - ^modifyblock location:2348,76,1896,Esparcraft 0
+    - ^modifyblock location:2346,76,1895,Esparcraft 0
+    - ^modifyblock location:2347,76,1895,Esparcraft 0
+    - ^modifyblock location:2348,76,1895,Esparcraft 0
+    - ^playeffect location:2346,76,1897,Esparcraft effect:blockcrack_4 quantity:50 data:1 offset:0.8
+    - ^playeffect location:2347,76,1897,Esparcraft effect:blockcrack_4 quantity:50 data:1 offset:0.8
+    - ^playeffect location:2348,76,1897,Esparcraft effect:blockcrack_4 quantity:50 data:1 offset:0.8
+    - ^playeffect location:2346,76,1896,Esparcraft effect:blockcrack_4 quantity:50 data:1 offset:0.8
+    - ^playeffect location:2347,76,1896,Esparcraft effect:blockcrack_4 quantity:50 data:1 offset:0.8
+    - ^playeffect location:2348,76,1896,Esparcraft effect:blockcrack_4 quantity:50 data:1 offset:0.8
+    - ^playeffect location:2346,76,1895,Esparcraft effect:blockcrack_4 quantity:50 data:1 offset:0.8
+    - ^playeffect location:2347,76,1895,Esparcraft effect:blockcrack_4 quantity:50 data:1 offset:0.8
+    - ^playeffect location:2348,76,1895,Esparcraft effect:blockcrack_4 quantity:50 data:1 offset:0.8
+    - ^wait 0.8s
+    - ^schematic load name:grua11
+    - ^schematic paste name:grua11 location:<cu@grua.min>
+    - ^schematic unload name:grua11
+    - ^wait 0.8s
+    - ^schematic load name:grua12
+    - ^schematic paste name:grua12 location:<cu@grua.min>
+    - ^schematic unload name:grua12
+    - ^wait 0.8s
+    - ^schematic load name:grua13
+    - ^schematic paste name:grua13 location:<cu@grua.min>
+    - ^schematic unload name:grua13
+    - ^wait 0.8s
+    - ^schematic load name:grua14
+    - ^schematic paste name:grua14 location:<cu@grua.min>
+    - ^schematic unload name:gru14
+    - ^wait 0.8s
+    - ^schematic load name:grua15
+    - ^schematic paste name:grua15 location:<cu@grua.min>
+    - ^schematic unload name:grua15
+    - ^yaml load:pueblos/meslajho.yml id:grua<player.name>
+    - ^yaml id:grua<player.name> set grua.mechanims:off
+    - ^yaml savefile:pueblos/meslajho.yml id:grua<player.name>
+    - queue clear
+
+aserraderomes:
+    type: task
+    script:
+    - ^schematic load name:contmescarp5
+    - ^schematic paste name:contmescarp5 location:<cu@contmescarp.min>
+    - ^schematic unload name:contmescarp5
+    - ^wait 1t
+    - ^schematic load name:contmescarp6
+    - ^schematic paste name:contmescarp6 location:<cu@contmescarp.min>
+    - ^schematic unload name:contmescarp6
+    - ^wait 0.1s
+    - ^modifyblock location:2293,72,1948,Esparcraft 0
+    - ^playeffect location:2288,72,1949,Esparcraft effect:blockcrack_17 quantity:50 data:1 offset:0.8
+    - ^playeffect location:2288,72,1948,Esparcraft effect:blockcrack_17 quantity:50 data:1 offset:0.8
+    - ^playeffect location:2288,72,1947,Esparcraft effect:blockcrack_17 quantity:50 data:1 offset:0.8
+    - ^playeffect location:2290,73,1948,Esparcraft effect:blockcrack_17 quantity:50 data:1 offset:0.8
+    - ^wait 0.1s
+    - ^modifyblock location:2292,72,1948,Esparcraft 0
+    - ^playeffect location:2288,72,1949,Esparcraft effect:blockcrack_17 quantity:50 data:1 offset:0.8
+    - ^playeffect location:2288,72,1948,Esparcraft effect:blockcrack_17 quantity:50 data:1 offset:0.8
+    - ^playeffect location:2288,72,1947,Esparcraft effect:blockcrack_17 quantity:50 data:1 offset:0.8
+    - ^playeffect location:2290,73,1948,Esparcraft effect:blockcrack_17 quantity:50 data:1 offset:0.8
+    - ^wait 0.1s
+    - ^modifyblock location:2291,72,1948,Esparcraft 0
+    - ^playeffect location:2288,72,1949,Esparcraft effect:blockcrack_17 quantity:50 data:1 offset:0.8
+    - ^playeffect location:2288,72,1948,Esparcraft effect:blockcrack_17 quantity:50 data:1 offset:0.8
+    - ^playeffect location:2288,72,1947,Esparcraft effect:blockcrack_17 quantity:50 data:1 offset:0.8
+    - ^playeffect location:2290,73,1948,Esparcraft effect:blockcrack_17 quantity:50 data:1 offset:0.8
+    - ^wait 0.1s
+    - ^modifyblock location:2290,72,1948,Esparcraft 0
+    - ^playeffect location:2288,72,1949,Esparcraft effect:blockcrack_17 quantity:50 data:1 offset:0.8
+    - ^playeffect location:2288,72,1948,Esparcraft effect:blockcrack_17 quantity:50 data:1 offset:0.8
+    - ^playeffect location:2288,72,1947,Esparcraft effect:blockcrack_17 quantity:50 data:1 offset:0.8
+    - ^playeffect location:2290,73,1948,Esparcraft effect:blockcrack_17 quantity:50 data:1 offset:0.8
+    - ^wait 2s
+    - ^schematic load name:contmescarp7
+    - ^schematic paste name:contmescarp7 location:<cu@contmescarp.min>
+    - ^schematic unload name:contmescarp7
+    - ^wait 1t
+    - ^schematic load name:contmescarp8
+    - ^schematic paste name:contmescarp8 location:<cu@contmescarp.min>
+    - ^schematic unload name:contmescarp8
+    - ^wait 0.1s
+    - ^modifyblock location:2293,72,1948,Esparcraft 0
+    - ^playeffect location:2288,72,1949,Esparcraft effect:blockcrack_17 quantity:50 data:1 offset:0.8
+    - ^playeffect location:2288,72,1948,Esparcraft effect:blockcrack_17 quantity:50 data:1 offset:0.8
+    - ^playeffect location:2288,72,1947,Esparcraft effect:blockcrack_17 quantity:50 data:1 offset:0.8
+    - ^playeffect location:2290,73,1948,Esparcraft effect:blockcrack_17 quantity:50 data:1 offset:0.8
+    - ^wait 0.1s
+    - ^modifyblock location:2292,72,1948,Esparcraft 0
+    - ^playeffect location:2288,72,1949,Esparcraft effect:blockcrack_17 quantity:50 data:1 offset:0.8
+    - ^playeffect location:2288,72,1948,Esparcraft effect:blockcrack_17 quantity:50 data:1 offset:0.8
+    - ^playeffect location:2288,72,1947,Esparcraft effect:blockcrack_17 quantity:50 data:1 offset:0.8
+    - ^playeffect location:2290,73,1948,Esparcraft effect:blockcrack_17 quantity:50 data:1 offset:0.8
+    - ^wait 0.1s
+    - ^modifyblock location:2291,72,1948,Esparcraft 0
+    - ^playeffect location:2288,72,1949,Esparcraft effect:blockcrack_17 quantity:50 data:1 offset:0.8
+    - ^playeffect location:2288,72,1948,Esparcraft effect:blockcrack_17 quantity:50 data:1 offset:0.8
+    - ^playeffect location:2288,72,1947,Esparcraft effect:blockcrack_17 quantity:50 data:1 offset:0.8
+    - ^playeffect location:2290,73,1948,Esparcraft effect:blockcrack_17 quantity:50 data:1 offset:0.8
+    - ^wait 0.1s
+    - ^modifyblock location:2290,72,1948,Esparcraft 0
+    - ^playeffect location:2288,72,1949,Esparcraft effect:blockcrack_17 quantity:50 data:1 offset:0.8
+    - ^playeffect location:2288,72,1948,Esparcraft effect:blockcrack_17 quantity:50 data:1 offset:0.8
+    - ^playeffect location:2288,72,1947,Esparcraft effect:blockcrack_17 quantity:50 data:1 offset:0.8
+    - ^playeffect location:2290,73,1948,Esparcraft effect:blockcrack_17 quantity:50 data:1 offset:0.8
+    - ^wait 2s
+    - ^schematic load name:contmescarp9
+    - ^schematic paste name:contmescarp9 location:<cu@contmescarp.min>
+    - ^schematic unload name:contmescarp9
+    - ^wait 1t
+    - ^schematic load name:contmescarp10
+    - ^schematic paste name:contmescarp10 location:<cu@contmescarp.min>
+    - ^schematic unload name:contmescarp10
+    - ^wait 0.1s
+    - ^modifyblock location:2293,72,1948,Esparcraft 0
+    - ^playeffect location:2288,72,1949,Esparcraft effect:blockcrack_17 quantity:50 data:1 offset:0.8
+    - ^playeffect location:2288,72,1948,Esparcraft effect:blockcrack_17 quantity:50 data:1 offset:0.8
+    - ^playeffect location:2288,72,1947,Esparcraft effect:blockcrack_17 quantity:50 data:1 offset:0.8
+    - ^playeffect location:2290,73,1948,Esparcraft effect:blockcrack_17 quantity:50 data:1 offset:0.8
+    - ^wait 0.1s
+    - ^modifyblock location:2292,72,1948,Esparcraft 0
+    - ^playeffect location:2288,72,1949,Esparcraft effect:blockcrack_17 quantity:50 data:1 offset:0.8
+    - ^playeffect location:2288,72,1948,Esparcraft effect:blockcrack_17 quantity:50 data:1 offset:0.8
+    - ^playeffect location:2288,72,1947,Esparcraft effect:blockcrack_17 quantity:50 data:1 offset:0.8
+    - ^playeffect location:2290,73,1948,Esparcraft effect:blockcrack_17 quantity:50 data:1 offset:0.8
+    - ^wait 0.1s
+    - ^modifyblock location:2291,72,1948,Esparcraft 0
+    - ^playeffect location:2288,72,1949,Esparcraft effect:blockcrack_17 quantity:50 data:1 offset:0.8
+    - ^playeffect location:2288,72,1948,Esparcraft effect:blockcrack_17 quantity:50 data:1 offset:0.8
+    - ^playeffect location:2288,72,1947,Esparcraft effect:blockcrack_17 quantity:50 data:1 offset:0.8
+    - ^playeffect location:2290,73,1948,Esparcraft effect:blockcrack_17 quantity:50 data:1 offset:0.8
+    - ^wait 0.1s
+    - ^modifyblock location:2290,72,1948,Esparcraft 0
+    - ^playeffect location:2288,72,1949,Esparcraft effect:blockcrack_17 quantity:50 data:1 offset:0.8
+    - ^playeffect location:2288,72,1948,Esparcraft effect:blockcrack_17 quantity:50 data:1 offset:0.8
+    - ^playeffect location:2288,72,1947,Esparcraft effect:blockcrack_17 quantity:50 data:1 offset:0.8
+    - ^playeffect location:2290,73,1948,Esparcraft effect:blockcrack_17 quantity:50 data:1 offset:0.8
+    - ^queue clear
+    - ^wait 0.8s
+    - ^schematic load name:grua7
+    - ^schematic paste name:grua7 location:<cu@grua.min>
+    - ^schematic unload name:grua7
+    - ^wait 0.2s
+    - ^schematic load name:grua8
+    - ^schematic paste name:grua8 location:<cu@grua.min>
+    - ^schematic unload name:grua8
+    - ^wait 0.8s
+    - ^schematic load name:grua9
+    - ^schematic paste name:grua9 location:<cu@grua.min>
+    - ^schematic unload name:grua9
+    - ^wait 0.8s
+    - ^schematic load name:grua10
+    - ^schematic paste name:grua10 location:<cu@grua.min>
+    - ^schematic unload name:grua10
+    - ^wait 0.4s
+    - ^modifyblock location:2346,74,1897,Esparcraft 0
+    - ^modifyblock location:2347,74,1897,Esparcraft 0
+    - ^modifyblock location:2348,74,1897,Esparcraft 0
+    - ^modifyblock location:2346,74,1896,Esparcraft 0
+    - ^modifyblock location:2347,74,1896,Esparcraft 0
+    - ^modifyblock location:2348,74,1896,Esparcraft 0
+    - ^modifyblock location:2346,74,1895,Esparcraft 0
+    - ^modifyblock location:2347,74,1895,Esparcraft 0
+    - ^modifyblock location:2348,74,1895,Esparcraft 0
+    - ^playeffect location:2346,74,1897,Esparcraft effect:blockcrack_4 quantity:50 data:1 offset:0.8
+    - ^playeffect location:2347,74,1897,Esparcraft effect:blockcrack_4 quantity:50 data:1 offset:0.8
+    - ^playeffect location:2348,74,1897,Esparcraft effect:blockcrack_4 quantity:50 data:1 offset:0.8
+    - ^playeffect location:2346,74,1896,Esparcraft effect:blockcrack_4 quantity:50 data:1 offset:0.8
+    - ^playeffect location:2347,74,1896,Esparcraft effect:blockcrack_4 quantity:50 data:1 offset:0.8
+    - ^playeffect location:2348,74,1896,Esparcraft effect:blockcrack_4 quantity:50 data:1 offset:0.8
+    - ^playeffect location:2346,74,1895,Esparcraft effect:blockcrack_4 quantity:50 data:1 offset:0.8
+    - ^playeffect location:2347,74,1895,Esparcraft effect:blockcrack_4 quantity:50 data:1 offset:0.8
+    - ^playeffect location:2348,74,1895,Esparcraft effect:blockcrack_4 quantity:50 data:1 offset:0.8
+    - ^wait 0.4s
+    - ^modifyblock location:2346,75,1897,Esparcraft 0
+    - ^modifyblock location:2347,75,1897,Esparcraft 0
+    - ^modifyblock location:2348,75,1897,Esparcraft 0
+    - ^modifyblock location:2346,75,1896,Esparcraft 0
+    - ^modifyblock location:2347,75,1896,Esparcraft 0
+    - ^modifyblock location:2348,75,1896,Esparcraft 0
+    - ^modifyblock location:2346,75,1895,Esparcraft 0
+    - ^modifyblock location:2347,75,1895,Esparcraft 0
+    - ^modifyblock location:2348,75,1895,Esparcraft 0
+    - ^drop i@stone location:2346,74,1897,Esparcraft quantity:32
+    - ^drop i@stone location:2347,74,1897,Esparcraft quantity:32
+    - ^drop i@stone location:2348,74,1897,Esparcraft quantity:32
+    - ^drop i@stone location:2346,74,1896,Esparcraft quantity:32
+    - ^drop i@stone location:2347,74,1896,Esparcraft quantity:32
+    - ^drop i@stone location:2348,74,1896,Esparcraft quantity:32
+    - ^drop i@stone location:2346,74,1895,Esparcraft quantity:32
+    - ^drop i@stone location:2347,74,1895,Esparcraft quantity:32
+    - ^drop i@stone location:2348,74,1895,Esparcraft quantity:32
+    - ^playeffect location:2346,75,1897,Esparcraft effect:blockcrack_4 quantity:50 data:1 offset:0.8
+    - ^playeffect location:2347,75,1897,Esparcraft effect:blockcrack_4 quantity:50 data:1 offset:0.8
+    - ^playeffect location:2348,75,1897,Esparcraft effect:blockcrack_4 quantity:50 data:1 offset:0.8
+    - ^playeffect location:2346,75,1896,Esparcraft effect:blockcrack_4 quantity:50 data:1 offset:0.8
+    - ^playeffect location:2347,75,1896,Esparcraft effect:blockcrack_4 quantity:50 data:1 offset:0.8
+    - ^playeffect location:2348,75,1896,Esparcraft effect:blockcrack_4 quantity:50 data:1 offset:0.8
+    - ^playeffect location:2346,75,1895,Esparcraft effect:blockcrack_4 quantity:50 data:1 offset:0.8
+    - ^playeffect location:2347,75,1895,Esparcraft effect:blockcrack_4 quantity:50 data:1 offset:0.8
+    - ^playeffect location:2348,75,1895,Esparcraft effect:blockcrack_4 quantity:50 data:1 offset:0.8
+    - ^wait 0.4s
+    - ^modifyblock location:2346,76,1897,Esparcraft 0
+    - ^modifyblock location:2347,76,1897,Esparcraft 0
+    - ^modifyblock location:2348,76,1897,Esparcraft 0
+    - ^modifyblock location:2346,76,1896,Esparcraft 0
+    - ^modifyblock location:2347,76,1896,Esparcraft 0
+    - ^modifyblock location:2348,76,1896,Esparcraft 0
+    - ^modifyblock location:2346,76,1895,Esparcraft 0
+    - ^modifyblock location:2347,76,1895,Esparcraft 0
+    - ^modifyblock location:2348,76,1895,Esparcraft 0
+    - ^playeffect location:2346,76,1897,Esparcraft effect:blockcrack_4 quantity:50 data:1 offset:0.8
+    - ^playeffect location:2347,76,1897,Esparcraft effect:blockcrack_4 quantity:50 data:1 offset:0.8
+    - ^playeffect location:2348,76,1897,Esparcraft effect:blockcrack_4 quantity:50 data:1 offset:0.8
+    - ^playeffect location:2346,76,1896,Esparcraft effect:blockcrack_4 quantity:50 data:1 offset:0.8
+    - ^playeffect location:2347,76,1896,Esparcraft effect:blockcrack_4 quantity:50 data:1 offset:0.8
+    - ^playeffect location:2348,76,1896,Esparcraft effect:blockcrack_4 quantity:50 data:1 offset:0.8
+    - ^playeffect location:2346,76,1895,Esparcraft effect:blockcrack_4 quantity:50 data:1 offset:0.8
+    - ^playeffect location:2347,76,1895,Esparcraft effect:blockcrack_4 quantity:50 data:1 offset:0.8
+    - ^playeffect location:2348,76,1895,Esparcraft effect:blockcrack_4 quantity:50 data:1 offset:0.8
+    - ^wait 0.8s
+    - ^schematic load name:grua11
+    - ^schematic paste name:grua11 location:<cu@grua.min>
+    - ^schematic unload name:grua11
+    - ^wait 0.8s
+    - ^schematic load name:grua12
+    - ^schematic paste name:grua12 location:<cu@grua.min>
+    - ^schematic unload name:grua12
+    - ^wait 0.8s
+    - ^schematic load name:grua13
+    - ^schematic paste name:grua13 location:<cu@grua.min>
+    - ^schematic unload name:grua13
+    - ^wait 0.8s
+    - ^schematic load name:grua14
+    - ^schematic paste name:grua14 location:<cu@grua.min>
+    - ^schematic unload name:gru14
+    - ^wait 0.8s
+    - ^schematic load name:grua15
+    - ^schematic paste name:grua15 location:<cu@grua.min>
+    - ^schematic unload name:grua15
+    - ^yaml load:pueblos/meslajho.yml id:grua<player.name>
+    - ^yaml id:grua<player.name> set grua.mechanims:off
+    - ^yaml savefile:pueblos/meslajho.yml id:grua<player.name>
+    - queue clear
+

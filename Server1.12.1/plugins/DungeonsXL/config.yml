@@ -1,0 +1,43 @@
+configVersion: 14
+language: english
+enableEconomy: false
+tutorial:
+  activated: false
+  dungeon: tutorial
+  startGroup: default
+  endgroup: player
+groupColorPriority:
+- DARK_BLUE
+- LIGHT_RED
+- YELLOW
+- LIGHT_GREEN
+- PURPLE
+- ORANGE
+- WHITE
+- BLACK
+- LIGHT_BLUE
+- DARK_GREEN
+- DARK_RED
+- LIGHT_GRAY
+- CYAN
+- MAGENTA
+- DARK_GRAY
+announcementInterval: 30.0
+sendFloorTitle: true
+externalMobProviders: {}
+maxInstances: 10
+tweaksEnabled: false
+secureMode:
+  enabled: false
+  openInventories: false
+  dropItems: false
+  checkInterval: 5.0
+  editCommandWhitelist: []
+backupMode: ON_DISABLE_AND_SAVE
+editPermissions: []
+default: {}
+resourcePacks: {}
+chatEnabled: true
+chatFormatGame: '&2[Game] %group_color%%player_name%: &r'
+chatFormatGroup: '&2%group_color%[%group_name%] %player_name%: &r'
+chatFormatSpy: '&2[Chat Spy] %player_name%: &r'

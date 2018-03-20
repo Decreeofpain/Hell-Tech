@@ -1,0 +1,93 @@
+"Aloys":
+    type: assignment
+
+    actions:
+      on assignment:
+      - trigger name:CHAT toggle:false
+      - trigger name:click toggle:false
+      - trigger name:proximity toggle:true radius:4
+
+      on Build Complete:
+      - ^run 's@libreriaend'
+
+    interact scripts:
+    - 18 Aloysscript
+
+'Aloysscript':
+  Type: Interact
+  Requirements:
+    Mode: all
+    List:
+    - valueof <global.flag[capitulos].contains[CAPITULO1ESCALERASOK]>
+    - -valueof <global.flag[capitulos].contains[CAPITULO1LIBRERIAOK]>
+    - -valueof <global.flag[capitulos].contains[CAPITULO1P2OK]>
+  Steps:
+    '1':
+      proximity trigger:
+        entry:
+          radius: 4
+          Script:
+          - ^if <global.flag[capituloactivo]> == CAPITULO1P2 {
+            - ^run 's@bookCap1part14'
+            - ^if <player.flag[objetivo]> !contains reconstruir {
+              - ^bossbar remove obj<player.name>
+              - ^define objetivo "<gold>Objetivo: <yellow>Ayuda a reconstruir todo el pueblo."
+              - ^flag <player> objetivo:<def[objetivo]>
+              - ^bossbar obj<player.name> players:<player> "title:<player.flag[objetivo]>" color:BLUE
+              }
+            - ^if <player.flag[misiones].as_list> !contains cap1m6ok {
+              - ^flag <player> misiones:->:cap1m6ok
+              }
+            - ^zap step:2
+            }
+    '2':
+      proximity trigger:
+        entry:
+          radius: 4
+          Script:
+          - ^yaml load:capitulos/capitulo1.yml id:capitulo<player.name>
+          - ^inventory open d:in@inv_aloys
+          - ^yaml unload id:capitulo<player.name>
+
+libreriaend:
+    type: task
+    script:
+    - ^schematic load name:libreria
+    - ^schematic paste name:libreria location:<cu@libreria.min>
+    - ^schematic unload name:libreria
+    - ^foreach <server.list_online_players> {
+      - ^title "title:<aqua>Aloys" "subtitle:<yellow>Libreria reconstruida" stay:5s targets:%value%
+      }
+    - ^flag <server> tempmeslajho:->:libreria
+    - ^if <server.flag[tempmeslajho].as_list.contains[taberna|herreria|armeria|establo|cocina|arcano|fragua|deshuesadero|libreria|aserradero|cantera|molino]> {
+      - ^foreach li@n@1|n@2|n@3|n@5|n@6|n@7|n@8|n@9|n@10|n@35|n@66|n@85|n@91|n@94|n@96|n@99|n@100 {
+        - ^define npctarget %value%
+        - ^teleport <def[npctarget]> <def[npctarget].anchor[construct]>
+        }
+      }
+
+inv_aloys:
+  type: inventory
+  inventory: dispenser
+  slots:
+  - "[i@cancelslot] [i@infomes] [i@cancelslot]"
+  - "[i@loglibreria] [i@Entregar] [i@stnlibreria]"
+  - "[i@cancelslot] [i@cancelslot] [i@cancelslot]"
+
+
+loglibreria:
+  type: item
+  material: 17
+  display name: '<yellow>Troncos de Madera'
+  lore:
+  - ''
+  - '<dark_aqua>Necesarios: <gold>800'
+  - '<gray>Se han recolectado: <yellow><yaml[capitulo<player.name>].read[meslajho.materiales.libreriamdr].asint>'
+stnlibreria:
+  type: item
+  material: 4
+  display name: '<yellow>Bloques de cobblestone'
+  lore:
+  - ''
+  - '<dark_aqua>Necesarios: <gold>800'
+  - '<gray>Se han recolectado: <yellow><yaml[capitulo<player.name>].read[meslajho.materiales.libreriastn].asint>'

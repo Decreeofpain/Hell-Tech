@@ -1,0 +1,128 @@
+"Layre":
+    type: assignment
+
+    actions:
+      on assignment:
+      - trigger name:CHAT toggle:false
+      - trigger name:click toggle:true
+      - trigger name:proximity toggle:true radius:3
+
+    interact scripts:
+    - 16 buildvaliron
+
+'buildvaliron':
+  Type: Interact
+  Requirements:
+    Mode: all
+    List:
+    - valueof <player.flag[misiones].contains[cap1m25ok]>
+    - valueof <player.flag[raza].contains[vampiro]>
+    - valueof <global.flag[capitulos].contains[CAPITULO1NATIONVOK]>
+    - -valueof <global.flag[nacionvamprogress].contains[VALIRON3OK]>
+  Steps:
+    '1':
+      proximity trigger:
+        entry:
+          radius: 4
+          Script:
+          - ^run 's@bookfaclicanvaliron'
+          - ^zap step:2
+    '2':
+      click trigger:
+        Script:
+          - ^engage
+          - ^yaml load:naciones/nacionvampirica.yml id:nacion<player.name>
+          - ^if <yaml[nacion<player.name>].read[aldeas.valiron.stonebrick]> >= 0 && <yaml[nacion<player.name>].read[aldeas.valiron.cobblestone]> >= 0 && <yaml[nacion<player.name>].read[aldeas.valiron.log]> >= 0 && <yaml[nacion<player.name>].read[aldeas.valiron.lightclay]> >= 0 && <yaml[nacion<player.name>].read[aldeas.valiron.hardclay]> >= 0 {
+            - ^inventory open d:in@inv_valiron
+            }
+          - ^yaml unload id:nacion<player.name>
+          - disengage
+      proximity trigger:
+        entry:
+          radius: 4
+          Script:
+          - ^narrate "<green>Layre:<dark_gray> Hola <player.name>"
+          - ^wait 1s
+          - ^if <player.inventory.contains[4|98|log|159:14|159:15]> {
+            - ^narrate "<green>Layre:<dark_green> Traes algunos materiales utiles para la secta"
+            - ^narrate "<dark_green>te gustaria entregarlos?"
+            - ^narrate "<blue><player.inventory.quantity[i@98]> <red>ladrillos de piedra"
+            - ^narrate "<blue><player.inventory.quantity[i@4]> <red>bloques de cobblestone"
+            - ^narrate "<blue><player.inventory.quantity[i@log]> <red>troncos de madera"
+            - ^narrate "<blue><player.inventory.quantity[i@159:14]> <red>de arcilla roja"
+            - ^narrate "<blue><player.inventory.quantity[i@159:15]> <red>de arcilla negra"
+            }
+
+
+# Inventarios
+inv_valiron:
+  type: inventory
+  inventory: dispenser
+  slots:
+  - "[i@valironstonebrick] [i@valironcobblestone] [i@valironlog]"
+  - "[i@valironhardclay] [i@valironinfo] [i@valironlightclay]"
+  - "[i@cancelslot] [i@Entregar] [i@cancelslot]"
+
+#items
+valironinfo:
+  type: item
+  material: 340
+  display name: '<gold>valiron'
+  lore:
+  - ''
+  - '<gray>Estado de la secta'
+  - '<gray>Actualizaciones: <yellow><yaml[nacion<player.name>].read[aldeas.valiron.status].asint>/3'
+valironstonebrick:
+  type: item
+  material: 98
+  display name: '<yellow>Ladrillos de piedra'
+  lore:
+  - ''
+  - '<gray>Se requieren: <yellow><yaml[nacion<player.name>].read[aldeas.valiron.stonebrick].asint> <gray>bloques mas'
+valironcobblestone:
+  type: item
+  material: 4
+  display name: '<yellow>Bloques de cobblestone'
+  lore:
+  - ''
+  - '<gray>Se requieren: <yellow><yaml[nacion<player.name>].read[aldeas.valiron.cobblestone].asint> <gray>bloques mas'
+valironlog:
+  type: item
+  material: 17
+  display name: '<yellow>Troncos de madera'
+  lore:
+  - ''
+  - '<gray>Se requieren: <yellow><yaml[nacion<player.name>].read[aldeas.valiron.log].asint> <gray>bloques mas'
+valironhardclay:
+  type: item
+  material: '159,15'
+  display name: '<yellow>Arcilla negra'
+  lore:
+  - ''
+  - '<gray>Se requieren: <yellow><yaml[nacion<player.name>].read[aldeas.valiron.hardclay].asint> <gray>bloques mas'
+valironlightclay:
+  type: item
+  material: '159,14'
+  display name: '<yellow>Arcilla roja'
+  lore:
+  - ''
+  - '<gray>Se requieren: <yellow><yaml[nacion<player.name>].read[aldeas.valiron.lightclay].asint> <gray>bloques mas'
+# Libros
+bookfaclicanvaliron:
+    type: task
+    script:
+    - ^adjust <player> item_slot:8
+    - ^define old_item <player.item_in_hand> 
+    - ^take <player.item_in_hand> qty:<player.item_in_hand.qty>
+    - ^give i@librofaclicanvaliron slot:8
+    - ^adjust <player> open_book
+    - ^take i@librofaclicanvaliron
+    - ^give %old_item% slot:8
+    - DETERMINE cancelled
+
+librofaclicanvaliron:
+  type: book 
+  title: Facciones!
+  author: <green>Layre
+  text: 
+  - '<green>Layre<black>:<n>Esta es la secta de <dark_green>Valiron<black>.<p>En esta secta nos dedicamos a crear armaduras para la nacion.'

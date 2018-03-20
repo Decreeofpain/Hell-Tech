@@ -1,0 +1,75 @@
+Furia Inmortal: 
+  name: 'Furia Inmortal'
+  type: 'Activo'
+  max-level: 5
+  skill-req: 'Aturdir'
+  skill-req-lvl: 5
+  needs-permission: 'false'
+  attributes: 
+    level-base: '1'
+    level-scale: '0'
+    cost-base: '1'
+    cost-scale: '0'
+    cooldown-base: '0'
+    cooldown-scale: '-20'
+    mana-base: '0'
+    mana-scale: '0'
+    points-spent-req-base: '0'
+    points-spent-req-scale: '0'
+    incompatible: ' {}'
+  msg: '&6{player} &2has cast &6{skill}'
+  icon: 'JACK_O_LANTERN'
+  icon-data: 0
+  icon-lore: 
+  - '&d{name} &7({level}/{max})'
+  - '&2Type: &6{type}'
+  - ''
+  - '{req:level}Level: {attr:level}'
+  - '{req:cost}Cost: {attr:cost}'
+  - ''
+  - '&2Mana: {attr:mana}'
+  - '&2Cooldown: {attr:cooldown}'
+  desc:  []
+  components: 
+    Cast: 
+      type: 'trigger'
+      indicator: '3D'
+      data: 
+        icon-key: ''
+        indicator: '2D'
+      children: 
+        Self-b: 
+          type: 'target'
+          indicator: '3D'
+          data: 
+            icon-key: ''
+            indicator: '2D'
+          children: 
+            Defense Buff-c: 
+              type: 'mechanic'
+              indicator: '3D'
+              data: 
+                icon-key: 'inmarm'
+                counts: 'True'
+                type: 'Multiplier'
+                skill: 'False'
+                value-base: '0.6'
+                value-scale: '-0.1'
+                seconds-base: '6'
+                seconds-scale: '2'
+                indicator: '2D'
+              children:  {}
+            Damage Buff-d: 
+              type: 'mechanic'
+              indicator: '3D'
+              data: 
+                icon-key: 'inmdmg'
+                counts: 'True'
+                type: 'Multiplier'
+                skill: 'False'
+                value-base: '1.1'
+                value-scale: '0.2'
+                seconds-base: '8'
+                seconds-scale: '2'
+                indicator: '2D'
+              children:  {}

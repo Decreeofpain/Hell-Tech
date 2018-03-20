@@ -1,0 +1,19 @@
+##########################Capitulo 1 parte 1
+bookqinf1:
+    type: task
+    script:
+    - ^adjust <player> item_slot:8
+    - ^define old_item <player.item_in_hand>
+    - ^take <player.item_in_hand> qty:<player.item_in_hand.qty>
+    - ^give i@libroqinfo1 slot:8
+    - ^adjust <player> open_book
+    - ^take i@libroqinfo1
+    - ^give %old_item% slot:8
+    - DETERMINE cancelled
+
+libroqinfo1: 
+  type: book 
+  title: Telmo!
+  author: Alvar 
+  text: 
+  - '<dark_red>Telmo:<black><p>'
