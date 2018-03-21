@@ -8,6 +8,8 @@ Schematics:
     - ^title "title:<green>Mina" "subtitle:<gold>Aqui puedes extraer piedra y carbon."
     on player enters bosqueoak:
     - ^title "title:<green>Bosque de Meslajho" "subtitle:<gold>Aqui puedes extraer madera."
+    on player enters bosquespruce:
+    - ^title "title:<green>Bosque de coniferas" "subtitle:<gold>Aqui puedes extraer madera de pino."
     on player enters minafusgrel:
     - ^title "title:<green>Mina Fusgrel" "subtitle:<gold>Aqui puedes extraer granito y hierro."
     on player enters minaorath:
@@ -19,8 +21,6 @@ Schematics:
     - ^flag <player> inarena:!
     on player enters entradames:
     - ^title "title:<gold>Meslajho" "subtitle:<white>Un pueblo neutral."
-    on player enters minaormel:
-    - ^title "title:<green>Mina Ormel" "subtitle:<gold>Aqui puedes extraer oro."
     on player enters minaungoloz:
     - ^title "title:<green>Mina Ungoloz" "subtitle:<gold>Aqui puedes extraer oro."
     on player enters minavisener:
@@ -37,6 +37,7 @@ Schematics:
         }
       - ^teleport <cu@minacobblestone.list_players> dminacobblestone
       }
+    - queue clear
 
     on 7:00 in Esparcraft:
     - if <cu@bosqueoak.get_blocks[log].size> < 330 {
@@ -45,24 +46,28 @@ Schematics:
       - ^schematic paste name:bosqueoak location:<cu@bosqueoak.min>
       - ^schematic unload name:bosqueoak
       }
-    - if <cu@minaormel.get_blocks[stone].size> < 41900 {
-      - ^teleport <cu@minaormel.list_players> dminaormel
-      - ^schematic load name:minaormel
-      - ^schematic paste name:minaormel location:<cu@minaormel.min>
-      - ^schematic unload name:minaormel
+    - wait 2
+    - if <cu@bosquespruce.get_blocks[log].size> < 1721 {
+      - ^teleport <cu@bosquespruce.list_players> dbosquespruce
+      - ^schematic load name:bosquespruce
+      - ^schematic paste name:bosquespruce location:<cu@bosquespruce.min>
+      - ^schematic unload name:bosquespruce
       }
+    - wait 2
     - if <cu@minaungoloz.get_blocks[stone].size> < 6166 {
       - ^teleport <cu@minaungoloz.list_players> dminaungoloz
       - ^schematic load name:minaungoloz
       - ^schematic paste name:minaungoloz location:<cu@minaungoloz.min>
       - ^schematic unload name:minaungoloz
       }
+    - wait 2
     - if <cu@minavisener.get_blocks[stone].size> < 6166 {
       - ^teleport <cu@minavisener.list_players> dminaungoloz
       - ^schematic load name:minavisener
       - ^schematic paste name:minavisener location:<cu@minavisener.min>
       - ^schematic unload name:minavisener
       }
+    - queue clear
 
 
 
@@ -73,6 +78,7 @@ Schematics:
       - ^schematic paste name:minafusgrel location:<cu@minafusgrel.min>
       - ^schematic unload name:minafusgrel
       }
+    - queue clear
 
     on 10:00 in Esparcraft:
     - if <cu@minaorath.get_blocks[82].size> < 30000 {
@@ -84,170 +90,5 @@ Schematics:
         }
       - ^teleport <cu@minaorath.list_players> dminaorath
       }
+    - queue clear
 #----------------------------------Mina Meslajho--------------------------------------------
-Openmineria:
-    type: task
-    script:
-    - ^modifyblock location:3078,106,3125,Esparcraft 0
-    - ^modifyblock location:3079,106,3125,Esparcraft 0
-    - ^modifyblock location:3080,106,3125,Esparcraft 0
-    - ^modifyblock location:3081,106,3125,Esparcraft 0
-    - ^modifyblock location:3082,106,3125,Esparcraft 0
-    - ^modifyblock location:3083,106,3125,Esparcraft 0
-    - ^modifyblock location:3084,106,3125,Esparcraft 0
-    - ^wait
-    - ^modifyblock location:3078,107,3125,Esparcraft 0
-    - ^modifyblock location:3079,107,3125,Esparcraft 0
-    - ^modifyblock location:3080,107,3125,Esparcraft 0
-    - ^modifyblock location:3081,107,3125,Esparcraft 0
-    - ^modifyblock location:3082,107,3125,Esparcraft 0
-    - ^modifyblock location:3083,107,3125,Esparcraft 0
-    - ^modifyblock location:3084,107,3125,Esparcraft 0
-Closemineria:
-    type: task
-    script:
-    - ^modifyblock location:3078,107,3125,Esparcraft 101
-    - ^modifyblock location:3079,107,3125,Esparcraft 101
-    - ^modifyblock location:3080,107,3125,Esparcraft 101
-    - ^modifyblock location:3081,107,3125,Esparcraft 101
-    - ^modifyblock location:3082,107,3125,Esparcraft 101
-    - ^modifyblock location:3083,107,3125,Esparcraft 101
-    - ^modifyblock location:3084,107,3125,Esparcraft 101
-    - ^wait
-    - ^modifyblock location:3078,106,3125,Esparcraft 101
-    - ^modifyblock location:3079,106,3125,Esparcraft 101
-    - ^modifyblock location:3080,106,3125,Esparcraft 101
-    - ^modifyblock location:3081,106,3125,Esparcraft 101
-    - ^modifyblock location:3082,106,3125,Esparcraft 101
-    - ^modifyblock location:3083,106,3125,Esparcraft 101
-    - ^modifyblock location:3084,106,3125,Esparcraft 101
-#----------------------------------Mina Bosque Fulbert--------------------------------------------
-OpenBosqueFulbert:
-    type: task
-    script:
-    - ^modifyblock location:3188,108,3171,Esparcraft 0
-    - ^modifyblock location:3188,108,3172,Esparcraft 0
-    - ^modifyblock location:3188,108,3173,Esparcraft 0
-    - ^modifyblock location:3188,108,3174,Esparcraft 0
-    - ^modifyblock location:3188,108,3175,Esparcraft 0
-    - ^modifyblock location:3188,108,3176,Esparcraft 0
-    - ^modifyblock location:3188,108,3177,Esparcraft 0
-    - ^modifyblock location:3188,108,3178,Esparcraft 0
-    - ^modifyblock location:3188,108,3179,Esparcraft 0
-    - ^wait
-    - ^modifyblock location:3188,109,3171,Esparcraft 0
-    - ^modifyblock location:3188,109,3172,Esparcraft 0
-    - ^modifyblock location:3188,109,3173,Esparcraft 0
-    - ^modifyblock location:3188,109,3174,Esparcraft 0
-    - ^modifyblock location:3188,109,3175,Esparcraft 0
-    - ^modifyblock location:3188,109,3176,Esparcraft 0
-    - ^modifyblock location:3188,109,3177,Esparcraft 0
-    - ^modifyblock location:3188,109,3178,Esparcraft 0
-    - ^modifyblock location:3188,109,3179,Esparcraft 0
-    - ^wait
-    - ^modifyblock location:3188,110,3171,Esparcraft 0
-    - ^modifyblock location:3188,110,3172,Esparcraft 0
-    - ^modifyblock location:3188,110,3173,Esparcraft 0
-    - ^modifyblock location:3188,110,3174,Esparcraft 0
-    - ^modifyblock location:3188,110,3175,Esparcraft 0
-    - ^modifyblock location:3188,110,3176,Esparcraft 0
-    - ^modifyblock location:3188,110,3177,Esparcraft 0
-    - ^modifyblock location:3188,110,3178,Esparcraft 0
-    - ^modifyblock location:3188,110,3179,Esparcraft 0
-CloseBosqueFulbert:
-    type: task
-    script:
-    - ^modifyblock location:3188,110,3171,Esparcraft 85
-    - ^modifyblock location:3188,110,3172,Esparcraft 85
-    - ^modifyblock location:3188,110,3173,Esparcraft 85
-    - ^modifyblock location:3188,110,3174,Esparcraft 85
-    - ^modifyblock location:3188,110,3175,Esparcraft 85
-    - ^modifyblock location:3188,110,3176,Esparcraft 85
-    - ^modifyblock location:3188,110,3177,Esparcraft 85
-    - ^modifyblock location:3188,110,3178,Esparcraft 85
-    - ^modifyblock location:3188,110,3179,Esparcraft 85
-    - ^wait
-    - ^modifyblock location:3188,109,3171,Esparcraft 85
-    - ^modifyblock location:3188,109,3172,Esparcraft 85
-    - ^modifyblock location:3188,109,3173,Esparcraft 85
-    - ^modifyblock location:3188,109,3174,Esparcraft 85
-    - ^modifyblock location:3188,109,3175,Esparcraft 85
-    - ^modifyblock location:3188,109,3176,Esparcraft 85
-    - ^modifyblock location:3188,109,3177,Esparcraft 85
-    - ^modifyblock location:3188,109,3178,Esparcraft 85
-    - ^modifyblock location:3188,109,3179,Esparcraft 85
-    - ^wait
-    - ^modifyblock location:3188,108,3171,Esparcraft 85
-    - ^modifyblock location:3188,108,3172,Esparcraft 85
-    - ^modifyblock location:3188,108,3173,Esparcraft 85
-    - ^modifyblock location:3188,108,3174,Esparcraft 85
-    - ^modifyblock location:3188,108,3175,Esparcraft 85
-    - ^modifyblock location:3188,108,3176,Esparcraft 85
-    - ^modifyblock location:3188,108,3177,Esparcraft 85
-    - ^modifyblock location:3188,108,3178,Esparcraft 85
-    - ^modifyblock location:3188,108,3179,Esparcraft 85
-#----------------------------------Mina Fusgrel--------------------------------------------
-OpenMinaFusgrel:
-    type: task
-    script:
-    - ^modifyblock location:2674,82,3179,Esparcraft 0
-    - ^modifyblock location:2674,82,3178,Esparcraft 0
-    - ^modifyblock location:2674,82,3177,Esparcraft 0
-    - ^modifyblock location:2674,82,3176,Esparcraft 0
-    - ^modifyblock location:2674,82,3175,Esparcraft 0
-    - ^modifyblock location:2674,82,3174,Esparcraft 0
-    - ^modifyblock location:2674,82,3173,Esparcraft 0
-    - ^modifyblock location:2674,82,3172,Esparcraft 0
-    - ^modifyblock location:2674,82,3171,Esparcraft 0
-    - ^wait
-    - ^modifyblock location:2674,83,3179,Esparcraft 0
-    - ^modifyblock location:2674,83,3178,Esparcraft 0
-    - ^modifyblock location:2674,83,3177,Esparcraft 0
-    - ^modifyblock location:2674,83,3176,Esparcraft 0
-    - ^modifyblock location:2674,83,3175,Esparcraft 0
-    - ^modifyblock location:2674,83,3174,Esparcraft 0
-    - ^modifyblock location:2674,83,3173,Esparcraft 0
-    - ^modifyblock location:2674,83,3172,Esparcraft 0
-    - ^modifyblock location:2674,83,3171,Esparcraft 0
-    - ^wait
-    - ^modifyblock location:2674,84,3179,Esparcraft 0
-    - ^modifyblock location:2674,84,3178,Esparcraft 0
-    - ^modifyblock location:2674,84,3177,Esparcraft 0
-    - ^modifyblock location:2674,84,3176,Esparcraft 0
-    - ^modifyblock location:2674,84,3175,Esparcraft 0
-    - ^modifyblock location:2674,84,3174,Esparcraft 0
-    - ^modifyblock location:2674,84,3173,Esparcraft 0
-    - ^modifyblock location:2674,84,3172,Esparcraft 0
-    - ^modifyblock location:2674,84,3171,Esparcraft 0
-CloseMinaFusgrel:
-    type: task
-    script:
-    - ^modifyblock location:2674,84,3179,Esparcraft 101
-    - ^modifyblock location:2674,84,3178,Esparcraft 101
-    - ^modifyblock location:2674,84,3177,Esparcraft 101
-    - ^modifyblock location:2674,84,3176,Esparcraft 101
-    - ^modifyblock location:2674,84,3175,Esparcraft 101
-    - ^modifyblock location:2674,84,3174,Esparcraft 101
-    - ^modifyblock location:2674,84,3173,Esparcraft 101
-    - ^modifyblock location:2674,84,3172,Esparcraft 101
-    - ^modifyblock location:2674,84,3171,Esparcraft 101
-    - ^wait
-    - ^modifyblock location:2674,83,3179,Esparcraft 101
-    - ^modifyblock location:2674,83,3178,Esparcraft 101
-    - ^modifyblock location:2674,83,3177,Esparcraft 101
-    - ^modifyblock location:2674,83,3176,Esparcraft 101
-    - ^modifyblock location:2674,83,3175,Esparcraft 101
-    - ^modifyblock location:2674,83,3174,Esparcraft 101
-    - ^modifyblock location:2674,83,3173,Esparcraft 101
-    - ^modifyblock location:2674,83,3172,Esparcraft 101
-    - ^modifyblock location:2674,83,3171,Esparcraft 101
-    - ^wait
-    - ^modifyblock location:2674,82,3179,Esparcraft 101
-    - ^modifyblock location:2674,82,3178,Esparcraft 101
-    - ^modifyblock location:2674,82,3177,Esparcraft 101
-    - ^modifyblock location:2674,82,3176,Esparcraft 101
-    - ^modifyblock location:2674,82,3175,Esparcraft 101
-    - ^modifyblock location:2674,82,3174,Esparcraft 101
-    - ^modifyblock location:2674,82,3173,Esparcraft 101
-    - ^modifyblock location:2674,82,3172,Esparcraft 101
-    - ^modifyblock location:2674,82,3171,Esparcraft 101
