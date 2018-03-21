@@ -27,7 +27,7 @@ core:
   # use given localization if it exists, otherwise will fall
   # back to English as the default.
   # locales available: en, de, fr, nl, ru, pt, pt-br, es
-  locale: en
+  locale: es
 
   # Warn on any known plugin conflicts that might prevent HSP from
   # working the way the admin expects.
@@ -58,8 +58,8 @@ core:
   # the server (for HSP only, this DOES NOT affect other plugins).
   # This is convenient if you don't have a permission system.
   defaultPermissions:
-    - hsp.command.home.use 
-    - hsp.command.sethome.use 
+    - hsp.command.home.use
+    - hsp.command.sethome.use
 
   # set to true to enable players setting their homes by clicking beds.
   # they must also have the 'hsp.home.bedsethome' permission.

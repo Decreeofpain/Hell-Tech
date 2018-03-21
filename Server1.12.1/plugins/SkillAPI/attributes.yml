@@ -8,16 +8,16 @@
 #   mana             - the amount of mana the player has
 #   mana-regen       - how much mana the player regenerates over time
 #   physical-damage  - damage dealt without using skills
-#   physical-defense - damage taken from non-skill attacks
+#   armor - damage taken from non-skill attacks
 #   skill-damage     - damage dealt with skills
 #   skill-defense    - damage taken from skills
 #   move-speed       - movement speed of the player
-vitality: 
+vitality:
   display: 'Vitalidad'
   max: '999'
   icon: 'ink sack'
   icon-data: '1'
-  icon-lore: 
+  icon-lore:
   - '&6Vitalidad &7(&2{amount}&7)'
   - ''
   - '&7Otorga 10 de vida'
@@ -26,73 +26,73 @@ vitality:
     condition:  {}
     mechanic:  {}
     target:  {}
-  stats: 
+  stats:
     health: '(a*10)+(v)'
-spirit: 
+spirit:
   display: 'Esencia'
   max: '999'
   icon: 'ink sack'
   icon-data: '6'
-  icon-lore: 
+  icon-lore:
   - '&6Spirit &7(&2{amount}&7)'
   - ''
   - '&7Grants 1 mana and 2.5%'
   - '&7mana regeneration per'
   - '&7point invested.'
-  global: 
+  global:
     condition:  {}
     mechanic:  {}
     target:  {}
-  stats: 
+  stats:
     mana: 'a+v'
     mana-regen: 'a*0.025+1*v'
-intelligence: 
+intelligence:
   display: 'Inteligencia'
   max: '999'
   icon: 'ink sack'
   icon-data: '5'
-  icon-lore: 
+  icon-lore:
   - '&Inteligencia &7(&2{amount}&7)'
   - ''
   - '&7Otorga 1 de resistencia magica'
   - '&7por punto usado.'
-  global: 
+  global:
     condition:  {}
     mechanic:  {}
     target:  {}
-  stats: 
+  stats:
     skill-defense: 'a+v'
-dexterity: 
-  display: 'Destreza'
+dexterity:
+  display: 'Agilidad'
   max: '999'
   icon: 'ink sack'
   icon-data: '10'
-  icon-lore: 
+  icon-lore:
   - '&Destreza &7(&2{amount}&7)'
   - ''
   - '&7Otorga 1 de armadura'
   - '&7Otorga 1 de daño'
   - '&7por punto usado.'
-  global: 
+  global:
     condition:  {}
     mechanic:  {}
     target:  {}
-  stats: 
-    physical-defense: 'a+v'
+  stats:
+    armor: 'a+v'
     physical-damage: 'a+v'
-strength: 
+strength:
   display: 'Fuerza'
   max: '999'
   icon: 'ink sack'
   icon-data: '14'
-  icon-lore: 
+  icon-lore:
   - '&Fuerza &7(&2{amount}&7)'
   - ''
   - '&7Otorga 1 de armadura'
   - '&7por punto usado.'
-  global: 
+  global:
     condition:  {}
     mechanic:  {}
     target:  {}
-  stats: 
-    physical-defense: 'a+v'
+  stats:
+    armor: 'a+v'

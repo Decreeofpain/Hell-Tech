@@ -4,12 +4,45 @@ inv_guis_players:
 ##############################Block SLOT##
     on player joins:
 #    - ^if <player.inventory.slot[9].scriptname||false> != panel && !<player.inventory.contains[panelgui]> {
+    - ^if <player.flag[name]> == null {
+      - ^flag <player> name:<player.name>
+      - ^flag <player> piedrasdelalma:15
+      - ^define jugador <player.name>
+      - ^sql id:GlobalSQL "query:SELECT user_id FROM phpbb_users WHERE username='<def[jugador]>';" save:resultado
+      - ^if <server.has_file[personal/<player.name>.yml]> {
+        - ^yaml load:personal/<player.name>.yml id:<player.name>
+        - ^define page1 '<black>Soy <dark_red><player.name><n><red>==================<n><black>Entre por primera ves en Esparcraft el dia<n><blue><player.first_played.time><p>Llegue al pueblo en busca de aventuras y creo este es el lugar perfecto.<p>La codicia se respira por todos lados.'
+        - ^yaml id:<player.name> set Libros.Diario:!
+        - ^yaml id:<player.name> set Libros.Diario:->:%page1%
+        - ^yaml id:<player.name> set UserID:<entry[resultado].result.parse[replace[/]].formatted>
+        - ^yaml savefile:personal/<player.name>.yml id:<player.name>
+        - ^yaml unload id:<player.name>
+        } else {
+        - ^yaml create id:<player.name>
+        - ^define page1 '<black>Soy <dark_red><player.name><n><red>==================<n><black>Entre por primera ves en Esparcraft el dia<n><blue><player.first_played.time><p>Llegue al pueblo en busca de aventuras y creo este es el lugar perfecto.<p>La codicia se respira por todos lados.'
+        - ^yaml id:<player.name> set Libros.Diario:!
+        - ^yaml id:<player.name> set Libros.Diario:->:%page1%
+        - ^yaml id:<player.name> set UserID:<entry[resultado].result.parse[replace[/]].formatted>
+        - ^yaml savefile:personal/<player.name>.yml id:<player.name>
+        - ^yaml unload id:<player.name>
+        }
+      - sql id:GlobalSQL "update:UPDATE phpbb_profile_fields_data SET pf_pb_wow_race='1' WHERE user_id=<yaml[<player.name>].read[UserID]>;"
+      - sql id:GlobalSQL "update:UPDATE phpbb_profile_fields_data SET pf_pb_wow_class='1' WHERE user_id=<yaml[<player.name>].read[UserID]>;"
+      - sql id:GlobalSQL "update:UPDATE phpbb_profile_fields_data SET pf_pb_wow_guild='' WHERE user_id=<yaml[<player.name>].read[UserID]>;"
+      - ^if <player.skillapi.main_class.name> == null {
+        - ^execute as_op "class profess Mendigo"
+        }
+      }
     - ^take slot:9
     - ^give i@panelgui slot:9
     - ^if <player.has_flag[objetivo].not> {
       - ^define objetivomis "<gold>Objetivo: <green>Busca la taberna y habla con <dark_red>Alvar"
+      - ^define objloc "<npc.location.simple>" npc:27
       - ^flag <player> objetivo:<def[objetivomis]>
+      - ^flag <player> objloc:%objloc%
       - ^bossbar obj<player.name> players:<player> "title:<player.flag[objetivo]>" color:BLUE
+      - ^wait 4s
+      - ^compass <player.flag[objloc]>
       } else {
       - ^bossbar obj<player.name> players:<player> "title:<player.flag[objetivo]>" color:BLUE
       - ^wait 4s

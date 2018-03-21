@@ -6,7 +6,7 @@
 # even if they give the pay for one action (make the configurations with this in mind)
 # and each job will get the respective experience.
 #
-# e.g If player has 2 jobs where job1 gives 10 income and experience for killing a player 
+# e.g If player has 2 jobs where job1 gives 10 income and experience for killing a player
 # and job2 gives 5 income and experience for killing a player. When the user kills a player
 # they will get 15 income and job1 will gain 10 experience and job2 will gain 5 experience.
 
@@ -1923,6 +1923,9 @@ Jobs:
         income: 0
         experience: 2.7
     permissions:
+      dtl.trader.patterns.caprinteria:
+        value: true
+        level: 1
       ItemRestrict.bypass.275.0.craft:
         value: true
         level: 3
@@ -2592,6 +2595,12 @@ Jobs:
         income: 0
         experience: 0.6
     permissions:
+      dtl.trader.patterns.alquimia:
+        value: true
+        level: 1
+      dtl.trader.patterns.cocina:
+        value: true
+        level: 1
       ItemRestrict.bypass.291.0.craft:
         value: true
         level: 2
@@ -3074,6 +3083,9 @@ Jobs:
         income: 0
         experience: 33.7
     permissions:
+      dtl.trader.patterns.ganaderia:
+        value: true
+        level: 1
       ItemRestrict.bypass.389.0.craft:
         value: true
         level: 50

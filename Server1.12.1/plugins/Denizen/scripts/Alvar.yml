@@ -11,10 +11,10 @@
       - ^run 's@tabernaend'
 
     interact scripts:
-    - 20 Alvarinicial
-    - 18 Alvarscript
+    - 20 Alvarcap1
+    - 18 Alvarcap2
 
-'Alvarinicial':
+'Alvarcap1':
   Type: Interact
   Requirements:
     Mode: all
@@ -27,39 +27,21 @@
         entry:
           radius: 4
           Script:
-#======================= Agregar Libro y hacer update en la base de datos
-          - ^flag <player> name:<player.name>
-          - ^if <player.skillapi.main_class.name> !contains Mendigo {
-            - ^execute as_op "class profess Mendigo"
-            }
-          - ^flag <player> piedrasdelalma:15
-          - ^define jugador <player.name>
-          - ^sql id:GlobalSQL "query:SELECT user_id FROM phpbb_users WHERE username='<def[jugador]>';" save:resultado
-          - ^if <server.has_file[personal/<player.name>.yml]> {
-            - ^yaml load:personal/<player.name>.yml id:<player.name>
-            - ^define page1 '<black>Soy <dark_red><player.name><n><red>==================<n><black>Entre por primera ves en Esparcraft el dia<n><blue><player.first_played.time><p>Llegue al pueblo en busca de aventuras y creo este es el lugar perfecto.<p>La codicia se respira por todos lados.'
-            - ^define page2 '<black>Cuando llegue habia una tormenta que te helaba hasta los huesos.<p>Pero debo resistir esto solo es una prueba de mi valor y mis habilidades.<p>Nadie podra detenerme para alcanzar la gloria.'
-            - ^yaml id:<player.name> set Libros.Diario:!
-            - ^yaml id:<player.name> set Libros.Diario:->:%page1%
-            - ^yaml id:<player.name> set Libros.Diario:->:%page2%
-            - ^yaml id:<player.name> set UserID:<entry[resultado].result.parse[replace[/]].formatted>
-            - ^yaml savefile:personal/<player.name>.yml id:<player.name>
-            - ^yaml unload id:<player.name>
-            } else {
-            - ^yaml create id:<player.name>
-            - ^define page1 '<black>Soy <dark_red><player.name><n><red>==================<n><black>Entre por primera ves en Esparcraft el dia<n><blue><player.first_played.time><p>Llegue al pueblo en busca de aventuras y creo este es el lugar perfecto.<p>La codicia se respira por todos lados.'
-            - ^define page2 '<black>Cuando llegue habia una tormenta que te helaba hasta los huesos.<p>Pero debo resistir esto solo es una prueba de mi valor y mis habilidades.<p>Nadie podra detenerme para alcanzar la gloria.'
-            - ^yaml id:<player.name> set Libros.Diario:!
-            - ^yaml id:<player.name> set Libros.Diario:->:%page1%
-            - ^yaml id:<player.name> set Libros.Diario:->:%page2%
-            - ^yaml id:<player.name> set UserID:<entry[resultado].result.parse[replace[/]].formatted>
-            - ^yaml savefile:personal/<player.name>.yml id:<player.name>
-            - ^yaml unload id:<player.name>
-            }
-          - sql id:GlobalSQL "update:UPDATE phpbb_profile_fields_data SET pf_pb_wow_race='1' WHERE user_id=<yaml[<player.name>].read[UserID]>;"
-          - sql id:GlobalSQL "update:UPDATE phpbb_profile_fields_data SET pf_pb_wow_class='1' WHERE user_id=<yaml[<player.name>].read[UserID]>;"
-          - sql id:GlobalSQL "update:UPDATE phpbb_profile_fields_data SET pf_pb_wow_guild='' WHERE user_id=<yaml[<player.name>].read[UserID]>;"
+#======================= Si el pueblo no esta destruido
+          - ^yaml load:personal/<player.name>.yml id:<player.name>
+          - ^define page1 '<black>Cuando llegue habia una tormenta que te helaba hasta los huesos.<p>Pero debo resistir esto solo es una prueba de mi valor y mis habilidades.<p>Nadie podra detenerme para alcanzar la gloria.'
+          - ^yaml id:<player.name> set Libros.Diario:->:%page1%
+          - ^yaml savefile:personal/<player.name>.yml id:<player.name>
           - ^yaml unload id:<player.name>
+          - ^random 8
+          - ^actionbar '<red>Alvar:<yellow> Que hace alguien como tu en mi taberna?'
+          - ^actionbar '<red>Alvar:<yellow> Tomate un trago y deja de mirarme'
+          - ^actionbar '<red>Alvar:<yellow> No molestes maldito forastero'
+          - ^actionbar '<red>Alvar:<yellow> Aqui solo conseguiras que te maten'
+          - ^actionbar '<red>Alvar:<yellow> Porque no sales a tomar el aire helado hahahaha'
+          - ^actionbar '<red>Alvar:<yellow> Emborrachate como los demas'
+          - ^actionbar '<red>Alvar:<yellow> Si sabes que aqui hay puro asesino verdad?'
+          - ^actionbar '<red>Alvar:<yellow> Traes pinta de cadaver'
           - ^ZAP step:2
           - ^queue clear
     '2':
@@ -107,13 +89,12 @@
       click trigger:
         Script:
         - ^if <player.flag[misiones].as_list> contains destroy {
-          - ^run 's@bookinicial' 
+          - ^run 's@bookinicial'
           }
 
 tabernaend:
     type: task
     script:
-    - ^modifyblock cu@taberna 397 0 
     - ^schematic load name:taberna
     - ^schematic paste name:taberna location:<cu@taberna.min>
     - ^schematic unload name:taberna
@@ -131,6 +112,23 @@ tabernaend:
         - ^title "title:<red>Alvar" "subtitle:<yellow>El pueblo fue reconstruido al fin" stay:6s targets:%value%
         }
       }
+
+
+'Alvarcap2':
+  Type: Interact
+  Requirements:
+    Mode: all
+    List:
+    - valueof <global.flag[capitulosend].contains[capitulo1]>
+  Steps:
+    '1':
+      proximity trigger:
+        entry:
+          radius: 4
+          Script:
+          - ^actionbar '<red>Alvar:<yellow> Al suelo!!'
+
+
 #TUTORIAL
 'Alvarscript':
   Type: Interact
@@ -156,8 +154,8 @@ tabernaend:
           - ^define objloc "<npc.location.simple>" npc:33
           - ^flag <player> objloc:%objloc%
           - ^flag <player> misiones:->:condu_01_pre
-          - ^if <player.skillapi.main_class.name> !contains Vagabundo {
-            - ^execute as_op "class profess Vagabundo"
+          - ^if <player.skillapi.main_class.name> !contains Moribundo {
+            - ^execute as_op "class profess Moribundo"
             }
           - ^flag <player> piedrasdelalma:15
           - ^define jugador <player.name>
@@ -233,11 +231,11 @@ bookinicial:
     - ^adjust <player> item_slot:%old_slot%
     - ^queue clear
 
-libroqinicial: 
-  type: book 
+libroqinicial:
+  type: book
   title: Quests!
-  author: Alvar 
-  text: 
+  author: Alvar
+  text:
   - 'Malditasea <dark_red><player.name>.<p><black>Mi taberna con un demonio... Pero que diablos todo el pueblo esta todo estrozado.<p>Dirijete a la <blue>mina<black> y habla con Hann.<p>Tenemos que reparar este desastre'
 
 bookq1:
@@ -247,7 +245,7 @@ bookq1:
     - ^flag <player> cunduvampiro:0
     - ^flag <player> cunduhumano:0
     - ^adjust <player> item_slot:8
-    - ^define old_item <player.item_in_hand> 
+    - ^define old_item <player.item_in_hand>
     - ^take <player.item_in_hand> qty:<player.item_in_hand.qty>
     - ^give i@libroq1 slot:8
     - ^adjust <player> open_book
@@ -255,10 +253,10 @@ bookq1:
     - ^give %old_item% slot:8
     - DETERMINE cancelled
 
-libroq1: 
-  type: book 
+libroq1:
+  type: book
   title: Quests!
-  author: Alvar 
-  text: 
+  author: Alvar
+  text:
   - '<dark_red>Alvar<black>:<n>Hola <player.name>.<n>Bienvenido al caos infernal que se vive en este desdichado mundo de <dark_gray>Esparcraft.<p>Pero es bueno ver a un guerrero como tu que este dispuesto a todo y no tenga miedo a los horrores que nos azotan dia tras dia.'
   - 'Hay <dark_red>3 grandes naciones<black> en este mundo.<p>Busca a <dark_green>Telmo<black> el te hara unas cuantas preguntas y segun lo que respondas, al final te dira a que nacion perteneces.<p>Revisa tu <blue>brujula<black> te indicara la <dark_purple>ubicacion<black> de tu proximo ojetivo.'

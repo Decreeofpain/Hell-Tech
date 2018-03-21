@@ -84,6 +84,7 @@ establoend:
     - ^if <server.flag[tempmeslajho].as_list.contains[taberna|herreria|armeria|establo|cocina|arcano|fragua|deshuesadero|libreria|aserradero|cantera|molino]> {
       - if <server.flag[capitulos].as_list> !contains mesreconstruido {
         - ^flag <server> capitulos:->:mesreconstruido
+        - ^flag <server> capitulosend:->:capitulo1
         }
       - ^execute as_server "denizen save"
       - ^execute as_op "region flag meslajho mobspawning deny"
