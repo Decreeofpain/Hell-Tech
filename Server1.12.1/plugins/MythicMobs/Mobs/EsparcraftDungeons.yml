@@ -1,16 +1,16 @@
-# 
+#
 # These example files show you some of the basic attributes and
 # skills MythicMobs can use. Far more is possible!
 ######### Catacumbas meslajho ################
 Pestilente:
   MobType: ZOMBIE
   Display: '&aPestilente &6lvl &a- &7[&4<mob.level>&7]&f'
-  Health: 4
-  Damage: 1
+  Health: 8
+  Damage: 2
   Options:
     MovementSpeed: 0.15
   LevelModifiers:
-    Health: 2
+    Health: 15
     Power: 1
   Drops:
   - Zombieeye 1 1
@@ -18,16 +18,16 @@ Pestilente:
   - skillapi-exp 1 1
   - money 0.25 1
   Skills:
-  - damage{amount=0.25} @target ~onAttack
+  - damage{amount=6} @target ~onAttack
 Fetido:
   MobType: ZOMBIE
   Display: '&aFetido &6lvl &a- &7[&4<mob.level>&7]&f'
-  Health: 4
-  Damage: 1
+  Health: 8
+  Damage: 2
   Options:
     MovementSpeed: 0.15
   LevelModifiers:
-    Health: 2
+    Health: 15
     Power: 1
   Drops:
   - Zombiebone 1 1
@@ -35,7 +35,7 @@ Fetido:
   - skillapi-exp 1 1
   - money 0.25 1
   Skills:
-  - damage{amount=0.25} @target ~onAttack
+  - damage{amount=6} @target ~onAttack
 
 ########### Monte X
 Zombiemaz2:
@@ -300,7 +300,7 @@ Nacaruhnucleo:
     Health: 6
     Power: 0.0
   Drops:
-  - legendario           
+  - legendario
   DropsPerLevel:
   - skillapi-exp 1 1
   - money 0.25 1

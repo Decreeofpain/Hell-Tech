@@ -98,6 +98,78 @@ ENDERMAN:
   - money 5 1
   Skills:
   - damage{amount=6} @target ~onAttack
+PIG_ZOMBIE:
+  Health: 8
+  Damage: 2
+  LevelModifiers:
+    Health: 15
+    Power: 1
+  Display: '&7Cerdo Zombie &7lvl &6- &8[&4<mob.level>&8]&f'
+  DropsPerLevel:
+  - skillapi-exp 1 1
+  - money 5 1
+  Skills:
+  - damage{amount=6} @target ~onAttack
+BABY_PIG_ZOMBIE:
+  Health: 8
+  Damage: 2
+  LevelModifiers:
+    Health: 15
+    Power: 1
+  Display: '&7Cerdo Zombie &7lvl &6- &8[&4<mob.level>&8]&f'
+  DropsPerLevel:
+  - skillapi-exp 1 1
+  - money 5 1
+  Skills:
+  - damage{amount=6} @target ~onAttack
+BABY_PIG_ZOMBIE_VILLAGER:
+  Health: 8
+  Damage: 2
+  LevelModifiers:
+    Health: 15
+    Power: 1
+  Display: '&7Cerdo Zombie &7lvl &6- &8[&4<mob.level>&8]&f'
+  DropsPerLevel:
+  - skillapi-exp 1 1
+  - money 5 1
+  Skills:
+  - damage{amount=6} @target ~onAttack
+BLAZE:
+  Health: 8
+  Damage: 2
+  LevelModifiers:
+    Health: 15
+    Power: 1
+  Display: '&6Blaze &7lvl &6- &8[&4<mob.level>&8]&f'
+  DropsPerLevel:
+  - skillapi-exp 1 1
+  - money 5 1
+  Skills:
+  - damage{amount=6} @target ~onAttack
+GHAST:
+  Health: 8
+  Damage: 2
+  LevelModifiers:
+    Health: 15
+    Power: 1
+  Display: '&7Ghast &7lvl &6- &8[&4<mob.level>&8]&f'
+  DropsPerLevel:
+  - skillapi-exp 1 1
+  - money 5 1
+  Skills:
+  - damage{amount=6} @target ~onAttack
+WITCH:
+  Health: 8
+  Damage: 2
+  LevelModifiers:
+    Health: 15
+    Power: 1
+  Display: '&7Bruja &7lvl &6- &8[&4<mob.level>&8]&f'
+  DropsPerLevel:
+  - skillapi-exp 1 1
+  - money 5 1
+  Skills:
+  - damage{amount=6} @target ~onAttack
 CREEPER:
   Health: 8
   Damage: 2
@@ -111,4 +183,4 @@ CREEPER:
   - skillapi-exp 1 1
   - money 5 1
   Skills:
-  - basedamage{m=0.35} @PlayersInRadius{r=8;ignore=animals,monsters} ~onExplode
+  - basedamage{amount=6} @PlayersInRadius{r=8;ignore=animals,monsters} ~onExplode

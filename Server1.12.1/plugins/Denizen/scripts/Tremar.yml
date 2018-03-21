@@ -15,14 +15,14 @@
   Requirements:
     Mode: all
     List:
-    - valueof <player.flag[progreso].contains[conducta_ok]>
+    - -valueof <player.flag[progreso].contains[conducta_ok]>
   Steps:
     '1':
       click trigger:
         Script:
           - ^yaml load:pueblos/meslajho.yml id:puentes<player.name>
           - ^if <yaml[puentes<player.name>].read[puente.cobblestone]> <= 0 && <yaml[puentes<player.name>].read[puente.log]> <= 0 {
-            - narrate "<gold>:Tremar <gray>Los puentes se reconstruyeron <player.name>"
+            - ^actionbar '<gold>:Tremar <gray>Los puentes se reconstruyeron <player.name>'
             - ^schematic load name:puentemes1on
             - ^schematic paste name:puentemes1on location:<cu@puente1mes.min>
             - ^schematic unload name:puentemes1on
@@ -35,7 +35,7 @@
             - ^yaml savefile:pueblos/meslajho.yml id:puentes<player.name>
             } else {
             - ^if <global.flag[puentesmesdeg]> == 0 {
-              - ^narrate "<gold>Tremar: <white>Hola <player.name>"
+              - ^actionbar '<gold>Tremar: <white>Hola <player.name>'
               - ^queue clear
               } else if <global.flag[puentesmesdeg]> >= 1 && <global.flag[puentesmesdeg]> < 5 {
               - ^yaml id:puentes<player.name> set puente.log:16
@@ -63,13 +63,13 @@
           radius: 4
           Script:
           - ^if <global.flag[puentesmesdeg]> >= 1 {
-            - ^narrate "<green>Tremar:<dark_gray> Tenemos que reconstruir los puentes <player.name>"
+            - ^actionbar '<green>Tremar:<gold> Tenemos que reconstruir los puentes <player.name>'
             - ^wait 1s
             - ^if <player.inventory.contains[4|log]> {
-              - ^narrate "<green>Tremar:<dark_green> Traes algunos materiales utiles"
-              - ^narrate "<dark_green>quieres ayudar?"
-              - ^narrate "<blue><player.inventory.quantity[i@4]> <red>bloques de cobblestone"
-              - ^narrate "<blue><player.inventory.quantity[i@log]> <red>troncos de madera"
+              - ^actionbar '<green>Tremar:<dark_green> Traes algunos materiales utiles'
+              - ^actionbar '<dark_green>quieres ayudar?'
+              - ^actionbar '<blue><player.inventory.quantity[i@4]> <red>bloques de cobblestone'
+              - ^actionbar '<blue><player.inventory.quantity[i@log]> <red>troncos de madera'
               }
             }
 
@@ -86,7 +86,7 @@ inv_tremarwrld:
     - ^if <context.cursor_item.material.id> == 4 {
       - ^yaml load:pueblos/meslajho.yml id:puentes<player.name>
       - ^if <yaml[puentes<player.name>].read[puente.cobblestone]> > 0 {
-        - ^narrate "<gray>Entregaste: <gold><context.cursor_item.quantity> <dark_green>Bloques de cobblestone"
+        - ^actionbar '<gray>Entregaste: <gold><context.cursor_item.quantity> <dark_green>Bloques de cobblestone'
         - ^yaml id:puentes<player.name> set puente.cobblestone:-:<context.cursor_item.quantity>
         - ^adjust <player> item_on_cursor:i@air
         - ^if <yaml[puentes<player.name>].read[puente.cobblestone]> < 0 {
@@ -101,7 +101,7 @@ inv_tremarwrld:
       } else if <context.cursor_item.material.id> == 17 {
       - ^yaml load:pueblos/meslajho.yml id:puentes<player.name>
       - ^if <yaml[puentes<player.name>].read[puente.log]> > 0 {
-        - ^narrate "<gray>Entregaste: <gold><context.cursor_item.quantity> <dark_green>Troncos de madera"
+        - ^actionbar '<gray>Entregaste: <gold><context.cursor_item.quantity> <dark_green>Troncos de madera
         - ^yaml id:puentes<player.name> set puente.log:-:<context.cursor_item.quantity>
         - ^adjust <player> item_on_cursor:i@air
         - ^if <yaml[puentes<player.name>].read[puente.log]> < 0 {
@@ -111,7 +111,7 @@ inv_tremarwrld:
           - ^yaml id:puentes<player.name> set puente.rec:->:<player.name>
           }
         }
-      - ^inventory open d:in@inv_tremar1 
+      - ^inventory open d:in@inv_tremar1
       - ^yaml savefile:pueblos/meslajho.yml id:puentes<player.name>
       }
 
@@ -154,9 +154,10 @@ Tremarfinfo1:
   - '<yellow>64 <green>Troncos de madera'
   - ''
   - '<dark_green>Tip'
-  - '<dark_green>Puedes comprarlos'
-  - '<dark_green>con los vendedores de Meslajho'
-  - '<dark_green>o buscar en el bosque del aserradero'
+  - '<dark_green>Puedes conseguir la piedra'
+  - '<dark_green>en la mina de Meslajho y'
+  - '<dark_green>la madera en el bosque atras'
+  - '<dark_green>del aserradero'
 
 tremarcbb:
   type: item

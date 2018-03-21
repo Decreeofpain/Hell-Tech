@@ -25,35 +25,21 @@
         entry:
           radius: 4
           Script:
-# MINI BETA
-          - ^if <player.skillapi.main_class.name> !contains Vagabundo {
-            - ^execute as_op "class profess Vagabundo"
-            }
-          - ^flag <player> piedrasdelalma:15
-          - ^if !<server.has_file[personal/<player.name>.yml]> {
-            - ^yaml load:personal/<player.name>.yml id:<player.name>
-            - ^define page '<black>Cuando llegue habia una tormenta que te helaba hasta los huesos.<p>Pero debo resistir esto solo es una prueba de mi valor y mis habilidades.<p>Nadie podra detenerme para alcanzar la gloria.'
-            - ^yaml id:<player.name> set LibroPersonal:%page%
-            - ^yaml id:<player.name> set UserID:<entry[resultado].result.parse[replace[/]].formatted>
-            - ^yaml savefile:personal/<player.name>.yml id:<player.name>
-            - ^yaml unload id:<player.name>
-            }
-# MINI BETA END
           - ^if <player.has_flag[profesion].not> {
-            - ^narrate "<blue>Eudes: <yellow>Bienvenido al taller de Alquimia <gold><player.name>"
+            - ^actionbar "<blue>Eudes: <yellow>Bienvenido al taller de Alquimia <gold><player.name>"
             - ^wait
-            - ^narrate "<blue>Eudes: <yellow>te interesaria ganar almakos creando menjurges?"
+            - ^actionbar "<blue>Eudes: <yellow>te interesaria ganar almakos creando menjurges?"
             - ^queue clear
             } else if <player.flag[profesion].as_list> !contains Alquimista && <player.has_flag[profesion]> {
-            - ^narrate "<blue>Eudes: <yellow>te interesaria ganar almakos creando menjurges?"
+            - ^actionbar "<blue>Eudes: <yellow>te interesaria ganar almakos creando menjurges?"
             - ^queue clear
 #Mencion de profesiones
             } else if <player.flag[profesion].as_list> contains Alquimista && <player.flag[qprofStatus]> != oncd {
-            - ^narrate "<blue>Eudes: <yellow>Tienes una mision <gold><player.name>"
+            - ^actionbar "<blue>Eudes: <yellow>Tienes una mision <gold><player.name>"
             - ^run 's@profcheckcount'
             - ^queue clear
             } else if <player.flag[profesion].as_list> contains Alquimista && <player.flag[qprofStatus]> == oncd {
-            - ^narrate "<blue>Eudes: <yellow>Bienvenido al taller <gold><player.name>"
+            - ^actionbar "<blue>Eudes: <yellow>Bienvenido al taller <gold><player.name>"
             - ^queue clear
             }
       click trigger:

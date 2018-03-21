@@ -20,6 +20,7 @@
     List:
     - valueof <global.flag[capitulos].contains[destroy]>
     - valueof <player.flag[misiones].contains[destroy]>
+    - -valueof <global.flag[capitulos].contains[mesreconstruido]>
   Steps:
     '1':
       proximity trigger:
@@ -67,10 +68,10 @@
 
 'yorickscript':
   Type: Interact
-  Requirements:
-    Mode: all
-    List:
-    - valueof <player.flag[progreso].contains[conducta_ok]>
+#  Requirements:
+#    Mode: all
+#    List:
+#    - valueof <player.flag[progreso].contains[conducta_ok]>
   Steps:
     '1':
       proximity trigger:
@@ -1304,11 +1305,11 @@ bookrecmeslajho2:
     - ^adjust <player> item_slot:%old_slot%
     - ^queue clear
 
-librorecmeslajho2: 
-  type: book 
+librorecmeslajho2:
+  type: book
   title: Quests!
-  author: Alvar 
-  text: 
+  author: Alvar
+  text:
   - '<dark_red><player.name>!<p><black>Ahora necesitamos madera.<p>Atras de este edificio encontraras la entrada de un pequeño bosque ponte a talar ahi y traeme la madera lo mas rapido que puedas.'
 
 infoquestmeswood:

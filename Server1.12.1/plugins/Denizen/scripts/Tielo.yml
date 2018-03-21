@@ -26,20 +26,20 @@
           radius: 4
           Script:
           - ^if <player.has_flag[profesion].not> {
-            - ^narrate "<blue>Tielo: <yellow>Bienvenido al Establo <gold><player.name>"
+            - ^actionbar "<blue>Tielo: <yellow>Bienvenido al Establo <gold><player.name>"
             - ^wait
-            - ^narrate "<blue>Tielo: <yellow>te interesaria ganar almakos en el establo?"
+            - ^actionbar "<blue>Tielo: <yellow>te interesaria ganar almakos en el establo?"
             - ^queue clear
             } else if <player.flag[profesion].as_list> !contains Ganadero && <player.has_flag[profesion]> {
-            - ^narrate "<blue>Tielo: <yellow>te interesaria ganar almakos en el establo?"
+            - ^actionbar "<blue>Tielo: <yellow>te interesaria ganar almakos en el establo?"
             - ^queue clear
 #Mencion de profesiones
             } else if <player.flag[profesion].as_list> contains Ganadero && <player.flag[qprofStatus]> != oncd {
-            - ^narrate "<blue>Tielo: <yellow>Tienes una mision <gold><player.name>"
+            - ^actionbar "<blue>Tielo: <yellow>Tienes una mision <gold><player.name>"
             - ^run 's@profcheckcount'
             - ^queue clear
             } else if <player.flag[profesion].as_list> contains Ganadero && <player.flag[qprofStatus]> == oncd {
-            - ^narrate "<blue>Tielo: <yellow>Bienvenido al establo <gold><player.name>"
+            - ^actionbar "<blue>Tielo: <yellow>Bienvenido al establo <gold><player.name>"
             - ^queue clear
             }
       click trigger:

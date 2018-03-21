@@ -71,30 +71,16 @@
 
 'Hannscript':
   Type: Interact
-  Requirements:
-    Mode: all
-    List:
-    - valueof <player.flag[progreso].contains[conducta_ok]>
+#  Requirements:
+#    Mode: all
+#    List:
+#    - valueof <player.flag[progreso].contains[conducta_ok]>
   Steps:
     '1':
       proximity trigger:
         entry:
           radius: 4
           Script:
-# MINI BETA
-          - ^if <player.skillapi.main_class.name> !contains Vagabundo {
-            - ^execute as_op "class profess Vagabundo"
-            }
-          - ^flag <player> piedrasdelalma:15
-          - ^if !<server.has_file[personal/<player.name>.yml]> {
-            - ^yaml load:personal/<player.name>.yml id:<player.name>
-            - ^define page '<black>Cuando llegue habia una tormenta que te helaba hasta los huesos.<p>Pero debo resistir esto solo es una prueba de mi valor y mis habilidades.<p>Nadie podra detenerme para alcanzar la gloria.'
-            - ^yaml id:<player.name> set LibroPersonal:%page%
-            - ^yaml id:<player.name> set UserID:<entry[resultado].result.parse[replace[/]].formatted>
-            - ^yaml savefile:personal/<player.name>.yml id:<player.name>
-            - ^yaml unload id:<player.name>
-            }
-# MINI BETA END
           - ^if <player.has_flag[profesion].not> {
             - ^actionbar "<blue>Hann: <yellow>Bienvenido al taller de Construccion <gold><player.name>"
             - ^wait
@@ -2477,11 +2463,11 @@ bookrecmeslajho:
     - ^adjust <player> item_slot:%old_slot%
     - ^queue clear
 
-librorecmeslajho: 
-  type: book 
+librorecmeslajho:
+  type: book
   title: Quests!
-  author: Alvar 
-  text: 
+  author: Alvar
+  text:
   - '<dark_red><player.name>!<p><black>Todos tendran que recolectar piedra en la mina.<p>Traeme toda la que puedas todos deben ayudar en esta tarea<p>No tenemos tiempo mueve las piernas y ponte a trabajar.'
 
 infoquestmesstone:

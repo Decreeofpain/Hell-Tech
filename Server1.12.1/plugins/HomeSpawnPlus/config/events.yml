@@ -4,6 +4,7 @@
 events:
   # strategies to use when player is joining the game
   onJoin:
+    - spawnNamedSpawn:Esparcraft
     - spawnNewPlayer
     - spawnGroup
     - spawnLocalWorld
@@ -19,6 +20,7 @@ events:
 
   # strategies to use when player types "/spawn"
   onSpawnCommand:
+    - spawnNamedSpawn:Esparcraft
     - spawnGroup
     - spawnLocalWorld
     - spawnDefaultWorld

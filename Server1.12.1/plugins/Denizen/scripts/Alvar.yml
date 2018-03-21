@@ -126,7 +126,7 @@ tabernaend:
         entry:
           radius: 4
           Script:
-          - ^actionbar '<red>Alvar:<yellow> Al suelo!!'
+          - ^run 's@bookprelaunch'
 
 
 #TUTORIAL
@@ -216,6 +216,25 @@ stntaberna:
   - '<dark_aqua>Necesarios: <gold>800'
   - '<gray>Se han recolectado: <yellow><yaml[capitulo<player.name>].read[meslajho.materiales.tabernastn].asint>'
 
+bookprelaunch:
+    type: task
+    script:
+    - ^define old_slot <player.item_in_hand.slot>
+    - ^adjust <player> item_slot:9
+    - ^take <player.item_in_hand> qty:<player.item_in_hand.qty>
+    - ^give i@libroprelaunch slot:9
+    - ^adjust <player> open_book
+    - ^take slot:9
+    - ^give i@panelgui slot:9
+    - ^adjust <player> item_slot:%old_slot%
+    - ^queue clear
+
+libroprelaunch:
+  type: book
+  title: Quests!
+  author: Alvar
+  text:
+  - '<dark_red><player.name>.<p><black>Bienvenido al sistema de pruebas de Esparcraft<p>Ten en cuenta que este servidor es para revisar bugs asi que todo tu progreso sera borrado al final'
 
 
 bookinicial:

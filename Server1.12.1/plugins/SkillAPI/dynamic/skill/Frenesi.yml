@@ -37,6 +37,24 @@ Frenesi:
   - '&2Multiplo: {attr:multifren.multiplier}'
   desc:  []
   components: 
+    Cast: 
+      type: 'trigger'
+      indicator: '3D'
+      data: 
+        icon-key: ''
+        indicator: '2D'
+      children: 
+        Flag-v: 
+          type: 'mechanic'
+          indicator: '3D'
+          data: 
+            icon-key: 'timefren'
+            counts: 'True'
+            key: 'activfren'
+            seconds-base: '2'
+            seconds-scale: '1'
+            indicator: '2D'
+          children:  {}
     Physical Damage: 
       type: 'trigger'
       indicator: '3D'
@@ -261,21 +279,3 @@ Frenesi:
                         duration-scale: '0'
                         indicator: '2D'
                       children:  {}
-    Cast: 
-      type: 'trigger'
-      indicator: '3D'
-      data: 
-        icon-key: ''
-        indicator: '2D'
-      children: 
-        Flag-v: 
-          type: 'mechanic'
-          indicator: '3D'
-          data: 
-            icon-key: 'timefren'
-            counts: 'True'
-            key: 'activfren'
-            seconds-base: '2'
-            seconds-scale: '1'
-            indicator: '2D'
-          children:  {}

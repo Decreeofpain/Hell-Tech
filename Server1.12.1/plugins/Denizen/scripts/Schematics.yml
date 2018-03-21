@@ -1,13 +1,13 @@
 #/ex note cu@0,0,0,world|5,5,5,world as:REMARKABLECUBOID101
-#    - ^schematic create name:rulbertfrst cu@bosquemes location:129,96,-412,Esparcraft
+#    - ^schematic create name:rulbertfrst cu@bosqueoak location:129,96,-412,Esparcraft
 #/ex narrate <global.flag[NPCDESPAWN1].expiration.formatted>
 Schematics:
   type: world
   events:
-    on player enters mineria:
+    on player enters minacobblestone:
     - ^title "title:<green>Mina" "subtitle:<gold>Aqui puedes extraer piedra y carbon."
-    on player enters bosquemes:
-    - ^title "title:<green>Bosque Rulber" "subtitle:<gold>Aqui puedes extraer madera." 
+    on player enters bosqueoak:
+    - ^title "title:<green>Bosque de Meslajho" "subtitle:<gold>Aqui puedes extraer madera."
     on player enters minafusgrel:
     - ^title "title:<green>Mina Fusgrel" "subtitle:<gold>Aqui puedes extraer granito y hierro."
     on player enters minaorath:
@@ -25,31 +25,25 @@ Schematics:
     - ^title "title:<green>Mina Ungoloz" "subtitle:<gold>Aqui puedes extraer oro."
     on player enters minavisener:
     - ^title "title:<green>Mina Visener" "subtitle:<gold>Aqui puedes extraer oro."
-    
+
 
     on 8:00 in Esparcraft:
-    - ^if <cu@mineria.get_blocks[stone].size> < 12489 {
-      - ^schematic load name:mineria
-      - ^schematic paste name:mineria location:<cu@mineria.min>
-      - ^schematic unload name:mineria
-      - ^foreach <cu@mineria.list_players> {
+    - ^if <cu@minacobblestone.get_blocks[stone].size> < 40000 {
+      - ^schematic load name:minacobblestone
+      - ^schematic paste name:minacobblestone location:<cu@minacobblestone.min>
+      - ^schematic unload name:minacobblestone
+      - ^foreach <cu@minacobblestone.list_players> {
         - ^title "title:<green>Wymond" "subtitle:<gold>La mina fue restaurada" stay:10s
         }
-      - ^teleport <cu@mineria.list_players> dmineria
+      - ^teleport <cu@minacobblestone.list_players> dminacobblestone
       }
 
     on 7:00 in Esparcraft:
-    - if <cu@bosquemes.get_blocks[log].size> >= 10000 {
-      - ^run 's@OpenBosqueFulbert'
-      - ^flag <global> dungeonsclose:<-:bosquemeslajho
-      }
-    - if <cu@bosquemes.get_blocks[log].size> < 10000 && <global.flag[dungeonsclose].as_list> !contains bosquemeslajho {
-      - ^teleport <cu@bosquemes.list_players> dbosquemeslajho
-      - ^flag <global> dungeonsclose:->:bosquemeslajho
-      - ^schematic load name:rulbertfrst
-      - ^schematic paste name:rulbertfrst location:<cu@bosquemes.min>
-      - ^schematic unload name:rulbertfrst
-      - ^run 's@CloseBosqueFulbert'
+    - if <cu@bosqueoak.get_blocks[log].size> < 330 {
+      - ^teleport <cu@bosqueoak.list_players> dbosqueoak
+      - ^schematic load name:bosqueoak
+      - ^schematic paste name:bosqueoak location:<cu@bosqueoak.min>
+      - ^schematic unload name:bosqueoak
       }
     - if <cu@minaormel.get_blocks[stone].size> < 41900 {
       - ^teleport <cu@minaormel.list_players> dminaormel

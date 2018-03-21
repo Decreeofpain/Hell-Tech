@@ -566,3 +566,34 @@ almakos:
   lore:
   - '<green>Como conseguir dinero en el servidor'
   - '<green>las formas mas rapidas de hacerlo'
+
+torch_light_world:
+    type: world
+    debug: false
+    events:
+        on player steps on block:
+        - if <player.has_flag[torch_light_prev]> {
+          - light <context.previous_location> reset
+          - flag player torch_light_prev:!
+          }
+        - if <player.item_in_hand.material.name||null> == torch || <player.item_in_offhand.material.name||null> == torch {
+          - light <context.location.add[0,1,0]> 14
+          - flag player torch_light_prev
+          }
+        on player quits:
+        - if <player.has_flag[torch_light_prev]> {
+          - light <context.previous_location> reset
+          - flag player torch_light_prev:!
+          }
+        on player death:
+        - if <player.has_flag[torch_light_prev]> {
+          - light <context.previous_location> reset
+          - flag player torch_light_prev:!
+          }
+
+torch_light_version:
+  type: version
+  name: Torch Light
+  id: 13
+  description: Lights your way!
+  version: 1.2
