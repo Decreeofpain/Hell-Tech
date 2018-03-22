@@ -3,7 +3,7 @@ options:
 ## Should the plugin be in debug mode?
 ## If you want help with the plugin in the Discord channel,
 ## please turn this setting on.
-  debug: true
+  debug: false
   hooking:
 ## Should the plugin hook into mcMMO and cancel
 ## mcMMO's repair event? This is available
@@ -66,23 +66,23 @@ drops:
 ## This is the chance for a mob to get items at all.
 ## This is also coincidentally the chance for a mob
 ## to get an item with a tier.
-  item-chance: 1.0
+  item-chance: 0.05
 ## If a mob does not receive an item with a tier,
 ## this is the chance for a mob to spawn with a
 ## custom item.
-  custom-item-chance: 0.1
+  custom-item-chance: 0.0
 ## If a mob does not receive an item with a tier
 ## or a custom item, this is the chance for a mob
 ## to spawn with a socket gem.
-  socket-gem-chance: 0.2
+  socket-gem-chance: 0.0
 ## If a mob does not receive an item with a tier
 ## a custom item, or a socket gem, this is the chance for a mob
 ## to spawn with an unidentified item.
-  unidentified-item-chance: 0.1
+  unidentified-item-chance: 0.0001
 ## If a mob does not receive an item with a tier
 ## a custom item, a socket gem, or an unidentified item,
 ## this is the chance for a mob to spawn with an identity tome.
-  identity-tome-chance: 0.1
+  identity-tome-chance: 0.0001
 components:
 ## Should creatures be able to spawn with items?
   creature-spawning-enabled: true

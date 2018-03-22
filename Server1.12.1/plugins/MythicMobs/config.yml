@@ -1,14 +1,15 @@
-# 
-# CONFIGURATION INFORMATION AVAILABLE AT: http://xikage.elseland.net/mythicmobs/
+#
+# CONFIGURATION INFORMATION AVAILABLE AT: http://www.mythicmobs.net
 
 Configuration:
-  Version: 2.4
+  Version: 4.4
   General:
-    AllowMetrics: false
+    AllowMetrics: true
     CheckForUpdates: true
     CompatibilityMode: true
     DebugLevel: 0
-    ErrorLogging: false
+    ErrorLogging: true
+    Language: enUS
     UseVolatileFeatures: true
   Clock:
     ClockInterval: 5
@@ -20,12 +21,14 @@ Configuration:
     CustomSpawners: true
     RandomSpawning: true
   Mobs:
+    DespawnByDefault: true
     EnableAIModifiers: true
     EnableTimerSkills: true
     EnableThreatTables: true
     EnablePlayerFactions: true
     EnableLegacySkills: true
     KillMessagePrefix: ''
+    PreventOtherDropsByDefault: false
     ShowHealth:
       Radius: 25
       Format: <mob.name> - <mob.php> (<mob.hp> / <mob.mhp>)
@@ -35,13 +38,13 @@ Configuration:
         PerBlocksFromSpawn: 6
     DefaultLevelModifiers:
       Health: 2
-      Armor: 0.0
-      Damage: 0.0
-      KnockbackResistance: 0.0
+      Armor: 0
+      Damage: 0
+      KnockbackResistance: 0
       Power: 1
   RandomSpawning:
-    GenerateSpawnPoints: true
-    MaxMobsPerChunk: 60
+    GenerateSpawnPoints: false
+    MaxMobsPerChunk: 80
     SpawnRadiusPerPlayer: 64
     SpawnRadiusPerPlayerY: 32
     DespawnLazyRandomMobs: true
@@ -55,11 +58,11 @@ Configuration:
   Compatibility:
     Heroes:
       Enabled: false
-      ShowXPMessage: false
+      ShowXPMessage: true
       XPMessageFormat: You receive <drops.xp> experience for slaying <mob.name>
     McMMO:
       Enabled: false
-      ShowXPMessage: false
+      ShowXPMessage: true
       XPMessageFormat: You receive <drops.xp> experience for slaying <mob.name>
     SkillAPI:
       Enabled: true

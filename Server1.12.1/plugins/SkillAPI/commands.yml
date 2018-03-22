@@ -51,6 +51,14 @@ info:
   sender: 'ANYONE'
   enabled: 'true'
   cooldown: 0
+  messages: 
+    title: '&8--&2 {player} &8-----------'
+    separator: '&8----------------------------'
+    category: '&6{group}&7: '
+    no-class: '&7Not Professed'
+    end: '&8----------------------------'
+    profession: '&bLv{level} &2{profession}'
+    exp: '&bExp &2{exp}'
 level: 
   name: 'level'
   description: 'Gives players levels'
@@ -110,8 +118,6 @@ profess:
   enabled: 'true'
   cooldown: 0
   messages: 
-    invalid-class: '&cThat is not a valid class'
-    not-available: "&cThere's no profession available at this time"
     professed: '&2You are now a &6{class}'
 reload: 
   name: 'reload'
@@ -143,8 +149,6 @@ skill:
   sender: 'PLAYER_ONLY'
   enabled: 'true'
   cooldown: 0
-  messages: 
-    no-skills: '&cYou have no skills to view'
 unbind: 
   name: 'unbind'
   description: 'Unbinds held item'
@@ -225,8 +229,6 @@ ap:
   sender: 'ANYONE'
   enabled: 'true'
   cooldown: 0
-  messages: 
-    received-points: '&2You have received &6{points} attribute points &2from &6{player}'
 attr: 
   name: 'attr'
   description: 'Opens attribute menu'

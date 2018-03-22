@@ -63,7 +63,7 @@ Targeting:
   player-ally: 'false'
 
   # Whether or not to check for player allies via Parties
-  parties-ally: 'true'
+  parties-ally: 'false'
 
 Saving: 
 
@@ -481,7 +481,7 @@ Experience:
   exp-message-enabled: 'false'
 
   # Whether or not to display a message when gaining a level
-  level-message-enabled: 'false'
+  level-message-enabled: 'true'
 
   # Whether or not to show a message when losing exp de to dying
   lose-exp-message: 'true'
@@ -502,33 +502,33 @@ Experience:
   # The experience yields from each mob type
   # When exp orbs are enabled, these values are ignored
   yields: 
-    blaze: '0'
-    cavespider: '0'
-    creeper: '0'
-    elderguardian: '0'
-    enderdragon: '0'
-    enderman: '0'
-    endermite: '0'
-    evoker: '0'
-    ghast: '0'
-    giant: '0'
-    guardian: '0'
-    husk: '0'
-    irongolem: '0'
-    magmacube: '0'
-    pigzombie: '0'
-    player: '0'
-    shulker: '0'
-    silverfish: '0'
-    skeleton: '0'
-    slime: '0'
-    spider: '0'
-    stray: '0'
-    vex: '0'
-    vindicator: '0'
-    witch: '0'
-    wither: '0'
-    witherskeleton: ''
+    blaze: '10'
+    cavespider: '5'
+    creeper: '3'
+    elderguardian: '10'
+    enderdragon: '400'
+    enderman: '5'
+    endermite: '3'
+    evoker: '10'
+    ghast: '5'
+    giant: '20'
+    guardian: '10'
+    husk: '2'
+    irongolem: '10'
+    magmacube: '1'
+    pigzombie: '5'
+    player: '5'
+    shulker: '5'
+    silverfish: '2'
+    skeleton: '3'
+    slime: '1'
+    spider: '3'
+    stray: '5'
+    vex: '3'
+    vindicator: '5'
+    witch: '3'
+    wither: '500'
+    witherskeleton: '5'
     zombie: '0'
 
 # How much logging to do when loading SkillAPI
