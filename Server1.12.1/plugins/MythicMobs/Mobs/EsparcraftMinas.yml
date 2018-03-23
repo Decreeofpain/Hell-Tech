@@ -1,12 +1,12 @@
-# 
+#
 # These example files show you some of the basic attributes and
 # skills MythicMobs can use. Far more is possible!
-ZomMeslajho:
+ZomMinaMeslajho:
   MobType: ZOMBIE
   Health: 6
   Damage: 2
   LevelModifiers:
-    Health: 2
+    Health: 8
     Power: 1
   Options:
     MovementSpeed: 0.15
@@ -19,14 +19,14 @@ ZomMeslajho:
   - cobblestone 2 1
   - coal 1 0.1
   Skills:
-  - damage{amount=0.25} @target ~onAttack
+  - damage{amount=6} @target ~onAttack
 
-ZomRulber:
+ZomBosqMeslajho:
   MobType: ZOMBIE
   Health: 6
   Damage: 2
   LevelModifiers:
-    Health: 2
+    Health: 8
     Power: 1
   Options:
     PreventOtherDrops: true
@@ -37,34 +37,33 @@ ZomRulber:
   Drops:
   - 17 2 1
   Skills:
-  - damage{amount=0.25} @target ~onAttack
+  - damage{amount=6} @target ~onAttack
 
-ZomFusgrel:
+ZomBosqSpruce:
   MobType: ZOMBIE
-  Health: 20
+  Health: 80
   Damage: 3
   LevelModifiers:
-    Health: 2
+    Health: 8
     Power: 1
   Options:
     PreventOtherDrops: true
   Display: '&aNauseabundo &6lvl &a- &7[&4<mob.level>&7]&f'
   DropsPerLevel:
   - skillapi-exp 2 1
-  - money 0.50 1
+  - money 1 1
   Drops:
-  - 1:1 2 1
-  - 15 1 1
+  - 17:1 2 1
   Skills:
-  - damage{amount=0.25} @target ~onAttack
-  - potion{type=POISON;lvl=2;duration=100} @target ~onAttack
+  - damage{amount=6} @target ~onAttack
+  - potion{type=POISON;lvl=1;duration=20} @target ~onAttack
 
 ZomOrath:
   MobType: ZOMBIE
   Health: 30
   Damage: 4
   LevelModifiers:
-    Health: 2
+    Health: 8
     Power: 1
   Options:
     PreventOtherDrops: true
@@ -75,5 +74,5 @@ ZomOrath:
   Drops:
   - 82 2 1
   Skills:
-  - damage{amount=0.25} @target ~onAttack
+  - damage{amount=6} @target ~onAttack
   - potion{type=SLOW;lvl=5;duration=80} @target ~onAttack

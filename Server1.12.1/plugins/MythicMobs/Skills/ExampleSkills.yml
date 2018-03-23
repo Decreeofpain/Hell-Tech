@@ -1,4 +1,4 @@
-# 
+#
 # These example files show you some VERY basic meta skills.
 # You can copy and expand them however you'd like.
 # Conducta Skills
@@ -47,7 +47,7 @@ SmashAttack:
   - teleport @target
   - effect:sound{s=mob.endermen.portal;volume=1.0;pitch=0.5}
   - delay 10
-  - damage{amount=0.125} @PlayersInRadius{r=5}
+  - damage{amount=4} @PlayersInRadius{r=5}
   - throw{velocity=10;velocityY=5} @PlayersInRadius{r=5}
   - effect:explosion @Self
 SummonSkeletons:
@@ -63,7 +63,7 @@ SummonSkeletons:
 AngrySludgePoison:
   Cooldown: 10
   Skills:
-  - potion{type=POISON;lvl=2;duration=100} @PlayersInRadius{r=15}
+  - potion{type=POISON;lvl=3;duration=150} @PlayersInRadius{r=15}
   - effect:particles{p=happyVillager;amount=1000;hSpread=15;ySpread=1;speed=0;yOFfset=0.5} @Self
 SummonEsbirros1:
   Cooldown: 15

@@ -5,7 +5,10 @@ groups:
       default: true
       suffix: '&7'
     permissions:
-    - trading.trade
+    - simpletrading.trade.initiate
+    - simpletrading.trade.initiate.shift
+    - simpletrading.trade.accept
+    - simpletrading.trade.deny
     - keep.inventory
     - authme.player.*
     - dxl.play

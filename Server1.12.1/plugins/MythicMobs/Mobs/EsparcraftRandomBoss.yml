@@ -1,4 +1,4 @@
-# 
+#
 # These example files show you some of the basic attributes and
 # skills MythicMobs can use. Far more is possible!
 Aracboss1:
@@ -6,7 +6,7 @@ Aracboss1:
   Health: 60
   Damage: 5
   LevelModifiers:
-    Health: 2
+    Health: 16
     Power: 1
   Display: '&5Girsha &7lvl &6- &8[&4<mob.level>&8]&f'
   Options:
@@ -18,10 +18,10 @@ Aracboss1:
   - summon{mob=Aracboss1esbirro;amount=1;radius=5} @PIR{r=10} >0 0.25
   - message{m="<mob.name>&f<&co> &4Mi Veneno te Matara!"} @PlayersInRadius{r=5} ~onAttack >0 0.1
   - message{m="<mob.name>&f<&co> &4Esto Posiblemente te Duela... mucho..."} @PlayersInRadius{r=5} ~onAttack >0 0.1
-  - damage{amount=0.25} @target ~onAttack
+  - damage{amount=8} @target ~onAttack
   DropsPerLevel:
   - skillapi-exp 1 1
-  - money 0.25 1
+  - money 2 1
 
 Aracboss1esbirro:
   MobType: CAVE_SPIDER
@@ -29,9 +29,9 @@ Aracboss1esbirro:
   Damage: 2
   Skills:
   - potion{type=POISON;duration4;level=1} @target ~onAttack >0 0.9
-  - damage{amount=0.25} @target ~onAttack
+  - damage{amount=8} @target ~onAttack
   LevelModifiers:
-    Health: 2
+    Health: 8
     Power: 1
   Display: '&7Cria &7lvl &6- &8[&4<mob.level>&8]&f'
   Options:
@@ -39,7 +39,7 @@ Aracboss1esbirro:
     MaxCombatDistance: 15
   DropsPerLevel:
   - skillapi-exp 1 1
-  - money 0.25 1
+  - money 1 1
 
 Aeon:
   Type: WITHER_SKELETON
@@ -51,12 +51,12 @@ Aeon:
   - message{m="<mob.name><&co> Ahahahahah! Muere, <trigger.name>!"} @PlayersInRadius{r=30} ~onPlayerKill >0 1
   - skill{s=SummonSkeletons} @Self 0.25
   - skill{s=SmashAttack} @Target >0 0.2
-  - damage{amount=0.25} @target ~onAttack
+  - damage{amount=8} @target ~onAttack
   LevelModifiers:
-    Health: 2
+    Health: 16
     Power: 1
-#  Equipment:
-#  - Iron_Sword:0
+  Equipment:
+  - Iron_Sword:0
   Options:
     AlwaysShowName: true
     MovementSpeed: 0.2
@@ -64,31 +64,34 @@ Aeon:
     PreventOtherDrops: true
   DropsPerLevel:
   - skillapi-exp 1 1
-  - money 0.25 1
+  - money 2 1
 
 AeonMinion:
   Type: SKELETON
   Display: '&8Esbirro &7lvl &6- &8[&4<mob.level>&8]&f'
-  Health: 20
+  Health: 160
   Damage: 3
   Options:
     MovementSpeed: 0.1
     MaxCombatDistance: 25
     PreventOtherDrops: true
   LevelModifiers:
-    Health: 2
+    Health: 8
     Power: 1
   DropsPerLevel:
   - skillapi-exp 1 1
-  - money 0.25 1
+  - money 1 1
   Skills:
-  - damage{amount=0.25} @target ~onAttack
+  - damage{amount=4} @target ~onAttack
 
 SlimeOP:
   Type: SLIME
   Display: '&aB&2lozz &7lvl &6- &8[&4<mob.level>&8]&f'
   Health: 80
   Damage: 2
+  LevelModifiers:
+    Health: 16
+    Power: 1
   Options:
     Size: 15
     MovementSpeed: 0.1
@@ -97,18 +100,18 @@ SlimeOP:
     KnockbackResistance: 2
   Skills:
   - skill{s=AngrySludgePoison} 0.25
-  - damage{amount=0.25} @target ~onAttack
-  LevelModifiers:
-    Health: 2
-    Power: 1
+  - damage{amount=8} @target ~onAttack
 
 Gigante:
   Type: GIANT
   Display: '&aSuper Geedo &7lvl &6- &8[&4<mob.level>&8]&f'
-  Health: 250
+  Health: 1650
   Damage: 6
   Despawn: false
   Persistent: false
+  LevelModifiers:
+    Health: 18
+    Power: 1
   Equipment:
   - Iron_Sword:0
   AIGoalSelectors:
@@ -124,10 +127,7 @@ Gigante:
     KnockbackResistance: 2
   Skills:
   - skill{s=SummonEsbirros1} @Self ~onDeath
-  - damage{amount=0.25} @target ~onAttack
-  LevelModifiers:
-    Health: 2
-    Power: 1
+  - damage{amount=10} @target ~onAttack
 
 Zombiesbirrogiant1:
   Type: ZOMBIE
@@ -142,18 +142,18 @@ Zombiesbirrogiant1:
     PreventOtherDrops: true
   Skills:
   - skill{s=SummonEsbirros2} @Self ~onDeath
-  - damage{amount=0.25} @target ~onAttack
+  - damage{amount=4} @target ~onAttack
   LevelModifiers:
-    Health: 2
+    Health: 8
     Power: 1
   DropsPerLevel:
   - skillapi-exp 1 1
-  - money 0.25 1
+  - money 2 1
 
 Zombiesbirrogiant2:
   Type: BABY_ZOMBIE
   Display: '&aGeedito &7lvl &6- &8[&4<mob.level>&8]&f'
-  Health: 20
+  Health: 160
   Damage: 2
   Equipment:
   - Wood_Sword:0
@@ -162,10 +162,10 @@ Zombiesbirrogiant2:
     MaxCombatDistance: 25
     PreventOtherDrops: true
   LevelModifiers:
-    Health: 2
+    Health: 4
     Power: 1
   DropsPerLevel:
   - skillapi-exp 1 1
-  - money 0.25 1
+  - money 2 1
   Skills:
-  - damage{amount=0.25} @target ~onAttack
+  - damage{amount=2} @target ~onAttack
