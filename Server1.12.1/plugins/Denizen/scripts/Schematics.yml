@@ -5,7 +5,9 @@ Schematics:
   type: world
   events:
     on player enters minacobblestone:
-    - ^title "title:<green>Mina" "subtitle:<gold>Aqui puedes extraer piedra y carbon."
+    - ^title "title:<green>Mina" "subtitle:<gold>Aqui puedes extraer piedra."
+    on player enters minacoal:
+    - ^title "title:<green>Mina Abandonada" "subtitle:<gold>Aqui puedes extraer carbon."
     on player enters bosqueoak:
     - ^title "title:<green>Bosque de Meslajho" "subtitle:<gold>Aqui puedes extraer madera."
     on player enters bosquespruce:
@@ -36,6 +38,15 @@ Schematics:
         - ^title "title:<green>Wymond" "subtitle:<gold>La mina fue restaurada" stay:10s
         }
       - ^teleport <cu@minacobblestone.list_players> dminacobblestone
+      }
+    - ^if <cu@minacoal.get_blocks[stone].size> < 5600 {
+      - ^schematic load name:minacoal
+      - ^schematic paste name:minacoal location:<cu@minacoal.min>
+      - ^schematic unload name:minacoal
+      - ^foreach <cu@minacoal.list_players> {
+        - ^title "title:<green>Wymond" "subtitle:<gold>La mina fue restaurada" stay:10s
+        }
+      - ^teleport <cu@minacoal.list_players> dminacoal
       }
     - queue clear
 

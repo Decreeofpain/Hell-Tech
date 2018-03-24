@@ -1,0 +1,24 @@
+03-23 16:25:21 database: close
+org.h2.message.DbException: IO Exception: "java.io.IOException: La operación solicitada no se puede realizar en un archivo con una sección asignada a usuario abierta"; "C:/Users/94396/Documents/GitHub/Hell-Tech/Server1.12.1/plugins/Craftconomy3/database.h2.db" [90031-187]
+	at org.h2.message.DbException.get(DbException.java:168)
+	at org.h2.message.DbException.convertIOException(DbException.java:330)
+	at org.h2.store.FileStore.setLength(FileStore.java:361)
+	at org.h2.store.PageStore.compact(PageStore.java:648)
+	at org.h2.engine.Database.closeOpenFilesAndUnlock(Database.java:1332)
+	at org.h2.engine.Database.close(Database.java:1262)
+	at org.h2.engine.Database.removeSession(Database.java:1146)
+	at org.h2.engine.Session.close(Session.java:712)
+	at org.h2.jdbc.JdbcConnection.close(JdbcConnection.java:384)
+	at com.greatmancode.com.zaxxer.libs.hikari.pool.PoolBase.quietlyCloseConnection(PoolBase.java:113)
+	at com.greatmancode.com.zaxxer.libs.hikari.pool.HikariPool$1.run(HikariPool.java:420)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
+	at java.lang.Thread.run(Unknown Source)
+Caused by: org.h2.jdbc.JdbcSQLException: IO Exception: "java.io.IOException: La operación solicitada no se puede realizar en un archivo con una sección asignada a usuario abierta"; "C:/Users/94396/Documents/GitHub/Hell-Tech/Server1.12.1/plugins/Craftconomy3/database.h2.db" [90031-187]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:345)
+	... 14 more
+Caused by: java.io.IOException: La operación solicitada no se puede realizar en un archivo con una sección asignada a usuario abierta
+	at java.io.RandomAccessFile.setLength(Native Method)
+	at org.h2.store.fs.FileDisk.truncate(FilePathDisk.java:439)
+	at org.h2.store.FileStore.setLength(FileStore.java:356)
+	... 11 more
