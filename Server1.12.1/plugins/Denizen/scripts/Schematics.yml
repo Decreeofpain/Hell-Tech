@@ -12,8 +12,8 @@ Schematics:
     - ^title "title:<green>Bosque de Meslajho" "subtitle:<gold>Aqui puedes extraer madera."
     on player enters bosquespruce:
     - ^title "title:<green>Bosque de coniferas" "subtitle:<gold>Aqui puedes extraer madera de pino."
-    on player enters minafusgrel:
-    - ^title "title:<green>Mina Fusgrel" "subtitle:<gold>Aqui puedes extraer granito y hierro."
+    on player enters farmmelon:
+    - ^title "title:<green>Molino de viento" "subtitle:<gold>Aqui puedes plantar melones."
     on player enters minaorath:
     - ^title "title:<green>Mina Orath" "subtitle:<gold>Aqui puedes extraer arcilla."
     on player enters arena1:
@@ -83,11 +83,11 @@ Schematics:
 
 
     on 9:00 in Esparcraft:
-    - ^if <cu@minafusgrel.get_blocks[stone].size> < 25831 {
-      - ^teleport <cu@minafusgrel.list_players> dminafusgrel
-      - ^schematic load name:minafusgrel
-      - ^schematic paste name:minafusgrel location:<cu@minafusgrel.min>
-      - ^schematic unload name:minafusgrel
+    - ^if <cu@farmmelon.get_blocks[60].size> < 420 {
+      - ^teleport <cu@farmmelon.list_players> dfarmmelon
+      - ^schematic load name:farmmelon
+      - ^schematic paste name:farmmelon location:<cu@farmmelon.min>
+      - ^schematic unload name:farmmelon
       }
     - queue clear
 

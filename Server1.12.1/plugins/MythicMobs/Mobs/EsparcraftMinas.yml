@@ -16,8 +16,7 @@ ZomMinaMeslajho:
   - skillapi-exp 2 1
   - money 0.50 1
   Drops:
-  - cobblestone 2 1
-  - coal 1 0.1
+  - cobblestone 2 0.5
   Skills:
   - damage{amount=6} @target ~onAttack
 
@@ -35,7 +34,7 @@ ZomBosqMeslajho:
   - skillapi-exp 2 1
   - money 0.50 1
   Drops:
-  - 17 2 1
+  - 17 2 0.5
   Skills:
   - damage{amount=6} @target ~onAttack
 
@@ -53,12 +52,12 @@ ZomBosqSpruce:
   - skillapi-exp 2 1
   - money 1 1
   Drops:
-  - 17:1 2 1
+  - 17:1 2 0.5
   Skills:
   - damage{amount=6} @target ~onAttack
   - potion{type=POISON;lvl=1;duration=20} @target ~onAttack
 
-ZomOrath:
+ZomMinaCoal:
   MobType: ZOMBIE
   Health: 30
   Damage: 4
@@ -72,7 +71,25 @@ ZomOrath:
   - skillapi-exp 2 1
   - money 0.50 1
   Drops:
-  - 82 2 1
+  - 263 2 0.5
+  Skills:
+  - damage{amount=6} @target ~onAttack
+  - potion{type=SLOW;lvl=5;duration=80} @target ~onAttack
+ZomFarmMelon:
+  MobType: ZOMBIE
+  Health: 30
+  Damage: 4
+  LevelModifiers:
+    Health: 8
+    Power: 1
+  Options:
+    PreventOtherDrops: true
+  Display: '&6A&cpestado &6lvl &a- &7[&4<mob.level>&7]&f'
+  DropsPerLevel:
+  - skillapi-exp 2 1
+  - money 0.50 1
+  Drops:
+  - 360 2 0.5
   Skills:
   - damage{amount=6} @target ~onAttack
   - potion{type=SLOW;lvl=5;duration=80} @target ~onAttack
