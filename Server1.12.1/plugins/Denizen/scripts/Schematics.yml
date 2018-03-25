@@ -8,6 +8,8 @@ Schematics:
     - ^title "title:<green>Mina" "subtitle:<gold>Aqui puedes extraer piedra."
     on player enters minacoal:
     - ^title "title:<green>Mina Abandonada" "subtitle:<gold>Aqui puedes extraer carbon."
+    on player enters minasand:
+    - ^title "title:<green>Mina Abandonada" "subtitle:<gold>Aqui puedes extraer arena."
     on player enters bosqueoak:
     - ^title "title:<green>Bosque de Meslajho" "subtitle:<gold>Aqui puedes extraer madera."
     on player enters bosquespruce:
@@ -88,6 +90,12 @@ Schematics:
       - ^schematic load name:farmmelon
       - ^schematic paste name:farmmelon location:<cu@farmmelon.min>
       - ^schematic unload name:farmmelon
+      }
+    - ^if <cu@minasand.get_blocks[12].size> < 10000 {
+      - ^teleport <cu@minasand.list_players> dminasand
+      - ^schematic load name:minasand
+      - ^schematic paste name:minasand location:<cu@minasand.min>
+      - ^schematic unload name:minasand
       }
     - queue clear
 
