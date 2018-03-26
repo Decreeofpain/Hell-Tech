@@ -6,42 +6,41 @@ ZomMinaMeslajho:
   Health: 6
   Damage: 2
   LevelModifiers:
-    Health: 8
+    Health: 4
     Power: 1
   Options:
     MovementSpeed: 0.15
     PreventOtherDrops: true
   Display: '&aExcavador &6lvl &a- &7[&4<mob.level>&7]&f'
   DropsPerLevel:
-  - skillapi-exp 2 1
+  - skillapi-exp 0.5 1
   - money 0.50 1
   Drops:
   - cobblestone 2 0.5
   Skills:
-  - damage{amount=6} @target ~onAttack
-
+  - damage{amount=2} @target ~onAttack
 ZomBosqMeslajho:
   MobType: ZOMBIE
-  Health: 6
+  Health: 4
   Damage: 2
   LevelModifiers:
-    Health: 8
+    Health: 4
     Power: 1
   Options:
     PreventOtherDrops: true
   Display: '&aCaminante &6lvl &a- &7[&4<mob.level>&7]&f'
   DropsPerLevel:
-  - skillapi-exp 2 1
+  - skillapi-exp 0.5 1
   - money 0.50 1
   Drops:
   - 17 2 0.5
   Skills:
-  - damage{amount=6} @target ~onAttack
+  - damage{amount=2} @target ~onAttack
 
 ZomBosqSpruce:
   MobType: ZOMBIE
-  Health: 80
-  Damage: 3
+  Health: 8
+  Damage: 4
   LevelModifiers:
     Health: 8
     Power: 1
@@ -49,24 +48,78 @@ ZomBosqSpruce:
     PreventOtherDrops: true
   Display: '&aNauseabundo &6lvl &a- &7[&4<mob.level>&7]&f'
   DropsPerLevel:
-  - skillapi-exp 2 1
+  - skillapi-exp 1 1
   - money 1 1
   Drops:
   - 17:1 2 0.5
   Skills:
-  - damage{amount=6} @target ~onAttack
+  - damage{amount=4} @target ~onAttack
   - potion{type=POISON;lvl=1;duration=20} @target ~onAttack
-
 ZomMinaCoal:
   MobType: ZOMBIE
-  Health: 30
+  Health: 8
   Damage: 4
   LevelModifiers:
     Health: 8
     Power: 1
   Options:
     PreventOtherDrops: true
-  Display: '&6D&cescarnado &6lvl &a- &7[&4<mob.level>&7]&f'
+  Display: '&aDescarnado &6lvl &a- &7[&4<mob.level>&7]&f'
+  DropsPerLevel:
+  - skillapi-exp 1 1
+  - money 1 1
+  Drops:
+  - 263 2 0.5
+  Skills:
+  - damage{amount=4} @target ~onAttack
+  - potion{type=POISON;lvl=1;duration=20} @target ~onAttack
+ZomFarmMelon:
+  MobType: ZOMBIE
+  Health: 8
+  Damage: 4
+  LevelModifiers:
+    Health: 8
+    Power: 1
+  Options:
+    PreventOtherDrops: true
+  Display: '&aApestado &6lvl &a- &7[&4<mob.level>&7]&f'
+  DropsPerLevel:
+  - skillapi-exp 1 1
+  - money 1 1
+  Drops:
+  - 360 2 0.5
+  Skills:
+  - damage{amount=4} @target ~onAttack
+  - potion{type=POISON;lvl=1;duration=20} @target ~onAttack
+
+ZomBosqBirch:
+  MobType: ZOMBIE
+  Health: 10
+  Damage: 4
+  LevelModifiers:
+    Health: 10
+    Power: 1
+  Options:
+    PreventOtherDrops: true
+  Display: '&6D&cislocado &6lvl &a- &7[&4<mob.level>&7]&f'
+  DropsPerLevel:
+  - skillapi-exp 2 1
+  - money 2 1
+  Drops:
+  - 17:1 2 0.5
+  Skills:
+  - damage{amount=6} @target ~onAttack
+  - potion{type=SLOW;lvl=5;duration=80} @target ~onAttack
+ZomMinaSand:
+  MobType: ZOMBIE
+  Health: 10
+  Damage: 4
+  LevelModifiers:
+    Health: 10
+    Power: 1
+  Options:
+    PreventOtherDrops: true
+  Display: '&6C&cercenado &6lvl &a- &7[&4<mob.level>&7]&f'
   DropsPerLevel:
   - skillapi-exp 2 1
   - money 0.50 1
@@ -75,16 +128,16 @@ ZomMinaCoal:
   Skills:
   - damage{amount=6} @target ~onAttack
   - potion{type=SLOW;lvl=5;duration=80} @target ~onAttack
-ZomFarmMelon:
+ZomFarmCarrot:
   MobType: ZOMBIE
-  Health: 30
+  Health: 10
   Damage: 4
   LevelModifiers:
-    Health: 8
+    Health: 10
     Power: 1
   Options:
     PreventOtherDrops: true
-  Display: '&6A&cpestado &6lvl &a- &7[&4<mob.level>&7]&f'
+  Display: '&6C&canalla &6lvl &a- &7[&4<mob.level>&7]&f'
   DropsPerLevel:
   - skillapi-exp 2 1
   - money 0.50 1

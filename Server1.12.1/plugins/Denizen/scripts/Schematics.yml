@@ -14,10 +14,12 @@ Schematics:
     - ^title "title:<green>Bosque de Meslajho" "subtitle:<gold>Aqui puedes extraer madera."
     on player enters bosquespruce:
     - ^title "title:<green>Bosque de coniferas" "subtitle:<gold>Aqui puedes extraer madera de pino."
+    on player enters bosquespruce:
+    - ^title "title:<green>Bosque de Blanco" "subtitle:<gold>Aqui puedes extraer madera de abedul."
     on player enters farmmelon:
     - ^title "title:<green>Molino de viento" "subtitle:<gold>Aqui puedes plantar melones."
-    on player enters minaorath:
-    - ^title "title:<green>Mina Orath" "subtitle:<gold>Aqui puedes extraer arcilla."
+    on player enters farmcarrot:
+    - ^title "title:<green>Molino de viento" "subtitle:<gold>Aqui puedes plantar Zanahorias y C. de azucar"
     on player enters arena1:
     - ^title "title:<green>Arena" "subtitle:<gold>Aqui puedes demostrar tu destreza."
     - ^flag <player> inarena:true
@@ -37,77 +39,75 @@ Schematics:
       - ^schematic paste name:minacobblestone location:<cu@minacobblestone.min>
       - ^schematic unload name:minacobblestone
       - ^foreach <cu@minacobblestone.list_players> {
-        - ^title "title:<green>Wymond" "subtitle:<gold>La mina fue restaurada" stay:10s
+        - ^title "title:<green>Restableciendo" "subtitle:<gold>La mina de piedra!" stay:10s
         }
       - ^teleport <cu@minacobblestone.list_players> dminacobblestone
       }
+    - wait 2
     - ^if <cu@minacoal.get_blocks[stone].size> < 5600 {
       - ^schematic load name:minacoal
       - ^schematic paste name:minacoal location:<cu@minacoal.min>
       - ^schematic unload name:minacoal
       - ^foreach <cu@minacoal.list_players> {
-        - ^title "title:<green>Wymond" "subtitle:<gold>La mina fue restaurada" stay:10s
+        - ^title "title:<green>Restableciendo" "subtitle:<gold>La mina de carbon" stay:10s
         }
       - ^teleport <cu@minacoal.list_players> dminacoal
+      }
+    - wait 2
+    - ^if <cu@minasand.get_blocks[12].size> < 10000 {
+      - ^schematic load name:minasand
+      - ^schematic paste name:minasand location:<cu@minasand.min>
+      - ^schematic unload name:minasand
+      - ^foreach <cu@minasand.list_players> {
+        - ^title "title:<green>Restableciendo" "subtitle:<gold>La cantera de arena" stay:10s
+        }
+      - ^teleport <cu@minasand.list_players> dminasand
       }
     - queue clear
 
     on 7:00 in Esparcraft:
     - if <cu@bosqueoak.get_blocks[log].size> < 330 {
-      - ^teleport <cu@bosqueoak.list_players> dbosqueoak
       - ^schematic load name:bosqueoak
       - ^schematic paste name:bosqueoak location:<cu@bosqueoak.min>
       - ^schematic unload name:bosqueoak
+      - ^foreach <cu@bosqueoak.list_players> {
+        - ^title "title:<green>Restableciendo" "subtitle:<gold>El bosque de meslajho" stay:10s
+        }
+      - ^teleport <cu@bosqueoak.list_players> dbosqueoak
       }
     - wait 2
-    - if <cu@bosquespruce.get_blocks[log].size> < 1721 {
-      - ^teleport <cu@bosquespruce.list_players> dbosquespruce
+    - if <cu@bosquespruce.get_blocks[log].size> < 1000 {
       - ^schematic load name:bosquespruce
       - ^schematic paste name:bosquespruce location:<cu@bosquespruce.min>
       - ^schematic unload name:bosquespruce
+      - ^foreach <cu@bosquespruce.list_players> {
+        - ^title "title:<green>Restableciendo" "subtitle:<gold>El bosque de Coniferas" stay:10s
+        }
+      - ^teleport <cu@bosquespruce.list_players> dbosquespruce
       }
     - wait 2
-    - if <cu@minaungoloz.get_blocks[stone].size> < 6166 {
-      - ^teleport <cu@minaungoloz.list_players> dminaungoloz
-      - ^schematic load name:minaungoloz
-      - ^schematic paste name:minaungoloz location:<cu@minaungoloz.min>
-      - ^schematic unload name:minaungoloz
-      }
-    - wait 2
-    - if <cu@minavisener.get_blocks[stone].size> < 6166 {
-      - ^teleport <cu@minavisener.list_players> dminaungoloz
-      - ^schematic load name:minavisener
-      - ^schematic paste name:minavisener location:<cu@minavisener.min>
-      - ^schematic unload name:minavisener
+    - if <cu@bosquebirch.get_blocks[log].size> < 4000 {
+      - ^schematic load name:bosquebirch
+      - ^schematic paste name:bosquebirch location:<cu@bosquebirch.min>
+      - ^schematic unload name:bosquebirch
+      - ^foreach <cu@bosquebirch.list_players> {
+        - ^title "title:<green>Restableciendo" "subtitle:<gold>El bosque de Blanco" stay:10s
+        }
+      - ^teleport <cu@bosquebirch.list_players> dbosquespruce
       }
     - queue clear
-
 
 
     on 9:00 in Esparcraft:
     - ^if <cu@farmmelon.get_blocks[60].size> < 420 {
-      - ^teleport <cu@farmmelon.list_players> dfarmmelon
       - ^schematic load name:farmmelon
       - ^schematic paste name:farmmelon location:<cu@farmmelon.min>
       - ^schematic unload name:farmmelon
-      }
-    - ^if <cu@minasand.get_blocks[12].size> < 10000 {
-      - ^teleport <cu@minasand.list_players> dminasand
-      - ^schematic load name:minasand
-      - ^schematic paste name:minasand location:<cu@minasand.min>
-      - ^schematic unload name:minasand
+      - ^foreach <cu@bosquespruce.list_players> {
+        - ^title "title:<green>restableciendo" "subtitle:<gold>El molino de viento" stay:10s
+        }
+      - ^teleport <cu@farmmelon.list_players> dfarmmelon
       }
     - queue clear
 
-    on 10:00 in Esparcraft:
-    - if <cu@minaorath.get_blocks[82].size> < 30000 {
-      - ^schematic load name:minaclay
-      - ^schematic paste name:minaclay location:<cu@minaorath.min>
-      - ^schematic unload name:minaclay
-      - foreach <cu@minaorath.list_players> {
-        - ^title "title:<green>Wymond" "subtitle:<gold>La mina fue restaurada" stay:10s
-        }
-      - ^teleport <cu@minaorath.list_players> dminaorath
-      }
-    - queue clear
 #----------------------------------Mina Meslajho--------------------------------------------

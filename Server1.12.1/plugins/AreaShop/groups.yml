@@ -2,7 +2,26 @@ granjas:
   name: granjas
   priority: 1
   general:
-    flagProfile: flagProfile2
+    flagProfile:
+      forrent:
+        priority: 5
+        greeting: '[green]Renta[darkgreen] la [yellow]%region% [darkgreen]por [gold]%price% [darkgreen]durante [green]%duration%.'
+        entry: 'allow g:all'
+        use: 'deny g:all'
+        block-break: 'deny g:all'
+        block-place: 'deny g:all'
+        interact: 'deny g:all'
+        members: ''
+      rented:
+        priority: 5
+        greeting: '[darkgreen]La [green]%region% [darkgreen]se rento por [yellow]%player%[darkgreen], termina: [darkpurple]%untilshort%'
+        members: '%uuid%, %friendsuuid%'
+        use: 'deny g:non_members'
+        ride: 'deny g:non_members'
+        interact: 'deny g:non_members'
+        entry: 'deny g:non_members'
+        allow-block-break: 'potato g:members'
+        allow-block-place: 'potato g:members'
   rent:
     price: 500
     duration: 1 dia
