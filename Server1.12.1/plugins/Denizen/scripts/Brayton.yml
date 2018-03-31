@@ -55,12 +55,13 @@
             } else if <player.flag[profesion].as_list> contains Ganadero && <player.flag[profesion].as_list> contains Carnicero && <player.has_flag[profesion]> {
             - ^inventory open d:in@inv_brayton_ok
             }
-craft_armero:
+brayton_craft1task:
     type: task
     script:
-    - ^foreach li@i@oak_log|i@spruce_log|i@birch_log|i@jungle_log|i@acacia_log|i@aceiteroble|i@aceiteabeto|i@aceiteabedul|i@aceitejungla {
+    - ^foreach li@i@pieldepollo|i@spruce_log {
       - ^flag <player> <def[value].replace[regex:i@]>:<player.inventory.quantity[%value%]> duration:1s
       }
+    - ^queue clear
 braytonevents:
   type: world
   events:
@@ -68,49 +69,13 @@ braytonevents:
     - DETERMINE cancelled
     on player drags in inv_brayton:
     - DETERMINE cancelled
-    on player clicks infoquestprof in inv_brayton_ok:
+    on player clicks in inv_brayton_ok:
     - DETERMINE cancelled
-    on player drags infoquestprof in inv_brayton_ok:
+    on player drags in inv_brayton_ok:
     - DETERMINE cancelled
-    on player clicks infoquestmeswood in inv_brayton_meslajho:
+    on player clicks in inv_brayton_craft1:
     - DETERMINE cancelled
-    on player drags infoquestmeswood in inv_brayton_meslajho:
-    - DETERMINE cancelled
-    on player clicks in inv_profesionbraytoncraftcarp:
-    - DETERMINE cancelled
-    on player drags in inv_profesionbraytoncraftcarp:
-    - DETERMINE cancelled
-    on player clicks in inv_profesionbraytoncraftcarp2:
-    - DETERMINE cancelled
-    on player drags in inv_profesionbraytoncraftcarp2:
-    - DETERMINE cancelled
-    on player clicks in inv_profesionbraytoncraftcarp3:
-    - DETERMINE cancelled
-    on player drags in inv_profesionbraytoncraftcarp3:
-    - DETERMINE cancelled
-    on player clicks in inv_profesionbraytoncraftcarp4:
-    - DETERMINE cancelled
-    on player drags in inv_profesionbraytoncraftcarp4:
-    - DETERMINE cancelled
-    on player clicks in inv_profesionbraytonplacecarp:
-    - DETERMINE cancelled
-    on player drags in inv_profesionbraytonplacecarp:
-    - DETERMINE cancelled
-    on player clicks in inv_profesionbraytonplacecarp2:
-    - DETERMINE cancelled
-    on player drags in inv_profesionbraytonplacecarp2:
-    - DETERMINE cancelled
-    on player clicks in inv_profesionbraytonplacecarp3:
-    - DETERMINE cancelled
-    on player drags in inv_profesionbraytonplacecarp3:
-    - DETERMINE cancelled
-    on player clicks in inv_profesionbraytonbreackcarp:
-    - DETERMINE cancelled
-    on player drags in inv_profesionbraytonbreackcarp:
-    - DETERMINE cancelled
-    on player clicks in inv_profesionbraytonusecarp:
-    - DETERMINE cancelled
-    on player drags in inv_profesionbraytonusecarp:
+    on player drags in inv_brayton_craft1:
     - DETERMINE cancelled
 #
     on player clicks rechazarprof in inv_brayton:
@@ -120,37 +85,31 @@ braytonevents:
     - ^execute as_op "jobs employ <player.name> Carnicero" silent
     - ^flag <player> profesion:->:Carnicero
     - ^queue clear
-
-  ## Siguiente
-    on player clicks Siguiente in inv_profesionbraytoncraftcarp:
-    - ^inventory open d:in@inv_profesionbraytoncraftcarp2
-
-    on player clicks Siguiente in inv_profesionbraytonplacecarp:
-    - ^inventory open d:in@inv_profesionbraytonplacecarp2
+#  Listas de Crafteo
+    on player clicks cueroslist in inv_brayton_ok:
+    - ^run 's@brayton_craft1task'
+    - ^inventory open d:in@inv_brayton_craft1
+    - ^queue clear
+#  Crafteo de Items
+#  -- Cueros
+    on player right clicks cerpolloinfo in inv_brayton_craft1:
+    - ^if <player.inventory.quantity[i@pieldepollo]> >= 6 {
+      - ^inventory close d:in@inv_brayton_craft1
+      - ^actionbar "<gold>Brayton: <yellow>Creando... <player.name>"
+      - ^wait 2
+      - ^actionbar "<gold>Brayton: <yellow>Ya casi!"
+      - ^wait 1
+      - ^give i@cuerodepollo quantity:1
+      - ^take i@pieldepollo quantity:6
+      - ^run 's@brayton_craft1task'
+      - ^inventory open d:in@inv_brayton_craft1
+      - ^execute as_server "jobs grantxp <player.name> Carnicero 10" silent
+      }
+    - ^queue clear
 
   ## Atras
-    on player clicks Atras in inv_profesionbraytoncraftcarp2:
-    - ^inventory open d:in@inv_profesionbraytoncraftcarp
-
-    on player clicks Atras in inv_profesionbraytonplacecarp2:
-    - ^inventory open d:in@inv_profesionbraytonplacecarp
-
-  ## Regresar
-    on player clicks Regresar in inv_profesionbraytoncraftcarp:
-    - ^inventory open d:in@inv_profesionbrayton
-    on player clicks Regresar in inv_profesionbraytoncraftcarp2:
-    - ^inventory open d:in@inv_profesionbrayton
-
-    on player clicks Regresar in inv_profesionbraytonplacecarp:
-    - ^inventory open d:in@inv_profesionbrayton
-    on player clicks Regresar in inv_profesionbraytonplacecarp2:
-    - ^inventory open d:in@inv_profesionbrayton
-
-    on player clicks Regresar in inv_profesionbraytonbreackcarp:
-    - ^inventory open d:in@inv_profesionbrayton
-
-    on player clicks Regresar in inv_profesionbraytonusecarp:
-    - ^inventory open d:in@inv_profesionbrayton
+    on player clicks Atras in inv_brayton_craft1:
+    - ^inventory open d:in@inv_brayton_ok
 # =====================================================================
     on player clicks rechazarprof in inv_brayton_ok:
     - ^inventory close d:in@inv_brayton_ok
@@ -169,13 +128,16 @@ inv_brayton:
   - "[i@aceptarprof] [i@cancelslot] [i@rechazarprof]"
 inv_brayton_ok:
   type: inventory
-  inventory: dispenser
-  title: <gold>Depositar
+  title: '<dark_purple><magic>0<reset><gold>Carniceria<dark_purple><magic>0'
   size: 9
   slots:
-  - "[i@cancelslot] [i@cancelslot] [i@cancelslot]"
-  - "[i@cancelslot] [i@cancelslot] [i@cancelslot]"
-  - "[i@cancelslot] [i@cancelslot] [i@cancelslot]"
+  - "[i@cueroslist] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot]"
+inv_brayton_craft1:
+  type: inventory
+  title: '<dark_purple><magic>0<reset><gold>Cueros<dark_purple><magic>0'
+  size: 9
+  slots:
+  - "[i@cerpolloinfo] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@Atras]"
 
 
 ########### - brayton - #########
@@ -188,3 +150,24 @@ braytoninfo1:
   - '<gray>Los <yellow>Carniceros <gray>matan animales'
   - '<gray>para obtener partes adicionales'
   - '<gray>y crear cosas mas valiosas.'
+#---------------------------------------------ITEMS----------------------------------------------------
+#----Piezas de animales
+cueroslist:
+  type: item
+  material: 415
+  display name: '<gold>Lista de cueros'
+#
+#
+cerpolloinfo:
+  type: item
+  material: 415
+  display name: '<dark_green>Cuero de pollo'
+  lore:
+  - '<yellow>Requiere:'
+  - '<gray>Nivel para craftear: <yellow>1'
+  - '<gray>Piel de pollo estropeada: <yellow>6'
+  - ''
+  - '<gold>Materiales actuales:'
+  - '<yellow><player.flag[pieldepollo].asint><&pipe>6<gray> piel de pollo estropeada'
+  - ''
+  - '<green>Click <dark_green>derecho<green> para crear'

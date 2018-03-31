@@ -1,99 +1,266 @@
 "Jurian":
     type: assignment
-
     actions:
       on assignment:
-      - trigger name:CHAT toggle:true
-      - trigger name:click toggle:false
-      - trigger name:proximity toggle:true radius:2
-
-      on Build Complete:
-      - ^run 's@fraguaend'
+      - trigger name:CHAT toggle:false
+      - trigger name:click toggle:true
+      - trigger name:proximity toggle:true radius:3
 
     interact scripts:
-    - 18 Jurianscript
+    - 18 Jurianfraguador
+    - 16 jurianscript
 
-'Jurianscript':
+'Jurianfraguador':
   Type: Interact
-  Requirements:
-    Mode: all
-    List:
-    - valueof <global.flag[capitulos].contains[CAPITULO1P2OK]>
-    - -valueof <player.flag[progreso].contains[tutorial_ok]>
+  # Requirements:
+  #   Mode: all
+  #   List:
+  #   - valueof <global.flag[capitulos].contains[destroy]>
+  #   - valueof <player.flag[misiones].contains[destroy]>
+  #   - -valueof <global.flag[capitulos].contains[mesreconstruido]>
   Steps:
     '1':
       proximity trigger:
         entry:
           radius: 4
           Script:
-          - ^if <player.flag[misiones].as_list> contains tuto_02 && <player.flag[misiones].as_list> !contains tuto_03 {
-            - ^run 's@bookq2'
-            - ^flag <player> misiones:->:tuto_03
-            - ^playsound <player> sound:complete custom
-            - ^bossbar remove obj<player.name>
-            - ^define objetivo "<gold>Tutorial: <green>Visitar a <gold>Mack <green>en la armeria"
-            - ^flag <player> objetivo:<def[objetivo]>
-            - ^bossbar obj<player.name> players:<player> "title:<player.flag[objetivo]>" color:BLUE
-            - ^compass <npc.location.simple> npc:8
-            - ZAP step:2
+          - ^if <player.has_flag[profesion].not> {
+            - ^actionbar "<gold>Jurian: <yellow>Fuera!"
+            - ^queue clear
+            } else if <player.flag[profesion].as_list> !contains Minero && <player.has_flag[profesion]> {
+            - ^actionbar "<gold>Jurian: <yellow>Largo!"
+            - ^wait 2
+            - ^actionbar "<gold>Jurian: <yellow>Un maldito <dark_purple><player.flag[profesion].get[1]><yellow> no puede forjar"
+            - ^wait 2
+            - ^actionbar "<gold>Jurian: <yellow>las armaduras!"
+            - ^queue clear
+            } else if <player.flag[profesion].as_list> contains Minero && <player.has_flag[profesion]> && <player.flag[profesion].as_list> !contains Fraguador {
+            - ^actionbar "<gold>Jurian: <yellow>Al fin <player.name>!"
+            - ^wait 2
+            - ^actionbar "<gold>Jurian: <yellow>Quieres crear armas amigo?"
+            - ^wait 2
+            - ^actionbar "<gold>Jurian: <yellow>Yo se que si."
+            - ^queue clear
+            } else if <player.flag[profesion].as_list> contains Minero && <player.has_flag[profesion]> && <player.flag[profesion].as_list> contains Fraguador {
+            - ^actionbar "<gold>Jurian: <yellow>Hola <player.name> La fragua esta que arde."
+            - ^wait 2
+            - ^actionbar "<gold>Jurian: <yellow>Hay que martillar algunas armaduras!"
+            - ^queue clear
             }
-    '2':
-      proximity trigger:
-        entry:
-          radius: 4
-          Script:
-          - ^if <player.flag[misiones].as_list> contains tuto_03 && <player.flag[misiones].as_list> !contains tuto_04 {
-            - ^NARRATE "<green>Jurian: <gold><player.name> <yellow>Elije una <blue>Esencia <yellow>con <green>Mack"
-            - ^NARRATE "<green>Jurian: <yellow>buscalo en la armeria"
-            - ^compass <npc.location.simple> npc:8
+      click trigger:
+        Script:
+          - ^if <player.flag[profesion].as_list> contains Minero && <player.flag[profesion].as_list> !contains Fraguador && <player.has_flag[profesion]> {
+            - ^inventory open d:in@inv_jurian
+            - ^queue clear
+            } else if <player.flag[profesion].as_list> contains Minero && <player.flag[profesion].as_list> contains Fraguador && <player.has_flag[profesion]> {
+            - ^inventory open d:in@inv_jurian_ok
             }
-    '3':
-      proximity trigger:
-        entry:
-          radius: 4
-          Script:
-          - ^if <player.flag[misiones].as_list> contains tuto_03 && <player.flag[misiones].as_list> !contains tuto_04 {
-            - ^inventory open d:in@inv_pieles
-            }
-    '4':
-      proximity trigger:
-        entry:
-          radius: 4
-          Script:
-          - ^if <player.flag[misiones].as_list> contains tuto_04 && <player.flag[misiones].as_list> !contains tuto_05 {
-            - ^NARRATE "<green>Jurian: <gold><player.name> <yellow>visita a <gold>Hammon <yellow>en la herreria"
-            - ^compass <npc.location.simple> npc:10
-            }
-    '5':
-      proximity trigger:
-        entry:
-          radius: 4
-          Script:
-          - ^if <player.flag[misiones].as_list> contains tuto_04 && <player.flag[misiones].as_list> !contains tuto_05 {
-            - ^inventory open d:in@inv_armaduras
-            }
-    '6':
-      proximity trigger:
-        entry:
-          radius: 4
-          Script:
-          - ^if <player.flag[misiones].as_list> contains tuto_04 && <player.flag[misiones].as_list> !contains tuto_05 {
-            - NARRATE "<green>Jurian: <gold><player.name> <yellow>regresa con <gold>Hammon"
-            }
-
-fraguaend:
+jurian_craft1task:
     type: task
     script:
-    - ^schematic load name:fragua
-    - ^schematic paste name:fragua location:<cu@fragua.min>
-    - ^schematic unload name:fragua
-    - ^foreach <server.list_online_players> {
-      - ^title "title:<aqua>Jurian" "subtitle:<yellow>Fragua reconstruida" stay:5s targets:%value%
+    - ^foreach li@i@cuerodepollo|i@cebodepollo {
+      - ^flag <player> <def[value].replace[regex:i@]>:<player.inventory.quantity[%value%]> duration:1s
       }
-    - ^flag <server> tempmeslajho:->:fragua
-    - ^if <server.flag[tempmeslajho].as_list.contains[taberna|herreria|armeria|establo|cocina|arcano|fragua|deshuesadero|libreria|aserradero|cantera|molino]> {
-      - ^foreach li@n@1|n@2|n@3|n@5|n@6|n@7|n@8|n@9|n@10|n@35|n@66|n@85|n@91|n@94|n@96|n@99|n@100 {
-        - ^define npctarget %value%
-        - ^teleport <def[npctarget]> <def[npctarget].anchor[construct]>
-        }
+    - ^queue clear
+jurianevents:
+  type: world
+  events:
+    on player clicks in inv_jurian:
+    - DETERMINE cancelled
+    on player drags in inv_jurian:
+    - DETERMINE cancelled
+    on player clicks in inv_jurian_ok:
+    - DETERMINE cancelled
+    on player drags in inv_jurian_ok:
+    - DETERMINE cancelled
+    on player clicks in inv_jurian_craft1:
+    - DETERMINE cancelled
+    on player drags in inv_jurian_craft1:
+    - DETERMINE cancelled
+#
+    on player clicks rechazarprof in inv_jurian:
+    - ^inventory close d:in@inv_jurian
+    on player clicks aceptarprof in inv_jurian:
+    - ^inventory close d:in@inv_jurian
+    - ^execute as_op "jobs employ <player.name> Fraguador" silent
+    - ^flag <player> profesion:->:Fraguador
+    - ^queue clear
+#  Listas de Crafteo
+    on player clicks armaduraspiellist in inv_jurian_ok:
+    - ^run 's@jurian_craft1task'
+    - ^inventory open d:in@inv_jurian_craft1
+    - ^queue clear
+#  Crafteo de Items
+#  -- Cueros
+    on player right clicks capuchapielcomuninfo in inv_jurian_craft1:
+    - ^if <player.inventory.quantity[i@cuerodepollo]> >= 1 && <player.inventory.quantity[i@cebodepollo]> >= 3 {
+      - ^inventory close d:in@inv_jurian_craft1
+      - ^actionbar "<gold>Jurian: <yellow>Creando... <player.name>"
+      - ^wait 2
+      - ^actionbar "<gold>Jurian: <yellow>Ya casi!"
+      - ^wait 1
+      - ^execute as_op "md give <player.name> -t lhc"
+      - ^take i@cuerodepollo quantity:1
+      - ^take i@cebodepollo quantity:3
+      - ^run 's@jurian_craft1task'
+      - ^inventory open d:in@inv_jurian_craft1
+      - ^execute as_server "jobs grantxp <player.name> Fraguador 10" silent
       }
+    - ^queue clear
+    on player right clicks togapielcomuninfo in inv_jurian_craft1:
+    - ^if <player.inventory.quantity[i@cuerodepollo]> >= 3 && <player.inventory.quantity[i@cebodepollo]> >= 2 {
+      - ^inventory close d:in@inv_jurian_craft1
+      - ^actionbar "<gold>Jurian: <yellow>Creando... <player.name>"
+      - ^wait 2
+      - ^actionbar "<gold>Jurian: <yellow>Ya casi!"
+      - ^wait 1
+      - ^execute as_op "md give <player.name> -t lcc"
+      - ^take i@cuerodepollo quantity:3
+      - ^take i@cebodepollo quantity:2
+      - ^run 's@jurian_craft1task'
+      - ^inventory open d:in@inv_jurian_craft1
+      - ^execute as_server "jobs grantxp <player.name> Fraguador 10" silent
+      }
+    - ^queue clear
+    on player right clicks perneraspielcomuninfo in inv_jurian_craft1:
+    - ^if <player.inventory.quantity[i@cuerodepollo]> >= 2 && <player.inventory.quantity[i@cebodepollo]> >= 3 {
+      - ^inventory close d:in@inv_jurian_craft1
+      - ^actionbar "<gold>Jurian: <yellow>Creando... <player.name>"
+      - ^wait 2
+      - ^actionbar "<gold>Jurian: <yellow>Ya casi!"
+      - ^wait 1
+      - ^execute as_op "md give <player.name> -t llc"
+      - ^take i@cuerodepollo quantity:2
+      - ^take i@cebodepollo quantity:3
+      - ^run 's@jurian_craft1task'
+      - ^inventory open d:in@inv_jurian_craft1
+      - ^execute as_server "jobs grantxp <player.name> Fraguador 10" silent
+      }
+    - ^queue clear
+    on player right clicks sandaliaspielcomuninfo in inv_jurian_craft1:
+    - ^if <player.inventory.quantity[i@cuerodepollo]> >= 1 && <player.inventory.quantity[i@cebodepollo]> >= 2 {
+      - ^inventory close d:in@inv_jurian_craft1
+      - ^actionbar "<gold>Jurian: <yellow>Creando... <player.name>"
+      - ^wait 2
+      - ^actionbar "<gold>Jurian: <yellow>Ya casi!"
+      - ^wait 1
+      - ^execute as_op "md give <player.name> -t lbc"
+      - ^take i@cuerodepollo quantity:1
+      - ^take i@cebodepollo quantity:2
+      - ^run 's@jurian_craft1task'
+      - ^inventory open d:in@inv_jurian_craft1
+      - ^execute as_server "jobs grantxp <player.name> Fraguador 10" silent
+      }
+    - ^queue clear
+
+  ## Atras
+    on player clicks Atras in inv_jurian_craft1:
+    - ^inventory open d:in@inv_jurian_ok
+# =====================================================================
+    on player clicks rechazarprof in inv_jurian_ok:
+    - ^inventory close d:in@inv_jurian_ok
+    - ^DETERMINE cancelled
+
+
+# = INVENTARIOS
+inv_jurian:
+  type: inventory
+  inventory: dispenser
+  title: <gold>Fragua
+  size: 9
+  slots:
+  - "[i@cancelslot] [i@jurianinfo1] [i@cancelslot]"
+  - "[i@cancelslot] [i@cancelslot] [i@cancelslot]"
+  - "[i@aceptarprof] [i@cancelslot] [i@rechazarprof]"
+inv_jurian_ok:
+  type: inventory
+  title: '<dark_purple><magic>0<reset><gold>Fragua<dark_purple><magic>0'
+  size: 9
+  slots:
+  - "[i@armaduraspiellist] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot]"
+inv_jurian_craft1:
+  type: inventory
+  title: '<dark_purple><magic>0<reset><gold>Armaduras de Piel<dark_purple><magic>0'
+  size: 9
+  slots:
+  - "[i@capuchapielcomuninfo] [i@togapielcomuninfo] [i@perneraspielcomuninfo] [i@sandaliaspielcomuninfo] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@Atras]"
+
+
+########### - jurian - #########
+jurianinfo1:
+  type: item
+  material: paper
+  display name: '<blue>Fraguador'
+  lore:
+  - ''
+  - '<gray>Los <yellow>Fraguadores <gray>crean Armaduras'
+  - '<gray>para tus aliados preparandolos'
+  - '<gray>para la batalla.'
+#---------------------------------------------ITEMS----------------------------------------------------
+#----Piezas de animales
+armaduraspiellist:
+  type: item
+  material: 298
+  display name: '<gold>Lista de Armaduras de piel'
+#
+#
+capuchapielcomuninfo:
+  type: item
+  material: 298
+  display name: '<dark_green>Capucha de piel comun'
+  lore:
+  - '<yellow>Requiere:'
+  - '<gray>Nivel para craftear: <yellow>1'
+  - '<gray>Cuero de Pollo: <yellow>1'
+  - '<gray>Cebo de pollo: <yellow>3'
+  - ''
+  - '<gold>Materiales actuales:'
+  - '<yellow><player.flag[cuerodepollo].asint><&pipe>1<gray> Cuero de Pollo'
+  - '<yellow><player.flag[cebodepollo].asint><&pipe>3<gray> Cebo de pollo'
+  - ''
+  - '<green>Click <dark_green>derecho<green> para crear'
+togapielcomuninfo:
+  type: item
+  material: 299
+  display name: '<dark_green>Toga de piel comun'
+  lore:
+  - '<yellow>Requiere:'
+  - '<gray>Nivel para craftear: <yellow>1'
+  - '<gray>Cuero de Pollo: <yellow>3'
+  - '<gray>Cebo de pollo: <yellow>2'
+  - ''
+  - '<gold>Materiales actuales:'
+  - '<yellow><player.flag[cuerodepollo].asint><&pipe>3<gray> Cuero de Pollo'
+  - '<yellow><player.flag[cebodepollo].asint><&pipe>2<gray> Cebo de pollo'
+  - ''
+  - '<green>Click <dark_green>derecho<green> para crear'
+perneraspielcomuninfo:
+  type: item
+  material: 300
+  display name: '<dark_green>Perneras de piel comun'
+  lore:
+  - '<yellow>Requiere:'
+  - '<gray>Nivel para craftear: <yellow>1'
+  - '<gray>Cuero de Pollo: <yellow>2'
+  - '<gray>Cebo de pollo: <yellow>3'
+  - ''
+  - '<gold>Materiales actuales:'
+  - '<yellow><player.flag[cuerodepollo].asint><&pipe>2<gray> Cuero de Pollo'
+  - '<yellow><player.flag[cebodepollo].asint><&pipe>3<gray> Cebo de pollo'
+  - ''
+  - '<green>Click <dark_green>derecho<green> para crear'
+sandaliaspielcomuninfo:
+  type: item
+  material: 301
+  display name: '<dark_green>Sandalias de piel comun'
+  lore:
+  - '<yellow>Requiere:'
+  - '<gray>Nivel para craftear: <yellow>1'
+  - '<gray>Cuero de Pollo: <yellow>1'
+  - '<gray>Cebo de pollo: <yellow>2'
+  - ''
+  - '<gold>Materiales actuales:'
+  - '<yellow><player.flag[cuerodepollo].asint><&pipe>1<gray> Cuero de Pollo'
+  - '<yellow><player.flag[cebodepollo].asint><&pipe>2<gray> Cebo de pollo'
+  - ''
+  - '<green>Click <dark_green>derecho<green> para crear'
