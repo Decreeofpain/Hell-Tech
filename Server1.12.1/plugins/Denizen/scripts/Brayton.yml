@@ -1,0 +1,190 @@
+"Brayton":
+    type: assignment
+    actions:
+      on assignment:
+      - trigger name:CHAT toggle:false
+      - trigger name:click toggle:true
+      - trigger name:proximity toggle:true radius:3
+
+    interact scripts:
+    - 18 Braytoncarnicero
+    - 16 braytonscript
+
+'Braytoncarnicero':
+  Type: Interact
+  # Requirements:
+  #   Mode: all
+  #   List:
+  #   - valueof <global.flag[capitulos].contains[destroy]>
+  #   - valueof <player.flag[misiones].contains[destroy]>
+  #   - -valueof <global.flag[capitulos].contains[mesreconstruido]>
+  Steps:
+    '1':
+      proximity trigger:
+        entry:
+          radius: 4
+          Script:
+          - ^if <player.has_flag[profesion].not> {
+            - ^actionbar "<gold>Brayton: <yellow>Un tarado... genial!"
+            - ^queue clear
+            } else if <player.flag[profesion].as_list> !contains Ganadero && <player.has_flag[profesion]> {
+            - ^actionbar "<gold>Brayton: <yellow>Que haces aqui, largate a tu miserable taller..."
+            - ^wait 2
+            - ^actionbar "<gold>Brayton: <yellow>Hay si soy <dark_purple><player.flag[profesion].get[1]>..."
+            - ^wait 2
+            - ^actionbar "<gold>Brayton: <yellow>Largo maldita sea..."
+            - ^queue clear
+            } else if <player.flag[profesion].as_list> contains Ganadero && <player.has_flag[profesion]> && <player.flag[profesion].as_list> !contains Carnicero {
+            - ^actionbar "<gold>Brayton: <yellow>Hola <player.name> Bienvenido"
+            - ^wait 2
+            - ^actionbar "<gold>Brayton: <yellow>Yo se que quieres ser carnicero"
+            - ^wait 2
+            - ^actionbar "<gold>Brayton: <yellow>ANIMATE!"
+            - ^queue clear
+            } else if <player.flag[profesion].as_list> contains Ganadero && <player.has_flag[profesion]> && <player.flag[profesion].as_list> contains Carnicero {
+            - ^actionbar "<gold>Brayton: <yellow>Hola <player.name> Bienvenido"
+            - ^wait 2
+            - ^actionbar "<gold>Brayton: <yellow>Que cosas maravillosas crearas hoy"
+            - ^queue clear
+            }
+      click trigger:
+        Script:
+          - ^if <player.flag[profesion].as_list> contains Ganadero && <player.flag[profesion].as_list> !contains Carnicero && <player.has_flag[profesion]> {
+            - ^inventory open d:in@inv_brayton
+            - ^queue clear
+            } else if <player.flag[profesion].as_list> contains Ganadero && <player.flag[profesion].as_list> contains Carnicero && <player.has_flag[profesion]> {
+            - ^inventory open d:in@inv_brayton_ok
+            }
+craft_armero:
+    type: task
+    script:
+    - ^foreach li@i@oak_log|i@spruce_log|i@birch_log|i@jungle_log|i@acacia_log|i@aceiteroble|i@aceiteabeto|i@aceiteabedul|i@aceitejungla {
+      - ^flag <player> <def[value].replace[regex:i@]>:<player.inventory.quantity[%value%]> duration:1s
+      }
+braytonevents:
+  type: world
+  events:
+    on player clicks in inv_brayton:
+    - DETERMINE cancelled
+    on player drags in inv_brayton:
+    - DETERMINE cancelled
+    on player clicks infoquestprof in inv_brayton_ok:
+    - DETERMINE cancelled
+    on player drags infoquestprof in inv_brayton_ok:
+    - DETERMINE cancelled
+    on player clicks infoquestmeswood in inv_brayton_meslajho:
+    - DETERMINE cancelled
+    on player drags infoquestmeswood in inv_brayton_meslajho:
+    - DETERMINE cancelled
+    on player clicks in inv_profesionbraytoncraftcarp:
+    - DETERMINE cancelled
+    on player drags in inv_profesionbraytoncraftcarp:
+    - DETERMINE cancelled
+    on player clicks in inv_profesionbraytoncraftcarp2:
+    - DETERMINE cancelled
+    on player drags in inv_profesionbraytoncraftcarp2:
+    - DETERMINE cancelled
+    on player clicks in inv_profesionbraytoncraftcarp3:
+    - DETERMINE cancelled
+    on player drags in inv_profesionbraytoncraftcarp3:
+    - DETERMINE cancelled
+    on player clicks in inv_profesionbraytoncraftcarp4:
+    - DETERMINE cancelled
+    on player drags in inv_profesionbraytoncraftcarp4:
+    - DETERMINE cancelled
+    on player clicks in inv_profesionbraytonplacecarp:
+    - DETERMINE cancelled
+    on player drags in inv_profesionbraytonplacecarp:
+    - DETERMINE cancelled
+    on player clicks in inv_profesionbraytonplacecarp2:
+    - DETERMINE cancelled
+    on player drags in inv_profesionbraytonplacecarp2:
+    - DETERMINE cancelled
+    on player clicks in inv_profesionbraytonplacecarp3:
+    - DETERMINE cancelled
+    on player drags in inv_profesionbraytonplacecarp3:
+    - DETERMINE cancelled
+    on player clicks in inv_profesionbraytonbreackcarp:
+    - DETERMINE cancelled
+    on player drags in inv_profesionbraytonbreackcarp:
+    - DETERMINE cancelled
+    on player clicks in inv_profesionbraytonusecarp:
+    - DETERMINE cancelled
+    on player drags in inv_profesionbraytonusecarp:
+    - DETERMINE cancelled
+#
+    on player clicks rechazarprof in inv_brayton:
+    - ^inventory close d:in@inv_brayton
+    on player clicks aceptarprof in inv_brayton:
+    - ^inventory close d:in@inv_brayton
+    - ^execute as_op "jobs employ <player.name> Carnicero" silent
+    - ^flag <player> profesion:->:Carnicero
+    - ^queue clear
+
+  ## Siguiente
+    on player clicks Siguiente in inv_profesionbraytoncraftcarp:
+    - ^inventory open d:in@inv_profesionbraytoncraftcarp2
+
+    on player clicks Siguiente in inv_profesionbraytonplacecarp:
+    - ^inventory open d:in@inv_profesionbraytonplacecarp2
+
+  ## Atras
+    on player clicks Atras in inv_profesionbraytoncraftcarp2:
+    - ^inventory open d:in@inv_profesionbraytoncraftcarp
+
+    on player clicks Atras in inv_profesionbraytonplacecarp2:
+    - ^inventory open d:in@inv_profesionbraytonplacecarp
+
+  ## Regresar
+    on player clicks Regresar in inv_profesionbraytoncraftcarp:
+    - ^inventory open d:in@inv_profesionbrayton
+    on player clicks Regresar in inv_profesionbraytoncraftcarp2:
+    - ^inventory open d:in@inv_profesionbrayton
+
+    on player clicks Regresar in inv_profesionbraytonplacecarp:
+    - ^inventory open d:in@inv_profesionbrayton
+    on player clicks Regresar in inv_profesionbraytonplacecarp2:
+    - ^inventory open d:in@inv_profesionbrayton
+
+    on player clicks Regresar in inv_profesionbraytonbreackcarp:
+    - ^inventory open d:in@inv_profesionbrayton
+
+    on player clicks Regresar in inv_profesionbraytonusecarp:
+    - ^inventory open d:in@inv_profesionbrayton
+# =====================================================================
+    on player clicks rechazarprof in inv_brayton_ok:
+    - ^inventory close d:in@inv_brayton_ok
+    - ^DETERMINE cancelled
+
+
+# = INVENTARIOS
+inv_brayton:
+  type: inventory
+  inventory: dispenser
+  title: <gold>Carniceria
+  size: 9
+  slots:
+  - "[i@cancelslot] [i@braytoninfo1] [i@cancelslot]"
+  - "[i@cancelslot] [i@cancelslot] [i@cancelslot]"
+  - "[i@aceptarprof] [i@cancelslot] [i@rechazarprof]"
+inv_brayton_ok:
+  type: inventory
+  inventory: dispenser
+  title: <gold>Depositar
+  size: 9
+  slots:
+  - "[i@cancelslot] [i@cancelslot] [i@cancelslot]"
+  - "[i@cancelslot] [i@cancelslot] [i@cancelslot]"
+  - "[i@cancelslot] [i@cancelslot] [i@cancelslot]"
+
+
+########### - brayton - #########
+braytoninfo1:
+  type: item
+  material: paper
+  display name: '<blue>Carnicero'
+  lore:
+  - ''
+  - '<gray>Los <yellow>Carniceros <gray>matan animales'
+  - '<gray>para obtener partes adicionales'
+  - '<gray>y crear cosas mas valiosas.'

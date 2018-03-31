@@ -1,6 +1,20 @@
 #
 # These example files show you some of the basic attributes and
 # skills MythicMobs can use. Far more is possible!
+PolloMeslajho:
+  MobType: CHICKEN
+  Health: 6
+  Damage: 2
+  LevelModifiers:
+    Health: 4
+    Power: 1
+  Options:
+    PreventOtherDrops: true
+  Display: '&aPollo Domesticado'
+  DropsPerLevel:
+  - skillapi-exp 1 1
+  Drops:
+  - 365 1 1
 ZomMinaMeslajho:
   MobType: ZOMBIE
   Health: 6
@@ -14,7 +28,7 @@ ZomMinaMeslajho:
   Display: '&aExcavador &6lvl &a- &7[&4<mob.level>&7]&f'
   DropsPerLevel:
   - skillapi-exp 1 1
-  - money 0.5 1
+  - money 1 1
   Drops:
   - cobblestone 2 0.5
   Skills:
@@ -31,7 +45,7 @@ ZomBosqMeslajho:
   Display: '&aCaminante &6lvl &a- &7[&4<mob.level>&7]&f'
   DropsPerLevel:
   - skillapi-exp 1 1
-  - money 0.50 1
+  - money 1 1
   Drops:
   - 17 2 0.5
   Skills:

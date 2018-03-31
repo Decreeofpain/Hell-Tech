@@ -75,28 +75,28 @@ Global:
     on 19:00 in Esparcraft:
 # ============== PUENTES DE MESLAJHO ================
     - ^flag <global> puentesmesdeg:+:1
-    - ^if <global.flag[puentesmesdeg]> >= 16 {
+    - ^if <global.flag[puentesmesdeg]> >= 36 {
       - ^schematic load name:puentemes1off
       - ^schematic paste name:puentemes1off location:<cu@puente1mes.min>
       - ^schematic unload name:puentemes1off
       - ^schematic load name:puentemes2off
       - ^schematic paste name:puentemes2off location:<cu@puente2mes.min>
       - ^schematic unload name:puentemes2off
-      } else if <global.flag[puentesmesdeg]> == 12 {
+      } else if <global.flag[puentesmesdeg]> == 24 {
       - ^schematic load name:puentemes1deg3
       - ^schematic paste name:puentemes1deg3 location:<cu@puente1mes.min>
       - ^schematic unload name:puentemes1deg3
       - ^schematic load name:puentemes2deg3
       - ^schematic paste name:puentemes2deg3 location:<cu@puente2mes.min>
       - ^schematic unload name:puentemes2deg3
-      } else if <global.flag[puentesmesdeg]> == 8 {
+      } else if <global.flag[puentesmesdeg]> == 16 {
       - ^schematic load name:puentemes1deg2
       - ^schematic paste name:puentemes1deg2 location:<cu@puente1mes.min>
       - ^schematic unload name:puentemes1deg2
       - ^schematic load name:puentemes2deg2
       - ^schematic paste name:puentemes2deg2 location:<cu@puente2mes.min>
       - ^schematic unload name:puentemes2deg2
-      } else if <global.flag[puentesmesdeg]> == 4 {
+      } else if <global.flag[puentesmesdeg]> == 8 {
       - ^schematic load name:puentemes1deg1
       - ^schematic paste name:puentemes1deg1 location:<cu@puente1mes.min>
       - ^schematic unload name:puentemes1deg1
