@@ -102,3 +102,566 @@ loaded: 'true'
             classifier: 'default'
             indicator: '2D'
           children:  {}
+Peso: 
+  name: 'Peso'
+  type: 'Pasiva'
+  max-level: 1
+  skill-req: 'None'
+  skill-req-lvl: 0
+  needs-permission: 'false'
+  attributes: 
+    level-base: '1'
+    level-scale: '0'
+    cost-base: '0'
+    cost-scale: '0'
+    cooldown-base: '0'
+    cooldown-scale: '0'
+    mana-base: '0'
+    mana-scale: '0'
+    points-spent-req-base: '0'
+    points-spent-req-scale: '0'
+    incompatible: 
+    - ''
+  msg: '&6{player} &2has cast &6{skill}'
+  icon: 'JACK_O_LANTERN'
+  icon-data: 0
+  icon-lore: 
+  - '&d{name} &7({level}/{max})'
+  - '&2Type: &6{type}'
+  - ''
+  - '{req:level}Level: {attr:level}'
+  - '{req:cost}Cost: {attr:cost}'
+  - ''
+  - '&2Mana: {attr:mana}'
+  - '&2Cooldown: {attr:cooldown}'
+  desc:  []
+  components: 
+    Initialize: 
+      type: 'trigger'
+      indicator: '3D'
+      data: 
+        icon-key: ''
+        indicator: '2D'
+      children: 
+        Passive-b: 
+          type: 'mechanic'
+          indicator: '3D'
+          data: 
+            icon-key: ''
+            counts: 'True'
+            seconds-base: '1'
+            seconds-scale: '0'
+            indicator: '2D'
+          children: 
+            Inventory-c: 
+              type: 'condition'
+              indicator: '3D'
+              data: 
+                icon-key: ''
+                amount-base: '2176'
+                amount-scale: '0'
+                check-mat: 'False'
+                check-data: 'False'
+                check-lore: 'False'
+                check-name: 'False'
+                regex: 'False'
+                indicator: '2D'
+              children: 
+                Value Set-d: 
+                  type: 'mechanic'
+                  indicator: '3D'
+                  data: 
+                    icon-key: ''
+                    counts: 'True'
+                    key: 'pesomuerto'
+                    value-base: '1'
+                    value-scale: '0'
+                    indicator: '2D'
+                  children:  {}
+                Value Lore Slot-e: 
+                  type: 'mechanic'
+                  indicator: '3D'
+                  data: 
+                    icon-key: ''
+                    counts: 'True'
+                    key: 'pesomuerto'
+                    slot: '9'
+                    regex: 'Carga: {value}'
+                    multiplier-base: '1'
+                    multiplier-scale: '0'
+                    indicator: '2D'
+                  children:  {}
+                Value Multiply-f: 
+                  type: 'mechanic'
+                  indicator: '3D'
+                  data: 
+                    icon-key: ''
+                    counts: 'True'
+                    key: 'pesomuerto'
+                    multiplier-base: '0.00166'
+                    multiplier-scale: '0'
+                    indicator: '2D'
+                  children:  {}
+                Value-g: 
+                  type: 'condition'
+                  indicator: '3D'
+                  data: 
+                    icon-key: ''
+                    key: 'pesomuerto'
+                    min-value-base: '0'
+                    min-value-scale: '0'
+                    max-value-base: '0.16'
+                    max-value-scale: '0'
+                    indicator: '2D'
+                  children: 
+                    Speed-h: 
+                      type: 'mechanic'
+                      indicator: '3D'
+                      data: 
+                        icon-key: ''
+                        counts: 'True'
+                        multiplier-base: '0.1'
+                        multiplier-scale: '0'
+                        duration-base: '2'
+                        duration-scale: '1'
+                        indicator: '2D'
+                      children:  {}
+                    Message-i: 
+                      type: 'mechanic'
+                      indicator: '3D'
+                      data: 
+                        icon-key: ''
+                        counts: 'True'
+                        message: '0 - 0.16'
+                        indicator: '2D'
+                      children:  {}
+                Value-j: 
+                  type: 'condition'
+                  indicator: '3D'
+                  data: 
+                    icon-key: ''
+                    key: 'pesomuerto'
+                    min-value-base: '0.17'
+                    min-value-scale: '0'
+                    max-value-base: '0.33'
+                    max-value-scale: '0'
+                    indicator: '2D'
+                  children: 
+                    Speed-k: 
+                      type: 'mechanic'
+                      indicator: '3D'
+                      data: 
+                        icon-key: ''
+                        counts: 'True'
+                        multiplier-base: '0.3'
+                        multiplier-scale: '0'
+                        duration-base: '2'
+                        duration-scale: '1'
+                        indicator: '2D'
+                      children:  {}
+                    Message-l: 
+                      type: 'mechanic'
+                      indicator: '3D'
+                      data: 
+                        icon-key: ''
+                        counts: 'True'
+                        message: '0.17 - 0.33'
+                        indicator: '2D'
+                      children:  {}
+                Value-m: 
+                  type: 'condition'
+                  indicator: '3D'
+                  data: 
+                    icon-key: ''
+                    key: 'pesomuerto'
+                    min-value-base: '0.34'
+                    min-value-scale: '0'
+                    max-value-base: '0.5'
+                    max-value-scale: '0'
+                    indicator: '2D'
+                  children: 
+                    Speed-n: 
+                      type: 'mechanic'
+                      indicator: '3D'
+                      data: 
+                        icon-key: ''
+                        counts: 'True'
+                        multiplier-base: '0.5'
+                        multiplier-scale: '0'
+                        duration-base: '2'
+                        duration-scale: '1'
+                        indicator: '2D'
+                      children:  {}
+                    Message-o: 
+                      type: 'mechanic'
+                      indicator: '3D'
+                      data: 
+                        icon-key: ''
+                        counts: 'True'
+                        message: '0.34 - 0.5'
+                        indicator: '2D'
+                      children:  {}
+                Value-p: 
+                  type: 'condition'
+                  indicator: '3D'
+                  data: 
+                    icon-key: ''
+                    key: 'pesomuerto'
+                    min-value-base: '0.51'
+                    min-value-scale: '0'
+                    max-value-base: '0.66'
+                    max-value-scale: '0'
+                    indicator: '2D'
+                  children: 
+                    Speed-q: 
+                      type: 'mechanic'
+                      indicator: '3D'
+                      data: 
+                        icon-key: ''
+                        counts: 'True'
+                        multiplier-base: '0.7'
+                        multiplier-scale: '0'
+                        duration-base: '2'
+                        duration-scale: '1'
+                        indicator: '2D'
+                      children:  {}
+                    Message-r: 
+                      type: 'mechanic'
+                      indicator: '3D'
+                      data: 
+                        icon-key: ''
+                        counts: 'True'
+                        message: '0.51 - 0.66'
+                        indicator: '2D'
+                      children:  {}
+                Value-s: 
+                  type: 'condition'
+                  indicator: '3D'
+                  data: 
+                    icon-key: ''
+                    key: 'pesomuerto'
+                    min-value-base: '0.67'
+                    min-value-scale: '0'
+                    max-value-base: '0.83'
+                    max-value-scale: '0'
+                    indicator: '2D'
+                  children: 
+                    Speed-t: 
+                      type: 'mechanic'
+                      indicator: '3D'
+                      data: 
+                        icon-key: ''
+                        counts: 'True'
+                        multiplier-base: '0.8'
+                        multiplier-scale: '0'
+                        duration-base: '2'
+                        duration-scale: '1'
+                        indicator: '2D'
+                      children:  {}
+                    Message-u: 
+                      type: 'mechanic'
+                      indicator: '3D'
+                      data: 
+                        icon-key: ''
+                        counts: 'True'
+                        message: '0.67 - 0.83'
+                        indicator: '2D'
+                      children:  {}
+                Value-v: 
+                  type: 'condition'
+                  indicator: '3D'
+                  data: 
+                    icon-key: ''
+                    key: 'pesomuerto'
+                    min-value-base: '0.84'
+                    min-value-scale: '0'
+                    max-value-base: '0.99'
+                    max-value-scale: '0'
+                    indicator: '2D'
+                  children: 
+                    Speed-w: 
+                      type: 'mechanic'
+                      indicator: '3D'
+                      data: 
+                        icon-key: ''
+                        counts: 'True'
+                        multiplier-base: '0.9'
+                        multiplier-scale: '0'
+                        duration-base: '2'
+                        duration-scale: '1'
+                        indicator: '2D'
+                      children:  {}
+                    Message-x: 
+                      type: 'mechanic'
+                      indicator: '3D'
+                      data: 
+                        icon-key: ''
+                        counts: 'True'
+                        message: '0.54 - 0.99'
+                        indicator: '2D'
+                      children:  {}
+                Message-y: 
+                  type: 'mechanic'
+                  indicator: '3D'
+                  data: 
+                    icon-key: ''
+                    counts: 'True'
+                    message: '1276 Activo {pesomuerto}'
+                    indicator: '2D'
+                  children:  {}
+            Inventory-z: 
+              type: 'condition'
+              indicator: '3D'
+              data: 
+                icon-key: ''
+                amount-base: '1792'
+                amount-scale: '0'
+                check-mat: 'False'
+                check-data: 'False'
+                check-lore: 'False'
+                check-name: 'False'
+                regex: 'False'
+                indicator: '2D'
+              children: 
+                Value Set-ab: 
+                  type: 'mechanic'
+                  indicator: '3D'
+                  data: 
+                    icon-key: ''
+                    counts: 'True'
+                    key: 'pesomuerto'
+                    value-base: '1'
+                    value-scale: '0'
+                    indicator: '2D'
+                  children:  {}
+                Value Lore Slot-bb: 
+                  type: 'mechanic'
+                  indicator: '3D'
+                  data: 
+                    icon-key: ''
+                    counts: 'True'
+                    key: 'pesomuerto'
+                    slot: '9'
+                    regex: 'Carga: {value}'
+                    multiplier-base: '1'
+                    multiplier-scale: '0'
+                    indicator: '2D'
+                  children:  {}
+                Value Multiply-cb: 
+                  type: 'mechanic'
+                  indicator: '3D'
+                  data: 
+                    icon-key: ''
+                    counts: 'True'
+                    key: 'pesomuerto'
+                    multiplier-base: '0.002'
+                    multiplier-scale: '0'
+                    indicator: '2D'
+                  children:  {}
+                Value-db: 
+                  type: 'condition'
+                  indicator: '3D'
+                  data: 
+                    icon-key: ''
+                    key: 'pesomuerto'
+                    min-value-base: '0'
+                    min-value-scale: '0'
+                    max-value-base: '0.16'
+                    max-value-scale: '0'
+                    indicator: '2D'
+                  children: 
+                    Speed-eb: 
+                      type: 'mechanic'
+                      indicator: '3D'
+                      data: 
+                        icon-key: ''
+                        counts: 'True'
+                        multiplier-base: '0.1'
+                        multiplier-scale: '0'
+                        duration-base: '2'
+                        duration-scale: '1'
+                        indicator: '2D'
+                      children:  {}
+                    Message-fb: 
+                      type: 'mechanic'
+                      indicator: '3D'
+                      data: 
+                        icon-key: ''
+                        counts: 'True'
+                        message: '0 - 0.16'
+                        indicator: '2D'
+                      children:  {}
+                Value-gb: 
+                  type: 'condition'
+                  indicator: '3D'
+                  data: 
+                    icon-key: ''
+                    key: 'pesomuerto'
+                    min-value-base: '0.17'
+                    min-value-scale: '0'
+                    max-value-base: '0.33'
+                    max-value-scale: '0'
+                    indicator: '2D'
+                  children: 
+                    Speed-hb: 
+                      type: 'mechanic'
+                      indicator: '3D'
+                      data: 
+                        icon-key: ''
+                        counts: 'True'
+                        multiplier-base: '0.3'
+                        multiplier-scale: '0'
+                        duration-base: '2'
+                        duration-scale: '1'
+                        indicator: '2D'
+                      children:  {}
+                    Message-ib: 
+                      type: 'mechanic'
+                      indicator: '3D'
+                      data: 
+                        icon-key: ''
+                        counts: 'True'
+                        message: '0.17 - 0.33'
+                        indicator: '2D'
+                      children:  {}
+                Value-jb: 
+                  type: 'condition'
+                  indicator: '3D'
+                  data: 
+                    icon-key: ''
+                    key: 'pesomuerto'
+                    min-value-base: '0.34'
+                    min-value-scale: '0'
+                    max-value-base: '0.5'
+                    max-value-scale: '0'
+                    indicator: '2D'
+                  children: 
+                    Speed-kb: 
+                      type: 'mechanic'
+                      indicator: '3D'
+                      data: 
+                        icon-key: ''
+                        counts: 'True'
+                        multiplier-base: '0.5'
+                        multiplier-scale: '0'
+                        duration-base: '2'
+                        duration-scale: '1'
+                        indicator: '2D'
+                      children:  {}
+                    Message-lb: 
+                      type: 'mechanic'
+                      indicator: '3D'
+                      data: 
+                        icon-key: ''
+                        counts: 'True'
+                        message: '0.34 - 0.5'
+                        indicator: '2D'
+                      children:  {}
+                Value-mb: 
+                  type: 'condition'
+                  indicator: '3D'
+                  data: 
+                    icon-key: ''
+                    key: 'pesomuerto'
+                    min-value-base: '0.51'
+                    min-value-scale: '0'
+                    max-value-base: '0.66'
+                    max-value-scale: '0'
+                    indicator: '2D'
+                  children: 
+                    Speed-nb: 
+                      type: 'mechanic'
+                      indicator: '3D'
+                      data: 
+                        icon-key: ''
+                        counts: 'True'
+                        multiplier-base: '0.7'
+                        multiplier-scale: '0'
+                        duration-base: '2'
+                        duration-scale: '1'
+                        indicator: '2D'
+                      children:  {}
+                    Message-ob: 
+                      type: 'mechanic'
+                      indicator: '3D'
+                      data: 
+                        icon-key: ''
+                        counts: 'True'
+                        message: '0.51 - 0.66'
+                        indicator: '2D'
+                      children:  {}
+                Value-pb: 
+                  type: 'condition'
+                  indicator: '3D'
+                  data: 
+                    icon-key: ''
+                    key: 'pesomuerto'
+                    min-value-base: '0.67'
+                    min-value-scale: '0'
+                    max-value-base: '0.83'
+                    max-value-scale: '0'
+                    indicator: '2D'
+                  children: 
+                    Speed-qb: 
+                      type: 'mechanic'
+                      indicator: '3D'
+                      data: 
+                        icon-key: ''
+                        counts: 'True'
+                        multiplier-base: '0.8'
+                        multiplier-scale: '0'
+                        duration-base: '2'
+                        duration-scale: '1'
+                        indicator: '2D'
+                      children:  {}
+                    Message-rb: 
+                      type: 'mechanic'
+                      indicator: '3D'
+                      data: 
+                        icon-key: ''
+                        counts: 'True'
+                        message: '0.67 - 0.83'
+                        indicator: '2D'
+                      children:  {}
+                Value-sb: 
+                  type: 'condition'
+                  indicator: '3D'
+                  data: 
+                    icon-key: ''
+                    key: 'pesomuerto'
+                    min-value-base: '0.84'
+                    min-value-scale: '0'
+                    max-value-base: '0.99'
+                    max-value-scale: '0'
+                    indicator: '2D'
+                  children: 
+                    Speed-tb: 
+                      type: 'mechanic'
+                      indicator: '3D'
+                      data: 
+                        icon-key: ''
+                        counts: 'True'
+                        multiplier-base: '0.9'
+                        multiplier-scale: '0'
+                        duration-base: '2'
+                        duration-scale: '1'
+                        indicator: '2D'
+                      children:  {}
+                    Message-ub: 
+                      type: 'mechanic'
+                      indicator: '3D'
+                      data: 
+                        icon-key: ''
+                        counts: 'True'
+                        message: '0.54 - 0.99'
+                        indicator: '2D'
+                      children:  {}
+                Message-vb: 
+                  type: 'mechanic'
+                  indicator: '3D'
+                  data: 
+                    icon-key: ''
+                    counts: 'True'
+                    message: '1276 Activo {pesomuerto}'
+                    indicator: '2D'
+                  children:  {}
