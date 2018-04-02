@@ -18,8 +18,8 @@ regions:
             allow-block-break: [RED_ROSE, LOG, LEAVES, YELLOW_FLOWER]
             block-break: deny
             mob-spawning: allow
-            allow-block-place: [TORCH]
             block-place: deny
+            allow-block-place: [TORCH]
         owners: {}
         type: cuboid
         priority: 0
@@ -30,8 +30,8 @@ regions:
         flags:
             block-break: allow
             mob-spawning: allow
-            allow-block-place: [TORCH]
             block-place: deny
+            allow-block-place: [TORCH]
         owners: {}
         type: cuboid
         priority: 1
@@ -53,8 +53,8 @@ regions:
             allow-block-break: [LEAVES_2, LOG]
             block-break: deny
             mob-spawning: allow
-            allow-block-place: [TORCH]
             block-place: deny
+            allow-block-place: [TORCH]
         owners: {}
         type: cuboid
         priority: 1
@@ -325,12 +325,12 @@ regions:
             interact: deny
             entry-group: ALL
             ride: deny
-            allow-block-place: [POTATO]
             block-place: deny
+            allow-block-place: [POTATO]
             allow-block-break: [POTATO]
             ride-group: NON_MEMBERS
-            allow-block-place-group: MEMBERS
             entry: allow
+            allow-block-place-group: MEMBERS
             build: deny
             block-break: deny
             allow-block-break-group: MEMBERS
@@ -368,12 +368,12 @@ regions:
             interact: deny
             entry-group: ALL
             ride: deny
-            allow-block-place: [POTATO]
             block-place: deny
+            allow-block-place: [POTATO]
             allow-block-break: [POTATO]
             ride-group: NON_MEMBERS
-            allow-block-place-group: MEMBERS
             entry: allow
+            allow-block-place-group: MEMBERS
             build: deny
             block-break: deny
             allow-block-break-group: MEMBERS
@@ -411,12 +411,12 @@ regions:
             interact: deny
             entry-group: ALL
             ride: deny
-            allow-block-place: [CROPS]
             block-place: deny
+            allow-block-place: [CROPS]
             allow-block-break: [CROPS]
             ride-group: NON_MEMBERS
-            allow-block-place-group: MEMBERS
             entry: allow
+            allow-block-place-group: MEMBERS
             build: deny
             block-break: deny
             allow-block-break-group: MEMBERS
@@ -464,12 +464,12 @@ regions:
             interact: deny
             entry-group: ALL
             ride: deny
-            allow-block-place: [POTATO]
             block-place: deny
+            allow-block-place: [POTATO]
             allow-block-break: [POTATO]
             ride-group: NON_MEMBERS
-            allow-block-place-group: MEMBERS
             entry: allow
+            allow-block-place-group: MEMBERS
             build: deny
             block-break: deny
             allow-block-break-group: MEMBERS
@@ -594,8 +594,8 @@ regions:
             allow-block-break: [SAND]
             block-break: deny
             mob-spawning: allow
-            allow-block-place: [TORCH]
             block-place: deny
+            allow-block-place: [TORCH]
         owners: {}
         type: cuboid
         priority: 0
@@ -607,8 +607,8 @@ regions:
             allow-block-break: [SUGAR_CANE_BLOCK, CARROT]
             block-break: deny
             mob-spawning: allow
-            allow-block-place: [SUGAR_CANE_BLOCK, CARROT]
             block-place: deny
+            allow-block-place: [SUGAR_CANE_BLOCK, CARROT]
         owners: {}
         type: cuboid
         priority: 0
@@ -740,8 +740,8 @@ regions:
             allow-block-break: [LOG, LEAVES]
             block-break: deny
             mob-spawning: allow
-            allow-block-place: [TORCH]
             block-place: deny
+            allow-block-place: [TORCH]
         owners: {}
         type: cuboid
         priority: 0
@@ -772,8 +772,8 @@ regions:
         flags:
             block-break: allow
             mob-spawning: allow
-            allow-block-place: [TORCH]
             block-place: deny
+            allow-block-place: [TORCH]
         owners: {}
         type: cuboid
         priority: 0
@@ -785,8 +785,8 @@ regions:
             block-break: deny
             interact: allow
             mob-spawning: allow
-            allow-block-place: [MELON_BLOCK, MELON_STEM]
             block-place: deny
+            allow-block-place: [MELON_BLOCK, MELON_STEM]
         owners: {}
         type: poly2d
         priority: 0
@@ -828,7 +828,7 @@ regions:
         - {x: 2205, z: 1972}
     meslajho:
         members: {}
-        flags: {snow-fall: deny, snow-melt: deny, lava-flow: allow, pvp: deny, mob-spawning: deny}
+        flags: {snow-fall: deny, snow-melt: deny, pvp: deny, lava-flow: allow, mob-spawning: deny}
         owners: {}
         type: poly2d
         priority: 0
