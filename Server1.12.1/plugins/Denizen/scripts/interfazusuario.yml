@@ -1,13 +1,6 @@
 inv_guis_players:
   type: world
   events:
-    ############################## [Mythic MythicMobs]
-    ############################## [Custom drops]
-    ############################## [Items en "itemsEsparcraft"]
-    on mythicmob PolloMeslajho dies:
-    - drop i@pieldepollo <context.mob.entity.location>
-
-
     ##############################Block SLOT##
     on player joins:
 #    - ^if <player.inventory.slot[9].scriptname||false> != panel && !<player.inventory.contains[panelgui]> {

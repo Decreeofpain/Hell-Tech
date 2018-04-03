@@ -82,6 +82,10 @@ jurianevents:
     - ^inventory close d:in@inv_jurian
     on player clicks aceptarprof in inv_jurian:
     - ^inventory close d:in@inv_jurian
+    - ^if <player.flag[profesion].as_list> contains Armero {
+      - ^flag <player> profesion:<-:Armero
+      - ^execute as_op "jobs leave Armero" silent
+      }
     - ^execute as_op "jobs employ <player.name> Fraguador" silent
     - ^flag <player> profesion:->:Fraguador
     - ^queue clear

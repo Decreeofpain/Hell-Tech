@@ -82,6 +82,10 @@ rickerevents:
     - ^inventory close d:in@inv_ricker
     on player clicks aceptarprof in inv_ricker:
     - ^inventory close d:in@inv_ricker
+    - ^if <player.flag[profesion].as_list> contains Orfebrero {
+      - ^flag <player> profesion:<-:Orfebrero
+      - ^execute as_op "jobs leave Orfebrero" silent
+      }
     - ^execute as_op "jobs employ <player.name> Herboristero" silent
     - ^flag <player> profesion:->:Herboristero
     - ^queue clear

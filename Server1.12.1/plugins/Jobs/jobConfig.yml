@@ -3209,3 +3209,25 @@ Jobs:
     income-progression-equation: baseincome+(baseincome*(joblevel-1)*0.01)-((baseincome+(joblevel-1)*0.01) * ((numjobs-1)*0.05))
     points-progression-equation: basepoints+(basepoints*(joblevel-1)*0.01)-((basepoints+(joblevel-1)*0.01) * ((numjobs-1)*0.05))
     experience-progression-equation: baseexperience
+  Artesano:
+    fullname: Artesano
+    shortname: ART
+    description: Creacion de Tomos y pergaminos
+    ChatColour: DARK_GRAY
+    chat-display: full
+    #max-level: 10
+    leveling-progression-equation: 10*(joblevel)+(joblevel*joblevel*28)
+    income-progression-equation: baseincome+(baseincome*(joblevel-1)*0.01)-((baseincome+(joblevel-1)*0.01) * ((numjobs-1)*0.05))
+    points-progression-equation: basepoints+(basepoints*(joblevel-1)*0.01)-((basepoints+(joblevel-1)*0.01) * ((numjobs-1)*0.05))
+    experience-progression-equation: baseexperience
+  Orfebrero:
+    fullname: Orfebrero
+    shortname: OFB
+    description: Creacion de Tomos y pergaminos
+    ChatColour: DARK_GRAY
+    chat-display: full
+    #max-level: 10
+    leveling-progression-equation: 10*(joblevel)+(joblevel*joblevel*28)
+    income-progression-equation: baseincome+(baseincome*(joblevel-1)*0.01)-((baseincome+(joblevel-1)*0.01) * ((numjobs-1)*0.05))
+    points-progression-equation: basepoints+(basepoints*(joblevel-1)*0.01)-((basepoints+(joblevel-1)*0.01) * ((numjobs-1)*0.05))
+    experience-progression-equation: baseexperience

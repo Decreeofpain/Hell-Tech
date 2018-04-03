@@ -58,7 +58,7 @@
 ladislao_craft1task:
     type: task
     script:
-    - ^foreach li@i@yellow_flower|i@oak_log {
+    - ^foreach li@i@oak_log|i@cortezaroble {
       - ^flag <player> <def[value].replace[regex:i@]>:<player.inventory.quantity[%value%]> duration:1s
       }
     - ^queue clear
@@ -82,24 +82,29 @@ ladislaoevents:
     - ^inventory close d:in@inv_ladislao
     on player clicks aceptarprof in inv_ladislao:
     - ^inventory close d:in@inv_ladislao
+    - ^if <player.flag[profesion].as_list> contains Artesano {
+      - ^flag <player> profesion:<-:Artesano
+      - ^execute as_op "jobs leave Artesano" silent
+      }
     - ^execute as_op "jobs employ <player.name> Escriba" silent
     - ^flag <player> profesion:->:Escriba
     - ^queue clear
 #  Listas de Crafteo
-    on player clicks cortezaslist in inv_ladislao_ok:
+    on player clicks papeleslist in inv_ladislao_ok:
     - ^run 's@ladislao_craft1task'
     - ^inventory open d:in@inv_ladislao_craft1
     - ^queue clear
 #  Crafteo de Items
-#  -- Cueros
-    on player right clicks ctzrobleinfo in inv_ladislao_craft1:
-    - ^if <player.inventory.quantity[i@oak_log]> >= 64 {
+#  -- Papeles
+    on player right clicks papelastilladoinfo in inv_ladislao_craft1:
+    - ^if <player.inventory.quantity[i@oak_log]> >= 64 && <player.inventory.quantity[i@cortezaroble]> >= 1 {
       - ^inventory close d:in@inv_ladislao_craft1
       - ^actionbar "<gold>Ladislao: <yellow>Creando... <player.name>"
       - ^wait 2
       - ^actionbar "<gold>Ladislao: <yellow>Ya casi!"
       - ^wait 1
-      - ^give i@cortezaroble quantity:1
+      - ^give i@papelastillado quantity:1
+      - ^take i@cortezaroble quantity:1
       - ^take i@oak_log quantity:64
       - ^run 's@ladislao_craft1task'
       - ^inventory open d:in@inv_ladislao_craft1
@@ -131,13 +136,13 @@ inv_ladislao_ok:
   title: '<dark_purple><magic>0<reset><gold>Imprenta<dark_purple><magic>0'
   size: 9
   slots:
-  - "[i@cortezaslist] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot]"
+  - "[i@papeleslist] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot]"
 inv_ladislao_craft1:
   type: inventory
-  title: '<dark_purple><magic>0<reset><gold>Cortezas<dark_purple><magic>0'
+  title: '<dark_purple><magic>0<reset><gold>Papeles<dark_purple><magic>0'
   size: 9
   slots:
-  - "[i@ctzrobleinfo] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@Atras]"
+  - "[i@papelastilladoinfo] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@Atras]"
 
 
 ########### - ladislao - #########
@@ -151,23 +156,25 @@ ladislaoinfo1:
   - '<gray>y revelan magia para incripciones'
   - '<gray>muy poderosas.'
 #---------------------------------------------ITEMS----------------------------------------------------
-#----Piezas de animales
-cortezaslist:
+#----Papeles
+papeleslist:
   type: item
-  material: 17,0
-  display name: '<gold>Lista de Cortezas'
+  material: 339
+  display name: '<gold>Lista de Papeles'
 #
 #
-ctzrobleinfo:
+papelastilladoinfo:
   type: item
-  material: 17,0
-  display name: '<dark_green>Corteza de roble'
+  material: 339
+  display name: '<dark_green>Papel Astillado'
   lore:
   - '<yellow>Requiere:'
   - '<gray>Nivel para craftear: <yellow>1'
   - '<gray>Troncos de roble: <yellow>64'
+  - '<gray>Corteza de roble: <yellow>1'
   - ''
   - '<gold>Materiales actuales:'
   - '<yellow><player.flag[oak_log].asint><&pipe>64<gray> Troncos de roble'
+  - '<yellow><player.flag[cortezaroble].asint><&pipe>1<gray> Corteza de roble'
   - ''
   - '<green>Click <dark_green>derecho<green> para crear'

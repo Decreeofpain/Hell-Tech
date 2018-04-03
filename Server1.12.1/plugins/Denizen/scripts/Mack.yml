@@ -58,7 +58,14 @@
 mack_craft1task:
     type: task
     script:
-    - ^foreach li@i@emplastomaderico|i@cortezaroble {
+    - ^foreach li@i@pedruzcollameante|i@cortezaroble {
+      - ^flag <player> <def[value].replace[regex:i@]>:<player.inventory.quantity[%value%]> duration:1s
+      }
+    - ^queue clear
+mack_craft2task:
+    type: task
+    script:
+    - ^foreach li@i@cobblestone_slab|i@furnace {
       - ^flag <player> <def[value].replace[regex:i@]>:<player.inventory.quantity[%value%]> duration:1s
       }
     - ^queue clear
@@ -77,11 +84,19 @@ mackevents:
     - DETERMINE cancelled
     on player drags in inv_mack_craft1:
     - DETERMINE cancelled
+    on player clicks in inv_mack_craft2:
+    - DETERMINE cancelled
+    on player drags in inv_mack_craft2:
+    - DETERMINE cancelled
 #
     on player clicks rechazarprof in inv_mack:
     - ^inventory close d:in@inv_mack
     on player clicks aceptarprof in inv_mack:
     - ^inventory close d:in@inv_mack
+    - ^if <player.flag[profesion].as_list> contains Fraguador {
+      - ^flag <player> profesion:<-:Fraguador
+      - ^execute as_op "jobs leave Fraguador" silent
+      }
     - ^execute as_op "jobs employ <player.name> Armero" silent
     - ^flag <player> profesion:->:Armero
     - ^queue clear
@@ -90,26 +105,50 @@ mackevents:
     - ^run 's@mack_craft1task'
     - ^inventory open d:in@inv_mack_craft1
     - ^queue clear
+    on player clicks pedruzcoslist in inv_mack_ok:
+    - ^run 's@mack_craft2task'
+    - ^inventory open d:in@inv_mack_craft2
+    - ^queue clear
 #  Crafteo de Items
-#  -- Cueros
+#  -- Espadas
+#  --- Madera
+#  ---- Comun
     on player right clicks espmdrcomuninfo in inv_mack_craft1:
-    - ^if <player.inventory.quantity[i@emplastomaderico]> >= 3 && <player.inventory.quantity[i@cortezaroble]> >= 1 {
+    - ^if <player.inventory.quantity[i@pedruzcollameante]> >= 2 && <player.inventory.quantity[i@cortezaroble]> >= 2 {
       - ^inventory close d:in@inv_mack_craft1
       - ^actionbar "<gold>Mack: <yellow>Creando... <player.name>"
       - ^wait 2
       - ^actionbar "<gold>Mack: <yellow>Ya casi!"
       - ^wait 1
       - ^execute as_op "md give <player.name> -t ewc"
-      - ^take i@emplastomaderico quantity:3
-      - ^take i@cortezaroble quantity:1
+      - ^take i@pedruzcollameante quantity:2
+      - ^take i@cortezaroble quantity:2
       - ^run 's@mack_craft1task'
       - ^inventory open d:in@inv_mack_craft1
+      - ^execute as_server "jobs grantxp <player.name> Armero 10" silent
+      }
+    - ^queue clear
+#  -- Pedruzcos
+    on player right clicks pedruzcollameanteinfo in inv_mack_craft2:
+    - ^if <player.inventory.quantity[i@cobblestone_slab]> >= 64 && <player.inventory.quantity[i@furnace]> >= 2 {
+      - ^inventory close d:in@inv_mack_craft2
+      - ^actionbar "<gold>Mack: <yellow>Creando... <player.name>"
+      - ^wait 2
+      - ^actionbar "<gold>Mack: <yellow>Ya casi!"
+      - ^wait 1
+      - ^take i@cobblestone_slab quantity:64
+      - ^take i@furnace quantity:2
+      - ^give i@pedruzcollameante quantity:1
+      - ^run 's@mack_craft2task'
+      - ^inventory open d:in@inv_mack_craft2
       - ^execute as_server "jobs grantxp <player.name> Armero 10" silent
       }
     - ^queue clear
 
   ## Atras
     on player clicks Atras in inv_mack_craft1:
+    - ^inventory open d:in@inv_mack_ok
+    on player clicks Atras in inv_mack_craft2:
     - ^inventory open d:in@inv_mack_ok
 # =====================================================================
     on player clicks rechazarprof in inv_mack_ok:
@@ -132,13 +171,19 @@ inv_mack_ok:
   title: '<dark_purple><magic>0<reset><gold>Armeria<dark_purple><magic>0'
   size: 9
   slots:
-  - "[i@espadasmaderalist] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot]"
+  - "[i@espadasmaderalist] [i@pedruzcoslist] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot]"
 inv_mack_craft1:
   type: inventory
   title: '<dark_purple><magic>0<reset><gold>Espadas de Madera<dark_purple><magic>0'
   size: 9
   slots:
   - "[i@espmdrcomuninfo] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@Atras]"
+inv_mack_craft2:
+  type: inventory
+  title: '<dark_purple><magic>0<reset><gold>Pedruzcos<dark_purple><magic>0'
+  size: 9
+  slots:
+  - "[i@pedruzcollameanteinfo] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@Atras]"
 
 
 ########### - mack - #########
@@ -152,13 +197,19 @@ mackinfo1:
   - '<gray>que permiten estar mejor preparado'
   - '<gray>para la batalla.'
 #---------------------------------------------ITEMS----------------------------------------------------
-#----Piezas de animales
+#----Espadas
 espadasmaderalist:
   type: item
   material: 268
   display name: '<gold>Lista de Espadas de madera'
+#----Pedruzcos
+pedruzcoslist:
+  type: item
+  material: 1
+  display name: '<gold>Lista de Pedruzcos'
 #
 #
+#----Espadas
 espmdrcomuninfo:
   type: item
   material: 268
@@ -166,11 +217,27 @@ espmdrcomuninfo:
   lore:
   - '<yellow>Requiere:'
   - '<gray>Nivel para craftear: <yellow>1'
-  - '<gray>Emplasto Maderico: <yellow>3'
-  - '<gray>Corteza de roble: <yellow>1'
+  - '<gray>Pedruzco llameante: <yellow>2'
+  - '<gray>Corteza de roble: <yellow>2'
   - ''
   - '<gold>Materiales actuales:'
-  - '<yellow><player.flag[emplastomaderico].asint><&pipe>3<gray> Emplasto Maderico <dark_gray>(Herboristero)'
-  - '<yellow><player.flag[cortezaroble].asint><&pipe>1<gray> Corteza de roble <dark_gray>(Escriba)'
+  - '<yellow><player.flag[pedruzcollameante].asint><&pipe>2<gray> Pedruzco llameante <dark_gray>(Armero)'
+  - '<yellow><player.flag[cortezaroble].asint><&pipe>2<gray> Corteza de roble <dark_gray>(Artesano)'
+  - ''
+  - '<green>Click <dark_green>derecho<green> para crear'
+#----Pedruzcos
+pedruzcollameanteinfo:
+  type: item
+  material: 1
+  display name: '<dark_green>Pedruzco llameante'
+  lore:
+  - '<yellow>Requiere:'
+  - '<gray>Nivel para craftear: <yellow>1'
+  - '<gray>Losa de piedra labrada: <yellow>64'
+  - '<gray>Horno: <yellow>2'
+  - ''
+  - '<gold>Materiales actuales:'
+  - '<yellow><player.flag[cobblestone_slab].asint><&pipe>64<gray> Losa de piedra labrada <dark_gray>(Minero)'
+  - '<yellow><player.flag[furnace].asint><&pipe>1<gray> Horno <dark_gray>(Minero)'
   - ''
   - '<green>Click <dark_green>derecho<green> para crear'

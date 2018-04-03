@@ -1,93 +1,224 @@
 "Bozhidar":
     type: assignment
-
     actions:
       on assignment:
       - trigger name:CHAT toggle:false
-      - trigger name:click toggle:false
-      - trigger name:proximity toggle:true radius:4
-
-      on Build Complete:
-      - ^run 's@arcanoend'
+      - trigger name:click toggle:true
+      - trigger name:proximity toggle:true radius:3
 
     interact scripts:
-    - 18 Bozhidarscript
+    - 18 Bozhidarartesano
+    - 16 bozhidarscript
 
-'Bozhidarscript':
+'Bozhidarartesano':
   Type: Interact
-  Requirements:
-    Mode: all
-    List:
-    - valueof <global.flag[capitulos].contains[CAPITULO1ESCALERASOK]>
-    - -valueof <global.flag[capitulos].contains[CAPITULO1ARCANOOK]>
-    - -valueof <global.flag[capitulos].contains[CAPITULO1P2OK]>
+  # Requirements:
+  #   Mode: all
+  #   List:
+  #   - valueof <global.flag[capitulos].contains[destroy]>
+  #   - valueof <player.flag[misiones].contains[destroy]>
+  #   - -valueof <global.flag[capitulos].contains[mesreconstruido]>
   Steps:
     '1':
       proximity trigger:
         entry:
           radius: 4
           Script:
-          - ^if <global.flag[capituloactivo]> == CAPITULO1P2 {
-            - ^run 's@bookCap1part15'
-            - ^if <player.flag[objetivo]> !contains reconstruir {
-              - ^bossbar remove obj<player.name>
-              - ^define objetivo "<gold>Objetivo: <yellow>Ayuda a reconstruir todo el pueblo."
-              - ^flag <player> objetivo:<def[objetivo]>
-              - ^bossbar obj<player.name> players:<player> "title:<player.flag[objetivo]>" color:BLUE
-              }
-            - ^if <player.flag[misiones].as_list> !contains cap1m6ok {
-              - ^flag <player> misiones:->:cap1m6ok
-              }
-            - ^zap step:2
+          - ^if <player.has_flag[profesion].not> {
+            - ^actionbar "<gold>Bozhidar: <yellow>Y tu que miras..."
+            - ^queue clear
+            } else if <player.flag[profesion].as_list> !contains Carpintero && <player.has_flag[profesion]> {
+            - ^actionbar "<gold>Bozhidar: <yellow>Es en serio?"
+            - ^wait 2
+            - ^actionbar "<gold>Bozhidar: <yellow>Porque un <dark_purple><player.flag[profesion].get[1]><yellow> me visita"
+            - ^wait 2
+            - ^actionbar "<gold>Bozhidar: <yellow>te hubieras muerto de chiquito!"
+            - ^queue clear
+            } else if <player.flag[profesion].as_list> contains Carpintero && <player.has_flag[profesion]> && <player.flag[profesion].as_list> !contains Artesano {
+            - ^actionbar "<gold>Bozhidar: <yellow>Hey <player.name>!"
+            - ^wait 2
+            - ^actionbar "<gold>Bozhidar: <yellow>Quieres crear artesanias?"
+            - ^wait 2
+            - ^actionbar "<gold>Bozhidar: <yellow>son las mejores."
+            - ^queue clear
+            } else if <player.flag[profesion].as_list> contains Carpintero && <player.has_flag[profesion]> && <player.flag[profesion].as_list> contains Artesano {
+            - ^actionbar "<gold>Bozhidar: <yellow>Hola <player.name> Bienvenido al taller de Artesania."
+            - ^wait 2
+            - ^actionbar "<gold>Bozhidar: <yellow>Manos a la obra, de arte claro!"
+            - ^queue clear
             }
-    '2':
-      proximity trigger:
-        entry:
-          radius: 4
-          Script:
-          - ^yaml load:capitulos/capitulo1.yml id:capitulo<player.name>
-          - ^inventory open d:in@inv_bozhidar
-          - ^yaml unload id:capitulo<player.name>
-
-arcanoend:
+      click trigger:
+        Script:
+          - ^if <player.flag[profesion].as_list> contains Carpintero && <player.flag[profesion].as_list> !contains Artesano && <player.has_flag[profesion]> {
+            - ^inventory open d:in@inv_bozhidar
+            - ^queue clear
+            } else if <player.flag[profesion].as_list> contains Carpintero && <player.flag[profesion].as_list> contains Artesano && <player.has_flag[profesion]> {
+            - ^inventory open d:in@inv_bozhidar_ok
+            }
+bozhidar_craft1task:
     type: task
     script:
-    - ^schematic load name:arcano
-    - ^schematic paste name:arcano location:<cu@arcano.min>
-    - ^schematic unload name:arcano
-    - ^foreach <server.list_online_players> {
-      - ^title "title:<aqua>Bozhidar" "subtitle:<yellow>Arcano reconstruido" stay:5s targets:%value%
+    - ^foreach li@i@oak_log|i@furnace {
+      - ^flag <player> <def[value].replace[regex:i@]>:<player.inventory.quantity[%value%]> duration:1s
       }
-    - ^flag <server> tempmeslajho:->:arcano
-    - ^if <server.flag[tempmeslajho].as_list.contains[taberna|herreria|armeria|establo|cocina|arcano|fragua|deshuesadero|libreria|aserradero|cantera|molino]> {
-      - ^foreach li@n@1|n@2|n@3|n@5|n@6|n@7|n@8|n@9|n@10|n@35|n@66|n@85|n@91|n@94|n@96|n@99|n@100 {
-        - ^define npctarget %value%
-        - ^teleport <def[npctarget]> <def[npctarget].anchor[construct]>
-        }
+    - ^queue clear
+bozhidar_craft2task:
+    type: task
+    script:
+    - ^foreach li@i@cobblestone_slab|i@furnace {
+      - ^flag <player> <def[value].replace[regex:i@]>:<player.inventory.quantity[%value%]> duration:1s
       }
+    - ^queue clear
+bozhidarevents:
+  type: world
+  events:
+    on player clicks in inv_bozhidar:
+    - DETERMINE cancelled
+    on player drags in inv_bozhidar:
+    - DETERMINE cancelled
+    on player clicks in inv_bozhidar_ok:
+    - DETERMINE cancelled
+    on player drags in inv_bozhidar_ok:
+    - DETERMINE cancelled
+    on player clicks in inv_bozhidar_craft1:
+    - DETERMINE cancelled
+    on player drags in inv_bozhidar_craft1:
+    - DETERMINE cancelled
+    on player clicks in inv_bozhidar_craft2:
+    - DETERMINE cancelled
+    on player drags in inv_bozhidar_craft2:
+    - DETERMINE cancelled
+#
+    on player clicks rechazarprof in inv_bozhidar:
+    - ^inventory close d:in@inv_bozhidar
+    on player clicks aceptarprof in inv_bozhidar:
+    - ^inventory close d:in@inv_bozhidar
+    - ^if <player.flag[profesion].as_list> contains Escriba {
+      - ^flag <player> profesion:<-:Escriba
+      - ^execute as_op "jobs leave Escriba" silent
+      }
+    - ^execute as_op "jobs employ <player.name> Artesano" silent
+    - ^flag <player> profesion:->:Artesano
+    - ^queue clear
+#  Listas de Crafteo
+    on player clicks cortezaslist in inv_bozhidar_ok:
+    - ^run 's@bozhidar_craft1task'
+    - ^inventory open d:in@inv_bozhidar_craft1
+    - ^queue clear
+    on player clicks pedruzcoslist in inv_bozhidar_ok:
+    - ^run 's@bozhidar_craft2task'
+    - ^inventory open d:in@inv_bozhidar_craft2
+    - ^queue clear
+#  Crafteo de Items
+#  -- Espadas
+#  --- Madera
+#  ---- Comun
+    on player right clicks cortezasinfo in inv_bozhidar_craft1:
+    - ^if <player.inventory.quantity[i@oak_log]> >= 64 {
+      - ^inventory close d:in@inv_bozhidar_craft1
+      - ^actionbar "<gold>Bozhidar: <yellow>Creando... <player.name>"
+      - ^wait 2
+      - ^actionbar "<gold>Bozhidar: <yellow>Ya casi!"
+      - ^wait 1
+      - ^take i@oak_log quantity:64
+      - ^give i@cortezaroble quantity:1
+      - ^run 's@bozhidar_craft1task'
+      - ^inventory open d:in@inv_bozhidar_craft1
+      - ^execute as_server "jobs grantxp <player.name> Artesano 10" silent
+      }
+    - ^queue clear
+#  -- Pedruzcos
+    on player right clicks pedruzcollameanteinfo in inv_bozhidar_craft2:
+    - ^if <player.inventory.quantity[i@cobblestone_slab]> >= 64 && <player.inventory.quantity[i@furnace]> >= 2 {
+      - ^inventory close d:in@inv_bozhidar_craft2
+      - ^actionbar "<gold>Bozhidar: <yellow>Creando... <player.name>"
+      - ^wait 2
+      - ^actionbar "<gold>Bozhidar: <yellow>Ya casi!"
+      - ^wait 1
+      - ^take i@cobblestone_slab quantity:64
+      - ^take i@furnace quantity:2
+      - ^give i@pedruzcollameante quantity:1
+      - ^run 's@bozhidar_craft2task'
+      - ^inventory open d:in@inv_bozhidar_craft2
+      - ^execute as_server "jobs grantxp <player.name> Artesano 10" silent
+      }
+    - ^queue clear
 
+  ## Atras
+    on player clicks Atras in inv_bozhidar_craft1:
+    - ^inventory open d:in@inv_bozhidar_ok
+    on player clicks Atras in inv_bozhidar_craft2:
+    - ^inventory open d:in@inv_bozhidar_ok
+# =====================================================================
+    on player clicks rechazarprof in inv_bozhidar_ok:
+    - ^inventory close d:in@inv_bozhidar_ok
+    - ^DETERMINE cancelled
+
+
+# = INVENTARIOS
 inv_bozhidar:
   type: inventory
   inventory: dispenser
+  title: <gold>Artesania
+  size: 9
   slots:
-  - "[i@cancelslot] [i@infomes] [i@cancelslot]"
-  - "[i@logarcano] [i@Entregar] [i@stnarcano]"
+  - "[i@cancelslot] [i@bozhidarinfo1] [i@cancelslot]"
   - "[i@cancelslot] [i@cancelslot] [i@cancelslot]"
+  - "[i@aceptarprof] [i@cancelslot] [i@rechazarprof]"
+inv_bozhidar_ok:
+  type: inventory
+  title: '<dark_purple><magic>0<reset><gold>Artesania<dark_purple><magic>0'
+  size: 9
+  slots:
+  - "[i@cortezaslist] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot]"
+inv_bozhidar_craft1:
+  type: inventory
+  title: '<dark_purple><magic>0<reset><gold>Cortezas<dark_purple><magic>0'
+  size: 9
+  slots:
+  - "[i@cortezasinfo] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@Atras]"
+inv_bozhidar_craft2:
+  type: inventory
+  title: '<dark_purple><magic>0<reset><gold>Espadas de Madera<dark_purple><magic>0'
+  size: 9
+  slots:
+  - "[i@pedruzcollameanteinfo] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@Atras]"
 
 
-logarcano:
+########### - bozhidar - #########
+bozhidarinfo1:
   type: item
-  material: 17
-  display name: '<yellow>Troncos de Madera'
+  material: paper
+  display name: '<blue>Artesano'
   lore:
   - ''
-  - '<dark_aqua>Necesarios: <gold>800'
-  - '<gray>Se han recolectado: <yellow><yaml[capitulo<player.name>].read[meslajho.materiales.arcanomdr].asint>'
-stnarcano:
+  - '<gray>Los <yellow>Artesanos <gray>Esculturas artisticas'
+  - '<gray>que dan magia y belleza a tu equipo'
+  - '<gray>obteniendo magia ancestral.'
+#---------------------------------------------ITEMS----------------------------------------------------
+#----Cortezas
+cortezaslist:
   type: item
-  material: 4
-  display name: '<yellow>Bloques de cobblestone'
+  material: 17,0
+  display name: '<gold>Lista de Cortezas'
+#----Pedruzcos
+pedruzcoslist:
+  type: item
+  material: 1
+  display name: '<gold>Lista de Pedruzcos'
+#
+#
+#----Cortezas
+cortezasinfo:
+  type: item
+  material: 17,0
+  display name: '<dark_green>Corteza de Roble'
   lore:
+  - '<yellow>Requiere:'
+  - '<gray>Nivel para craftear: <yellow>1'
+  - '<gray>Tronco de roble: <yellow>64'
   - ''
-  - '<dark_aqua>Necesarios: <gold>800'
-  - '<gray>Se han recolectado: <yellow><yaml[capitulo<player.name>].read[meslajho.materiales.arcanostn].asint>'
+  - '<gold>Materiales actuales:'
+  - '<yellow><player.flag[oak_log].asint><&pipe>64<gray> Tronco de roble <dark_gray>(Escriba)'
+  - ''
+  - '<green>Click <dark_green>derecho<green> para crear'

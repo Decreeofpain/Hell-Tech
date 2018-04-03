@@ -1132,8 +1132,8 @@ inv_events:
     - DETERMINE cancelled
     on player clicks stnlibreria in inv_aloys:
     - DETERMINE cancelled
-# Bozhidar  Arcano
-    on player clicks Entregar in inv_bozhidar:
+# Bozhidarx  Arcano
+    on player clicks Entregar in inv_bozhidar2:
     - ^yaml load:capitulos/capitulo1.yml id:capitulo<player.name>
 #Madera
     - ^if <context.cursor_item.material.id> == 17 {
@@ -1142,7 +1142,7 @@ inv_events:
         - ^if <context.cursor_item.quantity> >= 63 {
           - ^give wood_axe qty:3
           - ^give i@bread qty:5
-          - ^narrate "<green>Bozhidar:<dark_gray> Gracias <player.name> <gray>toma estas hachas de madera y pan"
+          - ^narrate "<green>Bozhidarx:<dark_gray> Gracias <player.name> <gray>toma estas hachas de madera y pan"
           }
         - ^if <yaml[capitulo<player.name>].read[meslajho.constructores.arcano].as_list> !contains <player.name> {
           - ^yaml id:capitulo<player.name> set meslajho.constructores.arcano:->:<player.name>
@@ -1153,7 +1153,7 @@ inv_events:
         - ^yaml id:capitulo<player.name> set meslajho.materiales.arcanomdr:800
         }
       - ^yaml savefile:capitulos/capitulo1.yml id:capitulo<player.name>
-      - ^inventory open d:in@inv_bozhidar
+      - ^inventory open d:in@inv_bozhidar2
       }
 #Piedra
     - ^if <context.cursor_item.material.id> == 4 {
@@ -1162,7 +1162,7 @@ inv_events:
         - ^if <context.cursor_item.quantity> >= 63 {
           - ^give wood_pickaxe qty:3
           - ^give i@bread qty:5
-          - ^narrate "<green>Bozhidar:<context.cursor_item.quantity><dark_gray> Gracias <player.name> <gray>toma estos picos de madera y pan"
+          - ^narrate "<green>Bozhidarx:<context.cursor_item.quantity><dark_gray> Gracias <player.name> <gray>toma estos picos de madera y pan"
           }
         - ^if <yaml[capitulo<player.name>].read[meslajho.constructores.arcano].as_list> !contains <player.name> {
           - ^yaml id:capitulo<player.name> set meslajho.constructores.arcano:->:<player.name>
@@ -1173,7 +1173,7 @@ inv_events:
         - ^yaml id:capitulo<player.name> set meslajho.materiales.arcanostn:800
         }
       - ^yaml savefile:capitulos/capitulo1.yml id:capitulo<player.name>
-      - ^inventory open d:in@inv_bozhidar
+      - ^inventory open d:in@inv_bozhidar2
       }
     - ^if <yaml[capitulo<player.name>].read[meslajho.materiales.arcanostn]> >= 800 && <yaml[capitulo<player.name>].read[meslajho.materiales.arcanomdr]> >= 800 {
       - ^schematic load name:arcanooks
@@ -1186,15 +1186,15 @@ inv_events:
         - ^flag <global> capitulos:->:CAPITULO1ARCANOOK
         }
       - ^run 's@checkmeslajhobuild'
-      - ^title "title:<green>Bozhidar" "subtitle:<yellow>El campamento arcano se reconstruyo" stay:15s targets:<server.list_online_players>
+      - ^title "title:<green>Bozhidarx" "subtitle:<yellow>El campamento arcano se reconstruyo" stay:15s targets:<server.list_online_players>
       }
     - ^yaml unload id:capitulo<player.name>
     - DETERMINE cancelled
-    on player clicks infomes in inv_bozhidar:
+    on player clicks infomes in inv_bozhidar2:
     - DETERMINE cancelled
-    on player clicks logarcano in inv_bozhidar:
+    on player clicks logarcano in inv_bozhidar2:
     - DETERMINE cancelled
-    on player clicks stnarcano in inv_bozhidar:
+    on player clicks stnarcano in inv_bozhidar2:
     - DETERMINE cancelled
 # Hammon Herreria
     on player clicks Entregar in inv_hammon:
