@@ -58,7 +58,7 @@
 brayton_craft1task:
     type: task
     script:
-    - ^foreach li@i@pieldepollo|i@spruce_log {
+    - ^foreach li@i@bone|i@stick {
       - ^flag <player> <def[value].replace[regex:i@]>:<player.inventory.quantity[%value%]> duration:1s
       }
     - ^queue clear
@@ -82,25 +82,30 @@ braytonevents:
     - ^inventory close d:in@inv_brayton
     on player clicks aceptarprof in inv_brayton:
     - ^inventory close d:in@inv_brayton
+    - ^if <player.flag[profesion].as_list> contains Peletero {
+      - ^flag <player> profesion:<-:Peletero
+      - ^execute as_op "jobs leave Peletero" silent
+      }
     - ^execute as_op "jobs employ <player.name> Carnicero" silent
     - ^flag <player> profesion:->:Carnicero
     - ^queue clear
 #  Listas de Crafteo
-    on player clicks cueroslist in inv_brayton_ok:
+    on player clicks navajaslist in inv_brayton_ok:
     - ^run 's@brayton_craft1task'
     - ^inventory open d:in@inv_brayton_craft1
     - ^queue clear
 #  Crafteo de Items
-#  -- Cueros
-    on player right clicks cerpolloinfo in inv_brayton_craft1:
-    - ^if <player.inventory.quantity[i@pieldepollo]> >= 6 {
+#  -- Navajas
+    on player right clicks navajahuesoinfo in inv_brayton_craft1:
+    - ^if <player.inventory.quantity[i@bone]> >= 38 && <player.inventory.quantity[i@stick]> >= 64 {
       - ^inventory close d:in@inv_brayton_craft1
       - ^actionbar "<gold>Brayton: <yellow>Creando... <player.name>"
       - ^wait 2
       - ^actionbar "<gold>Brayton: <yellow>Ya casi!"
       - ^wait 1
-      - ^give i@cuerodepollo quantity:1
-      - ^take i@pieldepollo quantity:6
+      - ^give i@navajahueso quantity:1
+      - ^take i@bone quantity:38
+      - ^take i@stick quantity:64
       - ^run 's@brayton_craft1task'
       - ^inventory open d:in@inv_brayton_craft1
       - ^execute as_server "jobs grantxp <player.name> Carnicero 10" silent
@@ -131,13 +136,13 @@ inv_brayton_ok:
   title: '<dark_purple><magic>0<reset><gold>Carniceria<dark_purple><magic>0'
   size: 9
   slots:
-  - "[i@cueroslist] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot]"
+  - "[i@navajaslist] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot]"
 inv_brayton_craft1:
   type: inventory
   title: '<dark_purple><magic>0<reset><gold>Cueros<dark_purple><magic>0'
   size: 9
   slots:
-  - "[i@cerpolloinfo] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@Atras]"
+  - "[i@navajahuesoinfo] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@Atras]"
 
 
 ########### - brayton - #########
@@ -152,22 +157,24 @@ braytoninfo1:
   - '<gray>y crear compuestos eficaces.'
 #---------------------------------------------ITEMS----------------------------------------------------
 #----Piezas de animales
-cueroslist:
+navajaslist:
   type: item
-  material: 415
-  display name: '<gold>Lista de cueros'
+  material: 268
+  display name: '<gold>Lista de navajas'
 #
 #
-cerpolloinfo:
+navajahuesoinfo:
   type: item
-  material: 415
-  display name: '<dark_green>Cuero de pollo'
+  material: 268
+  display name: '<dark_green>Navaja de Hueso'
   lore:
   - '<yellow>Requiere:'
   - '<gray>Nivel para craftear: <yellow>1'
-  - '<gray>Piel de pollo estropeada: <yellow>6 <dark_gray>(Establo)'
+  - '<gray>Huesos: <yellow>38'
+  - '<gray>Palos: <yellow>64'
   - ''
   - '<gold>Materiales actuales:'
-  - '<yellow><player.flag[pieldepollo].asint><&pipe>6<gray> piel de pollo estropeada'
+  - '<yellow><player.flag[bone].asint><&pipe>38<gray> Huesos'
+  - '<yellow><player.flag[stick].asint><&pipe>64<gray> Palos'
   - ''
   - '<green>Click <dark_green>derecho<green> para crear'

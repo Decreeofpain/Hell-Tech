@@ -58,7 +58,14 @@
 jurian_craft1task:
     type: task
     script:
-    - ^foreach li@i@cuerodepollo|i@cebodepollo {
+    - ^foreach li@i@pellejodepollo|i@dijerojo {
+      - ^flag <player> <def[value].replace[regex:i@]>:<player.inventory.quantity[%value%]> duration:1s
+      }
+    - ^queue clear
+jurian_craft2task:
+    type: task
+    script:
+    - ^foreach li@i@cobblestone_slab|i@artilujioflamente {
       - ^flag <player> <def[value].replace[regex:i@]>:<player.inventory.quantity[%value%]> duration:1s
       }
     - ^queue clear
@@ -77,6 +84,10 @@ jurianevents:
     - DETERMINE cancelled
     on player drags in inv_jurian_craft1:
     - DETERMINE cancelled
+    on player clicks in inv_jurian_craft2:
+    - DETERMINE cancelled
+    on player drags in inv_jurian_craft2:
+    - DETERMINE cancelled
 #
     on player clicks rechazarprof in inv_jurian:
     - ^inventory close d:in@inv_jurian
@@ -94,63 +105,84 @@ jurianevents:
     - ^run 's@jurian_craft1task'
     - ^inventory open d:in@inv_jurian_craft1
     - ^queue clear
+    on player clicks dijeslist in inv_jurian_ok:
+    - ^run 's@jurian_craft2task'
+    - ^inventory open d:in@inv_jurian_craft2
+    - ^queue clear
 #  Crafteo de Items
-#  -- Cueros
+#  --- Dijes
+    on player right clicks dijerojoinfo in inv_jurian_craft2:
+    - ^if <player.inventory.quantity[i@cobblestone_slab]> >= 64 && <player.inventory.quantity[i@artilujioflamente]> >= 1 {
+      - ^inventory close d:in@inv_jurian_craft2
+      - ^actionbar "<gold>Jurian: <yellow>Creando... <player.name>"
+      - ^wait 2
+      - ^actionbar "<gold>Jurian: <yellow>Ya casi!"
+      - ^wait 1
+      - ^give i@dijerojo quantity:1
+      - ^take i@cobblestone_slab quantity:64
+      - ^take i@artilujioflamente quantity:1
+      - ^run 's@jurian_craft2task'
+      - ^inventory open d:in@inv_jurian_craft2
+      - ^execute as_server "jobs grantxp <player.name> Fraguador 10" silent
+      }
+    - ^queue clear
+#  -- Armadura de cuero
+#  --- Comun
     on player right clicks capuchapielcomuninfo in inv_jurian_craft1:
-    - ^if <player.inventory.quantity[i@cuerodepollo]> >= 1 && <player.inventory.quantity[i@cebodepollo]> >= 3 {
+    - ^if <player.inventory.quantity[i@pellejodepollo]> >= 2 && <player.inventory.quantity[i@dijerojo]> >= 1 {
       - ^inventory close d:in@inv_jurian_craft1
       - ^actionbar "<gold>Jurian: <yellow>Creando... <player.name>"
       - ^wait 2
       - ^actionbar "<gold>Jurian: <yellow>Ya casi!"
       - ^wait 1
       - ^execute as_op "md give <player.name> -t lhc"
-      - ^take i@cuerodepollo quantity:1
-      - ^take i@cebodepollo quantity:3
+      - ^take i@pellejodepollo quantity:2
+      - ^take i@dijerojo quantity:1
       - ^run 's@jurian_craft1task'
       - ^inventory open d:in@inv_jurian_craft1
       - ^execute as_server "jobs grantxp <player.name> Fraguador 10" silent
       }
     - ^queue clear
     on player right clicks togapielcomuninfo in inv_jurian_craft1:
-    - ^if <player.inventory.quantity[i@cuerodepollo]> >= 3 && <player.inventory.quantity[i@cebodepollo]> >= 2 {
+    - ^if <player.inventory.quantity[i@pellejodepollo]> >= 2 && <player.inventory.quantity[i@dijerojo]> >= 2 {
       - ^inventory close d:in@inv_jurian_craft1
       - ^actionbar "<gold>Jurian: <yellow>Creando... <player.name>"
       - ^wait 2
       - ^actionbar "<gold>Jurian: <yellow>Ya casi!"
       - ^wait 1
       - ^execute as_op "md give <player.name> -t lcc"
-      - ^take i@cuerodepollo quantity:3
-      - ^take i@cebodepollo quantity:2
+      - ^take i@pellejodepollo quantity:2
+      - ^take i@dijerojo quantity:2
       - ^run 's@jurian_craft1task'
       - ^inventory open d:in@inv_jurian_craft1
       - ^execute as_server "jobs grantxp <player.name> Fraguador 10" silent
       }
     - ^queue clear
     on player right clicks perneraspielcomuninfo in inv_jurian_craft1:
-    - ^if <player.inventory.quantity[i@cuerodepollo]> >= 2 && <player.inventory.quantity[i@cebodepollo]> >= 3 {
+    - ^if <player.inventory.quantity[i@pellejodepollo]> >= 3 && <player.inventory.quantity[i@dijerojo]> >= 1 {
       - ^inventory close d:in@inv_jurian_craft1
       - ^actionbar "<gold>Jurian: <yellow>Creando... <player.name>"
       - ^wait 2
       - ^actionbar "<gold>Jurian: <yellow>Ya casi!"
       - ^wait 1
       - ^execute as_op "md give <player.name> -t llc"
-      - ^take i@cuerodepollo quantity:2
-      - ^take i@cebodepollo quantity:3
+      - ^take i@pellejodepollo quantity:3
+      - ^take i@dijerojo quantity:1
       - ^run 's@jurian_craft1task'
       - ^inventory open d:in@inv_jurian_craft1
       - ^execute as_server "jobs grantxp <player.name> Fraguador 10" silent
       }
     - ^queue clear
     on player right clicks sandaliaspielcomuninfo in inv_jurian_craft1:
-    - ^if <player.inventory.quantity[i@cuerodepollo]> >= 1 && <player.inventory.quantity[i@cebodepollo]> >= 2 {
+    - ^if <player.inventory.quantity[i@pellejodepollo]> >= 1 && <player.inventory.quantity[i@dijerojo]> >= 1 {
       - ^inventory close d:in@inv_jurian_craft1
       - ^actionbar "<gold>Jurian: <yellow>Creando... <player.name>"
       - ^wait 2
       - ^actionbar "<gold>Jurian: <yellow>Ya casi!"
       - ^wait 1
       - ^execute as_op "md give <player.name> -t lbc"
-      - ^take i@cuerodepollo quantity:1
-      - ^take i@cebodepollo quantity:2
+      - ^take i@pellejodepollo quantity:1
+      - ^take i@dijerojo quantity:1
       - ^run 's@jurian_craft1task'
       - ^inventory open d:in@inv_jurian_craft1
       - ^execute as_server "jobs grantxp <player.name> Fraguador 10" silent
@@ -159,6 +191,8 @@ jurianevents:
 
   ## Atras
     on player clicks Atras in inv_jurian_craft1:
+    - ^inventory open d:in@inv_jurian_ok
+    on player clicks Atras in inv_jurian_craft2:
     - ^inventory open d:in@inv_jurian_ok
 # =====================================================================
     on player clicks rechazarprof in inv_jurian_ok:
@@ -181,13 +215,19 @@ inv_jurian_ok:
   title: '<dark_purple><magic>0<reset><gold>Fragua<dark_purple><magic>0'
   size: 9
   slots:
-  - "[i@armaduraspiellist] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot]"
+  - "[i@dijeslist] [i@armaduraspiellist] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot]"
 inv_jurian_craft1:
   type: inventory
-  title: '<dark_purple><magic>0<reset><gold>Armaduras de Piel<dark_purple><magic>0'
+  title: '<dark_purple><magic>0<reset><gold>Piel<dark_purple><magic>0'
   size: 9
   slots:
   - "[i@capuchapielcomuninfo] [i@togapielcomuninfo] [i@perneraspielcomuninfo] [i@sandaliaspielcomuninfo] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@Atras]"
+inv_jurian_craft2:
+  type: inventory
+  title: '<dark_purple><magic>0<reset><gold>Dijes<dark_purple><magic>0'
+  size: 9
+  slots:
+  - "[i@dijerojoinfo] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@Atras]"
 
 
 ########### - jurian - #########
@@ -201,13 +241,34 @@ jurianinfo1:
   - '<gray>para tus aliados preparandolos'
   - '<gray>para la batalla.'
 #---------------------------------------------ITEMS----------------------------------------------------
-#----Piezas de animales
+#----Armaduras de piel
 armaduraspiellist:
   type: item
   material: 298
   display name: '<gold>Lista de Armaduras de piel'
+#----Dijes
+dijeslist:
+  type: item
+  material: 377
+  display name: '<gold>Lista de Dijes'
 #
-#
+# Dijes
+dijerojoinfo:
+  type: item
+  material: 377
+  display name: '<dark_green>Dije Rojo'
+  lore:
+  - '<yellow>Requiere:'
+  - '<gray>Nivel para craftear: <yellow>1'
+  - '<gray>Pellejo de Pollo: <yellow>1'
+  - '<gray>Dije Rojo: <yellow>3'
+  - ''
+  - '<gold>Materiales actuales:'
+  - '<yellow><player.flag[cobblestone_slab].asint><&pipe>64<gray> Losa de piedra labrada <dark_gray>(Minero)'
+  - '<yellow><player.flag[artilujioflamente].asint><&pipe>1<gray> Artilujio Llameante <dark_gray>(Orfebrero)'
+  - ''
+  - '<green>Click <dark_green>derecho<green> para crear'
+# Armaduras
 capuchapielcomuninfo:
   type: item
   material: 298
@@ -215,12 +276,12 @@ capuchapielcomuninfo:
   lore:
   - '<yellow>Requiere:'
   - '<gray>Nivel para craftear: <yellow>1'
-  - '<gray>Cuero de Pollo: <yellow>1'
-  - '<gray>Cebo de pollo: <yellow>3'
+  - '<gray>Pellejo de Pollo: <yellow>2'
+  - '<gray>Dije Rojo: <yellow>1'
   - ''
   - '<gold>Materiales actuales:'
-  - '<yellow><player.flag[cuerodepollo].asint><&pipe>1<gray> Cuero de Pollo'
-  - '<yellow><player.flag[cebodepollo].asint><&pipe>3<gray> Cebo de pollo'
+  - '<yellow><player.flag[pellejodepollo].asint><&pipe>2<gray> Pellejo de Pollo <dark_gray>(Peletero)'
+  - '<yellow><player.flag[dijerojo].asint><&pipe>1<gray> Dije Rojo <dark_gray>(Fraguador)'
   - ''
   - '<green>Click <dark_green>derecho<green> para crear'
 togapielcomuninfo:
@@ -230,12 +291,12 @@ togapielcomuninfo:
   lore:
   - '<yellow>Requiere:'
   - '<gray>Nivel para craftear: <yellow>1'
-  - '<gray>Cuero de Pollo: <yellow>3'
-  - '<gray>Cebo de pollo: <yellow>2'
+  - '<gray>Pellejo de Pollo: <yellow>2'
+  - '<gray>Dije Rojo: <yellow>2'
   - ''
   - '<gold>Materiales actuales:'
-  - '<yellow><player.flag[cuerodepollo].asint><&pipe>3<gray> Cuero de Pollo'
-  - '<yellow><player.flag[cebodepollo].asint><&pipe>2<gray> Cebo de pollo'
+  - '<yellow><player.flag[pellejodepollo].asint><&pipe>2<gray> Pellejo de Pollo <dark_gray>(Peletero)'
+  - '<yellow><player.flag[dijerojo].asint><&pipe>2<gray> Dije Rojo <dark_gray>(Fraguador)'
   - ''
   - '<green>Click <dark_green>derecho<green> para crear'
 perneraspielcomuninfo:
@@ -245,12 +306,12 @@ perneraspielcomuninfo:
   lore:
   - '<yellow>Requiere:'
   - '<gray>Nivel para craftear: <yellow>1'
-  - '<gray>Cuero de Pollo: <yellow>2'
-  - '<gray>Cebo de pollo: <yellow>3'
+  - '<gray>Pellejo de Pollo: <yellow>3'
+  - '<gray>Dije Rojo: <yellow>1'
   - ''
   - '<gold>Materiales actuales:'
-  - '<yellow><player.flag[cuerodepollo].asint><&pipe>2<gray> Cuero de Pollo'
-  - '<yellow><player.flag[cebodepollo].asint><&pipe>3<gray> Cebo de pollo'
+  - '<yellow><player.flag[pellejodepollo].asint><&pipe>3<gray> Pellejo de Pollo <dark_gray>(Peletero)'
+  - '<yellow><player.flag[dijerojo].asint><&pipe>1<gray> Dije Rojo <dark_gray>(Fraguador)'
   - ''
   - '<green>Click <dark_green>derecho<green> para crear'
 sandaliaspielcomuninfo:
@@ -260,11 +321,11 @@ sandaliaspielcomuninfo:
   lore:
   - '<yellow>Requiere:'
   - '<gray>Nivel para craftear: <yellow>1'
-  - '<gray>Cuero de Pollo: <yellow>1'
-  - '<gray>Cebo de pollo: <yellow>2'
+  - '<gray>Pellejo de Pollo: <yellow>1'
+  - '<gray>Dije Rojo: <yellow>1'
   - ''
   - '<gold>Materiales actuales:'
-  - '<yellow><player.flag[cuerodepollo].asint><&pipe>1<gray> Cuero de Pollo <dark_gray>(Carnicero)'
-  - '<yellow><player.flag[cebodepollo].asint><&pipe>2<gray> Cebo de pollo <dark_gray>(Peletero)'
+  - '<yellow><player.flag[pellejodepollo].asint><&pipe>1<gray> Pellejo de Pollo <dark_gray>(Peletero)'
+  - '<yellow><player.flag[dijerojo].asint><&pipe>1<gray> Dije Rojo <dark_gray>(Fraguador)'
   - ''
   - '<green>Click <dark_green>derecho<green> para crear'
