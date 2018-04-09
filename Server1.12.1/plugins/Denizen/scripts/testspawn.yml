@@ -400,12 +400,9 @@ summons:
 
     on robospawn4 command:
     - ^modifyblock cu@taberna head air
-    # - ^schematic load name:taberna
-    # - ^schematic paste name:taberna location:<cu@taberna.min>
-    # - ^schematic unload name:taberna
-    # - ^schematic load name:cantera
-    # - ^schematic paste name:cantera location:<cu@cantera.min>
-    # - ^schematic unload name:cantera
+    - ^schematic load name:aserradero
+    - ^schematic paste name:aserradero location:<cu@aserradero.min>
+    - ^schematic unload name:aserradero
     # - ^yaml load:personal/<player.name>.yml id:<player.name>
     # - sql id:GlobalSQL "update:UPDATE phpbb_profile_fields_data SET pf_pb_wow_race='1' WHERE user_id=<yaml[<player.name>].read[UserID]>;"
     # - sql id:GlobalSQL "update:UPDATE phpbb_profile_fields_data SET pf_pb_wow_class='1' WHERE user_id=<yaml[<player.name>].read[UserID]>;"
@@ -448,7 +445,7 @@ summons:
 #    - narrate "<player.inventory.quantity[i@spider_eye[display_name=<dark_green>Ojo<black>_<green>Pestilente]]>"
 #    - ^if <player.heroes.level[<player.heroes.primary_class>]> >= 8 {
 #      - ^adjust <player> item_slot:8
-#      - ^define old_item <player.item_in_hand> 
+#      - ^define old_item <player.item_in_hand>
 #      - ^take <player.item_in_hand> qty:<player.item_in_hand.qty>
 #      - ^flag <player> misioncant:30
 #      - give i@libroTESTmisiones slot:8
@@ -458,7 +455,7 @@ summons:
 #      - queue clear
 #      } else if <player.heroes.level[<player.heroes.primary_class>]> >= 7 {
 #      - ^adjust <player> item_slot:8
-#      - ^define old_item <player.item_in_hand> 
+#      - ^define old_item <player.item_in_hand>
 #      - ^take <player.item_in_hand> qty:<player.item_in_hand.qty>
 #      - ^flag <player> misioncant:15
 #      - give i@libroTESTmisiones slot:8
