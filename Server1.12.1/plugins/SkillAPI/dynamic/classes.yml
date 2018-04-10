@@ -24,51 +24,13 @@ Mendigo:
     strength-base: '1'
     strength-scale: '0.5'
   mana-regen: 1.0
-  tree: 'REQUIREMENT'
+  tree: 'BASIC_HORIZONTAL'
   blacklist:  []
   skills: 
-  - '150DMG'
   - 'Peso'
-  - 'Guadaña'
+  - 'Empalar'
   icon: 'ACACIA_DOOR'
   icon-data: 0
   icon-lore: 
   - '&dMendigo'
   exp-source: 511
-Peso: 
-  name: 'Peso'
-  action-bar: ''
-  prefix: 'Peso'
-  group: 'class'
-  mana: 'Mana'
-  max-level: 1
-  needs-permission: 'false'
-  attributes: 
-    level-base: '1'
-    level-scale: '0'
-    cost-base: '0'
-    cost-scale: '0'
-    cooldown-base: '0'
-    cooldown-scale: '0'
-    mana-base: '0'
-    mana-scale: '0'
-    points-spent-req-base: '0'
-    points-spent-req-scale: '0'
-    incompatible: 
-    - ''
-  mana-regen: 0.0
-  tree: 'REQUIREMENT'
-  blacklist:  []
-  skills:  []
-  icon: 'JACK_O_LANTERN'
-  icon-data: 0
-  icon-lore: 
-  - '&d{name} &7({level}/{max})'
-  - '&2Type: &6{type}'
-  - ''
-  - '{req:level}Level: {attr:level}'
-  - '{req:cost}Cost: {attr:cost}'
-  - ''
-  - '&2Mana: {attr:mana}'
-  - '&2Cooldown: {attr:cooldown}'
-  exp-source: 273

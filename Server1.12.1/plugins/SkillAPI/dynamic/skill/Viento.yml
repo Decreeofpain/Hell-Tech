@@ -1,0 +1,111 @@
+Viento: 
+  name: 'Viento'
+  type: 'Principal'
+  max-level: 5
+  skill-req-lvl: 1
+  needs-permission: 'false'
+  attributes: 
+    level-base: '1'
+    level-scale: '0'
+    cost-base: '1'
+    cost-scale: '0'
+    cooldown-base: '0'
+    cooldown-scale: '0'
+    mana-base: '0'
+    mana-scale: '0'
+    points-spent-req-base: '0'
+    points-spent-req-scale: '0'
+    incompatible: 
+    - ''
+  msg: '&6{player} &2has cast &6{skill}'
+  icon: 'IRON_ORE'
+  icon-data: 0
+  icon-lore: 
+  - '&d{name} &7({level}/{max})'
+  - '&2Type: &6{type}'
+  - ''
+  - '{req:level}Level: {attr:level}'
+  - '{req:cost}Cost: {attr:cost}'
+  - ''
+  - '&2Mana: {attr:mana}'
+  - '&2Cooldown: {attr:cooldown}'
+  desc:  []
+  components: 
+    Physical Damage: 
+      type: 'trigger'
+      indicator: '3D'
+      data: 
+        icon-key: ''
+        mana: 'False'
+        cooldown: 'False'
+        target: 'True'
+        type: 'Melee'
+        dmg-min: '0'
+        dmg-max: '999'
+        indicator: '2D'
+      children: 
+        Particle Animation-b: 
+          type: 'mechanic'
+          indicator: '3D'
+          data: 
+            icon-key: ''
+            counts: 'True'
+            steps: '5'
+            frequency: '0.05'
+            angle: '-180'
+            start: '90'
+            duration-base: '0.4'
+            duration-scale: '0'
+            h-translation-base: '3'
+            h-translation-scale: '0'
+            v-translation-base: '1'
+            v-translation-scale: '0'
+            h-cycles: '2'
+            v-cycles: '2'
+            particle: 'Crit'
+            arrangement: 'Circle'
+            radius-base: '0.2'
+            radius-scale: '0'
+            particles-base: '5'
+            particles-scale: '0'
+            direction: 'XY'
+            visible-radius: '20'
+            dx: '0'
+            dy: '0'
+            dz: '0'
+            speed: '0'
+            amount: '1'
+            forward: '3'
+            upward: '0'
+            right: '0'
+            indicator: '2D'
+          children:  {}
+        Cone-c: 
+          type: 'target'
+          indicator: '3D'
+          data: 
+            icon-key: ''
+            range-base: '4'
+            range-scale: '0'
+            angle-base: '60'
+            angle-scale: '0'
+            group: 'Enemy'
+            wall: 'False'
+            caster: 'False'
+            max-base: '99'
+            max-scale: '0'
+            indicator: '2D'
+          children: 
+            Damage-d: 
+              type: 'mechanic'
+              indicator: '3D'
+              data: 
+                icon-key: ''
+                counts: 'True'
+                type: 'Damage'
+                value-base: '0.1'
+                value-scale: '1'
+                true: 'False'
+                classifier: 'default'
+                indicator: '2D'
+              children:  {}
