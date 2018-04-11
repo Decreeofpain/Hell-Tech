@@ -16,7 +16,7 @@ Guadaña:
     points-spent-req-base: '0'
     points-spent-req-scale: '0'
     incompatible: 
-    - '150DMG'
+    - 'Esquirla'
   msg: '&6{player} &2has cast &6{skill}'
   icon: 'IRON_AXE'
   icon-data: 0
@@ -42,24 +42,119 @@ Guadaña:
         dmg-max: '999'
         indicator: '2D'
       children: 
-        Skill Level-h: 
+        Tool-b: 
           type: 'condition'
           indicator: '3D'
           data: 
             icon-key: ''
-            skill: 'Guadaña Doble'
-            min-level: '0'
-            max-level: '0'
+            material: 'Any'
+            tool: 'Sword'
             indicator: '2D'
           children: 
+            Skill Level-c: 
+              type: 'condition'
+              indicator: '3D'
+              data: 
+                icon-key: ''
+                skill: 'Guadaña Doble'
+                min-level: '0'
+                max-level: '0'
+                indicator: '2D'
+              children: 
+                Skill Level-d: 
+                  type: 'condition'
+                  indicator: '3D'
+                  data: 
+                    icon-key: ''
+                    skill: 'Guadaña Sangrienta'
+                    min-level: '0'
+                    max-level: '0'
+                    indicator: '2D'
+                  children: 
+                    Particle Animation-e: 
+                      type: 'mechanic'
+                      indicator: '3D'
+                      data: 
+                        icon-key: ''
+                        counts: 'True'
+                        steps: '5'
+                        frequency: '0.05'
+                        angle: '-180'
+                        start: '90'
+                        duration-base: '0.4'
+                        duration-scale: '0'
+                        h-translation-base: '3'
+                        h-translation-scale: '0'
+                        v-translation-base: '1'
+                        v-translation-scale: '0'
+                        h-cycles: '2'
+                        v-cycles: '2'
+                        particle: 'Crit'
+                        arrangement: 'Circle'
+                        radius-base: '0.2'
+                        radius-scale: '0'
+                        particles-base: '5'
+                        particles-scale: '0'
+                        direction: 'XY'
+                        visible-radius: '20'
+                        dx: '0'
+                        dy: '0'
+                        dz: '0'
+                        speed: '0'
+                        amount: '1'
+                        forward: '3'
+                        upward: '0'
+                        right: '0'
+                        indicator: '2D'
+                      children:  {}
+                    Value Multiply-f: 
+                      type: 'mechanic'
+                      indicator: '3D'
+                      data: 
+                        icon-key: ''
+                        counts: 'True'
+                        key: 'lorepoder'
+                        multiplier-base: '1.5'
+                        multiplier-scale: '0'
+                        indicator: '2D'
+                      children:  {}
+                    Cone-g: 
+                      type: 'target'
+                      indicator: '3D'
+                      data: 
+                        icon-key: ''
+                        range-base: '4'
+                        range-scale: '0'
+                        angle-base: '60'
+                        angle-scale: '0'
+                        group: 'Enemy'
+                        wall: 'False'
+                        caster: 'False'
+                        max-base: '99'
+                        max-scale: '0'
+                        indicator: '2D'
+                      children: 
+                        Damage-h: 
+                          type: 'mechanic'
+                          indicator: '3D'
+                          data: 
+                            icon-key: ''
+                            counts: 'True'
+                            type: 'Damage'
+                            value-base: 'lorepoder'
+                            value-scale: '1'
+                            true: 'False'
+                            classifier: 'default'
+                            indicator: '2D'
+                          children:  {}
             Skill Level-i: 
               type: 'condition'
               indicator: '3D'
               data: 
                 icon-key: ''
-                skill: 'Guadaña Sangrienta'
-                min-level: '0'
-                max-level: '0'
+                skill: 'Guadaña Doble'
+                min-level: '1'
+                max-level: '1'
                 indicator: '2D'
               children: 
                 Particle Animation-j: 
@@ -76,7 +171,7 @@ Guadaña:
                     duration-scale: '0'
                     h-translation-base: '3'
                     h-translation-scale: '0'
-                    v-translation-base: '1'
+                    v-translation-base: '2'
                     v-translation-scale: '0'
                     h-cycles: '2'
                     v-cycles: '2'
@@ -98,18 +193,65 @@ Guadaña:
                     right: '0'
                     indicator: '2D'
                   children:  {}
-                Value Multiply-k: 
+                Particle Animation-k: 
+                  type: 'mechanic'
+                  indicator: '3D'
+                  data: 
+                    icon-key: ''
+                    counts: 'True'
+                    steps: '5'
+                    frequency: '0.05'
+                    angle: '180'
+                    start: '-90'
+                    duration-base: '0.4'
+                    duration-scale: '0'
+                    h-translation-base: '3'
+                    h-translation-scale: '0'
+                    v-translation-base: '0'
+                    v-translation-scale: '0'
+                    h-cycles: '2'
+                    v-cycles: '2'
+                    particle: 'Witch Magic'
+                    arrangement: 'Circle'
+                    radius-base: '0.2'
+                    radius-scale: '0'
+                    particles-base: '5'
+                    particles-scale: '0'
+                    direction: 'YZ'
+                    visible-radius: '20'
+                    dx: '0'
+                    dy: '0'
+                    dz: '0'
+                    speed: '0'
+                    amount: '1'
+                    forward: '3'
+                    upward: '0'
+                    right: '0'
+                    indicator: '2D'
+                  children:  {}
+                Value Multiply-l: 
                   type: 'mechanic'
                   indicator: '3D'
                   data: 
                     icon-key: ''
                     counts: 'True'
                     key: 'lorepoder'
-                    multiplier-base: '1.5'
+                    multiplier-base: '1.2'
                     multiplier-scale: '0'
                     indicator: '2D'
                   children:  {}
-                Cone-l: 
+                Value Multiply-m: 
+                  type: 'mechanic'
+                  indicator: '3D'
+                  data: 
+                    icon-key: ''
+                    counts: 'True'
+                    key: 'lorepoderoff'
+                    multiplier-base: '1.2'
+                    multiplier-scale: '0'
+                    indicator: '2D'
+                  children:  {}
+                Cone-n: 
                   type: 'target'
                   indicator: '3D'
                   data: 
@@ -125,7 +267,7 @@ Guadaña:
                     max-scale: '0'
                     indicator: '2D'
                   children: 
-                    Damage-m: 
+                    Damage-o: 
                       type: 'mechanic'
                       indicator: '3D'
                       data: 
@@ -138,256 +280,123 @@ Guadaña:
                         classifier: 'default'
                         indicator: '2D'
                       children:  {}
-        Skill Level-n: 
-          type: 'condition'
-          indicator: '3D'
-          data: 
-            icon-key: ''
-            skill: 'Guadaña Doble'
-            min-level: '1'
-            max-level: '1'
-            indicator: '2D'
-          children: 
-            Particle Animation-o: 
-              type: 'mechanic'
+                    Damage-p: 
+                      type: 'mechanic'
+                      indicator: '3D'
+                      data: 
+                        icon-key: ''
+                        counts: 'True'
+                        type: 'Damage'
+                        value-base: 'lorepoderoff'
+                        value-scale: '1'
+                        true: 'False'
+                        classifier: 'default'
+                        indicator: '2D'
+                      children:  {}
+            Skill Level-q: 
+              type: 'condition'
               indicator: '3D'
               data: 
                 icon-key: ''
-                counts: 'True'
-                steps: '5'
-                frequency: '0.05'
-                angle: '-180'
-                start: '90'
-                duration-base: '0.4'
-                duration-scale: '0'
-                h-translation-base: '3'
-                h-translation-scale: '0'
-                v-translation-base: '2'
-                v-translation-scale: '0'
-                h-cycles: '2'
-                v-cycles: '2'
-                particle: 'Crit'
-                arrangement: 'Circle'
-                radius-base: '0.2'
-                radius-scale: '0'
-                particles-base: '5'
-                particles-scale: '0'
-                direction: 'XY'
-                visible-radius: '20'
-                dx: '0'
-                dy: '0'
-                dz: '0'
-                speed: '0'
-                amount: '1'
-                forward: '3'
-                upward: '0'
-                right: '0'
-                indicator: '2D'
-              children:  {}
-            Particle Animation-p: 
-              type: 'mechanic'
-              indicator: '3D'
-              data: 
-                icon-key: ''
-                counts: 'True'
-                steps: '5'
-                frequency: '0.05'
-                angle: '180'
-                start: '-90'
-                duration-base: '0.4'
-                duration-scale: '0'
-                h-translation-base: '3'
-                h-translation-scale: '0'
-                v-translation-base: '0'
-                v-translation-scale: '0'
-                h-cycles: '2'
-                v-cycles: '2'
-                particle: 'Witch Magic'
-                arrangement: 'Circle'
-                radius-base: '0.2'
-                radius-scale: '0'
-                particles-base: '5'
-                particles-scale: '0'
-                direction: 'YZ'
-                visible-radius: '20'
-                dx: '0'
-                dy: '0'
-                dz: '0'
-                speed: '0'
-                amount: '1'
-                forward: '3'
-                upward: '0'
-                right: '0'
-                indicator: '2D'
-              children:  {}
-            Value Multiply-q: 
-              type: 'mechanic'
-              indicator: '3D'
-              data: 
-                icon-key: ''
-                counts: 'True'
-                key: 'lorepoder'
-                multiplier-base: '1.2'
-                multiplier-scale: '0'
-                indicator: '2D'
-              children:  {}
-            Value Multiply-r: 
-              type: 'mechanic'
-              indicator: '3D'
-              data: 
-                icon-key: ''
-                counts: 'True'
-                key: 'lorepoderoff'
-                multiplier-base: '1.2'
-                multiplier-scale: '0'
-                indicator: '2D'
-              children:  {}
-            Cone-s: 
-              type: 'target'
-              indicator: '3D'
-              data: 
-                icon-key: ''
-                range-base: '4'
-                range-scale: '0'
-                angle-base: '60'
-                angle-scale: '0'
-                group: 'Enemy'
-                wall: 'False'
-                caster: 'False'
-                max-base: '99'
-                max-scale: '0'
+                skill: 'Guadaña Sangrienta'
+                min-level: '1'
+                max-level: '1'
                 indicator: '2D'
               children: 
-                Damage-t: 
+                Particle Animation-r: 
                   type: 'mechanic'
                   indicator: '3D'
                   data: 
                     icon-key: ''
                     counts: 'True'
-                    type: 'Damage'
+                    steps: '5'
+                    frequency: '0.05'
+                    angle: '-180'
+                    start: '90'
+                    duration-base: '0.4'
+                    duration-scale: '0'
+                    h-translation-base: '3'
+                    h-translation-scale: '0'
+                    v-translation-base: '2'
+                    v-translation-scale: '0'
+                    h-cycles: '2'
+                    v-cycles: '2'
+                    particle: 'Icon Crack'
+                    material: 'Redstone'
+                    type: '0'
+                    arrangement: 'Circle'
+                    radius-base: '0.2'
+                    radius-scale: '0'
+                    particles-base: '5'
+                    particles-scale: '0'
+                    direction: 'XY'
+                    forward: '3'
+                    upward: '0'
+                    right: '0'
+                    indicator: '2D'
+                  children:  {}
+                Value Multiply-s: 
+                  type: 'mechanic'
+                  indicator: '3D'
+                  data: 
+                    icon-key: ''
+                    counts: 'True'
+                    key: 'lorepoder'
+                    multiplier-base: '1.3'
+                    multiplier-scale: '0'
+                    indicator: '2D'
+                  children:  {}
+                Cone-t: 
+                  type: 'target'
+                  indicator: '3D'
+                  data: 
+                    icon-key: ''
+                    range-base: '4'
+                    range-scale: '0'
+                    angle-base: '60'
+                    angle-scale: '0'
+                    group: 'Enemy'
+                    wall: 'False'
+                    caster: 'False'
+                    max-base: '99'
+                    max-scale: '0'
+                    indicator: '2D'
+                  children: 
+                    Damage-u: 
+                      type: 'mechanic'
+                      indicator: '3D'
+                      data: 
+                        icon-key: ''
+                        counts: 'True'
+                        type: 'Damage'
+                        value-base: 'lorepoder'
+                        value-scale: '1'
+                        true: 'False'
+                        classifier: 'default'
+                        indicator: '2D'
+                      children:  {}
+                Value Multiply-v: 
+                  type: 'mechanic'
+                  indicator: '3D'
+                  data: 
+                    icon-key: ''
+                    counts: 'True'
+                    key: 'lorepoder'
+                    multiplier-base: '0.05'
+                    multiplier-scale: '0'
+                    indicator: '2D'
+                  children:  {}
+                Heal-w: 
+                  type: 'mechanic'
+                  indicator: '3D'
+                  data: 
+                    icon-key: ''
+                    counts: 'True'
+                    type: 'Health'
                     value-base: 'lorepoder'
                     value-scale: '1'
-                    true: 'False'
-                    classifier: 'default'
                     indicator: '2D'
                   children:  {}
-                Damage-u: 
-                  type: 'mechanic'
-                  indicator: '3D'
-                  data: 
-                    icon-key: ''
-                    counts: 'True'
-                    type: 'Damage'
-                    value-base: 'lorepoderoff'
-                    value-scale: '1'
-                    true: 'False'
-                    classifier: 'default'
-                    indicator: '2D'
-                  children:  {}
-        Skill Level-v: 
-          type: 'condition'
-          indicator: '3D'
-          data: 
-            icon-key: ''
-            skill: 'Guadaña Sangrienta'
-            min-level: '1'
-            max-level: '1'
-            indicator: '2D'
-          children: 
-            Particle Animation-w: 
-              type: 'mechanic'
-              indicator: '3D'
-              data: 
-                icon-key: ''
-                counts: 'True'
-                steps: '5'
-                frequency: '0.05'
-                angle: '-180'
-                start: '90'
-                duration-base: '0.4'
-                duration-scale: '0'
-                h-translation-base: '3'
-                h-translation-scale: '0'
-                v-translation-base: '2'
-                v-translation-scale: '0'
-                h-cycles: '2'
-                v-cycles: '2'
-                particle: 'Icon Crack'
-                material: 'Redstone'
-                type: '0'
-                arrangement: 'Circle'
-                radius-base: '0.2'
-                radius-scale: '0'
-                particles-base: '5'
-                particles-scale: '0'
-                direction: 'XY'
-                forward: '3'
-                upward: '0'
-                right: '0'
-                indicator: '2D'
-              children:  {}
-            Value Multiply-x: 
-              type: 'mechanic'
-              indicator: '3D'
-              data: 
-                icon-key: ''
-                counts: 'True'
-                key: 'lorepoder'
-                multiplier-base: '1.3'
-                multiplier-scale: '0'
-                indicator: '2D'
-              children:  {}
-            Cone-y: 
-              type: 'target'
-              indicator: '3D'
-              data: 
-                icon-key: ''
-                range-base: '4'
-                range-scale: '0'
-                angle-base: '60'
-                angle-scale: '0'
-                group: 'Enemy'
-                wall: 'False'
-                caster: 'False'
-                max-base: '99'
-                max-scale: '0'
-                indicator: '2D'
-              children: 
-                Damage-z: 
-                  type: 'mechanic'
-                  indicator: '3D'
-                  data: 
-                    icon-key: ''
-                    counts: 'True'
-                    type: 'Damage'
-                    value-base: 'lorepoder'
-                    value-scale: '1'
-                    true: 'False'
-                    classifier: 'default'
-                    indicator: '2D'
-                  children:  {}
-            Value Multiply-ab: 
-              type: 'mechanic'
-              indicator: '3D'
-              data: 
-                icon-key: ''
-                counts: 'True'
-                key: 'lorepoder'
-                multiplier-base: '0.05'
-                multiplier-scale: '0'
-                indicator: '2D'
-              children:  {}
-            Heal-bb: 
-              type: 'mechanic'
-              indicator: '3D'
-              data: 
-                icon-key: ''
-                counts: 'True'
-                type: 'Health'
-                value-base: 'lorepoder'
-                value-scale: '1'
-                indicator: '2D'
-              children:  {}
     Initialize: 
       type: 'trigger'
       indicator: '3D'
@@ -395,7 +404,7 @@ Guadaña:
         icon-key: ''
         indicator: '2D'
       children: 
-        Passive-b: 
+        Passive-y: 
           type: 'mechanic'
           indicator: '3D'
           data: 
@@ -405,7 +414,7 @@ Guadaña:
             seconds-scale: '0'
             indicator: '2D'
           children: 
-            Value Set-c: 
+            Value Set-z: 
               type: 'mechanic'
               indicator: '3D'
               data: 
@@ -416,7 +425,7 @@ Guadaña:
                 value-scale: '0'
                 indicator: '2D'
               children:  {}
-            Value Set-d: 
+            Value Set-ab: 
               type: 'mechanic'
               indicator: '3D'
               data: 
@@ -427,7 +436,7 @@ Guadaña:
                 value-scale: '0'
                 indicator: '2D'
               children:  {}
-            Value Lore-e: 
+            Value Lore-bb: 
               type: 'mechanic'
               indicator: '3D'
               data: 
@@ -440,7 +449,7 @@ Guadaña:
                 multiplier-scale: '0'
                 indicator: '2D'
               children:  {}
-            Value Lore-f: 
+            Value Lore-cb: 
               type: 'mechanic'
               indicator: '3D'
               data: 

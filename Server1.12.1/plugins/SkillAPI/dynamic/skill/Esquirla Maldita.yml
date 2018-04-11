@@ -1,8 +1,8 @@
-Orb2 Guad: 
-  name: 'Orb2 Guad'
+Esquirla Maldita: 
+  name: 'Esquirla Maldita'
   type: 'Runa'
   max-level: 1
-  skill-req: 'Guadaña'
+  skill-req: 'Esquirla'
   skill-req-lvl: 1
   needs-permission: 'false'
   attributes: 
@@ -17,18 +17,17 @@ Orb2 Guad:
     points-spent-req-base: '0'
     points-spent-req-scale: '0'
     incompatible: 
-    - 'Orb1 Guad'
+    - 'Esquirla Pestilente'
   msg: '&6{player} &2has cast &6{skill}'
-  icon: 'JACK_O_LANTERN'
+  icon: 'REDSTONE'
   icon-data: 0
   icon-lore: 
   - '&d{name} &7({level}/{max})'
   - '&2Type: &6{type}'
   - ''
-  - '{req:level}Level: {attr:level}'
-  - '{req:cost}Cost: {attr:cost}'
-  - ''
-  - '&2Mana: {attr:mana}'
-  - '&2Cooldown: {attr:cooldown}'
+  - '&7 Lanzas 4 esquirlas que maldicen al enemigo'
+  - '&7 durante 3 segundos causando una explosion'
+  - '&7 inflingiendo 50% de tu poder de arma'
+  - '&7 en un area de dos bloques'
   desc:  []
   components:  {}
