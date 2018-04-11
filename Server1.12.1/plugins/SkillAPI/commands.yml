@@ -51,14 +51,6 @@ info:
   sender: 'ANYONE'
   enabled: 'true'
   cooldown: 0
-  messages: 
-    title: '&8--&2 {player} &8-----------'
-    separator: '&8----------------------------'
-    category: '&6{group}&7: '
-    no-class: '&7Not Professed'
-    end: '&8----------------------------'
-    profession: '&bLv{level} &2{profession}'
-    exp: '&bExp &2{exp}'
 level: 
   name: 'level'
   description: 'Gives players levels'
@@ -67,8 +59,6 @@ level:
   sender: 'ANYONE'
   enabled: 'true'
   cooldown: 0
-  messages: 
-    received-level: '&2You have received &6{level} levels &2from &6{player}'
 list: 
   name: 'list'
   description: 'Displays accounts'
@@ -119,6 +109,7 @@ profess:
   cooldown: 0
   messages: 
     professed: '&2You are now a &6{class}'
+    cannot-profess: '&cYou cannot profess to this class currently'
 reload: 
   name: 'reload'
   description: 'Reloads the plugin'
@@ -138,8 +129,6 @@ reset:
   enabled: 'true'
   cooldown: 0
   messages: 
-    confirm: "&4This will delete your active account's data entirely"
-    instructions: '&7Type &6/class reset confirm&7 to continue'
     reset: '&2You have reset your active account data'
 skill: 
   name: 'skill'

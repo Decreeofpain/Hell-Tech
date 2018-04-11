@@ -68,7 +68,7 @@ Targeting:
 Saving: 
 
   # Whether or not to auto save data periodically
-  auto-save: 'true'
+  auto-save: 'false'
 
   # How often to auto-save in minutes
   minutes: '30'
@@ -129,7 +129,7 @@ Skills:
   show-messages: 'true'
 
   # The radius in which to show cast messages to nearby players
-  message-radius: '10'
+  message-radius: '20'
 
   # Whether or not to apply damage knockback when damage is blocked
   # by defensive or offesnive buffs and debuffs
@@ -159,7 +159,7 @@ Items:
   lore-attributes: 'true'
 
   # Whether or not to drop weapons when unable to use them
-  drop-weapon: 'false'
+  drop-weapon: 'true'
 
   # The text used for class requirements in the lore
   lore-class-text: 'sClase: '
@@ -204,7 +204,7 @@ GUI:
 
   # Whether or not to force SkillAPI to override
   # health scaling of other plugins
-  force-scaling: 'false'
+  force-scaling: 'true'
 
   # This is what to display using the level bar, if anything.
   # Options are: none, mana, level
@@ -475,23 +475,23 @@ Experience:
 
   # Whether or not to prevent gaining experience while
   # in creative mode
-  block-creative: 'false'
+  block-creative: "falsetrue'"
 
   # Whether or not to display a message when gaining experience
-  exp-message-enabled: 'false'
+  exp-message-enabled: 'true'
 
   # Whether or not to display a message when gaining a level
-  level-message-enabled: 'true'
+  level-message-enabled: 'false'
 
   # Whether or not to show a message when losing exp de to dying
-  lose-exp-message: 'true'
+  lose-exp-message: 'false'
 
   # The formula used for calculating required experience
   # The formula is: x*lvl*lvl + y*lvl + z
   formula: 
     x: '1'
-    y: '4'
-    z: '10'
+    y: '8'
+    z: '16'
 
   # Whether or not to use a custom equation
   use-custom: 'false'
@@ -529,7 +529,7 @@ Experience:
     witch: '3'
     wither: '500'
     witherskeleton: '5'
-    zombie: '0'
+    zombie: '2'
 
 # How much logging to do when loading SkillAPI
 # When testing setting up skills/classes, increase this to 1-5
