@@ -227,6 +227,7 @@ yorickevents:
     - ^flag <player> cursordata:<context.cursor_item.material.data>
     - ^flag <player> cursoridqty:<context.cursor_item.quantity>
     - ^flag <player> profinv:inv_yorick_ok
+    - ^run 's@animeaserradero'
     - ^run 's@countprofq'
     - ^DETERMINE cancelled
     - ^queue clear
@@ -352,6 +353,175 @@ profquestsrandomyorick:
     - ^flag <player> qprofStatus:on
     - ^yaml unload id:<player.name>profcarp
     - ^queue clear
+
+# -----------              ANIMACIONES Y COMPROBACIONES DE ASERRADERO
+# Aserradero destruido Cap 1
+animedesase:
+    type: task
+    script:
+    - ^modifyblock location:2295,71,1936,Esparcraft 17,8
+    - ^modifyblock location:2295,71,1937,Esparcraft 17,8
+    - ^wait 0.8s
+    - ^modifyblock location:2295,71,1936,Esparcraft 0
+    - ^playeffect location:2295,71,1938,Esparcraft effect:blockcrack_17 quantity:50 data:1 offset:0.8
+    - ^playeffect location:2296,71,1938,Esparcraft effect:blockcrack_17 quantity:50 data:1 offset:0.8
+    - ^wait 0.8s
+    - ^modifyblock location:2295,71,1937,Esparcraft 0
+    - ^playeffect location:2295,71,1938,Esparcraft effect:blockcrack_17 quantity:50 data:1 offset:0.8
+    - ^playeffect location:2296,71,1938,Esparcraft effect:blockcrack_17 quantity:50 data:1 offset:0.8
+    - ^queue clear
+
+# Aserradero Estandar
+animeaserradero:
+    type: task
+    script:
+    - ^yaml load:pueblos/meslajho.yml id:aserradero<player.name>
+    - ^if <yaml[aserradero<player.name>].read[aserradero.cantidad]> < 64 && <yaml[aserradero<player.name>].read[aserradero.mechanims]> != on {
+      - ^if <yaml[aserradero<player.name>].read[aserradero.fase].as_list> !contains 1 {
+        - ^schematic load name:contmescarp1
+        - ^schematic paste name:contmescarp1 location:<cu@contmescarp.min>
+        - ^schematic unload name:contmescarp1
+        - ^yaml id:aserradero<player.name> set aserradero.fase:->:1
+        }
+      - ^yaml id:aserradero<player.name> set aserradero.cantidad:+:<player.flag[cursoridqty]>
+      - ^yaml savefile:pueblos/meslajho.yml id:aserradero<player.name>
+      - ^yaml unload id:aserradero<player.name>
+      - ^queue clear
+      } else if <yaml[aserradero<player.name>].read[aserradero.cantidad]> >= 64 && <yaml[aserradero<player.name>].read[aserradero.cantidad]> < 128 && <yaml[aserradero<player.name>].read[aserradero.mechanims]> != on {
+      - ^if <yaml[aserradero<player.name>].read[aserradero.fase].as_list> !contains 2 {
+        - ^schematic load name:contmescarp2
+        - ^schematic paste name:contmescarp2 location:<cu@contmescarp.min>
+        - ^schematic unload name:contmescarp2
+        - ^yaml id:aserradero<player.name> set aserradero.fase:->:2
+        }
+      - ^yaml id:aserradero<player.name> set aserradero.cantidad:+:<player.flag[cursoridqty]>
+      - ^yaml savefile:pueblos/meslajho.yml id:aserradero<player.name>
+      - ^yaml unload id:aserradero<player.name>
+      - ^queue clear
+      } else if <yaml[aserradero<player.name>].read[aserradero.cantidad]> >= 128 && <yaml[aserradero<player.name>].read[aserradero.cantidad]> < 192 && <yaml[aserradero<player.name>].read[aserradero.mechanims]> != on {
+      - ^if <yaml[aserradero<player.name>].read[aserradero.fase].as_list> !contains 3 {
+        - ^schematic load name:contmescarp3
+        - ^schematic paste name:contmescarp3 location:<cu@contmescarp.min>
+        - ^schematic unload name:contmescarp3
+        - ^yaml id:aserradero<player.name> set aserradero.fase:->:3
+        }
+      - ^yaml id:aserradero<player.name> set aserradero.cantidad:+:<player.flag[cursoridqty]>
+      - ^yaml savefile:pueblos/meslajho.yml id:aserradero<player.name>
+      - ^yaml unload id:aserradero<player.name>
+      - ^queue clear
+      } else if <yaml[aserradero<player.name>].read[aserradero.cantidad]> >= 192 && <yaml[aserradero<player.name>].read[aserradero.cantidad]> < 222 && <yaml[aserradero<player.name>].read[aserradero.mechanims]> != on {
+      - ^yaml id:aserradero<player.name> set aserradero.cantidad:0
+      - ^yaml id:aserradero<player.name> set aserradero.fase:0
+      - ^yaml id:aserradero<player.name> set aserradero.mechanims:on
+      - ^yaml savefile:pueblos/meslajho.yml id:aserradero<player.name>
+      - ^yaml unload id:aserradero<player.name>
+      - ^run 's@aserraderomes'
+      - ^queue clear
+      }
+#  ------ ANIMACION ASERRADERO ESTANDAR
+aserraderomes:
+    type: task
+    script:
+    - ^schematic load name:contmescarp5
+    - ^schematic paste name:contmescarp5 location:<cu@contmescarp.min>
+    - ^schematic unload name:contmescarp5
+    - ^wait 1t
+    - ^schematic load name:contmescarp6
+    - ^schematic paste name:contmescarp6 location:<cu@contmescarp.min>
+    - ^schematic unload name:contmescarp6
+    - ^wait 0.1s
+    - ^modifyblock location:2293,72,1948,Esparcraft 0
+    - ^playeffect location:2288,72,1949,Esparcraft effect:blockcrack_17 quantity:50 data:1 offset:0.8
+    - ^playeffect location:2288,72,1948,Esparcraft effect:blockcrack_17 quantity:50 data:1 offset:0.8
+    - ^playeffect location:2288,72,1947,Esparcraft effect:blockcrack_17 quantity:50 data:1 offset:0.8
+    - ^playeffect location:2290,73,1948,Esparcraft effect:blockcrack_17 quantity:50 data:1 offset:0.8
+    - ^wait 0.1s
+    - ^modifyblock location:2292,72,1948,Esparcraft 0
+    - ^playeffect location:2288,72,1949,Esparcraft effect:blockcrack_17 quantity:50 data:1 offset:0.8
+    - ^playeffect location:2288,72,1948,Esparcraft effect:blockcrack_17 quantity:50 data:1 offset:0.8
+    - ^playeffect location:2288,72,1947,Esparcraft effect:blockcrack_17 quantity:50 data:1 offset:0.8
+    - ^playeffect location:2290,73,1948,Esparcraft effect:blockcrack_17 quantity:50 data:1 offset:0.8
+    - ^wait 0.1s
+    - ^modifyblock location:2291,72,1948,Esparcraft 0
+    - ^playeffect location:2288,72,1949,Esparcraft effect:blockcrack_17 quantity:50 data:1 offset:0.8
+    - ^playeffect location:2288,72,1948,Esparcraft effect:blockcrack_17 quantity:50 data:1 offset:0.8
+    - ^playeffect location:2288,72,1947,Esparcraft effect:blockcrack_17 quantity:50 data:1 offset:0.8
+    - ^playeffect location:2290,73,1948,Esparcraft effect:blockcrack_17 quantity:50 data:1 offset:0.8
+    - ^wait 0.1s
+    - ^modifyblock location:2290,72,1948,Esparcraft 0
+    - ^playeffect location:2288,72,1949,Esparcraft effect:blockcrack_17 quantity:50 data:1 offset:0.8
+    - ^playeffect location:2288,72,1948,Esparcraft effect:blockcrack_17 quantity:50 data:1 offset:0.8
+    - ^playeffect location:2288,72,1947,Esparcraft effect:blockcrack_17 quantity:50 data:1 offset:0.8
+    - ^playeffect location:2290,73,1948,Esparcraft effect:blockcrack_17 quantity:50 data:1 offset:0.8
+    - ^wait 2s
+    - ^schematic load name:contmescarp7
+    - ^schematic paste name:contmescarp7 location:<cu@contmescarp.min>
+    - ^schematic unload name:contmescarp7
+    - ^wait 1t
+    - ^schematic load name:contmescarp8
+    - ^schematic paste name:contmescarp8 location:<cu@contmescarp.min>
+    - ^schematic unload name:contmescarp8
+    - ^wait 0.1s
+    - ^modifyblock location:2293,72,1948,Esparcraft 0
+    - ^playeffect location:2288,72,1949,Esparcraft effect:blockcrack_17 quantity:50 data:1 offset:0.8
+    - ^playeffect location:2288,72,1948,Esparcraft effect:blockcrack_17 quantity:50 data:1 offset:0.8
+    - ^playeffect location:2288,72,1947,Esparcraft effect:blockcrack_17 quantity:50 data:1 offset:0.8
+    - ^playeffect location:2290,73,1948,Esparcraft effect:blockcrack_17 quantity:50 data:1 offset:0.8
+    - ^wait 0.1s
+    - ^modifyblock location:2292,72,1948,Esparcraft 0
+    - ^playeffect location:2288,72,1949,Esparcraft effect:blockcrack_17 quantity:50 data:1 offset:0.8
+    - ^playeffect location:2288,72,1948,Esparcraft effect:blockcrack_17 quantity:50 data:1 offset:0.8
+    - ^playeffect location:2288,72,1947,Esparcraft effect:blockcrack_17 quantity:50 data:1 offset:0.8
+    - ^playeffect location:2290,73,1948,Esparcraft effect:blockcrack_17 quantity:50 data:1 offset:0.8
+    - ^wait 0.1s
+    - ^modifyblock location:2291,72,1948,Esparcraft 0
+    - ^playeffect location:2288,72,1949,Esparcraft effect:blockcrack_17 quantity:50 data:1 offset:0.8
+    - ^playeffect location:2288,72,1948,Esparcraft effect:blockcrack_17 quantity:50 data:1 offset:0.8
+    - ^playeffect location:2288,72,1947,Esparcraft effect:blockcrack_17 quantity:50 data:1 offset:0.8
+    - ^playeffect location:2290,73,1948,Esparcraft effect:blockcrack_17 quantity:50 data:1 offset:0.8
+    - ^wait 0.1s
+    - ^modifyblock location:2290,72,1948,Esparcraft 0
+    - ^playeffect location:2288,72,1949,Esparcraft effect:blockcrack_17 quantity:50 data:1 offset:0.8
+    - ^playeffect location:2288,72,1948,Esparcraft effect:blockcrack_17 quantity:50 data:1 offset:0.8
+    - ^playeffect location:2288,72,1947,Esparcraft effect:blockcrack_17 quantity:50 data:1 offset:0.8
+    - ^playeffect location:2290,73,1948,Esparcraft effect:blockcrack_17 quantity:50 data:1 offset:0.8
+    - ^wait 2s
+    - ^schematic load name:contmescarp9
+    - ^schematic paste name:contmescarp9 location:<cu@contmescarp.min>
+    - ^schematic unload name:contmescarp9
+    - ^wait 1t
+    - ^schematic load name:contmescarp10
+    - ^schematic paste name:contmescarp10 location:<cu@contmescarp.min>
+    - ^schematic unload name:contmescarp10
+    - ^wait 0.1s
+    - ^modifyblock location:2293,72,1948,Esparcraft 0
+    - ^playeffect location:2288,72,1949,Esparcraft effect:blockcrack_17 quantity:50 data:1 offset:0.8
+    - ^playeffect location:2288,72,1948,Esparcraft effect:blockcrack_17 quantity:50 data:1 offset:0.8
+    - ^playeffect location:2288,72,1947,Esparcraft effect:blockcrack_17 quantity:50 data:1 offset:0.8
+    - ^playeffect location:2290,73,1948,Esparcraft effect:blockcrack_17 quantity:50 data:1 offset:0.8
+    - ^wait 0.1s
+    - ^modifyblock location:2292,72,1948,Esparcraft 0
+    - ^playeffect location:2288,72,1949,Esparcraft effect:blockcrack_17 quantity:50 data:1 offset:0.8
+    - ^playeffect location:2288,72,1948,Esparcraft effect:blockcrack_17 quantity:50 data:1 offset:0.8
+    - ^playeffect location:2288,72,1947,Esparcraft effect:blockcrack_17 quantity:50 data:1 offset:0.8
+    - ^playeffect location:2290,73,1948,Esparcraft effect:blockcrack_17 quantity:50 data:1 offset:0.8
+    - ^wait 0.1s
+    - ^modifyblock location:2291,72,1948,Esparcraft 0
+    - ^playeffect location:2288,72,1949,Esparcraft effect:blockcrack_17 quantity:50 data:1 offset:0.8
+    - ^playeffect location:2288,72,1948,Esparcraft effect:blockcrack_17 quantity:50 data:1 offset:0.8
+    - ^playeffect location:2288,72,1947,Esparcraft effect:blockcrack_17 quantity:50 data:1 offset:0.8
+    - ^playeffect location:2290,73,1948,Esparcraft effect:blockcrack_17 quantity:50 data:1 offset:0.8
+    - ^wait 0.1s
+    - ^modifyblock location:2290,72,1948,Esparcraft 0
+    - ^playeffect location:2288,72,1949,Esparcraft effect:blockcrack_17 quantity:50 data:1 offset:0.8
+    - ^playeffect location:2288,72,1948,Esparcraft effect:blockcrack_17 quantity:50 data:1 offset:0.8
+    - ^playeffect location:2288,72,1947,Esparcraft effect:blockcrack_17 quantity:50 data:1 offset:0.8
+    - ^playeffect location:2290,73,1948,Esparcraft effect:blockcrack_17 quantity:50 data:1 offset:0.8
+    - ^yaml load:pueblos/meslajho.yml id:aserradero<player.name>
+    - ^yaml id:aserradero<player.name> set aserradero.mechanims:off
+    - ^yaml savefile:pueblos/meslajho.yml id:aserradero<player.name>
+    - ^queue clear
+
 
 # = INVENTARIOS
 inv_yorick:

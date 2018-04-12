@@ -91,7 +91,7 @@ establoend:
       - ^execute as_op "mm m killall"
       - ^execute as_server "time set 100"
       - ^execute as_server "weather clear"
-      - ^foreach li@n@1|n@2|n@3|n@5|n@6|n@7|n@8|n@9|n@10|n@27|n@35|n@66|n@85|n@91|n@94|n@96|n@99|n@100 {
+      - ^foreach li@n@1|n@2|n@3|n@5|n@6|n@7|n@8|n@9|n@10|n@27|n@35|n@66|n@85|n@91|n@94|n@96|n@99|n@100|n@193 {
         - ^define npctarget %value%
         - ^teleport <def[npctarget]> <def[npctarget].anchor[construct]>
         }

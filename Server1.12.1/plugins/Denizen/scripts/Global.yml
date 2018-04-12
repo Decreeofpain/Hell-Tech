@@ -60,68 +60,6 @@ Global:
       - DETERMINE cancelled
       }
 
-    on 6:00 in Esparcraft:
-    - ^execute as_server "denizen save"
-    - ^execute as_server "as reload"
-    - ^if <global.flag[capitulos].contains[CAPITULO1P2OK]> {
-      - run 's@DiaBlocksMeslajho'
-      - ^schematic load name:entradamesopen
-      - ^schematic paste name:entradamesopen location:<cu@entradames.min>
-      - ^schematic unload name:entradamesopen
-      - ^foreach <server.flag[npcsleep].as_list> {
-        - run 's@dia' npc:%value%
-        }
-      }
-    on 19:00 in Esparcraft:
-# ============== PUENTES DE MESLAJHO ================
-    - ^flag <global> puentesmesdeg:+:1
-    - ^if <global.flag[puentesmesdeg]> >= 36 {
-      - ^schematic load name:puentemes1off
-      - ^schematic paste name:puentemes1off location:<cu@puente1mes.min>
-      - ^schematic unload name:puentemes1off
-      - ^schematic load name:puentemes2off
-      - ^schematic paste name:puentemes2off location:<cu@puente2mes.min>
-      - ^schematic unload name:puentemes2off
-      } else if <global.flag[puentesmesdeg]> == 24 {
-      - ^schematic load name:puentemes1deg3
-      - ^schematic paste name:puentemes1deg3 location:<cu@puente1mes.min>
-      - ^schematic unload name:puentemes1deg3
-      - ^schematic load name:puentemes2deg3
-      - ^schematic paste name:puentemes2deg3 location:<cu@puente2mes.min>
-      - ^schematic unload name:puentemes2deg3
-      } else if <global.flag[puentesmesdeg]> == 16 {
-      - ^schematic load name:puentemes1deg2
-      - ^schematic paste name:puentemes1deg2 location:<cu@puente1mes.min>
-      - ^schematic unload name:puentemes1deg2
-      - ^schematic load name:puentemes2deg2
-      - ^schematic paste name:puentemes2deg2 location:<cu@puente2mes.min>
-      - ^schematic unload name:puentemes2deg2
-      } else if <global.flag[puentesmesdeg]> == 8 {
-      - ^schematic load name:puentemes1deg1
-      - ^schematic paste name:puentemes1deg1 location:<cu@puente1mes.min>
-      - ^schematic unload name:puentemes1deg1
-      - ^schematic load name:puentemes2deg1
-      - ^schematic paste name:puentemes2deg1 location:<cu@puente2mes.min>
-      - ^schematic unload name:puentemes2deg1
-      }
-# ===================================================
-    - ^if <global.flag[capitulos].contains[CAPITULO1P2OK]> {
-      - ^run 's@NocheBlocksMeslajho'
-      - ^schematic load name:entradamesclose
-      - ^schematic paste name:entradamesclose location:<cu@entradames.min>
-      - ^schematic unload name:entradamesclose
-      - ^foreach <server.flag[npcsleep].as_list> {
-        - ^run 's@noche' npc:%value%
-        }
-      }
-    - wait 10t
-#    - sign type:wall_sign "<dark_red>CERRADO|<blue>Para entrar|usa <dark_green>/spawn|Att: <aqua>Fernan" location:2964,108,3175,Esparcraft direction:w
-    - ^if <w@Esparcraft.moon_phase> == 1 {
-      - narrate "Hoy hay luna llena" targets:<p@player.list.online>
-      } else {
-      - narrate "No hay luna llena"
-      }
-
 formatdemo:
   type: format
   format: "<&a>[<&8>Objetivo<&e> - <&2><text><&a>]"
@@ -137,18 +75,7 @@ formatesparcraftanouncer:
   type: format
   format: "<&c>[<&8>Esparcraft<&c> - <&4><text><&c>]"
 
-dia:
-    type: task
-    script:
-    - ^modifyblock location:<anchor:fire> air
-    - ^resume waypoints
 
-noche:
-    type: task
-    script:
-    - ^pause waypoints
-    - ^walk to location:<anchor:sleep>
-    - ^modifyblock location:<anchor:fire> fire
 monitortsk:
     type: task
     script:
@@ -189,40 +116,7 @@ restartserver:
     - ^title "title:<gold>Esparcraft" "subtitle:<red>El servidor se reiniciara en 2 segundos" stay:20s targets:<server.list_online_players>
     - ^wait 1s
     - ^title "title:<gold>Esparcraft" "subtitle:<red>El servidor se reiniciara en 1 segundos" stay:20s targets:<server.list_online_players>
-DiaBlocksMeslajho:
-    type: task
-    script:
-#----------------------------------------------------Selfor
-    - ^if <global.flag[capitulos].as_list> contains CAPITULO1P2OK {
-      - modifyblock location:3067,107,3185,Esparcraft 0
-      - modifyblock location:3067,107,3186,Esparcraft 0
-#----------------------------------------------------Roul
-      - modifyblock location:3020,107,3124,Esparcraft fire
-#----------------------------------------------------hammon
-      - modifyblock location:3017,107,3132,Esparcraft fire
-#----------------------------------------------------calentadores
-      - modifyblock location:3010,107,3137,Esparcraft fire
-#----------------------------------------------------Selfor
-      - modifyblock location:3067,108,3185,Esparcraft 0
-      - modifyblock location:3067,108,3186,Esparcraft 0
-      }
-NocheBlocksMeslajho:
-    type: task
-    script:
-#----------------------------------------------------Selfor
-    - ^if <global.flag[capitulos].as_list> contains CAPITULO1P2OK {
-      - modifyblock location:3067,108,3185,Esparcraft 85
-      - modifyblock location:3067,108,3186,Esparcraft 85
-#----------------------------------------------------Roul
-      - modifyblock location:3020,107,3124,Esparcraft 0
-#----------------------------------------------------hammon
-      - modifyblock location:3017,107,3132,Esparcraft 0
-#----------------------------------------------------calentadores
-      - modifyblock location:3010,107,3137,Esparcraft 0
-#----------------------------------------------------Selfor
-      - modifyblock location:3067,107,3186,Esparcraft 85
-      - modifyblock location:3067,107,3185,Esparcraft 85
-      }
+
 Workschema:
     type: task
     script:
