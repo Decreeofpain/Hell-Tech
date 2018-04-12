@@ -1,0 +1,41 @@
+enchants: 
+  name: 'enchants'
+  sender: 'ANYONE'
+  enabled: 'true'
+  cooldown: '0'
+add: 
+  name: 'add'
+  description: 'enchants held item'
+  permission: 'EnchantmentAPI.admin'
+  args: '<enchant> <level>'
+  sender: 'PLAYER_ONLY'
+  enabled: 'true'
+  cooldown: '0'
+  messages: 
+    success: '&2Added the enchantment successfully'
+reload: 
+  name: 'reload'
+  description: 'reloads the plugin'
+  permission: 'EnchantmentAPI.admin'
+  args: ''
+  sender: 'ANYONE'
+  enabled: 'true'
+  cooldown: '0'
+graph: 
+  name: 'graph'
+  description: 'graphs probabilities'
+  permission: 'EnchantmentAPI.admin'
+  args: '<mat> <enchant>'
+  sender: 'ANYONE'
+  enabled: 'true'
+  cooldown: '0'
+book: 
+  name: 'book'
+  description: 'detailed book'
+  permission: 'EnchantmentAPI.admin'
+  args: ''
+  sender: 'PLAYER_ONLY'
+  enabled: 'true'
+  cooldown: '0'
+  messages: 
+    success: '&2You have received a book with all enchantment details'

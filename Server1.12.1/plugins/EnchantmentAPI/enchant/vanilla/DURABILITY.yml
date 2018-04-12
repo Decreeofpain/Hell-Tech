@@ -1,0 +1,98 @@
+name: 'DURABILITY'
+description: 'DURABILITY vanilla enchantment'
+enabled: 'true'
+
+# Max attainable level from anvils
+max-level: 3
+
+# Max attainable level from enchanting
+max-table-level: 3
+
+# When something other than default, prevents multiple enchantments
+# in the same group being on the same item
+group: 'Default'
+
+# Items that can receive the enchantment from enchanting or anvils
+natural-items: 
+- 'IRON_CHESTPLATE'
+- 'GOLD_SWORD'
+- 'STONE_AXE'
+- 'GOLD_HELMET'
+- 'DIAMOND_AXE'
+- 'STONE_SWORD'
+- 'WOOD_SWORD'
+- 'GOLD_HOE'
+- 'WOOD_HOE'
+- 'BOW'
+- 'IRON_SWORD'
+- 'SHEARS'
+- 'WOOD_AXE'
+- 'STONE_SPADE'
+- 'DIAMOND_PICKAXE'
+- 'IRON_AXE'
+- 'GOLD_AXE'
+- 'CARROT_STICK'
+- 'CHAINMAIL_CHESTPLATE'
+- 'IRON_LEGGINGS'
+- 'GOLD_PICKAXE'
+- 'DIAMOND_HOE'
+- 'LEATHER_CHESTPLATE'
+- 'LEATHER_BOOTS'
+- 'CHAINMAIL_LEGGINGS'
+- 'LEATHER_HELMET'
+- 'IRON_BOOTS'
+- 'STONE_PICKAXE'
+- 'SHIELD'
+- 'GOLD_BOOTS'
+- 'DIAMOND_SWORD'
+- 'DIAMOND_CHESTPLATE'
+- 'DIAMOND_HELMET'
+- 'FISHING_ROD'
+- 'DIAMOND_SPADE'
+- 'LEATHER_LEGGINGS'
+- 'FLINT_AND_STEEL'
+- 'WOOD_PICKAXE'
+- 'IRON_HOE'
+- 'ELYTRA'
+- 'CHAINMAIL_BOOTS'
+- 'CHAINMAIL_HELMET'
+- 'IRON_HELMET'
+- 'GOLD_CHESTPLATE'
+- 'IRON_PICKAXE'
+- 'DIAMOND_BOOTS'
+- 'IRON_SPADE'
+- 'WOOD_SPADE'
+- 'GOLD_SPADE'
+- 'GOLD_LEGGINGS'
+- 'STONE_HOE'
+- 'DIAMOND_LEGGINGS'
+
+# How common the enchantment is. Higher numbers are more common.
+weight: 5.0
+
+# Weights for specific materials
+material-weights:  {}
+
+# Minimum enchanting level to receive the enchantment.
+# Negatives make it easier to get higher ranks
+min-enchanting-level: 5.0
+
+# Higher numbers result in requiring higher enchanting levels
+# to get higher ranks
+enchant-level-scale-factor: 8.0
+
+# How many enchantment levels beyond the max can still yield the enchantment
+enchant-level-buffer: 42.0
+
+# Level cost per level of the enchantment
+combine-cost-per-level: 2
+
+# Whether or not the same enchantment stacks if on multiple items.
+# When false, the highest level is applied
+stacks: 'false'
+
+# Whether or not this enchantment can be achieved from enchanting
+table-enabled: 'true'
+
+# Extra settings specific to the enchantment
+effect:  {}
