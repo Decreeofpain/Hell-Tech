@@ -2,7 +2,7 @@ enchants:
   name: 'enchants'
   sender: 'ANYONE'
   enabled: 'true'
-  cooldown: '0'
+  cooldown: 0
 add: 
   name: 'add'
   description: 'enchants held item'
@@ -10,7 +10,7 @@ add:
   args: '<enchant> <level>'
   sender: 'PLAYER_ONLY'
   enabled: 'true'
-  cooldown: '0'
+  cooldown: 0
   messages: 
     success: '&2Added the enchantment successfully'
 reload: 
@@ -20,7 +20,7 @@ reload:
   args: ''
   sender: 'ANYONE'
   enabled: 'true'
-  cooldown: '0'
+  cooldown: 0
 graph: 
   name: 'graph'
   description: 'graphs probabilities'
@@ -28,7 +28,7 @@ graph:
   args: '<mat> <enchant>'
   sender: 'ANYONE'
   enabled: 'true'
-  cooldown: '0'
+  cooldown: 0
 book: 
   name: 'book'
   description: 'detailed book'
@@ -36,6 +36,6 @@ book:
   args: ''
   sender: 'PLAYER_ONLY'
   enabled: 'true'
-  cooldown: '0'
+  cooldown: 0
   messages: 
     success: '&2You have received a book with all enchantment details'

@@ -1,0 +1,91 @@
+Critico:
+  name: 'Critico'
+  type: 'Pasiva'
+  max-level: 1
+  skill-req: ''
+  skill-req-lvl: 0
+  needs-permission: 'False'
+  msg: '&6{player} &2has cast &6{skill}'
+  combo: ''
+  indicator: '2D'
+  icon: 'Acacia Door'
+  icon-data: 0
+  icon-lore:
+  - '&d{name} &7({level}/{max})'
+  - '&2Type: &6{type}'
+  - ''
+  - '{req:level}Level: {attr:level}'
+  - '{req:cost}Cost: {attr:cost}'
+  - ''
+  - '&2Mana: {attr:mana}'
+  - '&2Cooldown: {attr:cooldown}'
+  attributes:
+    level-base: 1
+    level-scale: 0
+    cost-base: 0
+    cost-scale: 0
+    cooldown-base: 0
+    cooldown-scale: 0
+    mana-base: 0
+    mana-scale: 0
+    points-spent-req-base: 0
+    points-spent-req-scale: 0
+    incompatible:
+    - ''
+  components:
+    Initialize-a:
+      type: 'trigger'
+      data:
+        icon-key: ''
+      children:
+        Passive-b:
+          type: 'mechanic'
+          data:
+            icon-key: ''
+            counts: 'True'
+            seconds-base: 2
+            seconds-scale: 0
+          children:
+            Tool-c:
+              type: 'condition'
+              data:
+                icon-key: ''
+                material: 'Any'
+                tool: 'Sword'
+              children:
+                Value Set-d:
+                  type: 'mechanic'
+                  data:
+                    icon-key: ''
+                    counts: 'True'
+                    key: '100critLore'
+                    value-base: 0
+                    value-scale: 0
+                Value Lore-e:
+                  type: 'mechanic'
+                  data:
+                    icon-key: ''
+                    counts: 'True'
+                    key: '100critLore'
+                    hand: 'Main'
+                    regex: 'Golpe Critico: {value}'
+                    multiplier-base: 1
+                    multiplier-scale: 0
+                Value Set-f:
+                  type: 'mechanic'
+                  data:
+                    icon-key: ''
+                    counts: 'True'
+                    key: 'critLore'
+                    value-base: 0
+                    value-scale: 0
+                Value Lore-g:
+                  type: 'mechanic'
+                  data:
+                    icon-key: ''
+                    counts: 'True'
+                    key: 'critLore'
+                    hand: 'Main'
+                    regex: 'Daño Critico: {value}'
+                    multiplier-base: 1
+                    multiplier-scale: 0
