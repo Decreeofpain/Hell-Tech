@@ -3457,17 +3457,17 @@ Sed sanguinea:
     incompatible: 
     - ''
   msg: '&6{player} &2has cast &6{skill}'
-  icon: 'ACACIA_DOOR'
+  icon: 'REDSTONE'
   icon-data: 0
   icon-lore: 
   - '&d{name} &7({level}/{max})'
-  - '&2Type: &6{type}'
+  - '&2Tipo: &6{type}'
   - ''
-  - '{req:level}Level: {attr:level}'
-  - '{req:cost}Cost: {attr:cost}'
+  - '&7 Tu velocidad aumenta por'
+  - '&7 cada enemigo que mates'
+  - '&7 un 3% durante 3 seg.'
   - ''
-  - '&2Mana: {attr:mana}'
-  - '&2Cooldown: {attr:cooldown}'
+  - '& Acumulable hasta 20 veces.'
   desc:  []
   components: 
     Initialize: 
@@ -3495,7 +3495,7 @@ Sed sanguinea:
                 counts: 'True'
                 multiplier-base: 'Stackkill'
                 multiplier-scale: '0'
-                duration-base: '10'
+                duration-base: '1'
                 duration-scale: '1'
                 indicator: '2D'
               children:  {}
@@ -3536,7 +3536,7 @@ Sed sanguinea:
                 icon-key: ''
                 counts: 'True'
                 key: 'Stackkill'
-                amount-base: '0.1'
+                amount-base: '0.03'
                 amount-scale: '0'
                 indicator: '2D'
               children:  {}
@@ -3557,7 +3557,7 @@ Sed sanguinea:
                     icon-key: ''
                     counts: 'True'
                     key: 'Stackkill'
-                    amount-base: '-0.1'
+                    amount-base: '-0.03'
                     amount-scale: '0'
                     indicator: '2D'
                   children:  {}
