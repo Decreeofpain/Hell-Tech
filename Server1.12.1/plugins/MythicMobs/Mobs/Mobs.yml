@@ -1,0 +1,255 @@
+# These are the mobs that Durzan created. Enjoy! 
+# Passive Mobs
+Nightmare:
+  Type: cow
+  Display: '&cNightmare&r'
+  Health: 30
+  Damage: 0
+  Armor: 2
+  Options:
+    HorseColor: BLACK
+    HorseSaddled: true
+    HorseTamed: true
+    PreventOtherDrops: true
+    Silent: true
+    MovementSpeed: .22
+  Modules:
+    ThreatTable: true
+  Drops:
+  AIGoalSelectors:
+  - 0 clear
+  - 1 meleeattack
+  - 2 randomstroll
+  AITargetSelectors:
+  - 0 clear
+  - 1 players 
+  DropsPerLevel:
+  DamageModifiers:
+  KillMessages:
+  Skills:
+  - command{delay=1;cmd="advd <mob.uuid> <mob.l.w> Horse setColor Black"} @self ~onSpawn 1
+# in order for this skill (and therefore this mob) to work properly,
+# your server needs to have the following plugin installed:
+# http://www.mythicmobs.net/index.php?threads/libsdisguise-command-for-mythicmobs.2892/
+# click the link and hit download.
+# Medium Level Custom Mobs
+
+# Low Mobs.
+ZombieScavenger:
+  Type: Zombie
+  Display: '&cRotting Scavenger&r'
+  Health: 20
+  Damage: 6
+  Armor: 4
+  Options:
+    AlwaysShowName: true
+    KnockbackResistance: .2
+    MovementSpeed: 0.25
+    ReinforcementsChance: .15
+  Modules:
+    ThreatTable: true
+  Drops:
+  DropsPerLevel:
+  DamageModifiers:
+  Equipment:
+  KillMessages:
+  - 'A <mob.name> just ate the brains of <target.name>!'
+  - '<target.name> was eaten by a <mob.name>!'
+  - '<target.name> just made a delicious meal for the undead!'
+  LevelModifiers:
+    Armor: 1
+    MovementSpeed: .01    
+  Disguise:
+  Skills:
+  - setlevel{a=add;l=1} @self ~onPlayerKill
+  - skill{s=SmashAttack} @Target ~onAttack <75% 0.15
+  - skill{s=ConsumeBody} @self ~onKillPlayer  <90% .3
+
+SkeletonSharpshooter:
+  Type: Skeleton
+  Display: '&cSkeletal Sharpshooter'
+  Health: 20
+  Damage: 4
+  Armor: 0
+  Options:
+    KnockbackResistance: .1
+    MovementSpeed: 0.25
+    AlwaysShowName: true
+  Modules:
+    ThreatTable: true
+  Drops:
+  DropsPerLevel:
+  DamageModifiers:
+  Equipment:
+  KillMessages:
+  - 'A <mob.name> just shot <target.name> full of arrows!'
+  - '<target.name> was slain by a <mob.name>!'
+  - '<target.name> became a victim of the undead!'
+  LevelModifiers:
+    Armor: 1
+    MovementSpeed: .01    
+  Disguise:
+  Skills:
+  - setlevel{a=add;l=1} @self ~onPlayerKill
+  - skill{s=WeakeningArrow} @Target ~onAttack >0 0.05
+  - skill{s=PoisonedArrow} @Target ~onAttack >0 0.05
+  - skill{s=FlamingArrow} @Target ~onAttack >0 0.05
+
+SkeletonWarrior:
+  Type: Skeleton
+  Display: '&cSkeletal Warrior&r'
+  Health: 20
+  Damage: 2
+  Armor: 0
+  Options:
+    KnockbackResistance: .2
+    MovementSpeed: 0.3
+    AlwaysShowName: true
+  Modules:
+    ThreatTable: true
+  Drops:
+  DropsPerLevel:
+  DamageModifiers:
+  Equipment:
+  - iron_axe:0
+  - leather_helmet:4
+  - leather_chestplate:3
+  - leather_leggings:2
+  - leather_boots:1
+  KillMessages:
+  - 'A <mob.name> just planted an axe in <target.name><&sq>s back!'
+  - '<target.name> was slain by a <mob.name>!'
+  - '<target.name> became a victim of the undead!'
+  LevelModifiers:
+    Health: 4
+    Armor: 2
+  Disguise:
+  Skills:
+  - setlevel{a=add;l=1} @self ~onPlayerKill
+  - skill{s=SmashAttack} @Target ~onAttack <75% 0.2
+
+GiantSpider: 
+  Type: SPIDER
+  Display: '&cGiant Spider&r'
+  Health: 20
+  Damage: 4
+  Armor: 0
+  BossBar:
+  Faction:
+  Mount:
+  Options:
+    AlwaysShowName: true
+  Modules:
+    ThreatTable: true
+  AIGoalSelectors:
+  AITargetSelectors:
+  Drops:
+  DropsPerLevel:
+  DamageModifiers:
+  - ENTITY_ATTACK 0.75
+  Equipment:
+  KillMessages:
+  - 'A <mob.name> is feasting on the dried out corpse of <target.name>!'
+  LevelModifiers:
+    Health: 2
+    Damage: .25
+  Disguise:
+  Skills:
+  - setlevel{a=add;l=1} @self ~onPlayerKill 1
+  - skill{s=ConsumeBody} @self ~onKillPlayer  <90% .3
+  - skill{s=SpiderPoison} @Target ~onAttack 0.2
+
+# Medium Mobs
+
+HeadlessHorseman:
+  Type: Zombie
+  Display: '&cHeadless Horseman&r'
+  Health: 50
+  Damage: 2
+  Armor: 0
+  Mount: Nightmare
+  Options:
+    AlwaysShowName: true
+    KnockbackResistance: .5
+    MovementSpeed: 0.25
+    ReinforcementsChance: .10
+    PreventRandomEquipment: true
+  Modules:
+    ThreatTable: true
+  Drops:
+  DropsPerLevel:
+  DamageModifiers:
+  - ENTITY_ATTACK 0.75
+  - PROJECTILE 0.5
+  - MAGIC 1.20
+  Equipment:
+  - pumpkin:4
+  - iron_chestplate:3
+  - iron_leggings:2
+  - iron_boots:1
+  - stone_sword:0  
+  KillMessages:
+  - 'A <mob.name> is wearing the head of <target.name>!'
+  LevelModifiers:
+    MovementSpeed: .01
+  Disguise:
+  Skills:
+  - setlevel{a=set;l=5} @self ~onSpawn
+  - setlevel{a=add;l=1} @self ~onPlayerKill
+  - mount{type=Nightmare} @self ~onSpawn
+  - skill{s=ConsumeBody} @self ~onKillPlayer  <90% .3
+
+# Fun Mobs:
+EvilChicken:
+# This Mob is a tribute to the Evil Chicken from Runescape... It is my greatest creation. Have fun!!
+  Type: Chicken
+  Display: '&cEvil Chicken&r'
+  Health: 20
+  Armor: 2
+  Options:
+    MovementSpeed: 0.3
+    AlwaysShowName: true
+  Modules:
+    ThreatTable: true
+  Drops:
+  AIGoalSelectors:
+  - 0 clear
+  - 1 meleeattack
+  - 2 randomstroll
+  AITargetSelectors:
+  - 0 clear
+  - 1 players
+  KillMessages:
+  - '<target.name> was slain by an <mob.name>. How sad.'
+  - '<target.name> was pwned by evil poultry. Get wrecked.'
+  LevelModifiers:
+  Skills:
+  - threat{amount=10000} @NearestPlayer ~onSpawn 1
+  - setlevel{a=add;l=1} @self ~onPlayerKill 1
+  - message{m="<mob.name><&co>May you be roasted in Hell's Kitchen for your heresy against poultry, <trigger.name>! Bwuk Bwuk bwuk bwuk!"} @PlayersInRadius{r=40} ~onPlayerKill >0 1 
+  - skill{s=FeatheredTaunt} @target ~onTimer:200 .25
+  - skill{s=ExplodingPoultry} @self ~onDeath .75
+  - skill{s=FeatheredKnockback} @self ~onDamaged <90% .10
+  - skill{s=FeatheredFuryAttack} @NearestPlayer ~onTimer:10 1
+  
+KillerRabbit:
+  Type: RABBIT
+  Display: '&cKiller Bunny&r'
+  Health: 16
+  Armor: 8
+  Options:
+    MovementSpeed: 0.3
+    RabbitType: THE_KILLER_BUNNY
+  Modules:
+    ThreatTable: true
+  Drops:
+  KillMessages:
+  - '<target.name> was decapitated by a <mob.name>!'
+  - '<target.name> should have known better than to confront a <mob.name>! Rest In Pieces <target.name>.'
+  - 'A <mob.name> is feasting on the flesh of <target.name>!'
+  LevelModifiers:
+    MovementSpeed: .01
+  Skills:
+  - setlevel{a=add;l=1} @self ~onPlayerKill 1
+  - skill{s=ConsumeBody} @self ~onKillPlayer  <90% .3
+

@@ -1,0 +1,118 @@
+### Dante - Awesome_Dante's crazy attempt at replicating the demon slayer Dante in Minecraft via Mythic Mobs.
+### This code is quite literally my pride and joy. Please do not share.
+### This versions comments are not fully written yet. The support link for this mob is at the bottom of every file this mob uses.
+### Version 'EA-Pre-Alpha V 0.2'
+### File version 'V 0.1' 
+### Comments Version 'V 0.1'
+### Known Compatibility with Spigot 1.11.2 - 1.12.2 
+### Known Compatibility with MythicMobs 2.3+ Recommended 4.3.2+
+### REQUIRES: MythicMobsExtension - https://www.spigotmc.org/resources/mythicmobsextension.51884/
+### REQUIRES: HolographicDisplays - https://dev.bukkit.org/projects/holographic-displays
+
+
+#### Dante mob - Spiral Skills file.
+
+SpiralAbilityPurchaseAIChainSelector:
+  Skills:
+  - modifymobscore{o=SpiralPChain;a=SET;v=1}
+  # AI CHAIN WILL COME IN THE GUNSLINGER STYLE UPDATE
+  # - randomskill
+      # {
+      # skills=
+      # AISpiralPChain1,
+      # AISpiralPChain2,
+      # AISpiralPChain3
+      # }
+      
+AISpiralPChain1:
+  Skills:
+  - modifymobscore{o=SpiralPChain;a=SET;v=1}
+# AISpiralPChain2:
+  # Skills:
+  # - modifymobscore{o=SpiralPChain;a=SET;v=2}
+# AISpiralPChain3:
+  # Skills:
+  # - modifymobscore{o=SpiralPChain;a=SET;v=3}
+  
+### Spiral without the Gunslinger update is a very basic weapon. Therefore its upgrade chain is super simple. This code will change drastically later on. 
+
+# Level 2 -->  Level 3
+
+## The final "Else" in the last castif is set to BuySpiralLevel2 as it isn't possible to buy that ability if the mob already has it
+# Thus terminating the chain instead of infinite looping. The rest of the chains function similarly with all ability purchasing priorities being different so I will note the chain progression in their comments.
+SpiralPChain1Execute:
+  Skills:
+  - castif{c="mobscore SpiralPChain;=1 && mobscore SPLevel;=1";meet=BuySPLevel2;else=BuySPLevel3}
+  - castif{c="mobscore SpiralPChain;=1 && mobscore SPLevel;=2";meet=BuySPLevel3;else=BuySPLevel2} 
+
+
+### Spiral Purchase Abilities
+
+BuySPLevel2:
+  LegacyConditions:
+  - mobscore SPLevel;=1
+  - mobscore RedO;>2001
+  Skills:
+#  - sendtitle{title="&cAlert!";subtitle="<mob.name> &eupgraded &cSpiral &eto &cLevel II";d=60} @PlayersInRadius{r=40}
+  - message{m="&7[&l&cAlert!&r&7] &4<mob.name> &eupgraded &cSpiral &eto &cLevel II"} @PlayersInRadius{r=40}
+  - speechbubble{id=RedOrb;display="&cRed Orbs &7= &e<mob.score.RedO><nl>&5Devil Star L &7= &e<mob.score.DevL><nl>&5Devil Star S &7= &e<mob.score.DevS>";ll=25;counter=100;sideoffset=-1.5;offset=1.0} @self
+  - modifymobscore{o=RedO;A=SUBTRACT;V=2000}
+  - modifymobscore{o=SPLevel;a=SET;v=2}
+
+BuySPLevel3:
+  LegacyConditions:
+  - mobscore SPLevel;=2
+  - mobscore RedO;>3001
+  Skills:
+#  - sendtitle{title="&cAlert!";subtitle="<mob.name> &eupgraded &cSpiral &eto &cLevel III";d=60} @PlayersInRadius{r=40}
+  - message{m="&7[&l&cAlert!&r&7] &4<mob.name> &eupgraded &cSpiral &eto &cLevel III"} @PlayersInRadius{r=40}
+  - speechbubble{id=RedOrb;display="&cRed Orbs &7= &e<mob.score.RedO><nl>&5Devil Star L &7= &e<mob.score.DevL><nl>&5Devil Star S &7= &e<mob.score.DevS>";ll=25;counter=100;sideoffset=-1.5;offset=1.0} @self
+  - modifymobscore{o=RedO;A=SUBTRACT;V=3000}
+  - modifymobscore{o=SPLevel;a=SET;v=3}
+  
+
+############# Spiral GUN SKILL SECTION ##################
+
+
+FireSpiral-Basic:
+  Cooldown: 4
+  LegacyConditions:
+  - mobscore Spiral;=1
+  - mobscore OkayFireGuns;=1
+  - targetnotwithin 7
+  - targetwithin 20
+  CompareConditions:
+  - targetinlineofsight true
+  Skills:
+  - sound{s=entity.zombie.attack_door_wood;p=0.3} @self
+  - skill{s=Spiral-Basic-DamageCalculation} @target
+  - effect:particles{p=flame;amount=10;hS=0.5;vS=0.5;speed=0;y=1;fo=0.5} @self
+  
+Spiral-Basic-DamageCalculation:
+  Skills:
+  - skill{s=Spiral-Basic-DamageLevel1} @MIR{r=20;t=SpiralTargeter}
+  - skill{s=Spiral-Basic-DamageLevel2} @MIR{r=20;t=SpiralTargeter}
+  - skill{s=Spiral-Basic-DamageLevel3} @MIR{r=20;t=SpiralTargeter}
+  
+Spiral-Basic-DamageLevel1:
+  LegacyConditions:
+  - mobscore SPLevel;=1
+  Skills:
+  - shoot{type=SNOWBALL;velocity=4;damage=20} @target
+Spiral-Basic-DamageLevel2:
+  LegacyConditions:
+  - mobscore SPLevel;=2
+  Skills:
+  - shoot{type=SNOWBALL;velocity=4;damage=30} @target
+Spiral-Basic-DamageLevel3:
+  LegacyConditions:
+  - mobscore SPLevel;=3
+  Skills:
+  - shoot{type=SNOWBALL;velocity=4;damage=40} @target
+  
+# If their is anything you do not understand about this mob or you need help I sincerely do not blame you.
+# I expect to get swarmed with requests within the first week of this mobs release. 
+# I may reply with a please wait message. I will get to you as soon as possible.
+
+# DIRECT SUPPORT LINK. PLEASE ALLOW 24 HOURS TO GET A REPLY. 
+# http://mythicmobs.net/index.php?conversations/add&to=Awesome_Dante

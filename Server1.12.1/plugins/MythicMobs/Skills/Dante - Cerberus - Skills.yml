@@ -1,0 +1,748 @@
+### Dante - Awesome_Dante's crazy attempt at replicating the demon slayer Dante in Minecraft via Mythic Mobs.
+### This code is quite literally my pride and joy. Please do not share.
+### This versions comments are not fully written yet. The support link for this mob is at the bottom of every file this mob uses.
+### Version 'EA-Pre-Alpha V 0.2'
+### File version 'V 1.0' 
+### Comments Version 'V 0.1'
+### Known Compatibility with Spigot 1.11.2 - 1.12.2 
+### Known Compatibility with MythicMobs 2.3+ Recommended 4.3.2+
+### REQUIRES: MythicMobsExtension - https://www.spigotmc.org/resources/mythicmobsextension.51884/
+### REQUIRES: HolographicDisplays - https://dev.bukkit.org/projects/holographic-displays
+
+
+
+### Cerberus Attack Pattern AI Skills
+
+CerberusAbilityPurchaseAIChainSelector:
+  Skills:
+  - randomskill
+      {
+      skills=
+      AICerberusPChain1,
+      AICerberusPChain2,
+      AICerberusPChain3,
+      AICerberusPChain4,
+      AICerberusPChain5
+      }
+  
+## AI selection. All entries are the same for now. This will be updated later  
+AICerberusPChain1:
+  Skills:
+  - modifymobscore{o=CerberusPChain;a=SET;v=1}
+AICerberusPChain2:
+  Skills:
+  - modifymobscore{o=CerberusPChain;a=SET;v=1}
+AICerberusPChain3:
+  Skills:
+  - modifymobscore{o=CerberusPChain;a=SET;v=1}
+AICerberusPChain4:
+  Skills:
+  - modifymobscore{o=CerberusPChain;a=SET;v=1}
+AICerberusPChain5:
+  Skills:
+  - modifymobscore{o=CerberusPChain;a=SET;v=1}
+  
+### This is the first Cerberus ability purchase chain. The mob will attempt to buy these abilities for Cerberus in this order for this chain: 
+
+# Cerberus Combo I --> Cerberus Combo II --> Cerberus Level 2 --> Swing --> Revolver --> Cerberus Level 3 --> Windmill --> Satellite
+
+## The final "Else" in the last castif is set to Stinger as it isnt possible to buy that ability if the mob already has it
+# Thus terminating the chain instead of infinite looping. The rest of the chains function similarly with all ability purchasing priorities being different so I will note the chain progression in their comments.
+CerberusPChain1Execute:
+  Skills:
+  - castif{c="mobscore CerberusPChain;=1 && mobscore CerbCombo1;=0";meet=BuyCerberusCombo1;else=BuyCerberusCombo2}
+  - castif{c="mobscore CerberusPChain;=1 && mobscore CerbCombo1;=1 && mobscore CerbCombo2;=0";meet=BuyCerberusCombo2;else=BuyCerberusLevel2}
+  - castif{c="mobscore CerberusPChain;=1 && mobscore CerbCombo1;=1 && mobscore CerbCombo2;=1 && mobscore CerberusLevel;=1";meet=BuyCerberusLevel2;else=BuyCerberusSwing}
+  - castif{c="mobscore CerberusPChain;=1 && mobscore CerbCombo1;=1 && mobscore CerbCombo2;=1 && mobscore CerberusLevel;=2 && mobscore CSwing;=0";meet=BuyCerberusSwing;else=BuyCerberusRevolver}
+  - castif{c="mobscore CerberusPChain;=1 && mobscore CerbCombo1;=1 && mobscore CerbCombo2;=1 && mobscore CerberusLevel;=2 && mobscore CSwing;=1 && mobscore CRevolver;=0";meet=BuyCerberusRevolver;else=BuyCerberusLevel3}
+  - castif{c="mobscore CerberusPChain;=1 && mobscore CerbCombo1;=1 && mobscore CerbCombo2;=1 && mobscore CerberusLevel;=2 && mobscore CSwing;=1 && mobscore CRevolver;=1";meet=BuyCerberusLevel3;else=BuyCerberusWindmill}
+  - castif{c="mobscore CerberusPChain;=1 && mobscore CerbCombo1;=1 && mobscore CerbCombo2;=1 && mobscore CerberusLevel;=3 && mobscore CSwing;=1 && mobscore CRevolver;=1 && mobscore CWindmill;=0";meet=BuyCerberusWindmill;else=BuyCerberusSatellite}
+  - castif{c="mobscore CerberusPChain;=1 && mobscore CerbCombo1;=1 && mobscore CerbCombo2;=1 && mobscore CerberusLevel;=3 && mobscore CSwing;=1 && mobscore CRevolver;=1 && mobscore CWindmill;=1 && mobscore CSatellite;=0";meet=BuyCerberusSatellite;else=BuyCerberusCombo1}
+
+# Cerberus Combo I --> Cerberus Combo II --> Cerberus Level 2 --> Swing --> Revolver --> Cerberus Level 3 --> Windmill --> Satellite
+CerberusPChain2Execute:
+  Skills:
+  - castif{c="mobscore CerberusPChain;=1 && mobscore CerbCombo1;=0";meet=BuyCerberusCombo1;else=BuyCerberusCombo2}
+  - castif{c="mobscore CerberusPChain;=1 && mobscore CerbCombo1;=1 && mobscore CerbCombo2;=0";meet=BuyCerberusCombo2;else=BuyCerberusLevel2}
+  - castif{c="mobscore CerberusPChain;=1 && mobscore CerbCombo1;=1 && mobscore CerbCombo2;=1 && mobscore CerberusLevel;=1";meet=BuyCerberusLevel2;else=BuyCerberusSwing}
+  - castif{c="mobscore CerberusPChain;=1 && mobscore CerbCombo1;=1 && mobscore CerbCombo2;=1 && mobscore CerberusLevel;=2 && mobscore CSwing;=0";meet=BuyCerberusSwing;else=BuyCerberusRevolver}
+  - castif{c="mobscore CerberusPChain;=1 && mobscore CerbCombo1;=1 && mobscore CerbCombo2;=1 && mobscore CerberusLevel;=2 && mobscore CSwing;=1 && mobscore CRevolver;=0";meet=BuyCerberusRevolver;else=BuyCerberusLevel3}
+  - castif{c="mobscore CerberusPChain;=1 && mobscore CerbCombo1;=1 && mobscore CerbCombo2;=1 && mobscore CerberusLevel;=2 && mobscore CSwing;=1 && mobscore CRevolver;=1";meet=BuyCerberusLevel3;else=BuyCerberusWindmill}
+  - castif{c="mobscore CerberusPChain;=1 && mobscore CerbCombo1;=1 && mobscore CerbCombo2;=1 && mobscore CerberusLevel;=3 && mobscore CSwing;=1 && mobscore CRevolver;=1 && mobscore CWindmill;=0";meet=BuyCerberusWindmill;else=BuyCerberusSatellite}
+  - castif{c="mobscore CerberusPChain;=1 && mobscore CerbCombo1;=1 && mobscore CerbCombo2;=1 && mobscore CerberusLevel;=3 && mobscore CSwing;=1 && mobscore CRevolver;=1 && mobscore CWindmill;=1 && mobscore CSatellite;=0";meet=BuyCerberusSatellite;else=BuyCerberusCombo1}
+  
+# Cerberus Combo I --> Cerberus Combo II --> Cerberus Level 2 --> Swing --> Revolver --> Cerberus Level 3 --> Windmill --> Satellite
+CerberusPChain3Execute:
+  Skills:
+  - castif{c="mobscore CerberusPChain;=1 && mobscore CerbCombo1;=0";meet=BuyCerberusCombo1;else=BuyCerberusCombo2}
+  - castif{c="mobscore CerberusPChain;=1 && mobscore CerbCombo1;=1 && mobscore CerbCombo2;=0";meet=BuyCerberusCombo2;else=BuyCerberusLevel2}
+  - castif{c="mobscore CerberusPChain;=1 && mobscore CerbCombo1;=1 && mobscore CerbCombo2;=1 && mobscore CerberusLevel;=1";meet=BuyCerberusLevel2;else=BuyCerberusSwing}
+  - castif{c="mobscore CerberusPChain;=1 && mobscore CerbCombo1;=1 && mobscore CerbCombo2;=1 && mobscore CerberusLevel;=2 && mobscore CSwing;=0";meet=BuyCerberusSwing;else=BuyCerberusRevolver}
+  - castif{c="mobscore CerberusPChain;=1 && mobscore CerbCombo1;=1 && mobscore CerbCombo2;=1 && mobscore CerberusLevel;=2 && mobscore CSwing;=1 && mobscore CRevolver;=0";meet=BuyCerberusRevolver;else=BuyCerberusLevel3}
+  - castif{c="mobscore CerberusPChain;=1 && mobscore CerbCombo1;=1 && mobscore CerbCombo2;=1 && mobscore CerberusLevel;=2 && mobscore CSwing;=1 && mobscore CRevolver;=1";meet=BuyCerberusLevel3;else=BuyCerberusWindmill}
+  - castif{c="mobscore CerberusPChain;=1 && mobscore CerbCombo1;=1 && mobscore CerbCombo2;=1 && mobscore CerberusLevel;=3 && mobscore CSwing;=1 && mobscore CRevolver;=1 && mobscore CWindmill;=0";meet=BuyCerberusWindmill;else=BuyCerberusSatellite}
+  - castif{c="mobscore CerberusPChain;=1 && mobscore CerbCombo1;=1 && mobscore CerbCombo2;=1 && mobscore CerberusLevel;=3 && mobscore CSwing;=1 && mobscore CRevolver;=1 && mobscore CWindmill;=1 && mobscore CSatellite;=0";meet=BuyCerberusSatellite;else=BuyCerberusCombo1}
+  
+# Cerberus Combo I --> Cerberus Combo II --> Cerberus Level 2 --> Swing --> Revolver --> Cerberus Level 3 --> Windmill --> Satellite
+CerberusPChain4Execute:
+  Skills:
+  - castif{c="mobscore CerberusPChain;=1 && mobscore CerbCombo1;=0";meet=BuyCerberusCombo1;else=BuyCerberusCombo2}
+  - castif{c="mobscore CerberusPChain;=1 && mobscore CerbCombo1;=1 && mobscore CerbCombo2;=0";meet=BuyCerberusCombo2;else=BuyCerberusLevel2}
+  - castif{c="mobscore CerberusPChain;=1 && mobscore CerbCombo1;=1 && mobscore CerbCombo2;=1 && mobscore CerberusLevel;=1";meet=BuyCerberusLevel2;else=BuyCerberusSwing}
+  - castif{c="mobscore CerberusPChain;=1 && mobscore CerbCombo1;=1 && mobscore CerbCombo2;=1 && mobscore CerberusLevel;=2 && mobscore CSwing;=0";meet=BuyCerberusSwing;else=BuyCerberusRevolver}
+  - castif{c="mobscore CerberusPChain;=1 && mobscore CerbCombo1;=1 && mobscore CerbCombo2;=1 && mobscore CerberusLevel;=2 && mobscore CSwing;=1 && mobscore CRevolver;=0";meet=BuyCerberusRevolver;else=BuyCerberusLevel3}
+  - castif{c="mobscore CerberusPChain;=1 && mobscore CerbCombo1;=1 && mobscore CerbCombo2;=1 && mobscore CerberusLevel;=2 && mobscore CSwing;=1 && mobscore CRevolver;=1";meet=BuyCerberusLevel3;else=BuyCerberusWindmill}
+  - castif{c="mobscore CerberusPChain;=1 && mobscore CerbCombo1;=1 && mobscore CerbCombo2;=1 && mobscore CerberusLevel;=3 && mobscore CSwing;=1 && mobscore CRevolver;=1 && mobscore CWindmill;=0";meet=BuyCerberusWindmill;else=BuyCerberusSatellite}
+  - castif{c="mobscore CerberusPChain;=1 && mobscore CerbCombo1;=1 && mobscore CerbCombo2;=1 && mobscore CerberusLevel;=3 && mobscore CSwing;=1 && mobscore CRevolver;=1 && mobscore CWindmill;=1 && mobscore CSatellite;=0";meet=BuyCerberusSatellite;else=BuyCerberusCombo1}
+  
+# Cerberus ability purchasing priorities: Helm Breaker --> Stinger --> Cerberus Level 2 --> 3 hit combo --> High Time --> Drive --> Cerberus Level 3 --> Aerial Combo --> 4 hit combo --> 5 hit combo --> 6 Hit combo --> Air Raid --> DT Million Stab --> DT arial raid round trip.
+CerberusPChain5Execute:
+  Skills:
+  - castif{c="mobscore CerberusPChain;=1 && mobscore CerbCombo1;=0";meet=BuyCerberusCombo1;else=BuyCerberusCombo2}
+  - castif{c="mobscore CerberusPChain;=1 && mobscore CerbCombo1;=1 && mobscore CerbCombo2;=0";meet=BuyCerberusCombo2;else=BuyCerberusLevel2}
+  - castif{c="mobscore CerberusPChain;=1 && mobscore CerbCombo1;=1 && mobscore CerbCombo2;=1 && mobscore CerberusLevel;=1";meet=BuyCerberusLevel2;else=BuyCerberusSwing}
+  - castif{c="mobscore CerberusPChain;=1 && mobscore CerbCombo1;=1 && mobscore CerbCombo2;=1 && mobscore CerberusLevel;=2 && mobscore CSwing;=0";meet=BuyCerberusSwing;else=BuyCerberusRevolver}
+  - castif{c="mobscore CerberusPChain;=1 && mobscore CerbCombo1;=1 && mobscore CerbCombo2;=1 && mobscore CerberusLevel;=2 && mobscore CSwing;=1 && mobscore CRevolver;=0";meet=BuyCerberusRevolver;else=BuyCerberusLevel3}
+  - castif{c="mobscore CerberusPChain;=1 && mobscore CerbCombo1;=1 && mobscore CerbCombo2;=1 && mobscore CerberusLevel;=2 && mobscore CSwing;=1 && mobscore CRevolver;=1";meet=BuyCerberusLevel3;else=BuyCerberusWindmill}
+  - castif{c="mobscore CerberusPChain;=1 && mobscore CerbCombo1;=1 && mobscore CerbCombo2;=1 && mobscore CerberusLevel;=3 && mobscore CSwing;=1 && mobscore CRevolver;=1 && mobscore CWindmill;=0";meet=BuyCerberusWindmill;else=BuyCerberusSatellite}
+  - castif{c="mobscore CerberusPChain;=1 && mobscore CerbCombo1;=1 && mobscore CerbCombo2;=1 && mobscore CerberusLevel;=3 && mobscore CSwing;=1 && mobscore CRevolver;=1 && mobscore CWindmill;=1 && mobscore CSatellite;=0";meet=BuyCerberusSatellite;else=BuyCerberusCombo1}
+  
+
+### Cerberus Purchase Abilities
+BuyCerberusLevel2:
+  LegacyConditions:
+  - mobscore CerberusLevel;=1
+  - mobscore RedO;>1001
+  Skills:
+#  - sendtitle{title="&cAlert!";subtitle="<mob.name> &eupgraded &cCerberus &eto &cLevel II";d=60} @PlayersInRadius{r=40}
+  - message{m="&7[&l&cAlert!&r&7] &4<mob.name> &eupgraded &cCerberus &eto &cLevel II"} @PlayersInRadius{r=40}
+  - modifymobscore{o=CerberusLevel;a=SET;v=2}
+BuyCerberusLevel3:
+  LegacyConditions:
+  - mobscore CerberusLevel;=2
+  - mobscore RedO;>2001
+  Skills:
+#  - sendtitle{title="&cAlert!";subtitle="<mob.name> &eupgraded &cCerberus &eto &cLevel III";d=60} @PlayersInRadius{r=40}
+  - message{m="&7[&l&cAlert!&r&7] &4<mob.name> &eupgraded &cCerberus &eto &cLevel III"} @PlayersInRadius{r=40}
+  - modifymobscore{o=CerberusLevel;a=SET;v=3}
+
+BuyCerberusCombo1:
+  LegacyConditions:
+  - mobscore CerbCombo1;=0
+  - mobscore RedO;>601
+  Skills:
+# - sendtitle{title="&cAlert!";subtitle="<mob.name> &elearned &cCerberus's Combo 1";d=60} @PlayersInRadius{r=40}
+  - message{m="&7[&l&cAlert!&r&7] &4<mob.name> &elearned &cCerberus's Combo 1"} @PlayersInRadius{r=40}
+  - speechbubble{id=RedOrb;display="&cRed Orbs &7= &e<mob.score.RedO><nl>&5Devil Star L &7= &e<mob.score.DevL><nl>&5Devil Star S &7= &e<mob.score.DevS>";ll=25;counter=100;sideoffset=-1.5;offset=1.0} @self
+  - modifymobscore{o=RedO;A=SUBTRACT;V=600}
+  - modifymobscore{o=CerbCombo1;a=SET;v=1}
+  
+BuyCerberusCombo2:
+  LegacyConditions:
+  - mobscore CerbCombo2;=0
+  - mobscore RedO;>901
+  Skills:
+ # - sendtitle{title="&cAlert!";subtitle="<mob.name> &elearned &cCerberus's Combo 2";d=60} @PlayersInRadius{r=40}
+  - message{m="&7[&l&cAlert!&r&7] &4<mob.name> &elearned &cCerberus's Combo 2"} @PlayersInRadius{r=40}
+  - speechbubble{id=RedOrb;display="&cRed Orbs &7= &e<mob.score.RedO><nl>&5Devil Star L &7= &e<mob.score.DevL><nl>&5Devil Star S &7= &e<mob.score.DevS>";ll=25;counter=100;sideoffset=-1.5;offset=1.0} @self
+  - modifymobscore{o=RedO;A=SUBTRACT;V=900}
+  - modifymobscore{o=CerbCombo2;a=SET;v=1}
+  
+BuyCerberusSwing:
+  LegacyConditions:
+  - mobscore CSwing;=0
+  - mobscore RedO;>1201
+  Skills:
+# - sendtitle{title="&cAlert!";subtitle="<mob.name> &elearned &cCerberus's Swing";d=60} @PlayersInRadius{r=40}
+  - message{m="&7[&l&cAlert!&r&7] &4<mob.name> &elearned &cCerberus's Swing"} @PlayersInRadius{r=40}
+  - speechbubble{id=RedOrb;display="&cRed Orbs &7= &e<mob.score.RedO><nl>&5Devil Star L &7= &e<mob.score.DevL><nl>&5Devil Star S &7= &e<mob.score.DevS>";ll=25;counter=100;sideoffset=-1.5;offset=1.0} @self
+  - modifymobscore{o=RedO;A=SUBTRACT;V=1200}
+  - modifymobscore{o=CSwing;a=SET;v=1}
+  
+BuyCerberusRevolver:
+  LegacyConditions:
+  - mobscore CRevolver;=0
+  - mobscore RedO;>1501
+  Skills:
+# - sendtitle{title="&cAlert!";subtitle="<mob.name> &elearned &cCerberus's Revolver";d=60} @PlayersInRadius{r=40}
+  - message{m="&7[&l&cAlert!&r&7] &4<mob.name> &elearned &cCerberus's Revolver"} @PlayersInRadius{r=40}
+  - speechbubble{id=RedOrb;display="&cRed Orbs &7= &e<mob.score.RedO><nl>&5Devil Star L &7= &e<mob.score.DevL><nl>&5Devil Star S &7= &e<mob.score.DevS>";ll=25;counter=100;sideoffset=-1.5;offset=1.0} @self
+  - modifymobscore{o=RedO;A=SUBTRACT;V=1500}
+  - modifymobscore{o=CRevolver;a=SET;v=1}
+  
+BuyCerberusWindmill:
+  LegacyConditions:
+  - mobscore CWindmill;=0
+  - mobscore RedO;>1901
+  Skills:
+# - sendtitle{title="&cAlert!";subtitle="<mob.name> &elearned &cCerberus's Windmill";d=60} @PlayersInRadius{r=40}
+  - message{m="&7[&l&cAlert!&r&7] &4<mob.name> &elearned &cCerberus's Windmill"} @PlayersInRadius{r=40}
+  - speechbubble{id=RedOrb;display="&cRed Orbs &7= &e<mob.score.RedO><nl>&5Devil Star L &7= &e<mob.score.DevL><nl>&5Devil Star S &7= &e<mob.score.DevS>";ll=25;counter=100;sideoffset=-1.5;offset=1.0} @self
+  - modifymobscore{o=RedO;A=SUBTRACT;V=1900}
+  - modifymobscore{o=CWindmill;a=SET;v=1}
+  
+BuyCerberusSatellite:
+  LegacyConditions:
+  - mobscore CSatellite;=0
+  - mobscore RedO;>2501
+  Skills:
+# - sendtitle{title="&cAlert!";subtitle="<mob.name> &elearned &cCerberus's Satellite";d=60} @PlayersInRadius{r=40}
+  - message{m="&7[&l&cAlert!&r&7] &4<mob.name> &elearned &cCerberus's Satellite"} @PlayersInRadius{r=40}
+  - speechbubble{id=RedOrb;display="&cRed Orbs &7= &e<mob.score.RedO><nl>&5Devil Star L &7= &e<mob.score.DevL><nl>&5Devil Star S &7= &e<mob.score.DevS>";ll=25;counter=100;sideoffset=-1.5;offset=1.0} @self
+  - modifymobscore{o=RedO;A=SUBTRACT;V=2500}
+  - modifymobscore{o=CSatellite;a=SET;v=1}
+ 
+### Cerberus Abilities
+
+CerberusCombo1:
+  LegacyConditions:
+  - stance Cerberus
+  - mobscore CerbCombo1;=1
+  Skills:
+  # This disables redorb gain on ability attacks. Best to leave this here.
+  - modifymobscore{o=UnsetRedOrb;a=SET;v=1}
+  # Now the skill
+  - potion{type=SLOW;duration=500;level=3} @self
+  - potion{type=DAMAGE_RESISTANCE;duration=30;level=10} @self
+  - effect:particlering{p=sweepAttack;amount=1;radius=1;points=8;hS=0.1;vS=0.1;yOffset=0.7} @self
+  - effect:particlering{p=sweepAttack;amount=1;radius=1;points=8;hS=0.1;vS=0.1;yOffset=0.5} @self
+  - effect:particlering{p=sweepAttack;amount=1;radius=1;points=8;hS=0.1;vS=0.1;yOffset=0.3} @self
+  - sound{s=entity.player.attack.sweep} @self
+  - effect:particlering{p=instantSpell;amount=5;radius=1;points=8;hS=0.1;vS=0.1;yOffset=0.7} @self
+  - effect:particles{p=instantSpell;amount=20;hS=1.1;vS=0.5;speed=0;y=0.5} @self
+  - effect:particlering{p=instantSpell;amount=5;radius=1;points=8;hS=0.1;vS=0.1;yOffset=0.5} @self
+  - effect:particlering{p=instantSpell;amount=5;radius=1;points=8;hS=0.1;vS=0.1;yOffset=0.3} @self
+  - skill{s=Sweep-CerberusCombo1DamageCalculation} @EIR{r=3}
+  - delay 15
+  - potion{type=DAMAGE_RESISTANCE;duration=30;level=10} @self
+  - effect:particlering{p=sweepAttack;amount=1;radius=1;points=8;hS=0.1;vS=0.1;yOffset=0.7} @self
+  - effect:particlering{p=sweepAttack;amount=1;radius=1;points=8;hS=0.1;vS=0.1;yOffset=0.5} @self
+  - effect:particlering{p=sweepAttack;amount=1;radius=1;points=8;hS=0.1;vS=0.1;yOffset=0.3} @self
+  - sound{s=entity.player.attack.sweep} @self
+  - effect:particlering{p=instantSpell;amount=5;radius=1;points=8;hS=0.1;vS=0.1;yOffset=0.7} @self
+  - effect:particles{p=instantSpell;amount=20;hS=1.1;vS=0.5;speed=0;y=0.5} @self
+  - effect:particlering{p=instantSpell;amount=5;radius=1;points=8;hS=0.1;vS=0.1;yOffset=0.5} @self
+  - effect:particlering{p=instantSpell;amount=5;radius=1;points=8;hS=0.1;vS=0.1;yOffset=0.3} @self
+  - skill{s=Sweep-CerberusCombo1DamageCalculation} @EIR{r=3}
+  - delay 10
+  - potion{type=DAMAGE_RESISTANCE;duration=30;level=10} @self
+  - effect:particlering{p=sweepAttack;amount=1;radius=1;points=8;hS=0.1;vS=0.1;yOffset=0.7} @self
+  - effect:particlering{p=sweepAttack;amount=1;radius=1;points=8;hS=0.1;vS=0.1;yOffset=0.5} @self
+  - effect:particlering{p=sweepAttack;amount=1;radius=1;points=8;hS=0.1;vS=0.1;yOffset=0.3} @self
+  - sound{s=entity.player.attack.sweep} @self
+  - effect:particlering{p=instantSpell;amount=5;radius=1;points=8;hS=0.1;vS=0.1;yOffset=0.7} @self
+  - effect:particles{p=instantSpell;amount=20;hS=1.1;vS=0.5;speed=0;y=0.5} @self
+  - effect:particlering{p=instantSpell;amount=5;radius=1;points=8;hS=0.1;vS=0.1;yOffset=0.5} @self
+  - effect:particlering{p=instantSpell;amount=5;radius=1;points=8;hS=0.1;vS=0.1;yOffset=0.3} @self
+  - skill{s=Sweep-CerberusCombo1DamageCalculation} @EIR{r=3}
+  - delay 20
+  - sound{s=entity.player.attack.sweep} @self
+  - effect:particles{p=instantSpell;amount=100;hS=0.8;vS=0.1;speed=0;y=1.7} @self
+  - effect:particles{p=instantSpell;amount=20;hS=0.8;vS=0.3;speed=0;y=1} @self
+  - effect:particles{p=instantSpell;amount=100;hS=1.3;vS=0.1;speed=0;y=1} @self
+  - effect:particles{p=instantSpell;amount=100;hS=0.8;vS=0.1;speed=0;y=0.3} @self
+  - skill{s=CerberusCombo1DamageCalculation} @LivingInCone{a=90.0;r=3.0;rot=0.0}
+  # Re enables red orb gain.  
+  - modifymobscore{o=UnsetRedOrb;a=SET;v=0}
+  - delay 20
+  - sound{s=entity.player.attack.sweep} @self
+  - effect:particles{p=instantSpell;amount=100;hS=0.8;vS=0.1;speed=0;y=1.7} @self
+  - effect:particles{p=instantSpell;amount=20;hS=0.8;vS=0.3;speed=0;y=1} @self
+  - effect:particles{p=instantSpell;amount=100;hS=1.3;vS=0.1;speed=0;y=1} @self
+  - effect:particles{p=instantSpell;amount=100;hS=0.8;vS=0.1;speed=0;y=0.3} @self
+  - skill{s=CerberusCombo1DamageCalculation} @LivingInCone{a=90.0;r=3.0;rot=0.0}
+  # Re enables red orb gain.  
+  - modifymobscore{o=UnsetRedOrb;a=SET;v=0}
+
+  # removes buffs/debuffs
+  - cure{t=SLOW} @self
+  - cure{t=INCREASE_DAMAGE} @self  
+  
+  # Starts Damage Calculation for Cerberus Combo 1.
+# Each of these calculations for damage is necessary to scale damage based on the weapons level. 
+CerberusCombo1DamageCalculation:
+  Skills:
+  - skill{s=CerberusCombo1DamageLevel1}
+  - skill{s=CerberusCombo1DamageLevel2}
+  - skill{s=CerberusCombo1DamageLevel3}
+CerberusCombo1DamageLevel1:
+  LegacyConditions:
+  - mobscore CerberusLevel;=1
+  Skills:
+  - damage{a=3}
+CerberusCombo1DamageLevel2:
+  LegacyConditions:
+  - mobscore CerberusLevel;=2
+  Skills:
+  - damage{a=5}
+CerberusCombo1DamageLevel3:
+  LegacyConditions:
+  - mobscore CerberusLevel;=3
+  Skills:
+  - damage{a=7}
+
+Sweep-CerberusCombo1DamageCalculation:
+  Skills:
+  - skill{s=Sweep-CerberusCombo1DamageLevel1}
+  - skill{s=Sweep-CerberusCombo1DamageLevel2}
+  - skill{s=Sweep-CerberusCombo1DamageLevel3}
+Sweep-CerberusCombo1DamageLevel1:
+  LegacyConditions:
+  - mobscore CerberusLevel;=1
+  Skills:
+  - damage{a=3}
+Sweep-CerberusCombo1DamageLevel2:
+  LegacyConditions:
+  - mobscore CerberusLevel;=2
+  Skills:
+  - damage{a=5}
+Sweep-CerberusCombo1DamageLevel3:
+  LegacyConditions:
+  - mobscore CerberusLevel;=3
+  Skills:
+  - damage{a=7}
+
+  
+CerberusCombo2:
+  LegacyConditions:
+  - stance Cerberus
+  - mobscore CerbCombo2;=1
+  Skills:
+  - message{m="Cerberus Combo 2"} @pir{r=20}
+  # This disables redorb gain on ability attacks. Best to leave this here.
+  - modifymobscore{o=UnsetRedOrb;a=SET;v=1}
+  # Now the skill
+  - potion{type=SLOW;duration=500;level=3} @self
+  - sound{s=entity.player.attack.sweep} @self
+  - effect:particles{p=instantSpell;amount=100;hS=0.8;vS=0.1;speed=0;y=1.7} @self
+  - effect:particles{p=instantSpell;amount=20;hS=0.8;vS=0.3;speed=0;y=1} @self
+  - effect:particles{p=instantSpell;amount=100;hS=1.3;vS=0.1;speed=0;y=1} @self
+  - effect:particles{p=instantSpell;amount=100;hS=0.8;vS=0.1;speed=0;y=0.3} @self
+  - skill{s=CerberusCombo2DamageCalculation} @LivingInCone{a=90.0;r=3.0;rot=0.0}
+  - delay 20
+  - sound{s=entity.player.attack.sweep} @self
+  - effect:particles{p=instantSpell;amount=100;hS=0.8;vS=0.1;speed=0;y=1.7} @self
+  - effect:particles{p=instantSpell;amount=20;hS=0.8;vS=0.3;speed=0;y=1} @self
+  - effect:particles{p=instantSpell;amount=100;hS=1.3;vS=0.1;speed=0;y=1} @self
+  - effect:particles{p=instantSpell;amount=100;hS=0.8;vS=0.1;speed=0;y=0.3} @self
+  - skill{s=CerberusCombo2DamageCalculation} @LivingInCone{a=90.0;r=3.0;rot=0.0}
+  - delay 20
+  - sound{s=entity.player.attack.sweep} @self
+  - effect:particles{p=instantSpell;amount=100;hS=0.8;vS=0.1;speed=0;y=1.7} @self
+  - effect:particles{p=instantSpell;amount=20;hS=0.8;vS=0.3;speed=0;y=1} @self
+  - effect:particles{p=instantSpell;amount=100;hS=1.3;vS=0.1;speed=0;y=1} @self
+  - effect:particles{p=instantSpell;amount=100;hS=0.8;vS=0.1;speed=0;y=0.3} @self
+  - skill{s=CerberusCombo2DamageCalculation} @LivingInCone{a=90.0;r=3.0;rot=0.0}
+  - delay 10
+  - potion{type=DAMAGE_RESISTANCE;duration=30;level=10} @self
+  - effect:particlering{p=sweepAttack;amount=1;radius=1;points=8;hS=0.1;vS=0.1;yOffset=0.7} @self
+  - effect:particlering{p=sweepAttack;amount=1;radius=1;points=8;hS=0.1;vS=0.1;yOffset=0.5} @self
+  - effect:particlering{p=sweepAttack;amount=1;radius=1;points=8;hS=0.1;vS=0.1;yOffset=0.3} @self
+  - sound{s=entity.player.attack.sweep} @self
+  - effect:particlering{p=instantSpell;amount=5;radius=1;points=8;hS=0.1;vS=0.1;yOffset=0.7} @self
+  - effect:particles{p=instantSpell;amount=20;hS=1.1;vS=0.5;speed=0;y=0.5} @self
+  - effect:particlering{p=instantSpell;amount=5;radius=1;points=8;hS=0.1;vS=0.1;yOffset=0.5} @self
+  - effect:particlering{p=instantSpell;amount=5;radius=1;points=8;hS=0.1;vS=0.1;yOffset=0.3} @self
+  - skill{s=Sweep-CerberusCombo2DamageCalculation} @EIR{r=3}
+  - delay 15
+  - potion{type=DAMAGE_RESISTANCE;duration=30;level=10} @self
+  - effect:particlering{p=sweepAttack;amount=1;radius=3;points=8;hS=0.1;vS=0.1;yOffset=0.7} @self
+  - effect:particlering{p=sweepAttack;amount=1;radius=3;points=8;hS=0.1;vS=0.1;yOffset=0.5} @self
+  - effect:particlering{p=sweepAttack;amount=1;radius=3;points=8;hS=0.1;vS=0.1;yOffset=0.3} @self
+  - sound{s=entity.player.attack.sweep} @self
+  - effect:particlering{p=instantSpell;amount=5;radius=3;points=8;hS=0.1;vS=0.1;yOffset=0.7} @self
+  - effect:particlering{p=fireworksSpark;amount=5;radius=3;points=8;hS=0.1;vS=0.1;yOffset=0.7} @self
+  - effect:particles{p=instantSpell;amount=20;hS=2.1;vS=0.5;speed=0;y=0.5} @self
+  - effect:particlering{p=instantSpell;amount=5;radius=3;points=8;hS=0.1;vS=0.1;yOffset=0.5} @self
+  - effect:particlering{p=fireworksSpark;amount=5;radius=3;points=8;hS=0.1;vS=0.1;yOffset=0.5} @self
+  - effect:particlering{p=instantSpell;amount=5;radius=3;points=8;hS=0.1;vS=0.1;yOffset=0.3} @self
+  - effect:particlering{p=fireworksSpark;amount=5;radius=3;points=8;hS=0.1;vS=0.1;yOffset=0.3} @self
+  - skill{s=Sweep-CerberusCombo2DamageCalculation} @EIR{r=5}
+  # Re enables red orb gain.  
+  - modifymobscore{o=UnsetRedOrb;a=SET;v=0}
+
+  # removes buffs/debuffs
+  - cure{t=SLOW} @self
+  - cure{t=INCREASE_DAMAGE} @self
+  
+  # Starts Damage Calculation for Cerberus Combo 2.
+# Each of these calculations for damage is necessary to scale damage based on the weapons level. 
+CerberusCombo2DamageCalculation:
+  Skills:
+  - skill{s=CerberusCombo2DamageLevel1}
+  - skill{s=CerberusCombo2DamageLevel2}
+  - skill{s=CerberusCombo2DamageLevel3}
+CerberusCombo2DamageLevel1:
+  LegacyConditions:
+  - mobscore CerberusLevel;=1
+  Skills:
+  - damage{a=4}
+CerberusCombo2DamageLevel2:
+  LegacyConditions:
+  - mobscore CerberusLevel;=2
+  Skills:
+  - damage{a=6}
+CerberusCombo2DamageLevel3:
+  LegacyConditions:
+  - mobscore CerberusLevel;=3
+  Skills:
+  - damage{a=8}
+
+Sweep-CerberusCombo2DamageCalculation:
+  Skills:
+  - skill{s=Sweep-CerberusCombo2DamageLevel1}
+  - skill{s=Sweep-CerberusCombo2DamageLevel2}
+  - skill{s=Sweep-CerberusCombo2DamageLevel3}
+Sweep-CerberusCombo2DamageLevel1:
+  LegacyConditions:
+  - mobscore CerberusLevel;=1
+  Skills:
+  - damage{a=4}
+Sweep-CerberusCombo2DamageLevel2:
+  LegacyConditions:
+  - mobscore CerberusLevel;=2
+  Skills:
+  - damage{a=6}
+Sweep-CerberusCombo2DamageLevel3:
+  LegacyConditions:
+  - mobscore CerberusLevel;=3
+  Skills:
+  - damage{a=8}
+  
+
+CerberusSwing:
+  LegacyConditions:
+  - stance Cerberus
+  - mobscore CSwing;=1
+  Skills:
+  - message{m="Cerberus Swing"} @pir{r=20}
+  # This disables redorb gain on ability attacks. Best to leave this here.
+  - modifymobscore{o=UnsetRedOrb;a=SET;v=1}
+  # Now the skill
+  - potion{type=SLOW;duration=500;level=3} @self
+  - jump{velocity=0.7} @self
+  - delay 5
+  - potion{type=DAMAGE_RESISTANCE;duration=30;level=10} @self
+  - effect:particlering{p=sweepAttack;amount=1;radius=3;points=8;hS=0.1;vS=0.1;yOffset=0.7} @self
+  - effect:particlering{p=sweepAttack;amount=1;radius=3;points=8;hS=0.1;vS=0.1;yOffset=0.5} @self
+  - effect:particlering{p=sweepAttack;amount=1;radius=3;points=8;hS=0.1;vS=0.1;yOffset=0.3} @self
+  - sound{s=entity.player.attack.sweep} @self
+  - effect:particlering{p=instantSpell;amount=5;radius=3;points=8;hS=0.1;vS=0.1;yOffset=0.7} @self
+  - effect:particlering{p=fireworksSpark;amount=5;radius=3;points=8;hS=0.1;vS=0.1;yOffset=0.7} @self
+  - effect:particles{p=instantSpell;amount=20;hS=2.1;vS=0.5;speed=0;y=0.5} @self
+  - effect:particlering{p=instantSpell;amount=5;radius=3;points=8;hS=0.1;vS=0.1;yOffset=0.5} @self
+  - effect:particlering{p=fireworksSpark;amount=5;radius=3;points=8;hS=0.1;vS=0.1;yOffset=0.5} @self
+  - effect:particlering{p=instantSpell;amount=5;radius=3;points=8;hS=0.1;vS=0.1;yOffset=0.3} @self
+  - effect:particlering{p=fireworksSpark;amount=5;radius=3;points=8;hS=0.1;vS=0.1;yOffset=0.3} @self
+  - skill{s=CerberusSwingDamageCalculation} @EIR{r=5}
+  # Re enables red orb gain.  
+  - modifymobscore{o=UnsetRedOrb;a=SET;v=0}
+
+    # removes buffs/debuffs
+  - cure{t=SLOW} @self
+  - cure{t=INCREASE_DAMAGE} @self
+
+  # Starts Damage Calculation for Cerberus Swing.
+# Each of these calculations for damage is necessary to scale damage based on the weapons level. 
+CerberusSwingDamageCalculation:
+  Skills:
+  - skill{s=CerberusSwingDamageLevel1}
+  - skill{s=CerberusSwingDamageLevel2}
+  - skill{s=CerberusSwingDamageLevel3}
+CerberusSwingDamageLevel1:
+  LegacyConditions:
+  - mobscore CerberusLevel;=1
+  Skills:
+  - damage{a=6}
+CerberusSwingDamageLevel2:
+  LegacyConditions:
+  - mobscore CerberusLevel;=2
+  Skills:
+  - damage{a=8}
+CerberusSwingDamageLevel3:
+  LegacyConditions:
+  - mobscore CerberusLevel;=3
+  Skills:
+  - damage{a=10}
+  
+
+CerberusRevolver:
+  LegacyConditions:
+  - stance Cerberus
+  - mobscore CRevolver;=1
+  Skills:
+  - message{m="Cerberus Revolver"} @pir{r=20}
+  # This disables redorb gain on ability attacks. Best to leave this here.
+  - modifymobscore{o=UnsetRedOrb;a=SET;v=1}
+  # Now the skill
+  - potion{type=SLOW;duration=500;level=3} @self
+  - jump{velocity=1} @self
+  - effect:spin{duration=25;velocity=20} @self
+  - delay 5
+  - potion{type=DAMAGE_RESISTANCE;duration=30;level=10} @self
+  - effect:particlering{p=sweepAttack;amount=1;radius=3;points=14;hS=0.1;vS=0.1;yOffset=0.7} @self
+  - effect:particlering{p=sweepAttack;amount=1;radius=3;points=14;hS=0.1;vS=0.1;yOffset=0.5} @self
+  - effect:particlering{p=sweepAttack;amount=1;radius=3;points=14;hS=0.1;vS=0.1;yOffset=0.3} @self
+  - sound{s=entity.player.attack.sweep} @self
+  - effect:particlering{p=instantSpell;amount=5;radius=3;points=14;hS=0.1;vS=0.1;yOffset=0.7} @self
+  - effect:particlering{p=fireworksSpark;amount=5;radius=3;points=14;hS=0.1;vS=0.1;yOffset=0.7} @self
+  - effect:particles{p=instantSpell;amount=20;hS=2.1;vS=0.5;speed=0;y=0.5} @self
+  - effect:particlering{p=instantSpell;amount=5;radius=3;points=14;hS=0.1;vS=0.1;yOffset=0.5} @self
+  - effect:particlering{p=fireworksSpark;amount=5;radius=3;points=14;hS=0.1;vS=0.1;yOffset=0.5} @self
+  - effect:particlering{p=instantSpell;amount=5;radius=3;points=14;hS=0.1;vS=0.1;yOffset=0.3} @self
+  - effect:particlering{p=fireworksSpark;amount=5;radius=3;points=14;hS=0.1;vS=0.1;yOffset=0.3} @self
+  - skill{s=CerberusRevolverDamageCalculation} @EIR{r=5}
+  - delay 5
+  - potion{type=DAMAGE_RESISTANCE;duration=30;level=10} @self
+  - effect:particlering{p=sweepAttack;amount=1;radius=3;points=14;hS=0.1;vS=0.1;yOffset=0.7} @self
+  - effect:particlering{p=sweepAttack;amount=1;radius=3;points=14;hS=0.1;vS=0.1;yOffset=0.5} @self
+  - effect:particlering{p=sweepAttack;amount=1;radius=3;points=14;hS=0.1;vS=0.1;yOffset=0.3} @self
+  - sound{s=entity.player.attack.sweep} @self
+  - effect:particlering{p=instantSpell;amount=5;radius=3;points=14;hS=0.1;vS=0.1;yOffset=0.7} @self
+  - effect:particlering{p=fireworksSpark;amount=5;radius=3;points=14;hS=0.1;vS=0.1;yOffset=0.7} @self
+  - effect:particles{p=instantSpell;amount=20;hS=2.1;vS=0.5;speed=0;y=0.5} @self
+  - effect:particlering{p=instantSpell;amount=5;radius=3;points=14;hS=0.1;vS=0.1;yOffset=0.5} @self
+  - effect:particlering{p=fireworksSpark;amount=5;radius=3;points=14;hS=0.1;vS=0.1;yOffset=0.5} @self
+  - effect:particlering{p=instantSpell;amount=5;radius=3;points=14;hS=0.1;vS=0.1;yOffset=0.3} @self
+  - effect:particlering{p=fireworksSpark;amount=5;radius=3;points=14;hS=0.1;vS=0.1;yOffset=0.3} @self
+  - skill{s=CerberusRevolverDamageCalculation} @EIR{r=5}
+  - delay 5
+  - potion{type=DAMAGE_RESISTANCE;duration=30;level=10} @self
+  - effect:particlering{p=sweepAttack;amount=1;radius=3;points=14;hS=0.1;vS=0.1;yOffset=0.7} @self
+  - effect:particlering{p=sweepAttack;amount=1;radius=3;points=14;hS=0.1;vS=0.1;yOffset=0.5} @self
+  - effect:particlering{p=sweepAttack;amount=1;radius=3;points=14;hS=0.1;vS=0.1;yOffset=0.3} @self
+  - sound{s=entity.player.attack.sweep} @self
+  - effect:particlering{p=instantSpell;amount=5;radius=3;points=14;hS=0.1;vS=0.1;yOffset=0.7} @self
+  - effect:particlering{p=fireworksSpark;amount=5;radius=3;points=14;hS=0.1;vS=0.1;yOffset=0.7} @self
+  - effect:particles{p=instantSpell;amount=20;hS=2.1;vS=0.5;speed=0;y=0.5} @self
+  - effect:particlering{p=instantSpell;amount=5;radius=3;points=14;hS=0.1;vS=0.1;yOffset=0.5} @self
+  - effect:particlering{p=fireworksSpark;amount=5;radius=3;points=14;hS=0.1;vS=0.1;yOffset=0.5} @self
+  - effect:particlering{p=instantSpell;amount=5;radius=3;points=14;hS=0.1;vS=0.1;yOffset=0.3} @self
+  - effect:particlering{p=fireworksSpark;amount=5;radius=3;points=14;hS=0.1;vS=0.1;yOffset=0.3} @self
+  - skill{s=CerberusRevolverDamageCalculation} @EIR{r=5}
+  - delay 5
+  - potion{type=DAMAGE_RESISTANCE;duration=30;level=10} @self
+  - effect:particlering{p=sweepAttack;amount=1;radius=3;points=14;hS=0.1;vS=0.1;yOffset=0.7} @self
+  - effect:particlering{p=sweepAttack;amount=1;radius=3;points=14;hS=0.1;vS=0.1;yOffset=0.5} @self
+  - effect:particlering{p=sweepAttack;amount=1;radius=3;points=14;hS=0.1;vS=0.1;yOffset=0.3} @self
+  - sound{s=entity.player.attack.sweep} @self
+  - effect:particlering{p=instantSpell;amount=5;radius=3;points=14;hS=0.1;vS=0.1;yOffset=0.7} @self
+  - effect:particlering{p=fireworksSpark;amount=5;radius=3;points=14;hS=0.1;vS=0.1;yOffset=0.7} @self
+  - effect:particles{p=instantSpell;amount=20;hS=2.1;vS=0.5;speed=0;y=0.5} @self
+  - effect:particlering{p=instantSpell;amount=5;radius=3;points=14;hS=0.1;vS=0.1;yOffset=0.5} @self
+  - effect:particlering{p=fireworksSpark;amount=5;radius=3;points=14;hS=0.1;vS=0.1;yOffset=0.5} @self
+  - effect:particlering{p=instantSpell;amount=5;radius=3;points=14;hS=0.1;vS=0.1;yOffset=0.3} @self
+  - effect:particlering{p=fireworksSpark;amount=5;radius=3;points=14;hS=0.1;vS=0.1;yOffset=0.3} @self
+  - skill{s=CerberusRevolverDamageCalculation} @EIR{r=5}
+  - effect:explosion @self
+  - throw{velocity=15;velocityY=5} @PlayersInRadius{r=7}
+  - skill{s=CerberusRevolverExplosionDamageCalculation} @EIR{r=7}
+  - effect:particles{p=hugeexplosion;amount=1;hS=0.1;vS=0.1;yOffset=0.1} @self
+  - effect:particlering{p=fireworksSpark;amount=5;radius=3;points=12;hS=0.1;vS=0.1;yOffset=0.1} @self
+  - effect:particlering{p=cloud;amount=10;radius=3;points=12;hS=0.1;vS=0.1;yOffset=0.1;speed=0.3} @self
+  - delay 5
+  - effect:blockmask{m=ice;r=3;d=40} @self
+  - delay 5
+  - effect:particlering{p=fireworksSpark;amount=5;radius=5;points=18;hS=0.1;vS=0.1;yOffset=0.1} @self
+  - effect:particlering{p=cloud;amount=10;radius=5;points=18;hS=0.1;vS=0.1;yOffset=0.1;speed=0.3} @self
+  - effect:blockmask{m=ice;r=5;d=40} @self
+  - delay 5
+  - effect:particlering{p=fireworksSpark;amount=70;radius=7;points=48;hS=0.1;vS=1;yOffset=0.1} @self
+  - effect:blockmask{m=ice;r=7;d=40} @self
+  
+  # Re enables red orb gain.  
+  - modifymobscore{o=UnsetRedOrb;a=SET;v=0}
+
+    # removes buffs/debuffs
+  - cure{t=SLOW} @self
+  - cure{t=INCREASE_DAMAGE} @self
+
+  # Starts Damage Calculation for Cerberus Revolver.
+# Each of these calculations for damage is necessary to scale damage based on the weapons level. 
+CerberusRevolverDamageCalculation:
+  Skills:
+  - skill{s=CerberusRevolverDamageLevel1}
+  - skill{s=CerberusRevolverDamageLevel2}
+  - skill{s=CerberusRevolverDamageLevel3}
+CerberusRevolverDamageLevel1:
+  LegacyConditions:
+  - mobscore CerberusLevel;=1
+  Skills:
+  - damage{a=6}
+CerberusRevolverDamageLevel2:
+  LegacyConditions:
+  - mobscore CerberusLevel;=2
+  Skills:
+  - damage{a=8}
+CerberusRevolverDamageLevel3:
+  LegacyConditions:
+  - mobscore CerberusLevel;=3
+  Skills:
+  - damage{a=10}
+  
+CerberusRevolverExplosionDamageCalculation:
+  Skills:
+  - skill{s=CerberusRevolverExplosionDamageLevel1}
+  - skill{s=CerberusRevolverExplosionDamageLevel2}
+  - skill{s=CerberusRevolverExplosionDamageLevel3}
+CerberusRevolverExplosionDamageLevel1:
+  LegacyConditions:
+  - mobscore CerberusLevel;=1
+  Skills:
+  - damage{a=10}
+CerberusRevolverExplosionDamageLevel2:
+  LegacyConditions:
+  - mobscore CerberusLevel;=2
+  Skills:
+  - damage{a=14}
+CerberusRevolverExplosionDamageLevel3:
+  LegacyConditions:
+  - mobscore CerberusLevel;=3
+  Skills:
+  - damage{a=18}
+  
+  
+CerberusSatellite:
+  LegacyConditions:
+  - stance Cerberus
+  - mobscore CSatellite;=1
+  Skills:
+  # This disables redorb gain on ability attacks. Best to leave this here.
+  - modifymobscore{o=UnsetRedOrb;a=SET;v=1}
+  # Now the skill
+  - potion{type=SLOW;duration=500;level=3} @self
+  - potion{type=DAMAGE_RESISTANCE;duration=30;level=10} @self
+  - effect:particlering{p=sweepAttack;amount=1;radius=1;points=8;hS=0.1;vS=0.1;yOffset=0.7} @self
+  - effect:particlering{p=sweepAttack;amount=1;radius=1;points=8;hS=0.1;vS=0.1;yOffset=0.5} @self
+  - effect:particlering{p=sweepAttack;amount=1;radius=1;points=8;hS=0.1;vS=0.1;yOffset=0.3} @self
+  - sound{s=entity.player.attack.sweep} @self
+  - effect:particlering{p=reddust;color=#00FFFF;amount=40;radius=2;points=20;hS=0.5;vS=0.2;yOffset=0.7} @self
+  - effect:particles{p=instantSpell;amount=20;hS=1.1;vS=0.5;speed=0;y=0.5} @self
+  - effect:particlering{p=reddust;color=#00FFFF;amount=40;radius=2;points=20;hS=0.5;vS=0.2;yOffset=0.5} @self
+  - effect:particlering{p=reddust;color=#00FFFF;amount=40;radius=2;points=20;hS=0.5;vS=0.2;yOffset=0.3} @self
+  - skill{s=Sweep-CerberusSatelliteDamageCalculation} @EIR{r=3}
+  - delay 5
+  - potion{type=DAMAGE_RESISTANCE;duration=30;level=10} @self
+  - effect:particlering{p=sweepAttack;amount=1;radius=1;points=8;hS=0.1;vS=0.1;yOffset=0.7} @self
+  - effect:particlering{p=sweepAttack;amount=1;radius=1;points=8;hS=0.1;vS=0.1;yOffset=0.5} @self
+  - effect:particlering{p=sweepAttack;amount=1;radius=1;points=8;hS=0.1;vS=0.1;yOffset=0.3} @self
+  - sound{s=entity.player.attack.sweep} @self
+  - effect:particlering{p=reddust;color=#00FFFF;amount=40;radius=2;points=20;hS=0.5;vS=0.2;yOffset=0.7} @self
+  - effect:particles{p=instantSpell;amount=20;hS=1.1;vS=0.5;speed=0;y=0.5} @self
+  - effect:particlering{p=reddust;color=#00FFFF;amount=40;radius=2;points=20;hS=0.5;vS=0.2;yOffset=0.5} @self
+  - effect:particlering{p=reddust;color=#00FFFF;amount=40;radius=2;points=20;hS=0.5;vS=0.2;yOffset=0.3} @self
+  - skill{s=Sweep-CerberusSatelliteDamageCalculation} @EIR{r=3}
+  - delay 5
+  - potion{type=DAMAGE_RESISTANCE;duration=30;level=10} @self
+  - effect:particlering{p=sweepAttack;amount=1;radius=1;points=8;hS=0.1;vS=0.1;yOffset=0.7} @self
+  - effect:particlering{p=sweepAttack;amount=1;radius=1;points=8;hS=0.1;vS=0.1;yOffset=0.5} @self
+  - effect:particlering{p=sweepAttack;amount=1;radius=1;points=8;hS=0.1;vS=0.1;yOffset=0.3} @self
+  - sound{s=entity.player.attack.sweep} @self
+  - effect:particlering{p=reddust;color=#00FFFF;amount=40;radius=2;points=20;hS=0.5;vS=0.2;yOffset=0.7} @self
+  - effect:particles{p=instantSpell;amount=20;hS=1.1;vS=0.5;speed=0;y=0.5} @self
+  - effect:particlering{p=reddust;color=#00FFFF;amount=40;radius=2;points=20;hS=0.5;vS=0.2;yOffset=0.5} @self
+  - effect:particlering{p=reddust;color=#00FFFF;amount=40;radius=2;points=20;hS=0.5;vS=0.2;yOffset=0.3} @self
+  - skill{s=Sweep-CerberusSatelliteDamageCalculation} @EIR{r=3}
+  # Re enables red orb gain.  
+  - modifymobscore{o=UnsetRedOrb;a=SET;v=0}
+  # removes buffs/debuffs
+  - cure{t=SLOW} @self
+  - cure{t=INCREASE_DAMAGE} @self
+
+  # Starts Damage Calculation for Cerberus Combo 1.
+# Each of these calculations for damage is necessary to scale damage based on the weapons level. 
+CerberusSatelliteDamageCalculation:
+  Skills:
+  - skill{s=CerberusSatelliteDamageLevel1}
+  - skill{s=CerberusSatelliteDamageLevel2}
+  - skill{s=CerberusSatelliteDamageLevel3}
+CerberusSatelliteDamageLevel1:
+  LegacyConditions:
+  - mobscore CerberusLevel;=1
+  Skills:
+  - damage{a=7}
+CerberusSatelliteDamageLevel2:
+  LegacyConditions:
+  - mobscore CerberusLevel;=2
+  Skills:
+  - damage{a=9}
+CerberusSatelliteDamageLevel3:
+  LegacyConditions:
+  - mobscore CerberusLevel;=3
+  Skills:
+  - damage{a=11}
+  
+### Cerberus Ability Use AI Section
+CerberusCloseRangeBatchExecutor:
+  Conditions:
+  - stance{s=Cerberus}
+  - targetwithin{d=6}
+  Skills:
+  - skill{s=CerberusAbilityCloseRange-AI-1}
+#  - skill{s=CerberusAbilityCloseRange-AI-2}
+#  - skill{s=CerberusAbilityCloseRange-AI-3}
+#  - skill{s=CerberusAbilityCloseRange-AI-4}
+#  - skill{s=CerberusAbilityCloseRange-AI-5}
+  
+ 
+# These are the attacks he will use at close range from most common to least common. 
+# Combo 1 --> Combo 2 --> Swing --> Satellite --> Revolver
+CerberusAbilityCloseRange-AI-1:
+  LegacyConditions:
+  - mobscore CerberusPChain;=1
+  Skills:
+#IMPORTANT! Input his attacks here from LEAST COMMON to MOST COMMON.
+  - customrandomskill{s=CerberusRevolver:0.2,CerberusSatellite:0.4,CerberusSwing:0.5,CerberusCombo2:0.5,CerberusCombo1:1}
+ 
+
+############## WIP CODE #################  
+
+# Combo 1 --> Combo 2 --> Swing --> Satellite --> Revolver
+# CerberusAbilityCloseRange-AI-2:
+  # LegacyConditions:
+  # - mobscore CerberusPChain;=2
+  # Skills:
+  # - customrandomskill{s=}
+# # Combo 1 --> Combo 2 --> Swing --> Satellite --> Revolver
+# CerberusAbilityCloseRange-AI-3:
+  # LegacyConditions:
+  # - mobscore CerberusPChain;=3
+  # Skills:
+  # - customrandomskill{s=}
+# # Combo 1 --> Combo 2 --> Swing --> Satellite --> Revolver
+# CerberusAbilityCloseRange-AI-4:
+  # LegacyConditions:
+  # - mobscore CerberusPChain;=4
+  # Skills:
+  # - customrandomskill{s=}
+# # Combo 1 --> Combo 2 --> Swing --> Satellite --> Revolver
+# CerberusAbilityCloseRange-AI-5:
+  # LegacyConditions:
+  # - mobscore CerberusPChain;=5
+  # Skills:
+  # - customrandomskill{s=}
+ 
+ 
+############## END WIP CODE ################# 
+ 
+ 
+### Cerberus' level based damage boosters.
+CerberusBoostMeleeLevel2:
+  LegacyConditions:
+  - mobscore CerberusLevel;=2
+  - mobscore DevilTrigger;=0
+  Skills:
+  - potion{type=INCREASE_DAMAGE;duration=20;level=1}
+CerberusBoostMeleeLevel3:
+  LegacyConditions:
+  - mobscore CerberusLevel;=3
+  - mobscore DevilTrigger;=0
+  Skills:
+  - potion{type=INCREASE_DAMAGE;duration=20;level=2}
+  
+# If their is anything you do not understand about this mob or you need help I sincerely do not blame you.
+# I expect to get swarmed with requests within the first week of this mobs release. 
+# I may reply with a please wait message. I will get to you as soon as possible.
+
+# DIRECT SUPPORT LINK. PLEASE ALLOW 24 HOURS TO GET A REPLY. 
+# http://mythicmobs.net/index.php?conversations/add&to=Awesome_Dante

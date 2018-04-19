@@ -1,0 +1,219 @@
+### Bandit Mobs by Awesome_Dante ###
+## Release v1.0 ##
+Bandit:
+  Mobtype: HUSK
+  Display: '&6Sword Bandit 1'
+  Health: 35
+  Damage: 3
+  Armor: 1
+  Disguise:
+    Type: player
+    Skin: 'Bandits'
+    Player: '&6Sword Bandit 1'
+  Faction: Bandits
+  Equipment:
+  - wood_sword:0
+  Skills:
+### Tell the player how much money the mob has stolen!  
+### Recommend you enable only 1 to prevent spam! 
+
+## Option 1 - Outputs to Chat
+  - message{m="<mob.name> now has &2$&a<mob.score.money>"} @target ~onSignal:tellmoney
+  
+## Option 2 - REQUIRES MYTHICMOBS EXTENSION PLUGIN and HOLOGRAPHIC DISPLAYS
+# Get MME here: https://www.spigotmc.org/resources/mythicmobsextension.51884/
+#  - speechbubble{id=BanditMoney;display="&2$ = &a<mob.score.money>";ll=25;counter=200;offset=2.6} @self ~onSpawn
+  
+###### WARNING !! ######
+#Implement only either Method 1 or Method 2 but not both!
+
+########################
+### Mugging Method 1 ###
+  - skill{s=Method-1-OneTimeMugging} @target ~onAttack 1
+########################
+
+#### Method 1 Payout ###
+## Disable if using Method 2 ##
+  - skill{s=Method-1-Payout} @trigger ~onDeath
+########################
+
+
+
+########################
+### Mugging Method 2 ###
+###### WARNING !! ######
+# Use Only One of the following! #
+# This sets how much money the mob mugs from the player. Its best to understand how Method 2 works BEFORE making custom amounts. #
+#  - skill{s=Method-2-IncrementalMugging-20} @target ~onAttack 1
+#  - skill{s=Method-2-IncrementalMugging-50} @target ~onAttack 1
+#  - skill{s=Method-2-IncrementalMugging-100} @target ~onAttack 1
+########################
+
+#### Method 2 Payout ###
+## Disable if using Method 1 ##
+
+#  - skill{s=Method-2-Payout} @trigger ~onDeath
+########################
+
+
+# Normal Skills:
+# This spawns a group of bandits! This means this mob will spawn, another sword bandit will spawn, and the bow bandit will spawn!
+  - skill{s=SpawnBandits} @Self ~onSpawn
+
+  Options:
+    AlwaysShowName: true
+    Despawn: true 
+    MovementSpeed: 0.3
+    PreventMobKillDrops: true
+  AIGoalSelectors:
+    - 0 clear
+    - 1 meleeattack
+    - 2 randomstroll
+    - 3 FleeSun
+  AITargetSelectors:
+    - 0 clear
+    - 1 players
+    - 2 otherfaction  
+
+SwordBandit:
+  Mobtype: HUSK
+  Display: '&6Sword Bandit 2'
+  Health: 35
+  Damage: 3
+  Armor: 1
+  Disguise:
+    Type: player
+    Skin: 'Bandits'
+    Player: '&6Sword Bandit 2'
+  Faction: Bandits
+  Equipment:
+  - wood_sword:0
+  Skills:
+### Tell the player how much money the mob has stolen!  
+### Recommend you enable only 1 to prevent spam! 
+
+## Option 1 - Outputs to Chat
+  - message{m="<mob.name> now has &2$&a<mob.score.money>"} @target ~onSignal:tellmoney
+  
+## Option 2 - REQUIRES MYTHICMOBS EXTENSION PLUGIN and HOLOGRAPHIC DISPLAYS
+# Get MME here: https://www.spigotmc.org/resources/mythicmobsextension.51884/
+#  - speechbubble{id=BanditMoney;display="&2$ = &a<mob.score.money>";ll=25;counter=200;offset=2.6} @self ~onSpawn
+  
+###### WARNING !! ######
+#Implement only either Method 1 or Method 2 but not both!
+
+########################
+### Mugging Method 1 ###
+  - skill{s=Method-1-OneTimeMugging} @target ~onAttack 1
+########################
+
+#### Method 1 Payout ###
+## Disable if using Method 2 ##
+  - skill{s=Method-1-Payout} @trigger ~onDeath
+########################
+
+
+
+########################
+### Mugging Method 2 ###
+###### WARNING !! ######
+# Use Only One of the following! #
+# This sets how much money the mob mugs from the player. Its best to understand how Method 2 works BEFORE making custom amounts. #
+#  - skill{s=Method-2-IncrementalMugging-20} @target ~onAttack 1
+#  - skill{s=Method-2-IncrementalMugging-50} @target ~onAttack 1
+#  - skill{s=Method-2-IncrementalMugging-100} @target ~onAttack 1
+########################
+
+#### Method 2 Payout ###
+## Disable if using Method 1 ##
+
+#  - skill{s=Method-2-Payout} @trigger ~onDeath
+########################
+
+  Options:
+    AlwaysShowName: true
+    Despawn: true  
+    MovementSpeed: 0.3
+    PreventMobKillDrops: true    
+  AIGoalSelectors:
+    - 0 clear
+    - 1 meleeattack
+    - 2 randomstroll
+    - 3 FleeSun
+  AITargetSelectors:
+    - 0 clear
+    - 1 players
+    - 2 otherfaction
+    
+BowBandit:
+  Mobtype: SKELETON
+  Display: '&6Bow Bandit'
+  Health: 35
+  Damage: 3
+  Armor: 1
+  Disguise:
+    Type: player
+    Skin: 'Bandits'
+    Player: '&6Bow Bandit'
+  Faction: Bandits
+  Equipment:
+  - leather_helmet:4
+  - BOW:0
+  Skills:
+### Tell the player how much money the mob has stolen!  
+### Recommend you enable only 1 to prevent spam! 
+
+## Option 1 - Outputs to Chat
+  - message{m="<mob.name> now has &2$&a<mob.score.money>"} @target ~onSignal:tellmoney
+  
+## Option 2 - REQUIRES MYTHICMOBS EXTENSION PLUGIN and HOLOGRAPHIC DISPLAYS
+# Get MME here: https://www.spigotmc.org/resources/mythicmobsextension.51884/
+#  - speechbubble{id=BanditMoney;display="&2$ = &a<mob.score.money>";ll=25;counter=200;offset=2.6} @self ~onSpawn
+
+###### WARNING !! ######
+#Implement only either Method 1 or Method 2 but not both!
+
+########################
+### Mugging Method 1 ###
+  - skill{s=Method-1-OneTimeMugging} @target ~onAttack 1
+########################
+
+#### Method 1 Payout ###
+## Disable if using Method 2 ##
+  - skill{s=Method-1-Payout} @trigger ~onDeath
+########################
+
+
+
+########################
+### Mugging Method 2 ###
+###### WARNING !! ######
+# Use Only One of the following! #
+# This sets how much money the mob mugs from the player. Its best to understand how Method 2 works BEFORE making custom amounts. #
+#  - skill{s=Method-2-IncrementalMugging-20} @target ~onAttack 1
+#  - skill{s=Method-2-IncrementalMugging-50} @target ~onAttack 1
+#  - skill{s=Method-2-IncrementalMugging-100} @target ~onAttack 1
+########################
+
+#### Method 2 Payout ###
+## Disable if using Method 1 ##
+
+#  - skill{s=Method-2-Payout} @trigger ~onDeath
+########################
+
+# Normal Skills:
+  - skill{s=BowDrug} ~onAttack 0.1
+
+  Options:
+    AlwaysShowName: true
+    Despawn: true  
+    MovementSpeed: 0.3
+    PreventMobKillDrops: true    
+  AITargetSelectors:
+    - 0 clear
+    - 1 players
+    - 2 otherfaction
+    
+## If their is anything you do not understand about this mob or you need help setting up custom money options into method 2 Contact me via PM on Mythicmobs.net.
+# DIRECT SUPPORT LINK. PLEASE ALLOW 24 HOURS TO GET A REPLY.
+# http://mythicmobs.net/index.php?conversations/add&to=Awesome_Dante

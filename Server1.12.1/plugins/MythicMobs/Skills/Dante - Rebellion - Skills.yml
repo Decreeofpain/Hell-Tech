@@ -1,0 +1,1097 @@
+### Dante - Awesome_Dante's crazy attempt at replicating the demon slayer Dante in Minecraft via Mythic Mobs.
+### This code is quite literally my pride and joy. Please do not share.
+### This versions comments are not fully written yet. The support link for this mob is at the bottom of every file this mob uses.
+### Version 'EA-Pre-Alpha V 0.2'
+### File version 'V 1.0' 
+### Comments Version 'V 0.1'
+### Known Compatibility with Spigot 1.11.2 - 1.12.2 
+### Known Compatibility with MythicMobs 2.3+ Recommended 4.3.2+
+### REQUIRES: MythicMobsExtension - https://www.spigotmc.org/resources/mythicmobsextension.51884/
+### REQUIRES: HolographicDisplays - https://dev.bukkit.org/projects/holographic-displays
+
+
+
+### Rebellion Attack Pattern AI Skills
+
+RebellionAbilityPurchaseAIChainSelector:
+  Skills:
+  - randomskill
+      {
+      skills=
+      AIRebellionPChain1,
+      AIRebellionPChain2,
+      AIRebellionPChain3,
+      AIRebellionPChain4,
+      AIRebellionPChain5
+      }
+      
+AIRebellionPChain1:
+  Skills:
+  - modifymobscore{o=RebellionPChain;a=SET;v=1}
+AIRebellionPChain2:
+  Skills:
+  - modifymobscore{o=RebellionPChain;a=SET;v=2}
+AIRebellionPChain3:
+  Skills:
+  - modifymobscore{o=RebellionPChain;a=SET;v=3}
+AIRebellionPChain4:
+  Skills:
+  - modifymobscore{o=RebellionPChain;a=SET;v=4}
+AIRebellionPChain5:
+  Skills:
+  - modifymobscore{o=RebellionPChain;a=SET;v=5}
+  
+### This is the first Rebellion ability purchase chain. The mob will attempt to buy these abilities for Rebellion in this order for this chain: 
+
+# Stinger --> High Time --> Rebellion Level 2 --> 3 hit combo --> 4 hit combo --> Helm Breaker --> Rebellion Level 3 --> 5 hit combo --> Aerial Combo --> 6 Hit combo --> Drive --> Air Raid --> DT Million Stab --> DT arial raid round trip
+
+## The final "Else" in the last castif is set to Stinger as it isnt possible to buy that ability if the mob already has it
+# Thus terminating the chain instead of infinite looping. The rest of the chains function similarly with all ability purchasing priorities being different so I will note the chain progression in their comments.
+RebellionPChain1Execute:
+  Skills:
+  - castif{c="mobscore RebellionPChain;=1 && mobscore RStinger;=0";meet=BuyStinger;else=BuyHighTime}
+  - castif{c="mobscore RebellionPChain;=1 && mobscore RStinger;=1 && mobscore RHighTime;=0";meet=BuyHighTime;else=BuyRebellionLevel2}
+  - castif{c="mobscore RebellionPChain;=1 && mobscore RStinger;=1 && mobscore RHighTime;=1 && mobscore RebellionLevel;=1";meet=BuyRebellionLevel2;else=Buy3HitCombo}
+  - castif{c="mobscore RebellionPChain;=1 && mobscore RStinger;=1 && mobscore RHighTime;=1 && mobscore RebellionLevel;=2 && mobscore R3Hit;=0";meet=Buy3HitCombo;else=Buy4HitCombo}
+  - castif{c="mobscore RebellionPChain;=1 && mobscore RStinger;=1 && mobscore RHighTime;=1 && mobscore RebellionLevel;=2 && mobscore R3Hit;=1 && mobscore R4Hit;=0";meet=Buy4HitCombo;else=BuyHelmBreaker}
+  - castif{c="mobscore RebellionPChain;=1 && mobscore RStinger;=1 && mobscore RHighTime;=1 && mobscore RebellionLevel;=2 && mobscore R3Hit;=1 && mobscore R4Hit;=1 && mobscore RHBreaker;=0";meet=BuyHelmBreaker;else=BuyRebellionLevel3}
+  - castif{c="mobscore RebellionPChain;=1 && mobscore RStinger;=1 && mobscore RHighTime;=1 && mobscore RebellionLevel;=2 && mobscore R3Hit;=1 && mobscore R4Hit;=1 && mobscore RHBreaker;=1";meet=BuyRebellionLevel3;else=Buy5HitCombo}
+  - castif{c="mobscore RebellionPChain;=1 && mobscore RStinger;=1 && mobscore RHighTime;=1 && mobscore RebellionLevel;=3 && mobscore R3Hit;=1 && mobscore R4Hit;=1 && mobscore RHBreaker;=1 && mobscore R5Hit;=0";meet=Buy5HitCombo;else=BuyAerialCombo}
+  - castif{c="mobscore RebellionPChain;=1 && mobscore RStinger;=1 && mobscore RHighTime;=1 && mobscore RebellionLevel;=3 && mobscore R3Hit;=1 && mobscore R4Hit;=1 && mobscore RHBreaker;=1 && mobscore R5Hit;=1 && mobscore RAerialCombo;=0";meet=BuyAerialCombo;else=Buy6HitCombo}
+  - castif{c="mobscore RebellionPChain;=1 && mobscore RStinger;=1 && mobscore RHighTime;=1 && mobscore RebellionLevel;=3 && mobscore R3Hit;=1 && mobscore R4Hit;=1 && mobscore RHBreaker;=1 && mobscore R5Hit;=1 && mobscore RAerialCombo;=1 && mobscore R6Hit;=0";meet=Buy6HitCombo;else=BuyDrive}
+  - castif{c="mobscore RebellionPChain;=1 && mobscore RStinger;=1 && mobscore RHighTime;=1 && mobscore RebellionLevel;=3 && mobscore R3Hit;=1 && mobscore R4Hit;=1 && mobscore RHBreaker;=1 && mobscore R5Hit;=1 && mobscore RAerialCombo;=1 && mobscore R6Hit;=1 && mobscore RDrive;=0";meet=BuyDrive;else=BuyAirRaid}
+  - castif{c="mobscore RebellionPChain;=1 && mobscore RStinger;=1 && mobscore RHighTime;=1 && mobscore RebellionLevel;=3 && mobscore R3Hit;=1 && mobscore R4Hit;=1 && mobscore RHBreaker;=1 && mobscore R5Hit;=1 && mobscore RAerialCombo;=1 && mobscore R6Hit;=1 && mobscore RDrive;=1 && mobscore RAirRaid;=0";meet=BuyAirRaid;else=BuyDTMStab}
+  - castif{c="mobscore RebellionPChain;=1 && mobscore RStinger;=1 && mobscore RHighTime;=1 && mobscore RebellionLevel;=3 && mobscore R3Hit;=1 && mobscore R4Hit;=1 && mobscore RHBreaker;=1 && mobscore R5Hit;=1 && mobscore RAerialCombo;=1 && mobscore R6Hit;=1 && mobscore RDrive;=1 && mobscore RAirRaid;=1 && mobscore RDTMStab;=0";meet=BuyDTMStab;else=BuyDTAerialRaidRT}
+  - castif{c="mobscore RebellionPChain;=1 && mobscore RStinger;=1 && mobscore RHighTime;=1 && mobscore RebellionLevel;=3 && mobscore R3Hit;=1 && mobscore R4Hit;=1 && mobscore RHBreaker;=1 && mobscore R5Hit;=1 && mobscore RAerialCombo;=1 && mobscore R6Hit;=1 && mobscore RDrive;=1 && mobscore RAirRaid;=1 && mobscore RDTMStab;=1 && mobscore RDTAerialRT;=0";meet=BuyDTAerialRaidRT;else=BuyStinger}
+
+# Rebellion ability purchasing priorities: 3 hit combo --> 4 hit combo --> Rebellion Level 2 --> Stinger --> 5 hit combo --> Helm Breaker --> Rebellion Level 3 --> 6 Hit combo --> Drive --> High Time --> Aerial Combo --> Air Raid --> DT Million Stab --> DT arial raid round trip.
+RebellionPChain2Execute:
+  Skills:
+  - castif{c="mobscore RebellionPChain;=2 && mobscore R3Hit;=0";meet=Buy3HitCombo;else=Buy4HitCombo}
+  - castif{c="mobscore RebellionPChain;=2 && mobscore R3Hit;=1 && mobscore R4Hit;=0";meet=Buy4HitCombo;else=BuyRebellionLevel2}
+  - castif{c="mobscore RebellionPChain;=2 && mobscore R3Hit;=1 && mobscore R4Hit;=1 && mobscore RebellionLevel;=1";meet=BuyRebellionLevel2;else=BuyStinger}
+  - castif{c="mobscore RebellionPChain;=2 && mobscore R3Hit;=1 && mobscore R4Hit;=1 && mobscore RebellionLevel;=2 && mobscore RStinger;=0";meet=BuyStinger;else=Buy5HitCombo}
+  - castif{c="mobscore RebellionPChain;=2 && mobscore R3Hit;=1 && mobscore R4Hit;=1 && mobscore RebellionLevel;=2 && mobscore RStinger;=1 && mobscore R5Hit;=0";meet=Buy5HitCombo;else=BuyHelmBreaker}
+  - castif{c="mobscore RebellionPChain;=2 && mobscore R3Hit;=1 && mobscore R4Hit;=1 && mobscore RebellionLevel;=2 && mobscore RStinger;=1 && mobscore R5Hit;=1 && mobscore RHBreaker;=0";meet=BuyHelmBreaker;else=BuyRebellionLevel3}
+  - castif{c="mobscore RebellionPChain;=2 && mobscore R3Hit;=1 && mobscore R4Hit;=1 && mobscore RebellionLevel;=2 && mobscore RStinger;=1 && mobscore R5Hit;=1 && mobscore RHBreaker;=1";meet=BuyRebellionLevel3;else=Buy6HitCombo}
+  - castif{c="mobscore RebellionPChain;=2 && mobscore R3Hit;=1 && mobscore R4Hit;=1 && mobscore RebellionLevel;=3 && mobscore RStinger;=1 && mobscore R5Hit;=1 && mobscore RHBreaker;=1 && mobscore R6Hit;=0";meet=Buy6HitCombo;else=BuyDrive}
+  - castif{c="mobscore RebellionPChain;=2 && mobscore R3Hit;=1 && mobscore R4Hit;=1 && mobscore RebellionLevel;=3 && mobscore RStinger;=1 && mobscore R5Hit;=1 && mobscore RHBreaker;=1 && mobscore R6Hit;=1 && mobscore RDrive;=0";meet=BuyDrive;else=BuyHighTime}
+  - castif{c="mobscore RebellionPChain;=2 && mobscore R3Hit;=1 && mobscore R4Hit;=1 && mobscore RebellionLevel;=3 && mobscore RStinger;=1 && mobscore R5Hit;=1 && mobscore RHBreaker;=1 && mobscore R6Hit;=1 && mobscore RDrive;=1 && mobscore RHighTime;=0";meet=BuyHighTime;else=BuyAerialCombo}
+  - castif{c="mobscore RebellionPChain;=2 && mobscore R3Hit;=1 && mobscore R4Hit;=1 && mobscore RebellionLevel;=3 && mobscore RStinger;=1 && mobscore R5Hit;=1 && mobscore RHBreaker;=1 && mobscore R6Hit;=1 && mobscore RDrive;=1 && mobscore RHighTime;=1 && mobscore RAerialCombo;=0";meet=BuyAerialCombo;else=BuyAirRaid}
+  - castif{c="mobscore RebellionPChain;=2 && mobscore R3Hit;=1 && mobscore R4Hit;=1 && mobscore RebellionLevel;=3 && mobscore RStinger;=1 && mobscore R5Hit;=1 && mobscore RHBreaker;=1 && mobscore R6Hit;=1 && mobscore RDrive;=1 && mobscore RHighTime;=1 && mobscore RAerialCombo;=1 && mobscore RAirRaid;=0";meet=BuyAirRaid;else=BuyDTMStab}
+  - castif{c="mobscore RebellionPChain;=2 && mobscore R3Hit;=1 && mobscore R4Hit;=1 && mobscore RebellionLevel;=3 && mobscore RStinger;=1 && mobscore R5Hit;=1 && mobscore RHBreaker;=1 && mobscore R6Hit;=1 && mobscore RDrive;=1 && mobscore RHighTime;=1 && mobscore RAerialCombo;=1 && mobscore RAirRaid;=1 && mobscore RDTMStab;=0";meet=BuyDTMStab;else=BuyDTAerialRaidRT}
+  - castif{c="mobscore RebellionPChain;=2 && mobscore R3Hit;=1 && mobscore R4Hit;=1 && mobscore RebellionLevel;=3 && mobscore RStinger;=1 && mobscore R5Hit;=1 && mobscore RHBreaker;=1 && mobscore R6Hit;=1 && mobscore RDrive;=1 && mobscore RHighTime;=1 && mobscore RAerialCombo;=1 && mobscore RAirRaid;=1 && mobscore RDTMStab;=1 && mobscore RDTAerialRT;=0";meet=BuyDTAerialRaidRT;else=Buy3HitCombo}
+  
+# Rebellion ability purchasing priorities: 6 Hit combo --> 5 hit combo --> Rebellion Level 2 --> 4 hit combo --> 3 hit combo --> Drive --> Rebellion Level 3 --> Stinger --> Helm Breaker --> High Time --> Aerial Combo --> Air Raid --> DT Million Stab --> DT arial raid round trip.
+RebellionPChain3Execute:
+  Skills:
+  - castif{c="mobscore RebellionPChain;=3 && mobscore R6Hit;=0";meet=Buy6HitCombo;else=Buy5HitCombo}
+  - castif{c="mobscore RebellionPChain;=3 && mobscore R6Hit;=1 && mobscore R5Hit;=0";meet=Buy5HitCombo;else=BuyRebellionLevel2}
+  - castif{c="mobscore RebellionPChain;=3 && mobscore R6Hit;=1 && mobscore R5Hit;=1 && mobscore RebellionLevel;=1";meet=BuyRebellionLevel2;else=Buy4HitCombo}
+  - castif{c="mobscore RebellionPChain;=3 && mobscore R6Hit;=1 && mobscore R5Hit;=1 && mobscore RebellionLevel;=2 && mobscore R4Hit;=0";meet=Buy4HitCombo;else=Buy3HitCombo}
+  - castif{c="mobscore RebellionPChain;=3 && mobscore R6Hit;=1 && mobscore R5Hit;=1 && mobscore RebellionLevel;=2 && mobscore R4Hit;=1 && mobscore R3Hit;=0";meet=Buy3HitCombo;else=BuyDrive}
+  - castif{c="mobscore RebellionPChain;=3 && mobscore R6Hit;=1 && mobscore R5Hit;=1 && mobscore RebellionLevel;=2 && mobscore R4Hit;=1 && mobscore R3Hit;=1 && mobscore RDrive;=0";meet=BuyDrive;else=BuyRebellionLevel3}
+  - castif{c="mobscore RebellionPChain;=3 && mobscore R6Hit;=1 && mobscore R5Hit;=1 && mobscore RebellionLevel;=2 && mobscore R4Hit;=1 && mobscore R3Hit;=1 && mobscore RDrive;=1";meet=BuyRebellionLevel3;else=BuyStinger}
+  - castif{c="mobscore RebellionPChain;=3 && mobscore R6Hit;=1 && mobscore R5Hit;=1 && mobscore RebellionLevel;=3 && mobscore R4Hit;=1 && mobscore R3Hit;=1 && mobscore RDrive;=1 && mobscore RStinger;=0";meet=BuyStinger;else=BuyHelmBreaker}
+  - castif{c="mobscore RebellionPChain;=3 && mobscore R6Hit;=1 && mobscore R5Hit;=1 && mobscore RebellionLevel;=3 && mobscore R4Hit;=1 && mobscore R3Hit;=1 && mobscore RDrive;=1 && mobscore RStinger;=1 && mobscore RHBreaker;=0";meet=BuyHelmBreaker;else=BuyHighTime}
+  - castif{c="mobscore RebellionPChain;=3 && mobscore R6Hit;=1 && mobscore R5Hit;=1 && mobscore RebellionLevel;=3 && mobscore R4Hit;=1 && mobscore R3Hit;=1 && mobscore RDrive;=1 && mobscore RStinger;=1 && mobscore RHBreaker;=1 && mobscore RHighTime;=0";meet=BuyHighTime;else=BuyAerialCombo}
+  - castif{c="mobscore RebellionPChain;=3 && mobscore R6Hit;=1 && mobscore R5Hit;=1 && mobscore RebellionLevel;=3 && mobscore R4Hit;=1 && mobscore R3Hit;=1 && mobscore RDrive;=1 && mobscore RStinger;=1 && mobscore RHBreaker;=1 && mobscore RHighTime;=1 && mobscore RAerialCombo;=0";meet=BuyAerialCombo;else=BuyAirRaid}
+  - castif{c="mobscore RebellionPChain;=3 && mobscore R6Hit;=1 && mobscore R5Hit;=1 && mobscore RebellionLevel;=3 && mobscore R4Hit;=1 && mobscore R3Hit;=1 && mobscore RDrive;=1 && mobscore RStinger;=1 && mobscore RHBreaker;=1 && mobscore RHighTime;=1 && mobscore RAerialCombo;=1 && mobscore RAirRaid;=0";meet=BuyAirRaid;else=BuyDTMStab}
+  - castif{c="mobscore RebellionPChain;=3 && mobscore R6Hit;=1 && mobscore R5Hit;=1 && mobscore RebellionLevel;=3 && mobscore R4Hit;=1 && mobscore R3Hit;=1 && mobscore RDrive;=1 && mobscore RStinger;=1 && mobscore RHBreaker;=1 && mobscore RHighTime;=1 && mobscore RAerialCombo;=1 && mobscore RAirRaid;=1 && mobscore RDTMStab;=0";meet=BuyDTMStab;else=BuyDTAerialRaidRT}
+  - castif{c="mobscore RebellionPChain;=3 && mobscore R6Hit;=1 && mobscore R5Hit;=1 && mobscore RebellionLevel;=3 && mobscore R4Hit;=1 && mobscore R3Hit;=1 && mobscore RDrive;=1 && mobscore RStinger;=1 && mobscore RHBreaker;=1 && mobscore RHighTime;=1 && mobscore RAerialCombo;=1 && mobscore RAirRaid;=1 && mobscore RDTMStab;=1 && mobscore RDTAerialRT;=0";meet=BuyDTAerialRaidRT;else=Buy6HitCombo}
+  
+# Rebellion ability purchasing priorities: 3 hit combo --> 4 hit combo --> Rebellion Level 2 --> 5 hit combo --> 6 Hit combo --> Helm Breaker --> Rebellion Level 3 --> Stinger --> Drive --> High Time --> Aerial Combo --> Air Raid --> DT Million Stab --> DT arial raid round trip.
+RebellionPChain4Execute:
+  Skills:
+  - castif{c="mobscore RebellionPChain;=4 && mobscore R3Hit;=0";meet=Buy3HitCombo;else=Buy4HitCombo}
+  - castif{c="mobscore RebellionPChain;=4 && mobscore R3Hit;=1 && mobscore R4Hit;=0";meet=Buy4HitCombo;else=BuyRebellionLevel2}
+  - castif{c="mobscore RebellionPChain;=4 && mobscore R3Hit;=1 && mobscore R4Hit;=1 && mobscore RebellionLevel;=1";meet=BuyRebellionLevel2;else=Buy5HitCombo}
+  - castif{c="mobscore RebellionPChain;=4 && mobscore R3Hit;=1 && mobscore R4Hit;=1 && mobscore RebellionLevel;=2 && mobscore R5Hit;=0";meet=Buy5HitCombo;else=Buy6HitCombo}
+  - castif{c="mobscore RebellionPChain;=4 && mobscore R3Hit;=1 && mobscore R4Hit;=1 && mobscore RebellionLevel;=2 && mobscore R5Hit;=1 && mobscore R6Hit;=0";meet=Buy6HitCombo;else=BuyHelmBreaker}
+  - castif{c="mobscore RebellionPChain;=4 && mobscore R3Hit;=1 && mobscore R4Hit;=1 && mobscore RebellionLevel;=2 && mobscore R5Hit;=1 && mobscore R6Hit;=1 && mobscore RHBreaker;=0";meet=BuyHelmBreaker;else=BuyRebellionLevel3}
+  - castif{c="mobscore RebellionPChain;=4 && mobscore R3Hit;=1 && mobscore R4Hit;=1 && mobscore RebellionLevel;=2 && mobscore R5Hit;=1 && mobscore R6Hit;=1 && mobscore RHBreaker;=1";meet=BuyRebellionLevel3;else=BuyStinger}
+  - castif{c="mobscore RebellionPChain;=4 && mobscore R3Hit;=1 && mobscore R4Hit;=1 && mobscore RebellionLevel;=3 && mobscore R5Hit;=1 && mobscore R6Hit;=1 && mobscore RHBreaker;=1 && mobscore RStinger;=0";meet=BuyStinger;else=BuyDrive}
+  - castif{c="mobscore RebellionPChain;=4 && mobscore R3Hit;=1 && mobscore R4Hit;=1 && mobscore RebellionLevel;=3 && mobscore R5Hit;=1 && mobscore R6Hit;=1 && mobscore RHBreaker;=1 && mobscore RStinger;=1 && mobscore RDrive;=0";meet=BuyDrive;else=BuyHighTime}
+  - castif{c="mobscore RebellionPChain;=4 && mobscore R3Hit;=1 && mobscore R4Hit;=1 && mobscore RebellionLevel;=3 && mobscore R5Hit;=1 && mobscore R6Hit;=1 && mobscore RHBreaker;=1 && mobscore RStinger;=1 && mobscore RDrive;=1 && mobscore RHighTime;=0";meet=BuyHighTime;else=BuyAerialCombo}
+  - castif{c="mobscore RebellionPChain;=4 && mobscore R3Hit;=1 && mobscore R4Hit;=1 && mobscore RebellionLevel;=3 && mobscore R5Hit;=1 && mobscore R6Hit;=1 && mobscore RHBreaker;=1 && mobscore RStinger;=1 && mobscore RDrive;=1 && mobscore RHighTime;=1 && mobscore RAerialCombo;=0";meet=BuyAerialCombo;else=BuyAirRaid}
+  - castif{c="mobscore RebellionPChain;=4 && mobscore R3Hit;=1 && mobscore R4Hit;=1 && mobscore RebellionLevel;=3 && mobscore R5Hit;=1 && mobscore R6Hit;=1 && mobscore RHBreaker;=1 && mobscore RStinger;=1 && mobscore RDrive;=1 && mobscore RHighTime;=1 && mobscore RAerialCombo;=1 && mobscore RAirRaid;=0";meet=BuyAirRaid;else=BuyDTMStab}
+  - castif{c="mobscore RebellionPChain;=4 && mobscore R3Hit;=1 && mobscore R4Hit;=1 && mobscore RebellionLevel;=3 && mobscore R5Hit;=1 && mobscore R6Hit;=1 && mobscore RHBreaker;=1 && mobscore RStinger;=1 && mobscore RDrive;=1 && mobscore RHighTime;=1 && mobscore RAerialCombo;=1 && mobscore RAirRaid;=1 && mobscore RDTMStab;=0";meet=BuyDTMStab;else=BuyDTAerialRaidRT}
+  - castif{c="mobscore RebellionPChain;=4 && mobscore R3Hit;=1 && mobscore R4Hit;=1 && mobscore RebellionLevel;=3 && mobscore R5Hit;=1 && mobscore R6Hit;=1 && mobscore RHBreaker;=1 && mobscore RStinger;=1 && mobscore RDrive;=1 && mobscore RHighTime;=1 && mobscore RAerialCombo;=1 && mobscore RAirRaid;=1 && mobscore RDTMStab;=1 && mobscore RDTAerialRT;=0";meet=BuyDTAerialRaidRT;else=Buy3HitCombo}
+  
+# Rebellion ability purchasing priorities: Helm Breaker --> Stinger --> Rebellion Level 2 --> 3 hit combo --> High Time --> Drive --> Rebellion Level 3 --> Aerial Combo --> 4 hit combo --> 5 hit combo --> 6 Hit combo --> Air Raid --> DT Million Stab --> DT arial raid round trip.
+RebellionPChain5Execute:
+  Skills:
+  - castif{c="mobscore RebellionPChain;=5 && mobscore RHBreaker;=0";meet=BuyHelmBreaker;else=BuyStinger}
+  - castif{c="mobscore RebellionPChain;=5 && mobscore RHBreaker;=1 && mobscore RStinger;=0";meet=BuyStinger;else=BuyRebellionLevel2}
+  - castif{c="mobscore RebellionPChain;=5 && mobscore RHBreaker;=1 && mobscore RStinger;=1 && mobscore RebellionLevel;=1";meet=BuyRebellionLevel2;else=Buy3HitCombo}
+  - castif{c="mobscore RebellionPChain;=5 && mobscore RHBreaker;=1 && mobscore RStinger;=1 && mobscore RebellionLevel;=2 && mobscore R3Hit;=0";meet=Buy3HitCombo;else=BuyHighTime}
+  - castif{c="mobscore RebellionPChain;=5 && mobscore RHBreaker;=1 && mobscore RStinger;=1 && mobscore RebellionLevel;=2 && mobscore R3Hit;=1 && mobscore RHighTime;=0";meet=BuyHighTime;else=BuyDrive}
+  - castif{c="mobscore RebellionPChain;=5 && mobscore RHBreaker;=1 && mobscore RStinger;=1 && mobscore RebellionLevel;=2 && mobscore R3Hit;=1 && mobscore RHighTime;=1 && mobscore RDrive;=0";meet=BuyDrive;else=BuyRebellionLevel3}
+  - castif{c="mobscore RebellionPChain;=5 && mobscore RHBreaker;=1 && mobscore RStinger;=1 && mobscore RebellionLevel;=2 && mobscore R3Hit;=1 && mobscore RHighTime;=1 && mobscore RDrive;=1";meet=BuyRebellionLevel3;else=BuyAerialCombo}
+  - castif{c="mobscore RebellionPChain;=5 && mobscore RHBreaker;=1 && mobscore RStinger;=1 && mobscore RebellionLevel;=3 && mobscore R3Hit;=1 && mobscore RHighTime;=1 && mobscore RDrive;=1 && mobscore RAerialCombo;=0";meet=BuyAerialCombo;else=Buy4HitCombo}
+  - castif{c="mobscore RebellionPChain;=5 && mobscore RHBreaker;=1 && mobscore RStinger;=1 && mobscore RebellionLevel;=3 && mobscore R3Hit;=1 && mobscore RHighTime;=1 && mobscore RDrive;=1 && mobscore RAerialCombo;=1 && mobscore R4Hit;=0";meet=Buy4HitCombo;else=Buy5HitCombo}
+  - castif{c="mobscore RebellionPChain;=5 && mobscore RHBreaker;=1 && mobscore RStinger;=1 && mobscore RebellionLevel;=3 && mobscore R3Hit;=1 && mobscore RHighTime;=1 && mobscore RDrive;=1 && mobscore RAerialCombo;=1 && mobscore R4Hit;=1 && mobscore R5Hit;=0";meet=Buy5HitCombo;else=Buy6HitCombo}
+  - castif{c="mobscore RebellionPChain;=5 && mobscore RHBreaker;=1 && mobscore RStinger;=1 && mobscore RebellionLevel;=3 && mobscore R3Hit;=1 && mobscore RHighTime;=1 && mobscore RDrive;=1 && mobscore RAerialCombo;=1 && mobscore R4Hit;=1 && mobscore R5Hit;=1 && mobscore R6Hit;=0";meet=Buy6HitCombo;else=BuyAirRaid}
+  - castif{c="mobscore RebellionPChain;=5 && mobscore RHBreaker;=1 && mobscore RStinger;=1 && mobscore RebellionLevel;=3 && mobscore R3Hit;=1 && mobscore RHighTime;=1 && mobscore RDrive;=1 && mobscore RAerialCombo;=1 && mobscore R4Hit;=1 && mobscore R5Hit;=1 && mobscore R6Hit;=1 && mobscore RAirRaid;=0";meet=BuyAirRaid;else=BuyDTMStab}
+  - castif{c="mobscore RebellionPChain;=5 && mobscore RHBreaker;=1 && mobscore RStinger;=1 && mobscore RebellionLevel;=3 && mobscore R3Hit;=1 && mobscore RHighTime;=1 && mobscore RDrive;=1 && mobscore RAerialCombo;=1 && mobscore R4Hit;=1 && mobscore R5Hit;=1 && mobscore R6Hit;=1 && mobscore RAirRaid;=1 && mobscore RDTMStab;=0";meet=BuyDTMStab;else=BuyDTAerialRaidRT}
+  - castif{c="mobscore RebellionPChain;=5 && mobscore RHBreaker;=1 && mobscore RStinger;=1 && mobscore RebellionLevel;=3 && mobscore R3Hit;=1 && mobscore RHighTime;=1 && mobscore RDrive;=1 && mobscore RAerialCombo;=1 && mobscore R4Hit;=1 && mobscore R5Hit;=1 && mobscore R6Hit;=1 && mobscore RAirRaid;=1 && mobscore RDTMStab;=1 && mobscore RDTAerialRT;=0";meet=BuyDTAerialRaidRT;else=Buy3HitCombo}
+  
+
+### Rebellion Purchase Abilities
+BuyRebellionLevel2:
+  LegacyConditions:
+  - mobscore RebellionLevel;=1
+  - mobscore RedO;>1001
+  Skills:
+#  - sendtitle{title="&cAlert!";subtitle="<mob.name> &eupgraded &cRebellion &eto &cLevel II";d=60} @PlayersInRadius{r=40}
+  - message{m="&7[&l&cAlert!&r&7] &4<mob.name> &eupgraded &cRebellion &eto &cLevel II"} @PlayersInRadius{r=40}
+  - modifymobscore{o=RebellionLevel;a=SET;v=2}
+BuyRebellionLevel3:
+  LegacyConditions:
+  - mobscore RebellionLevel;=2
+  - mobscore RedO;>2001
+  Skills:
+#  - sendtitle{title="&cAlert!";subtitle="<mob.name> &eupgraded &cRebellion &eto &cLevel III";d=60} @PlayersInRadius{r=40}
+  - message{m="&7[&l&cAlert!&r&7] &4<mob.name> &eupgraded &cRebellion &eto &cLevel III"} @PlayersInRadius{r=40}
+  - modifymobscore{o=RebellionLevel;a=SET;v=3}
+
+BuyStinger:
+  LegacyConditions:
+  - mobscore RStinger;=0
+  - mobscore RedO;>501
+  Skills:
+#  - sendtitle{title="&cAlert!";subtitle="<mob.name> &elearned &cRebellion's Stinger";d=60} @PlayersInRadius{r=40}
+  - message{m="&7[&l&cAlert!&r&7] &4<mob.name> &elearned &cRebellion's Stinger"} @PlayersInRadius{r=40}
+  - speechbubble{id=RedOrb;display="&cRed Orbs &7= &e<mob.score.RedO><nl>&5Devil Star L &7= &e<mob.score.DevL><nl>&5Devil Star S &7= &e<mob.score.DevS>";ll=25;counter=100;sideoffset=-1.5;offset=1.0} @self
+  - modifymobscore{o=RedO;A=SUBTRACT;V=500}
+  - modifymobscore{o=RStinger;a=SET;v=1}
+  
+BuyHighTime:
+  LegacyConditions:
+  - mobscore RHighTime;=0
+  - mobscore RedO;>751
+  Skills:
+#  - sendtitle{title="&cAlert!";subtitle="<mob.name> &elearned &cRebellion's High Time";d=60} @PlayersInRadius{r=40}
+  - message{m="&7[&l&cAlert!&r&7] &4<mob.name> &elearned &cRebellion's High Time"} @PlayersInRadius{r=40}
+  - speechbubble{id=RedOrb;display="&cRed Orbs &7= &e<mob.score.RedO><nl>&5Devil Star L &7= &e<mob.score.DevL><nl>&5Devil Star S &7= &e<mob.score.DevS>";ll=25;counter=100;sideoffset=-1.5;offset=1.0} @self
+  - modifymobscore{o=RedO;A=SUBTRACT;V=750}
+  - modifymobscore{o=RHighTime;a=SET;v=1}
+  
+Buy3HitCombo:
+  LegacyConditions:
+  - mobscore R3Hit;=0
+  - mobscore RedO;>801
+  Skills:
+#  - sendtitle{title="&cAlert!";subtitle="<mob.name> &elearned &cRebellion's 3 Hit Combo";d=60} @PlayersInRadius{r=40}
+  - message{m="&7[&l&cAlert!&r&7] &4<mob.name> &elearned &cRebellion's 3 Hit Combo"} @PlayersInRadius{r=40}
+  - speechbubble{id=RedOrb;display="&cRed Orbs &7= &e<mob.score.RedO><nl>&5Devil Star L &7= &e<mob.score.DevL><nl>&5Devil Star S &7= &e<mob.score.DevS>";ll=25;counter=100;sideoffset=-1.5;offset=1.0} @self
+  - modifymobscore{o=RedO;A=SUBTRACT;V=800}
+  - modifymobscore{o=R3Hit;a=SET;v=1}
+  
+Buy4HitCombo:
+  LegacyConditions:
+  - mobscore R4Hit;=0
+  - mobscore RedO;>1001
+  Skills:
+ # - sendtitle{title="&cAlert!";subtitle="<mob.name> &elearned &cRebellion's 4 Hit Combo";d=60} @PlayersInRadius{r=40}
+  - message{m="&7[&l&cAlert!&r&7] &4<mob.name> &elearned &cRebellion's 4 Hit Combo"} @PlayersInRadius{r=40}
+  - speechbubble{id=RedOrb;display="&cRed Orbs &7= &e<mob.score.RedO><nl>&5Devil Star L &7= &e<mob.score.DevL><nl>&5Devil Star S &7= &e<mob.score.DevS>";ll=25;counter=100;sideoffset=-1.5;offset=1.0} @self
+  - modifymobscore{o=RedO;A=SUBTRACT;V=800}
+  - modifymobscore{o=R4Hit;a=SET;v=1}
+  
+Buy5HitCombo:
+  LegacyConditions:
+  - mobscore R5Hit;=0
+  - mobscore RedO;>1201
+  Skills:
+#  - sendtitle{title="&cAlert!";subtitle="<mob.name> &elearned &cRebellion's 5 Hit Combo";d=60} @PlayersInRadius{r=40}
+  - message{m="&7[&l&cAlert!&r&7] &4<mob.name> &elearned &cRebellion's 5 Hit Combo"} @PlayersInRadius{r=40}
+  - speechbubble{id=RedOrb;display="&cRed Orbs &7= &e<mob.score.RedO><nl>&5Devil Star L &7= &e<mob.score.DevL><nl>&5Devil Star S &7= &e<mob.score.DevS>";ll=25;counter=100;sideoffset=-1.5;offset=1.0} @self
+  - modifymobscore{o=RedO;A=SUBTRACT;V=1200}
+  - modifymobscore{o=R5Hit;a=SET;v=1}
+  
+Buy6HitCombo:
+  LegacyConditions:
+  - mobscore R6Hit;=0
+  - mobscore RedO;>1501
+  Skills:
+#  - sendtitle{title="&cAlert!";subtitle="<mob.name> &elearned &cRebellion's 6 Hit Combo";d=60} @PlayersInRadius{r=40}
+  - message{m="&7[&l&cAlert!&r&7] &4<mob.name> &elearned &cRebellion's 6 Hit Combo"} @PlayersInRadius{r=40}
+  - speechbubble{id=RedOrb;display="&cRed Orbs &7= &e<mob.score.RedO><nl>&5Devil Star L &7= &e<mob.score.DevL><nl>&5Devil Star S &7= &e<mob.score.DevS>";ll=25;counter=100;sideoffset=-1.5;offset=1.0} @self
+  - modifymobscore{o=RedO;A=SUBTRACT;V=1500}
+  - modifymobscore{o=R6Hit;a=SET;v=1}
+  
+BuyHelmBreaker:
+  LegacyConditions:
+  - mobscore RHBreaker;=0
+  - mobscore RedO;>1501
+  Skills:
+#  - sendtitle{title="&cAlert!";subtitle="<mob.name> &elearned &cRebellion's Helm Breaker";d=60} @PlayersInRadius{r=40}
+  - message{m="&7[&l&cAlert!&r&7] &4<mob.name> &elearned &cRebellion's Helm Breaker"} @PlayersInRadius{r=40}
+  - speechbubble{id=RedOrb;display="&cRed Orbs &7= &e<mob.score.RedO><nl>&5Devil Star L &7= &e<mob.score.DevL><nl>&5Devil Star S &7= &e<mob.score.DevS>";ll=25;counter=100;sideoffset=-1.5;offset=1.0} @self
+  - modifymobscore{o=RedO;A=SUBTRACT;V=1500}
+  - modifymobscore{o=RHBreaker;a=SET;v=1}
+  
+BuyAerialCombo:
+  LegacyConditions:
+  - mobscore RAerialCombo;=0
+  - mobscore RedO;>2001
+  Skills:
+#  - sendtitle{title="&cAlert!";subtitle="<mob.name> &elearned &cRebellion's Aerial Combo";d=60} @PlayersInRadius{r=40}
+  - message{m="&7[&l&cAlert!&r&7] &4<mob.name> &elearned &cRebellion's Aerial Combo"} @PlayersInRadius{r=40}
+  - speechbubble{id=RedOrb;display="&cRed Orbs &7= &e<mob.score.RedO><nl>&5Devil Star L &7= &e<mob.score.DevL><nl>&5Devil Star S &7= &e<mob.score.DevS>";ll=25;counter=100;sideoffset=-1.5;offset=1.0} @self
+  - modifymobscore{o=RedO;A=SUBTRACT;V=2000}
+  - modifymobscore{o=RAerialCombo;a=SET;v=1}
+  
+BuyDrive:
+  LegacyConditions:
+  - mobscore RDrive;=0
+  - mobscore RedO;>2201
+  Skills:
+#  - sendtitle{title="&cAlert!";subtitle="<mob.name> &elearned &cRebellion's Drive";d=60} @PlayersInRadius{r=40}
+  - message{m="&7[&l&cAlert!&r&7] &4<mob.name> &elearned &cRebellion's Drive"} @PlayersInRadius{r=40}
+  - speechbubble{id=RedOrb;display="&cRed Orbs &7= &e<mob.score.RedO><nl>&5Devil Star L &7= &e<mob.score.DevL><nl>&5Devil Star S &7= &e<mob.score.DevS>";ll=25;counter=100;sideoffset=-1.5;offset=1.0} @self
+  - modifymobscore{o=RedO;A=SUBTRACT;V=2200}
+  - modifymobscore{o=RDrive;a=SET;v=1}
+  
+  
+BuyAirRaid:
+  LegacyConditions:
+  - mobscore RAirRaid;=0
+  - mobscore RedO;>4001
+  Skills:
+#  - sendtitle{title="&cAlert!";subtitle="<mob.name> &elearned &cRebellion's Air Raid";d=60} @PlayersInRadius{r=40}
+  - message{m="&7[&l&cAlert!&r&7] &4<mob.name> &elearned &cRebellion's Air Raid"} @PlayersInRadius{r=40}
+  - speechbubble{id=RedOrb;display="&cRed Orbs &7= &e<mob.score.RedO><nl>&5Devil Star L &7= &e<mob.score.DevL><nl>&5Devil Star S &7= &e<mob.score.DevS>";ll=25;counter=100;sideoffset=-1.5;offset=1.0} @self
+  - modifymobscore{o=RedO;A=SUBTRACT;V=4000}
+  - modifymobscore{o=RAirRaid;a=SET;v=1}
+  
+BuyDTMStab:
+  LegacyConditions:
+  - mobscore RDTMStab;=0
+  - mobscore RedO;>5001
+  Skills:
+#  - sendtitle{title="&cAlert!";subtitle="<mob.name> &elearned &cRebellion's DT Million Stab";d=60} @PlayersInRadius{r=40}
+  - message{m="&7[&l&cAlert!&r&7] &4<mob.name> &elearned &cRebellion's DT Million Stab"} @PlayersInRadius{r=40}
+  - speechbubble{id=RedOrb;display="&cRed Orbs &7= &e<mob.score.RedO><nl>&5Devil Star L &7= &e<mob.score.DevL><nl>&5Devil Star S &7= &e<mob.score.DevS>";ll=25;counter=100;sideoffset=-1.5;offset=1.0} @self
+  - modifymobscore{o=RedO;A=SUBTRACT;V=5000}
+  - modifymobscore{o=RDTMStab;a=SET;v=1}
+  
+BuyDTAerialRaidRT:
+  LegacyConditions:
+  - mobscore RDTAerialRT;=0
+  - mobscore RedO;>7001
+  Skills:
+#  - sendtitle{title="&cAlert!";subtitle="<mob.name> &elearned &cRebellion's DT Aerial Raid Round Trip";d=60} @PlayersInRadius{r=40}
+  - message{m="&7[&l&cAlert!&r&7] &4<mob.name> &elearned &cRebellion's DT Aerial Raid Round Trip"} @PlayersInRadius{r=40}
+  - speechbubble{id=RedOrb;display="&cRed Orbs &7= &e<mob.score.RedO><nl>&5Devil Star L &7= &e<mob.score.DevL><nl>&5Devil Star S &7= &e<mob.score.DevS>";ll=25;counter=100;sideoffset=-1.5;offset=1.0} @self
+  - modifymobscore{o=RedO;A=SUBTRACT;V=7000}
+  - modifymobscore{o=RDTAerialRT;a=SET;v=1}
+
+
+
+
+
+  
+### Rebellion Abilities
+
+Stinger:
+  LegacyConditions:
+  - stance Rebellion
+  - mobscore RStinger;=1
+  Skills:
+  # This disables redorb gain on ability attacks. Best to leave this here.
+  - modifymobscore{o=UnsetRedOrb;a=SET;v=1}
+  # Now the skill
+  - leap{velocity=300} @target
+  - effect:particles{p=fireworksSpark;amount=20;hS=0.5;vS=0.5;speed=0} @self
+  - delay 1
+  - effect:particles{p=fireworksSpark;amount=20;hS=0.5;vS=0.5;speed=0} @self
+  - delay 1
+  - effect:particles{p=fireworksSpark;amount=20;hS=0.5;vS=0.5;speed=0} @self
+  - delay 1
+  - effect:particles{p=fireworksSpark;amount=20;hS=0.5;vS=0.5;speed=0} @self
+  - delay 1
+  - effect:particles{p=fireworksSpark;amount=20;hS=0.5;vS=0.5;speed=0} @self
+  - delay 1
+  - effect:particles{p=fireworksSpark;amount=20;hS=0.5;vS=0.5;speed=0} @self
+  - delay 1
+  - effect:particles{p=fireworksSpark;amount=20;hS=0.5;vS=0.5;speed=0} @self
+  - delay 10
+  - sound{s=entity.player.attack.sweep} @self
+# Starts Damage Calculation for Stinger ability.
+  - skill{s=StingerDamageCalculation}
+  # Re enables red orb gain.  
+  - modifymobscore{o=UnsetRedOrb;a=SET;v=0}
+  
+# Each of these calculations for damage is necessary to scale damage based on the weapons level.  
+StingerDamageCalculation:
+  Skills:
+  - skill{s=StingerDamageLevel1}
+  - skill{s=StingerDamageLevel2}
+  - skill{s=StingerDamageLevel3}
+StingerDamageLevel1:
+  LegacyConditions:
+  - mobscore RebellionLevel;=1
+  Skills:
+  - damage{a=5} @LivingInCone{a=90.0;r=3.0;rot=0.0}
+StingerDamageLevel2:
+  LegacyConditions:
+  - mobscore RebellionLevel;=2
+  Skills:
+  - damage{a=7} @LivingInCone{a=90.0;r=3.0;rot=0.0}
+StingerDamageLevel3:
+  LegacyConditions:
+  - mobscore RebellionLevel;=3
+  Skills:
+  - damage{a=10} @LivingInCone{a=90.0;r=3.0;rot=0.0}
+
+  
+3-Hit-Combo:
+  LegacyConditions:
+  - stance Rebellion
+  - mobscore R3Hit;=1
+  Skills:
+  # This disables redorb gain on ability attacks. Best to leave this here.
+  - modifymobscore{o=UnsetRedOrb;a=SET;v=1}
+  # Now the skill
+  - potion{type=SLOW;duration=50;level=1} @self
+  - effect:particles{p=fireworksSpark;amount=20;hS=0.5;vS=0.5;speed=0;y=1} @self
+  - sound{s=entity.player.attack.sweep} @self
+  - delay 1
+# Starts Damage Calculation for 3 Hit Combo ability.
+  - skill{s=3-Hit-Combo-DamageCalculation}
+  - delay 10
+  - effect:particles{p=fireworksSpark;amount=20;hS=0.5;vS=0.5;speed=0;y=1} @self
+  - sound{s=entity.player.attack.sweep} @self
+  - delay 1
+  - skill{s=3-Hit-Combo-DamageCalculation}
+  - delay 10
+  - potion{type=DAMAGE_RESISTANCE;duration=30;level=10} @self
+  - effect:spin{duration=20;velocity=40} @self
+  - effect:particles{p=sweepAttack;amount=20;hSpread=1;vSpread=0.1;speed=0.1;yOffset=0.7} @self
+  - sound{s=entity.player.attack.sweep} @self
+  - delay 2   
+  - sound{s=entity.player.attack.sweep} @self
+# Starts Damage calculation for the custom ranged damage of the sweep attack.
+  - skill{s=3-Hit-Combo-Sweep-DamageCalculation}
+  - throw{velocity=10;velocityY=3} @PlayersNearOrigin{r=3}
+  - delay 10
+  - effect:particles{p=sweepAttack;amount=20;hSpread=1;vSpread=0.1;speed=0.1;yOffset=0.7} @self
+  - delay 2   
+  - sound{s=entity.player.attack.sweep} @self
+  - skill{s=3-Hit-Combo-Sweep-DamageCalculation}
+  - throw{velocity=10;velocityY=3} @PlayersNearOrigin{r=3}  
+  - delay 10
+  - effect:particles{p=sweepAttack;amount=20;hSpread=1;vSpread=0.1;speed=0.1;yOffset=0.7} @self
+  - delay 2   
+  - sound{s=entity.player.attack.sweep} @self
+  - skill{s=3-Hit-Combo-Sweep-DamageCalculation}
+  - throw{velocity=10;velocityY=3} @PlayersNearOrigin{r=3}
+  # Re enables red orb gain.  
+  - modifymobscore{o=UnsetRedOrb;a=SET;v=0}
+
+# Each of these calculations for damage is necessary to scale damage based on the weapons level.   
+3-Hit-Combo-DamageCalculation:
+  Skills:
+  - skill{s=3-Hit-Combo-DamageLevel1}
+  - skill{s=3-Hit-Combo-DamageLevel2}
+  - skill{s=3-Hit-Combo-DamageLevel3}
+# Levels up the custom damage on the sweep attack.
+3-Hit-Combo-Sweep-DamageCalculation:
+  Skills:
+  - skill{s=3-Hit-Combo-Sweep-DamageLevel1}
+  - skill{s=3-Hit-Combo-Sweep-DamageLevel2}
+  - skill{s=3-Hit-Combo-Sweep-DamageLevel3}
+  
+3-Hit-Combo-DamageLevel1:
+  LegacyConditions:
+  - mobscore RebellionLevel;=1
+  Skills:
+  - damage{a=5} @LivingInCone{a=90.0;r=3.0;rot=0.0}
+3-Hit-Combo-DamageLevel2:
+  LegacyConditions:
+  - mobscore RebellionLevel;=2
+  Skills:
+  - damage{a=7} @LivingInCone{a=90.0;r=3.0;rot=0.0}
+3-Hit-Combo-DamageLevel3:
+  LegacyConditions:
+  - mobscore RebellionLevel;=3
+  Skills:
+  - damage{a=10} @LivingInCone{a=90.0;r=3.0;rot=0.0}
+  
+3-Hit-Combo-Sweep-DamageLevel1:
+  LegacyConditions:
+  - mobscore RebellionLevel;=1
+  Skills:
+  - customdamage{a=1to3;ia=false} @EntitiesNearOrigin{r=3}
+3-Hit-Combo-Sweep-DamageLevel2:
+  LegacyConditions:
+  - mobscore RebellionLevel;=2
+  Skills:
+  - customdamage{a=3to5;ia=false} @EntitiesNearOrigin{r=3}
+3-Hit-Combo-Sweep-DamageLevel3:
+  LegacyConditions:
+  - mobscore RebellionLevel;=3
+  Skills:
+  - customdamage{a=5to7;ia=false} @EntitiesNearOrigin{r=3}
+
+  
+
+4-Hit-Combo:
+  LegacyConditions:
+  - stance Rebellion
+  - mobscore R4Hit;=1
+  Skills:
+  # This disables redorb gain on ability attacks. Best to leave this here.
+  - modifymobscore{o=UnsetRedOrb;a=SET;v=1}
+  # Now the skill
+  - potion{type=SLOW;duration=50;level=1} @self
+  - effect:particles{p=fireworksSpark;amount=20;hS=0.5;vS=0.5;speed=0;y=1} @self
+  - sound{s=entity.player.attack.sweep} @self
+  - delay 1
+# Starts Damage Calculation for 4 Hit Combo ability.
+  - skill{s=4-Hit-Combo-DamageCalculation}
+  - delay 10
+  - effect:particles{p=fireworksSpark;amount=20;hS=0.5;vS=0.5;speed=0;y=1} @self
+  - sound{s=entity.player.attack.sweep} @self
+  - delay 1
+  - skill{s=4-Hit-Combo-DamageCalculation}
+  - delay 10
+  - effect:particles{p=fireworksSpark;amount=20;hS=0.5;vS=0.5;speed=0;y=1} @self
+  - sound{s=entity.player.attack.sweep} @self
+  - delay 1
+  - skill{s=4-Hit-Combo-DamageCalculation}
+  - delay 10
+  - effect:particles{p=fireworksSpark;amount=20;hS=0.5;vS=0.5;speed=0;y=1} @self
+  - sound{s=entity.player.attack.sweep} @self
+  - delay 1
+  - skill{s=4-Hit-Combo-DamageCalculation}
+  # Re enables red orb gain.  
+  - modifymobscore{o=UnsetRedOrb;a=SET;v=0}
+  
+# Each of these calculations for damage is necessary to scale damage based on the weapons level.  
+4-Hit-Combo-DamageCalculation:
+  Skills:
+  - skill{s=4-Hit-Combo-DamageLevel1}
+  - skill{s=4-Hit-Combo-DamageLevel2}
+  - skill{s=4-Hit-Combo-DamageLevel3}
+  
+4-Hit-Combo-DamageLevel1:
+  LegacyConditions:
+  - mobscore RebellionLevel;=1
+  Skills:
+  - damage{a=5} @LivingInCone{a=90.0;r=3.0;rot=0.0}
+4-Hit-Combo-DamageLevel2:
+  LegacyConditions:
+  - mobscore RebellionLevel;=2
+  Skills:
+  - damage{a=7} @LivingInCone{a=90.0;r=3.0;rot=0.0}
+4-Hit-Combo-DamageLevel3:
+  LegacyConditions:
+  - mobscore RebellionLevel;=3
+  Skills:
+  - damage{a=10} @LivingInCone{a=90.0;r=3.0;rot=0.0}
+
+  
+
+5-Hit-Combo:
+  LegacyConditions:
+  - stance Rebellion
+  - mobscore R5Hit;=1
+  Skills:
+  # This disables redorb gain on ability attacks. Best to leave this here.
+  - modifymobscore{o=UnsetRedOrb;a=SET;v=1}
+  # Now the skill
+  - effect:particles{p=fireworksSpark;amount=20;hS=0.5;vS=0.5;speed=0;y=1} @self
+  - sound{s=entity.player.attack.sweep} @self
+  - delay 1
+# Starts Damage Calculation for 5 Hit Combo ability.
+  - skill{s=5-Hit-Combo-DamageCalculation} 
+  - delay 10
+  - effect:particles{p=fireworksSpark;amount=20;hS=0.5;vS=0.5;speed=0;y=1} @self
+  - sound{s=entity.player.attack.sweep} @self
+  - delay 1
+  - skill{s=5-Hit-Combo-DamageCalculation} 
+  - delay 10
+  - effect:particles{p=fireworksSpark;amount=20;hS=0.5;vS=0.5;speed=0;y=1} @self
+  - sound{s=entity.player.attack.sweep} @self
+  - delay 1
+  - skill{s=5-Hit-Combo-DamageCalculation} 
+  - delay 20
+  - effect:particles{p=fireworksSpark;amount=20;hS=0.5;vS=0.5;speed=0;y=1} @self
+  - sound{s=entity.player.attack.sweep} @self
+  - delay 1
+  - skill{s=5-Hit-Combo-DamageCalculation} 
+  - stun{d=20;g=true} @LivingInCone{a=90.0;r=3.0;rot=0.0}
+  - delay 20
+  - effect:particles{p=fireworksSpark;amount=20;hS=0.5;vS=0.5;speed=0;y=1} @self
+  - sound{s=entity.player.attack.sweep} @self
+  - delay 1
+  - skill{s=5-Hit-Combo-DamageCalculation} 
+  - throw{velocity=2;velocityY=13} @LivingInCone{a=90.0;r=3.0;rot=0.0}
+  # Re enables red orb gain.  
+  - modifymobscore{o=UnsetRedOrb;a=SET;v=0}
+  
+# Each of these calculations for damage is necessary to scale damage based on the weapons level.  
+5-Hit-Combo-DamageCalculation:
+  Skills:
+  - skill{s=5-Hit-Combo-DamageLevel1}
+  - skill{s=5-Hit-Combo-DamageLevel2}
+  - skill{s=5-Hit-Combo-DamageLevel3}
+  
+5-Hit-Combo-DamageLevel1:
+  LegacyConditions:
+  - mobscore RebellionLevel;=1
+  Skills:
+  - damage{a=5} @LivingInCone{a=90.0;r=3.0;rot=0.0}
+5-Hit-Combo-DamageLevel2:
+  LegacyConditions:
+  - mobscore RebellionLevel;=2
+  Skills:
+  - damage{a=7} @LivingInCone{a=90.0;r=3.0;rot=0.0}
+5-Hit-Combo-DamageLevel3:
+  LegacyConditions:
+  - mobscore RebellionLevel;=3
+  Skills:
+  - damage{a=10} @LivingInCone{a=90.0;r=3.0;rot=0.0}
+  
+  
+  
+6-Hit-Combo:
+  LegacyConditions:
+  - stance Rebellion
+  - mobscore R6Hit;=1
+  Skills:
+  # This disables redorb gain on ability attacks. Best to leave this here.
+  - modifymobscore{o=UnsetRedOrb;a=SET;v=1}
+  # Now the skill
+  - potion{type=SLOW;duration=70;level=1} @self
+  - effect:particles{p=fireworksSpark;amount=20;hS=0.5;vS=0.5;speed=0;y=1} @self
+  - sound{s=entity.player.attack.sweep} @self
+  - delay 1
+# Starts Damage Calculation for 6 Hit Combo ability.
+  - skill{s=6-Hit-Combo-DamageCalculation}
+  - delay 10
+  - effect:particles{p=fireworksSpark;amount=20;hS=0.5;vS=0.5;speed=0;y=1} @self
+  - sound{s=entity.player.attack.sweep} @self
+  - delay 1
+  - skill{s=6-Hit-Combo-DamageCalculation}
+  - delay 10
+  - effect:particles{p=fireworksSpark;amount=20;hS=0.5;vS=0.5;speed=0;y=1} @self
+  - sound{s=entity.player.attack.sweep} @self
+  - delay 1
+  - skill{s=6-Hit-Combo-DamageCalculation}
+  - delay 10
+  - effect:particles{p=fireworksSpark;amount=20;hS=0.5;vS=0.5;speed=0;y=1} @self
+  - sound{s=entity.player.attack.sweep} @self
+  - delay 1
+  - skill{s=6-Hit-Combo-DamageCalculation}
+  - delay 10
+  - effect:particles{p=fireworksSpark;amount=20;hS=0.5;vS=0.5;speed=0;y=1} @self
+  - sound{s=entity.player.attack.sweep} @self
+  - delay 1
+  - skill{s=6-Hit-Combo-DamageCalculation} 
+  - delay 10
+  - potion{type=DAMAGE_RESISTANCE;duration=30;level=10} @self
+  - effect:spin{duration=20;velocity=40} @self
+  - effect:particles{p=sweepAttack;amount=20;hSpread=1;vSpread=0.1;speed=0.1;yOffset=0.7} @self
+  - sound{s=entity.player.attack.sweep} @self
+  - delay 2   
+  - sound{s=entity.player.attack.sweep} @self
+# Starts Damage calculation for the custom ranged damage of the sweep attack.
+  - skill{s=6-Hit-Combo-Sweep-DamageCalculation}
+  - throw{velocity=10;velocityY=3} @PlayersNearOrigin{r=3}
+  - delay 10
+  - effect:particles{p=sweepAttack;amount=20;hSpread=1;vSpread=0.1;speed=0.1;yOffset=0.7} @self
+  - delay 2   
+  - sound{s=entity.player.attack.sweep} @self
+  - skill{s=6-Hit-Combo-Sweep-DamageCalculation}
+  - throw{velocity=10;velocityY=3} @PlayersNearOrigin{r=3}  
+  - delay 10
+  - effect:particles{p=sweepAttack;amount=20;hSpread=1;vSpread=0.1;speed=0.1;yOffset=0.7} @self
+  - delay 2   
+  - sound{s=entity.player.attack.sweep} @self
+  - skill{s=6-Hit-Combo-Sweep-DamageCalculation}
+  - throw{velocity=10;velocityY=3} @PlayersNearOrigin{r=3}
+  # Re enables red orb gain.  
+  - modifymobscore{o=UnsetRedOrb;a=SET;v=0}
+  
+# Each of these calculations for damage is necessary to scale damage based on the weapons level.  
+6-Hit-Combo-DamageCalculation:
+  Skills:
+  - skill{s=6-Hit-Combo-DamageLevel1}
+  - skill{s=6-Hit-Combo-DamageLevel2}
+  - skill{s=6-Hit-Combo-DamageLevel3}
+  
+6-Hit-Combo-Sweep-DamageCalculation:
+  Skills:
+  - skill{s=6-Hit-Combo-Sweep-DamageLevel1}
+  - skill{s=6-Hit-Combo-Sweep-DamageLevel2}
+  - skill{s=6-Hit-Combo-Sweep-DamageLevel3}
+  
+6-Hit-Combo-DamageLevel1:
+  LegacyConditions:
+  - mobscore RebellionLevel;=1
+  Skills:
+  - damage{a=5} @LivingInCone{a=90.0;r=3.0;rot=0.0}
+6-Hit-Combo-DamageLevel2:
+  LegacyConditions:
+  - mobscore RebellionLevel;=2
+  Skills:
+  - damage{a=7} @LivingInCone{a=90.0;r=3.0;rot=0.0}
+6-Hit-Combo-DamageLevel3:
+  LegacyConditions:
+  - mobscore RebellionLevel;=3
+  Skills:
+  - damage{a=10} @LivingInCone{a=90.0;r=3.0;rot=0.0}
+  
+6-Hit-Combo-Sweep-DamageLevel1:
+  LegacyConditions:
+  - mobscore RebellionLevel;=1
+  Skills:
+  - customdamage{a=1to3;ia=false} @EntitiesNearOrigin{r=3}
+6-Hit-Combo-Sweep-DamageLevel2:
+  LegacyConditions:
+  - mobscore RebellionLevel;=2
+  Skills:
+  - customdamage{a=3to5;ia=false} @EntitiesNearOrigin{r=3}
+6-Hit-Combo-Sweep-DamageLevel3:
+  LegacyConditions:
+  - mobscore RebellionLevel;=3
+  Skills:
+  - customdamage{a=5to7;ia=false} @EntitiesNearOrigin{r=3}
+  
+
+HelmBreaker:
+  LegacyConditions:
+  - stance Rebellion
+  - mobscore RHBreaker;=1
+  Skills:
+# This disables redorb gain on ability attacks. Best to leave this here.
+  - modifymobscore{o=UnsetRedOrb;a=SET;v=1}
+# Now the skill
+  - effect:particlesphere{particle=cloud;amount=70;radius=1;yOffset=0.5} @Self
+  - teleport{spreadh=1;spreadv=0} @Target
+  - effect:particlesphere{particle=cloud;amount=70;radius=1;yOffset=0.5} @Self
+  - delay 10
+  - command{c="minecraft:execute <mob.uuid> ~ ~ ~ minecraft:tp <mob.uuid> ~ ~6 ~"} @Self
+  - potion{type=LEVITATION;duration=25;level=1} @Self
+  - delay 20
+  - effect:particlesphere{particle=cloud;amount=70;radius=1;yOffset=0.5} @Self
+  - teleport{spreadh=1;spreadv=0} @Target
+  - effect:particlesphere{particle=cloud;amount=70;radius=1;yOffset=0.5} @Self
+  - command{c="minecraft:execute <mob.uuid> ~ ~ ~ minecraft:tp <mob.uuid> ~ ~6 ~"} @Self
+  - delay 10
+  - effect:particlesphere{particle=cloud;amount=70;radius=1;yOffset=0.5} @Self
+  - jump{velocity=-20} @Self
+  - delay 15
+# Starts Damage Calculation for Helm Breaker ability's ranged damage.
+  - skill{s=HelmBreaker-DamageRangeCalculation}
+  - stun{d=40;g=true} @EntitiesNearOrigin{r=3}
+# Re enables red orb gain.  
+  - modifymobscore{o=UnsetRedOrb;a=SET;v=0}
+  
+# Each of these calculations for damage is necessary to scale damage based on the weapons level.  
+HelmBreaker-DamageRangeCalculation:
+  Skills:
+  - skill{s=HelmBreaker-DamageLevel1}
+  - skill{s=HelmBreaker-DamageLevel2}
+  - skill{s=HelmBreaker-DamageLevel3}
+  
+HelmBreaker-DamageLevel1:
+  LegacyConditions:
+  - mobscore RebellionLevel;=1
+  Skills:
+  - customdamage{a=1to4;ia=false} @EntitiesNearOrigin{r=3}
+HelmBreaker-DamageLevel2:
+  LegacyConditions:
+  - mobscore RebellionLevel;=2
+  Skills:
+  - customdamage{a=4to7;ia=false} @EntitiesNearOrigin{r=3}
+HelmBreaker-DamageLevel3:
+  LegacyConditions:
+  - mobscore RebellionLevel;=3
+  Skills:
+  - customdamage{a=7to10;ia=false} @EntitiesNearOrigin{r=3}
+  
+  
+Drive:
+  LegacyConditions:
+  - stance Rebellion
+  - mobscore RDrive;=1
+  Skills:
+  # This disables redorb gain on ability attacks. Best to leave this here.
+  - modifymobscore{o=UnsetRedOrb;a=SET;v=1}
+  # Now the skill
+  - potion{type=SLOW;duration=100;level=10} @self
+  - effect:particles{p=reddust;amount=40;hS=0.5;vS=0.5;speed=0;y=1} @self
+  - delay 10
+  - effect:particles{p=reddust;amount=40;hS=0.5;vS=0.5;speed=0;y=1} @self
+  - delay 10
+  - effect:particles{p=reddust;amount=40;hS=0.5;vS=0.5;speed=0;y=1} @self
+  - delay 10
+  - effect:particles{p=reddust;amount=40;hS=0.5;vS=0.5;speed=0;y=1} @self
+  - delay 10
+  - effect:particles{p=reddust;amount=40;hS=0.5;vS=0.5;speed=0;y=1} @self
+  - delay 10
+  - effect:particles{p=reddust;amount=40;hS=0.5;vS=0.5;speed=0;y=1} @self
+  - delay 10
+  - effect:particles{p=reddust;amount=40;hS=0.5;vS=0.5;speed=0;y=1} @self
+  - delay 20
+  - skill{s=RDriveLaunch} @target
+  # This disables redorb gain on ability attacks. Best to leave this here.
+  - modifymobscore{o=UnsetRedOrb;a=SET;v=0}
+  # Now the skill
+  
+RDriveLaunch:
+  Skills:
+  # This disables redorb gain on ability attacks. Best to leave this here.
+  - modifymobscore{o=UnsetRedOrb;a=SET;v=1}
+  # Now the skill
+  - projectile{onTick=RDriveLaunch-Tick;onHit=RDriveLaunch-Hit;onEnd=RDriveLaunch-End;;v=11;i=1;hR=1;vR=1;hs=true;hnp=true;mr=20;d=100}
+RDriveLaunch-Tick:
+  Skills:
+  - effect:particles{p=reddust;amount=40;hS=0.5;vS=0.5;speed=0;y=0} @origin
+RDriveLaunch-Hit:
+  Skills:
+  # This disables redorb gain on ability attacks. Best to leave this here.
+  - modifymobscore{o=UnsetRedOrb;a=SET;v=1}
+  # Now the skill
+# Starts Damage Calculation for Helm Breaker ability's ranged damage.
+  - skill{s=Drive-DamageCalculation}
+  - damage{a=10}
+  - sound{s=entity.player.attack.sweep} @self
+  - delay 1
+  - sound{s=entity.player.attack.sweep} @self
+  - delay 1
+  - sound{s=entity.player.attack.sweep} @self
+  # Re enables red orb gain.  
+  - modifymobscore{o=UnsetRedOrb;a=SET;v=0}
+RDriveLaunch-End:
+  Skills:
+  # Re enables red orb gain.  
+  - modifymobscore{o=UnsetRedOrb;a=SET;v=0}
+  
+# Each of these calculations for damage is necessary to scale damage based on the weapons level.  
+Drive-DamageCalculation:
+  Skills:
+  - skill{s=Drive-DamageLevel1}
+  - skill{s=Drive-DamageLevel2}
+  - skill{s=Drive-DamageLevel3}
+  
+Drive-DamageLevel1:
+  LegacyConditions:
+  - mobscore RebellionLevel;=1
+  Skills:
+  - damage{a=10} @LivingInCone{a=90.0;r=3.0;rot=0.0}
+Drive-DamageLevel2:
+  LegacyConditions:
+  - mobscore RebellionLevel;=2
+  Skills:
+  - damage{a=15} @LivingInCone{a=90.0;r=3.0;rot=0.0}
+Drive-DamageLevel3:
+  LegacyConditions:
+  - mobscore RebellionLevel;=3
+  Skills:
+  - damage{a=20} @LivingInCone{a=90.0;r=3.0;rot=0.0}
+  
+  
+  
+HighTime:
+  LegacyConditions:
+  - stance Rebellion
+  - mobscore RHighTime;=1
+  Skills:
+  # This disables redorb gain on ability attacks. Best to leave this here.
+  - modifymobscore{o=UnsetRedOrb;a=SET;v=1}
+  # Now the skill
+  - effect:particles{p=fireworksSpark;amount=20;hS=0.5;vS=0.5;speed=0;y=1} @self
+  - sound{s=entity.player.attack.sweep} @self
+  - delay 1
+# Starts Damage Calculation for High Time ability's ranged damage.
+  - skill{s=HighTime-DamageCalculation}
+  - throw{velocity=2;velocityY=15} @LivingInCone{a=90.0;r=3.0;rot=0.0}
+  - jump{velocity=1}
+  - effect:particles{p=fireworksSpark;amount=20;hS=0.5;vS=0.5;speed=0;y=1} @target
+  - delay 2
+  - effect:particles{p=fireworksSpark;amount=20;hS=0.5;vS=0.5;speed=0;y=1} @target
+  - delay 2
+  - effect:particles{p=fireworksSpark;amount=20;hS=0.5;vS=0.5;speed=0;y=1} @target
+  - delay 2
+  - effect:particles{p=fireworksSpark;amount=20;hS=0.5;vS=0.5;speed=0;y=1} @target
+  # Re enables red orb gain.  
+  - modifymobscore{o=UnsetRedOrb;a=SET;v=0}
+  
+# Each of these calculations for damage is necessary to scale damage based on the weapons level.  
+HighTime-DamageCalculation:
+  Skills:
+  - skill{s=HighTime-DamageLevel1}
+  - skill{s=HighTime-DamageLevel2}
+  - skill{s=HighTime-DamageLevel3}
+  
+HighTime-DamageLevel1:
+  LegacyConditions:
+  - mobscore RebellionLevel;=1
+  Skills:
+  - damage{a=5} @LivingInCone{a=90.0;r=3.0;rot=0.0}
+HighTime-DamageLevel2:
+  LegacyConditions:
+  - mobscore RebellionLevel;=2
+  Skills:
+  - damage{a=7} @LivingInCone{a=90.0;r=3.0;rot=0.0}
+HighTime-DamageLevel3:
+  LegacyConditions:
+  - mobscore RebellionLevel;=3
+  Skills:
+  - damage{a=10} @LivingInCone{a=90.0;r=3.0;rot=0.0}
+  
+
+  
+AerialCombo:
+  LegacyConditions:
+  - stance Rebellion
+  - mobscore RAerialCombo;=1
+  Skills:
+  # This disables redorb gain on ability attacks. Best to leave this here.
+  - modifymobscore{o=UnsetRedOrb;a=SET;v=1}
+  # Now the skill
+  - effect:particles{p=fireworksSpark;amount=20;hS=0.5;vS=0.5;speed=0;y=1} @self
+  - sound{s=entity.player.attack.sweep} @self
+  - delay 1
+# Starts Damage Calculation for Aerial Combo ability.
+  - skill{s=Aerial-Combo-DamageCalculation}
+  - throw{velocity=2;velocityY=13} @LivingInCone{a=90.0;r=4.0;rot=0.0}
+  - delay 10
+  - stun{d=22} @target
+  - skill{s=RMetaACTeleport}
+  - stun{d=30} @self
+  - effect:particles{p=fireworksSpark;amount=20;hS=0.5;vS=0.5;speed=0;y=1} @self
+  - sound{s=entity.player.attack.sweep} @self
+  - delay 1
+  - skill{s=Aerial-Combo-DamageCalculation}
+  - potion{type=SLOW;duration=70;level=1} @self
+  - effect:particles{p=fireworksSpark;amount=20;hS=0.5;vS=0.5;speed=0;y=1} @self
+  - sound{s=entity.player.attack.sweep} @self
+  - delay 1
+  - skill{s=Aerial-Combo-DamageCalculation} 
+  - potion{type=SLOW;duration=70;level=1} @self
+  - effect:particles{p=fireworksSpark;amount=20;hS=0.5;vS=0.5;speed=0;y=1} @self
+  - sound{s=entity.player.attack.sweep} @self
+  - delay 1
+  - skill{s=Aerial-Combo-DamageCalculation}
+  - potion{type=DAMAGE_RESISTANCE;duration=30;level=10} @self
+  - effect:spin{duration=20;velocity=40} @self
+  - effect:particles{p=sweepAttack;amount=20;hSpread=1;vSpread=0.1;speed=0.1;yOffset=0.7} @self
+  - sound{s=entity.player.attack.sweep} @self
+  - delay 2   
+  - sound{s=entity.player.attack.sweep} @self
+# Starts Damage calculation for the custom ranged damage of the sweep attack.
+  - skill{s=Aerial-Combo-Sweep-DamageCalculation}
+  - throw{velocity=10;velocityY=3} @PlayersNearOrigin{r=3}
+  - delay 10
+  - effect:particles{p=sweepAttack;amount=20;hSpread=1;vSpread=0.1;speed=0.1;yOffset=0.7} @self
+  - delay 2   
+  - sound{s=entity.player.attack.sweep} @self
+  - skill{s=Aerial-Combo-Sweep-DamageCalculation}
+  - throw{velocity=10;velocityY=3} @PlayersNearOrigin{r=3}  
+  - delay 10
+  - effect:particles{p=sweepAttack;amount=20;hSpread=1;vSpread=0.1;speed=0.1;yOffset=0.7} @self
+  - delay 2   
+  - sound{s=entity.player.attack.sweep} @self
+  - skill{s=Aerial-Combo-Sweep-DamageCalculation}
+  - throw{velocity=15;velocityY=3} @PlayersNearOrigin{r=5}
+  # Re enables red orb gain.  
+  - modifymobscore{o=UnsetRedOrb;a=SET;v=0}
+RMetaACTeleport:
+  Conditions:
+  - targetwithin{d=12}
+  Skills:
+  - teleport @target
+
+  
+# Each of these calculations for damage is necessary to scale damage based on the weapons level.  
+Aerial-Combo-DamageCalculation:
+  Skills:
+  - skill{s=Aerial-Combo-DamageLevel1}
+  - skill{s=Aerial-Combo-DamageLevel2}
+  - skill{s=Aerial-Combo-DamageLevel3}
+  
+Aerial-Combo-Sweep-DamageCalculation:
+  Skills:
+  - skill{s=Aerial-Combo-Sweep-DamageLevel1}
+  - skill{s=Aerial-Combo-Sweep-DamageLevel2}
+  - skill{s=Aerial-Combo-Sweep-DamageLevel3}
+  
+Aerial-Combo-DamageLevel1:
+  LegacyConditions:
+  - mobscore RebellionLevel;=1
+  Skills:
+  - damage{a=5} @LivingInCone{a=90.0;r=3.0;rot=0.0}
+Aerial-Combo-DamageLevel2:
+  LegacyConditions:
+  - mobscore RebellionLevel;=2
+  Skills:
+  - damage{a=7} @LivingInCone{a=90.0;r=3.0;rot=0.0}
+Aerial-Combo-DamageLevel3:
+  LegacyConditions:
+  - mobscore RebellionLevel;=3
+  Skills:
+  - damage{a=10} @LivingInCone{a=90.0;r=3.0;rot=0.0}
+  
+Aerial-Combo-Sweep-DamageLevel1:
+  LegacyConditions:
+  - mobscore RebellionLevel;=1
+  Skills:
+  - customdamage{a=1to3;ia=false} @EntitiesNearOrigin{r=3}
+Aerial-Combo-Sweep-DamageLevel2:
+  LegacyConditions:
+  - mobscore RebellionLevel;=2
+  Skills:
+  - customdamage{a=3to5;ia=false} @EntitiesNearOrigin{r=3}
+Aerial-Combo-Sweep-DamageLevel3:
+  LegacyConditions:
+  - mobscore RebellionLevel;=3
+  Skills:
+  - customdamage{a=5to7;ia=false} @EntitiesNearOrigin{r=3}
+  
+
+  
+# Devil Trigger Rebellion Skills:
+
+AirRaid:
+  LegacyConditions:
+  - stance Rebellion
+  - mobscore RAirRaid;=1
+  Skills:
+
+DTMillionStab:
+  LegacyConditions:
+  - stance Rebellion
+  - mobscore RDTMStab;=1
+  Skills:
+
+DTAerialRoundTrip:
+  LegacyConditions:
+  - stance Rebellion
+  - mobscore RDTArialRT;=1
+  Skills:
+
+  
+### Rebellion Ability Use AI Section
+RebellionCloseRangeBatchExecutor:
+  Conditions:
+  - stance{s=Rebellion}
+  - targetwithin{d=5}
+  Skills:
+  - skill{s=RebellionAbilityCloseRange-AI-1}
+  - skill{s=RebellionAbilityCloseRange-AI-2}
+  - skill{s=RebellionAbilityCloseRange-AI-3}
+  - skill{s=RebellionAbilityCloseRange-AI-4}
+  - skill{s=RebellionAbilityCloseRange-AI-5}
+  
+RebellionMediumRangeBatchExecutor:
+  Conditions:
+  - stance{s=Rebellion}
+  - targetnotwithin{d=5}
+  - targetwithin{d=10}
+  Skills:
+  - skill{s=RebellionAbilityMediumRange-AI-1}
+  - skill{s=RebellionAbilityMediumRange-AI-2}
+  - skill{s=RebellionAbilityMediumRange-AI-3}
+  - skill{s=RebellionAbilityMediumRange-AI-4}
+  - skill{s=RebellionAbilityMediumRange-AI-5}
+  
+ 
+# These are the attacks he will use at close range from most common to least common. 
+# High Time --> 3 hit combo --> 4 hit combo --> Helm Breaker --> 5 hit combo --> Aerial Combo --> 6 Hit combo --> DT Million Stab
+RebellionAbilityCloseRange-AI-1:
+  LegacyConditions:
+  - mobscore RebellionPChain;=1
+  Skills:
+#IMPORTANT! Input his attacks here from LEAST COMMON to MOST COMMON.
+  - customrandomskill{s=DTMillionStab:0.05,6-Hit-Combo:0.1,AerialCombo:0.15,5-Hit-Combo:0.2,HelmBreaker:0.25,4-Hit-Combo:0.4,3-Hit-Combo:0.7,HighTime:1}
+  
+# 3 hit combo --> 4 hit combo --> 5 hit combo --> Helm Breaker --> 6 Hit combo --> High Time --> Aerial Combo --> DT Million Stab
+RebellionAbilityCloseRange-AI-2:
+  LegacyConditions:
+  - mobscore RebellionPChain;=2
+  Skills:
+  - customrandomskill{s=DTMillionStab:0.05,AerialCombo:0.1,HighTime:0.15,6-Hit-Combo:0.2,HelmBreaker:0.25,5-Hit-Combo:0.4,4-Hit-Combo:0.7,3-Hit-Combo:1}
+# 6 Hit combo --> 5 hit combo --> 4 hit combo --> 3 hit combo --> Helm Breaker --> High Time --> Aerial Combo --> DT Million Stab
+RebellionAbilityCloseRange-AI-3:
+  LegacyConditions:
+  - mobscore RebellionPChain;=3
+  Skills:
+  - customrandomskill{s=DTMillionStab:0.05,AerialCombo:0.1,HighTime:0.15,HelmBreaker:0.2,3-Hit-Combo:0.25,4-Hit-Combo:0.4,5-Hit-Combo:0.7,6-Hit-Combo:1}
+# 3 hit combo --> 4 hit combo --> 5 hit combo --> 6 Hit combo --> Helm Breaker --> High Time --> Aerial Combo --> DT Million Stab
+RebellionAbilityCloseRange-AI-4:
+  LegacyConditions:
+  - mobscore RebellionPChain;=4
+  Skills:
+  - customrandomskill{s=DTMillionStab:0.05,AerialCombo:0.1,HighTime:0.15,HelmBreaker:0.2,6-Hit-Combo:0.25,5-Hit-Combo:0.4,4-Hit-Combo:0.7,3-Hit-Combo:1}
+# Helm Breaker --> 3 hit combo --> High Time --> Aerial Combo --> 4 hit combo --> 5 hit combo --> 6 Hit combo --> DT Million Stab
+RebellionAbilityCloseRange-AI-5:
+  LegacyConditions:
+  - mobscore RebellionPChain;=5
+  Skills:
+  - customrandomskill{s=DTMillionStab:0.05,6-Hit-Combo:0.1,5-Hit-Combo:0.15,4-Hit-Combo:0.2,AerialCombo:0.25,HighTime:0.4,3-Hit-Combo:0.7,HelmBreaker:1}
+ 
+ # Now the attacks he will use at medium range from LEAST COMMON to MOST COMMON
+RebellionAbilityMediumRange-AI-1:
+  LegacyConditions:
+  - mobscore RebellionPChain;=1
+  Skills:
+   - customrandomskill{s=Drive:0.5,Stinger:1}
+
+RebellionAbilityMediumRange-AI-2:
+  LegacyConditions:
+  - mobscore RebellionPChain;=2
+  Skills:
+   - customrandomskill{s=Drive:0.5,Stinger:1}
+ 
+RebellionAbilityMediumRange-AI-3:
+  LegacyConditions:
+  - mobscore RebellionPChain;=3
+  Skills:
+   - customrandomskill{s=Stinger:0.5,Drive:1}
+   
+RebellionAbilityMediumRange-AI-4:
+  LegacyConditions:
+  - mobscore RebellionPChain;=4
+  Skills:
+   - customrandomskill{s=Drive:0.5,Stinger:1}
+   
+RebellionAbilityMediumRange-AI-5:
+  LegacyConditions:
+  - mobscore RebellionPChain;=5
+  Skills:
+   - customrandomskill{s=Drive:0.5,Stinger:1}
+   
+# RebellionAbilityLongRange:
+  # Conditions:
+  # - stance{s=Rebellion}
+  # - targetnotwithin{d=10}
+  # - targetwithin{d=20}
+  # Skills:
+  
+### Rebellions level based damage boosters.
+RebellionBoostMeleeLevel2:
+  LegacyConditions:
+  - mobscore RebellionLevel;=2
+  - mobscore DevilTrigger;=0
+  Skills:
+  - potion{type=INCREASE_DAMAGE;duration=20;level=1}
+RebellionBoostMeleeLevel3:
+  LegacyConditions:
+  - mobscore RebellionLevel;=3
+  - mobscore DevilTrigger;=0
+  Skills:
+  - potion{type=INCREASE_DAMAGE;duration=20;level=2}
+  
+# If their is anything you do not understand about this mob or you need help I sincerely do not blame you.
+# I expect to get swarmed with requests within the first week of this mobs release. 
+# I may reply with a please wait message. I will get to you as soon as possible.
+
+# DIRECT SUPPORT LINK. PLEASE ALLOW 24 HOURS TO GET A REPLY. 
+# http://mythicmobs.net/index.php?conversations/add&to=Awesome_Dante

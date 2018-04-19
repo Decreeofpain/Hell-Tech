@@ -10,6 +10,55 @@
 # REMEMBER TO KEEP PERIODICAL BACKUPS.
 #
 regions:
+    pueblofantasma:
+        members: {}
+        flags: {}
+        owners: {}
+        type: poly2d
+        priority: 0
+        max-y: 69
+        min-y: 19
+        points:
+        - {x: 2215, z: 1694}
+        - {x: 2220, z: 1690}
+        - {x: 2224, z: 1686}
+        - {x: 2229, z: 1680}
+        - {x: 2233, z: 1672}
+        - {x: 2239, z: 1665}
+        - {x: 2244, z: 1653}
+        - {x: 2247, z: 1639}
+        - {x: 2249, z: 1630}
+        - {x: 2252, z: 1618}
+        - {x: 2249, z: 1613}
+        - {x: 2241, z: 1612}
+        - {x: 2234, z: 1610}
+        - {x: 2229, z: 1607}
+        - {x: 2228, z: 1601}
+        - {x: 2227, z: 1593}
+        - {x: 2225, z: 1585}
+        - {x: 2221, z: 1573}
+        - {x: 2215, z: 1567}
+        - {x: 2210, z: 1549}
+        - {x: 2204, z: 1547}
+        - {x: 2191, z: 1548}
+        - {x: 2185, z: 1555}
+        - {x: 2178, z: 1562}
+        - {x: 2168, z: 1574}
+        - {x: 2162, z: 1581}
+        - {x: 2155, z: 1591}
+        - {x: 2149, z: 1599}
+        - {x: 2143, z: 1610}
+        - {x: 2140, z: 1621}
+        - {x: 2136, z: 1633}
+        - {x: 2134, z: 1641}
+        - {x: 2131, z: 1662}
+        - {x: 2132, z: 1671}
+        - {x: 2141, z: 1680}
+        - {x: 2153, z: 1690}
+        - {x: 2159, z: 1696}
+        - {x: 2170, z: 1702}
+        - {x: 2179, z: 1703}
+        - {x: 2195, z: 1702}
     bosquespruce:
         min: {x: 2256.0, y: 45.0, z: 1671.0}
         max: {x: 2344.0, y: 132.0, z: 1780.0}
@@ -17,9 +66,9 @@ regions:
         flags:
             allow-block-break: [RED_ROSE, LOG, LEAVES, YELLOW_FLOWER]
             block-break: deny
-            mob-spawning: allow
             allow-block-place: [TORCH]
             block-place: deny
+            mob-spawning: allow
         owners: {}
         type: cuboid
         priority: 0
@@ -29,9 +78,9 @@ regions:
         members: {}
         flags:
             block-break: allow
-            mob-spawning: allow
             allow-block-place: [TORCH]
             block-place: deny
+            mob-spawning: allow
         owners: {}
         type: cuboid
         priority: 1
@@ -41,7 +90,8 @@ regions:
         members: {}
         flags: {ride-group: NON_MEMBERS, entry: allow, build: deny, use: deny, greeting: §aRenta§2
                 la §etabuco19 §2por §6$5000 Almakos §2durante §a7 dias., build-group: NON_MEMBERS,
-            block-break: deny, interact: deny, entry-group: ALL, ride: deny, block-place: deny}
+            block-break: deny, interact: deny, entry-group: ALL, block-place: deny,
+            ride: deny}
         owners: {}
         type: cuboid
         priority: 5
@@ -52,9 +102,9 @@ regions:
         flags:
             allow-block-break: [LEAVES_2, LOG]
             block-break: deny
-            mob-spawning: allow
             allow-block-place: [TORCH]
             block-place: deny
+            mob-spawning: allow
         owners: {}
         type: cuboid
         priority: 1
@@ -64,7 +114,8 @@ regions:
         members: {}
         flags: {ride-group: NON_MEMBERS, entry: allow, build: deny, use: deny, greeting: §aRenta§2
                 la §etabuco18 §2por §6$5000 Almakos §2durante §a7 dias., build-group: NON_MEMBERS,
-            block-break: deny, interact: deny, entry-group: ALL, ride: deny, block-place: deny}
+            block-break: deny, interact: deny, entry-group: ALL, block-place: deny,
+            ride: deny}
         owners: {}
         type: cuboid
         priority: 5
@@ -74,7 +125,8 @@ regions:
         members: {}
         flags: {ride-group: NON_MEMBERS, entry: allow, build: deny, use: deny, greeting: §aRenta§2
                 la §etabuco17 §2por §6$5000 Almakos §2durante §a7 dias., build-group: NON_MEMBERS,
-            block-break: deny, interact: deny, entry-group: ALL, ride: deny, block-place: deny}
+            block-break: deny, interact: deny, entry-group: ALL, block-place: deny,
+            ride: deny}
         owners: {}
         type: cuboid
         priority: 5
@@ -84,7 +136,8 @@ regions:
         members: {}
         flags: {ride-group: NON_MEMBERS, entry: allow, build: deny, use: deny, greeting: §aRenta§2
                 la §etabuco16 §2por §6$5000 Almakos §2durante §a7 dias., build-group: NON_MEMBERS,
-            block-break: deny, interact: deny, entry-group: ALL, ride: deny, block-place: deny}
+            block-break: deny, interact: deny, entry-group: ALL, block-place: deny,
+            ride: deny}
         owners: {}
         type: cuboid
         priority: 5
@@ -102,7 +155,8 @@ regions:
         members: {}
         flags: {ride-group: NON_MEMBERS, entry: allow, build: deny, use: deny, greeting: §aRenta§2
                 la §etabuco15 §2por §6$5000 Almakos §2durante §a7 dias., build-group: NON_MEMBERS,
-            block-break: deny, interact: deny, entry-group: ALL, ride: deny, block-place: deny}
+            block-break: deny, interact: deny, entry-group: ALL, block-place: deny,
+            ride: deny}
         owners: {}
         type: cuboid
         priority: 5
@@ -112,7 +166,8 @@ regions:
         members: {}
         flags: {ride-group: NON_MEMBERS, entry: allow, build: deny, use: deny, greeting: §aRenta§2
                 la §etabuco14 §2por §6$5000 Almakos §2durante §a7 dias., build-group: NON_MEMBERS,
-            block-break: deny, interact: deny, entry-group: ALL, ride: deny, block-place: deny}
+            block-break: deny, interact: deny, entry-group: ALL, block-place: deny,
+            ride: deny}
         owners: {}
         type: cuboid
         priority: 5
@@ -122,7 +177,8 @@ regions:
         members: {}
         flags: {ride-group: NON_MEMBERS, entry: allow, build: deny, use: deny, greeting: §aRenta§2
                 la §etabuco13 §2por §6$5000 Almakos §2durante §a7 dias., build-group: NON_MEMBERS,
-            block-break: deny, interact: deny, entry-group: ALL, ride: deny, block-place: deny}
+            block-break: deny, interact: deny, entry-group: ALL, block-place: deny,
+            ride: deny}
         owners: {}
         type: cuboid
         priority: 5
@@ -132,7 +188,8 @@ regions:
         members: {}
         flags: {ride-group: NON_MEMBERS, entry: allow, build: deny, use: deny, greeting: §aRenta§2
                 la §etabuco12 §2por §6$5000 Almakos §2durante §a7 dias., build-group: NON_MEMBERS,
-            block-break: deny, interact: deny, entry-group: ALL, ride: deny, block-place: deny}
+            block-break: deny, interact: deny, entry-group: ALL, block-place: deny,
+            ride: deny}
         owners: {}
         type: cuboid
         priority: 5
@@ -178,7 +235,8 @@ regions:
         members: {}
         flags: {ride-group: NON_MEMBERS, entry: allow, build: deny, use: deny, greeting: §aRenta§2
                 la §etugurio21 §2por §6$1500 Almakos §2durante §a7 dias., build-group: NON_MEMBERS,
-            block-break: deny, interact: deny, entry-group: ALL, ride: deny, block-place: deny}
+            block-break: deny, interact: deny, entry-group: ALL, block-place: deny,
+            ride: deny}
         owners: {}
         type: cuboid
         priority: 5
@@ -188,7 +246,8 @@ regions:
         members: {}
         flags: {ride-group: NON_MEMBERS, entry: allow, build: deny, use: deny, greeting: §aRenta§2
                 la §ecuarto6 §2por §6$9000 Almakos §2durante §a7 dias., build-group: NON_MEMBERS,
-            block-break: deny, interact: deny, entry-group: ALL, ride: deny, block-place: deny}
+            block-break: deny, interact: deny, entry-group: ALL, block-place: deny,
+            ride: deny}
         owners: {}
         type: cuboid
         priority: 5
@@ -218,7 +277,8 @@ regions:
         members: {}
         flags: {ride-group: NON_MEMBERS, entry: allow, build: deny, use: deny, greeting: §aRenta§2
                 la §etugurio22 §2por §6$1500 Almakos §2durante §a7 dias., build-group: NON_MEMBERS,
-            block-break: deny, interact: deny, entry-group: ALL, ride: deny, block-place: deny}
+            block-break: deny, interact: deny, entry-group: ALL, block-place: deny,
+            ride: deny}
         owners: {}
         type: cuboid
         priority: 5
@@ -228,7 +288,8 @@ regions:
         members: {}
         flags: {ride-group: NON_MEMBERS, entry: allow, build: deny, use: deny, greeting: §aRenta§2
                 la §ecuarto7 §2por §6$9000 Almakos §2durante §a7 dias., build-group: NON_MEMBERS,
-            block-break: deny, interact: deny, entry-group: ALL, ride: deny, block-place: deny}
+            block-break: deny, interact: deny, entry-group: ALL, block-place: deny,
+            ride: deny}
         owners: {}
         type: cuboid
         priority: 5
@@ -238,7 +299,8 @@ regions:
         members: {}
         flags: {ride-group: NON_MEMBERS, entry: allow, build: deny, use: deny, greeting: §aRenta§2
                 la §etugurio23 §2por §6$1500 Almakos §2durante §a7 dias., build-group: NON_MEMBERS,
-            block-break: deny, interact: deny, entry-group: ALL, ride: deny, block-place: deny}
+            block-break: deny, interact: deny, entry-group: ALL, block-place: deny,
+            ride: deny}
         owners: {}
         type: cuboid
         priority: 5
@@ -248,7 +310,8 @@ regions:
         members: {}
         flags: {ride-group: NON_MEMBERS, entry: allow, build: deny, use: deny, greeting: §aRenta§2
                 la §ecuarto8 §2por §6$9000 Almakos §2durante §a7 dias., build-group: NON_MEMBERS,
-            block-break: deny, interact: deny, entry-group: ALL, ride: deny, block-place: deny}
+            block-break: deny, interact: deny, entry-group: ALL, block-place: deny,
+            ride: deny}
         owners: {}
         type: cuboid
         priority: 5
@@ -258,7 +321,8 @@ regions:
         members: {}
         flags: {ride-group: NON_MEMBERS, entry: allow, build: deny, use: deny, greeting: §aRenta§2
                 la §ecuarto2 §2por §6$9000 Almakos §2durante §a7 dias., build-group: NON_MEMBERS,
-            block-break: deny, interact: deny, entry-group: ALL, ride: deny, block-place: deny}
+            block-break: deny, interact: deny, entry-group: ALL, block-place: deny,
+            ride: deny}
         owners: {}
         type: cuboid
         priority: 5
@@ -268,7 +332,8 @@ regions:
         members: {}
         flags: {ride-group: NON_MEMBERS, entry: allow, build: deny, use: deny, greeting: §aRenta§2
                 la §ecuarto3 §2por §6$9000 Almakos §2durante §a7 dias., build-group: NON_MEMBERS,
-            block-break: deny, interact: deny, entry-group: ALL, ride: deny, block-place: deny}
+            block-break: deny, interact: deny, entry-group: ALL, block-place: deny,
+            ride: deny}
         owners: {}
         type: cuboid
         priority: 5
@@ -278,7 +343,8 @@ regions:
         members: {}
         flags: {ride-group: NON_MEMBERS, entry: allow, build: deny, use: deny, greeting: §aRenta§2
                 la §ecuarto4 §2por §6$9000 Almakos §2durante §a7 dias., build-group: NON_MEMBERS,
-            block-break: deny, interact: deny, entry-group: ALL, ride: deny, block-place: deny}
+            block-break: deny, interact: deny, entry-group: ALL, block-place: deny,
+            ride: deny}
         owners: {}
         type: cuboid
         priority: 5
@@ -288,7 +354,8 @@ regions:
         members: {}
         flags: {ride-group: NON_MEMBERS, entry: allow, build: deny, use: deny, greeting: §aRenta§2
                 la §etugurio20 §2por §6$1500 Almakos §2durante §a7 dias., build-group: NON_MEMBERS,
-            block-break: deny, interact: deny, entry-group: ALL, ride: deny, block-place: deny}
+            block-break: deny, interact: deny, entry-group: ALL, block-place: deny,
+            ride: deny}
         owners: {}
         type: cuboid
         priority: 5
@@ -298,7 +365,8 @@ regions:
         members: {}
         flags: {ride-group: NON_MEMBERS, entry: allow, build: deny, use: deny, greeting: §aRenta§2
                 la §ecuarto5 §2por §6$9000 Almakos §2durante §a7 dias., build-group: NON_MEMBERS,
-            block-break: deny, interact: deny, entry-group: ALL, ride: deny, block-place: deny}
+            block-break: deny, interact: deny, entry-group: ALL, block-place: deny,
+            ride: deny}
         owners: {}
         type: cuboid
         priority: 5
@@ -308,7 +376,8 @@ regions:
         members: {}
         flags: {ride-group: NON_MEMBERS, entry: allow, build: deny, use: deny, greeting: §aRenta§2
                 la §ecuarto1 §2por §6$9000 Almakos §2durante §a7 dias., build-group: NON_MEMBERS,
-            block-break: deny, interact: deny, entry-group: ALL, ride: deny, block-place: deny}
+            block-break: deny, interact: deny, entry-group: ALL, block-place: deny,
+            ride: deny}
         owners: {}
         type: cuboid
         priority: 5
@@ -318,7 +387,8 @@ regions:
         members: {}
         flags: {ride-group: NON_MEMBERS, entry: allow, build: deny, use: deny, greeting: §aRenta§2
                 la §egranja3 §2por §6$500 Almakos §2durante §a1 dia., build-group: NON_MEMBERS,
-            block-break: deny, interact: deny, entry-group: ALL, ride: deny, block-place: deny}
+            block-break: deny, interact: deny, entry-group: ALL, block-place: deny,
+            ride: deny}
         owners: {}
         type: cuboid
         priority: 5
@@ -332,13 +402,13 @@ regions:
             build-group: NON_MEMBERS
             interact: deny
             entry-group: ALL
-            ride: deny
             block-place: deny
             allow-block-place: [POTATO]
+            ride: deny
             allow-block-break: [POTATO]
-            allow-block-place-group: MEMBERS
             ride-group: NON_MEMBERS
             entry: allow
+            allow-block-place-group: MEMBERS
             build: deny
             block-break: deny
             allow-block-break-group: MEMBERS
@@ -351,7 +421,8 @@ regions:
         members: {}
         flags: {ride-group: NON_MEMBERS, entry: allow, build: deny, use: deny, greeting: §aRenta§2
                 la §egranja4 §2por §6$500 Almakos §2durante §a1 dia., build-group: NON_MEMBERS,
-            block-break: deny, interact: deny, entry-group: ALL, ride: deny, block-place: deny}
+            block-break: deny, interact: deny, entry-group: ALL, block-place: deny,
+            ride: deny}
         owners: {}
         type: cuboid
         priority: 5
@@ -375,13 +446,13 @@ regions:
             build-group: NON_MEMBERS
             interact: deny
             entry-group: ALL
-            ride: deny
             block-place: deny
             allow-block-place: [POTATO]
+            ride: deny
             allow-block-break: [POTATO]
-            allow-block-place-group: MEMBERS
             ride-group: NON_MEMBERS
             entry: allow
+            allow-block-place-group: MEMBERS
             build: deny
             block-break: deny
             allow-block-break-group: MEMBERS
@@ -404,7 +475,8 @@ regions:
         members: {}
         flags: {ride-group: NON_MEMBERS, entry: allow, build: deny, use: deny, greeting: §aRenta§2
                 la §etabuco22 §2por §6$5000 Almakos §2durante §a7 dias., build-group: NON_MEMBERS,
-            block-break: deny, interact: deny, entry-group: ALL, ride: deny, block-place: deny}
+            block-break: deny, interact: deny, entry-group: ALL, block-place: deny,
+            ride: deny}
         owners: {}
         type: cuboid
         priority: 5
@@ -418,13 +490,13 @@ regions:
             build-group: NON_MEMBERS
             interact: deny
             entry-group: ALL
-            ride: deny
             block-place: deny
             allow-block-place: [CROPS]
+            ride: deny
             allow-block-break: [CROPS]
-            allow-block-place-group: MEMBERS
             ride-group: NON_MEMBERS
             entry: allow
+            allow-block-place-group: MEMBERS
             build: deny
             block-break: deny
             allow-block-break-group: MEMBERS
@@ -437,7 +509,8 @@ regions:
         members: {}
         flags: {ride-group: NON_MEMBERS, entry: allow, build: deny, use: deny, greeting: §aRenta§2
                 la §etabuco21 §2por §6$5000 Almakos §2durante §a7 dias., build-group: NON_MEMBERS,
-            block-break: deny, interact: deny, entry-group: ALL, ride: deny, block-place: deny}
+            block-break: deny, interact: deny, entry-group: ALL, block-place: deny,
+            ride: deny}
         owners: {}
         type: cuboid
         priority: 5
@@ -447,7 +520,8 @@ regions:
         members: {}
         flags: {ride-group: NON_MEMBERS, entry: allow, build: deny, use: deny, greeting: §aRenta§2
                 la §etabuco20 §2por §6$5000 Almakos §2durante §a7 dias., build-group: NON_MEMBERS,
-            block-break: deny, interact: deny, entry-group: ALL, ride: deny, block-place: deny}
+            block-break: deny, interact: deny, entry-group: ALL, block-place: deny,
+            ride: deny}
         owners: {}
         type: cuboid
         priority: 5
@@ -457,7 +531,8 @@ regions:
         members: {}
         flags: {ride-group: NON_MEMBERS, entry: allow, build: deny, use: deny, greeting: §aRenta§2
                 la §egranja1 §2por §6$500 Almakos §2durante §a1 dia., build-group: NON_MEMBERS,
-            block-break: deny, interact: deny, entry-group: ALL, ride: deny, block-place: deny}
+            block-break: deny, interact: deny, entry-group: ALL, block-place: deny,
+            ride: deny}
         owners: {}
         type: cuboid
         priority: 5
@@ -471,13 +546,13 @@ regions:
             build-group: NON_MEMBERS
             interact: deny
             entry-group: ALL
-            ride: deny
             block-place: deny
             allow-block-place: [POTATO]
+            ride: deny
             allow-block-break: [POTATO]
-            allow-block-place-group: MEMBERS
             ride-group: NON_MEMBERS
             entry: allow
+            allow-block-place-group: MEMBERS
             build: deny
             block-break: deny
             allow-block-break-group: MEMBERS
@@ -520,7 +595,8 @@ regions:
         members: {}
         flags: {ride-group: NON_MEMBERS, entry: allow, build: deny, use: deny, greeting: §aRenta§2
                 la §egranja7 §2por §6$500 Almakos §2durante §a1 dia., build-group: NON_MEMBERS,
-            block-break: deny, interact: deny, entry-group: ALL, ride: deny, block-place: deny}
+            block-break: deny, interact: deny, entry-group: ALL, block-place: deny,
+            ride: deny}
         owners: {}
         type: cuboid
         priority: 5
@@ -560,7 +636,8 @@ regions:
         members: {}
         flags: {ride-group: NON_MEMBERS, entry: allow, build: deny, use: deny, greeting: §aRenta§2
                 la §etugurio14 §2por §6$1500 Almakos §2durante §a7 dias., build-group: NON_MEMBERS,
-            block-break: deny, interact: deny, entry-group: ALL, ride: deny, block-place: deny}
+            block-break: deny, interact: deny, entry-group: ALL, block-place: deny,
+            ride: deny}
         owners: {}
         type: cuboid
         priority: 5
@@ -570,7 +647,8 @@ regions:
         members: {}
         flags: {ride-group: NON_MEMBERS, entry: allow, build: deny, use: deny, greeting: §aRenta§2
                 la §etugurio15 §2por §6$1500 Almakos §2durante §a7 dias., build-group: NON_MEMBERS,
-            block-break: deny, interact: deny, entry-group: ALL, ride: deny, block-place: deny}
+            block-break: deny, interact: deny, entry-group: ALL, block-place: deny,
+            ride: deny}
         owners: {}
         type: cuboid
         priority: 5
@@ -580,7 +658,8 @@ regions:
         members: {}
         flags: {ride-group: NON_MEMBERS, entry: allow, build: deny, use: deny, greeting: §aRenta§2
                 la §etugurio16 §2por §6$1500 Almakos §2durante §a7 dias., build-group: NON_MEMBERS,
-            block-break: deny, interact: deny, entry-group: ALL, ride: deny, block-place: deny}
+            block-break: deny, interact: deny, entry-group: ALL, block-place: deny,
+            ride: deny}
         owners: {}
         type: cuboid
         priority: 5
@@ -590,7 +669,8 @@ regions:
         members: {}
         flags: {ride-group: NON_MEMBERS, entry: allow, build: deny, use: deny, greeting: §aRenta§2
                 la §etugurio17 §2por §6$1500 Almakos §2durante §a7 dias., build-group: NON_MEMBERS,
-            block-break: deny, interact: deny, entry-group: ALL, ride: deny, block-place: deny}
+            block-break: deny, interact: deny, entry-group: ALL, block-place: deny,
+            ride: deny}
         owners: {}
         type: cuboid
         priority: 5
@@ -601,9 +681,9 @@ regions:
         flags:
             allow-block-break: [SAND]
             block-break: deny
-            mob-spawning: allow
             allow-block-place: [TORCH]
             block-place: deny
+            mob-spawning: allow
         owners: {}
         type: cuboid
         priority: 0
@@ -614,9 +694,9 @@ regions:
         flags:
             allow-block-break: [SUGAR_CANE_BLOCK, CARROT]
             block-break: deny
-            mob-spawning: allow
             allow-block-place: [SUGAR_CANE_BLOCK, CARROT]
             block-place: deny
+            mob-spawning: allow
         owners: {}
         type: cuboid
         priority: 0
@@ -626,7 +706,8 @@ regions:
         members: {}
         flags: {ride-group: NON_MEMBERS, entry: allow, build: deny, use: deny, greeting: §aRenta§2
                 la §etugurio10 §2por §6$1500 Almakos §2durante §a7 dias., build-group: NON_MEMBERS,
-            block-break: deny, interact: deny, entry-group: ALL, ride: deny, block-place: deny}
+            block-break: deny, interact: deny, entry-group: ALL, block-place: deny,
+            ride: deny}
         owners: {}
         type: cuboid
         priority: 5
@@ -636,7 +717,8 @@ regions:
         members: {}
         flags: {ride-group: NON_MEMBERS, entry: allow, build: deny, use: deny, greeting: §aRenta§2
                 la §etugurio11 §2por §6$1500 Almakos §2durante §a7 dias., build-group: NON_MEMBERS,
-            block-break: deny, interact: deny, entry-group: ALL, ride: deny, block-place: deny}
+            block-break: deny, interact: deny, entry-group: ALL, block-place: deny,
+            ride: deny}
         owners: {}
         type: cuboid
         priority: 5
@@ -646,7 +728,8 @@ regions:
         members: {}
         flags: {ride-group: NON_MEMBERS, entry: allow, build: deny, use: deny, greeting: §aRenta§2
                 la §etugurio12 §2por §6$1500 Almakos §2durante §a7 dias., build-group: NON_MEMBERS,
-            block-break: deny, interact: deny, entry-group: ALL, ride: deny, block-place: deny}
+            block-break: deny, interact: deny, entry-group: ALL, block-place: deny,
+            ride: deny}
         owners: {}
         type: cuboid
         priority: 5
@@ -656,7 +739,8 @@ regions:
         members: {}
         flags: {ride-group: NON_MEMBERS, entry: allow, build: deny, use: deny, greeting: §aRenta§2
                 la §etugurio13 §2por §6$1500 Almakos §2durante §a7 dias., build-group: NON_MEMBERS,
-            block-break: deny, interact: deny, entry-group: ALL, ride: deny, block-place: deny}
+            block-break: deny, interact: deny, entry-group: ALL, block-place: deny,
+            ride: deny}
         owners: {}
         type: cuboid
         priority: 5
@@ -666,7 +750,8 @@ regions:
         members: {}
         flags: {ride-group: NON_MEMBERS, entry: allow, build: deny, use: deny, greeting: §aRenta§2
                 la §etugurio18 §2por §6$1500 Almakos §2durante §a7 dias., build-group: NON_MEMBERS,
-            block-break: deny, interact: deny, entry-group: ALL, ride: deny, block-place: deny}
+            block-break: deny, interact: deny, entry-group: ALL, block-place: deny,
+            ride: deny}
         owners: {}
         type: cuboid
         priority: 5
@@ -676,7 +761,8 @@ regions:
         members: {}
         flags: {ride-group: NON_MEMBERS, entry: allow, build: deny, use: deny, greeting: §aRenta§2
                 la §etugurio19 §2por §6$1500 Almakos §2durante §a7 dias., build-group: NON_MEMBERS,
-            block-break: deny, interact: deny, entry-group: ALL, ride: deny, block-place: deny}
+            block-break: deny, interact: deny, entry-group: ALL, block-place: deny,
+            ride: deny}
         owners: {}
         type: cuboid
         priority: 5
@@ -686,7 +772,8 @@ regions:
         members: {}
         flags: {ride-group: NON_MEMBERS, entry: allow, build: deny, use: deny, greeting: §aRenta§2
                 la §etugurio3 §2por §6$1500 Almakos §2durante §a7 dias., build-group: NON_MEMBERS,
-            block-break: deny, interact: deny, entry-group: ALL, ride: deny, block-place: deny}
+            block-break: deny, interact: deny, entry-group: ALL, block-place: deny,
+            ride: deny}
         owners: {}
         type: cuboid
         priority: 5
@@ -696,7 +783,8 @@ regions:
         members: {}
         flags: {ride-group: NON_MEMBERS, entry: allow, build: deny, use: deny, greeting: §aRenta§2
                 la §etugurio4 §2por §6$1500 Almakos §2durante §a7 dias., build-group: NON_MEMBERS,
-            block-break: deny, interact: deny, entry-group: ALL, ride: deny, block-place: deny}
+            block-break: deny, interact: deny, entry-group: ALL, block-place: deny,
+            ride: deny}
         owners: {}
         type: cuboid
         priority: 5
@@ -706,7 +794,8 @@ regions:
         members: {}
         flags: {ride-group: NON_MEMBERS, entry: allow, build: deny, use: deny, greeting: §aRenta§2
                 la §etugurio1 §2por §6$1500 Almakos §2durante §a7 dias., build-group: NON_MEMBERS,
-            block-break: deny, interact: deny, entry-group: ALL, ride: deny, block-place: deny}
+            block-break: deny, interact: deny, entry-group: ALL, block-place: deny,
+            ride: deny}
         owners: {}
         type: cuboid
         priority: 5
@@ -716,7 +805,8 @@ regions:
         members: {}
         flags: {ride-group: NON_MEMBERS, entry: allow, build: deny, use: deny, greeting: §aRenta§2
                 la §etugurio2 §2por §6$1500 Almakos §2durante §a7 dias., build-group: NON_MEMBERS,
-            block-break: deny, interact: deny, entry-group: ALL, ride: deny, block-place: deny}
+            block-break: deny, interact: deny, entry-group: ALL, block-place: deny,
+            ride: deny}
         owners: {}
         type: cuboid
         priority: 5
@@ -726,7 +816,8 @@ regions:
         members: {}
         flags: {ride-group: NON_MEMBERS, entry: allow, build: deny, use: deny, greeting: §aRenta§2
                 la §etugurio7 §2por §6$1500 Almakos §2durante §a7 dias., build-group: NON_MEMBERS,
-            block-break: deny, interact: deny, entry-group: ALL, ride: deny, block-place: deny}
+            block-break: deny, interact: deny, entry-group: ALL, block-place: deny,
+            ride: deny}
         owners: {}
         type: cuboid
         priority: 5
@@ -736,7 +827,8 @@ regions:
         members: {}
         flags: {ride-group: NON_MEMBERS, entry: allow, build: deny, use: deny, greeting: §aRenta§2
                 la §etugurio8 §2por §6$1500 Almakos §2durante §a7 dias., build-group: NON_MEMBERS,
-            block-break: deny, interact: deny, entry-group: ALL, ride: deny, block-place: deny}
+            block-break: deny, interact: deny, entry-group: ALL, block-place: deny,
+            ride: deny}
         owners: {}
         type: cuboid
         priority: 5
@@ -747,9 +839,9 @@ regions:
         flags:
             allow-block-break: [LOG, LEAVES]
             block-break: deny
-            mob-spawning: allow
             allow-block-place: [TORCH]
             block-place: deny
+            mob-spawning: allow
         owners: {}
         type: cuboid
         priority: 0
@@ -759,7 +851,8 @@ regions:
         members: {}
         flags: {ride-group: NON_MEMBERS, entry: allow, build: deny, use: deny, greeting: §aRenta§2
                 la §etugurio5 §2por §6$1500 Almakos §2durante §a7 dias., build-group: NON_MEMBERS,
-            block-break: deny, interact: deny, entry-group: ALL, ride: deny, block-place: deny}
+            block-break: deny, interact: deny, entry-group: ALL, block-place: deny,
+            ride: deny}
         owners: {}
         type: cuboid
         priority: 5
@@ -769,7 +862,8 @@ regions:
         members: {}
         flags: {ride-group: NON_MEMBERS, entry: allow, build: deny, use: deny, greeting: §aRenta§2
                 la §etugurio6 §2por §6$1500 Almakos §2durante §a7 dias., build-group: NON_MEMBERS,
-            block-break: deny, interact: deny, entry-group: ALL, ride: deny, block-place: deny}
+            block-break: deny, interact: deny, entry-group: ALL, block-place: deny,
+            ride: deny}
         owners: {}
         type: cuboid
         priority: 5
@@ -779,9 +873,9 @@ regions:
         members: {}
         flags:
             block-break: allow
-            mob-spawning: allow
             allow-block-place: [TORCH]
             block-place: deny
+            mob-spawning: allow
         owners: {}
         type: cuboid
         priority: 0
@@ -836,7 +930,7 @@ regions:
         - {x: 2205, z: 1972}
     meslajho:
         members: {}
-        flags: {snow-fall: deny, snow-melt: deny, pvp: deny, lava-flow: allow, mob-spawning: deny}
+        flags: {snow-fall: deny, snow-melt: deny, lava-flow: allow, pvp: deny, mob-spawning: deny}
         owners: {}
         type: poly2d
         priority: 0
@@ -878,7 +972,8 @@ regions:
         members: {}
         flags: {ride-group: NON_MEMBERS, entry: allow, build: deny, use: deny, greeting: §aRenta§2
                 la §etugurio9 §2por §6$1500 Almakos §2durante §a7 dias., build-group: NON_MEMBERS,
-            block-break: deny, interact: deny, entry-group: ALL, ride: deny, block-place: deny}
+            block-break: deny, interact: deny, entry-group: ALL, block-place: deny,
+            ride: deny}
         owners: {}
         type: cuboid
         priority: 5
