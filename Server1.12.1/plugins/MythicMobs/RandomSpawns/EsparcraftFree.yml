@@ -2,6 +2,15 @@
 # These example files show you how to inject Mythic Mobs
 # you've created into your world. The name of each block
 # can be whatever you'd like but must be unique.
+Espboost0:
+  Action: REPLACE
+  Type: Bandit
+  Chance: 0.05
+  Priority: 50
+  UseWorldScaling: true
+  Worlds: Esparcraft
+  Conditions:
+    - heightabove 40
 Espboost1:
   Action: REPLACE
   Type: Aracboss1,Aeon,Zombiesbirrogiant1
@@ -10,7 +19,7 @@ Espboost1:
   UseWorldScaling: true
   Worlds: Esparcraft
   Conditions:
-    - heightabove 120
+    - heightabove 40
 Espboost2:
   Action: REPLACE
   Type: Gigante,SlimeOP

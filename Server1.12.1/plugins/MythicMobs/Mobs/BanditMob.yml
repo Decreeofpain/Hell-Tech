@@ -2,39 +2,42 @@
 ## Release v1.0 ##
 Bandit:
   Mobtype: HUSK
-  Display: '&6Sword Bandit 1'
-  Health: 35
-  Damage: 3
+  Display: '&6Bandido Armado'
+  Health: 60
+  Damage: 5
+  LevelModifiers:
+    Health: 16
+    Power: 1
   Armor: 1
   Disguise:
     Type: player
     Skin: 'Bandits'
-    Player: '&6Sword Bandit 1'
+    Player: '&cBandido Armado'
   Faction: Bandits
   Equipment:
   - wood_sword:0
   Skills:
-### Tell the player how much money the mob has stolen!  
-### Recommend you enable only 1 to prevent spam! 
+### Tell the player how much money the mob has stolen!
+### Recommend you enable only 1 to prevent spam!
 
 ## Option 1 - Outputs to Chat
-  - message{m="<mob.name> now has &2$&a<mob.score.money>"} @target ~onSignal:tellmoney
-  
+  - message{m="<mob.name> tiene en su motin &2$&a<mob.score.money>"} @target ~onSignal:tellmoney
+
 ## Option 2 - REQUIRES MYTHICMOBS EXTENSION PLUGIN and HOLOGRAPHIC DISPLAYS
 # Get MME here: https://www.spigotmc.org/resources/mythicmobsextension.51884/
-#  - speechbubble{id=BanditMoney;display="&2$ = &a<mob.score.money>";ll=25;counter=200;offset=2.6} @self ~onSpawn
-  
+  - speechbubble{id=BanditMoney;display="&2$ = &a<mob.score.money>";ll=25;counter=200;offset=2.6} @self ~onSpawn
+
 ###### WARNING !! ######
 #Implement only either Method 1 or Method 2 but not both!
 
 ########################
 ### Mugging Method 1 ###
-  - skill{s=Method-1-OneTimeMugging} @target ~onAttack 1
+  - skill{s=Method-2-IncrementalMugging-20} @target ~onAttack 1
 ########################
 
 #### Method 1 Payout ###
 ## Disable if using Method 2 ##
-  - skill{s=Method-1-Payout} @trigger ~onDeath
+  - skill{s=Method-2-Payout} @trigger ~onDeath
 ########################
 
 
@@ -62,7 +65,7 @@ Bandit:
 
   Options:
     AlwaysShowName: true
-    Despawn: true 
+    Despawn: true
     MovementSpeed: 0.3
     PreventMobKillDrops: true
   AIGoalSelectors:
@@ -73,43 +76,45 @@ Bandit:
   AITargetSelectors:
     - 0 clear
     - 1 players
-    - 2 otherfaction  
 
 SwordBandit:
   Mobtype: HUSK
-  Display: '&6Sword Bandit 2'
-  Health: 35
-  Damage: 3
+  Display: '&6Bandido Armado'
+  Health: 60
+  Damage: 5
+  LevelModifiers:
+    Health: 16
+    Power: 1
   Armor: 1
   Disguise:
     Type: player
     Skin: 'Bandits'
-    Player: '&6Sword Bandit 2'
+    Player: '&6Bandido Armado'
   Faction: Bandits
   Equipment:
   - wood_sword:0
   Skills:
-### Tell the player how much money the mob has stolen!  
-### Recommend you enable only 1 to prevent spam! 
+### Tell the player how much money the mob has stolen!
+### Recommend you enable only 1 to prevent spam!
 
 ## Option 1 - Outputs to Chat
-  - message{m="<mob.name> now has &2$&a<mob.score.money>"} @target ~onSignal:tellmoney
-  
+  - message{m="<mob.name> tiene en su motin &2$&a<mob.score.money>"} @target ~onSignal:tellmoney
+
 ## Option 2 - REQUIRES MYTHICMOBS EXTENSION PLUGIN and HOLOGRAPHIC DISPLAYS
 # Get MME here: https://www.spigotmc.org/resources/mythicmobsextension.51884/
-#  - speechbubble{id=BanditMoney;display="&2$ = &a<mob.score.money>";ll=25;counter=200;offset=2.6} @self ~onSpawn
-  
+  - speechbubble{id=BanditMoney;display="&2$ = &a<mob.score.money>";ll=25;counter=200;offset=2.6} @self ~onSpawn
+
 ###### WARNING !! ######
 #Implement only either Method 1 or Method 2 but not both!
 
 ########################
 ### Mugging Method 1 ###
-  - skill{s=Method-1-OneTimeMugging} @target ~onAttack 1
+  - skill{s=Method-2-IncrementalMugging-20} @target ~onAttack 1
 ########################
 
 #### Method 1 Payout ###
 ## Disable if using Method 2 ##
-  - skill{s=Method-1-Payout} @trigger ~onDeath
+  - skill{s=Method-2-Payout} @trigger ~onDeath
 ########################
 
 
@@ -132,9 +137,9 @@ SwordBandit:
 
   Options:
     AlwaysShowName: true
-    Despawn: true  
+    Despawn: true
     MovementSpeed: 0.3
-    PreventMobKillDrops: true    
+    PreventMobKillDrops: true
   AIGoalSelectors:
     - 0 clear
     - 1 meleeattack
@@ -143,44 +148,47 @@ SwordBandit:
   AITargetSelectors:
     - 0 clear
     - 1 players
-    - 2 otherfaction
-    
+
 BowBandit:
   Mobtype: SKELETON
-  Display: '&6Bow Bandit'
-  Health: 35
-  Damage: 3
+  Display: '&6Bandido Arquero'
+  Health: 60
+  Damage: 5
+  LevelModifiers:
+    Health: 16
+    Power: 1
+  Display: '&6Bandido Arquero'
   Armor: 1
   Disguise:
     Type: player
     Skin: 'Bandits'
-    Player: '&6Bow Bandit'
+    Player: '&6Bandido Arquero &7lvl &6- &8[&4<mob.level>&8]&f'
   Faction: Bandits
   Equipment:
   - leather_helmet:4
   - BOW:0
   Skills:
-### Tell the player how much money the mob has stolen!  
-### Recommend you enable only 1 to prevent spam! 
+### Tell the player how much money the mob has stolen!
+### Recommend you enable only 1 to prevent spam!
 
 ## Option 1 - Outputs to Chat
-  - message{m="<mob.name> now has &2$&a<mob.score.money>"} @target ~onSignal:tellmoney
-  
+  - message{m="<mob.name> tiene en su motin &2$&a<mob.score.money>"} @target ~onSignal:tellmoney
+
 ## Option 2 - REQUIRES MYTHICMOBS EXTENSION PLUGIN and HOLOGRAPHIC DISPLAYS
 # Get MME here: https://www.spigotmc.org/resources/mythicmobsextension.51884/
-#  - speechbubble{id=BanditMoney;display="&2$ = &a<mob.score.money>";ll=25;counter=200;offset=2.6} @self ~onSpawn
+  - speechbubble{id=BanditMoney;display="&2$ = &a<mob.score.money>";ll=25;counter=200;offset=2.6} @self ~onSpawn
 
 ###### WARNING !! ######
 #Implement only either Method 1 or Method 2 but not both!
 
 ########################
 ### Mugging Method 1 ###
-  - skill{s=Method-1-OneTimeMugging} @target ~onAttack 1
+  - skill{s=Method-2-IncrementalMugging-20} @target ~onAttack 1
 ########################
 
 #### Method 1 Payout ###
 ## Disable if using Method 2 ##
-  - skill{s=Method-1-Payout} @trigger ~onDeath
+  - skill{s=Method-2-Payout} @trigger ~onDeath
 ########################
 
 
@@ -206,14 +214,13 @@ BowBandit:
 
   Options:
     AlwaysShowName: true
-    Despawn: true  
+    Despawn: true
     MovementSpeed: 0.3
-    PreventMobKillDrops: true    
+    PreventMobKillDrops: true
   AITargetSelectors:
     - 0 clear
     - 1 players
-    - 2 otherfaction
-    
+
 ## If their is anything you do not understand about this mob or you need help setting up custom money options into method 2 Contact me via PM on Mythicmobs.net.
 # DIRECT SUPPORT LINK. PLEASE ALLOW 24 HOURS TO GET A REPLY.
 # http://mythicmobs.net/index.php?conversations/add&to=Awesome_Dante
