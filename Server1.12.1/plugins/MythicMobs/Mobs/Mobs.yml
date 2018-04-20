@@ -1,4 +1,4 @@
-# These are the mobs that Durzan created. Enjoy! 
+# These are the mobs that Durzan created. Enjoy!
 # Passive Mobs
 Nightmare:
   Type: cow
@@ -22,7 +22,7 @@ Nightmare:
   - 2 randomstroll
   AITargetSelectors:
   - 0 clear
-  - 1 players 
+  - 1 players
   DropsPerLevel:
   DamageModifiers:
   KillMessages:
@@ -58,12 +58,12 @@ ZombieScavenger:
   - '<target.name> just made a delicious meal for the undead!'
   LevelModifiers:
     Armor: 1
-    MovementSpeed: .01    
+    MovementSpeed: .01
   Disguise:
   Skills:
   - setlevel{a=add;l=1} @self ~onPlayerKill
-  - skill{s=SmashAttack} @Target ~onAttack <75% 0.15
-  - skill{s=ConsumeBody} @self ~onKillPlayer  <90% .3
+  - skill{s=SmashAttack} @Target ~onAttack
+  - skill{s=ConsumeBody} @self ~onKillPlayer <90% .3
 
 SkeletonSharpshooter:
   Type: Skeleton
@@ -87,7 +87,7 @@ SkeletonSharpshooter:
   - '<target.name> became a victim of the undead!'
   LevelModifiers:
     Armor: 1
-    MovementSpeed: .01    
+    MovementSpeed: .01
   Disguise:
   Skills:
   - setlevel{a=add;l=1} @self ~onPlayerKill
@@ -128,7 +128,7 @@ SkeletonWarrior:
   - setlevel{a=add;l=1} @self ~onPlayerKill
   - skill{s=SmashAttack} @Target ~onAttack <75% 0.2
 
-GiantSpider: 
+GiantSpider:
   Type: SPIDER
   Display: '&cGiant Spider&r'
   Health: 20
@@ -187,7 +187,7 @@ HeadlessHorseman:
   - iron_chestplate:3
   - iron_leggings:2
   - iron_boots:1
-  - stone_sword:0  
+  - stone_sword:0
   KillMessages:
   - 'A <mob.name> is wearing the head of <target.name>!'
   LevelModifiers:
@@ -226,12 +226,12 @@ EvilChicken:
   Skills:
   - threat{amount=10000} @NearestPlayer ~onSpawn 1
   - setlevel{a=add;l=1} @self ~onPlayerKill 1
-  - message{m="<mob.name><&co>May you be roasted in Hell's Kitchen for your heresy against poultry, <trigger.name>! Bwuk Bwuk bwuk bwuk!"} @PlayersInRadius{r=40} ~onPlayerKill >0 1 
+  - message{m="<mob.name><&co>May you be roasted in Hell's Kitchen for your heresy against poultry, <trigger.name>! Bwuk Bwuk bwuk bwuk!"} @PlayersInRadius{r=40} ~onPlayerKill >0 1
   - skill{s=FeatheredTaunt} @target ~onTimer:200 .25
   - skill{s=ExplodingPoultry} @self ~onDeath .75
   - skill{s=FeatheredKnockback} @self ~onDamaged <90% .10
   - skill{s=FeatheredFuryAttack} @NearestPlayer ~onTimer:10 1
-  
+
 KillerRabbit:
   Type: RABBIT
   Display: '&cKiller Bunny&r'
@@ -252,4 +252,3 @@ KillerRabbit:
   Skills:
   - setlevel{a=add;l=1} @self ~onPlayerKill 1
   - skill{s=ConsumeBody} @self ~onKillPlayer  <90% .3
-
