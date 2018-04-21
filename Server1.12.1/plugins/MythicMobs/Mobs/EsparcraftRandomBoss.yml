@@ -13,6 +13,7 @@ Aracboss1:
     MovementSpeed: 0.3
     MaxCombatDistance: 25
   Skills:
+  - setlevel{a=add;l=1} @self ~onPlayerKill
   - potion{type=SLOW;duration10;level=1} @target ~onAttack >0 0.1
   - potion{type=BLINDNESS;duration10;level=1} @target ~onAttack >0 0.2
   - summon{mob=Aracboss1esbirro;amount=1;radius=5} @PIR{r=10} >0 0.25
@@ -28,6 +29,7 @@ Aracboss1esbirro:
   Health: 8
   Damage: 2
   Skills:
+  - setlevel{a=add;l=1} @self ~onPlayerKill
   - potion{type=POISON;duration4;level=1} @target ~onAttack >0 0.9
   - damage{amount=8} @target ~onAttack
   LevelModifiers:
@@ -47,6 +49,7 @@ Aeon:
   Health: 90
   Damage: 15
   Skills:
+  - setlevel{a=add;l=1} @self ~onPlayerKill
   - message{cooldown=20;m="<mob.name><&co> Nadie puede desafiarme!"} @PlayersInRadius{r=10} ~onCombat >0 0.2
   - message{m="<mob.name><&co> Ahahahahah! Muere, <trigger.name>!"} @PlayersInRadius{r=30} ~onPlayerKill >0 1
   - skill{s=SummonSkeletons} @Self 0.25
@@ -82,6 +85,7 @@ AeonMinion:
   - skillapi-exp 1 1
   - money 1 1
   Skills:
+  - setlevel{a=add;l=1} @self ~onPlayerKill
   - damage{amount=4} @target ~onAttack
 
 SlimeOP:
@@ -99,6 +103,7 @@ SlimeOP:
     MaxCombatDistance: 30
     KnockbackResistance: 2
   Skills:
+  - setlevel{a=add;l=1} @self ~onPlayerKill
   - skill{s=AngrySludgePoison} 0.25
   - damage{amount=8} @target ~onAttack
 
@@ -126,6 +131,7 @@ Gigante:
     MaxCombatDistance: 30
     KnockbackResistance: 2
   Skills:
+  - setlevel{a=add;l=1} @self ~onPlayerKill
   - skill{s=SummonEsbirros1} @Self ~onDeath
   - damage{amount=10} @target ~onAttack
 
@@ -141,6 +147,7 @@ Zombiesbirrogiant1:
     MaxCombatDistance: 25
     PreventOtherDrops: true
   Skills:
+  - setlevel{a=add;l=1} @self ~onPlayerKill
   - skill{s=SummonEsbirros2} @Self ~onDeath
   - damage{amount=4} @target ~onAttack
   LevelModifiers:
@@ -168,4 +175,129 @@ Zombiesbirrogiant2:
   - skillapi-exp 1 1
   - money 2 1
   Skills:
+  - setlevel{a=add;l=1} @self ~onPlayerKill
   - damage{amount=2} @target ~onAttack
+
+Bandit:
+  Mobtype: HUSK
+  Display: '&6Bandido Armado'
+  Health: 60
+  Damage: 5
+  LevelModifiers:
+    Health: 16
+    Power: 1
+  Armor: 1
+  Disguise:
+    Type: player
+    Skin: 'Bandits'
+    Player: '&cBandido Armado'
+  Faction: Bandits
+  Equipment:
+  - wood_sword:0
+  Skills:
+  - setlevel{a=add;l=1} @self ~onPlayerKill
+  - message{m="<mob.name> tiene en su motin &2$&a<mob.score.money>"} @target ~onSignal:tellmoney
+  - speechbubble{id=BanditMoney;display="&2$ = &a<mob.score.money>";ll=25;counter=200;offset=2.6} @self ~onSpawn
+  - skill{s=Method-2-IncrementalMugging-20} @target ~onAttack 1
+  - skill{s=Method-2-Payout} @trigger ~onDeath
+  - skill{s=SpawnBandits} @Self ~onSpawn
+  - damage{amount=8} @target ~onAttack
+  Options:
+    AlwaysShowName: true
+    Despawn: true
+    MovementSpeed: 0.3
+    PreventMobKillDrops: true
+  AIGoalSelectors:
+    - 0 clear
+    - 1 meleeattack
+    - 2 randomstroll
+    - 3 FleeSun
+  AITargetSelectors:
+    - 0 clear
+    - 1 players
+  DropsPerLevel:
+  - skillapi-exp 1 1
+  - money 2 1
+
+SwordBandit:
+  Mobtype: HUSK
+  Display: '&6Bandido Armado'
+  Health: 60
+  Damage: 5
+  LevelModifiers:
+    Health: 16
+    Power: 1
+  Armor: 1
+  Disguise:
+    Type: player
+    Skin: 'Bandits'
+    Player: '&6Bandido Armado'
+  Faction: Bandits
+  Equipment:
+  - wood_sword:0
+  Skills:
+  - setlevel{a=add;l=1} @self ~onPlayerKill
+  - message{m="<mob.name> tiene en su motin &2$&a<mob.score.money>"} @target ~onSignal:tellmoney
+  - speechbubble{id=BanditMoney;display="&2$ = &a<mob.score.money>";ll=25;counter=200;offset=2.6} @self ~onSpawn
+  - skill{s=Method-2-IncrementalMugging-20} @target ~onAttack 1
+  - skill{s=Method-2-Payout} @trigger ~onDeath
+  - damage{amount=8} @target ~onAttack
+#  - skill{s=Method-2-IncrementalMugging-20} @target ~onAttack 1
+#  - skill{s=Method-2-IncrementalMugging-50} @target ~onAttack 1
+#  - skill{s=Method-2-IncrementalMugging-100} @target ~onAttack 1
+  Options:
+    AlwaysShowName: true
+    Despawn: true
+    MovementSpeed: 0.3
+    PreventMobKillDrops: true
+  AIGoalSelectors:
+    - 0 clear
+    - 1 meleeattack
+    - 2 randomstroll
+    - 3 FleeSun
+  AITargetSelectors:
+    - 0 clear
+    - 1 players
+  DropsPerLevel:
+  - skillapi-exp 1 1
+  - money 2 1
+
+BowBandit:
+  Mobtype: SKELETON
+  Display: '&6Bandido Arquero'
+  Health: 60
+  Damage: 5
+  LevelModifiers:
+    Health: 16
+    Power: 1
+  Display: '&6Bandido Arquero'
+  Armor: 1
+  Disguise:
+    Type: player
+    Skin: 'Bandits'
+    Player: '&6Bandido Arquero &7lvl &6- &8[&4<mob.level>&8]&f'
+  Faction: Bandits
+  Equipment:
+  - leather_helmet:4
+  - BOW:0
+  Skills:
+  - setlevel{a=add;l=1} @self ~onPlayerKill
+  - message{m="<mob.name> tiene en su motin &2$&a<mob.score.money>"} @target ~onSignal:tellmoney
+  - speechbubble{id=BanditMoney;display="&2$ = &a<mob.score.money>";ll=25;counter=200;offset=2.6} @self ~onSpawn
+  - skill{s=Method-2-IncrementalMugging-20} @target ~onAttack 1
+  - skill{s=Method-2-Payout} @trigger ~onDeath
+#  - skill{s=Method-2-IncrementalMugging-20} @target ~onAttack 1
+#  - skill{s=Method-2-IncrementalMugging-50} @target ~onAttack 1
+#  - skill{s=Method-2-IncrementalMugging-100} @target ~onAttack 1
+  - skill{s=BowDrug} ~onAttack 0.1
+  Options:
+    AlwaysShowName: true
+    Despawn: true
+    MovementSpeed: 0.3
+    PreventMobKillDrops: true
+  AITargetSelectors:
+    - 0 clear
+    - 1 players
+  DropsPerLevel:
+  - skillapi-exp 1 1
+  - money 2 1

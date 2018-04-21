@@ -3,8 +3,11 @@
 Nightmare:
   Type: cow
   Display: '&cNightmare&r'
-  Health: 30
+  Health: 60
   Damage: 0
+  LevelModifiers:
+    Health: 16
+    Power: 0
   Armor: 2
   Options:
     HorseColor: BLACK
@@ -12,10 +15,9 @@ Nightmare:
     HorseTamed: true
     PreventOtherDrops: true
     Silent: true
-    MovementSpeed: .22
+    MovementSpeed: 0.22
   Modules:
     ThreatTable: true
-  Drops:
   AIGoalSelectors:
   - 0 clear
   - 1 meleeattack
@@ -24,15 +26,10 @@ Nightmare:
   - 0 clear
   - 1 players
   DropsPerLevel:
-  DamageModifiers:
-  KillMessages:
+  - skillapi-exp 1 1
+  - money 2 1
   Skills:
   - command{delay=1;cmd="advd <mob.uuid> <mob.l.w> Horse setColor Black"} @self ~onSpawn 1
-# in order for this skill (and therefore this mob) to work properly,
-# your server needs to have the following plugin installed:
-# http://www.mythicmobs.net/index.php?threads/libsdisguise-command-for-mythicmobs.2892/
-# click the link and hit download.
-# Medium Level Custom Mobs
 
 # Low Mobs.
 ZombieScavenger:
@@ -40,6 +37,9 @@ ZombieScavenger:
   Display: '&cRotting Scavenger&r'
   Health: 20
   Damage: 6
+  LevelModifiers:
+    Health: 16
+    Power: 1
   Armor: 4
   Options:
     AlwaysShowName: true
@@ -48,52 +48,45 @@ ZombieScavenger:
     ReinforcementsChance: .15
   Modules:
     ThreatTable: true
-  Drops:
   DropsPerLevel:
-  DamageModifiers:
-  Equipment:
-  KillMessages:
-  - 'A <mob.name> just ate the brains of <target.name>!'
-  - '<target.name> was eaten by a <mob.name>!'
-  - '<target.name> just made a delicious meal for the undead!'
+  - skillapi-exp 1 1
+  - money 2 1
   LevelModifiers:
     Armor: 1
     MovementSpeed: .01
-  Disguise:
   Skills:
+  - damage{amount=8} @target ~onAttack
   - setlevel{a=add;l=1} @self ~onPlayerKill
   - skill{s=SmashAttack} @Target ~onAttack
   - skill{s=ConsumeBody} @self ~onKillPlayer <90% .3
 
 SkeletonSharpshooter:
   Type: Skeleton
-  Display: '&cSkeletal Sharpshooter'
+  Display: '&cSkeletal Sharpshooter &6lvl &a- &7[&4<mob.level>&7]&f'
   Health: 20
   Damage: 4
+  LevelModifiers:
+    Health: 16
+    Power: 1
+    Armor: 0
   Armor: 0
   Options:
-    KnockbackResistance: .1
+    KnockbackResistance: 0.1
     MovementSpeed: 0.25
     AlwaysShowName: true
   Modules:
     ThreatTable: true
-  Drops:
   DropsPerLevel:
-  DamageModifiers:
-  Equipment:
-  KillMessages:
-  - 'A <mob.name> just shot <target.name> full of arrows!'
-  - '<target.name> was slain by a <mob.name>!'
-  - '<target.name> became a victim of the undead!'
-  LevelModifiers:
-    Armor: 1
-    MovementSpeed: .01
   Disguise:
   Skills:
   - setlevel{a=add;l=1} @self ~onPlayerKill
   - skill{s=WeakeningArrow} @Target ~onAttack >0 0.05
   - skill{s=PoisonedArrow} @Target ~onAttack >0 0.05
   - skill{s=FlamingArrow} @Target ~onAttack >0 0.05
+  - damage{amount=8} @target ~onAttack
+  DropsPerLevel:
+  - skillapi-exp 1 1
+  - money 2 1
 
 SkeletonWarrior:
   Type: Skeleton
@@ -107,9 +100,6 @@ SkeletonWarrior:
     AlwaysShowName: true
   Modules:
     ThreatTable: true
-  Drops:
-  DropsPerLevel:
-  DamageModifiers:
   Equipment:
   - iron_axe:0
   - leather_helmet:4
@@ -126,7 +116,11 @@ SkeletonWarrior:
   Disguise:
   Skills:
   - setlevel{a=add;l=1} @self ~onPlayerKill
-  - skill{s=SmashAttack} @Target ~onAttack <75% 0.2
+  - skill{s=SmashAttack} @Target ~onAttack <75% 0.
+  - damage{amount=8} @target ~onAttack
+  DropsPerLevel:
+  - skillapi-exp 1 1
+  - money 2 1
 
 GiantSpider:
   Type: SPIDER
@@ -134,17 +128,12 @@ GiantSpider:
   Health: 20
   Damage: 4
   Armor: 0
-  BossBar:
-  Faction:
-  Mount:
   Options:
     AlwaysShowName: true
   Modules:
     ThreatTable: true
   AIGoalSelectors:
   AITargetSelectors:
-  Drops:
-  DropsPerLevel:
   DamageModifiers:
   - ENTITY_ATTACK 0.75
   Equipment:
@@ -153,12 +142,14 @@ GiantSpider:
   LevelModifiers:
     Health: 2
     Damage: .25
-  Disguise:
   Skills:
   - setlevel{a=add;l=1} @self ~onPlayerKill 1
   - skill{s=ConsumeBody} @self ~onKillPlayer  <90% .3
   - skill{s=SpiderPoison} @Target ~onAttack 0.2
-
+  - damage{amount=8} @target ~onAttack
+  DropsPerLevel:
+  - skillapi-exp 1 1
+  - money 2 1
 # Medium Mobs
 
 HeadlessHorseman:
@@ -176,8 +167,6 @@ HeadlessHorseman:
     PreventRandomEquipment: true
   Modules:
     ThreatTable: true
-  Drops:
-  DropsPerLevel:
   DamageModifiers:
   - ENTITY_ATTACK 0.75
   - PROJECTILE 0.5
@@ -190,14 +179,16 @@ HeadlessHorseman:
   - stone_sword:0
   KillMessages:
   - 'A <mob.name> is wearing the head of <target.name>!'
-  LevelModifiers:
-    MovementSpeed: .01
   Disguise:
   Skills:
   - setlevel{a=set;l=5} @self ~onSpawn
   - setlevel{a=add;l=1} @self ~onPlayerKill
   - mount{type=Nightmare} @self ~onSpawn
   - skill{s=ConsumeBody} @self ~onKillPlayer  <90% .3
+  - damage{amount=8} @target ~onAttack
+  DropsPerLevel:
+  - skillapi-exp 1 1
+  - money 2 1
 
 # Fun Mobs:
 EvilChicken:
@@ -211,7 +202,6 @@ EvilChicken:
     AlwaysShowName: true
   Modules:
     ThreatTable: true
-  Drops:
   AIGoalSelectors:
   - 0 clear
   - 1 meleeattack
@@ -231,6 +221,9 @@ EvilChicken:
   - skill{s=ExplodingPoultry} @self ~onDeath .75
   - skill{s=FeatheredKnockback} @self ~onDamaged <90% .10
   - skill{s=FeatheredFuryAttack} @NearestPlayer ~onTimer:10 1
+  DropsPerLevel:
+  - skillapi-exp 1 1
+  - money 2 1
 
 KillerRabbit:
   Type: RABBIT
@@ -242,7 +235,6 @@ KillerRabbit:
     RabbitType: THE_KILLER_BUNNY
   Modules:
     ThreatTable: true
-  Drops:
   KillMessages:
   - '<target.name> was decapitated by a <mob.name>!'
   - '<target.name> should have known better than to confront a <mob.name>! Rest In Pieces <target.name>.'
@@ -251,4 +243,7 @@ KillerRabbit:
     MovementSpeed: .01
   Skills:
   - setlevel{a=add;l=1} @self ~onPlayerKill 1
-  - skill{s=ConsumeBody} @self ~onKillPlayer  <90% .3
+  - skill{s=ConsumeBody} @self ~onKillPlayer  <90% 0.3
+  DropsPerLevel:
+  - skillapi-exp 1 1
+  - money 2 1

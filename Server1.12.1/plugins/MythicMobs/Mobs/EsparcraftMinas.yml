@@ -32,6 +32,7 @@ ZomMinaMeslajho:
   Drops:
   - cobblestone 2 0.5
   Skills:
+  - setlevel{a=add;l=1} @self ~onPlayerKill
   - damage{amount=2} @target ~onAttack
 ZomBosqMeslajho:
   MobType: ZOMBIE
@@ -49,6 +50,7 @@ ZomBosqMeslajho:
   Drops:
   - 17 2 0.5
   Skills:
+  - setlevel{a=add;l=1} @self ~onPlayerKill
   - damage{amount=2} @target ~onAttack
 
 ZomBosqSpruce:
@@ -67,6 +69,7 @@ ZomBosqSpruce:
   Drops:
   - 17:1 2 0.5
   Skills:
+  - setlevel{a=add;l=1} @self ~onPlayerKill
   - damage{amount=4} @target ~onAttack
   - potion{type=POISON;lvl=1;duration=20} @target ~onAttack
 ZomMinaCoal:
@@ -85,6 +88,7 @@ ZomMinaCoal:
   Drops:
   - 263 2 0.5
   Skills:
+  - setlevel{a=add;l=1} @self ~onPlayerKill
   - damage{amount=4} @target ~onAttack
   - potion{type=POISON;lvl=1;duration=20} @target ~onAttack
 ZomFarmMelon:
@@ -103,6 +107,7 @@ ZomFarmMelon:
   Drops:
   - 360 2 0.5
   Skills:
+  - setlevel{a=add;l=1} @self ~onPlayerKill
   - damage{amount=4} @target ~onAttack
   - potion{type=POISON;lvl=1;duration=20} @target ~onAttack
 
@@ -122,6 +127,7 @@ ZomBosqBirch:
   Drops:
   - 17:1 2 0.5
   Skills:
+  - setlevel{a=add;l=1} @self ~onPlayerKill
   - damage{amount=6} @target ~onAttack
   - potion{type=SLOW;lvl=5;duration=80} @target ~onAttack
 ZomMinaSand:
@@ -140,6 +146,7 @@ ZomMinaSand:
   Drops:
   - 263 2 0.5
   Skills:
+  - setlevel{a=add;l=1} @self ~onPlayerKill
   - damage{amount=6} @target ~onAttack
   - potion{type=SLOW;lvl=5;duration=80} @target ~onAttack
 ZomFarmCarrot:
@@ -158,5 +165,6 @@ ZomFarmCarrot:
   Drops:
   - 360 2 0.5
   Skills:
+  - setlevel{a=add;l=1} @self ~onPlayerKill
   - damage{amount=6} @target ~onAttack
   - potion{type=SLOW;lvl=5;duration=80} @target ~onAttack

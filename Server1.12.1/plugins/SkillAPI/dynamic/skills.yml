@@ -547,6 +547,15 @@ Guadaña:
   - '&7 causando 150% de tu poder de arma.'
   desc:  []
   components: 
+    Death: 
+      type: 'trigger'
+      indicator: '3D'
+      data: 
+        icon-key: ''
+        mana: 'False'
+        cooldown: 'False'
+        indicator: '2D'
+      children:  {}
     Physical Damage: 
       type: 'trigger'
       indicator: '3D'
@@ -958,15 +967,6 @@ Guadaña:
                     value-scale: '1'
                     indicator: '2D'
                   children:  {}
-    Death: 
-      type: 'trigger'
-      indicator: '3D'
-      data: 
-        icon-key: ''
-        mana: 'False'
-        cooldown: 'False'
-        indicator: '2D'
-      children:  {}
 Peso: 
   name: 'Peso'
   type: 'Pasiva'

@@ -13,6 +13,7 @@ CAVE_SPIDER:
   - skillapi-exp 1 1
   - money 1 0.7
   Skills:
+  - setlevel{a=add;l=1} @self ~onPlayerKill
   - damage{amount=4} @target ~onAttack
 ZOMBIE:
   Health: 8
@@ -25,6 +26,7 @@ ZOMBIE:
   - skillapi-exp 1 1
   - money 1 0.7
   Skills:
+  - setlevel{a=add;l=1} @self ~onPlayerKill
   - damage{amount=4} @target ~onAttack
 ZOMBIE_VILLAGER:
   Health: 8
@@ -37,6 +39,7 @@ ZOMBIE_VILLAGER:
   - skillapi-exp 1 1
   - money 1 0.7
   Skills:
+  - setlevel{a=add;l=1} @self ~onPlayerKill
   - damage{amount=4} @target ~onAttack
 SPIDER:
   Health: 8
@@ -49,6 +52,7 @@ SPIDER:
   - skillapi-exp 1 1
   - money 1 0.7
   Skills:
+  - setlevel{a=add;l=1} @self ~onPlayerKill
   - damage{amount=4} @target ~onAttack
 SKELETON:
   Health: 8
@@ -60,7 +64,8 @@ SKELETON:
   DropsPerLevel:
   - skillapi-exp 1 1
   - money 1 0.7
-#  Skills:
+  Skills:
+  - setlevel{a=add;l=1} @self ~onPlayerKill
 #  - damage{amount=4} @target ~onAttack
 BABY_ZOMBIE:
   Health: 8
@@ -73,6 +78,7 @@ BABY_ZOMBIE:
   - skillapi-exp 1 1
   - money 1 0.7
   Skills:
+  - setlevel{a=add;l=1} @self ~onPlayerKill
   - damage{amount=4} @target ~onAttack
 BABY_ZOMBIE_VILLAGER:
   Health: 8
@@ -85,6 +91,7 @@ BABY_ZOMBIE_VILLAGER:
   - skillapi-exp 1 1
   - money 1 0.7
   Skills:
+  - setlevel{a=add;l=1} @self ~onPlayerKill
   - damage{amount=4} @target ~onAttack
 ENDERMAN:
   Health: 8
@@ -97,6 +104,7 @@ ENDERMAN:
   - skillapi-exp 1 1
   - money 1 0.7
   Skills:
+  - setlevel{a=add;l=1} @self ~onPlayerKill
   - damage{amount=4} @target ~onAttack
 PIG_ZOMBIE:
   Health: 8
@@ -109,6 +117,7 @@ PIG_ZOMBIE:
   - skillapi-exp 1 1
   - money 1 0.7
   Skills:
+  - setlevel{a=add;l=1} @self ~onPlayerKill
   - damage{amount=4} @target ~onAttack
 BABY_PIG_ZOMBIE:
   Health: 8
@@ -121,6 +130,7 @@ BABY_PIG_ZOMBIE:
   - skillapi-exp 1 1
   - money 1 0.7
   Skills:
+  - setlevel{a=add;l=1} @self ~onPlayerKill
   - damage{amount=4} @target ~onAttack
 BABY_PIG_ZOMBIE_VILLAGER:
   Health: 8
@@ -133,6 +143,7 @@ BABY_PIG_ZOMBIE_VILLAGER:
   - skillapi-exp 1 1
   - money 1 0.7
   Skills:
+  - setlevel{a=add;l=1} @self ~onPlayerKill
   - damage{amount=4} @target ~onAttack
 BLAZE:
   Health: 8
@@ -145,6 +156,7 @@ BLAZE:
   - skillapi-exp 1 1
   - money 1 0.7
   Skills:
+  - setlevel{a=add;l=1} @self ~onPlayerKill
   - damage{amount=4} @target ~onAttack
 GHAST:
   Health: 8
@@ -157,6 +169,7 @@ GHAST:
   - skillapi-exp 1 1
   - money 1 0.7
   Skills:
+  - setlevel{a=add;l=1} @self ~onPlayerKill
   - damage{amount=4} @target ~onAttack
 WITCH:
   Health: 8
@@ -169,6 +182,7 @@ WITCH:
   - skillapi-exp 1 1
   - money 1 0.7
   Skills:
+  - setlevel{a=add;l=1} @self ~onPlayerKill
   - damage{amount=4} @target ~onAttack
 CREEPER:
   Health: 8
@@ -183,4 +197,5 @@ CREEPER:
   - skillapi-exp 1 1
   - money 1 0.7
   Skills:
+  - setlevel{a=add;l=1} @self ~onPlayerKill
   - basedamage{amount=4} @PlayersInRadius{r=8;ignore=animals,monsters} ~onExplode
