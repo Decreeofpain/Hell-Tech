@@ -9,21 +9,21 @@ Mendigo:
   needs-permission: 'false'
   attributes: 
     health-base: '20'
-    spirit-scale: '0'
-    strength-base: '1'
-    dexterity-base: '2'
-    dexterity-scale: '1'
-    mana-base: '20'
     health-scale: '0'
-    vitality-scale: '2'
-    spirit-base: '0'
-    intelligence-scale: '0.5'
-    strength-scale: '0.5'
+    mana-base: '20'
     mana-scale: '0'
-    vitality-base: '4'
-    intelligence-base: '1'
+    vitalidad-base: '4'
+    vitalidad-scale: '2'
+    escencia-base: '0'
+    escencia-scale: '0'
+    inteligencia-base: '1'
+    inteligencia-scale: '0.5'
+    agilidad-base: '2'
+    agilidad-scale: '1'
+    fuerza-base: '1'
+    fuerza-scale: '0.5'
   mana-regen: 1.0
-  tree: 'BASIC_HORIZONTAL'
+  tree: 'REQUIREMENT'
   blacklist:  []
   skills: 
   - 'Sed sanguinea'
@@ -37,4 +37,6 @@ Mendigo:
   - 'Esquirla Pestilente'
   icon: 'ACACIA_DOOR'
   icon-data: 0
+  icon-lore: 
+  - '&dMendigo'
   exp-source: 511

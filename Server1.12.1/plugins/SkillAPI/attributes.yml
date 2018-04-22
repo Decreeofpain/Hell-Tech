@@ -12,7 +12,7 @@
 #   skill-damage     - damage dealt with skills
 #   skill-defense    - damage taken from skills
 #   move-speed       - movement speed of the player
-vitality:
+vitalidad:
   display: 'Vitalidad'
   max: '999'
   icon: 'ink sack'
@@ -29,7 +29,7 @@ vitality:
   stats:
     health: '(a*10)+(v)'
     hunger-heal: 'a*0.4+1*v'
-spirit:
+escencia:
   display: 'Escencia'
   max: '999'
   icon: 'ink sack'
@@ -45,7 +45,7 @@ spirit:
     mechanic:  {}
     target:  {}
   stats:  {}
-intelligence:
+inteligencia:
   display: 'inteligencia'
   max: '999'
   icon: 'ink sack'
@@ -61,8 +61,8 @@ intelligence:
     mechanic:  {}
     target:  {}
   stats:
-    skill-defense: 'a+v'
-dexterity:
+    skill-defense: '(a*0.2)+(v)'
+agilidad:
   display: 'Agilidad'
   max: '999'
   icon: 'ink sack'
@@ -78,9 +78,9 @@ dexterity:
     mechanic:  {}
     target:  {}
   stats:
-    armor: 'a+v'
-    physical-damage: 'a+v'
-strength:
+    armor: '(a*0.2)+(v)'
+    attack-speed: '(a*0.2)+(v)'
+fuerza:
   display: 'Fuerza'
   max: '999'
   icon: 'ink sack'
@@ -96,4 +96,4 @@ strength:
     mechanic:  {}
     target:  {}
   stats:
-    armor: 'a+v'
+    armor: '(a*0.2)+(v)'

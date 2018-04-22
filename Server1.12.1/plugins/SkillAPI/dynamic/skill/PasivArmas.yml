@@ -453,3 +453,47 @@ PasivArmas:
                     multiplier-scale: '0'
                     indicator: '2D'
                   children:  {}
+            Potion-kb: 
+              type: 'mechanic'
+              indicator: '3D'
+              data: 
+                icon-key: ''
+                counts: 'True'
+                potion: 'Slow Digging'
+                ambient: 'True'
+                tier-base: '3'
+                tier-scale: '0'
+                seconds-base: '3'
+                seconds-scale: '1'
+                indicator: '2D'
+              children:  {}
+            Value Set-lb: 
+              type: 'mechanic'
+              indicator: '3D'
+              data: 
+                icon-key: ''
+                counts: 'True'
+                key: 'atributos'
+                value-base: '0'
+                value-scale: '0'
+                indicator: '2D'
+              children:  {}
+            Value Attribute-mb: 
+              type: 'mechanic'
+              indicator: '3D'
+              data: 
+                icon-key: ''
+                counts: 'True'
+                key: 'atributos'
+                attribute: 'dexterity'
+                indicator: '2D'
+              children:  {}
+            Message-nb: 
+              type: 'mechanic'
+              indicator: '3D'
+              data: 
+                icon-key: ''
+                counts: 'True'
+                message: '{atributos}'
+                indicator: '2D'
+              children:  {}
