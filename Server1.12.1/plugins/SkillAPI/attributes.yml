@@ -44,7 +44,8 @@ escencia:
     condition:  {}
     mechanic:  {}
     target:  {}
-  stats:  {}
+  stats:
+    attack-speed: 'a+v'
 inteligencia:
   display: 'inteligencia'
   max: '999'
@@ -61,7 +62,7 @@ inteligencia:
     mechanic:  {}
     target:  {}
   stats:
-    skill-defense: '(a*0.2)+(v)'
+    skill-defense: '(a*0.01)+(v)'
 agilidad:
   display: 'Agilidad'
   max: '999'
@@ -78,8 +79,7 @@ agilidad:
     mechanic:  {}
     target:  {}
   stats:
-    armor: '(a*0.2)+(v)'
-    attack-speed: '(a*0.2)+(v)'
+    armor: '(a*0.01)+(v)'
 fuerza:
   display: 'Fuerza'
   max: '999'
@@ -96,4 +96,4 @@ fuerza:
     mechanic:  {}
     target:  {}
   stats:
-    armor: '(a*0.2)+(v)'
+    armor: '(a*0.01)+(v)'

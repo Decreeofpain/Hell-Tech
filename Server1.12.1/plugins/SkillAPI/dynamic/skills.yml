@@ -519,7 +519,6 @@ Guadaña:
   name: 'Guadaña'
   type: 'Principal'
   max-level: 1
-  skill-req: 'None'
   skill-req-lvl: 1
   needs-permission: 'false'
   attributes: 
@@ -545,6 +544,7 @@ Guadaña:
   - '&7 Crea un corte macabro en el aire'
   - '&7 que impacta en area frente a ti'
   - '&7 causando 150% de tu poder de arma.'
+  - '&2Cooldown: {attr:cooldown}'
   desc:  []
   components: 
     Death: 
@@ -562,14 +562,14 @@ Guadaña:
       data: 
         icon-key: ''
         mana: 'False'
-        cooldown: 'False'
+        cooldown: 'True'
         target: 'True'
         type: 'Melee'
         dmg-min: '0'
         dmg-max: '999'
         indicator: '2D'
       children: 
-        Tool-b: 
+        Tool-c: 
           type: 'condition'
           indicator: '3D'
           data: 
@@ -578,7 +578,7 @@ Guadaña:
             tool: 'Sword'
             indicator: '2D'
           children: 
-            Skill Level-c: 
+            Skill Level-d: 
               type: 'condition'
               indicator: '3D'
               data: 
@@ -588,7 +588,7 @@ Guadaña:
                 max-level: '0'
                 indicator: '2D'
               children: 
-                Skill Level-d: 
+                Skill Level-e: 
                   type: 'condition'
                   indicator: '3D'
                   data: 
@@ -598,7 +598,7 @@ Guadaña:
                     max-level: '0'
                     indicator: '2D'
                   children: 
-                    Particle Animation-e: 
+                    Particle Animation-f: 
                       type: 'mechanic'
                       indicator: '3D'
                       data: 
@@ -634,7 +634,7 @@ Guadaña:
                         right: '0'
                         indicator: '2D'
                       children:  {}
-                    Value Multiply-f: 
+                    Value Multiply-g: 
                       type: 'mechanic'
                       indicator: '3D'
                       data: 
@@ -645,7 +645,7 @@ Guadaña:
                         multiplier-scale: '0'
                         indicator: '2D'
                       children:  {}
-                    Chance-g: 
+                    Chance-h: 
                       type: 'condition'
                       indicator: '3D'
                       data: 
@@ -654,7 +654,7 @@ Guadaña:
                         chance-scale: '0'
                         indicator: '2D'
                       children: 
-                        Value Multiply-h: 
+                        Value Multiply-i: 
                           type: 'mechanic'
                           indicator: '3D'
                           data: 
@@ -665,7 +665,7 @@ Guadaña:
                             multiplier-scale: '0'
                             indicator: '2D'
                           children:  {}
-                        Command-i: 
+                        Command-j: 
                           type: 'mechanic'
                           indicator: '3D'
                           data: 
@@ -675,7 +675,7 @@ Guadaña:
                             type: 'OP'
                             indicator: '2D'
                           children:  {}
-                    Cone-j: 
+                    Cone-k: 
                       type: 'target'
                       indicator: '3D'
                       data: 
@@ -691,7 +691,7 @@ Guadaña:
                         max-scale: '0'
                         indicator: '2D'
                       children: 
-                        Damage-k: 
+                        Damage-l: 
                           type: 'mechanic'
                           indicator: '3D'
                           data: 
@@ -704,7 +704,7 @@ Guadaña:
                             classifier: 'default'
                             indicator: '2D'
                           children:  {}
-                    Value Lore-l: 
+                    Value Lore-m: 
                       type: 'mechanic'
                       indicator: '3D'
                       data: 
@@ -717,7 +717,19 @@ Guadaña:
                         multiplier-scale: '0'
                         indicator: '2D'
                       children:  {}
-            Skill Level-m: 
+                    Cooldown-n: 
+                      type: 'mechanic'
+                      indicator: '3D'
+                      data: 
+                        icon-key: ''
+                        counts: 'True'
+                        skill: 'Guadaña'
+                        type: 'Seconds'
+                        value-base: 'cdbasico'
+                        value-scale: '0'
+                        indicator: '2D'
+                      children:  {}
+            Skill Level-o: 
               type: 'condition'
               indicator: '3D'
               data: 
@@ -727,7 +739,7 @@ Guadaña:
                 max-level: '1'
                 indicator: '2D'
               children: 
-                Particle Animation-n: 
+                Particle Animation-p: 
                   type: 'mechanic'
                   indicator: '3D'
                   data: 
@@ -763,7 +775,7 @@ Guadaña:
                     right: '0'
                     indicator: '2D'
                   children:  {}
-                Particle Animation-o: 
+                Particle Animation-q: 
                   type: 'mechanic'
                   indicator: '3D'
                   data: 
@@ -799,7 +811,7 @@ Guadaña:
                     right: '0'
                     indicator: '2D'
                   children:  {}
-                Value Multiply-p: 
+                Value Multiply-r: 
                   type: 'mechanic'
                   indicator: '3D'
                   data: 
@@ -810,7 +822,7 @@ Guadaña:
                     multiplier-scale: '0'
                     indicator: '2D'
                   children:  {}
-                Value Multiply-q: 
+                Value Multiply-s: 
                   type: 'mechanic'
                   indicator: '3D'
                   data: 
@@ -821,7 +833,7 @@ Guadaña:
                     multiplier-scale: '0'
                     indicator: '2D'
                   children:  {}
-                Cone-r: 
+                Cone-t: 
                   type: 'target'
                   indicator: '3D'
                   data: 
@@ -837,7 +849,7 @@ Guadaña:
                     max-scale: '0'
                     indicator: '2D'
                   children: 
-                    Damage-s: 
+                    Damage-u: 
                       type: 'mechanic'
                       indicator: '3D'
                       data: 
@@ -850,7 +862,7 @@ Guadaña:
                         classifier: 'default'
                         indicator: '2D'
                       children:  {}
-                    Damage-t: 
+                    Damage-v: 
                       type: 'mechanic'
                       indicator: '3D'
                       data: 
@@ -863,7 +875,7 @@ Guadaña:
                         classifier: 'default'
                         indicator: '2D'
                       children:  {}
-            Skill Level-u: 
+            Skill Level-w: 
               type: 'condition'
               indicator: '3D'
               data: 
@@ -873,7 +885,7 @@ Guadaña:
                 max-level: '1'
                 indicator: '2D'
               children: 
-                Particle Animation-v: 
+                Particle Animation-x: 
                   type: 'mechanic'
                   indicator: '3D'
                   data: 
@@ -905,7 +917,7 @@ Guadaña:
                     right: '0'
                     indicator: '2D'
                   children:  {}
-                Value Multiply-w: 
+                Value Multiply-y: 
                   type: 'mechanic'
                   indicator: '3D'
                   data: 
@@ -916,7 +928,7 @@ Guadaña:
                     multiplier-scale: '0'
                     indicator: '2D'
                   children:  {}
-                Cone-x: 
+                Cone-z: 
                   type: 'target'
                   indicator: '3D'
                   data: 
@@ -932,7 +944,7 @@ Guadaña:
                     max-scale: '0'
                     indicator: '2D'
                   children: 
-                    Damage-y: 
+                    Damage-ab: 
                       type: 'mechanic'
                       indicator: '3D'
                       data: 
@@ -945,7 +957,7 @@ Guadaña:
                         classifier: 'default'
                         indicator: '2D'
                       children:  {}
-                Value Multiply-z: 
+                Value Multiply-bb: 
                   type: 'mechanic'
                   indicator: '3D'
                   data: 
@@ -956,7 +968,7 @@ Guadaña:
                     multiplier-scale: '0'
                     indicator: '2D'
                   children:  {}
-                Heal-ab: 
+                Heal-cb: 
                   type: 'mechanic'
                   indicator: '3D'
                   data: 
@@ -2667,6 +2679,7 @@ PasivArmas:
   name: 'PasivArmas'
   type: 'Pasiva'
   max-level: 1
+  skill-req: 'None'
   skill-req-lvl: 0
   needs-permission: 'false'
   attributes: 
@@ -2685,6 +2698,15 @@ PasivArmas:
   msg: '&6{player} &2has cast &6{skill}'
   icon: 'ACACIA_DOOR'
   icon-data: 0
+  icon-lore: 
+  - '&d{name} &7({level}/{max})'
+  - '&2Type: &6{type}'
+  - ''
+  - '{req:level}Level: {attr:level}'
+  - '{req:cost}Cost: {attr:cost}'
+  - ''
+  - '&2Mana: {attr:mana}'
+  - '&2Cooldown: {attr:cooldown}'
   desc:  []
   components: 
     Initialize: 
@@ -3118,50 +3140,6 @@ PasivArmas:
                     multiplier-scale: '0'
                     indicator: '2D'
                   children:  {}
-            Potion-kb: 
-              type: 'mechanic'
-              indicator: '3D'
-              data: 
-                icon-key: ''
-                counts: 'True'
-                potion: 'Slow Digging'
-                ambient: 'True'
-                tier-base: '3'
-                tier-scale: '0'
-                seconds-base: '3'
-                seconds-scale: '1'
-                indicator: '2D'
-              children:  {}
-            Value Set-lb: 
-              type: 'mechanic'
-              indicator: '3D'
-              data: 
-                icon-key: ''
-                counts: 'True'
-                key: 'atributos'
-                value-base: '0'
-                value-scale: '0'
-                indicator: '2D'
-              children:  {}
-            Value Attribute-mb: 
-              type: 'mechanic'
-              indicator: '3D'
-              data: 
-                icon-key: ''
-                counts: 'True'
-                key: 'atributos'
-                attribute: 'dexterity'
-                indicator: '2D'
-              children:  {}
-            Message-nb: 
-              type: 'mechanic'
-              indicator: '3D'
-              data: 
-                icon-key: ''
-                counts: 'True'
-                message: '{atributos}'
-                indicator: '2D'
-              children:  {}
 PasivVampire: 
   name: 'PasivVampire'
   type: 'Pasiva'
@@ -3514,44 +3492,6 @@ Sed sanguinea:
   - '& Acumulable hasta 20 veces.'
   desc:  []
   components: 
-    Initialize: 
-      type: 'trigger'
-      indicator: '3D'
-      data: 
-        icon-key: ''
-        indicator: '2D'
-      children: 
-        Passive-i: 
-          type: 'mechanic'
-          indicator: '3D'
-          data: 
-            icon-key: ''
-            counts: 'True'
-            seconds-base: '1'
-            seconds-scale: '0'
-            indicator: '2D'
-          children: 
-            Speed-j: 
-              type: 'mechanic'
-              indicator: '3D'
-              data: 
-                icon-key: ''
-                counts: 'True'
-                multiplier-base: 'Stackkill'
-                multiplier-scale: '0'
-                duration-base: '1'
-                duration-scale: '1'
-                indicator: '2D'
-              children:  {}
-            Message-k: 
-              type: 'mechanic'
-              indicator: '3D'
-              data: 
-                icon-key: ''
-                counts: 'True'
-                message: '{Stackkill}'
-                indicator: '2D'
-              children:  {}
     Kill: 
       type: 'trigger'
       indicator: '3D'
@@ -3623,3 +3563,187 @@ Sed sanguinea:
                 value-scale: '0'
                 indicator: '2D'
               children:  {}
+    Initialize: 
+      type: 'trigger'
+      indicator: '3D'
+      data: 
+        icon-key: ''
+        indicator: '2D'
+      children: 
+        Passive-i: 
+          type: 'mechanic'
+          indicator: '3D'
+          data: 
+            icon-key: ''
+            counts: 'True'
+            seconds-base: '1'
+            seconds-scale: '0'
+            indicator: '2D'
+          children: 
+            Speed-j: 
+              type: 'mechanic'
+              indicator: '3D'
+              data: 
+                icon-key: ''
+                counts: 'True'
+                multiplier-base: 'Stackkill'
+                multiplier-scale: '0'
+                duration-base: '1'
+                duration-scale: '1'
+                indicator: '2D'
+              children:  {}
+            Message-k: 
+              type: 'mechanic'
+              indicator: '3D'
+              data: 
+                icon-key: ''
+                counts: 'True'
+                message: '{Stackkill}'
+                indicator: '2D'
+              children:  {}
+Atackspeed: 
+  name: 'Atackspeed'
+  type: 'Pasiva'
+  max-level: 1
+  skill-req-lvl: 0
+  needs-permission: 'false'
+  attributes: 
+    level-base: '1'
+    level-scale: '0'
+    cost-base: '0'
+    cost-scale: '0'
+    cooldown-base: '0'
+    cooldown-scale: '0'
+    mana-base: '0'
+    mana-scale: '0'
+    points-spent-req-base: '0'
+    points-spent-req-scale: '0'
+    incompatible: 
+    - ''
+  msg: '&6{player} &2has cast &6{skill}'
+  icon: 'ACACIA_DOOR'
+  icon-data: 0
+  icon-lore: 
+  - '&d{name} &7({level}/{max})'
+  - '&2Type: &6{type}'
+  - ''
+  - '{req:level}Level: {attr:level}'
+  - '{req:cost}Cost: {attr:cost}'
+  - ''
+  - '&2Mana: {attr:mana}'
+  - '&2Cooldown: {attr:cooldown}'
+  desc:  []
+  components: 
+    Initialize: 
+      type: 'trigger'
+      indicator: '3D'
+      data: 
+        icon-key: ''
+        indicator: '2D'
+      children: 
+        Passive-b: 
+          type: 'mechanic'
+          indicator: '3D'
+          data: 
+            icon-key: ''
+            counts: 'True'
+            seconds-base: '0.1'
+            seconds-scale: '0'
+            indicator: '2D'
+          children: 
+            Item-c: 
+              type: 'condition'
+              indicator: '3D'
+              data: 
+                icon-key: ''
+                check-mat: 'True'
+                material: 'Wood Sword'
+                check-data: 'False'
+                check-lore: 'True'
+                lore: 'Arte: Comun'
+                check-name: 'False'
+                regex: 'False'
+                indicator: '2D'
+              children: 
+                Potion-d: 
+                  type: 'mechanic'
+                  indicator: '3D'
+                  data: 
+                    icon-key: ''
+                    counts: 'True'
+                    potion: 'Slow Digging'
+                    ambient: 'False'
+                    tier-base: '20'
+                    tier-scale: '0'
+                    seconds-base: '1.1'
+                    seconds-scale: '0'
+                    indicator: '2D'
+                  children:  {}
+                Value Set-e: 
+                  type: 'mechanic'
+                  indicator: '3D'
+                  data: 
+                    icon-key: ''
+                    counts: 'True'
+                    key: 'cdbasico'
+                    value-base: '-1.4'
+                    value-scale: '0'
+                    indicator: '2D'
+                  children:  {}
+                Message-f: 
+                  type: 'mechanic'
+                  indicator: '3D'
+                  data: 
+                    icon-key: ''
+                    counts: 'True'
+                    message: '{cdbasico} ataque cd'
+                    indicator: '2D'
+                  children:  {}
+            Item-g: 
+              type: 'condition'
+              indicator: '3D'
+              data: 
+                icon-key: ''
+                check-mat: 'True'
+                material: 'Wood Sword'
+                check-data: 'False'
+                check-lore: 'True'
+                lore: 'Arte: Magico'
+                check-name: 'False'
+                regex: 'False'
+                indicator: '2D'
+              children: 
+                Potion-h: 
+                  type: 'mechanic'
+                  indicator: '3D'
+                  data: 
+                    icon-key: ''
+                    counts: 'True'
+                    potion: 'Slow Digging'
+                    ambient: 'False'
+                    tier-base: '9'
+                    tier-scale: '0'
+                    seconds-base: '1.1'
+                    seconds-scale: '0'
+                    indicator: '2D'
+                  children:  {}
+                Value Set-i: 
+                  type: 'mechanic'
+                  indicator: '3D'
+                  data: 
+                    icon-key: ''
+                    counts: 'True'
+                    key: 'cdbasico'
+                    value-base: '-2'
+                    value-scale: '0'
+                    indicator: '2D'
+                  children:  {}
+                Message-j: 
+                  type: 'mechanic'
+                  indicator: '3D'
+                  data: 
+                    icon-key: ''
+                    counts: 'True'
+                    message: '{cdbasico} ataque cd'
+                    indicator: '2D'
+                  children:  {}
