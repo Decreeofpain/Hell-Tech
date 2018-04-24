@@ -1,27 +1,16 @@
-PasivArmas: 
+PasivArmas:
   name: 'PasivArmas'
   type: 'Pasiva'
   max-level: 1
   skill-req: 'None'
   skill-req-lvl: 0
   needs-permission: 'false'
-  attributes: 
-    level-base: '1'
-    level-scale: '0'
-    cost-base: '0'
-    cost-scale: '0'
-    cooldown-base: '0'
-    cooldown-scale: '0'
-    mana-base: '0'
-    mana-scale: '0'
-    points-spent-req-base: '0'
-    points-spent-req-scale: '0'
-    incompatible: 
-    - ''
   msg: '&6{player} &2has cast &6{skill}'
+  combo: ''
+  indicator: '2D'
   icon: 'ACACIA_DOOR'
   icon-data: 0
-  icon-lore: 
+  icon-lore:
   - '&d{name} &7({level}/{max})'
   - '&2Type: &6{type}'
   - ''
@@ -30,29 +19,36 @@ PasivArmas:
   - ''
   - '&2Mana: {attr:mana}'
   - '&2Cooldown: {attr:cooldown}'
-  desc:  []
-  components: 
-    Initialize: 
+  attributes:
+    level-base: 1
+    level-scale: 0
+    cost-base: 0
+    cost-scale: 0
+    cooldown-base: 0
+    cooldown-scale: 0
+    mana-base: 0
+    mana-scale: 0
+    points-spent-req-base: 0
+    points-spent-req-scale: 0
+    incompatible:
+    - ''
+  components:
+    Initialize-a:
       type: 'trigger'
-      indicator: '3D'
-      data: 
+      data:
         icon-key: ''
-        indicator: '2D'
-      children: 
-        Passive-b: 
+      children:
+        Passive-b:
           type: 'mechanic'
-          indicator: '3D'
-          data: 
+          data:
             icon-key: ''
             counts: 'True'
-            seconds-base: '0.1'
-            seconds-scale: '0'
-            indicator: '2D'
-          children: 
-            Offhand-c: 
+            seconds-base: 0.1
+            seconds-scale: 0
+          children:
+            Offhand-c:
               type: 'condition'
-              indicator: '3D'
-              data: 
+              data:
                 icon-key: ''
                 check-mat: 'False'
                 check-data: 'False'
@@ -60,36 +56,20 @@ PasivArmas:
                 lore: 'Probabilidad de Critico:'
                 check-name: 'False'
                 regex: 'False'
-                indicator: '2D'
-              children: 
-                Value Set-d: 
+              children:
+                Value Lore-d:
                   type: 'mechanic'
-                  indicator: '3D'
-                  data: 
-                    icon-key: ''
-                    counts: 'True'
-                    key: '100critLoreoff'
-                    value-base: '0'
-                    value-scale: '0'
-                    indicator: '2D'
-                  children:  {}
-                Value Lore-e: 
-                  type: 'mechanic'
-                  indicator: '3D'
-                  data: 
+                  data:
                     icon-key: ''
                     counts: 'True'
                     key: '100critLoreoff'
                     hand: 'Offhand'
                     regex: 'Probabilidad de Critico: {value}'
-                    multiplier-base: '1'
-                    multiplier-scale: '0'
-                    indicator: '2D'
-                  children:  {}
-            Item-f: 
+                    multiplier-base: 1
+                    multiplier-scale: 0
+            Item-e:
               type: 'condition'
-              indicator: '3D'
-              data: 
+              data:
                 icon-key: ''
                 check-mat: 'False'
                 check-data: 'False'
@@ -97,36 +77,20 @@ PasivArmas:
                 lore: 'Probabilidad de Critico:'
                 check-name: 'False'
                 regex: 'False'
-                indicator: '2D'
-              children: 
-                Value Set-g: 
+              children:
+                Value Lore-f:
                   type: 'mechanic'
-                  indicator: '3D'
-                  data: 
-                    icon-key: ''
-                    counts: 'True'
-                    key: '100critLore'
-                    value-base: '0'
-                    value-scale: '0'
-                    indicator: '2D'
-                  children:  {}
-                Value Lore-h: 
-                  type: 'mechanic'
-                  indicator: '3D'
-                  data: 
+                  data:
                     icon-key: ''
                     counts: 'True'
                     key: '100critLore'
                     hand: 'Main'
                     regex: 'Probabilidad de Critico: {value}'
-                    multiplier-base: '1'
-                    multiplier-scale: '0'
-                    indicator: '2D'
-                  children:  {}
-            Offhand-i: 
+                    multiplier-base: 1
+                    multiplier-scale: 0
+            Offhand-g:
               type: 'condition'
-              indicator: '3D'
-              data: 
+              data:
                 icon-key: ''
                 check-mat: 'False'
                 check-data: 'False'
@@ -134,58 +98,36 @@ PasivArmas:
                 lore: 'Daño de Critico:'
                 check-name: 'False'
                 regex: 'False'
-                indicator: '2D'
-              children: 
-                Value Set-j: 
+              children:
+                Value Lore-h:
                   type: 'mechanic'
-                  indicator: '3D'
-                  data: 
-                    icon-key: ''
-                    counts: 'True'
-                    key: 'critLoreoff'
-                    value-base: '0'
-                    value-scale: '0'
-                    indicator: '2D'
-                  children:  {}
-                Value Lore-k: 
-                  type: 'mechanic'
-                  indicator: '3D'
-                  data: 
+                  data:
                     icon-key: ''
                     counts: 'True'
                     key: 'critLoreoff'
                     hand: 'Offhand'
                     regex: 'Daño de Critico: {value}'
-                    multiplier-base: '1'
-                    multiplier-scale: '0'
-                    indicator: '2D'
-                  children:  {}
-                Value Multiply-l: 
+                    multiplier-base: 1
+                    multiplier-scale: 0
+                Value Multiply-i:
                   type: 'mechanic'
-                  indicator: '3D'
-                  data: 
+                  data:
                     icon-key: ''
                     counts: 'True'
                     key: 'critLoreoff'
-                    multiplier-base: '0.01'
-                    multiplier-scale: '0'
-                    indicator: '2D'
-                  children:  {}
-                Value Add-m: 
+                    multiplier-base: 0.01
+                    multiplier-scale: 0
+                Value Add-j:
                   type: 'mechanic'
-                  indicator: '3D'
-                  data: 
+                  data:
                     icon-key: ''
                     counts: 'True'
                     key: 'critLoreoff'
-                    amount-base: '1'
-                    amount-scale: '0'
-                    indicator: '2D'
-                  children:  {}
-            Item-n: 
+                    amount-base: 1
+                    amount-scale: 0
+            Item-k:
               type: 'condition'
-              indicator: '3D'
-              data: 
+              data:
                 icon-key: ''
                 check-mat: 'False'
                 check-data: 'False'
@@ -193,58 +135,36 @@ PasivArmas:
                 lore: 'Daño de Critico:'
                 check-name: 'False'
                 regex: 'False'
-                indicator: '2D'
-              children: 
-                Value Set-o: 
+              children:
+                Value Lore-l:
                   type: 'mechanic'
-                  indicator: '3D'
-                  data: 
-                    icon-key: ''
-                    counts: 'True'
-                    key: 'critLore'
-                    value-base: '0'
-                    value-scale: '0'
-                    indicator: '2D'
-                  children:  {}
-                Value Lore-p: 
-                  type: 'mechanic'
-                  indicator: '3D'
-                  data: 
+                  data:
                     icon-key: ''
                     counts: 'True'
                     key: 'critLore'
                     hand: 'Main'
                     regex: 'Daño de Critico: {value}'
-                    multiplier-base: '1'
-                    multiplier-scale: '0'
-                    indicator: '2D'
-                  children:  {}
-                Value Multiply-q: 
+                    multiplier-base: 1
+                    multiplier-scale: 0
+                Value Multiply-m:
                   type: 'mechanic'
-                  indicator: '3D'
-                  data: 
+                  data:
                     icon-key: ''
                     counts: 'True'
                     key: 'critLore'
-                    multiplier-base: '0.01'
-                    multiplier-scale: '0'
-                    indicator: '2D'
-                  children:  {}
-                Value Add-r: 
+                    multiplier-base: 0.01
+                    multiplier-scale: 0
+                Value Add-n:
                   type: 'mechanic'
-                  indicator: '3D'
-                  data: 
+                  data:
                     icon-key: ''
                     counts: 'True'
                     key: 'critLore'
-                    amount-base: '1'
-                    amount-scale: '0'
-                    indicator: '2D'
-                  children:  {}
-            Offhand-s: 
+                    amount-base: 1
+                    amount-scale: 0
+            Offhand-o:
               type: 'condition'
-              indicator: '3D'
-              data: 
+              data:
                 icon-key: ''
                 check-mat: 'False'
                 check-data: 'False'
@@ -252,36 +172,20 @@ PasivArmas:
                 lore: 'Alcanse en Area:'
                 check-name: 'False'
                 regex: 'False'
-                indicator: '2D'
-              children: 
-                Value Set-t: 
+              children:
+                Value Lore-p:
                   type: 'mechanic'
-                  indicator: '3D'
-                  data: 
-                    icon-key: ''
-                    counts: 'True'
-                    key: 'AOELoreoff'
-                    value-base: '0'
-                    value-scale: '0'
-                    indicator: '2D'
-                  children:  {}
-                Value Lore-u: 
-                  type: 'mechanic'
-                  indicator: '3D'
-                  data: 
+                  data:
                     icon-key: ''
                     counts: 'True'
                     key: ' AOELoreoff'
                     hand: 'Offhand'
                     regex: 'Alcanse en Area: {value}'
-                    multiplier-base: '1'
-                    multiplier-scale: '0'
-                    indicator: '2D'
-                  children:  {}
-            Item-v: 
+                    multiplier-base: 1
+                    multiplier-scale: 0
+            Item-q:
               type: 'condition'
-              indicator: '3D'
-              data: 
+              data:
                 icon-key: ''
                 check-mat: 'False'
                 check-data: 'False'
@@ -289,36 +193,20 @@ PasivArmas:
                 lore: 'Alcanse en Area:'
                 check-name: 'False'
                 regex: 'False'
-                indicator: '2D'
-              children: 
-                Value Set-w: 
+              children:
+                Value Lore-r:
                   type: 'mechanic'
-                  indicator: '3D'
-                  data: 
-                    icon-key: ''
-                    counts: 'True'
-                    key: 'AOELore'
-                    value-base: '0'
-                    value-scale: '0'
-                    indicator: '2D'
-                  children:  {}
-                Value Lore-x: 
-                  type: 'mechanic'
-                  indicator: '3D'
-                  data: 
+                  data:
                     icon-key: ''
                     counts: 'True'
                     key: 'AOELore'
                     hand: 'Main'
                     regex: 'Alcanse en Area: {value}'
-                    multiplier-base: '1'
-                    multiplier-scale: '0'
-                    indicator: '2D'
-                  children:  {}
-            Offhand-y: 
+                    multiplier-base: 1
+                    multiplier-scale: 0
+            Offhand-s:
               type: 'condition'
-              indicator: '3D'
-              data: 
+              data:
                 icon-key: ''
                 check-mat: 'False'
                 check-data: 'False'
@@ -326,36 +214,20 @@ PasivArmas:
                 lore: 'Vida por Golpe:'
                 check-name: 'False'
                 regex: 'False'
-                indicator: '2D'
-              children: 
-                Value Set-z: 
+              children:
+                Value Lore-t:
                   type: 'mechanic'
-                  indicator: '3D'
-                  data: 
-                    icon-key: ''
-                    counts: 'True'
-                    key: 'Lifestealoff'
-                    value-base: '0'
-                    value-scale: '0'
-                    indicator: '2D'
-                  children:  {}
-                Value Lore-ab: 
-                  type: 'mechanic'
-                  indicator: '3D'
-                  data: 
+                  data:
                     icon-key: ''
                     counts: 'True'
                     key: 'Lifestealoff'
                     hand: 'Offhand'
                     regex: 'Vida por Golpe: {value}'
-                    multiplier-base: '1'
-                    multiplier-scale: '0'
-                    indicator: '2D'
-                  children:  {}
-            Item-bb: 
+                    multiplier-base: 1
+                    multiplier-scale: 0
+            Item-u:
               type: 'condition'
-              indicator: '3D'
-              data: 
+              data:
                 icon-key: ''
                 check-mat: 'False'
                 check-data: 'False'
@@ -363,36 +235,20 @@ PasivArmas:
                 lore: 'Vida por Golpe:'
                 check-name: 'False'
                 regex: 'False'
-                indicator: '2D'
-              children: 
-                Value Set-cb: 
+              children:
+                Value Lore-v:
                   type: 'mechanic'
-                  indicator: '3D'
-                  data: 
-                    icon-key: ''
-                    counts: 'True'
-                    key: 'Lifesteal'
-                    value-base: '0'
-                    value-scale: '0'
-                    indicator: '2D'
-                  children:  {}
-                Value Lore-db: 
-                  type: 'mechanic'
-                  indicator: '3D'
-                  data: 
+                  data:
                     icon-key: ''
                     counts: 'True'
                     key: 'Lifesteal'
                     hand: 'Main'
                     regex: 'Vida por Golpe: {value}'
-                    multiplier-base: '1'
-                    multiplier-scale: '0'
-                    indicator: '2D'
-                  children:  {}
-            Offhand-eb: 
+                    multiplier-base: 1
+                    multiplier-scale: 0
+            Offhand-w:
               type: 'condition'
-              indicator: '3D'
-              data: 
+              data:
                 icon-key: ''
                 check-mat: 'False'
                 check-data: 'False'
@@ -400,36 +256,20 @@ PasivArmas:
                 lore: 'Poder de Arma:'
                 check-name: 'False'
                 regex: 'False'
-                indicator: '2D'
-              children: 
-                Value Set-fb: 
+              children:
+                Value Lore-x:
                   type: 'mechanic'
-                  indicator: '3D'
-                  data: 
-                    icon-key: ''
-                    counts: 'True'
-                    key: 'Poderarmaoff'
-                    value-base: '0'
-                    value-scale: '0'
-                    indicator: '2D'
-                  children:  {}
-                Value Lore-gb: 
-                  type: 'mechanic'
-                  indicator: '3D'
-                  data: 
+                  data:
                     icon-key: ''
                     counts: 'True'
                     key: 'Poderarmaoff'
                     hand: 'Offhand'
                     regex: 'Poder de Arma: {value}'
-                    multiplier-base: '1'
-                    multiplier-scale: '0'
-                    indicator: '2D'
-                  children:  {}
-            Item-hb: 
+                    multiplier-base: 1
+                    multiplier-scale: 0
+            Item-y:
               type: 'condition'
-              indicator: '3D'
-              data: 
+              data:
                 icon-key: ''
                 check-mat: 'False'
                 check-data: 'False'
@@ -437,59 +277,79 @@ PasivArmas:
                 lore: 'Poder de Arma:'
                 check-name: 'False'
                 regex: 'False'
-                indicator: '2D'
-              children: 
-                Value Set-ib: 
+              children:
+                Value Lore-z:
                   type: 'mechanic'
-                  indicator: '3D'
-                  data: 
-                    icon-key: ''
-                    counts: 'True'
-                    key: 'Poderarma'
-                    value-base: '0'
-                    value-scale: '0'
-                    indicator: '2D'
-                  children:  {}
-                Value Lore-jb: 
-                  type: 'mechanic'
-                  indicator: '3D'
-                  data: 
+                  data:
                     icon-key: ''
                     counts: 'True'
                     key: 'Poderarma'
                     hand: 'Main'
                     regex: 'Poder de Arma: {value}'
-                    multiplier-base: '1'
-                    multiplier-scale: '0'
-                    indicator: '2D'
-                  children:  {}
-            Tool-kb: 
+                    multiplier-base: 1
+                    multiplier-scale: 0
+            Tool-ab:
               type: 'condition'
-              indicator: '3D'
-              data: 
+              data:
                 icon-key: ''
                 material: 'Any'
                 tool: 'Sword'
-                indicator: '2D'
-              children: 
-                Self-lb: 
+              children:
+                Self-bb:
                   type: 'target'
-                  indicator: '3D'
-                  data: 
+                  data:
                     icon-key: ''
-                    indicator: '2D'
-                  children: 
-                    Damage Buff-mb: 
+                  children:
+                    Damage Buff-cb:
                       type: 'mechanic'
-                      indicator: '3D'
-                      data: 
+                      data:
                         icon-key: ''
                         counts: 'True'
                         type: 'Multiplier'
                         skill: 'False'
-                        value-base: '0.001'
-                        value-scale: '0'
-                        seconds-base: '1.1'
-                        seconds-scale: '0'
-                        indicator: '2D'
-                      children:  {}
+                        value-base: 0.001
+                        value-scale: 0
+                        seconds-base: 1.1
+                        seconds-scale: 0
+            Offhand-db:
+              type: 'condition'
+              data:
+                icon-key: ''
+                check-mat: 'False'
+                check-data: 'False'
+                check-lore: 'True'
+                lore: 'Vida por Muerte:'
+                check-name: 'False'
+                regex: 'False'
+              children:
+                Value Lore-eb:
+                  type: 'mechanic'
+                  data:
+                    icon-key: ''
+                    counts: 'True'
+                    key: 'Vidamuerteoff'
+                    hand: 'Offhand'
+                    regex: 'Vida por Muerte: {value}'
+                    multiplier-base: 1
+                    multiplier-scale: 0
+            Item-fb:
+              type: 'condition'
+              data:
+                icon-key: ''
+                check-mat: 'False'
+                check-data: 'False'
+                check-lore: 'True'
+                lore: 'Vida por Muerte:'
+                check-name: 'False'
+                regex: 'False'
+              children:
+                Value Lore-gb:
+                  type: 'mechanic'
+                  data:
+                    icon-key: ''
+                    counts: 'True'
+                    key: 'Vidamuerte'
+                    hand: 'Main'
+                    regex: 'Vida por Muerte: {value}'
+                    multiplier-base: 1
+                    multiplier-scale: 0
