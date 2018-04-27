@@ -147,7 +147,7 @@ Tieloevents:
     - ^inventory close d:in@inv_tielo
     - ^execute as_op "jobs fireall <player.name>" silent
     - ^execute as_op "jobs employ <player.name> Ganadero" silent
-    - ^flag <player> profesion:Ganadero
+    - ^flag <player> profesion:->:Ganadero
     - ^flag <player> qprofStatus:!
     - ^run 's@profquestsrandomtielo'
     - ^queue clear
@@ -190,6 +190,7 @@ Tieloevents:
     - ^flag <player> cursordata:<context.cursor_item.material.data>
     - ^flag <player> cursoridqty:<context.cursor_item.quantity>
     - ^flag <player> profinv:inv_tielo_ok
+    - ^flag <player> proforigin:ganaderia
     - ^run 's@countprofq'
     - ^DETERMINE cancelled
     - ^queue clear

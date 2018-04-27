@@ -30,18 +30,59 @@
             - ^wait
             - ^actionbar "<blue>Eudes: <yellow>te interesaria ganar almakos creando menjurges?"
             - ^queue clear
-            } else if <player.flag[profesion].as_list> !contains Alquimista && <player.has_flag[profesion]> {
-            - ^actionbar "<blue>Eudes: <yellow>te interesaria ganar almakos creando menjurges?"
-            - ^queue clear
+            } else if <player.flag[profesion].size> == 1 && <player.flag[profesion].as_list> !contains Alquimista {
+            - ^if <player.jobs[<player.flag[profesion].get[1]>].xp.level> >= 25 {
+              - ^actionbar "<blue>Eudes: <yellow>Bienvenido al taller de Alquimia <gold><player.name>"
+              - ^wait
+              - ^actionbar "<blue>Eudes: <yellow>Ahora puedes Unirte al Taller, te gustaria?"
+              - ^queue clear
+              } else {
+              - ^actionbar "<blue>Eudes: <yellow>Bienvenido al taller de Alquimia <gold><player.name>"
+              - ^wait
+              - ^actionbar "<blue>Eudes: <yellow>Cuando seas Nivel 25 de <player.flag[profesion].get[1]>"
+              - ^wait
+              - ^actionbar "<blue>Eudes: <yellow>podras unirte al taller de Alquimia"
+              - ^queue clear
+              }
 #Mencion de profesiones
-            } else if <player.flag[profesion].as_list> contains Alquimista && <player.flag[qprofStatus]> != oncd {
-            - ^actionbar "<blue>Eudes: <yellow>Tienes una mision <gold><player.name>"
+            } else if <player.flag[profesion].size> == 1 && <player.flag[profesion].as_list> contains Alquimista && <player.has_flag[qprofStatusalquimia].not> {
+            - ^actionbar "<blue>Eudes: <yellow>Tienes una mision nueva <gold><player.name>"
+            - ^wait 1
             - ^run 's@profcheckcount'
             - ^queue clear
-            } else if <player.flag[profesion].as_list> contains Alquimista && <player.flag[qprofStatus]> == oncd {
+            } else if <player.flag[profesion].size> == 1 && <player.flag[profesion].as_list> contains Alquimista && <player.has_flag[qprofStatusalquimia]> {
             - ^actionbar "<blue>Eudes: <yellow>Bienvenido al taller <gold><player.name>"
             - ^queue clear
+            } else if <player.flag[profesion].size> == 2 && <player.flag[profesion].as_list> !contains Alquimista {
+            - ^if <player.jobs[<player.flag[profesion].get[1]>].xp.level> >= 50 && <player.jobs[<player.flag[profesion].get[2]>].xp.level> >= 50 {
+              - ^actionbar "<blue>Eudes: <yellow>Bienvenido al taller de Alquimia <gold><player.name>"
+              - ^wait
+              - ^actionbar "<blue>Eudes: <yellow>Ahora puedes Unirte al Taller, te gustaria?"
+              - ^queue clear
+              } else {
+              - ^actionbar "<blue>Eudes: <yellow>Bienvenido al taller de Alquimia <gold><player.name>"
+              - ^wait
+              - ^actionbar "<blue>Eudes: <yellow>Cuando seas Nivel 50 de <player.flag[profesion].get[1]> y <player.flag[profesion].get[2]>"
+              - ^wait
+              - ^actionbar "<blue>Eudes: <yellow>podras unirte al taller de Alquimia"
+              - ^queue clear
+              }
+            } else if <player.flag[profesion].size> == 3 && <player.flag[profesion].as_list> !contains Alquimista {
+            - ^if <player.jobs[<player.flag[profesion].get[1]>].xp.level> >= 100 && <player.jobs[<player.flag[profesion].get[2]>].xp.level> >= 100 && <player.jobs[<player.flag[profesion].get[3]>].xp.level> >= 100 {
+              - ^actionbar "<blue>Eudes: <yellow>Bienvenido al taller de Alquimia <gold><player.name>"
+              - ^wait
+              - ^actionbar "<blue>Eudes: <yellow>Ahora puedes Unirte al Taller, te gustaria?"
+              - ^queue clear
+              } else {
+              - ^actionbar "<blue>Eudes: <yellow>Bienvenido al taller de Alquimia <gold><player.name>"
+              - ^wait
+              - ^actionbar "<blue>Eudes: <yellow>Cuando seas Nivel 100 de <player.flag[profesion].get[1]>, <player.flag[profesion].get[2]> y <player.flag[profesion].get[3]>"
+              - ^wait
+              - ^actionbar "<blue>Eudes: <yellow>podras unirte al taller de Alquimia"
+              - ^queue clear
+              }
             }
+            # <player.jobs[<player.flag[profesion].get[1]>].xp.level>
       click trigger:
         Script:
           - ^if <player.has_flag[profesion].not> {
@@ -116,7 +157,7 @@ Eudesevents:
     - ^inventory close d:in@inv_eudes
     - ^execute as_op "jobs fireall <player.name>" silent
     - ^execute as_op "jobs employ <player.name> Alquimista" silent
-    - ^flag <player> profesion:Alquimista
+    - ^flag <player> profesion:->:Alquimista
     - ^flag <player> qprofStatus:!
     - ^run 's@profquestsrandomeudes'
     - ^queue clear
@@ -160,6 +201,7 @@ Eudesevents:
     - ^flag <player> cursordata:<context.cursor_item.material.data>
     - ^flag <player> cursoridqty:<context.cursor_item.quantity>
     - ^flag <player> profinv:inv_eudes_ok
+    - ^flag <player> proforigin:alquimia
     - ^run 's@countprofq'
     - ^DETERMINE cancelled
     - ^queue clear

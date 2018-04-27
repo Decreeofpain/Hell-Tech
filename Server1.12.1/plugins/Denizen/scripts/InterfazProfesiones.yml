@@ -79,7 +79,8 @@ countprofq:
           - ^execute as_op "jobs grantxp <player.name> <player.flag[profesion]> <yaml[<player.name>].read[misionprof.xpreward]>" silent
           - ^title "title:<yellow>Mision completada" "subtitle:<green>Regresa en 10 minutos por otra!" stay:5s
         # Agregar los minutos a 10
-          - ^flag <player> qprofStatus:oncd duration:10m
+          - ^flag <player> qprofStatus<player.flag[proforigin]>:oncd duration:10m
+          - ^flag <player> proforigin:!
           - ^yaml savefile:personal/<player.name>.yml id:<player.name>
           }
         } else if <yaml[<player.name>].read[misionprof.cant]> <= 0 {
@@ -87,7 +88,8 @@ countprofq:
         - ^inventory close
         - ^title "title:<yellow>Mision completada" "subtitle:<green>Regresa en 10 minutos por otra!" stay:5s
         # Agregar los minutos a 10
-        - ^flag <player> qprofStatus:oncd duration:10m
+        - ^flag <player> qprofStatus<player.flag[proforigin]>:oncd duration:10m
+        - ^flag <player> proforigin:!
         - ^yaml savefile:personal/<player.name>.yml id:<player.name>
         }
       } else {
@@ -98,7 +100,7 @@ countprofq:
     - ^flag <player> questprofdata:!
     - ^flag <player> profinv:!
     - ^yaml unload id:<player.name>
-  
+
 countprofqlore:
     type: task
     script:
@@ -120,7 +122,8 @@ countprofqlore:
           - ^give money quantity:<yaml[<player.name>].read[misionprof.reward]>
           - ^title "title:<yellow>Mision completada" "subtitle:<green>Regresa en 10 minutos por otra!" stay:5s
         # Agregar los minutos a 10
-          - ^flag <player> qprofStatus:oncd duration:10m
+          - ^flag <player> qprofStatus<player.flag[proforigin]>:oncd duration:10m
+          - ^flag <player> proforigin:!
           - ^yaml savefile:personal/<player.name>.yml id:<player.name>
           }
         } else if <yaml[<player.name>].read[misionprof.cant]> <= 0 {
@@ -128,7 +131,8 @@ countprofqlore:
         - ^inventory close
         - ^title "title:<yellow>Mision completada" "subtitle:<green>Regresa en 10 minutos por otra!" stay:5s
         # Agregar los minutos a 10
-        - ^flag <player> qprofStatus:oncd duration:10m
+        - ^flag <player> qprofStatus<player.flag[proforigin]>:oncd duration:10m
+        - ^flag <player> proforigin:!
         - ^yaml savefile:personal/<player.name>.yml id:<player.name>
         }
       } else {
