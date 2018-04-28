@@ -82,35 +82,105 @@
           radius: 4
           Script:
           - ^if <player.has_flag[profesion].not> {
-            - ^actionbar "<blue>Hann: <yellow>Bienvenido al taller de Construccion <gold><player.name>"
+            - ^actionbar "<blue>Haan: <yellow>Necesitamos topos, digo perdon... mineros <gold><player.name>"
             - ^wait
-            - ^actionbar "<blue>Hann: <yellow>te interesaria ganar almakos consiguiendo minerales?"
+            - ^actionbar "<blue>Haan: <yellow>si quieres ser explotado en la mina"
+            - ^wait
+            - ^actionbar "<blue>Haan: <yellow>No se diga mas..."
             - ^queue clear
-            } else if <player.flag[profesion].as_list> !contains Minero && <player.has_flag[profesion]> {
-            - ^actionbar "<blue>Hann: <yellow>te interesaria ganar almakos consiguiendo minerales?"
-            - ^queue clear
-#Mencion de profesiones
-            } else if <player.flag[profesion].as_list> contains Minero && <player.flag[qprofStatus]> != oncd {
-            - ^actionbar "<blue>Hann: <yellow>Tienes una mision <gold><player.name>"
+            } else if <player.flag[profesion].size> == 1 && <player.flag[profesion].as_list> !contains Minero {
+            - ^if <player.jobs[<player.flag[profesion].get[1]>].xp.level> >= 25 {
+              - ^actionbar "<blue>Haan: <yellow>Hey tu <gold><player.name>"
+              - ^wait
+              - ^actionbar "<blue>Haan: <yellow>Quieres picar piedra toda tu vida?"
+              - ^wait
+              - ^actionbar "<blue>Haan: <yellow>Tenemos un pico para ti hahaha"
+              - ^queue clear
+              } else {
+              - ^actionbar "<blue>Haan: <yellow>Eres lento <gold><player.name>..."
+              - ^wait
+              - ^actionbar "<blue>Haan: <yellow>Tienes que ser nivel 25 de <player.flag[profesion].get[1]>?"
+              - ^wait
+              - ^actionbar "<blue>Haan: <yellow>ve a subir tu maldita profesion"
+              - ^queue clear
+              }
+      #Mencion de profesiones
+            } else if <player.flag[profesion].size> == 1 && <player.flag[profesion].as_list> contains Minero && <player.has_flag[qprofStatusmineria].not> {
+            - ^actionbar "<blue>Haan: <yellow>Atiende tus mugres misiones <gold><player.name><yellow>..."
+            - ^wait 1
             - ^run 's@profcheckcount'
             - ^queue clear
-            } else if <player.flag[profesion].as_list> contains Minero && <player.flag[qprofStatus]> == oncd {
-            - ^actionbar "<blue>Hann: <yellow>Bienvenido al taller <gold><player.name>"
+            } else if <player.flag[profesion].size> == 1 && <player.flag[profesion].as_list> contains Minero && <player.has_flag[qprofStatusmineria]> {
+            - ^actionbar "<blue>Haan: <yellow>Hey..."
+            - ^wait
+            - ^actionbar "<blue>Haan: <yellow>Todo bien <gold><player.name>... ya traes lo de la mision?"
+            - ^queue clear
+            } else if <player.flag[profesion].size> == 2 && <player.flag[profesion].as_list> !contains Minero {
+            - ^if <player.jobs[<player.flag[profesion].get[1]>].xp.level> >= 50 && <player.jobs[<player.flag[profesion].get[2]>].xp.level> >= 50 {
+              - ^actionbar "<blue>Haan: <yellow>Hey <gold><player.name>!"
+              - ^wait
+              - ^actionbar "<blue>Haan: <yellow>te guarde un pico hahaha"
+              - ^wait
+              - ^actionbar "<blue>Haan: <yellow>Ya listo para picar piedra en cantidades industriales?"
+              - ^queue clear
+              } else {
+              - ^actionbar "<blue>Haan: <yellow>Maldicion valla que eres lento <gold><player.name>"
+              - ^wait
+              - ^actionbar "<blue>Haan: <yellow>aun no puedes ser nivel 50 de <player.flag[profesion].get[1]> y <player.flag[profesion].get[2]>"
+              - ^wait
+              - ^actionbar "<blue>Haan: <yellow>Fuera de aqui regresa cuando estes listo..."
+              - ^queue clear
+              }
+            } else if <player.flag[profesion].size> == 2 && <player.flag[profesion].as_list> contains Minero && <player.has_flag[qprofStatusmineria].not> {
+            - ^actionbar "<blue>Haan: <yellow>Ven aca <gold><player.name> <yellow>tienes mucha piedra que picar haha"
+            - ^wait 1
+            - ^run 's@profcheckcount'
+            - ^queue clear
+            } else if <player.flag[profesion].size> == 3 && <player.flag[profesion].as_list> !contains Minero {
+            - ^if <player.jobs[<player.flag[profesion].get[1]>].xp.level> >= 100 && <player.jobs[<player.flag[profesion].get[2]>].xp.level> >= 100 && <player.jobs[<player.flag[profesion].get[3]>].xp.level> >= 100 {
+              - ^actionbar "<blue>Haan: <yellow>Quieres comprar puros <gold><player.name>?"
+              - ^wait
+              - ^actionbar "<blue>Haan: <yellow>Porque solo hay picos hahahaha"
+              - ^queue clear
+              } else {
+              - ^actionbar "<blue>Haan: <yellow>Te perdiste <gold><player.name>?"
+              - ^wait
+              - ^actionbar "<blue>Haan: <yellow>Cuando seas Nivel 100 de <player.flag[profesion].get[1]>, <player.flag[profesion].get[2]> y <player.flag[profesion].get[3]>"
+              - ^wait
+              - ^actionbar "<blue>Haan: <yellow>regresa maldito y quiza me apiade de ti."
+              - ^queue clear
+              }
+            } else if <player.flag[profesion].size> == 3 && <player.flag[profesion].as_list> contains Minero && <player.has_flag[qprofStatusmineria].not> {
+            - ^actionbar "<blue>Haan: <yellow>Hey mula tienes misiones, digo <gold><player.name> <yellow>hahaha"
+            - ^wait 1
+            - ^run 's@profcheckcount'
             - ^queue clear
             }
       click trigger:
         Script:
           - ^if <player.has_flag[profesion].not> {
-            - ^inventory open d:in@inv_hann
+            - ^inventory open d:in@inv_haan
             - ^queue clear
-            } else if <player.flag[profesion].as_list> !contains Minero && <player.has_flag[profesion]> {
-            - ^inventory open d:in@inv_hann
-            - ^queue clear
+            } else if <player.flag[profesion].as_list> !contains Minero && <player.has_flag[profesion]> && <player.flag[profesion].size> == 1 {
+            - ^if <player.jobs[<player.flag[profesion].get[1]>].xp.level> >= 25 {
+              - ^inventory open d:in@inv_hann_ok
+              - ^queue clear
+              }
+            } else if <player.flag[profesion].as_list> !contains Minero && <player.has_flag[profesion]> && <player.flag[profesion].size> == 2 {
+            - ^if <player.jobs[<player.flag[profesion].get[1]>].xp.level> >= 50 && <player.jobs[<player.flag[profesion].get[2]>].xp.level> >= 50 {
+              - ^inventory open d:in@inv_hann_ok
+              - ^queue clear
+              }
+            } else if <player.flag[profesion].as_list> !contains Minero && <player.has_flag[profesion]> && <player.flag[profesion].size> == 3 {
+            - ^if <player.jobs[<player.flag[profesion].get[1]>].xp.level> >= 100 && <player.jobs[<player.flag[profesion].get[2]>].xp.level> >= 100 && <player.jobs[<player.flag[profesion].get[3]>].xp.level> >= 100 {
+              - ^inventory open d:in@inv_hann_ok
+              - ^queue clear
+              }
             } else if <player.flag[profesion].as_list> contains Minero {
-            - ^if <player.has_flag[qprofStatus].not> {
+            - ^if <player.has_flag[qprofStatusmineria].not> {
               - ^run 's@profquestsrandomhann'
               - ^queue clear
-              } else if <player.flag[qprofStatus]> != oncd {
+              } else if <player.has_flag[qprofStatusmineria].not> {
               - ^yaml load:personal/<player.name>.yml id:<player.name>
               - ^flag <player> questprofcant:<yaml[<player.name>].read[misionprof.cant]>
               - ^flag <player> questproftarjet:<yaml[<player.name>].read[misionprof.obj]>
@@ -121,8 +191,8 @@
               - ^flag <player> questprofdata:!
               - ^yaml unload id:<player.name>
               - ^queue clear
-              } else if <player.flag[qprofStatus]> == oncd {
-              - ^title "title:<yellow><player.name>" "subtitle:<green>Regresa en <player.flag[qprofStatus].expiration.in_seconds.asint> segundos por otra mision!" stay:5s
+              } else if <player.has_flag[qprofStatusmineria]> {
+              - ^title "title:<yellow><player.name>" "subtitle:<green>Regresa en <player.flag[qprofStatusmineria].expiration.in_seconds.asint> segundos por otra mision!" stay:5s
               - ^queue clear
               }
             }
@@ -371,7 +441,6 @@ profquestsrandomhann:
     - ^flag <player> questprofdata:!
     - ^yaml savefile:personal/<player.name>.yml id:<player.name>
     - ^yaml unload id:<player.name>
-    - ^flag <player> qprofStatus:on
     - ^yaml unload id:<player.name>profmin
     - ^queue clear
 

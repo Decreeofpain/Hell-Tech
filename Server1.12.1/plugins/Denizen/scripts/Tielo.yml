@@ -26,35 +26,103 @@
           radius: 4
           Script:
           - ^if <player.has_flag[profesion].not> {
-            - ^actionbar "<blue>Tielo: <yellow>Bienvenido al Establo <gold><player.name>"
+            - ^actionbar "<blue>Tielo: <yellow>Hey tu! malnacido... eres <gold><player.name> <yellow>no?"
             - ^wait
-            - ^actionbar "<blue>Tielo: <yellow>te interesaria ganar almakos en el establo?"
+            - ^actionbar "<blue>Tielo: <yellow>Dejan de ser un bueno para nada"
+            - ^wait
+            - ^actionbar "<blue>Tielo: <yellow>Aqui ocuapmos Ganaderos, que esperas!"
             - ^queue clear
-            } else if <player.flag[profesion].as_list> !contains Ganadero && <player.has_flag[profesion]> {
-            - ^actionbar "<blue>Tielo: <yellow>te interesaria ganar almakos en el establo?"
-            - ^queue clear
-#Mencion de profesiones
-            } else if <player.flag[profesion].as_list> contains Ganadero && <player.flag[qprofStatus]> != oncd {
-            - ^actionbar "<blue>Tielo: <yellow>Tienes una mision <gold><player.name>"
+            } else if <player.flag[profesion].size> == 1 && <player.flag[profesion].as_list> !contains Ganadero {
+            - ^if <player.jobs[<player.flag[profesion].get[1]>].xp.level> >= 25 {
+              - ^actionbar "<blue>Tielo: <yellow>Maldita sea es... <gold><player.name>"
+              - ^wait
+              - ^actionbar "<blue>Tielo: <yellow>Ejem... quieres ser Ganadero o si no Largo!"
+              - ^queue clear
+              } else {
+              - ^actionbar "<blue>Tielo: <yellow>Veamos <gold><player.name>..."
+              - ^wait
+              - ^actionbar "<blue>Tielo: <yellow>Aun no eres nivel 25 de <player.flag[profesion].get[1]>?"
+              - ^wait
+              - ^actionbar "<blue>Tielo: <yellow>largo de aqui! regresa cuando seas un poco menos manco..."
+              - ^queue clear
+              }
+      #Mencion de profesiones
+            } else if <player.flag[profesion].size> == 1 && <player.flag[profesion].as_list> contains Ganadero && <player.has_flag[qprofStatusganaderia].not> {
+            - ^actionbar "<blue>Tielo: <yellow>Maldita sea <gold><player.name><yellow>! tienes misiones..."
+            - ^wait 1
             - ^run 's@profcheckcount'
             - ^queue clear
-            } else if <player.flag[profesion].as_list> contains Ganadero && <player.flag[qprofStatus]> == oncd {
-            - ^actionbar "<blue>Tielo: <yellow>Bienvenido al establo <gold><player.name>"
+            } else if <player.flag[profesion].size> == 1 && <player.flag[profesion].as_list> contains Ganadero && <player.has_flag[qprofStatusganaderia]> {
+            - ^actionbar "<blue>Tielo: <yellow>Hmmm..."
+            - ^wait
+            - ^actionbar "<blue>Tielo: <yellow>ah si! hola <gold><player.name>..."
+            - ^queue clear
+            } else if <player.flag[profesion].size> == 2 && <player.flag[profesion].as_list> !contains Ganadero {
+            - ^if <player.jobs[<player.flag[profesion].get[1]>].xp.level> >= 50 && <player.jobs[<player.flag[profesion].get[2]>].xp.level> >= 50 {
+              - ^actionbar "<blue>Tielo: <yellow>Otra ves tu?"
+              - ^wait
+              - ^actionbar "<blue>Tielo: <yellow>ahora si ayudaras aqui en el establo <gold><player.name>?"
+              - ^wait
+              - ^actionbar "<blue>Tielo: <yellow>Necesito quien recoja el estiercol hahaha"
+              - ^queue clear
+              } else {
+              - ^actionbar "<blue>Tielo: <yellow>Una mula... a no es <gold><player.name>"
+              - ^wait
+              - ^actionbar "<blue>Tielo: <yellow>hahahaha regresa cuando seas nivel 50 de <player.flag[profesion].get[1]> y <player.flag[profesion].get[2]>"
+              - ^wait
+              - ^actionbar "<blue>Tielo: <yellow>Ahora largo, asustas a las mulas hahaha"
+              - ^queue clear
+              }
+            } else if <player.flag[profesion].size> == 2 && <player.flag[profesion].as_list> contains Ganadero && <player.has_flag[qprofStatusganaderia].not> {
+            - ^actionbar "<blue>Tielo: <yellow>Ven aca maldito <gold><player.name> <yellow>tienes misiones"
+            - ^wait 1
+            - ^run 's@profcheckcount'
+            - ^queue clear
+            } else if <player.flag[profesion].size> == 3 && <player.flag[profesion].as_list> !contains Ganadero {
+            - ^if <player.jobs[<player.flag[profesion].get[1]>].xp.level> >= 100 && <player.jobs[<player.flag[profesion].get[2]>].xp.level> >= 100 && <player.jobs[<player.flag[profesion].get[3]>].xp.level> >= 100 {
+              - ^actionbar "<blue>Tielo: <yellow>Ahora si verdad, nos dejas al ultimo <gold><player.name>"
+              - ^wait
+              - ^actionbar "<blue>Tielo: <yellow>Pues pasale a lo barrido"
+              - ^queue clear
+              } else {
+              - ^actionbar "<blue>Tielo: <yellow>Te perdiste <gold><player.name>?"
+              - ^wait
+              - ^actionbar "<blue>Tielo: <yellow>Cuando seas Nivel 100 de <player.flag[profesion].get[1]>, <player.flag[profesion].get[2]> y <player.flag[profesion].get[3]>"
+              - ^wait
+              - ^actionbar "<blue>Tielo: <yellow>regresa maldito y quiza me apiade de ti."
+              - ^queue clear
+              }
+            } else if <player.flag[profesion].size> == 3 && <player.flag[profesion].as_list> contains Ganadero && <player.has_flag[qprofStatusganaderia].not> {
+            - ^actionbar "<blue>Tielo: <yellow>Hey mula tienes misiones, digo <gold><player.name> <yellow>hahaha"
+            - ^wait 1
+            - ^run 's@profcheckcount'
             - ^queue clear
             }
       click trigger:
         Script:
           - ^if <player.has_flag[profesion].not> {
-            - ^inventory open d:in@inv_tielo
+            - ^inventory open d:in@inv_Tielo
             - ^queue clear
-            } else if <player.flag[profesion].as_list> !contains Ganadero && <player.has_flag[profesion]> {
-            - ^inventory open d:in@inv_tielo
-            - ^queue clear
+            } else if <player.flag[profesion].as_list> !contains Ganadero && <player.has_flag[profesion]> && <player.flag[profesion].size> == 1 {
+            - ^if <player.jobs[<player.flag[profesion].get[1]>].xp.level> >= 25 {
+              - ^inventory open d:in@inv_tielo_ok
+              - ^queue clear
+              }
+            } else if <player.flag[profesion].as_list> !contains Ganadero && <player.has_flag[profesion]> && <player.flag[profesion].size> == 2 {
+            - ^if <player.jobs[<player.flag[profesion].get[1]>].xp.level> >= 50 && <player.jobs[<player.flag[profesion].get[2]>].xp.level> >= 50 {
+              - ^inventory open d:in@inv_tielo_ok
+              - ^queue clear
+              }
+            } else if <player.flag[profesion].as_list> !contains Ganadero && <player.has_flag[profesion]> && <player.flag[profesion].size> == 3 {
+            - ^if <player.jobs[<player.flag[profesion].get[1]>].xp.level> >= 100 && <player.jobs[<player.flag[profesion].get[2]>].xp.level> >= 100 && <player.jobs[<player.flag[profesion].get[3]>].xp.level> >= 100 {
+              - ^inventory open d:in@inv_tielo_ok
+              - ^queue clear
+              }
             } else if <player.flag[profesion].as_list> contains Ganadero {
-            - ^if <player.has_flag[qprofStatus].not> {
+            - ^if <player.has_flag[qprofStatusganaderia].not> {
               - ^run 's@profquestsrandomtielo'
               - ^queue clear
-              } else if <player.flag[qprofStatus]> != oncd {
+              } else if <player.has_flag[qprofStatusganaderia].not> {
               - ^yaml load:personal/<player.name>.yml id:<player.name>
               - ^flag <player> questprofcant:<yaml[<player.name>].read[misionprof.cant]>
               - ^flag <player> questproftarjet:<yaml[<player.name>].read[misionprof.obj]>
@@ -65,8 +133,8 @@
               - ^flag <player> questprofdata:!
               - ^yaml unload id:<player.name>
               - ^queue clear
-              } else if <player.flag[qprofStatus]> == oncd {
-              - ^title "title:<yellow><player.name>" "subtitle:<green>Regresa en <player.flag[qprofStatus].expiration.in_seconds.asint> segundos por otra mision!" stay:5s
+              } else if <player.has_flag[qprofStatusganaderia]> {
+              - ^title "title:<yellow><player.name>" "subtitle:<green>Regresa en <player.flag[qprofStatusganaderia].expiration.in_seconds.asint> segundos por otra mision!" stay:5s
               - ^queue clear
               }
             }
@@ -227,7 +295,6 @@ profquestsrandomtielo:
     - ^flag <player> questprofdata:!
     - ^yaml savefile:personal/<player.name>.yml id:<player.name>
     - ^yaml unload id:<player.name>
-    - ^flag <player> qprofStatus:on
     - ^yaml unload id:<player.name>profgnr
     - ^queue clear
 
