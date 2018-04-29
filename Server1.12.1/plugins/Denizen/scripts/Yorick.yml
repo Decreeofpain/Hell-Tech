@@ -27,69 +27,130 @@
         entry:
           radius: 4
           Script:
+          - ^if <player.flag[misiones].as_list> !contains mesmadera && <server.flag[capitulos].as_list> !contains mdrmesok && <server.flag[capitulos].as_list> contains pdamesok {
+            - ^flag <player> misiones:->:mesmadera
+            - ^run 's@bookrecmeslajho2'
+            - ^bossbar remove obj<player.name>
+            - ^define objetivo "<green>Ayuda a conseguir toda la madera que Yorick te pida"
+            - ^flag <player> objetivo:<def[objetivo]>
+            - ^bossbar obj<player.name> players:<player> "title:<player.flag[objetivo]>" color:BLUE
+            - ^compass <npc.location.simple> npc:100
+            - ^define objloc "<npc.location.simple>" npc:100
+            - ^flag <player> objloc:<def[objloc]>
+            - ^queue clear
+            } else if <player.flag[misiones].as_list> contains mesmadera && <server.flag[capitulos].as_list> !contains mdrmesok {
+            - ^random 6
+            - ^actionbar '<aqua>Yorick:<yellow> Entra al bosque y trae madera <red><player.name>'
+            - ^actionbar '<aqua>Yorick:<yellow> Trae unos trocos de madera'
+            - ^actionbar '<aqua>Yorick:<yellow> Apurate necesitamos mas madera'
+            - ^actionbar '<aqua>Yorick:<yellow> Vamos, muevete, tre la madera maldicion'
+            - ^actionbar '<aqua>Yorick:<yellow> Tan dificil es traer madera?'
+            - ^actionbar '<aqua>Yorick:<yellow> Vamos esclavos traiganme madera ahahaha'
+            - ^queue clear
+            } else if <player.flag[misiones].as_list> contains mesmadera && <server.flag[capitulos].as_list> contains mdrmesok && <server.flag[capitulos].as_list> !contains mesreconstruido {
+            - ^title "subtitle:<aqua>Yorick: <yellow>Por fin recolectamos todo ve con <red>Alvar <yellow>a la taberna!"
+            - ^bossbar remove obj<player.name>
+            - ^define objetivo "<green>Busca a <aqua>Alvar <green>en la Taberna"
+            - ^flag <player> objetivo:<def[objetivo]>
+            - ^bossbar obj<player.name> players:<player> "title:<player.flag[objetivo]>" color:BLUE
+            - ^compass <npc.location.simple> npc:100
+            - ^define objloc "<npc.location.simple>" npc:100
+            - ^flag <player> objloc:<def[objloc]>
+            }
+      click trigger:
+        Script:
+        - ^if <player.flag[misiones].as_list> contains mesmadera && <server.flag[capitulos].as_list> !contains mdrmesok {
+          - ^yaml load:capitulos/capitulo1.yml id:capitulo<player.name>
+          - ^inventory open d:in@inv_yorick_meslajho
+          - ^yaml unload id:capitulo<player.name>
+          - ^queue clear
+          }
+
+'yorickscript':
+  Type: Interact
+#  Requirements:
+#    Mode: all
+#    List:
+#    - valueof <player.flag[progreso].contains[conducta_ok]>
+  Steps:
+    '1':
+      proximity trigger:
+        entry:
+          radius: 4
+          Script:
           - ^if <player.has_flag[profesion].not> {
-            - ^actionbar "<blue>Yorick: <yellow>Bienvenido al Aserradero <gold><player.name>"
+            - ^title "subtitle:<blue>Yorick: <yellow>Que clase de nombre es <gold><player.name><yellow>..." stay:2s
             - ^wait
-            - ^actionbar "<blue>Yorick: <yellow>Quieres ganar Almakos con madera?"
+            - ^title "subtitle:<yellow>en fin da igual, quieres trabajar aqui?" stay:2s
+            - ^wait
+            - ^title "subtitle:<yellow>o si no largo de aqui maldita sea..." stay:2s
             - ^queue clear
             } else if <player.flag[profesion].size> == 1 && <player.flag[profesion].as_list> !contains Carpintero {
             - ^if <player.jobs[<player.flag[profesion].get[1]>].xp.level> >= 25 {
-              - ^actionbar "<blue>Yorick: <yellow>Bienvenido al Aserradero <gold><player.name>"
+              - ^title "subtitle:<blue>Yorick: <yellow>Quieres talar arboles?"
               - ^wait
-              - ^actionbar "<blue>Yorick: <yellow>Ya puedes unirte a esta profesion"
+              - ^title "subtitle:<yellow>Tenemos una plaga de arboles"
+              - ^wait
+              - ^title "subtitle:<yellow>tienes que talarlos todos hahaha"
               - ^queue clear
               } else {
-              - ^actionbar "<blue>Yorick: <yellow>Bienvenido al Aserradero <gold><player.name>"
+              - ^title "subtitle:<blue>Yorick: <yellow>Que quieres <gold><player.name>..."
               - ^wait
-              - ^actionbar "<blue>Yorick: <yellow>Cuando seas Nivel 25 de <player.flag[profesion].get[1]>"
+              - ^title "subtitle:<yellow>No eres Nivel 25 de <player.flag[profesion].get[1]>"
               - ^wait
-              - ^actionbar "<blue>Yorick: <yellow>podras unirte al Aserradero."
+              - ^title "subtitle:<yellow>Shuu Shu... ensucias el lugar!"
               - ^queue clear
               }
       #Mencion de profesiones
             } else if <player.flag[profesion].size> == 1 && <player.flag[profesion].as_list> contains Carpintero && <player.has_flag[qprofStatuscarpinteria].not> {
-            - ^actionbar "<blue>Yorick: <yellow>Tienes una mision nueva <gold><player.name>"
+            - ^title "subtitle:<blue>Yorick: <yellow>Hey <gold><player.name>!"
+            - ^wait
+            - ^title "subtitle:<yellow>Ya traes lo de la mision?"
             - ^wait 1
             - ^run 's@profcheckcount'
             - ^queue clear
             } else if <player.flag[profesion].size> == 1 && <player.flag[profesion].as_list> contains Carpintero && <player.has_flag[qprofStatuscarpinteria]> {
-            - ^actionbar "<blue>Yorick: <yellow>Bienvenido al Aserradero <gold><player.name>"
+            - ^title "subtitle:<blue>Yorick: <yellow>Bienvenido al Aserradero <gold><player.name>"
             - ^queue clear
             } else if <player.flag[profesion].size> == 2 && <player.flag[profesion].as_list> !contains Carpintero {
             - ^if <player.jobs[<player.flag[profesion].get[1]>].xp.level> >= 50 && <player.jobs[<player.flag[profesion].get[2]>].xp.level> >= 50 {
-              - ^actionbar "<blue>Yorick: <yellow>Bienvenido al Aserradero <gold><player.name>"
+              - ^title "subtitle:<blue>Yorick: <yellow>Ahora si <gold><player.name>?"
               - ^wait
-              - ^actionbar "<blue>Yorick: <yellow>Ya puedes unirte a esta profesion"
+              - ^title "subtitle:<yellow>Ya seras Carpintero..."
               - ^queue clear
               } else {
-              - ^actionbar "<blue>Yorick: <yellow>Bienvenido al Aserradero <gold><player.name>"
+              - ^title "subtitle:<blue>Yorick: <yellow>Caray <gold><player.name>!"
               - ^wait
-              - ^actionbar "<blue>Yorick: <yellow>Cuando seas Nivel 50 de <player.flag[profesion].get[1]> y <player.flag[profesion].get[2]>"
+              - ^title "subtitle:<yellow>Nivel 50 de tus profesiones maldita sea..."
               - ^wait
-              - ^actionbar "<blue>Yorick: <yellow>podras usar esta profesion"
+              - ^title "subtitle:<yellow><player.flag[profesion].get[1]> y <player.flag[profesion].get[2]>"
+              - ^wait
+              - ^title "subtitle:<yellow>Ahora largate de aqui."
               - ^queue clear
               }
             } else if <player.flag[profesion].size> == 2 && <player.flag[profesion].as_list> contains Carpintero && <player.has_flag[qprofStatuscarpinteria].not> {
-            - ^actionbar "<blue>Yorick: <yellow>Tienes una mision nueva <gold><player.name>"
+            - ^title "subtitle:<blue>Yorick: <yellow>Ya vienes a completar la mison?"
             - ^wait 1
             - ^run 's@profcheckcount'
             - ^queue clear
             } else if <player.flag[profesion].size> == 3 && <player.flag[profesion].as_list> !contains Carpintero {
             - ^if <player.jobs[<player.flag[profesion].get[1]>].xp.level> >= 100 && <player.jobs[<player.flag[profesion].get[2]>].xp.level> >= 100 && <player.jobs[<player.flag[profesion].get[3]>].xp.level> >= 100 {
-              - ^actionbar "<blue>Yorick: <yellow>Bienvenido al Aserradero <gold><player.name>"
+              - ^title "subtitle:<blue>Yorick: <yellow>Bienvenido <gold><player.name>!"
               - ^wait
-              - ^actionbar "<blue>Yorick: <yellow>Ya puedes unirte a esta profesion"
+              - ^title "subtitle:<yellow>Ya puedes unirte a esta profesion"
               - ^queue clear
               } else {
-              - ^actionbar "<blue>Yorick: <yellow>Bienvenido al Aserradero <gold><player.name>"
+              - ^title "subtitle:<blue>Yorick: <yellow>No! <gold><player.name><yellow> no..."
               - ^wait
-              - ^actionbar "<blue>Yorick: <yellow>Cuando seas Nivel 100 de <player.flag[profesion].get[1]>, <player.flag[profesion].get[2]> y <player.flag[profesion].get[3]>"
+              - ^title "subtitle:<yellow>debes ser nivel 100 en todo!"
               - ^wait
-              - ^actionbar "<blue>Yorick: <yellow>podras unirte a esta profesion"
+              - ^title "subtitle:<yellow><player.flag[profesion].get[1]>, <player.flag[profesion].get[2]> y <player.flag[profesion].get[3]>"
+              - ^wait
+              - ^title "subtitle:<yellow>Cuando lo seas te contrato."
               - ^queue clear
               }
             } else if <player.flag[profesion].size> == 3 && <player.flag[profesion].as_list> contains Carpintero && <player.has_flag[qprofStatuscarpinteria].not> {
-            - ^actionbar "<blue>Yorick: <yellow>Tienes una mision nueva <gold><player.name>"
+            - ^title "subtitle:<blue>Yorick: <yellow>Tienes una mision nueva <gold><player.name>"
             - ^wait 1
             - ^run 's@profcheckcount'
             - ^queue clear
@@ -97,21 +158,21 @@
       click trigger:
         Script:
           - ^if <player.has_flag[profesion].not> {
-            - ^inventory open d:in@inv_Yorick
+            - ^inventory open d:in@inv_yorick
             - ^queue clear
             } else if <player.flag[profesion].as_list> !contains Carpintero && <player.has_flag[profesion]> && <player.flag[profesion].size> == 1 {
             - ^if <player.jobs[<player.flag[profesion].get[1]>].xp.level> >= 25 {
-              - ^inventory open d:in@inv_yorick_ok
+              - ^inventory open d:in@inv_yorick
               - ^queue clear
               }
             } else if <player.flag[profesion].as_list> !contains Carpintero && <player.has_flag[profesion]> && <player.flag[profesion].size> == 2 {
             - ^if <player.jobs[<player.flag[profesion].get[1]>].xp.level> >= 50 && <player.jobs[<player.flag[profesion].get[2]>].xp.level> >= 50 {
-              - ^inventory open d:in@inv_yorick_ok
+              - ^inventory open d:in@inv_yorick
               - ^queue clear
               }
             } else if <player.flag[profesion].as_list> !contains Carpintero && <player.has_flag[profesion]> && <player.flag[profesion].size> == 3 {
             - ^if <player.jobs[<player.flag[profesion].get[1]>].xp.level> >= 100 && <player.jobs[<player.flag[profesion].get[2]>].xp.level> >= 100 && <player.jobs[<player.flag[profesion].get[3]>].xp.level> >= 100 {
-              - ^inventory open d:in@inv_yorick_ok
+              - ^inventory open d:in@inv_yorick
               - ^queue clear
               }
             } else if <player.flag[profesion].as_list> contains Carpintero {
@@ -134,6 +195,7 @@
               - ^queue clear
               }
             }
+
 yorickevents:
   type: world
   events:
@@ -190,10 +252,8 @@ yorickevents:
     - ^inventory close d:in@inv_yorick
     on player clicks aceptarprof in inv_yorick:
     - ^inventory close d:in@inv_yorick
-    - ^execute as_op "jobs fireall <player.name>" silent
     - ^execute as_op "jobs employ <player.name> Carpintero" silent
     - ^flag <player> profesion:->:Carpintero
-    - ^flag <player> qprofStatus:!
     - ^run 's@profquestsrandomyorick'
     - ^queue clear
 
@@ -285,7 +345,7 @@ meslajhocountwood:
         - ^yaml id:capitulo<player.name> set meslajho.materiales.wood.cantidad:-:<player.flag[cursoridqty]>
         - ^yaml savefile:capitulos/capitulo1.yml id:capitulo<player.name>
         - ^inventory open d:in@inv_yorick_meslajho
-        - ^actionbar "<aqua>Yorick: <gray>Entregaste: <gold><player.flag[cursoridqty]> <dark_green>de madera"
+        - ^title "subtitle:<aqua>Yorick: <gray>Entregaste: <gold><player.flag[cursoridqty]> <dark_green>de madera"
         - if <yaml[capitulo<player.name>].read[meslajho.materiales.wood.cantidad]> <= 0 {
           - ^inventory close
           - ^yaml load:capitulos/global.yml id:global<player.name>
@@ -312,7 +372,7 @@ meslajhocountwood:
           }
         }
       } else {
-      - ^actionbar "<aqua>Yorick: <red>Eso no es la madera que ocupamos"
+      - ^title "subtitle:<aqua>Yorick: <red>Eso no es la madera que ocupamos"
       }
     - ^flag <player> cursorid:!
     - ^flag <player> cursoridqty:!
