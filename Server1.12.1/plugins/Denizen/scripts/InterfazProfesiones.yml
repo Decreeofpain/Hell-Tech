@@ -28,15 +28,15 @@ rechazarprof:
 
 infoquestprof:
   type: item
-  material: '<yaml[<player.name>].read[misionprof.obj]>,<yaml[<player.name>].read[misionprof.data]>'
+  material: '<player.flag[objID]>,<player.flag[objdatapro]>'
   lore:
   - ''
   - '<dark_green>Entregar <gold>-> <yellow>ID <green><player.flag[questproftarjet]>:<player.flag[questprofdata]>'
   - '<gold>Cantidad: <yellow><player.flag[questprofcant].asint>'
   - ''
   - '<green>Recompensas:'
-  - '<yellow><yaml[<player.name>].read[misionprof.reward]> <dark_purple>Almakos'
-  - '<yellow><yaml[<player.name>].read[misionprof.xpreward]> <dark_purple>Experiencia'
+  - '<yellow><player.flag[profreward]> <dark_purple>Almakos'
+  - '<yellow><player.flag[profrewardxp]> <dark_purple>Experiencia'
 
 #Tag para las pociones
 #<player.item_in_hand.potion_base.contains_text[speed]>

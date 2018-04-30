@@ -123,6 +123,7 @@
               - ^inventory open d:in@inv_eudes
               - ^queue clear
               }
+            - ^queue clear
             } else if <player.flag[profesion].as_list> contains Alquimista && <player.has_flag[profesion]> && <player.flag[profesion].size> == 1 {
             - ^if <player.jobs[<player.flag[profesion].get[1]>].xp.level> >= 25 {
               - ^inventory open d:in@inv_eudes
@@ -138,20 +139,14 @@
               - ^inventory open d:in@inv_eudes
               - ^queue clear
               }
-            } else if <player.flag[profesion].as_list> contains Alquimista {
-            - ^if <player.has_flag[qprofStatusalquimia].not> {
+            } else if <player.flag[profesion].as_list> contains Alquimista && <player.has_flag[profesion]> && <player.flag[profesion].size> == 4 {
+            - ^if <player.has_flag[qprofStatusalquimia].not> && <player.has_flag[AlquimiaON].not> {
               - ^run 's@profquestsrandomeudes'
-              - ^yaml load:personal/<player.name>.yml id:<player.name>
-              - ^flag <player> questprofcant:<yaml[<player.name>].read[misionprof.cant]>
-              - ^flag <player> questproftarjet:<yaml[<player.name>].read[misionprof.obj]>
-              - ^flag <player> questprofdata:<yaml[<player.name>].read[misionprof.data]>
-              - ^inventory open d:in@inv_eudes_ok
-              - ^flag <player> questprofcant:!
-              - ^flag <player> questproftarjet:!
-              - ^flag <player> questprofdata:!
-              - ^yaml unload id:<player.name>
               - ^queue clear
-              } else if <player.has_flag[qprofStatusalquimia]> {
+              } else if <player.has_flag[qprofStatusalquimia].not> && <player.has_flag[AlquimiaON]> {
+              - ^run 's@profquestscheckeudes'
+              - ^queue clear
+              } else {
               - ^title "title:<yellow><player.name>" "subtitle:<green>Regresa en <player.flag[qprofStatusalquimia].expiration.in_seconds.asint> segundos por otra mision!" stay:5s
               - ^queue clear
               }
@@ -282,22 +277,53 @@ profquestsrandomeudes:
       - ^define questprofcant <def[questconteo]>
       }
     - ^yaml load:personal/<player.name>.yml id:<player.name>
-    - ^yaml id:<player.name> set misionprof.cant:<def[questprofcant]>
-    - ^yaml id:<player.name> set misionprof.reward:<math.asint:<def[questprofcant]>*<def[questidalmakos]>>
-    - ^yaml id:<player.name> set misionprof.xpreward:<math.asint:<def[questprofcant]>*<def[questidexp]>>
-    - ^yaml id:<player.name> set misionprof.xpid:<def[questidexp]>
-    - ^yaml id:<player.name> set misionprof.obj:<def[questidmaterial]>
-    - ^yaml id:<player.name> set misionprof.data:<yaml[<player.name>profalq].read[alquimia.<def[questprof]>.data]>
-    - ^flag <player> questprofcant:<def[questprofcant]>
-    - ^flag <player> questproftarjet:<def[questidmaterial]>
-    - ^flag <player> questprofdata:<yaml[<player.name>profalq].read[alquimia.<def[questprof]>.data]>
+    - ^yaml id:<player.name> set alquimia.misionprof.cant:<def[questprofcant]>
+    - ^yaml id:<player.name> set alquimia.misionprof.reward:<math.asint:<def[questprofcant]>*<def[questidalmakos]>>
+    - ^yaml id:<player.name> set alquimia.misionprof.xpreward:<math.asint:<def[questprofcant]>*<def[questidexp]>>
+    - ^yaml id:<player.name> set alquimia.misionprof.xpid:<def[questidexp]>
+    - ^yaml id:<player.name> set alquimia.misionprof.obj:<def[questidmaterial]>
+    - ^yaml id:<player.name> set alquimia.misionprof.data:<yaml[<player.name>profalq].read[alquimia.<def[questprof]>.data]>
+    - ^flag <player> questprofcant:<yaml[<player.name>].read[alquimia.misionprof.cant]>
+    - ^flag <player> questproftarjet:<yaml[<player.name>].read[alquimia.misionprof.obj]>
+    - ^flag <player> questprofdata:<yaml[<player.name>].read[alquimia.misionprof.data]>
+    - ^flag <player> objID:<yaml[<player.name>].read[alquimia.misionprof.obj]>
+    - ^flag <player> objdatapro:<yaml[<player.name>].read[alquimia.misionprof.data]>
+    - ^flag <player> profreward:<yaml[<player.name>].read[alquimia.misionprof.reward]>
+    - ^flag <player> profrewardxp:<yaml[<player.name>].read[alquimia.misionprof.xpreward]>
+    - ^flag <player> AlquimiaON:ok
     - ^inventory open d:in@inv_eudes_ok
     - ^flag <player> questprofcant:!
     - ^flag <player> questproftarjet:!
     - ^flag <player> questprofdata:!
+    - ^flag <player> objID:!
+    - ^flag <player> objdatapro:!
+    - ^flag <player> profreward:!
+    - ^flag <player> profrewardxp:!
     - ^yaml savefile:personal/<player.name>.yml id:<player.name>
     - ^yaml unload id:<player.name>
     - ^yaml unload id:<player.name>profalq
+    - ^queue clear
+
+profquestscheckeudes:
+    type: task
+    script:
+    - ^yaml load:personal/<player.name>.yml id:<player.name>
+    - ^flag <player> questprofcant:<yaml[<player.name>].read[alquimia.misionprof.cant]>
+    - ^flag <player> questproftarjet:<yaml[<player.name>].read[alquimia.misionprof.obj]>
+    - ^flag <player> questprofdata:<yaml[<player.name>].read[alquimia.misionprof.data]>
+    - ^flag <player> objID:<yaml[<player.name>].read[alquimia.misionprof.obj]>
+    - ^flag <player> objdatapro:<yaml[<player.name>].read[alquimia.misionprof.data]>
+    - ^flag <player> profreward:<yaml[<player.name>].read[alquimia.misionprof.reward]>
+    - ^flag <player> profrewardxp:<yaml[<player.name>].read[alquimia.misionprof.xpreward]>
+    - ^inventory open d:in@inv_eudes_ok
+    - ^flag <player> questprofcant:!
+    - ^flag <player> questproftarjet:!
+    - ^flag <player> questprofdata:!
+    - ^flag <player> objID:!
+    - ^flag <player> objdatapro:!
+    - ^flag <player> profreward:!
+    - ^flag <player> profrewardxp:!
+    - ^yaml unload id:<player.name>
     - ^queue clear
 
 # = INVENTARIOS

@@ -36,7 +36,7 @@
             - ^if <player.jobs[<player.flag[profesion].get[1]>].xp.level> >= 25 {
               - ^title "subtitle:<blue>Tielo: <yellow>Pero si es <gold><player.name>"
               - ^wait
-              - ^title "subtitle:<blue>Tielo: <yellow>Quieres ser Ganadero o si no Largo!"
+              - ^title "subtitle:<yellow>Quieres ser Ganadero o si no Largo!"
               - ^queue clear
               } else {
               - ^title "subtitle:<blue>Tielo: <yellow>Veamos <gold><player.name>..."
@@ -46,19 +46,16 @@
               - ^title "subtitle:<yellow>largo de aqui maldito manco!"
               - ^queue clear
               }
-      #Mencion de profesiones
-            } else if <player.flag[profesion].size> == 1 && <player.flag[profesion].as_list> contains Ganadero && <player.has_flag[qprofStatusganaderia].not> {
-            - ^title "subtitle:<blue>Tielo: <yellow>Maldita sea aun no?"
-            - ^wait
-            - ^title "subtitle:<yellow>Tienes una mision aun <gold><player.name>"
-            - ^wait 1
-            - ^run 's@profcheckcount'
-            - ^queue clear
-            } else if <player.flag[profesion].size> == 1 && <player.flag[profesion].as_list> contains Ganadero && <player.has_flag[qprofStatusganaderia]> {
-            - ^title "subtitle:<blue>Tielo: <yellow>Hmmm..."
-            - ^wait
-            - ^title "subtitle:<blue>Tielo: <yellow>ah si! hola <gold><player.name>..."
-            - ^queue clear
+            } else if <player.flag[profesion].size> == 1 && <player.flag[profesion].as_list> contains Ganadero {
+            - ^if <player.has_flag[qprofStatusganaderia].not> {
+              - ^title "subtitle:<blue>Tielo: <yellow>Maldita sea aun no?"
+              - ^wait
+              - ^title "subtitle:<yellow>Tienes una mision aun <gold><player.name>"
+              - ^wait 1
+              } else if <player.has_flag[qprofStatusganaderia]> {
+              - ^title "subtitle:<green>Regresa en <player.flag[qprofStatusganaderia].expiration.in_seconds.asint> segundos por otra mision!" stay:5s
+              - ^queue clear
+              }
             } else if <player.flag[profesion].size> == 2 && <player.flag[profesion].as_list> !contains Ganadero {
             - ^if <player.jobs[<player.flag[profesion].get[1]>].xp.level> >= 50 && <player.jobs[<player.flag[profesion].get[2]>].xp.level> >= 50 {
               - ^title "subtitle:<blue>Tielo: <yellow>Otra ves tu <gold><player.name>..."
@@ -77,11 +74,14 @@
               - ^title "subtitle:<yellow>Ahora largo! asustas a tu familia!"
               - ^queue clear
               }
-            } else if <player.flag[profesion].size> == 2 && <player.flag[profesion].as_list> contains Ganadero && <player.has_flag[qprofStatusganaderia].not> {
-            - ^title "subtitle:<blue>Tielo: <yellow>Ven aca maldito <gold><player.name> <yellow>tienes misiones"
-            - ^wait 1
-            - ^run 's@profcheckcount'
-            - ^queue clear
+            } else if <player.flag[profesion].size> == 2 && <player.flag[profesion].as_list> contains Ganadero {
+            - ^if <player.has_flag[qprofStatusganaderia].not> {
+              - ^title "subtitle:<blue>Tielo: <yellow>Tienes mision maldito?"
+              - ^queue clear
+              } else if <player.has_flag[qprofStatusganaderia]> {
+              - ^title "subtitle:<green>Regresa en <player.flag[qprofStatusganaderia].expiration.in_seconds.asint> segundos por otra mision!" stay:5s
+              - ^queue clear
+              }
             } else if <player.flag[profesion].size> == 3 && <player.flag[profesion].as_list> !contains Ganadero {
             - ^if <player.jobs[<player.flag[profesion].get[1]>].xp.level> >= 100 && <player.jobs[<player.flag[profesion].get[2]>].xp.level> >= 100 && <player.jobs[<player.flag[profesion].get[3]>].xp.level> >= 100 {
               - ^title "subtitle:<blue>Tielo: <yellow>Ahora si verdad maldito <gold><player.name>"
@@ -98,11 +98,24 @@
               - ^title "subtitle:<yellow>regresa maldito y quiza me apiade de ti."
               - ^queue clear
               }
-            } else if <player.flag[profesion].size> == 3 && <player.flag[profesion].as_list> contains Ganadero && <player.has_flag[qprofStatusganaderia].not> {
-            - ^title "subtitle:<blue>Tielo: <yellow>Hey mula tienes misiones, digo <gold><player.name> <yellow>hahaha"
-            - ^wait 1
-            - ^run 's@profcheckcount'
-            - ^queue clear
+            } else if <player.flag[profesion].size> == 3 && <player.flag[profesion].as_list> contains Ganadero {
+            - ^if <player.has_flag[qprofStatusganaderia].not> {
+              - ^title "subtitle:<blue>Tielo: <yellow>Hey mula tienes misiones, digo <gold><player.name> <yellow>hahaha"
+              - ^queue clear
+              } else if <player.has_flag[qprofStatusganaderia]> {
+              - ^title "subtitle:<green>Regresa en <player.flag[qprofStatusganaderia].expiration.in_seconds.asint> segundos por otra mision!" stay:5s
+              - ^queue clear
+              }
+            } else if <player.flag[profesion].size> == 4 && <player.flag[profesion].as_list> contains Ganadero {
+            - ^if <player.has_flag[qprofStatusganaderia].not> {
+              - ^title "subtitle:<blue>Tielo: <yellow>Trae lo de la mision <gold><player.name>!"
+              - ^wait 1
+              - ^run 's@profcheckcount'
+              - ^queue clear
+              } else if <player.has_flag[qprofStatusganaderia]> {
+              - ^title "title:<yellow><player.name>" "subtitle:<green>Regresa en <player.flag[qprofStatusganaderia].expiration.in_seconds.asint> segundos por otra mision!" stay:5s
+              - ^queue clear
+              }
             }
       click trigger:
         Script:
@@ -130,9 +143,9 @@
               - ^queue clear
               } else if <player.has_flag[qprofStatusganaderia].not> {
               - ^yaml load:personal/<player.name>.yml id:<player.name>
-              - ^flag <player> questprofcant:<yaml[<player.name>].read[misionprof.cant]>
-              - ^flag <player> questproftarjet:<yaml[<player.name>].read[misionprof.obj]>
-              - ^flag <player> questprofdata:<yaml[<player.name>].read[misionprof.data]>
+              - ^flag <player> questprofcant:<yaml[<player.name>].read[ganaderia.misionprof.cant]>
+              - ^flag <player> questproftarjet:<yaml[<player.name>].read[ganaderia.misionprof.obj]>
+              - ^flag <player> questprofdata:<yaml[<player.name>].read[ganaderia.misionprof.data]>
               - ^inventory open d:in@inv_tielo_ok
               - ^flag <player> questprofcant:!
               - ^flag <player> questproftarjet:!
@@ -284,12 +297,12 @@ profquestsrandomtielo:
       - ^define questprofcant <def[questconteo]>
       }
     - ^yaml load:personal/<player.name>.yml id:<player.name>
-    - ^yaml id:<player.name> set misionprof.cant:<def[questprofcant]>
-    - ^yaml id:<player.name> set misionprof.reward:<math.asint:<def[questprofcant]>*<def[questidalmakos]>>
-    - ^yaml id:<player.name> set misionprof.xpreward:<math.asint:<def[questprofcant]>*<def[questidexp]>>
-    - ^yaml id:<player.name> set misionprof.xpid:<def[questidexp]>
-    - ^yaml id:<player.name> set misionprof.obj:<def[questidmaterial]>
-    - ^yaml id:<player.name> set misionprof.data:<yaml[<player.name>profgnr].read[ganaderia.<def[questprof]>.data]>
+    - ^yaml id:<player.name> set ganaderia.misionprof.cant:<def[questprofcant]>
+    - ^yaml id:<player.name> set ganaderia.misionprof.reward:<math.asint:<def[questprofcant]>*<def[questidalmakos]>>
+    - ^yaml id:<player.name> set ganaderia.misionprof.xpreward:<math.asint:<def[questprofcant]>*<def[questidexp]>>
+    - ^yaml id:<player.name> set ganaderia.misionprof.xpid:<def[questidexp]>
+    - ^yaml id:<player.name> set ganaderia.misionprof.obj:<def[questidmaterial]>
+    - ^yaml id:<player.name> set ganaderia.misionprof.data:<yaml[<player.name>profgnr].read[ganaderia.<def[questprof]>.data]>
     - ^flag <player> questprofcant:<def[questprofcant]>
     - ^flag <player> questproftarjet:<def[questidmaterial]>
     - ^flag <player> questprofdata:<yaml[<player.name>profgnr].read[ganaderia.<def[questprof]>.data]>
