@@ -125,8 +125,14 @@
               }
             - ^queue clear
             } else if <player.flag[profesion].as_list> contains Alquimista && <player.has_flag[profesion]> && <player.flag[profesion].size> == 1 {
-            - ^if <player.jobs[<player.flag[profesion].get[1]>].xp.level> >= 25 {
-              - ^inventory open d:in@inv_eudes
+            - ^if <player.has_flag[qprofStatusalquimia].not> && <player.has_flag[AlquimiaON].not> {
+              - ^run 's@profquestsrandomeudes'
+              - ^queue clear
+              } else if <player.has_flag[qprofStatusalquimia].not> && <player.has_flag[AlquimiaON]> {
+              - ^run 's@profquestscheckeudes'
+              - ^queue clear
+              } else {
+              - ^title "title:<yellow><player.name>" "subtitle:<green>Regresa en <player.flag[qprofStatusalquimia].expiration.in_seconds.asint> segundos por otra mision!" stay:5s
               - ^queue clear
               }
             } else if <player.flag[profesion].as_list> !contains Alquimista && <player.has_flag[profesion]> && <player.flag[profesion].size> == 2 {
@@ -134,9 +140,31 @@
               - ^inventory open d:in@inv_eudes
               - ^queue clear
               }
+            } else if <player.flag[profesion].as_list> contains Alquimista && <player.has_flag[profesion]> && <player.flag[profesion].size> == 2 {
+            - ^if <player.has_flag[qprofStatusalquimia].not> && <player.has_flag[AlquimiaON].not> {
+              - ^run 's@profquestsrandomeudes'
+              - ^queue clear
+              } else if <player.has_flag[qprofStatusalquimia].not> && <player.has_flag[AlquimiaON]> {
+              - ^run 's@profquestscheckeudes'
+              - ^queue clear
+              } else {
+              - ^title "title:<yellow><player.name>" "subtitle:<green>Regresa en <player.flag[qprofStatusalquimia].expiration.in_seconds.asint> segundos por otra mision!" stay:5s
+              - ^queue clear
+              }
             } else if <player.flag[profesion].as_list> !contains Alquimista && <player.has_flag[profesion]> && <player.flag[profesion].size> == 3 {
             - ^if <player.jobs[<player.flag[profesion].get[1]>].xp.level> >= 100 && <player.jobs[<player.flag[profesion].get[2]>].xp.level> >= 100 && <player.jobs[<player.flag[profesion].get[3]>].xp.level> >= 100 {
               - ^inventory open d:in@inv_eudes
+              - ^queue clear
+              }
+            } else if <player.flag[profesion].as_list> contains Alquimista && <player.has_flag[profesion]> && <player.flag[profesion].size> == 3 {
+            - ^if <player.has_flag[qprofStatusalquimia].not> && <player.has_flag[AlquimiaON].not> {
+              - ^run 's@profquestsrandomeudes'
+              - ^queue clear
+              } else if <player.has_flag[qprofStatusalquimia].not> && <player.has_flag[AlquimiaON]> {
+              - ^run 's@profquestscheckeudes'
+              - ^queue clear
+              } else {
+              - ^title "title:<yellow><player.name>" "subtitle:<green>Regresa en <player.flag[qprofStatusalquimia].expiration.in_seconds.asint> segundos por otra mision!" stay:5s
               - ^queue clear
               }
             } else if <player.flag[profesion].as_list> contains Alquimista && <player.has_flag[profesion]> && <player.flag[profesion].size> == 4 {
