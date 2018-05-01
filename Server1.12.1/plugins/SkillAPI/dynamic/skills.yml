@@ -2,9 +2,9 @@ loaded: 'true'
 Esquirla Maldita: 
   name: 'Esquirla Maldita'
   type: 'Runa'
-  max-level: '1'
+  max-level: 1
   skill-req: 'Esquirla'
-  skill-req-lvl: '1'
+  skill-req-lvl: 1
   needs-permission: 'false'
   attributes: 
     level-base: '1'
@@ -21,7 +21,7 @@ Esquirla Maldita:
     - 'Esquirla Pestilente'
   msg: '&6{player} &2has cast &6{skill}'
   icon: 'REDSTONE'
-  icon-data: '0'
+  icon-data: 0
   icon-lore: 
   - '&d{name} &7({level}/{max})'
   - '&2Type: &6{type}'
@@ -30,14 +30,14 @@ Esquirla Maldita:
   - '&7 durante 3 segundos causando una explosion'
   - '&7 inflingiendo 50% de tu poder de arma'
   - '&7 en un area de dos bloques'
-  desc: ' []'
-  components: ' {}'
+  desc:  []
+  components:  {}
 Esquirla Pestilente: 
   name: 'Esquirla Pestilente'
   type: 'Runa'
-  max-level: '1'
+  max-level: 1
   skill-req: 'Esquirla'
-  skill-req-lvl: '1'
+  skill-req-lvl: 1
   needs-permission: 'false'
   attributes: 
     level-base: '1'
@@ -54,7 +54,7 @@ Esquirla Pestilente:
     - 'Esquirla Maldita'
   msg: '&6{player} &2has cast &6{skill}'
   icon: 'REDSTONE'
-  icon-data: '0'
+  icon-data: 0
   icon-lore: 
   - '&d{name} &7({level}/{max})'
   - '&2Type: &6{type}'
@@ -62,13 +62,13 @@ Esquirla Pestilente:
   - '&7 lanzas 3 esquirlas que envenenan y ralentizan'
   - '&7 durante 3 segundos causando un 120% '
   - '&7 de tu poder de arma.'
-  desc: ' []'
-  components: ' {}'
+  desc:  []
+  components:  {}
 Esquirla: 
   name: 'Esquirla'
   type: 'Principal'
-  max-level: '1'
-  skill-req-lvl: '1'
+  max-level: 1
+  skill-req-lvl: 1
   needs-permission: 'false'
   attributes: 
     level-base: '1'
@@ -85,7 +85,7 @@ Esquirla:
     - 'Guadaña'
   msg: '&6{player} &2has cast &6{skill}'
   icon: 'BONE'
-  icon-data: '0'
+  icon-data: 0
   icon-lore: 
   - '&d{name} &7({level}/{max})'
   - '&2Tipo: &6{type}'
@@ -93,49 +93,8 @@ Esquirla:
   - '&7 golpea a un enemigo'
   - '&7 cortando sus huesos en 2 esquirlas'
   - '&7 causando 190% de tu poder de arma.'
-  desc: ' []'
+  desc:  []
   components: 
-    Initialize: 
-      type: 'trigger'
-      indicator: '3D'
-      data: 
-        icon-key: ''
-        indicator: '2D'
-      children: 
-        Passive-z: 
-          type: 'mechanic'
-          indicator: '3D'
-          data: 
-            icon-key: ''
-            counts: 'True'
-            seconds-base: '2'
-            seconds-scale: '0'
-            indicator: '2D'
-          children: 
-            Value Set-ab: 
-              type: 'mechanic'
-              indicator: '3D'
-              data: 
-                icon-key: ''
-                counts: 'True'
-                key: 'lorepoder'
-                value-base: '1'
-                value-scale: '0'
-                indicator: '2D'
-              children: ' {}'
-            Value Lore-bb: 
-              type: 'mechanic'
-              indicator: '3D'
-              data: 
-                icon-key: ''
-                counts: 'True'
-                key: 'lorepoder'
-                hand: 'Main'
-                regex: 'Poder de Arma: {value}'
-                multiplier-base: '1'
-                multiplier-scale: '0'
-                indicator: '2D'
-              children: ' {}'
     Physical Damage: 
       type: 'trigger'
       indicator: '3D'
@@ -224,7 +183,7 @@ Esquirla:
                                 multiplier-base: '1.9'
                                 multiplier-scale: '0'
                                 indicator: '2D'
-                              children: ' {}'
+                              children:  {}
                             Damage-h: 
                               type: 'mechanic'
                               indicator: '3D'
@@ -237,7 +196,7 @@ Esquirla:
                                 true: 'False'
                                 classifier: 'default'
                                 indicator: '2D'
-                              children: ' {}'
+                              children:  {}
             Skill Level-i: 
               type: 'condition'
               indicator: '3D'
@@ -258,7 +217,7 @@ Esquirla:
                     multiplier-base: '0.4'
                     multiplier-scale: '0'
                     indicator: '2D'
-                  children: ' {}'
+                  children:  {}
                 Value Set-k: 
                   type: 'mechanic'
                   indicator: '3D'
@@ -269,7 +228,7 @@ Esquirla:
                     value-base: 'lorepoder'
                     value-scale: '0'
                     indicator: '2D'
-                  children: ' {}'
+                  children:  {}
                 Delay-l: 
                   type: 'mechanic'
                   indicator: '3D'
@@ -330,7 +289,7 @@ Esquirla:
                                 true: 'False'
                                 classifier: 'default'
                                 indicator: '2D'
-                              children: ' {}'
+                              children:  {}
                             Potion-p: 
                               type: 'mechanic'
                               indicator: '3D'
@@ -344,7 +303,7 @@ Esquirla:
                                 seconds-base: '2'
                                 seconds-scale: '1'
                                 indicator: '2D'
-                              children: ' {}'
+                              children:  {}
             Skill Level-q: 
               type: 'condition'
               indicator: '3D'
@@ -365,7 +324,7 @@ Esquirla:
                     multiplier-base: '0.5'
                     multiplier-scale: '0'
                     indicator: '2D'
-                  children: ' {}'
+                  children:  {}
                 Value Set-s: 
                   type: 'mechanic'
                   indicator: '3D'
@@ -376,7 +335,7 @@ Esquirla:
                     value-base: 'lorepoder'
                     value-scale: '0'
                     indicator: '2D'
-                  children: ' {}'
+                  children:  {}
                 Delay-t: 
                   type: 'mechanic'
                   indicator: '3D'
@@ -449,13 +408,54 @@ Esquirla:
                                     true: 'False'
                                     classifier: 'default'
                                     indicator: '2D'
-                                  children: ' {}'
+                                  children:  {}
+    Initialize: 
+      type: 'trigger'
+      indicator: '3D'
+      data: 
+        icon-key: ''
+        indicator: '2D'
+      children: 
+        Passive-z: 
+          type: 'mechanic'
+          indicator: '3D'
+          data: 
+            icon-key: ''
+            counts: 'True'
+            seconds-base: '2'
+            seconds-scale: '0'
+            indicator: '2D'
+          children: 
+            Value Set-ab: 
+              type: 'mechanic'
+              indicator: '3D'
+              data: 
+                icon-key: ''
+                counts: 'True'
+                key: 'lorepoder'
+                value-base: '1'
+                value-scale: '0'
+                indicator: '2D'
+              children:  {}
+            Value Lore-bb: 
+              type: 'mechanic'
+              indicator: '3D'
+              data: 
+                icon-key: ''
+                counts: 'True'
+                key: 'lorepoder'
+                hand: 'Main'
+                regex: 'Poder de Arma: {value}'
+                multiplier-base: '1'
+                multiplier-scale: '0'
+                indicator: '2D'
+              children:  {}
 Guadaña Doble: 
   name: 'Guadaña Doble'
   type: 'Runa'
-  max-level: '1'
+  max-level: 1
   skill-req: 'Guadaña'
-  skill-req-lvl: '1'
+  skill-req-lvl: 1
   needs-permission: 'false'
   attributes: 
     level-base: '1'
@@ -472,7 +472,7 @@ Guadaña Doble:
     - 'Guadaña Sangrienta'
   msg: '&6{player} &2has cast &6{skill}'
   icon: 'REDSTONE'
-  icon-data: '0'
+  icon-data: 0
   icon-lore: 
   - '&d{name} &7({level}/{max})'
   - '&2Type: &6{type}'
@@ -480,14 +480,14 @@ Guadaña Doble:
   - '&7 Crea dos guadañas'
   - '&7 que cortan el aire usando tus dos armas'
   - '&7 causando 120% de tu poder de arma.'
-  desc: ' []'
-  components: ' {}'
+  desc:  []
+  components:  {}
 Guadaña Sangrienta: 
   name: 'Guadaña Sangrienta'
   type: 'Runa'
-  max-level: '1'
+  max-level: 1
   skill-req: 'Guadaña'
-  skill-req-lvl: '1'
+  skill-req-lvl: 1
   needs-permission: 'false'
   attributes: 
     level-base: '1'
@@ -504,7 +504,7 @@ Guadaña Sangrienta:
     - 'Guadaña Doble'
   msg: '&6{player} &2has cast &6{skill}'
   icon: 'REDSTONE'
-  icon-data: '0'
+  icon-data: 0
   icon-lore: 
   - '&d{name} &7({level}/{max})'
   - '&2Type: &6{type}'
@@ -513,8 +513,8 @@ Guadaña Sangrienta:
   - '&7 que desangra a los enemigos'
   - '&7 causando 130% de tu poder de arma'
   - '&7 y curandote el 5% del daño de arma.'
-  desc: ' []'
-  components: ' {}'
+  desc:  []
+  components:  {}
 Guadaña: 
   name: 'Guadaña'
   type: 'Principal'
@@ -807,6 +807,111 @@ Guadaña:
                 value-scale: '1'
                 indicator: '2D'
               children:  {}
+    Crouch: 
+      type: 'trigger'
+      indicator: '3D'
+      data: 
+        icon-key: ''
+        mana: 'False'
+        cooldown: 'False'
+        type: 'Start Crouching'
+        indicator: '2D'
+      children: 
+        Value Multiply-db: 
+          type: 'mechanic'
+          indicator: '3D'
+          data: 
+            icon-key: ''
+            counts: 'True'
+            key: 'Poderarma'
+            multiplier-base: '1.5'
+            multiplier-scale: '0'
+            indicator: '2D'
+          children:  {}
+        Chance-eb: 
+          type: 'condition'
+          indicator: '3D'
+          data: 
+            icon-key: ''
+            chance-base: '25'
+            chance-scale: '0'
+            indicator: '2D'
+          children: 
+            Value Multiply-fb: 
+              type: 'mechanic'
+              indicator: '3D'
+              data: 
+                icon-key: ''
+                counts: 'True'
+                key: 'Poderarma'
+                multiplier-base: 'critLore'
+                multiplier-scale: '0'
+                indicator: '2D'
+              children:  {}
+            Command-gb: 
+              type: 'mechanic'
+              indicator: '3D'
+              data: 
+                icon-key: ''
+                counts: 'True'
+                command: 'ex title "title:<red>Critico" stay:0.1s fade_in:0.1s fade_out:0.1s'
+                type: 'OP'
+                indicator: '2D'
+              children:  {}
+        Cone-hb: 
+          type: 'target'
+          indicator: '3D'
+          data: 
+            icon-key: ''
+            range-base: '4'
+            range-scale: '0'
+            angle-base: '60'
+            angle-scale: '0'
+            group: 'Enemy'
+            wall: 'False'
+            caster: 'False'
+            max-base: '99'
+            max-scale: '0'
+            indicator: '2D'
+          children: 
+            Damage-ib: 
+              type: 'mechanic'
+              indicator: '3D'
+              data: 
+                icon-key: ''
+                counts: 'True'
+                type: 'Damage'
+                value-base: 'Poderarma'
+                value-scale: '1'
+                true: 'False'
+                classifier: 'default'
+                indicator: '2D'
+              children:  {}
+        Value Lore-jb: 
+          type: 'mechanic'
+          indicator: '3D'
+          data: 
+            icon-key: ''
+            counts: 'True'
+            key: 'Poderarma'
+            hand: 'Main'
+            regex: 'Poder de Arma: {value}'
+            multiplier-base: '1'
+            multiplier-scale: '0'
+            indicator: '2D'
+          children:  {}
+        Cooldown-kb: 
+          type: 'mechanic'
+          indicator: '3D'
+          data: 
+            icon-key: ''
+            counts: 'True'
+            skill: 'Guadaña'
+            type: 'Seconds'
+            value-base: 'cdbasico'
+            value-scale: '0'
+            indicator: '2D'
+          children:  {}
     Physical Damage: 
       type: 'trigger'
       indicator: '3D'
@@ -983,117 +1088,12 @@ Guadaña:
                             message: 'No tiene'
                             indicator: '2D'
                           children:  {}
-    Crouch: 
-      type: 'trigger'
-      indicator: '3D'
-      data: 
-        icon-key: ''
-        mana: 'False'
-        cooldown: 'False'
-        type: 'Start Crouching'
-        indicator: '2D'
-      children: 
-        Value Multiply-db: 
-          type: 'mechanic'
-          indicator: '3D'
-          data: 
-            icon-key: ''
-            counts: 'True'
-            key: 'Poderarma'
-            multiplier-base: '1.5'
-            multiplier-scale: '0'
-            indicator: '2D'
-          children:  {}
-        Chance-eb: 
-          type: 'condition'
-          indicator: '3D'
-          data: 
-            icon-key: ''
-            chance-base: '25'
-            chance-scale: '0'
-            indicator: '2D'
-          children: 
-            Value Multiply-fb: 
-              type: 'mechanic'
-              indicator: '3D'
-              data: 
-                icon-key: ''
-                counts: 'True'
-                key: 'Poderarma'
-                multiplier-base: 'critLore'
-                multiplier-scale: '0'
-                indicator: '2D'
-              children:  {}
-            Command-gb: 
-              type: 'mechanic'
-              indicator: '3D'
-              data: 
-                icon-key: ''
-                counts: 'True'
-                command: 'ex title "title:<red>Critico" stay:0.1s fade_in:0.1s fade_out:0.1s'
-                type: 'OP'
-                indicator: '2D'
-              children:  {}
-        Cone-hb: 
-          type: 'target'
-          indicator: '3D'
-          data: 
-            icon-key: ''
-            range-base: '4'
-            range-scale: '0'
-            angle-base: '60'
-            angle-scale: '0'
-            group: 'Enemy'
-            wall: 'False'
-            caster: 'False'
-            max-base: '99'
-            max-scale: '0'
-            indicator: '2D'
-          children: 
-            Damage-ib: 
-              type: 'mechanic'
-              indicator: '3D'
-              data: 
-                icon-key: ''
-                counts: 'True'
-                type: 'Damage'
-                value-base: 'Poderarma'
-                value-scale: '1'
-                true: 'False'
-                classifier: 'default'
-                indicator: '2D'
-              children:  {}
-        Value Lore-jb: 
-          type: 'mechanic'
-          indicator: '3D'
-          data: 
-            icon-key: ''
-            counts: 'True'
-            key: 'Poderarma'
-            hand: 'Main'
-            regex: 'Poder de Arma: {value}'
-            multiplier-base: '1'
-            multiplier-scale: '0'
-            indicator: '2D'
-          children:  {}
-        Cooldown-kb: 
-          type: 'mechanic'
-          indicator: '3D'
-          data: 
-            icon-key: ''
-            counts: 'True'
-            skill: 'Guadaña'
-            type: 'Seconds'
-            value-base: 'cdbasico'
-            value-scale: '0'
-            indicator: '2D'
-          children:  {}
 Peso: 
   name: 'Peso'
   type: 'Pasiva'
-  max-level: '1'
+  max-level: 1
   skill-req: 'None'
-  skill-req-lvl: '0'
+  skill-req-lvl: 0
   needs-permission: 'false'
   attributes: 
     cost-base: '0'
@@ -1110,7 +1110,7 @@ Peso:
     points-spent-req-scale: '0'
   msg: '&6{player} &2has cast &6{skill}'
   icon: 'JACK_O_LANTERN'
-  icon-data: '0'
+  icon-data: 0
   icon-lore: 
   - '&d{name} &7({level}/{max})'
   - '&2Type: &6{type}'
@@ -1120,7 +1120,7 @@ Peso:
   - ''
   - '&2Mana: {attr:mana}'
   - '&2Cooldown: {attr:cooldown}'
-  desc: ' []'
+  desc:  []
   components: 
     Initialize: 
       type: 'trigger'
@@ -1163,7 +1163,7 @@ Peso:
                     icon-key: ''
                     value-base: '1'
                     key: 'pesomuerto'
-                  children: ' {}'
+                  children:  {}
                 Value Multiply-f: 
                   type: 'mechanic'
                   indicator: '3D'
@@ -1174,7 +1174,7 @@ Peso:
                     icon-key: ''
                     multiplier-scale: '0'
                     key: 'pesomuerto'
-                  children: ' {}'
+                  children:  {}
                 Value-g: 
                   type: 'condition'
                   indicator: '3D'
@@ -1210,7 +1210,7 @@ Peso:
                             icon-key: ''
                             multiplier-scale: '0'
                             duration-scale: '1'
-                          children: ' {}'
+                          children:  {}
                     Value-j: 
                       type: 'condition'
                       indicator: '3D'
@@ -1234,7 +1234,7 @@ Peso:
                             icon-key: ''
                             multiplier-scale: '0'
                             duration-scale: '1'
-                          children: ' {}'
+                          children:  {}
                     Value-l: 
                       type: 'condition'
                       indicator: '3D'
@@ -1258,7 +1258,7 @@ Peso:
                             icon-key: ''
                             multiplier-scale: '0'
                             duration-scale: '1'
-                          children: ' {}'
+                          children:  {}
                     Value-n: 
                       type: 'condition'
                       indicator: '3D'
@@ -1282,7 +1282,7 @@ Peso:
                             icon-key: ''
                             multiplier-scale: '0'
                             duration-scale: '1'
-                          children: ' {}'
+                          children:  {}
                     Value-p: 
                       type: 'condition'
                       indicator: '3D'
@@ -1306,7 +1306,7 @@ Peso:
                             icon-key: ''
                             multiplier-scale: '0'
                             duration-scale: '1'
-                          children: ' {}'
+                          children:  {}
                     Value-r: 
                       type: 'condition'
                       indicator: '3D'
@@ -1330,7 +1330,7 @@ Peso:
                             icon-key: ''
                             multiplier-scale: '0'
                             duration-scale: '1'
-                          children: ' {}'
+                          children:  {}
             Inventory-t: 
               type: 'condition'
               indicator: '3D'
@@ -1355,7 +1355,7 @@ Peso:
                     icon-key: ''
                     value-base: '1'
                     key: 'pesomuerto'
-                  children: ' {}'
+                  children:  {}
                 Value Multiply-w: 
                   type: 'mechanic'
                   indicator: '3D'
@@ -1366,7 +1366,7 @@ Peso:
                     icon-key: ''
                     multiplier-scale: '0'
                     key: 'pesomuerto'
-                  children: ' {}'
+                  children:  {}
                 Value-x: 
                   type: 'condition'
                   indicator: '3D'
@@ -1402,7 +1402,7 @@ Peso:
                             icon-key: ''
                             multiplier-scale: '0'
                             duration-scale: '1'
-                          children: ' {}'
+                          children:  {}
                     Value-ab: 
                       type: 'condition'
                       indicator: '3D'
@@ -1426,7 +1426,7 @@ Peso:
                             icon-key: ''
                             multiplier-scale: '0'
                             duration-scale: '1'
-                          children: ' {}'
+                          children:  {}
                     Value-cb: 
                       type: 'condition'
                       indicator: '3D'
@@ -1450,7 +1450,7 @@ Peso:
                             icon-key: ''
                             multiplier-scale: '0'
                             duration-scale: '1'
-                          children: ' {}'
+                          children:  {}
                     Value-eb: 
                       type: 'condition'
                       indicator: '3D'
@@ -1474,7 +1474,7 @@ Peso:
                             icon-key: ''
                             multiplier-scale: '0'
                             duration-scale: '1'
-                          children: ' {}'
+                          children:  {}
                     Value-gb: 
                       type: 'condition'
                       indicator: '3D'
@@ -1498,7 +1498,7 @@ Peso:
                             icon-key: ''
                             multiplier-scale: '0'
                             duration-scale: '1'
-                          children: ' {}'
+                          children:  {}
                     Value-ib: 
                       type: 'condition'
                       indicator: '3D'
@@ -1522,7 +1522,7 @@ Peso:
                             icon-key: ''
                             multiplier-scale: '0'
                             duration-scale: '1'
-                          children: ' {}'
+                          children:  {}
             Inventory-kb: 
               type: 'condition'
               indicator: '3D'
@@ -1547,7 +1547,7 @@ Peso:
                     icon-key: ''
                     value-base: '1'
                     key: 'pesomuerto'
-                  children: ' {}'
+                  children:  {}
                 Value Multiply-nb: 
                   type: 'mechanic'
                   indicator: '3D'
@@ -1558,7 +1558,7 @@ Peso:
                     icon-key: ''
                     multiplier-scale: '0'
                     key: 'pesomuerto'
-                  children: ' {}'
+                  children:  {}
                 Value-ob: 
                   type: 'condition'
                   indicator: '3D'
@@ -1594,7 +1594,7 @@ Peso:
                             icon-key: ''
                             multiplier-scale: '0'
                             duration-scale: '1'
-                          children: ' {}'
+                          children:  {}
                     Value-rb: 
                       type: 'condition'
                       indicator: '3D'
@@ -1618,7 +1618,7 @@ Peso:
                             icon-key: ''
                             multiplier-scale: '0'
                             duration-scale: '1'
-                          children: ' {}'
+                          children:  {}
                     Value-tb: 
                       type: 'condition'
                       indicator: '3D'
@@ -1642,7 +1642,7 @@ Peso:
                             icon-key: ''
                             multiplier-scale: '0'
                             duration-scale: '1'
-                          children: ' {}'
+                          children:  {}
                     Value-vb: 
                       type: 'condition'
                       indicator: '3D'
@@ -1666,7 +1666,7 @@ Peso:
                             icon-key: ''
                             multiplier-scale: '0'
                             duration-scale: '1'
-                          children: ' {}'
+                          children:  {}
                     Value-xb: 
                       type: 'condition'
                       indicator: '3D'
@@ -1690,7 +1690,7 @@ Peso:
                             icon-key: ''
                             multiplier-scale: '0'
                             duration-scale: '1'
-                          children: ' {}'
+                          children:  {}
                     Value-zb: 
                       type: 'condition'
                       indicator: '3D'
@@ -1714,7 +1714,7 @@ Peso:
                             icon-key: ''
                             multiplier-scale: '0'
                             duration-scale: '1'
-                          children: ' {}'
+                          children:  {}
             Inventory-bc: 
               type: 'condition'
               indicator: '3D'
@@ -1739,7 +1739,7 @@ Peso:
                     icon-key: ''
                     value-base: '1'
                     key: 'pesomuerto'
-                  children: ' {}'
+                  children:  {}
                 Value Multiply-ec: 
                   type: 'mechanic'
                   indicator: '3D'
@@ -1750,7 +1750,7 @@ Peso:
                     icon-key: ''
                     multiplier-scale: '0'
                     key: 'pesomuerto'
-                  children: ' {}'
+                  children:  {}
                 Value-fc: 
                   type: 'condition'
                   indicator: '3D'
@@ -1786,7 +1786,7 @@ Peso:
                             icon-key: ''
                             multiplier-scale: '0'
                             duration-scale: '1'
-                          children: ' {}'
+                          children:  {}
                     Value-ic: 
                       type: 'condition'
                       indicator: '3D'
@@ -1810,7 +1810,7 @@ Peso:
                             icon-key: ''
                             multiplier-scale: '0'
                             duration-scale: '1'
-                          children: ' {}'
+                          children:  {}
                     Value-kc: 
                       type: 'condition'
                       indicator: '3D'
@@ -1834,7 +1834,7 @@ Peso:
                             icon-key: ''
                             multiplier-scale: '0'
                             duration-scale: '1'
-                          children: ' {}'
+                          children:  {}
                     Value-mc: 
                       type: 'condition'
                       indicator: '3D'
@@ -1858,7 +1858,7 @@ Peso:
                             icon-key: ''
                             multiplier-scale: '0'
                             duration-scale: '1'
-                          children: ' {}'
+                          children:  {}
                     Value-oc: 
                       type: 'condition'
                       indicator: '3D'
@@ -1882,7 +1882,7 @@ Peso:
                             icon-key: ''
                             multiplier-scale: '0'
                             duration-scale: '1'
-                          children: ' {}'
+                          children:  {}
                     Value-qc: 
                       type: 'condition'
                       indicator: '3D'
@@ -1906,7 +1906,7 @@ Peso:
                             icon-key: ''
                             multiplier-scale: '0'
                             duration-scale: '1'
-                          children: ' {}'
+                          children:  {}
             Inventory-sc: 
               type: 'condition'
               indicator: '3D'
@@ -1931,7 +1931,7 @@ Peso:
                     icon-key: ''
                     value-base: '1'
                     key: 'pesomuerto'
-                  children: ' {}'
+                  children:  {}
                 Value Multiply-vc: 
                   type: 'mechanic'
                   indicator: '3D'
@@ -1942,7 +1942,7 @@ Peso:
                     icon-key: ''
                     multiplier-scale: '0'
                     key: 'pesomuerto'
-                  children: ' {}'
+                  children:  {}
                 Value-wc: 
                   type: 'condition'
                   indicator: '3D'
@@ -1978,7 +1978,7 @@ Peso:
                             icon-key: ''
                             multiplier-scale: '0'
                             duration-scale: '1'
-                          children: ' {}'
+                          children:  {}
                     Value-zc: 
                       type: 'condition'
                       indicator: '3D'
@@ -2002,7 +2002,7 @@ Peso:
                             icon-key: ''
                             multiplier-scale: '0'
                             duration-scale: '1'
-                          children: ' {}'
+                          children:  {}
                     Value-bd: 
                       type: 'condition'
                       indicator: '3D'
@@ -2026,7 +2026,7 @@ Peso:
                             icon-key: ''
                             multiplier-scale: '0'
                             duration-scale: '1'
-                          children: ' {}'
+                          children:  {}
                     Value-dd: 
                       type: 'condition'
                       indicator: '3D'
@@ -2050,7 +2050,7 @@ Peso:
                             icon-key: ''
                             multiplier-scale: '0'
                             duration-scale: '1'
-                          children: ' {}'
+                          children:  {}
                     Value-fd: 
                       type: 'condition'
                       indicator: '3D'
@@ -2074,7 +2074,7 @@ Peso:
                             icon-key: ''
                             multiplier-scale: '0'
                             duration-scale: '1'
-                          children: ' {}'
+                          children:  {}
                     Value-hd: 
                       type: 'condition'
                       indicator: '3D'
@@ -2098,7 +2098,7 @@ Peso:
                             icon-key: ''
                             multiplier-scale: '0'
                             duration-scale: '1'
-                          children: ' {}'
+                          children:  {}
             Inventory-jd: 
               type: 'condition'
               indicator: '3D'
@@ -2123,7 +2123,7 @@ Peso:
                     icon-key: ''
                     value-base: '1'
                     key: 'pesomuerto'
-                  children: ' {}'
+                  children:  {}
                 Value Multiply-md: 
                   type: 'mechanic'
                   indicator: '3D'
@@ -2134,7 +2134,7 @@ Peso:
                     icon-key: ''
                     multiplier-scale: '0'
                     key: 'pesomuerto'
-                  children: ' {}'
+                  children:  {}
                 Value-nd: 
                   type: 'condition'
                   indicator: '3D'
@@ -2170,7 +2170,7 @@ Peso:
                             icon-key: ''
                             multiplier-scale: '0'
                             duration-scale: '1'
-                          children: ' {}'
+                          children:  {}
                     Value-qd: 
                       type: 'condition'
                       indicator: '3D'
@@ -2194,7 +2194,7 @@ Peso:
                             icon-key: ''
                             multiplier-scale: '0'
                             duration-scale: '1'
-                          children: ' {}'
+                          children:  {}
                     Value-sd: 
                       type: 'condition'
                       indicator: '3D'
@@ -2218,7 +2218,7 @@ Peso:
                             icon-key: ''
                             multiplier-scale: '0'
                             duration-scale: '1'
-                          children: ' {}'
+                          children:  {}
                     Value-ud: 
                       type: 'condition'
                       indicator: '3D'
@@ -2242,7 +2242,7 @@ Peso:
                             icon-key: ''
                             multiplier-scale: '0'
                             duration-scale: '1'
-                          children: ' {}'
+                          children:  {}
                     Value-wd: 
                       type: 'condition'
                       indicator: '3D'
@@ -2266,7 +2266,7 @@ Peso:
                             icon-key: ''
                             multiplier-scale: '0'
                             duration-scale: '1'
-                          children: ' {}'
+                          children:  {}
                     Value-yd: 
                       type: 'condition'
                       indicator: '3D'
@@ -2290,12 +2290,12 @@ Peso:
                             icon-key: ''
                             multiplier-scale: '0'
                             duration-scale: '1'
-                          children: ' {}'
+                          children:  {}
 Penitencia: 
   name: 'Penitencia'
   type: 'Principal'
-  max-level: '1'
-  skill-req-lvl: '1'
+  max-level: 1
+  skill-req-lvl: 1
   needs-permission: 'false'
   attributes: 
     level-base: '1'
@@ -2312,7 +2312,7 @@ Penitencia:
     - 'Guadaña'
   msg: '&6{player} &2has cast &6{skill}'
   icon: 'BONE'
-  icon-data: '0'
+  icon-data: 0
   icon-lore: 
   - '&d{name} &7({level}/{max})'
   - '&2Tipo: &6{type}'
@@ -2320,49 +2320,8 @@ Penitencia:
   - '&7 golpea a un enemigo'
   - '&7 cortando sus huesos en 2 esquirlas'
   - '&7 causando 190% de tu poder de arma.'
-  desc: ' []'
+  desc:  []
   components: 
-    Initialize: 
-      type: 'trigger'
-      indicator: '3D'
-      data: 
-        icon-key: ''
-        indicator: '2D'
-      children: 
-        Passive-z: 
-          type: 'mechanic'
-          indicator: '3D'
-          data: 
-            icon-key: ''
-            counts: 'True'
-            seconds-base: '2'
-            seconds-scale: '0'
-            indicator: '2D'
-          children: 
-            Value Set-ab: 
-              type: 'mechanic'
-              indicator: '3D'
-              data: 
-                icon-key: ''
-                counts: 'True'
-                key: 'lorepoder'
-                value-base: '1'
-                value-scale: '0'
-                indicator: '2D'
-              children: ' {}'
-            Value Lore-bb: 
-              type: 'mechanic'
-              indicator: '3D'
-              data: 
-                icon-key: ''
-                counts: 'True'
-                key: 'lorepoder'
-                hand: 'Main'
-                regex: 'Poder de Arma: {value}'
-                multiplier-base: '1'
-                multiplier-scale: '0'
-                indicator: '2D'
-              children: ' {}'
     Physical Damage: 
       type: 'trigger'
       indicator: '3D'
@@ -2451,7 +2410,7 @@ Penitencia:
                                 multiplier-base: '1.9'
                                 multiplier-scale: '0'
                                 indicator: '2D'
-                              children: ' {}'
+                              children:  {}
                             Damage-h: 
                               type: 'mechanic'
                               indicator: '3D'
@@ -2464,7 +2423,7 @@ Penitencia:
                                 true: 'False'
                                 classifier: 'default'
                                 indicator: '2D'
-                              children: ' {}'
+                              children:  {}
             Skill Level-i: 
               type: 'condition'
               indicator: '3D'
@@ -2485,7 +2444,7 @@ Penitencia:
                     multiplier-base: '0.4'
                     multiplier-scale: '0'
                     indicator: '2D'
-                  children: ' {}'
+                  children:  {}
                 Value Set-k: 
                   type: 'mechanic'
                   indicator: '3D'
@@ -2496,7 +2455,7 @@ Penitencia:
                     value-base: 'lorepoder'
                     value-scale: '0'
                     indicator: '2D'
-                  children: ' {}'
+                  children:  {}
                 Delay-l: 
                   type: 'mechanic'
                   indicator: '3D'
@@ -2557,7 +2516,7 @@ Penitencia:
                                 true: 'False'
                                 classifier: 'default'
                                 indicator: '2D'
-                              children: ' {}'
+                              children:  {}
                             Potion-p: 
                               type: 'mechanic'
                               indicator: '3D'
@@ -2571,7 +2530,7 @@ Penitencia:
                                 seconds-base: '2'
                                 seconds-scale: '1'
                                 indicator: '2D'
-                              children: ' {}'
+                              children:  {}
             Skill Level-q: 
               type: 'condition'
               indicator: '3D'
@@ -2592,7 +2551,7 @@ Penitencia:
                     multiplier-base: '0.5'
                     multiplier-scale: '0'
                     indicator: '2D'
-                  children: ' {}'
+                  children:  {}
                 Value Set-s: 
                   type: 'mechanic'
                   indicator: '3D'
@@ -2603,7 +2562,7 @@ Penitencia:
                     value-base: 'lorepoder'
                     value-scale: '0'
                     indicator: '2D'
-                  children: ' {}'
+                  children:  {}
                 Delay-t: 
                   type: 'mechanic'
                   indicator: '3D'
@@ -2676,7 +2635,48 @@ Penitencia:
                                     true: 'False'
                                     classifier: 'default'
                                     indicator: '2D'
-                                  children: ' {}'
+                                  children:  {}
+    Initialize: 
+      type: 'trigger'
+      indicator: '3D'
+      data: 
+        icon-key: ''
+        indicator: '2D'
+      children: 
+        Passive-z: 
+          type: 'mechanic'
+          indicator: '3D'
+          data: 
+            icon-key: ''
+            counts: 'True'
+            seconds-base: '2'
+            seconds-scale: '0'
+            indicator: '2D'
+          children: 
+            Value Set-ab: 
+              type: 'mechanic'
+              indicator: '3D'
+              data: 
+                icon-key: ''
+                counts: 'True'
+                key: 'lorepoder'
+                value-base: '1'
+                value-scale: '0'
+                indicator: '2D'
+              children:  {}
+            Value Lore-bb: 
+              type: 'mechanic'
+              indicator: '3D'
+              data: 
+                icon-key: ''
+                counts: 'True'
+                key: 'lorepoder'
+                hand: 'Main'
+                regex: 'Poder de Arma: {value}'
+                multiplier-base: '1'
+                multiplier-scale: '0'
+                indicator: '2D'
+              children:  {}
 Critico: 
   name: 'Critico'
   type: 'Pasiva'
@@ -2787,9 +2787,9 @@ Critico:
 PasivArmas: 
   name: 'PasivArmas'
   type: 'Pasiva'
-  max-level: '1'
+  max-level: 1
   skill-req: 'None'
-  skill-req-lvl: '0'
+  skill-req-lvl: 0
   needs-permission: 'false'
   attributes: 
     level-base: '1'
@@ -2806,7 +2806,7 @@ PasivArmas:
     - ''
   msg: '&6{player} &2has cast &6{skill}'
   icon: 'ACACIA_DOOR'
-  icon-data: '0'
+  icon-data: 0
   icon-lore: 
   - '&d{name} &7({level}/{max})'
   - '&2Type: &6{type}'
@@ -2816,7 +2816,7 @@ PasivArmas:
   - ''
   - '&2Mana: {attr:mana}'
   - '&2Cooldown: {attr:cooldown}'
-  desc: ' []'
+  desc:  []
   components: 
     Initialize: 
       type: 'trigger'
@@ -2848,7 +2848,18 @@ PasivArmas:
                 regex: 'False'
                 indicator: '2D'
               children: 
-                Value Lore-d: 
+                Value Set-d: 
+                  type: 'mechanic'
+                  indicator: '3D'
+                  data: 
+                    icon-key: ''
+                    counts: 'True'
+                    key: '100critLoreoff'
+                    value-base: '0'
+                    value-scale: '0'
+                    indicator: '2D'
+                  children:  {}
+                Value Lore-e: 
                   type: 'mechanic'
                   indicator: '3D'
                   data: 
@@ -2860,8 +2871,8 @@ PasivArmas:
                     multiplier-base: '1'
                     multiplier-scale: '0'
                     indicator: '2D'
-                  children: ' {}'
-            Item-e: 
+                  children:  {}
+            Item-f: 
               type: 'condition'
               indicator: '3D'
               data: 
@@ -2874,7 +2885,18 @@ PasivArmas:
                 regex: 'False'
                 indicator: '2D'
               children: 
-                Value Lore-f: 
+                Value Set-g: 
+                  type: 'mechanic'
+                  indicator: '3D'
+                  data: 
+                    icon-key: ''
+                    counts: 'True'
+                    key: '100critLore'
+                    value-base: '0'
+                    value-scale: '0'
+                    indicator: '2D'
+                  children:  {}
+                Value Lore-h: 
                   type: 'mechanic'
                   indicator: '3D'
                   data: 
@@ -2886,8 +2908,8 @@ PasivArmas:
                     multiplier-base: '1'
                     multiplier-scale: '0'
                     indicator: '2D'
-                  children: ' {}'
-            Offhand-g: 
+                  children:  {}
+            Offhand-i: 
               type: 'condition'
               indicator: '3D'
               data: 
@@ -2900,7 +2922,18 @@ PasivArmas:
                 regex: 'False'
                 indicator: '2D'
               children: 
-                Value Lore-h: 
+                Value Set-j: 
+                  type: 'mechanic'
+                  indicator: '3D'
+                  data: 
+                    icon-key: ''
+                    counts: 'True'
+                    key: 'critLoreoff'
+                    value-base: '0'
+                    value-scale: '0'
+                    indicator: '2D'
+                  children:  {}
+                Value Lore-k: 
                   type: 'mechanic'
                   indicator: '3D'
                   data: 
@@ -2912,8 +2945,8 @@ PasivArmas:
                     multiplier-base: '1'
                     multiplier-scale: '0'
                     indicator: '2D'
-                  children: ' {}'
-                Value Multiply-i: 
+                  children:  {}
+                Value Multiply-l: 
                   type: 'mechanic'
                   indicator: '3D'
                   data: 
@@ -2923,8 +2956,8 @@ PasivArmas:
                     multiplier-base: '0.01'
                     multiplier-scale: '0'
                     indicator: '2D'
-                  children: ' {}'
-                Value Add-j: 
+                  children:  {}
+                Value Add-m: 
                   type: 'mechanic'
                   indicator: '3D'
                   data: 
@@ -2934,8 +2967,8 @@ PasivArmas:
                     amount-base: '1'
                     amount-scale: '0'
                     indicator: '2D'
-                  children: ' {}'
-            Item-k: 
+                  children:  {}
+            Item-n: 
               type: 'condition'
               indicator: '3D'
               data: 
@@ -2948,7 +2981,18 @@ PasivArmas:
                 regex: 'False'
                 indicator: '2D'
               children: 
-                Value Lore-l: 
+                Value Set-o: 
+                  type: 'mechanic'
+                  indicator: '3D'
+                  data: 
+                    icon-key: ''
+                    counts: 'True'
+                    key: 'critLore'
+                    value-base: '0'
+                    value-scale: '0'
+                    indicator: '2D'
+                  children:  {}
+                Value Lore-p: 
                   type: 'mechanic'
                   indicator: '3D'
                   data: 
@@ -2960,8 +3004,8 @@ PasivArmas:
                     multiplier-base: '1'
                     multiplier-scale: '0'
                     indicator: '2D'
-                  children: ' {}'
-                Value Multiply-m: 
+                  children:  {}
+                Value Multiply-q: 
                   type: 'mechanic'
                   indicator: '3D'
                   data: 
@@ -2971,8 +3015,8 @@ PasivArmas:
                     multiplier-base: '0.01'
                     multiplier-scale: '0'
                     indicator: '2D'
-                  children: ' {}'
-                Value Add-n: 
+                  children:  {}
+                Value Add-r: 
                   type: 'mechanic'
                   indicator: '3D'
                   data: 
@@ -2982,8 +3026,8 @@ PasivArmas:
                     amount-base: '1'
                     amount-scale: '0'
                     indicator: '2D'
-                  children: ' {}'
-            Offhand-o: 
+                  children:  {}
+            Offhand-s: 
               type: 'condition'
               indicator: '3D'
               data: 
@@ -2996,7 +3040,18 @@ PasivArmas:
                 regex: 'False'
                 indicator: '2D'
               children: 
-                Value Lore-p: 
+                Value Set-t: 
+                  type: 'mechanic'
+                  indicator: '3D'
+                  data: 
+                    icon-key: ''
+                    counts: 'True'
+                    key: 'AOELoreoff'
+                    value-base: '0'
+                    value-scale: '0'
+                    indicator: '2D'
+                  children:  {}
+                Value Lore-u: 
                   type: 'mechanic'
                   indicator: '3D'
                   data: 
@@ -3008,8 +3063,8 @@ PasivArmas:
                     multiplier-base: '1'
                     multiplier-scale: '0'
                     indicator: '2D'
-                  children: ' {}'
-            Item-q: 
+                  children:  {}
+            Item-v: 
               type: 'condition'
               indicator: '3D'
               data: 
@@ -3022,7 +3077,18 @@ PasivArmas:
                 regex: 'False'
                 indicator: '2D'
               children: 
-                Value Lore-r: 
+                Value Set-w: 
+                  type: 'mechanic'
+                  indicator: '3D'
+                  data: 
+                    icon-key: ''
+                    counts: 'True'
+                    key: 'AOELore'
+                    value-base: '0'
+                    value-scale: '0'
+                    indicator: '2D'
+                  children:  {}
+                Value Lore-x: 
                   type: 'mechanic'
                   indicator: '3D'
                   data: 
@@ -3034,17 +3100,8 @@ PasivArmas:
                     multiplier-base: '1'
                     multiplier-scale: '0'
                     indicator: '2D'
-                  children: ' {}'
-                Message-s: 
-                  type: 'mechanic'
-                  indicator: '3D'
-                  data: 
-                    icon-key: ''
-                    counts: 'True'
-                    message: '{AOELore}'
-                    indicator: '2D'
-                  children: ' {}'
-            Offhand-t: 
+                  children:  {}
+            Offhand-y: 
               type: 'condition'
               indicator: '3D'
               data: 
@@ -3057,7 +3114,18 @@ PasivArmas:
                 regex: 'False'
                 indicator: '2D'
               children: 
-                Value Lore-u: 
+                Value Set-z: 
+                  type: 'mechanic'
+                  indicator: '3D'
+                  data: 
+                    icon-key: ''
+                    counts: 'True'
+                    key: 'Lifestealoff'
+                    value-base: '0'
+                    value-scale: '0'
+                    indicator: '2D'
+                  children:  {}
+                Value Lore-ab: 
                   type: 'mechanic'
                   indicator: '3D'
                   data: 
@@ -3069,8 +3137,8 @@ PasivArmas:
                     multiplier-base: '1'
                     multiplier-scale: '0'
                     indicator: '2D'
-                  children: ' {}'
-            Item-v: 
+                  children:  {}
+            Item-bb: 
               type: 'condition'
               indicator: '3D'
               data: 
@@ -3083,7 +3151,18 @@ PasivArmas:
                 regex: 'False'
                 indicator: '2D'
               children: 
-                Value Lore-w: 
+                Value Set-cb: 
+                  type: 'mechanic'
+                  indicator: '3D'
+                  data: 
+                    icon-key: ''
+                    counts: 'True'
+                    key: 'Lifesteal'
+                    value-base: '0'
+                    value-scale: '0'
+                    indicator: '2D'
+                  children:  {}
+                Value Lore-db: 
                   type: 'mechanic'
                   indicator: '3D'
                   data: 
@@ -3095,8 +3174,8 @@ PasivArmas:
                     multiplier-base: '1'
                     multiplier-scale: '0'
                     indicator: '2D'
-                  children: ' {}'
-            Offhand-x: 
+                  children:  {}
+            Offhand-eb: 
               type: 'condition'
               indicator: '3D'
               data: 
@@ -3109,7 +3188,18 @@ PasivArmas:
                 regex: 'False'
                 indicator: '2D'
               children: 
-                Value Lore-y: 
+                Value Set-fb: 
+                  type: 'mechanic'
+                  indicator: '3D'
+                  data: 
+                    icon-key: ''
+                    counts: 'True'
+                    key: 'Poderarmaoff'
+                    value-base: '0'
+                    value-scale: '0'
+                    indicator: '2D'
+                  children:  {}
+                Value Lore-gb: 
                   type: 'mechanic'
                   indicator: '3D'
                   data: 
@@ -3121,8 +3211,8 @@ PasivArmas:
                     multiplier-base: '1'
                     multiplier-scale: '0'
                     indicator: '2D'
-                  children: ' {}'
-            Item-z: 
+                  children:  {}
+            Item-hb: 
               type: 'condition'
               indicator: '3D'
               data: 
@@ -3135,7 +3225,18 @@ PasivArmas:
                 regex: 'False'
                 indicator: '2D'
               children: 
-                Value Lore-ab: 
+                Value Set-ib: 
+                  type: 'mechanic'
+                  indicator: '3D'
+                  data: 
+                    icon-key: ''
+                    counts: 'True'
+                    key: 'Poderarma'
+                    value-base: '0'
+                    value-scale: '0'
+                    indicator: '2D'
+                  children:  {}
+                Value Lore-jb: 
                   type: 'mechanic'
                   indicator: '3D'
                   data: 
@@ -3147,8 +3248,8 @@ PasivArmas:
                     multiplier-base: '1'
                     multiplier-scale: '0'
                     indicator: '2D'
-                  children: ' {}'
-            Tool-bb: 
+                  children:  {}
+            Tool-kb: 
               type: 'condition'
               indicator: '3D'
               data: 
@@ -3157,14 +3258,14 @@ PasivArmas:
                 tool: 'Sword'
                 indicator: '2D'
               children: 
-                Self-cb: 
+                Self-lb: 
                   type: 'target'
                   indicator: '3D'
                   data: 
                     icon-key: ''
                     indicator: '2D'
                   children: 
-                    Damage Buff-db: 
+                    Damage Buff-mb: 
                       type: 'mechanic'
                       indicator: '3D'
                       data: 
@@ -3177,59 +3278,7 @@ PasivArmas:
                         seconds-base: '1.1'
                         seconds-scale: '0'
                         indicator: '2D'
-                      children: ' {}'
-            Offhand-eb: 
-              type: 'condition'
-              indicator: '3D'
-              data: 
-                icon-key: ''
-                check-mat: 'False'
-                check-data: 'False'
-                check-lore: 'True'
-                lore: 'Vida por Muerte:'
-                check-name: 'False'
-                regex: 'False'
-                indicator: '2D'
-              children: 
-                Value Lore-fb: 
-                  type: 'mechanic'
-                  indicator: '3D'
-                  data: 
-                    icon-key: ''
-                    counts: 'True'
-                    key: 'Vidamuerteoff'
-                    hand: 'Offhand'
-                    regex: 'Vida por Muerte: {value}'
-                    multiplier-base: '1'
-                    multiplier-scale: '0'
-                    indicator: '2D'
-                  children: ' {}'
-            Item-gb: 
-              type: 'condition'
-              indicator: '3D'
-              data: 
-                icon-key: ''
-                check-mat: 'False'
-                check-data: 'False'
-                check-lore: 'True'
-                lore: 'Vida por Muerte:'
-                check-name: 'False'
-                regex: 'False'
-                indicator: '2D'
-              children: 
-                Value Lore-hb: 
-                  type: 'mechanic'
-                  indicator: '3D'
-                  data: 
-                    icon-key: ''
-                    counts: 'True'
-                    key: 'Vidamuerte'
-                    hand: 'Main'
-                    regex: 'Vida por Muerte: {value}'
-                    multiplier-base: '1'
-                    multiplier-scale: '0'
-                    indicator: '2D'
-                  children: ' {}'
+                      children:  {}
 PasivVampire: 
   name: 'PasivVampire'
   type: 'Pasiva'
@@ -3582,44 +3631,6 @@ Sed sanguinea:
   - '& Acumulable hasta 20 veces.'
   desc:  []
   components: 
-    Initialize: 
-      type: 'trigger'
-      indicator: '3D'
-      data: 
-        icon-key: ''
-        indicator: '2D'
-      children: 
-        Passive-i: 
-          type: 'mechanic'
-          indicator: '3D'
-          data: 
-            icon-key: ''
-            counts: 'True'
-            seconds-base: '1'
-            seconds-scale: '0'
-            indicator: '2D'
-          children: 
-            Speed-j: 
-              type: 'mechanic'
-              indicator: '3D'
-              data: 
-                icon-key: ''
-                counts: 'True'
-                multiplier-base: 'Stackkill'
-                multiplier-scale: '0'
-                duration-base: '1'
-                duration-scale: '1'
-                indicator: '2D'
-              children:  {}
-            Message-k: 
-              type: 'mechanic'
-              indicator: '3D'
-              data: 
-                icon-key: ''
-                counts: 'True'
-                message: '{Stackkill}'
-                indicator: '2D'
-              children:  {}
     Kill: 
       type: 'trigger'
       indicator: '3D'
@@ -3691,12 +3702,50 @@ Sed sanguinea:
                 value-scale: '0'
                 indicator: '2D'
               children:  {}
+    Initialize: 
+      type: 'trigger'
+      indicator: '3D'
+      data: 
+        icon-key: ''
+        indicator: '2D'
+      children: 
+        Passive-i: 
+          type: 'mechanic'
+          indicator: '3D'
+          data: 
+            icon-key: ''
+            counts: 'True'
+            seconds-base: '1'
+            seconds-scale: '0'
+            indicator: '2D'
+          children: 
+            Speed-j: 
+              type: 'mechanic'
+              indicator: '3D'
+              data: 
+                icon-key: ''
+                counts: 'True'
+                multiplier-base: 'Stackkill'
+                multiplier-scale: '0'
+                duration-base: '1'
+                duration-scale: '1'
+                indicator: '2D'
+              children:  {}
+            Message-k: 
+              type: 'mechanic'
+              indicator: '3D'
+              data: 
+                icon-key: ''
+                counts: 'True'
+                message: '{Stackkill}'
+                indicator: '2D'
+              children:  {}
 Atackspeed: 
   name: 'Atackspeed'
   type: 'Pasiva'
-  max-level: '1'
+  max-level: 1
   skill-req: 'None'
-  skill-req-lvl: '0'
+  skill-req-lvl: 0
   needs-permission: 'false'
   attributes: 
     level-base: '1'
@@ -3713,7 +3762,7 @@ Atackspeed:
     - ''
   msg: '&6{player} &2has cast &6{skill}'
   icon: 'ACACIA_DOOR'
-  icon-data: '0'
+  icon-data: 0
   icon-lore: 
   - '&d{name} &7({level}/{max})'
   - '&2Type: &6{type}'
@@ -3723,7 +3772,7 @@ Atackspeed:
   - ''
   - '&2Mana: {attr:mana}'
   - '&2Cooldown: {attr:cooldown}'
-  desc: ' []'
+  desc:  []
   components: 
     Initialize: 
       type: 'trigger'
@@ -3769,7 +3818,7 @@ Atackspeed:
                     seconds-base: '1.1'
                     seconds-scale: '0'
                     indicator: '2D'
-                  children: ' {}'
+                  children:  {}
                 Value Set-e: 
                   type: 'mechanic'
                   indicator: '3D'
@@ -3780,7 +3829,7 @@ Atackspeed:
                     value-base: '-1.5'
                     value-scale: '0'
                     indicator: '2D'
-                  children: ' {}'
+                  children:  {}
             Item-f: 
               type: 'condition'
               indicator: '3D'
@@ -3808,7 +3857,7 @@ Atackspeed:
                     seconds-base: '1.1'
                     seconds-scale: '0'
                     indicator: '2D'
-                  children: ' {}'
+                  children:  {}
                 Value Set-h: 
                   type: 'mechanic'
                   indicator: '3D'
@@ -3819,7 +3868,7 @@ Atackspeed:
                     value-base: '-1.375'
                     value-scale: '0'
                     indicator: '2D'
-                  children: ' {}'
+                  children:  {}
             Item-i: 
               type: 'condition'
               indicator: '3D'
@@ -3847,7 +3896,7 @@ Atackspeed:
                     seconds-base: '1.1'
                     seconds-scale: '0'
                     indicator: '2D'
-                  children: ' {}'
+                  children:  {}
                 Value Set-k: 
                   type: 'mechanic'
                   indicator: '3D'
@@ -3858,7 +3907,7 @@ Atackspeed:
                     value-base: '-1.125'
                     value-scale: '0'
                     indicator: '2D'
-                  children: ' {}'
+                  children:  {}
             Item-l: 
               type: 'condition'
               indicator: '3D'
@@ -3886,7 +3935,7 @@ Atackspeed:
                     seconds-base: '1.1'
                     seconds-scale: '0'
                     indicator: '2D'
-                  children: ' {}'
+                  children:  {}
                 Value Set-n: 
                   type: 'mechanic'
                   indicator: '3D'
@@ -3897,7 +3946,7 @@ Atackspeed:
                     value-base: '-0.875'
                     value-scale: '0'
                     indicator: '2D'
-                  children: ' {}'
+                  children:  {}
             Item-o: 
               type: 'condition'
               indicator: '3D'
@@ -3925,7 +3974,7 @@ Atackspeed:
                     seconds-base: '1.1'
                     seconds-scale: '0'
                     indicator: '2D'
-                  children: ' {}'
+                  children:  {}
                 Value Set-q: 
                   type: 'mechanic'
                   indicator: '3D'
@@ -3936,7 +3985,7 @@ Atackspeed:
                     value-base: '-0.625'
                     value-scale: '0'
                     indicator: '2D'
-                  children: ' {}'
+                  children:  {}
             Item-r: 
               type: 'condition'
               indicator: '3D'
@@ -3964,7 +4013,7 @@ Atackspeed:
                     seconds-base: '1.1'
                     seconds-scale: '0'
                     indicator: '2D'
-                  children: ' {}'
+                  children:  {}
                 Value Set-t: 
                   type: 'mechanic'
                   indicator: '3D'
@@ -3975,7 +4024,7 @@ Atackspeed:
                     value-base: '-1.375'
                     value-scale: '0'
                     indicator: '2D'
-                  children: ' {}'
+                  children:  {}
             Item-u: 
               type: 'condition'
               indicator: '3D'
@@ -4003,7 +4052,7 @@ Atackspeed:
                     seconds-base: '1.1'
                     seconds-scale: '0'
                     indicator: '2D'
-                  children: ' {}'
+                  children:  {}
                 Value Set-w: 
                   type: 'mechanic'
                   indicator: '3D'
@@ -4014,7 +4063,7 @@ Atackspeed:
                     value-base: '-1.25'
                     value-scale: '0'
                     indicator: '2D'
-                  children: ' {}'
+                  children:  {}
             Item-x: 
               type: 'condition'
               indicator: '3D'
@@ -4042,7 +4091,7 @@ Atackspeed:
                     seconds-base: '1.1'
                     seconds-scale: '0'
                     indicator: '2D'
-                  children: ' {}'
+                  children:  {}
                 Value Set-z: 
                   type: 'mechanic'
                   indicator: '3D'
@@ -4053,7 +4102,7 @@ Atackspeed:
                     value-base: '-1'
                     value-scale: '0'
                     indicator: '2D'
-                  children: ' {}'
+                  children:  {}
             Item-ab: 
               type: 'condition'
               indicator: '3D'
@@ -4081,7 +4130,7 @@ Atackspeed:
                     seconds-base: '1.1'
                     seconds-scale: '0'
                     indicator: '2D'
-                  children: ' {}'
+                  children:  {}
                 Value Set-cb: 
                   type: 'mechanic'
                   indicator: '3D'
@@ -4092,7 +4141,7 @@ Atackspeed:
                     value-base: '-0.75'
                     value-scale: '0'
                     indicator: '2D'
-                  children: ' {}'
+                  children:  {}
             Item-db: 
               type: 'condition'
               indicator: '3D'
@@ -4120,7 +4169,7 @@ Atackspeed:
                     seconds-base: '1.1'
                     seconds-scale: '0'
                     indicator: '2D'
-                  children: ' {}'
+                  children:  {}
                 Value Set-fb: 
                   type: 'mechanic'
                   indicator: '3D'
@@ -4131,7 +4180,7 @@ Atackspeed:
                     value-base: '-0.5'
                     value-scale: '0'
                     indicator: '2D'
-                  children: ' {}'
+                  children:  {}
             Item-gb: 
               type: 'condition'
               indicator: '3D'
@@ -4159,7 +4208,7 @@ Atackspeed:
                     seconds-base: '1.1'
                     seconds-scale: '0'
                     indicator: '2D'
-                  children: ' {}'
+                  children:  {}
                 Value Set-ib: 
                   type: 'mechanic'
                   indicator: '3D'
@@ -4170,7 +4219,7 @@ Atackspeed:
                     value-base: '-1.25'
                     value-scale: '0'
                     indicator: '2D'
-                  children: ' {}'
+                  children:  {}
             Item-jb: 
               type: 'condition'
               indicator: '3D'
@@ -4198,7 +4247,7 @@ Atackspeed:
                     seconds-base: '1.1'
                     seconds-scale: '0'
                     indicator: '2D'
-                  children: ' {}'
+                  children:  {}
                 Value Set-lb: 
                   type: 'mechanic'
                   indicator: '3D'
@@ -4209,7 +4258,7 @@ Atackspeed:
                     value-base: '-1.125'
                     value-scale: '0'
                     indicator: '2D'
-                  children: ' {}'
+                  children:  {}
             Item-mb: 
               type: 'condition'
               indicator: '3D'
@@ -4237,7 +4286,7 @@ Atackspeed:
                     seconds-base: '1.1'
                     seconds-scale: '0'
                     indicator: '2D'
-                  children: ' {}'
+                  children:  {}
                 Value Set-ob: 
                   type: 'mechanic'
                   indicator: '3D'
@@ -4248,7 +4297,7 @@ Atackspeed:
                     value-base: '-0.875'
                     value-scale: '0'
                     indicator: '2D'
-                  children: ' {}'
+                  children:  {}
             Item-pb: 
               type: 'condition'
               indicator: '3D'
@@ -4276,7 +4325,7 @@ Atackspeed:
                     seconds-base: '1.1'
                     seconds-scale: '0'
                     indicator: '2D'
-                  children: ' {}'
+                  children:  {}
                 Value Set-rb: 
                   type: 'mechanic'
                   indicator: '3D'
@@ -4287,7 +4336,7 @@ Atackspeed:
                     value-base: '-0.625'
                     value-scale: '0'
                     indicator: '2D'
-                  children: ' {}'
+                  children:  {}
             Item-sb: 
               type: 'condition'
               indicator: '3D'
@@ -4315,7 +4364,7 @@ Atackspeed:
                     seconds-base: '1.1'
                     seconds-scale: '0'
                     indicator: '2D'
-                  children: ' {}'
+                  children:  {}
                 Value Set-ub: 
                   type: 'mechanic'
                   indicator: '3D'
@@ -4326,7 +4375,7 @@ Atackspeed:
                     value-base: '-0.375'
                     value-scale: '0'
                     indicator: '2D'
-                  children: ' {}'
+                  children:  {}
             Item-vb: 
               type: 'condition'
               indicator: '3D'
@@ -4354,7 +4403,7 @@ Atackspeed:
                     seconds-base: '1.1'
                     seconds-scale: '0'
                     indicator: '2D'
-                  children: ' {}'
+                  children:  {}
                 Value Set-xb: 
                   type: 'mechanic'
                   indicator: '3D'
@@ -4365,7 +4414,7 @@ Atackspeed:
                     value-base: '-1.125'
                     value-scale: '0'
                     indicator: '2D'
-                  children: ' {}'
+                  children:  {}
             Item-yb: 
               type: 'condition'
               indicator: '3D'
@@ -4393,7 +4442,7 @@ Atackspeed:
                     seconds-base: '1.1'
                     seconds-scale: '0'
                     indicator: '2D'
-                  children: ' {}'
+                  children:  {}
                 Value Set-ac: 
                   type: 'mechanic'
                   indicator: '3D'
@@ -4404,7 +4453,7 @@ Atackspeed:
                     value-base: '-1'
                     value-scale: '0'
                     indicator: '2D'
-                  children: ' {}'
+                  children:  {}
             Item-bc: 
               type: 'condition'
               indicator: '3D'
@@ -4432,7 +4481,7 @@ Atackspeed:
                     seconds-base: '1.1'
                     seconds-scale: '0'
                     indicator: '2D'
-                  children: ' {}'
+                  children:  {}
                 Value Set-dc: 
                   type: 'mechanic'
                   indicator: '3D'
@@ -4443,7 +4492,7 @@ Atackspeed:
                     value-base: '-0.75'
                     value-scale: '0'
                     indicator: '2D'
-                  children: ' {}'
+                  children:  {}
             Item-ec: 
               type: 'condition'
               indicator: '3D'
@@ -4471,7 +4520,7 @@ Atackspeed:
                     seconds-base: '1.1'
                     seconds-scale: '0'
                     indicator: '2D'
-                  children: ' {}'
+                  children:  {}
                 Value Set-gc: 
                   type: 'mechanic'
                   indicator: '3D'
@@ -4482,7 +4531,7 @@ Atackspeed:
                     value-base: '-0.5'
                     value-scale: '0'
                     indicator: '2D'
-                  children: ' {}'
+                  children:  {}
             Item-hc: 
               type: 'condition'
               indicator: '3D'
@@ -4510,7 +4559,7 @@ Atackspeed:
                     seconds-base: '1.1'
                     seconds-scale: '0'
                     indicator: '2D'
-                  children: ' {}'
+                  children:  {}
                 Value Set-jc: 
                   type: 'mechanic'
                   indicator: '3D'
@@ -4521,7 +4570,7 @@ Atackspeed:
                     value-base: '-0.25'
                     value-scale: '0'
                     indicator: '2D'
-                  children: ' {}'
+                  children:  {}
             Item-kc: 
               type: 'condition'
               indicator: '3D'
@@ -4549,7 +4598,7 @@ Atackspeed:
                     seconds-base: '1.1'
                     seconds-scale: '0'
                     indicator: '2D'
-                  children: ' {}'
+                  children:  {}
                 Value Set-mc: 
                   type: 'mechanic'
                   indicator: '3D'
@@ -4560,7 +4609,7 @@ Atackspeed:
                     value-base: '-1'
                     value-scale: '0'
                     indicator: '2D'
-                  children: ' {}'
+                  children:  {}
             Item-nc: 
               type: 'condition'
               indicator: '3D'
@@ -4588,7 +4637,7 @@ Atackspeed:
                     seconds-base: '1.1'
                     seconds-scale: '0'
                     indicator: '2D'
-                  children: ' {}'
+                  children:  {}
                 Value Set-pc: 
                   type: 'mechanic'
                   indicator: '3D'
@@ -4599,7 +4648,7 @@ Atackspeed:
                     value-base: '-0.875'
                     value-scale: '0'
                     indicator: '2D'
-                  children: ' {}'
+                  children:  {}
             Item-qc: 
               type: 'condition'
               indicator: '3D'
@@ -4627,7 +4676,7 @@ Atackspeed:
                     seconds-base: '1.1'
                     seconds-scale: '0'
                     indicator: '2D'
-                  children: ' {}'
+                  children:  {}
                 Value Set-sc: 
                   type: 'mechanic'
                   indicator: '3D'
@@ -4638,7 +4687,7 @@ Atackspeed:
                     value-base: '-0.625'
                     value-scale: '0'
                     indicator: '2D'
-                  children: ' {}'
+                  children:  {}
             Item-tc: 
               type: 'condition'
               indicator: '3D'
@@ -4666,7 +4715,7 @@ Atackspeed:
                     seconds-base: '1.1'
                     seconds-scale: '0'
                     indicator: '2D'
-                  children: ' {}'
+                  children:  {}
                 Value Set-vc: 
                   type: 'mechanic'
                   indicator: '3D'
@@ -4677,7 +4726,7 @@ Atackspeed:
                     value-base: '-0.375'
                     value-scale: '0'
                     indicator: '2D'
-                  children: ' {}'
+                  children:  {}
             Item-wc: 
               type: 'condition'
               indicator: '3D'
@@ -4705,7 +4754,7 @@ Atackspeed:
                     seconds-base: '1.1'
                     seconds-scale: '0'
                     indicator: '2D'
-                  children: ' {}'
+                  children:  {}
                 Value Set-yc: 
                   type: 'mechanic'
                   indicator: '3D'
@@ -4716,7 +4765,7 @@ Atackspeed:
                     value-base: '-0.125'
                     value-scale: '0'
                     indicator: '2D'
-                  children: ' {}'
+                  children:  {}
 GuadañaBK: 
   name: 'GuadañaBK'
   type: 'Principal'
