@@ -48,8 +48,16 @@
               }
             } else if <player.flag[profesion].size> == 1 && <player.flag[profesion].as_list> contains Alquimista {
             - ^if <player.has_flag[qprofStatusalquimia].not> {
-              - ^title "subtitle:<blue>Eudes: <yellow>Ya traes lo de la mision <gold><player.name>?"
-              - ^queue clear
+              - ^if <player.has_flag[AlquimiaON]> {
+                - ^title "subtitle:<blue>Eudes: <yellow>Ya traes lo de la mision <gold><player.name>?"
+                - ^flag <player> checkprof:alquimia
+                - ^run 's@profcheckcount'
+                - ^flag <player> checkprof:!
+                - ^queue clear
+                } else {
+                - ^run 's@profquestsrandomeudes'
+                - ^queue clear
+                }
               } else if <player.has_flag[qprofStatusalquimia]> {
               - ^title "subtitle:<green>Regresa en <player.flag[qprofStatusalquimia].expiration.in_seconds.asint> segundos por otra mision!" stay:5s
               - ^queue clear
@@ -72,8 +80,16 @@
               }
             } else if <player.flag[profesion].size> == 2 && <player.flag[profesion].as_list> contains Alquimista {
             - ^if <player.has_flag[qprofStatusalquimia].not> {
-              - ^title "subtitle:<blue>Eudes: <yellow>Completa tu mision <gold><player.name>!"
-              - ^queue clear
+              - ^if <player.has_flag[AlquimiaON]> {
+                - ^title "subtitle:<blue>Eudes: <yellow>Completa tu mision <gold><player.name>!"
+                - ^flag <player> checkprof:alquimia
+                - ^run 's@profcheckcount'
+                - ^flag <player> checkprof:!
+                - ^queue clear
+                } else {
+                - ^run 's@profquestsrandomeudes'
+                - ^queue clear
+                }
               } else if <player.has_flag[qprofStatusalquimia]> {
               - ^title "subtitle:<green>Regresa en <player.flag[qprofStatusalquimia].expiration.in_seconds.asint> segundos por otra mision!" stay:5s
               - ^queue clear
@@ -96,18 +112,32 @@
               }
             } else if <player.flag[profesion].size> == 3 && <player.flag[profesion].as_list> contains Alquimista {
             - ^if <player.has_flag[qprofStatusalquimia].not> {
-              - ^title "subtitle:<blue>Eudes: <yellow>Aun tienes una mision <gold><player.name>!"
-              - ^queue clear
+              - ^if <player.has_flag[AlquimiaON]> {
+                - ^title "subtitle:<blue>Eudes: <yellow>Aun tienes una mision <gold><player.name>!"
+                - ^flag <player> checkprof:alquimia
+                - ^run 's@profcheckcount'
+                - ^flag <player> checkprof:!
+                - ^queue clear
+                } else {
+                - ^run 's@profquestsrandomeudes'
+                - ^queue clear
+                }
               } else if <player.has_flag[qprofStatusalquimia]> {
               - ^title "subtitle:<green>Regresa en <player.flag[qprofStatusalquimia].expiration.in_seconds.asint> segundos por otra mision!" stay:5s
               - ^queue clear
               }
             } else if <player.flag[profesion].size> == 4 && <player.flag[profesion].as_list> contains Alquimista {
             - ^if <player.has_flag[qprofStatusalquimia].not> {
-              - ^title "subtitle:<blue>Eudes: <yellow>Trae lo de la mision <gold><player.name>!"
-              - ^wait 1
-              - ^run 's@profcheckcount'
-              - ^queue clear
+              - ^if <player.has_flag[AlquimiaON]> {
+                - ^title "subtitle:<blue>Eudes: <yellow>Trae lo de la mision <gold><player.name>!"
+                - ^flag <player> checkprof:alquimia
+                - ^run 's@profcheckcount'
+                - ^flag <player> checkprof:!
+                - ^queue clear
+                } else {
+                - ^run 's@profquestsrandomeudes'
+                - ^queue clear
+                }
               } else if <player.has_flag[qprofStatusalquimia]> {
               - ^title "title:<yellow><player.name>" "subtitle:<green>Regresa en <player.flag[qprofStatusalquimia].expiration.in_seconds.asint> segundos por otra mision!" stay:5s
               - ^queue clear
@@ -222,7 +252,7 @@ Eudesevents:
     on player clicks rechazarprof in inv_eudes:
     - ^inventory close d:in@inv_eudes
     on player clicks aceptarprof in inv_eudes:
-    - ^inventory close d:in@inv_eudes
+    - ^inventory close
     - ^execute as_op "jobs employ <player.name> Alquimista" silent
     - ^flag <player> profesion:->:Alquimista
     - ^run 's@profquestsrandomeudes'
@@ -313,7 +343,7 @@ profquestsrandomeudes:
     - ^yaml id:<player.name> set alquimia.misionprof.data:<yaml[<player.name>profalq].read[alquimia.<def[questprof]>.data]>
     - ^flag <player> questprofcant:<yaml[<player.name>].read[alquimia.misionprof.cant]>
     - ^flag <player> questproftarjet:<yaml[<player.name>].read[alquimia.misionprof.obj]>
-    - ^flag <player> objdatapro:<yaml[<player.name>].read[alquimia.misionprof.data]>
+    - ^flag <player> questprofdata:<yaml[<player.name>].read[alquimia.misionprof.data]>
     - ^flag <player> profreward:<yaml[<player.name>].read[alquimia.misionprof.reward]>
     - ^flag <player> profrewardxp:<yaml[<player.name>].read[alquimia.misionprof.xpreward]>
     - ^flag <player> AlquimiaON:ok

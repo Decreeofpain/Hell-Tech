@@ -103,8 +103,16 @@
               }
             } else if <player.flag[profesion].size> == 1 && <player.flag[profesion].as_list> contains Carpintero {
             - ^if <player.has_flag[qprofStatuscarpinteria].not> {
-              - ^title "subtitle:<blue>Eudes: <yellow>Ya traes lo de la mision <gold><player.name>?"
-              - ^queue clear
+              - ^if <player.has_flag[CarpinteriaON]> {
+                - ^title "subtitle:<blue>Yorick: <yellow>Ya traes lo de la mision <gold><player.name>?"
+                - ^flag <player> checkprof:carpinteria
+                - ^run 's@profcheckcount'
+                - ^flag <player> checkprof:!
+                - ^queue clear
+                } else {
+                - ^run 's@profquestsrandomyorick'
+                - ^queue clear
+                }
               } else if <player.has_flag[qprofStatuscarpinteria]> {
               - ^title "subtitle:<green>Regresa en <player.flag[qprofStatuscarpinteria].expiration.in_seconds.asint> segundos por otra mision!" stay:5s
               - ^queue clear
@@ -127,8 +135,16 @@
               }
             } else if <player.flag[profesion].size> == 2 && <player.flag[profesion].as_list> contains Carpintero {
             - ^if <player.has_flag[qprofStatuscarpinteria].not> {
-              - ^title "subtitle:<blue>Yorick: <yellow>Ya vienes a completar la mison?"
-              - ^queue clear
+              - ^if <player.has_flag[CarpinteriaON]> {
+                - ^title "subtitle:<blue>Yorick: <yellow>Ya vienes a completar la mison?"
+                - ^flag <player> checkprof:carpinteria
+                - ^run 's@profcheckcount'
+                - ^flag <player> checkprof:!
+                - ^queue clear
+                } else {
+                - ^run 's@profquestsrandomyorick'
+                - ^queue clear
+                }
               } else if <player.has_flag[qprofStatuscarpinteria]> {
               - ^title "subtitle:<green>Regresa en <player.flag[qprofStatuscarpinteria].expiration.in_seconds.asint> segundos por otra mision!" stay:5s
               - ^queue clear
@@ -151,18 +167,32 @@
               }
             } else if <player.flag[profesion].size> == 3 && <player.flag[profesion].as_list> contains Carpintero {
             - ^if <player.has_flag[qprofStatuscarpinteria].not> {
-              - ^title "subtitle:<blue>Eudes: <yellow>Aun tienes una mision <gold><player.name>!"
-              - ^queue clear
+              - ^if <player.has_flag[CarpinteriaON]> {
+                - ^title "subtitle:<blue>Yorick: <yellow>Venga <gold><player.name><yellow> tienes mision"
+                - ^flag <player> checkprof:carpinteria
+                - ^run 's@profcheckcount'
+                - ^flag <player> checkprof:!
+                - ^queue clear
+                } else {
+                - ^run 's@profquestsrandomyorick'
+                - ^queue clear
+                }
               } else if <player.has_flag[qprofStatuscarpinteria]> {
               - ^title "subtitle:<green>Regresa en <player.flag[qprofStatuscarpinteria].expiration.in_seconds.asint> segundos por otra mision!" stay:5s
               - ^queue clear
               }
             } else if <player.flag[profesion].size> == 4 && <player.flag[profesion].as_list> contains Carpintero {
             - ^if <player.has_flag[qprofStatuscarpinteria].not> {
-              - ^title "subtitle:<blue>Yorick: <yellow>Trae lo de la mision <gold><player.name>!"
-              - ^wait 1
-              - ^run 's@profcheckcount'
-              - ^queue clear
+              - ^if <player.has_flag[CarpinteriaON]> {
+                - ^title "subtitle:<blue>Yorick: <yellow>Trae lo de la mision <gold><player.name>!"
+                - ^flag <player> checkprof:carpinteria
+                - ^run 's@profcheckcount'
+                - ^flag <player> checkprof:!
+                - ^queue clear
+                } else {
+                - ^run 's@profquestsrandomyorick'
+                - ^queue clear
+                }
               } else if <player.has_flag[qprofStatuscarpinteria]> {
               - ^title "title:<yellow><player.name>" "subtitle:<green>Regresa en <player.flag[qprofStatuscarpinteria].expiration.in_seconds.asint> segundos por otra mision!" stay:5s
               - ^queue clear
@@ -180,10 +210,10 @@
               }
             - ^queue clear
             } else if <player.flag[profesion].as_list> contains Carpintero && <player.has_flag[profesion]> && <player.flag[profesion].size> == 1 {
-            - ^if <player.has_flag[qprofStatuscarpinteria].not> && <player.has_flag[MineriaON].not> {
+            - ^if <player.has_flag[qprofStatuscarpinteria].not> && <player.has_flag[CarpinteriaON].not> {
               - ^run 's@profquestsrandomyorick'
               - ^queue clear
-              } else if <player.has_flag[qprofStatuscarpinteria].not> && <player.has_flag[MineriaON]> {
+              } else if <player.has_flag[qprofStatuscarpinteria].not> && <player.has_flag[CarpinteriaON]> {
               - ^run 's@profquestscheckyorick'
               - ^queue clear
               } else {
@@ -196,10 +226,10 @@
               - ^queue clear
               }
             } else if <player.flag[profesion].as_list> contains Carpintero && <player.has_flag[profesion]> && <player.flag[profesion].size> == 2 {
-            - ^if <player.has_flag[qprofStatuscarpinteria].not> && <player.has_flag[MineriaON].not> {
+            - ^if <player.has_flag[qprofStatuscarpinteria].not> && <player.has_flag[CarpinteriaON].not> {
               - ^run 's@profquestsrandomyorick'
               - ^queue clear
-              } else if <player.has_flag[qprofStatuscarpinteria].not> && <player.has_flag[MineriaON]> {
+              } else if <player.has_flag[qprofStatuscarpinteria].not> && <player.has_flag[CarpinteriaON]> {
               - ^run 's@profquestscheckyorick'
               - ^queue clear
               } else {
@@ -212,10 +242,10 @@
               - ^queue clear
               }
             } else if <player.flag[profesion].as_list> contains Carpintero && <player.has_flag[profesion]> && <player.flag[profesion].size> == 3 {
-            - ^if <player.has_flag[qprofStatuscarpinteria].not> && <player.has_flag[MineriaON].not> {
+            - ^if <player.has_flag[qprofStatuscarpinteria].not> && <player.has_flag[CarpinteriaON].not> {
               - ^run 's@profquestsrandomyorick'
               - ^queue clear
-              } else if <player.has_flag[qprofStatuscarpinteria].not> && <player.has_flag[MineriaON]> {
+              } else if <player.has_flag[qprofStatuscarpinteria].not> && <player.has_flag[CarpinteriaON]> {
               - ^run 's@profquestscheckyorick'
               - ^queue clear
               } else {
@@ -223,10 +253,10 @@
               - ^queue clear
               }
             } else if <player.flag[profesion].as_list> contains Carpintero && <player.has_flag[profesion]> && <player.flag[profesion].size> == 4 {
-            - ^if <player.has_flag[qprofStatuscarpinteria].not> && <player.has_flag[MineriaON].not> {
+            - ^if <player.has_flag[qprofStatuscarpinteria].not> && <player.has_flag[CarpinteriaON].not> {
               - ^run 's@profquestsrandomyorick'
               - ^queue clear
-              } else if <player.has_flag[qprofStatuscarpinteria].not> && <player.has_flag[MineriaON]> {
+              } else if <player.has_flag[qprofStatuscarpinteria].not> && <player.has_flag[CarpinteriaON]> {
               - ^run 's@profquestscheckyorick'
               - ^queue clear
               } else {
@@ -290,7 +320,7 @@ yorickevents:
     on player clicks rechazarprof in inv_yorick:
     - ^inventory close d:in@inv_yorick
     on player clicks aceptarprof in inv_yorick:
-    - ^inventory close d:in@inv_yorick
+    - ^inventory close
     - ^execute as_op "jobs employ <player.name> Carpintero" silent
     - ^flag <player> profesion:->:Carpintero
     - ^run 's@profquestsrandomyorick'
@@ -476,16 +506,12 @@ profquestscheckyorick:
     - ^flag <player> questprofcant:<yaml[<player.name>].read[carpinteria.misionprof.cant]>
     - ^flag <player> questproftarjet:<yaml[<player.name>].read[carpinteria.misionprof.obj]>
     - ^flag <player> questprofdata:<yaml[<player.name>].read[carpinteria.misionprof.data]>
-    - ^flag <player> objID:<yaml[<player.name>].read[carpinteria.misionprof.obj]>
-    - ^flag <player> objdatapro:<yaml[<player.name>].read[carpinteria.misionprof.data]>
     - ^flag <player> profreward:<yaml[<player.name>].read[carpinteria.misionprof.reward]>
     - ^flag <player> profrewardxp:<yaml[<player.name>].read[carpinteria.misionprof.xpreward]>
     - ^inventory open d:in@inv_yorick_ok
     - ^flag <player> questprofcant:!
     - ^flag <player> questproftarjet:!
     - ^flag <player> questprofdata:!
-    - ^flag <player> objID:!
-    - ^flag <player> objdatapro:!
     - ^flag <player> profreward:!
     - ^flag <player> profrewardxp:!
     - ^yaml unload id:<player.name>

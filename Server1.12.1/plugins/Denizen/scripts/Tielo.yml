@@ -48,10 +48,18 @@
               }
             } else if <player.flag[profesion].size> == 1 && <player.flag[profesion].as_list> contains Ganadero {
             - ^if <player.has_flag[qprofStatusganaderia].not> {
-              - ^title "subtitle:<blue>Tielo: <yellow>Maldita sea aun no?"
-              - ^wait
-              - ^title "subtitle:<yellow>Tienes una mision aun <gold><player.name>"
-              - ^wait 1
+              - ^if <player.has_flag[GanaderiaON]> {
+                - ^title "subtitle:<blue>Tielo: <yellow>Maldita sea aun no?"
+                - ^wait
+                - ^title "subtitle:<yellow>Tienes una mision aun <gold><player.name>"
+                - ^flag <player> checkprof:ganaderia
+                - ^run 's@profcheckcount'
+                - ^flag <player> checkprof:!
+                - ^queue clear
+                } else {
+                - ^run 's@profquestsrandomtielo'
+                - ^queue clear
+                }
               } else if <player.has_flag[qprofStatusganaderia]> {
               - ^title "subtitle:<green>Regresa en <player.flag[qprofStatusganaderia].expiration.in_seconds.asint> segundos por otra mision!" stay:5s
               - ^queue clear
@@ -76,8 +84,16 @@
               }
             } else if <player.flag[profesion].size> == 2 && <player.flag[profesion].as_list> contains Ganadero {
             - ^if <player.has_flag[qprofStatusganaderia].not> {
-              - ^title "subtitle:<blue>Tielo: <yellow>Tienes mision maldito?"
-              - ^queue clear
+              - ^if <player.has_flag[GanaderiaON]> {
+                - ^title "subtitle:<blue>Tielo: <yellow>Tienes mision maldito!"
+                - ^flag <player> checkprof:ganaderia
+                - ^run 's@profcheckcount'
+                - ^flag <player> checkprof:!
+                - ^queue clear
+                } else {
+                - ^run 's@profquestsrandomtielo'
+                - ^queue clear
+                }
               } else if <player.has_flag[qprofStatusganaderia]> {
               - ^title "subtitle:<green>Regresa en <player.flag[qprofStatusganaderia].expiration.in_seconds.asint> segundos por otra mision!" stay:5s
               - ^queue clear
@@ -100,18 +116,32 @@
               }
             } else if <player.flag[profesion].size> == 3 && <player.flag[profesion].as_list> contains Ganadero {
             - ^if <player.has_flag[qprofStatusganaderia].not> {
-              - ^title "subtitle:<blue>Tielo: <yellow>Hey mula tienes misiones, digo <gold><player.name> <yellow>hahaha"
-              - ^queue clear
+              - ^if <player.has_flag[GanaderiaON]> {
+                - ^title "subtitle:<blue>Tielo: <yellow>Hey mula tienes misiones!"
+                - ^flag <player> checkprof:ganaderia
+                - ^run 's@profcheckcount'
+                - ^flag <player> checkprof:!
+                - ^queue clear
+                } else {
+                - ^run 's@profquestsrandomtielo'
+                - ^queue clear
+                }
               } else if <player.has_flag[qprofStatusganaderia]> {
               - ^title "subtitle:<green>Regresa en <player.flag[qprofStatusganaderia].expiration.in_seconds.asint> segundos por otra mision!" stay:5s
               - ^queue clear
               }
             } else if <player.flag[profesion].size> == 4 && <player.flag[profesion].as_list> contains Ganadero {
             - ^if <player.has_flag[qprofStatusganaderia].not> {
-              - ^title "subtitle:<blue>Tielo: <yellow>Trae lo de la mision <gold><player.name>!"
-              - ^wait 1
-              - ^run 's@profcheckcount'
-              - ^queue clear
+              - ^if <player.has_flag[GanaderiaON]> {
+                - ^title "subtitle:<blue>Tielo: <yellow>Trae lo de la mision <gold><player.name>!"
+                - ^flag <player> checkprof:ganaderia
+                - ^run 's@profcheckcount'
+                - ^flag <player> checkprof:!
+                - ^queue clear
+                } else {
+                - ^run 's@profquestsrandomtielo'
+                - ^queue clear
+                }
               } else if <player.has_flag[qprofStatusganaderia]> {
               - ^title "title:<yellow><player.name>" "subtitle:<green>Regresa en <player.flag[qprofStatusganaderia].expiration.in_seconds.asint> segundos por otra mision!" stay:5s
               - ^queue clear
@@ -257,7 +287,7 @@ Tieloevents:
     on player clicks rechazarprof in inv_tielo:
     - ^inventory close d:in@inv_tielo
     on player clicks aceptarprof in inv_tielo:
-    - ^inventory close d:in@inv_tielo
+    - ^inventory close
     - ^execute as_op "jobs employ <player.name> Ganadero" silent
     - ^flag <player> profesion:->:Ganadero
     - ^run 's@profquestsrandomtielo'
@@ -331,7 +361,7 @@ profquestsrandomtielo:
     - ^yaml id:<player.name> set ganaderia.misionprof.data:<yaml[<player.name>profgnr].read[ganaderia.<def[questprof]>.data]>
     - ^flag <player> questprofcant:<yaml[<player.name>].read[ganaderia.misionprof.cant]>
     - ^flag <player> questproftarjet:<yaml[<player.name>].read[ganaderia.misionprof.obj]>
-    - ^flag <player> objdatapro:<yaml[<player.name>].read[ganaderia.misionprof.data]>
+    - ^flag <player> questprofdata:<yaml[<player.name>].read[ganaderia.misionprof.data]>
     - ^flag <player> profreward:<yaml[<player.name>].read[ganaderia.misionprof.reward]>
     - ^flag <player> profrewardxp:<yaml[<player.name>].read[ganaderia.misionprof.xpreward]>
     - ^flag <player> GanaderiaON:ok
@@ -371,7 +401,7 @@ profquestschecktielo:
 inv_tielo:
   type: inventory
   inventory: dispenser
-  title: <gold>Alquimia
+  title: <gold>Ganaderia
   size: 9
   slots:
   - "[i@cancelslot] [i@Tieloinfo1] [i@cancelslot]"
@@ -480,7 +510,7 @@ inv_profesiontielousegana:
 Tieloinfo1:
   type: item
   material: paper
-  display name: '<blue>Alquimia'
+  display name: '<blue>Ganaderia'
   lore:
   - ''
   - '<gray>Los <yellow>Ganaderos <gray>buscan minerales valiosos'
