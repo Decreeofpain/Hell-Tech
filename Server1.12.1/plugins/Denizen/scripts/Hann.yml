@@ -109,8 +109,9 @@
               - ^title "subtitle:<blue>Haan: <yellow>Atiende tus mugres misiones..."
               - ^wait
               - ^title "subtitle:<yellow>Aun tienes cosas que entragar <gold><player.name>"
-              - ^wait
+              - ^flag <player> checkprof:mineria
               - ^run 's@profcheckcount'
+              - ^flag <player> checkprof:!
               - ^queue clear
               } else if <player.has_flag[qprofStatusmineria]> {
               - ^title "subtitle:<green>Regresa en <player.flag[qprofStatusmineria].expiration.in_seconds.asint> segundos por otra mision!" stay:5s
@@ -138,7 +139,10 @@
             - ^if <player.has_flag[qprofStatusmineria].not> {
               - ^title "subtitle:<blue>Haan: <yellow>Hey..."
               - ^wait
-              - ^title "subtitle:<blue>Haan: <yellow>Todo bien <gold><player.name>... ya traes lo de la mision?"
+              - ^title "subtitle:<yellow>ya traes lo de la mision <gold><player.name>?"
+              - ^flag <player> checkprof:mineria
+              - ^run 's@profcheckcount'
+              - ^flag <player> checkprof:!
               - ^queue clear
               } else if <player.has_flag[qprofStatusmineria]> {
               - ^title "subtitle:<green>Regresa en <player.flag[qprofStatusmineria].expiration.in_seconds.asint> segundos por otra mision!" stay:5s
@@ -163,8 +167,9 @@
             } else if <player.flag[profesion].size> == 3 && <player.flag[profesion].as_list> contains Minero {
             - ^if <player.has_flag[qprofStatusmineria].not> {
               - ^title "subtitle:<blue>Haan: <yellow>Ven aca <gold><player.name> <yellow>tienes mucha piedra que picar haha"
-              - ^wait 1
+              - ^flag <player> checkprof:mineria
               - ^run 's@profcheckcount'
+              - ^flag <player> checkprof:!
               - ^queue clear
               } else if <player.has_flag[qprofStatusmineria]> {
               - ^title "subtitle:<green>Regresa en <player.flag[qprofStatusmineria].expiration.in_seconds.asint> segundos por otra mision!" stay:5s
@@ -173,8 +178,9 @@
             } else if <player.flag[profesion].size> == 4 && <player.flag[profesion].as_list> contains Minero {
             - ^if <player.has_flag[qprofStatusmineria].not> {
               - ^title "subtitle:<blue>Haan: <yellow>Hey mula tienes misiones, digo <gold><player.name> <yellow>hahaha"
-              - ^wait 1
+              - ^flag <player> checkprof:mineria
               - ^run 's@profcheckcount'
+              - ^flag <player> checkprof:!
               - ^queue clear
               } else if <player.has_flag[qprofStatusmineria]> {
               - ^title "title:<yellow><player.name>" "subtitle:<green>Regresa en <player.flag[qprofStatusmineria].expiration.in_seconds.asint> segundos por otra mision!" stay:5s
@@ -191,9 +197,32 @@
               - ^inventory open d:in@inv_hann
               - ^queue clear
               }
+            - ^queue clear
+            } else if <player.flag[profesion].as_list> contains Minero && <player.has_flag[profesion]> && <player.flag[profesion].size> == 1 {
+            - ^if <player.has_flag[qprofStatusmineria].not> && <player.has_flag[MineriaON].not> {
+              - ^run 's@profquestsrandomhann'
+              - ^queue clear
+              } else if <player.has_flag[qprofStatusmineria].not> && <player.has_flag[MineriaON]> {
+              - ^run 's@profquestscheckhann'
+              - ^queue clear
+              } else {
+              - ^title "title:<yellow><player.name>" "subtitle:<green>Regresa en <player.flag[qprofStatusmineria].expiration.in_seconds.asint> segundos por otra mision!" stay:5s
+              - ^queue clear
+              }
             } else if <player.flag[profesion].as_list> !contains Minero && <player.has_flag[profesion]> && <player.flag[profesion].size> == 2 {
             - ^if <player.jobs[<player.flag[profesion].get[1]>].xp.level> >= 50 && <player.jobs[<player.flag[profesion].get[2]>].xp.level> >= 50 {
               - ^inventory open d:in@inv_hann
+              - ^queue clear
+              }
+            } else if <player.flag[profesion].as_list> contains Minero && <player.has_flag[profesion]> && <player.flag[profesion].size> == 2 {
+            - ^if <player.has_flag[qprofStatusmineria].not> && <player.has_flag[MineriaON].not> {
+              - ^run 's@profquestsrandomhann'
+              - ^queue clear
+              } else if <player.has_flag[qprofStatusmineria].not> && <player.has_flag[MineriaON]> {
+              - ^run 's@profquestscheckhann'
+              - ^queue clear
+              } else {
+              - ^title "title:<yellow><player.name>" "subtitle:<green>Regresa en <player.flag[qprofStatusmineria].expiration.in_seconds.asint> segundos por otra mision!" stay:5s
               - ^queue clear
               }
             } else if <player.flag[profesion].as_list> !contains Minero && <player.has_flag[profesion]> && <player.flag[profesion].size> == 3 {
@@ -201,22 +230,25 @@
               - ^inventory open d:in@inv_hann
               - ^queue clear
               }
-            } else if <player.flag[profesion].as_list> contains Minero {
-            - ^if <player.has_flag[qprofStatusmineria].not> {
+            } else if <player.flag[profesion].as_list> contains Minero && <player.has_flag[profesion]> && <player.flag[profesion].size> == 3 {
+            - ^if <player.has_flag[qprofStatusmineria].not> && <player.has_flag[MineriaON].not> {
               - ^run 's@profquestsrandomhann'
               - ^queue clear
-              } else if <player.has_flag[qprofStatusmineria].not> {
-              - ^yaml load:personal/<player.name>.yml id:<player.name>
-              - ^flag <player> questprofcant:<yaml[<player.name>].read[mineria.misionprof.cant]>
-              - ^flag <player> questproftarjet:<yaml[<player.name>].read[mineria.misionprof.obj]>
-              - ^flag <player> questprofdata:<yaml[<player.name>].read[mineria.misionprof.data]>
-              - ^inventory open d:in@inv_hann_ok
-              - ^flag <player> questprofcant:!
-              - ^flag <player> questproftarjet:!
-              - ^flag <player> questprofdata:!
-              - ^yaml unload id:<player.name>
+              } else if <player.has_flag[qprofStatusmineria].not> && <player.has_flag[MineriaON]> {
+              - ^run 's@profquestscheckhann'
               - ^queue clear
-              } else if <player.has_flag[qprofStatusmineria]> {
+              } else {
+              - ^title "title:<yellow><player.name>" "subtitle:<green>Regresa en <player.flag[qprofStatusmineria].expiration.in_seconds.asint> segundos por otra mision!" stay:5s
+              - ^queue clear
+              }
+            } else if <player.flag[profesion].as_list> contains Minero && <player.has_flag[profesion]> && <player.flag[profesion].size> == 4 {
+            - ^if <player.has_flag[qprofStatusmineria].not> && <player.has_flag[MineriaON].not> {
+              - ^run 's@profquestsrandomhann'
+              - ^queue clear
+              } else if <player.has_flag[qprofStatusmineria].not> && <player.has_flag[MineriaON]> {
+              - ^run 's@profquestscheckhann'
+              - ^queue clear
+              } else {
               - ^title "title:<yellow><player.name>" "subtitle:<green>Regresa en <player.flag[qprofStatusmineria].expiration.in_seconds.asint> segundos por otra mision!" stay:5s
               - ^queue clear
               }
@@ -455,16 +487,43 @@ profquestsrandomhann:
     - ^yaml id:<player.name> set mineria.misionprof.xpid:<def[questidexp]>
     - ^yaml id:<player.name> set mineria.misionprof.obj:<def[questidmaterial]>
     - ^yaml id:<player.name> set mineria.misionprof.data:<yaml[<player.name>profmin].read[mineria.<def[questprof]>.data]>
-    - ^flag <player> questprofcant:<def[questprofcant]>
-    - ^flag <player> questproftarjet:<def[questidmaterial]>
-    - ^flag <player> questprofdata:<yaml[<player.name>profmin].read[mineria.<def[questprof]>.data]>
+    - ^flag <player> questprofcant:<yaml[<player.name>].read[mineria.misionprof.cant]>
+    - ^flag <player> questproftarjet:<yaml[<player.name>].read[mineria.misionprof.obj]>
+    - ^flag <player> objdatapro:<yaml[<player.name>].read[mineria.misionprof.data]>
+    - ^flag <player> profreward:<yaml[<player.name>].read[mineria.misionprof.reward]>
+    - ^flag <player> profrewardxp:<yaml[<player.name>].read[mineria.misionprof.xpreward]>
+    - ^flag <player> MineriaON:ok
     - ^inventory open d:in@inv_hann_ok
     - ^flag <player> questprofcant:!
     - ^flag <player> questproftarjet:!
     - ^flag <player> questprofdata:!
+    - ^flag <player> profreward:!
+    - ^flag <player> profrewardxp:!
     - ^yaml savefile:personal/<player.name>.yml id:<player.name>
     - ^yaml unload id:<player.name>
     - ^yaml unload id:<player.name>profmin
+    - ^queue clear
+
+profquestscheckhann:
+    type: task
+    script:
+    - ^yaml load:personal/<player.name>.yml id:<player.name>
+    - ^flag <player> questprofcant:<yaml[<player.name>].read[mineria.misionprof.cant]>
+    - ^flag <player> questproftarjet:<yaml[<player.name>].read[mineria.misionprof.obj]>
+    - ^flag <player> questprofdata:<yaml[<player.name>].read[mineria.misionprof.data]>
+    - ^flag <player> objID:<yaml[<player.name>].read[mineria.misionprof.obj]>
+    - ^flag <player> objdatapro:<yaml[<player.name>].read[mineria.misionprof.data]>
+    - ^flag <player> profreward:<yaml[<player.name>].read[mineria.misionprof.reward]>
+    - ^flag <player> profrewardxp:<yaml[<player.name>].read[mineria.misionprof.xpreward]>
+    - ^inventory open d:in@inv_hann_ok
+    - ^flag <player> questprofcant:!
+    - ^flag <player> questproftarjet:!
+    - ^flag <player> questprofdata:!
+    - ^flag <player> objID:!
+    - ^flag <player> objdatapro:!
+    - ^flag <player> profreward:!
+    - ^flag <player> profrewardxp:!
+    - ^yaml unload id:<player.name>
     - ^queue clear
 
 animegrua:

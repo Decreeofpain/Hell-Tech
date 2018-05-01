@@ -31,7 +31,7 @@ infoquestprof:
   material: '<player.flag[objID]>,<player.flag[objdatapro]>'
   lore:
   - ''
-  - '<dark_green>Entregar <gold>-> <yellow>ID <green><player.flag[questproftarjet]>:<player.flag[questprofdata]>'
+  - '<dark_green>Entregar <gold>-> <yellow>ID <green><player.flag[objID]>:<player.flag[objdatapro]>'
   - '<gold>Cantidad: <yellow><player.flag[questprofcant].asint>'
   - ''
   - '<green>Recompensas:'
@@ -47,7 +47,7 @@ profcheckcount:
     type: task
     script:
     - ^yaml load:personal/<player.name>.yml id:<player.name>
-    - ^narrate "<green>Entregar: <gold><yaml[<player.name>].read[misionprof.cant]><yellow> <green>Articulos"
+    - ^actionbar "<green>Entregar: <gold><yaml[<player.name>].read[<player.flag[proforigin]>.misionprof.cant]><yellow> <green>Articulos"
     - ^yaml unload id:<player.name>
 
 
@@ -56,34 +56,40 @@ countprofq:
     type: task
     script:
     - ^yaml load:personal/<player.name>.yml id:<player.name>
-    - ^if <player.flag[cursorid]> == <yaml[<player.name>].read[misionprof.obj]> && <player.flag[cursordata]> == <yaml[<player.name>].read[misionprof.data]> {
-      - ^if <yaml[<player.name>].read[misionprof.cant]> >= 0 {
+    - ^if <player.flag[cursorid]> == <yaml[<player.name>].read[<player.flag[proforigin]>.misionprof.obj]> && <player.flag[cursordata]> == <yaml[<player.name>].read[<player.flag[proforigin]>.misionprof.data]> {
+      - ^if <yaml[<player.name>].read[<player.flag[proforigin]>.misionprof.cant]> >= 0 {
         - ^adjust <player> item_on_cursor:i@air
-        - ^yaml id:<player.name> set misionprof.cant:-:<player.flag[cursoridqty]>
+        - ^yaml id:<player.name> set <player.flag[proforigin]>.misionprof.cant:-:<player.flag[cursoridqty]>
         - ^yaml savefile:personal/<player.name>.yml id:<player.name>
-        - ^flag <player> questprofcant:<yaml[<player.name>].read[misionprof.cant]>
-        - ^flag <player> questproftarjet:<yaml[<player.name>].read[misionprof.obj]>
-        - ^flag <player> questprofdata:<yaml[<player.name>].read[misionprof.data]>
+        - ^flag <player> questprofcant:<yaml[<player.name>].read[<player.flag[proforigin]>.misionprof.cant]>
+        - ^flag <player> questproftarjet:<yaml[<player.name>].read[<player.flag[proforigin]>.misionprof.obj]>
+        - ^flag <player> objdatapro:<yaml[<player.name>].read[<player.flag[proforigin]>.misionprof.data]>
+        - ^flag <player> profreward:<yaml[<player.name>].read[<player.flag[proforigin]>.misionprof.reward]>
+        - ^flag <player> profrewardxp:<yaml[<player.name>].read[<player.flag[proforigin]>.misionprof.xpreward]>
+        - ^inventory close
+        - ^wait
         - ^inventory open d:in@<player.flag[profinv]>
-        - ^flag <player> profinv:!
         - ^flag <player> questprofcant:!
         - ^flag <player> questproftarjet:!
         - ^flag <player> questprofdata:!
-        - ^narrate "<gray>Entregaste: <gold><player.flag[cursoridqty]> <dark_green>Articulos"
-        - if <yaml[<player.name>].read[misionprof.cant]> <= 0 {
+        - ^flag <player> profreward:!
+        - ^flag <player> profrewardxp:!
+        - ^flag <player> proforigin:!
+        - ^actionbar "<gray>Entregaste: <gold><player.flag[cursoridqty]> <dark_green>Articulos"
+        - ^if <yaml[<player.name>].read[<player.flag[proforigin]>.misionprof.cant]> <= 0 {
           - ^inventory close
           - ^narrate "<gold>Recompensas:"
-          - ^narrate "<yellow><yaml[<player.name>].read[misionprof.reward]> <dark_purple>Almakos"
-          - ^narrate "<yellow><yaml[<player.name>].read[misionprof.xpreward]> <dark_purple>Experiencia"
-          - ^give money quantity:<yaml[<player.name>].read[misionprof.reward]>
-          - ^execute as_op "jobs grantxp <player.name> <player.flag[profesion]> <yaml[<player.name>].read[misionprof.xpreward]>" silent
+          - ^narrate "<yellow><yaml[<player.name>].read[<player.flag[proforigin]>.misionprof.reward]> <dark_purple>Almakos"
+          - ^narrate "<yellow><yaml[<player.name>].read[<player.flag[proforigin]>.misionprof.xpreward]> <dark_purple>Experiencia"
+          - ^give money quantity:<yaml[<player.name>].read[<player.flag[proforigin]>.misionprof.reward]>
+          - ^execute as_op "jobs grantxp <player.name> <player.flag[profesion]> <yaml[<player.name>].read[<player.flag[proforigin]>.misionprof.xpreward]>" silent
           - ^title "title:<yellow>Mision completada" "subtitle:<green>Regresa en 10 minutos por otra!" stay:5s
-        # Agregar los minutos a 10
-          - ^flag <player> qprofStatus<player.flag[proforigin]>:oncd duration:10m
+        # Agregar los minutos a 10 <player.flag[proforigin]>    qprofStatuscarpinteria
+          - ^flag <player> qprofStatus<player.flag[proforigin]:oncd duration:10m
           - ^flag <player> proforigin:!
           - ^yaml savefile:personal/<player.name>.yml id:<player.name>
           }
-        } else if <yaml[<player.name>].read[misionprof.cant]> <= 0 {
+        } else if <yaml[<player.name>].read[<player.flag[proforigin]>.misionprof.cant]> <= 0 {
         - ^adjust <player> item_on_cursor:i@air
         - ^inventory close
         - ^title "title:<yellow>Mision completada" "subtitle:<green>Regresa en 10 minutos por otra!" stay:5s
@@ -93,7 +99,7 @@ countprofq:
         - ^yaml savefile:personal/<player.name>.yml id:<player.name>
         }
       } else {
-      - ^narrate "<red>Ese articulo no es de la mision"
+      - ^actionbar "<red>Ese articulo no es de la mision"
       }
     - ^flag <player> cursorid:!
     - ^flag <player> cursoridqty:!

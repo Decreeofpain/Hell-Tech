@@ -127,9 +127,32 @@
               - ^inventory open d:in@inv_tielo
               - ^queue clear
               }
+            - ^queue clear
+            } else if <player.flag[profesion].as_list> contains Ganadero && <player.has_flag[profesion]> && <player.flag[profesion].size> == 1 {
+            - ^if <player.has_flag[qprofStatusganaderia].not> && <player.has_flag[MineriaON].not> {
+              - ^run 's@profquestsrandomtielo'
+              - ^queue clear
+              } else if <player.has_flag[qprofStatusganaderia].not> && <player.has_flag[MineriaON]> {
+              - ^run 's@profquestschecktielo'
+              - ^queue clear
+              } else {
+              - ^title "title:<yellow><player.name>" "subtitle:<green>Regresa en <player.flag[qprofStatusganaderia].expiration.in_seconds.asint> segundos por otra mision!" stay:5s
+              - ^queue clear
+              }
             } else if <player.flag[profesion].as_list> !contains Ganadero && <player.has_flag[profesion]> && <player.flag[profesion].size> == 2 {
             - ^if <player.jobs[<player.flag[profesion].get[1]>].xp.level> >= 50 && <player.jobs[<player.flag[profesion].get[2]>].xp.level> >= 50 {
               - ^inventory open d:in@inv_tielo
+              - ^queue clear
+              }
+            } else if <player.flag[profesion].as_list> contains Ganadero && <player.has_flag[profesion]> && <player.flag[profesion].size> == 2 {
+            - ^if <player.has_flag[qprofStatusganaderia].not> && <player.has_flag[MineriaON].not> {
+              - ^run 's@profquestsrandomtielo'
+              - ^queue clear
+              } else if <player.has_flag[qprofStatusganaderia].not> && <player.has_flag[MineriaON]> {
+              - ^run 's@profquestschecktielo'
+              - ^queue clear
+              } else {
+              - ^title "title:<yellow><player.name>" "subtitle:<green>Regresa en <player.flag[qprofStatusganaderia].expiration.in_seconds.asint> segundos por otra mision!" stay:5s
               - ^queue clear
               }
             } else if <player.flag[profesion].as_list> !contains Ganadero && <player.has_flag[profesion]> && <player.flag[profesion].size> == 3 {
@@ -137,22 +160,25 @@
               - ^inventory open d:in@inv_tielo
               - ^queue clear
               }
-            } else if <player.flag[profesion].as_list> contains Ganadero {
-            - ^if <player.has_flag[qprofStatusganaderia].not> {
+            } else if <player.flag[profesion].as_list> contains Ganadero && <player.has_flag[profesion]> && <player.flag[profesion].size> == 3 {
+            - ^if <player.has_flag[qprofStatusganaderia].not> && <player.has_flag[MineriaON].not> {
               - ^run 's@profquestsrandomtielo'
               - ^queue clear
-              } else if <player.has_flag[qprofStatusganaderia].not> {
-              - ^yaml load:personal/<player.name>.yml id:<player.name>
-              - ^flag <player> questprofcant:<yaml[<player.name>].read[ganaderia.misionprof.cant]>
-              - ^flag <player> questproftarjet:<yaml[<player.name>].read[ganaderia.misionprof.obj]>
-              - ^flag <player> questprofdata:<yaml[<player.name>].read[ganaderia.misionprof.data]>
-              - ^inventory open d:in@inv_tielo_ok
-              - ^flag <player> questprofcant:!
-              - ^flag <player> questproftarjet:!
-              - ^flag <player> questprofdata:!
-              - ^yaml unload id:<player.name>
+              } else if <player.has_flag[qprofStatusganaderia].not> && <player.has_flag[MineriaON]> {
+              - ^run 's@profquestschecktielo'
               - ^queue clear
-              } else if <player.has_flag[qprofStatusganaderia]> {
+              } else {
+              - ^title "title:<yellow><player.name>" "subtitle:<green>Regresa en <player.flag[qprofStatusganaderia].expiration.in_seconds.asint> segundos por otra mision!" stay:5s
+              - ^queue clear
+              }
+            } else if <player.flag[profesion].as_list> contains Ganadero && <player.has_flag[profesion]> && <player.flag[profesion].size> == 4 {
+            - ^if <player.has_flag[qprofStatusganaderia].not> && <player.has_flag[MineriaON].not> {
+              - ^run 's@profquestsrandomtielo'
+              - ^queue clear
+              } else if <player.has_flag[qprofStatusganaderia].not> && <player.has_flag[MineriaON]> {
+              - ^run 's@profquestschecktielo'
+              - ^queue clear
+              } else {
               - ^title "title:<yellow><player.name>" "subtitle:<green>Regresa en <player.flag[qprofStatusganaderia].expiration.in_seconds.asint> segundos por otra mision!" stay:5s
               - ^queue clear
               }
@@ -303,18 +329,44 @@ profquestsrandomtielo:
     - ^yaml id:<player.name> set ganaderia.misionprof.xpid:<def[questidexp]>
     - ^yaml id:<player.name> set ganaderia.misionprof.obj:<def[questidmaterial]>
     - ^yaml id:<player.name> set ganaderia.misionprof.data:<yaml[<player.name>profgnr].read[ganaderia.<def[questprof]>.data]>
-    - ^flag <player> questprofcant:<def[questprofcant]>
-    - ^flag <player> questproftarjet:<def[questidmaterial]>
-    - ^flag <player> questprofdata:<yaml[<player.name>profgnr].read[ganaderia.<def[questprof]>.data]>
+    - ^flag <player> questprofcant:<yaml[<player.name>].read[ganaderia.misionprof.cant]>
+    - ^flag <player> questproftarjet:<yaml[<player.name>].read[ganaderia.misionprof.obj]>
+    - ^flag <player> objdatapro:<yaml[<player.name>].read[ganaderia.misionprof.data]>
+    - ^flag <player> profreward:<yaml[<player.name>].read[ganaderia.misionprof.reward]>
+    - ^flag <player> profrewardxp:<yaml[<player.name>].read[ganaderia.misionprof.xpreward]>
+    - ^flag <player> GanaderiaON:ok
     - ^inventory open d:in@inv_tielo_ok
     - ^flag <player> questprofcant:!
     - ^flag <player> questproftarjet:!
     - ^flag <player> questprofdata:!
+    - ^flag <player> profreward:!
+    - ^flag <player> profrewardxp:!
     - ^yaml savefile:personal/<player.name>.yml id:<player.name>
     - ^yaml unload id:<player.name>
     - ^yaml unload id:<player.name>profgnr
     - ^queue clear
 
+profquestschecktielo:
+    type: task
+    script:
+    - ^yaml load:personal/<player.name>.yml id:<player.name>
+    - ^flag <player> questprofcant:<yaml[<player.name>].read[ganaderia.misionprof.cant]>
+    - ^flag <player> questproftarjet:<yaml[<player.name>].read[ganaderia.misionprof.obj]>
+    - ^flag <player> questprofdata:<yaml[<player.name>].read[ganaderia.misionprof.data]>
+    - ^flag <player> objID:<yaml[<player.name>].read[ganaderia.misionprof.obj]>
+    - ^flag <player> objdatapro:<yaml[<player.name>].read[ganaderia.misionprof.data]>
+    - ^flag <player> profreward:<yaml[<player.name>].read[ganaderia.misionprof.reward]>
+    - ^flag <player> profrewardxp:<yaml[<player.name>].read[ganaderia.misionprof.xpreward]>
+    - ^inventory open d:in@inv_tielo_ok
+    - ^flag <player> questprofcant:!
+    - ^flag <player> questproftarjet:!
+    - ^flag <player> questprofdata:!
+    - ^flag <player> objID:!
+    - ^flag <player> objdatapro:!
+    - ^flag <player> profreward:!
+    - ^flag <player> profrewardxp:!
+    - ^yaml unload id:<player.name>
+    - ^queue clear
 # = INVENTARIOS
 inv_tielo:
   type: inventory

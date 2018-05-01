@@ -313,8 +313,6 @@ profquestsrandomeudes:
     - ^yaml id:<player.name> set alquimia.misionprof.data:<yaml[<player.name>profalq].read[alquimia.<def[questprof]>.data]>
     - ^flag <player> questprofcant:<yaml[<player.name>].read[alquimia.misionprof.cant]>
     - ^flag <player> questproftarjet:<yaml[<player.name>].read[alquimia.misionprof.obj]>
-    - ^flag <player> questprofdata:<yaml[<player.name>].read[alquimia.misionprof.data]>
-    - ^flag <player> objID:<yaml[<player.name>].read[alquimia.misionprof.obj]>
     - ^flag <player> objdatapro:<yaml[<player.name>].read[alquimia.misionprof.data]>
     - ^flag <player> profreward:<yaml[<player.name>].read[alquimia.misionprof.reward]>
     - ^flag <player> profrewardxp:<yaml[<player.name>].read[alquimia.misionprof.xpreward]>
@@ -323,8 +321,6 @@ profquestsrandomeudes:
     - ^flag <player> questprofcant:!
     - ^flag <player> questproftarjet:!
     - ^flag <player> questprofdata:!
-    - ^flag <player> objID:!
-    - ^flag <player> objdatapro:!
     - ^flag <player> profreward:!
     - ^flag <player> profrewardxp:!
     - ^yaml savefile:personal/<player.name>.yml id:<player.name>
