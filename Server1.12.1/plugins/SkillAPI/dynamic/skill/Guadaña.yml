@@ -31,111 +31,6 @@ Guadaña:
   - '&2Cooldown: {attr:cooldown}'
   desc:  []
   components: 
-    Crouch: 
-      type: 'trigger'
-      indicator: '3D'
-      data: 
-        icon-key: ''
-        mana: 'False'
-        cooldown: 'False'
-        type: 'Start Crouching'
-        indicator: '2D'
-      children: 
-        Value Multiply-db: 
-          type: 'mechanic'
-          indicator: '3D'
-          data: 
-            icon-key: ''
-            counts: 'True'
-            key: 'Poderarma'
-            multiplier-base: '1.5'
-            multiplier-scale: '0'
-            indicator: '2D'
-          children:  {}
-        Chance-eb: 
-          type: 'condition'
-          indicator: '3D'
-          data: 
-            icon-key: ''
-            chance-base: '25'
-            chance-scale: '0'
-            indicator: '2D'
-          children: 
-            Value Multiply-fb: 
-              type: 'mechanic'
-              indicator: '3D'
-              data: 
-                icon-key: ''
-                counts: 'True'
-                key: 'Poderarma'
-                multiplier-base: 'critLore'
-                multiplier-scale: '0'
-                indicator: '2D'
-              children:  {}
-            Command-gb: 
-              type: 'mechanic'
-              indicator: '3D'
-              data: 
-                icon-key: ''
-                counts: 'True'
-                command: 'ex title "title:<red>Critico" stay:0.1s fade_in:0.1s fade_out:0.1s'
-                type: 'OP'
-                indicator: '2D'
-              children:  {}
-        Cone-hb: 
-          type: 'target'
-          indicator: '3D'
-          data: 
-            icon-key: ''
-            range-base: '4'
-            range-scale: '0'
-            angle-base: '60'
-            angle-scale: '0'
-            group: 'Enemy'
-            wall: 'False'
-            caster: 'False'
-            max-base: '99'
-            max-scale: '0'
-            indicator: '2D'
-          children: 
-            Damage-ib: 
-              type: 'mechanic'
-              indicator: '3D'
-              data: 
-                icon-key: ''
-                counts: 'True'
-                type: 'Damage'
-                value-base: 'Poderarma'
-                value-scale: '1'
-                true: 'False'
-                classifier: 'default'
-                indicator: '2D'
-              children:  {}
-        Value Lore-jb: 
-          type: 'mechanic'
-          indicator: '3D'
-          data: 
-            icon-key: ''
-            counts: 'True'
-            key: 'Poderarma'
-            hand: 'Main'
-            regex: 'Poder de Arma: {value}'
-            multiplier-base: '1'
-            multiplier-scale: '0'
-            indicator: '2D'
-          children:  {}
-        Cooldown-kb: 
-          type: 'mechanic'
-          indicator: '3D'
-          data: 
-            icon-key: ''
-            counts: 'True'
-            skill: 'Guadaña'
-            type: 'Seconds'
-            value-base: 'cdbasico'
-            value-scale: '0'
-            indicator: '2D'
-          children:  {}
     Physical Damage: 
       type: 'trigger'
       indicator: '3D'
@@ -571,3 +466,108 @@ Guadaña:
                 value-scale: '1'
                 indicator: '2D'
               children:  {}
+    Crouch: 
+      type: 'trigger'
+      indicator: '3D'
+      data: 
+        icon-key: ''
+        mana: 'False'
+        cooldown: 'False'
+        type: 'Start Crouching'
+        indicator: '2D'
+      children: 
+        Value Multiply-db: 
+          type: 'mechanic'
+          indicator: '3D'
+          data: 
+            icon-key: ''
+            counts: 'True'
+            key: 'Poderarma'
+            multiplier-base: '1.5'
+            multiplier-scale: '0'
+            indicator: '2D'
+          children:  {}
+        Chance-eb: 
+          type: 'condition'
+          indicator: '3D'
+          data: 
+            icon-key: ''
+            chance-base: '25'
+            chance-scale: '0'
+            indicator: '2D'
+          children: 
+            Value Multiply-fb: 
+              type: 'mechanic'
+              indicator: '3D'
+              data: 
+                icon-key: ''
+                counts: 'True'
+                key: 'Poderarma'
+                multiplier-base: 'critLore'
+                multiplier-scale: '0'
+                indicator: '2D'
+              children:  {}
+            Command-gb: 
+              type: 'mechanic'
+              indicator: '3D'
+              data: 
+                icon-key: ''
+                counts: 'True'
+                command: 'ex title "title:<red>Critico" stay:0.1s fade_in:0.1s fade_out:0.1s'
+                type: 'OP'
+                indicator: '2D'
+              children:  {}
+        Cone-hb: 
+          type: 'target'
+          indicator: '3D'
+          data: 
+            icon-key: ''
+            range-base: '4'
+            range-scale: '0'
+            angle-base: '60'
+            angle-scale: '0'
+            group: 'Enemy'
+            wall: 'False'
+            caster: 'False'
+            max-base: '99'
+            max-scale: '0'
+            indicator: '2D'
+          children: 
+            Damage-ib: 
+              type: 'mechanic'
+              indicator: '3D'
+              data: 
+                icon-key: ''
+                counts: 'True'
+                type: 'Damage'
+                value-base: 'Poderarma'
+                value-scale: '1'
+                true: 'False'
+                classifier: 'default'
+                indicator: '2D'
+              children:  {}
+        Value Lore-jb: 
+          type: 'mechanic'
+          indicator: '3D'
+          data: 
+            icon-key: ''
+            counts: 'True'
+            key: 'Poderarma'
+            hand: 'Main'
+            regex: 'Poder de Arma: {value}'
+            multiplier-base: '1'
+            multiplier-scale: '0'
+            indicator: '2D'
+          children:  {}
+        Cooldown-kb: 
+          type: 'mechanic'
+          indicator: '3D'
+          data: 
+            icon-key: ''
+            counts: 'True'
+            skill: 'Guadaña'
+            type: 'Seconds'
+            value-base: 'cdbasico'
+            value-scale: '0'
+            indicator: '2D'
+          children:  {}
