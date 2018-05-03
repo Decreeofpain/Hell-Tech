@@ -24,36 +24,67 @@
         entry:
           radius: 4
           Script:
-          - ^if <player.has_flag[profesion].not> {
-            - ^actionbar "<gold>Bronson: <yellow>Largo de aqui!"
+          - ^if <player.flag[especialidad].contains[Carnicero].not> && <player.flag[profesion].contains[Ganadero].not> {
+            - ^title "subtitle:<green>Bronson: <yellow>Largo de aqui!"
             - ^queue clear
-            } else if <player.flag[profesion].as_list> !contains Ganadero && <player.has_flag[profesion]> {
-            - ^actionbar "<gold>Bronson: <yellow>Se te perdio algo malnacido?"
-            - ^wait 2
-            - ^actionbar "<gold>Bronson: <yellow>Largo mugroso <dark_purple><player.flag[profesion].get[1]>..."
-            - ^wait 2
-            - ^actionbar "<gold>Bronson: <yellow>Almenos que quieras ver mas de cerca la cierra haha!"
+            } else if <player.has_flag[especialidad].not> && <player.has_flag[profesion].not> {
+              - ^title "subtitle:<green>Bronson: <yellow>No tienes otra cosa que hacer?"
+              - ^queue clear
+            } else if <player.flag[especialidad].contains[Carnicero].not> && <player.flag[especialidad].contains[Peletero].not> && <player.flag[profesion].contains[Ganadero]> {
+            - ^if <player.jobs[Ganadero].xp.level> >= 50 {
+              - ^title "subtitle:<green>Bronson: <yellow>Bienvenido <player.name>!"
+              - ^wait 1s
+              - ^title "subtitle:<yellow>Quieres desollar animales?"
+              - ^queue clear
+              } else {
+              - ^title "subtitle:<green>Bronson: <gold><player.name> <yellow>malditasea!"
+              - ^wait 1s
+              - ^title "subtitle:<yellow>Tienes que ser nivel 50 de Ganadero"
+              - ^wait 1s
+              - ^title "subtitle:<yellow>LARGO!"
+              - ^queue clear
+              }
+            } else if <player.flag[especialidad].contains[Carnicero]> && <player.flag[especialidad].contains[Peletero].not> {
+            - ^if <player.jobs[Carnicero].xp.level> >= 100 {
+              - ^title "subtitle:<green>Bronson: <gold><player.name> <yellow>al fin!"
+              - ^wait 1s
+              - ^title "subtitle:<yellow>crei que nunca lo lograrias!"
+              - ^wait 1s
+              - ^title "subtitle:<yellow>Enlistate a los Peleteros"
+              - ^queue clear
+              } else {
+              - ^title "subtitle:<green>Bronson: <yellow>Tu si que eres manco"
+              - ^wait 1s
+              - ^title "subtitle:<yellow>Necesitas ser nivel 100 de Carnicero"
+              - ^wait 1s
+              - ^title "subtitle:<yellow>Shu shu! <gold><player.name>"
+              - ^queue clear
+              }
+            } else if <player.flag[especialidad].contains[Carnicero]> && <player.flag[especialidad].contains[Peletero]> {
+            - ^title "subtitle:<green>Bronson: <gold><player.name> <yellow>Bienvenido!"
             - ^queue clear
-            } else if <player.flag[profesion].as_list> contains Ganadero && <player.has_flag[profesion]> && <player.flag[profesion].as_list> !contains Peletero {
-            - ^actionbar "<gold>Bronson: <yellow>Bienvenido <player.name>!"
-            - ^wait 2
-            - ^actionbar "<gold>Bronson: <yellow>Quieres desollar animales?"
-            - ^wait 2
-            - ^actionbar "<gold>Bronson: <yellow>Conseguiras buenas pieles!"
-            - ^queue clear
-            } else if <player.flag[profesion].as_list> contains Ganadero && <player.has_flag[profesion]> && <player.flag[profesion].as_list> contains Peletero {
-            - ^actionbar "<gold>Bronson: <yellow>Hey <player.name>!"
-            - ^wait 2
-            - ^actionbar "<gold>Bronson: <yellow>Que vamos a desollar esta ves!"
+            } else if <player.flag[especialidad].contains[Carnicero].not> && <player.flag[especialidad].contains[Peletero]> {
+            - ^title "subtitle:<green>Bronson: <gold><player.name> <yellow>Bienvenido!"
             - ^queue clear
             }
       click trigger:
         Script:
-          - ^if <player.flag[profesion].as_list> contains Ganadero && <player.flag[profesion].as_list> !contains Peletero && <player.has_flag[profesion]> {
-            - ^inventory open d:in@inv_bronson
-            - ^queue clear
-            } else if <player.flag[profesion].as_list> contains Ganadero && <player.flag[profesion].as_list> contains Peletero && <player.has_flag[profesion]> {
+          - ^if <player.flag[especialidad].contains[Carnicero].not> && <player.flag[profesion].contains[Ganadero]> {
+            - ^if <player.flag[especialidad].contains[Peletero].not> && <player.jobs[Ganadero].xp.level> >= 50 {
+              - ^inventory open d:in@inv_bronson
+              - ^queue clear
+              } else if <player.flag[especialidad].contains[Peletero]> {
+              - ^inventory open d:in@inv_bronson_ok
+              - ^queue clear
+              }
+            } else if <player.flag[especialidad].contains[Carnicero]> && <player.flag[especialidad].contains[Peletero].not> {
+            - ^if <player.jobs[Carnicero].xp.level> >= 100 {
+              - ^inventory open d:in@inv_bronson
+              - ^queue clear
+              }
+            } else if <player.flag[especialidad].contains[Peletero]> {
             - ^inventory open d:in@inv_bronson_ok
+            - ^queue clear
             }
 bronson_craft1task:
     type: task
@@ -93,12 +124,9 @@ bronsonevents:
     - ^inventory close d:in@inv_bronson
     on player clicks aceptarprof in inv_bronson:
     - ^inventory close d:in@inv_bronson
-    - ^if <player.flag[profesion].as_list> contains Carnicero {
-      - ^flag <player> profesion:<-:Carnicero
-      - ^execute as_op "jobs leave Carnicero" silent
-      }
     - ^execute as_op "jobs employ <player.name> Peletero" silent
-    - ^flag <player> profesion:->:Peletero
+    - ^flag <player> especialidad:->:Peletero
+    - ^title "subtitle:<green>Bronson: <yellow>Ahora eres <gold>Peletero!"
     - ^queue clear
 #  Listas de Crafteo
     on player clicks pellejoslist in inv_bronson_ok:
@@ -114,9 +142,9 @@ bronsonevents:
     on player right clicks pellejopolloinfo in inv_bronson_craft1:
     - ^if <player.inventory.quantity[i@cadaberdepollo]> >= 2 && <player.inventory.quantity[i@navajahueso]> >= 1 {
       - ^inventory close d:in@inv_bronson_craft1
-      - ^actionbar "<gold>Bronson: <yellow>Creando... <player.name>"
+      - ^actionbar "<green>Bronson: <yellow>Creando... <player.name>"
       - ^wait 2
-      - ^actionbar "<gold>Bronson: <yellow>Ya casi!"
+      - ^actionbar "<green>Bronson: <yellow>Ya casi!"
       - ^wait 1
       - ^give i@pellejodepollo quantity:1
       - ^take i@cadaberdepollo quantity:2
@@ -130,9 +158,9 @@ bronsonevents:
     on player right clicks mochilasinfo in inv_bronson_craft2:
     - ^if <player.inventory.quantity[i@pellejodepollo]> >= 14 {
       - ^inventory close d:in@inv_bronson_craft2
-      - ^actionbar "<gold>Bronson: <yellow>Creando... <player.name>"
+      - ^actionbar "<green>Bronson: <yellow>Creando... <player.name>"
       - ^wait 2
-      - ^actionbar "<gold>Bronson: <yellow>Ya casi!"
+      - ^actionbar "<green>Bronson: <yellow>Ya casi!"
       - ^wait 1
       - ^give i@mochilat1 quantity:1
       - ^take i@pellejodepollo quantity:14

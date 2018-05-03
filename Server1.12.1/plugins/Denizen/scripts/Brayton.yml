@@ -24,37 +24,71 @@
         entry:
           radius: 4
           Script:
-          - ^if <player.has_flag[profesion].not> {
-            - ^actionbar "<gold>Brayton: <yellow>Un tarado... genial!"
+          - ^if <player.flag[especialidad].contains[Peletero].not> && <player.flag[profesion].contains[Ganadero].not> {
+            - ^title "subtitle:<green>Brayton: <yellow>Que miras maldito!"
+            - wait 1s
+            - ^title "subtitle:<yellow>Te quieres morir?"
             - ^queue clear
-            } else if <player.flag[profesion].as_list> !contains Ganadero && <player.has_flag[profesion]> {
-            - ^actionbar "<gold>Brayton: <yellow>Que haces aqui, largate a tu miserable taller..."
-            - ^wait 2
-            - ^actionbar "<gold>Brayton: <yellow>Hay si soy <dark_purple><player.flag[profesion].get[1]>..."
-            - ^wait 2
-            - ^actionbar "<gold>Brayton: <yellow>Largo maldita sea..."
+            } else if <player.has_flag[especialidad].not> && <player.has_flag[profesion].not> {
+              - ^title "subtitle:<green>Brayton: <yellow>Te hubieras muerto de chiquito!"
+              - ^queue clear
+            } else if <player.flag[especialidad].contains[Peletero].not> && <player.flag[especialidad].contains[Carnicero].not> && <player.flag[profesion].contains[Ganadero]> {
+            - ^if <player.jobs[Ganadero].xp.level> >= 50 {
+              - ^title "subtitle:<green>Brayton: <yellow>Valla <player.name>!"
+              - ^wait 1s
+              - ^title "subtitle:<yellow>Pense que habias muerto..."
+              - ^wait 1s
+              - ^title "subtitle:<yellow>Listo para ser Carnicero?"
+              - ^queue clear
+              } else {
+              - ^title "subtitle:<green>Brayton: <gold><player.name> <yellow>no jodas!"
+              - ^wait 1s
+              - ^title "subtitle:<yellow>Necesitas nivel 50 de Ganadero"
+              - ^wait 1s
+              - ^title "subtitle:<yellow>Para poder ser Carnicero"
+              - ^queue clear
+              }
+            } else if <player.flag[especialidad].contains[Peletero]> && <player.flag[especialidad].contains[Carnicero].not> {
+            - ^if <player.jobs[Peletero].xp.level> >= 100 {
+              - ^title "subtitle:<green>Brayton: <gold><player.name>! <yellow>ven aca maldito"
+              - ^wait 1s
+              - ^title "subtitle:<yellow>Y se un Carnicero descente"
+              - ^queue clear
+              } else {
+              - ^title "subtitle:<green>Brayton: <yellow>MANCO! <yellow>hahahha"
+              - ^wait 1s
+              - ^title "subtitle:<yellow>Necesitas ser nivel 100 de Peletero"
+              - ^wait 1s
+              - ^title "subtitle:<yellow>Ahora pierdete."
+              - ^queue clear
+              }
+            } else if <player.flag[especialidad].contains[Peletero]> && <player.flag[especialidad].contains[Carnicero]> {
+            - ^title "subtitle:<green>Brayton: <gold><player.name> <yellow>Bienvenido!"
             - ^queue clear
-            } else if <player.flag[profesion].as_list> contains Ganadero && <player.has_flag[profesion]> && <player.flag[profesion].as_list> !contains Carnicero {
-            - ^actionbar "<gold>Brayton: <yellow>Hola <player.name> Bienvenido"
-            - ^wait 2
-            - ^actionbar "<gold>Brayton: <yellow>Yo se que quieres ser carnicero"
-            - ^wait 2
-            - ^actionbar "<gold>Brayton: <yellow>ANIMATE!"
-            - ^queue clear
-            } else if <player.flag[profesion].as_list> contains Ganadero && <player.has_flag[profesion]> && <player.flag[profesion].as_list> contains Carnicero {
-            - ^actionbar "<gold>Brayton: <yellow>Hola <player.name> Bienvenido"
-            - ^wait 2
-            - ^actionbar "<gold>Brayton: <yellow>Que cosas maravillosas crearas hoy"
+            } else if <player.flag[especialidad].contains[Peletero].not> && <player.flag[especialidad].contains[Carnicero]> {
+            - ^title "subtitle:<green>Brayton: <gold><player.name> <yellow>Bienvenido!"
             - ^queue clear
             }
       click trigger:
         Script:
-          - ^if <player.flag[profesion].as_list> contains Ganadero && <player.flag[profesion].as_list> !contains Carnicero && <player.has_flag[profesion]> {
-            - ^inventory open d:in@inv_brayton
-            - ^queue clear
-            } else if <player.flag[profesion].as_list> contains Ganadero && <player.flag[profesion].as_list> contains Carnicero && <player.has_flag[profesion]> {
+          - ^if <player.flag[especialidad].contains[Peletero].not> && <player.flag[profesion].contains[Ganadero]> {
+            - ^if <player.flag[especialidad].contains[Carnicero].not> && <player.jobs[Ganadero].xp.level> >= 50 {
+              - ^inventory open d:in@inv_brayton
+              - ^queue clear
+              } else if <player.flag[especialidad].contains[Carnicero]> {
+              - ^inventory open d:in@inv_brayton_ok
+              - ^queue clear
+              }
+            } else if <player.flag[especialidad].contains[Peletero]> && <player.flag[especialidad].contains[Carnicero].not> {
+            - ^if <player.jobs[Peletero].xp.level> >= 100 {
+              - ^inventory open d:in@inv_brayton
+              - ^queue clear
+              }
+            } else if <player.flag[especialidad].contains[Carnicero]> {
             - ^inventory open d:in@inv_brayton_ok
+            - ^queue clear
             }
+
 brayton_craft1task:
     type: task
     script:
@@ -82,12 +116,9 @@ braytonevents:
     - ^inventory close d:in@inv_brayton
     on player clicks aceptarprof in inv_brayton:
     - ^inventory close d:in@inv_brayton
-    - ^if <player.flag[profesion].as_list> contains Peletero {
-      - ^flag <player> profesion:<-:Peletero
-      - ^execute as_op "jobs leave Peletero" silent
-      }
     - ^execute as_op "jobs employ <player.name> Carnicero" silent
-    - ^flag <player> profesion:->:Carnicero
+    - ^flag <player> especialidad:->:Carnicero
+    - ^title "subtitle:<green>Brayton: <yellow>Ahora eres <gold>Carnicero!"
     - ^queue clear
 #  Listas de Crafteo
     on player clicks navajaslist in inv_brayton_ok:
@@ -99,9 +130,9 @@ braytonevents:
     on player right clicks navajahuesoinfo in inv_brayton_craft1:
     - ^if <player.inventory.quantity[i@bone]> >= 38 && <player.inventory.quantity[i@stick]> >= 64 {
       - ^inventory close d:in@inv_brayton_craft1
-      - ^actionbar "<gold>Brayton: <yellow>Creando... <player.name>"
+      - ^actionbar "<green>Brayton: <yellow>Creando... <player.name>"
       - ^wait 2
-      - ^actionbar "<gold>Brayton: <yellow>Ya casi!"
+      - ^actionbar "<green>Brayton: <yellow>Ya casi!"
       - ^wait 1
       - ^give i@navajahueso quantity:1
       - ^take i@bone quantity:38

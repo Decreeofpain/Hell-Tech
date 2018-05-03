@@ -24,36 +24,69 @@
         entry:
           radius: 4
           Script:
-          - ^if <player.has_flag[profesion].not> {
-            - ^actionbar "<gold>Ladislao: <yellow>Genial alguien que no sabe ni escribir!"
+          - ^if <player.flag[especialidad].contains[Artesano].not> && <player.flag[profesion].contains[Carpintero].not> {
+            - ^title "subtitle:<green>Ladislao: <yellow>Sal de aqui inculto!"
             - ^queue clear
-            } else if <player.flag[profesion].as_list> !contains Carpintero && <player.has_flag[profesion]> {
-            - ^actionbar "<gold>Ladislao: <yellow>Se te perdio tu mami?"
-            - ^wait 2
-            - ^actionbar "<gold>Ladislao: <yellow>Pobrecito <dark_purple><player.flag[profesion].get[1]>..."
-            - ^wait 2
-            - ^actionbar "<gold>Ladislao: <yellow>No encuentra a su mami... aqui no esta hahaha FUERA!"
+            } else if <player.has_flag[especialidad].not> && <player.has_flag[profesion].not> {
+              - ^title "subtitle:<green>Ladislao: <yellow>Fuera ensucias los pergaminos!"
+              - ^queue clear
+            } else if <player.flag[especialidad].contains[Artesano].not> && <player.flag[especialidad].contains[Escriba].not> && <player.flag[profesion].contains[Carpintero]> {
+            - ^if <player.jobs[Carpintero].xp.level> >= 50 {
+              - ^title "subtitle:<green>Ladislao: <yellow>Bien <player.name> Bienvenido!"
+              - ^wait 1s
+              - ^title "subtitle:<yellow>Puedes iniciarte como escriba"
+              - ^wait 1s
+              - ^title "subtitle:<yellow>Hay mucho que aprenderas"
+              - ^queue clear
+              } else {
+              - ^title "subtitle:<green>Ladislao: <gold><player.name> <yellow> no juegues conmigo"
+              - ^wait 1s
+              - ^title "subtitle:<yellow>Necesitas ser nivel 50 de Carpintero"
+              - ^wait 1s
+              - ^title "subtitle:<yellow>Para poder aprender este arte..."
+              - ^queue clear
+              }
+            } else if <player.flag[especialidad].contains[Artesano]> && <player.flag[especialidad].contains[Escriba].not> {
+            - ^if <player.jobs[Artesano].xp.level> >= 100 {
+              - ^title "subtitle:<green>Ladislao: <gold><player.name> <yellow> muy bien!"
+              - ^wait 1s
+              - ^title "subtitle:<yellow>Ya puedes iniciarte en el camino"
+              - ^wait 1s
+              - ^title "subtitle:<yellow>Aprende las artes oscuras"
+              - ^queue clear
+              } else {
+              - ^title "subtitle:<green>Ladislao: <gold><player.name> <yellow>No!"
+              - ^wait 1s
+              - ^title "subtitle:<yellow>Necesitas ser nivel 100 de Artesano"
+              - ^wait 1s
+              - ^title "subtitle:<yellow>Aprende mas del mundo y regresa despues..."
+              - ^queue clear
+              }
+            } else if <player.flag[especialidad].contains[Artesano]> && <player.flag[especialidad].contains[Escriba]> {
+            - ^title "subtitle:<green>Ladislao: <gold><player.name> <yellow>Bienvenido!"
             - ^queue clear
-            } else if <player.flag[profesion].as_list> contains Carpintero && <player.has_flag[profesion]> && <player.flag[profesion].as_list> !contains Escriba {
-            - ^actionbar "<gold>Ladislao: <yellow>Que hay de nuevo <player.name>!"
-            - ^wait 2
-            - ^actionbar "<gold>Ladislao: <yellow>Adentrate al mundo de los escribas"
-            - ^wait 2
-            - ^actionbar "<gold>Ladislao: <yellow>El conocimiento es poder!"
-            - ^queue clear
-            } else if <player.flag[profesion].as_list> contains Carpintero && <player.has_flag[profesion]> && <player.flag[profesion].as_list> contains Escriba {
-            - ^actionbar "<gold>Ladislao: <yellow>Hola <player.name> pasa por favor."
-            - ^wait 2
-            - ^actionbar "<gold>Ladislao: <yellow>Que artes misticas desciframos hoy!"
+            } else if <player.flag[especialidad].contains[Artesano].not> && <player.flag[especialidad].contains[Escriba]> {
+            - ^title "subtitle:<green>Ladislao: <gold><player.name> <yellow>Bienvenido!"
             - ^queue clear
             }
       click trigger:
         Script:
-          - ^if <player.flag[profesion].as_list> contains Carpintero && <player.flag[profesion].as_list> !contains Escriba && <player.has_flag[profesion]> {
-            - ^inventory open d:in@inv_ladislao
-            - ^queue clear
-            } else if <player.flag[profesion].as_list> contains Carpintero && <player.flag[profesion].as_list> contains Escriba && <player.has_flag[profesion]> {
+          - ^if <player.flag[especialidad].contains[Artesano].not> && <player.flag[profesion].contains[Carpintero]> {
+            - ^if <player.flag[especialidad].contains[Escriba].not> && <player.jobs[Carpintero].xp.level> >= 50 {
+              - ^inventory open d:in@inv_ladislao
+              - ^queue clear
+              } else if <player.flag[especialidad].contains[Escriba]> {
+              - ^inventory open d:in@inv_ladislao_ok
+              - ^queue clear
+              }
+            } else if <player.flag[especialidad].contains[Artesano]> && <player.flag[especialidad].contains[Escriba].not> {
+            - ^if <player.jobs[Artesano].xp.level> >= 100 {
+              - ^inventory open d:in@inv_ladislao
+              - ^queue clear
+              }
+            } else if <player.flag[especialidad].contains[Escriba]> {
             - ^inventory open d:in@inv_ladislao_ok
+            - ^queue clear
             }
 ladislao_craft1task:
     type: task
@@ -82,12 +115,9 @@ ladislaoevents:
     - ^inventory close d:in@inv_ladislao
     on player clicks aceptarprof in inv_ladislao:
     - ^inventory close d:in@inv_ladislao
-    - ^if <player.flag[profesion].as_list> contains Artesano {
-      - ^flag <player> profesion:<-:Artesano
-      - ^execute as_op "jobs leave Artesano" silent
-      }
     - ^execute as_op "jobs employ <player.name> Escriba" silent
-    - ^flag <player> profesion:->:Escriba
+    - ^flag <player> especialidad:->:Escriba
+    - ^title "subtitle:<green>Aloys: <yellow>Ahora eres <gold>Escriba!"
     - ^queue clear
 #  Listas de Crafteo
     on player clicks papeleslist in inv_ladislao_ok:

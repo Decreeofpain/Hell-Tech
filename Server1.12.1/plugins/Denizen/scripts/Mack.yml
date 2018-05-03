@@ -24,36 +24,67 @@
         entry:
           radius: 4
           Script:
-          - ^if <player.has_flag[profesion].not> {
-            - ^actionbar "<gold>Mack: <yellow>Un gusano, fuera de aqui!"
+          - ^if <player.flag[especialidad].contains[Fraguador].not> && <player.flag[profesion].contains[Minero].not> {
+            - ^title "subtitle:<green>Mack: <yellow>Largo de aqui"
             - ^queue clear
-            } else if <player.flag[profesion].as_list> !contains Minero && <player.has_flag[profesion]> {
-            - ^actionbar "<gold>Mack: <yellow>Que miras?"
-            - ^wait 2
-            - ^actionbar "<gold>Mack: <yellow>Sabes cuantos <dark_purple><player.flag[profesion].get[1]><yellow> e matado?"
-            - ^wait 2
-            - ^actionbar "<gold>Mack: <yellow>o es que quieres sumarte a la cuenta!"
+            } else if <player.has_flag[especialidad].not> && <player.has_flag[profesion].not> {
+              - ^title "subtitle:<green>Mack: <yellow>deja de quitarme el tiempo!"
+              - ^queue clear
+            } else if <player.flag[especialidad].contains[Fraguador].not> && <player.flag[especialidad].contains[Armero].not> && <player.flag[profesion].contains[Minero]> {
+            - ^if <player.jobs[Minero].xp.level> >= 50 {
+              - ^title "subtitle:<green>Mack: <yellow>Listo <player.name>?"
+              - ^wait 1s
+              - ^title "subtitle:<yellow>Ahora podras crear Armas"
+              - ^wait 1s
+              - ^title "subtitle:<yellow>Solo acepta el contrato!"
+              - ^queue clear
+              } else {
+              - ^title "subtitle:<green>Mack: <gold><player.name> <yellow>..."
+              - ^wait 1s
+              - ^title "subtitle:<yellow>Necesitas ser nivel 50 de Minero"
+              - ^wait 1s
+              - ^title "subtitle:<yellow>Para poder ser Armero..."
+              - ^queue clear
+              }
+            } else if <player.flag[especialidad].contains[Fraguador]> && <player.flag[especialidad].contains[Armero].not> {
+            - ^if <player.jobs[Fraguador].xp.level> >= 100 {
+              - ^title "subtitle:<green>Mack: <gold><player.name> <yellow>ya era hora!"
+              - ^wait 1s
+              - ^title "subtitle:<yellow>Ya estas listo para la Armero?"
+              - ^queue clear
+              } else {
+              - ^title "subtitle:<green>Mack: <yellow>Hmm... manco, MANCO!!!"
+              - ^wait 1s
+              - ^title "subtitle:<yellow>Necesitas ser nivel 100 de Fraguador"
+              - ^wait 1s
+              - ^title "subtitle:<yellow>vete y reflecciona sobre lo malo que eres"
+              - ^queue clear
+              }
+            } else if <player.flag[especialidad].contains[Fraguador]> && <player.flag[especialidad].contains[Armero]> {
+            - ^title "subtitle:<green>Mack: <gold><player.name> <yellow>Bienvenido!"
             - ^queue clear
-            } else if <player.flag[profesion].as_list> contains Minero && <player.has_flag[profesion]> && <player.flag[profesion].as_list> !contains Armero {
-            - ^actionbar "<gold>Mack: <yellow>Al fin <player.name>!"
-            - ^wait 2
-            - ^actionbar "<gold>Mack: <yellow>Quieres crear armas amigo?"
-            - ^wait 2
-            - ^actionbar "<gold>Mack: <yellow>Yo se que si."
-            - ^queue clear
-            } else if <player.flag[profesion].as_list> contains Minero && <player.has_flag[profesion]> && <player.flag[profesion].as_list> contains Armero {
-            - ^actionbar "<gold>Mack: <yellow>Hola <player.name> La armeria te espera."
-            - ^wait 2
-            - ^actionbar "<gold>Mack: <yellow>Saquemosle filo a nuevas espadas!"
+            } else if <player.flag[especialidad].contains[Fraguador].not> && <player.flag[especialidad].contains[Armero]> {
+            - ^title "subtitle:<green>Mack: <gold><player.name> <yellow>Bienvenido!"
             - ^queue clear
             }
       click trigger:
         Script:
-          - ^if <player.flag[profesion].as_list> contains Minero && <player.flag[profesion].as_list> !contains Armero && <player.has_flag[profesion]> {
-            - ^inventory open d:in@inv_mack
-            - ^queue clear
-            } else if <player.flag[profesion].as_list> contains Minero && <player.flag[profesion].as_list> contains Armero && <player.has_flag[profesion]> {
+          - ^if <player.flag[especialidad].contains[Fraguador].not> && <player.flag[profesion].contains[Minero]> {
+            - ^if <player.flag[especialidad].contains[Armero].not> && <player.jobs[Minero].xp.level> >= 50 {
+              - ^inventory open d:in@inv_mack
+              - ^queue clear
+              } else if <player.flag[especialidad].contains[Armero]> {
+              - ^inventory open d:in@inv_mack_ok
+              - ^queue clear
+              }
+            } else if <player.flag[especialidad].contains[Fraguador]> && <player.flag[especialidad].contains[Armero].not> {
+            - ^if <player.jobs[Fraguador].xp.level> >= 100 {
+              - ^inventory open d:in@inv_mack
+              - ^queue clear
+              }
+            } else if <player.flag[especialidad].contains[Armero]> {
             - ^inventory open d:in@inv_mack_ok
+            - ^queue clear
             }
 mack_craft1task:
     type: task
@@ -93,12 +124,9 @@ mackevents:
     - ^inventory close d:in@inv_mack
     on player clicks aceptarprof in inv_mack:
     - ^inventory close d:in@inv_mack
-    - ^if <player.flag[profesion].as_list> contains Fraguador {
-      - ^flag <player> profesion:<-:Fraguador
-      - ^execute as_op "jobs leave Fraguador" silent
-      }
     - ^execute as_op "jobs employ <player.name> Armero" silent
-    - ^flag <player> profesion:->:Armero
+    - ^flag <player> especialidad:->:Armero
+    - ^title "subtitle:<green>Aloys: <yellow>Ahora eres <gold>Armero!"
     - ^queue clear
 #  Listas de Crafteo
     on player clicks espadasmaderalist in inv_mack_ok:

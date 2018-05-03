@@ -1,6 +1,10 @@
 # you can define your own custom commands. Refer
 # to documentation on web: http://goo.gl/wCMM7
 commands:
+  lastloc:
+    class: CustomEventCommand
+    event: lastloc
+    aliases: [ll]
   # Determine whether uberCommands are enabled or
   # not. If enabled, commands like /home and /spawn
   # will be uber commands that have a help menu
@@ -11,6 +15,7 @@ commands:
   # even though you can also do /home set with
   # uber commands.
   useUberCommands: true
+
 
   # you can disable individual built-in commands here
 #  disabledCommands:

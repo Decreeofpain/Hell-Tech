@@ -334,6 +334,9 @@ Hannevents:
     on player clicks aceptarprof in inv_hann:
     - ^inventory close
     - ^execute as_op "jobs employ <player.name> Minero" silent
+    - ^if <player.has_flag[especialidad].not> {
+      - ^flag <player> especialidad:ON
+      }
     - ^flag <player> profesion:->:Minero
     - ^run 's@profquestsrandomhann'
     - ^queue clear

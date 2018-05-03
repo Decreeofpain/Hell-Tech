@@ -289,6 +289,9 @@ Tieloevents:
     on player clicks aceptarprof in inv_tielo:
     - ^inventory close
     - ^execute as_op "jobs employ <player.name> Ganadero" silent
+    - ^if <player.has_flag[especialidad].not> {
+      - ^flag <player> especialidad:ON
+      }
     - ^flag <player> profesion:->:Ganadero
     - ^run 's@profquestsrandomtielo'
     - ^queue clear

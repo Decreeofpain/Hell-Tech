@@ -322,6 +322,9 @@ yorickevents:
     on player clicks aceptarprof in inv_yorick:
     - ^inventory close
     - ^execute as_op "jobs employ <player.name> Carpintero" silent
+    - ^if <player.has_flag[especialidad].not> {
+      - ^flag <player> especialidad:ON
+      }
     - ^flag <player> profesion:->:Carpintero
     - ^run 's@profquestsrandomyorick'
     - ^queue clear

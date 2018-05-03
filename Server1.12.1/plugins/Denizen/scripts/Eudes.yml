@@ -26,24 +26,24 @@
           radius: 4
           Script:
           - ^if <player.has_flag[profesion].not> {
-            - ^title "subtitle:<blue>Eudes: <yellow>Aun sin profesion <gold><player.name>?" stay:2s
+            - ^title "subtitle:<blue>Eudes: <yellow>Aun sin profesion <gold><player.name>?"
             - ^wait
-            - ^title "subtitle:<yellow>Y que estas haciendo ahi parado..." stay:2s
+            - ^title "subtitle:<yellow>Y que estas haciendo ahi parado..."
             - ^wait
-            - ^title "subtitle:<yellow>Hay mucha Alquimia que hacer" stay:2s
+            - ^title "subtitle:<yellow>Hay mucha Alquimia que hacer"
             - ^queue clear
             } else if <player.flag[profesion].size> == 1 && <player.flag[profesion].as_list> !contains Alquimista {
             - ^if <player.jobs[<player.flag[profesion].get[1]>].xp.level> >= 25 {
-              - ^title "subtitle:<blue>Eudes: <yellow>Quieres hacer explotar algo?" stay:2s
+              - ^title "subtitle:<blue>Eudes: <yellow>Quieres hacer explotar algo?"
               - ^wait
-              - ^title "subtitle:<yellow>Unete a los Alquimios hahaha" stay:2s
+              - ^title "subtitle:<yellow>Unete a los Alquimios hahaha"
               - ^queue clear
               } else {
-              - ^title "subtitle:<blue>Eudes: <yellow>Que pasa <gold><player.name>" stay:2s
+              - ^title "subtitle:<blue>Eudes: <yellow>Que pasa <gold><player.name>"
               - ^wait
               - ^title "subtitle:<yellow>Aun no eres Nivel 25 de <player.flag[profesion].get[1]>" stay:2s
               - ^wait
-              - ^title "subtitle:<yellow>No me quites mi maldito tiempo!" stay:2s
+              - ^title "subtitle:<yellow>No me quites mi maldito tiempo!"
               - ^queue clear
               }
             } else if <player.flag[profesion].size> == 1 && <player.flag[profesion].as_list> contains Alquimista {
@@ -255,6 +255,9 @@ Eudesevents:
     - ^inventory close
     - ^execute as_op "jobs employ <player.name> Alquimista" silent
     - ^flag <player> profesion:->:Alquimista
+    - ^if <player.has_flag[especialidad].not> {
+      - ^flag <player> especialidad:ON
+      }
     - ^run 's@profquestsrandomeudes'
     - ^queue clear
 

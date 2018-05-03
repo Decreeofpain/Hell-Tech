@@ -24,36 +24,69 @@
         entry:
           radius: 4
           Script:
-          - ^if <player.has_flag[profesion].not> {
-            - ^actionbar "<gold>Bozhidar: <yellow>Y tu que miras..."
+          - ^if <player.flag[especialidad].contains[Escriba].not> && <player.flag[profesion].contains[Carpintero].not> {
+            - ^title "subtitle:<green>Bozhidar: <yellow>Que haces aqui"
+            - wait 1s
+            - ^title "subtitle:<yellow>No tienes lo necesario largo!"
             - ^queue clear
-            } else if <player.flag[profesion].as_list> !contains Carpintero && <player.has_flag[profesion]> {
-            - ^actionbar "<gold>Bozhidar: <yellow>Es en serio?"
-            - ^wait 2
-            - ^actionbar "<gold>Bozhidar: <yellow>Porque un <dark_purple><player.flag[profesion].get[1]><yellow> me visita"
-            - ^wait 2
-            - ^actionbar "<gold>Bozhidar: <yellow>te hubieras muerto de chiquito!"
+            } else if <player.has_flag[especialidad].not> && <player.has_flag[profesion].not> {
+              - ^title "subtitle:<green>Bozhidar: <yellow>Fuera de aqui!"
+              - ^queue clear
+            } else if <player.flag[especialidad].contains[Escriba].not> && <player.flag[especialidad].contains[Artesano].not> && <player.flag[profesion].contains[Carpintero]> {
+            - ^if <player.jobs[Carpintero].xp.level> >= 50 {
+              - ^title "subtitle:<green>Bozhidar: <yellow>Bien <player.name>!"
+              - ^wait 1s
+              - ^title "subtitle:<yellow>Tienes habilidades amigo"
+              - ^wait 1s
+              - ^title "subtitle:<yellow>Puedes ser Artesano"
+              - ^queue clear
+              } else {
+              - ^title "subtitle:<green>Bozhidar: <gold><player.name> <yellow>aun no"
+              - ^wait 1s
+              - ^title "subtitle:<yellow>Necesitas ser nivel 50 de Carpintero"
+              - ^wait 1s
+              - ^title "subtitle:<yellow>Ve a hacer tus deberes"
+              - ^queue clear
+              }
+            } else if <player.flag[especialidad].contains[Escriba]> && <player.flag[especialidad].contains[Artesano].not> {
+            - ^if <player.jobs[Escriba].xp.level> >= 100 {
+              - ^title "subtitle:<green>Bozhidar: <gold><player.name> <yellow>Genial!"
+              - ^wait 1s
+              - ^title "subtitle:<yellow>Ya iniciate en el camino correto!"
+              - ^queue clear
+              } else {
+              - ^title "subtitle:<green>Bozhidar: <yellow>Rayos... <gold><player.name> <yellow>aun no?"
+              - ^wait 1s
+              - ^title "subtitle:<yellow>Necesitas ser nivel 100 de Escriba"
+              - ^wait 1s
+              - ^title "subtitle:<yellow>Regresa cuando seas digno"
+              - ^queue clear
+              }
+            } else if <player.flag[especialidad].contains[Escriba]> && <player.flag[especialidad].contains[Artesano]> {
+            - ^title "subtitle:<green>Bozhidar: <gold><player.name> <yellow>Bienvenido!"
             - ^queue clear
-            } else if <player.flag[profesion].as_list> contains Carpintero && <player.has_flag[profesion]> && <player.flag[profesion].as_list> !contains Artesano {
-            - ^actionbar "<gold>Bozhidar: <yellow>Hey <player.name>!"
-            - ^wait 2
-            - ^actionbar "<gold>Bozhidar: <yellow>Quieres crear artesanias?"
-            - ^wait 2
-            - ^actionbar "<gold>Bozhidar: <yellow>son las mejores."
-            - ^queue clear
-            } else if <player.flag[profesion].as_list> contains Carpintero && <player.has_flag[profesion]> && <player.flag[profesion].as_list> contains Artesano {
-            - ^actionbar "<gold>Bozhidar: <yellow>Hola <player.name> Bienvenido al taller de Artesania."
-            - ^wait 2
-            - ^actionbar "<gold>Bozhidar: <yellow>Manos a la obra, de arte claro!"
+            } else if <player.flag[especialidad].contains[Escriba].not> && <player.flag[especialidad].contains[Artesano]> {
+            - ^title "subtitle:<green>Bozhidar: <gold><player.name> <yellow>Bienvenido!"
             - ^queue clear
             }
       click trigger:
         Script:
-          - ^if <player.flag[profesion].as_list> contains Carpintero && <player.flag[profesion].as_list> !contains Artesano && <player.has_flag[profesion]> {
-            - ^inventory open d:in@inv_bozhidar
-            - ^queue clear
-            } else if <player.flag[profesion].as_list> contains Carpintero && <player.flag[profesion].as_list> contains Artesano && <player.has_flag[profesion]> {
+          - ^if <player.flag[especialidad].contains[Escriba].not> && <player.flag[profesion].contains[Carpintero]> {
+            - ^if <player.flag[especialidad].contains[Artesano].not> && <player.jobs[Carpintero].xp.level> >= 50 {
+              - ^inventory open d:in@inv_bozhidar
+              - ^queue clear
+              } else if <player.flag[especialidad].contains[Artesano]> {
+              - ^inventory open d:in@inv_bozhidar_ok
+              - ^queue clear
+              }
+            } else if <player.flag[especialidad].contains[Escriba]> && <player.flag[especialidad].contains[Artesano].not> {
+            - ^if <player.jobs[Escriba].xp.level> >= 100 {
+              - ^inventory open d:in@inv_bozhidar
+              - ^queue clear
+              }
+            } else if <player.flag[especialidad].contains[Artesano]> {
             - ^inventory open d:in@inv_bozhidar_ok
+            - ^queue clear
             }
 bozhidar_craft1task:
     type: task
@@ -93,12 +126,9 @@ bozhidarevents:
     - ^inventory close d:in@inv_bozhidar
     on player clicks aceptarprof in inv_bozhidar:
     - ^inventory close d:in@inv_bozhidar
-    - ^if <player.flag[profesion].as_list> contains Escriba {
-      - ^flag <player> profesion:<-:Escriba
-      - ^execute as_op "jobs leave Escriba" silent
-      }
     - ^execute as_op "jobs employ <player.name> Artesano" silent
-    - ^flag <player> profesion:->:Artesano
+    - ^flag <player> especialidad:->:Artesano
+    - ^title "subtitle:<green>Aloys: <yellow>Ahora eres <gold>Artesano!"
     - ^queue clear
 #  Listas de Crafteo
     on player clicks cortezaslist in inv_bozhidar_ok:

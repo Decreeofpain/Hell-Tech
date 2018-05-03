@@ -24,36 +24,69 @@
         entry:
           radius: 4
           Script:
-          - ^if <player.has_flag[profesion].not> {
-            - ^actionbar "<gold>Ricker: <yellow>Hey largo de aqui malnacido!"
+          - ^if <player.flag[especialidad].contains[Orfebrero].not> && <player.flag[profesion].contains[Alquimista].not> {
+            - ^title "subtitle:<green>Ricker: <yellow>Largo MALDITO!!!"
             - ^queue clear
-            } else if <player.flag[profesion].as_list> !contains Alquimista && <player.has_flag[profesion]> {
-            - ^actionbar "<gold>Ricker: <yellow>Te perdiste?"
-            - ^wait 2
-            - ^actionbar "<gold>Ricker: <yellow>Este no es lugar para <dark_purple><player.flag[profesion].get[1]>s..."
-            - ^wait 2
-            - ^actionbar "<gold>Ricker: <yellow>Shu shu..."
+            } else if <player.has_flag[especialidad].not> && <player.has_flag[profesion].not> {
+              - ^title "subtitle:<green>Ricker: <yellow>Hey largo de aqui malnacido!"
+              - ^queue clear
+            } else if <player.flag[especialidad].contains[Orfebrero].not> && <player.flag[especialidad].contains[Herboristero].not> && <player.flag[profesion].contains[Alquimista]> {
+            - ^if <player.jobs[Alquimista].xp.level> >= 50 {
+              - ^title "subtitle:<green>Ricker: <yellow>Hey <player.name> Bienvenido!"
+              - ^wait 1s
+              - ^title "subtitle:<yellow>Tienes talento para ser Herboristero"
+              - ^wait 1s
+              - ^title "subtitle:<yellow>No te arrepentiras"
+              - ^queue clear
+              } else {
+              - ^title "subtitle:<green>Ricker: <gold><player.name> <yellow>aun no?"
+              - ^wait 1s
+              - ^title "subtitle:<yellow>Necesitas ser nivel 50 de Alquimista"
+              - ^wait 1s
+              - ^title "subtitle:<yellow>Para poder tener este oficio..."
+              - ^queue clear
+              }
+            } else if <player.flag[especialidad].contains[Orfebrero]> && <player.flag[especialidad].contains[Herboristero].not> {
+            - ^if <player.jobs[Orfebrero].xp.level> >= 100 {
+              - ^title "subtitle:<green>Ricker: <gold><player.name> <yellow>que hay amigo!"
+              - ^wait 1s
+              - ^title "subtitle:<yellow>Ya estas listo para tu nuevo oficio?"
+              - ^wait 1s
+              - ^title "subtitle:<yellow>Ahora puede ser Herboristero"
+              - ^queue clear
+              } else {
+              - ^title "subtitle:<green>Ricker: <gold><player.name> <yellow>que te pasa?"
+              - ^wait 1s
+              - ^title "subtitle:<yellow>Necesitas ser nivel 100 de Orfebrero"
+              - ^wait 1s
+              - ^title "subtitle:<yellow>Cuando lo seas regresa..."
+              - ^queue clear
+              }
+            } else if <player.flag[especialidad].contains[Orfebrero]> && <player.flag[especialidad].contains[Herboristero]> {
+            - ^title "subtitle:<green>Ricker: <gold><player.name> <yellow>Bienvenido!"
             - ^queue clear
-            } else if <player.flag[profesion].as_list> contains Alquimista && <player.has_flag[profesion]> && <player.flag[profesion].as_list> !contains Herboristero {
-            - ^actionbar "<gold>Ricker: <yellow>Hey <player.name> Bienvenido!"
-            - ^wait 2
-            - ^actionbar "<gold>Ricker: <yellow>Se que tienes talento para ser herboristero"
-            - ^wait 2
-            - ^actionbar "<gold>Ricker: <yellow>No te arrepentiras"
-            - ^queue clear
-            } else if <player.flag[profesion].as_list> contains Alquimista && <player.has_flag[profesion]> && <player.flag[profesion].as_list> contains Herboristero {
-            - ^actionbar "<gold>Ricker: <yellow>Hola <player.name> Bienvenido"
-            - ^wait 2
-            - ^actionbar "<gold>Ricker: <yellow>Vamos a crear algo que explote... perdon cosas!"
+            } else if <player.flag[especialidad].contains[Orfebrero].not> && <player.flag[especialidad].contains[Herboristero]> {
+            - ^title "subtitle:<green>Ricker: <gold><player.name> <yellow>Bienvenido!"
             - ^queue clear
             }
       click trigger:
         Script:
-          - ^if <player.flag[profesion].as_list> contains Alquimista && <player.flag[profesion].as_list> !contains Herboristero && <player.has_flag[profesion]> {
-            - ^inventory open d:in@inv_ricker
-            - ^queue clear
-            } else if <player.flag[profesion].as_list> contains Alquimista && <player.flag[profesion].as_list> contains Herboristero && <player.has_flag[profesion]> {
+          - ^if <player.flag[especialidad].contains[Orfebrero].not> && <player.flag[profesion].contains[Alquimista]> {
+            - ^if <player.flag[especialidad].contains[Herboristero].not> && <player.jobs[Alquimista].xp.level> >= 50 {
+              - ^inventory open d:in@inv_ricker
+              - ^queue clear
+              } else if <player.flag[especialidad].contains[Herboristero]> {
+              - ^inventory open d:in@inv_ricker_ok
+              - ^queue clear
+              }
+            } else if <player.flag[especialidad].contains[Orfebrero]> && <player.flag[especialidad].contains[Herboristero].not> {
+            - ^if <player.jobs[Orfebrero].xp.level> >= 100 {
+              - ^inventory open d:in@inv_ricker
+              - ^queue clear
+              }
+            } else if <player.flag[especialidad].contains[Herboristero]> {
             - ^inventory open d:in@inv_ricker_ok
+            - ^queue clear
             }
 ricker_craft1task:
     type: task
@@ -82,12 +115,9 @@ rickerevents:
     - ^inventory close d:in@inv_ricker
     on player clicks aceptarprof in inv_ricker:
     - ^inventory close d:in@inv_ricker
-    - ^if <player.flag[profesion].as_list> contains Orfebrero {
-      - ^flag <player> profesion:<-:Orfebrero
-      - ^execute as_op "jobs leave Orfebrero" silent
-      }
     - ^execute as_op "jobs employ <player.name> Herboristero" silent
-    - ^flag <player> profesion:->:Herboristero
+    - ^flag <player> especialidad:->:Herboristero
+    - ^title "subtitle:<green>Ricker: <yellow>Ahora eres <gold>Herboristero!"
     - ^queue clear
 #  Listas de Crafteo
     on player clicks emplastoslist in inv_ricker_ok:
@@ -99,16 +129,16 @@ rickerevents:
     on player right clicks empmadericoinfo in inv_ricker_craft1:
     - ^if <player.inventory.quantity[i@oak_log]> >= 32 && <player.inventory.quantity[i@yellow_flower]> >= 16 {
       - ^inventory close d:in@inv_ricker_craft1
-      - ^actionbar "<gold>Ricker: <yellow>Creando... <player.name>"
+      - ^title "subtitle:<green>Ricker: <yellow>Creando... <player.name>"
       - ^wait 2
-      - ^actionbar "<gold>Ricker: <yellow>Ya casi!"
+      - ^title "subtitle:<green>Ricker: <yellow>Ya casi!"
       - ^wait 1
       - ^give i@emplastomaderico quantity:1
       - ^take i@oak_log quantity:32
       - ^take i@yellow_flower quantity:16
       - ^run 's@ricker_craft1task'
       - ^inventory open d:in@inv_ricker_craft1
-      - ^execute as_server "jobs grantxp <player.name> Herboristero 10" silent
+      - ^execute as_server "jobs grantxp <player.name> Orfebrero 10" silent
       }
     - ^queue clear
 
@@ -149,10 +179,10 @@ inv_ricker_craft1:
 rickerinfo1:
   type: item
   material: paper
-  display name: '<blue>Herboristero'
+  display name: '<blue>Orfebrero'
   lore:
   - ''
-  - '<gray>Los <yellow>Herboristeros <gray>recolectan plantas'
+  - '<gray>Los <yellow>Orfebreros <gray>recolectan plantas'
   - '<gray>para crear menjurges'
   - '<gray>muy poderosos.'
 #---------------------------------------------ITEMS----------------------------------------------------

@@ -24,36 +24,69 @@
         entry:
           radius: 4
           Script:
-          - ^if <player.has_flag[profesion].not> {
-            - ^actionbar "<gold>Aloys: <yellow>Shu Suu!!"
+          - ^if <player.flag[especialidad].contains[Herboristero].not> && <player.flag[profesion].contains[Alquimista].not> {
+            - ^title "subtitle:<green>Aloys: <yellow>Pero que feo estas..."
+            - wait 1s
+            - ^title "subtitle:<yellow>Largo de aqui"
             - ^queue clear
-            } else if <player.flag[profesion].as_list> !contains Alquimista && <player.has_flag[profesion]> {
-            - ^actionbar "<gold>Aloys: <yellow>Sabes para que sirben las escobas?"
-            - ^wait 2
-            - ^actionbar "<gold>Aloys: <yellow>Para apalear a los <dark_purple><player.flag[profesion].get[1]>s<yellow> como tu"
-            - ^wait 2
-            - ^actionbar "<gold>Aloys: <yellow>Largo engendro..."
+            } else if <player.has_flag[especialidad].not> && <player.has_flag[profesion].not> {
+              - ^title "subtitle:<green>Aloys: <yellow>Shu Shuu!!"
+              - ^queue clear
+            } else if <player.flag[especialidad].contains[Herboristero].not> && <player.flag[especialidad].contains[Orfebrero].not> && <player.flag[profesion].contains[Alquimista]> {
+            - ^if <player.jobs[Alquimista].xp.level> >= 50 {
+              - ^title "subtitle:<green>Aloys: <yellow>Hola mi querido <player.name>!"
+              - ^wait 1s
+              - ^title "subtitle:<yellow>Quieres dedicarte a la Orfebreria?"
+              - ^wait 1s
+              - ^title "subtitle:<yellow>Tienes un talento inato lo se..."
+              - ^queue clear
+              } else {
+              - ^title "subtitle:<green>Aloys: <gold><player.name> <yellow>vamos!"
+              - ^wait 1s
+              - ^title "subtitle:<yellow>Necesitas ser nivel 50 de Alquimista"
+              - ^wait 1s
+              - ^title "subtitle:<yellow>Para poder ser Orfebre"
+              - ^queue clear
+              }
+            } else if <player.flag[especialidad].contains[Herboristero]> && <player.flag[especialidad].contains[Orfebrero].not> {
+            - ^if <player.jobs[Herboristero].xp.level> >= 100 {
+              - ^title "subtitle:<green>Aloys: <gold><player.name> <yellow>Hola!"
+              - ^wait 1s
+              - ^title "subtitle:<yellow>Ya estas listo para la Orfebreria?"
+              - ^queue clear
+              } else {
+              - ^title "subtitle:<green>Aloys: <yellow>Hmm... <gold><player.name> <yellow>aun no?"
+              - ^wait 1s
+              - ^title "subtitle:<yellow>Necesitas ser nivel 100 de Herboristero"
+              - ^wait 1s
+              - ^title "subtitle:<yellow>Cuando lo seas regresa..."
+              - ^queue clear
+              }
+            } else if <player.flag[especialidad].contains[Herboristero]> && <player.flag[especialidad].contains[Orfebrero]> {
+            - ^title "subtitle:<green>Aloys: <gold><player.name> <yellow>Bienvenido!"
             - ^queue clear
-            } else if <player.flag[profesion].as_list> contains Alquimista && <player.has_flag[profesion]> && <player.flag[profesion].as_list> !contains Orfebrero {
-            - ^actionbar "<gold>Aloys: <yellow>Hola mi querido <player.name>!"
-            - ^wait 2
-            - ^actionbar "<gold>Aloys: <yellow>Quieres dedicarte a la Orfebreria?"
-            - ^wait 2
-            - ^actionbar "<gold>Aloys: <yellow>Tienes un talento inato lo se..."
-            - ^queue clear
-            } else if <player.flag[profesion].as_list> contains Alquimista && <player.has_flag[profesion]> && <player.flag[profesion].as_list> contains Orfebrero {
-            - ^actionbar "<gold>Aloys: <yellow>Hola <player.name>!"
-            - ^wait 2
-            - ^actionbar "<gold>Aloys: <yellow>Listo para crear algo de calidad?"
+            } else if <player.flag[especialidad].contains[Herboristero].not> && <player.flag[especialidad].contains[Orfebrero]> {
+            - ^title "subtitle:<green>Aloys: <gold><player.name> <yellow>Bienvenido!"
             - ^queue clear
             }
       click trigger:
         Script:
-          - ^if <player.flag[profesion].as_list> contains Alquimista && <player.flag[profesion].as_list> !contains Orfebrero && <player.has_flag[profesion]> {
-            - ^inventory open d:in@inv_aloys
-            - ^queue clear
-            } else if <player.flag[profesion].as_list> contains Alquimista && <player.flag[profesion].as_list> contains Orfebrero && <player.has_flag[profesion]> {
+          - ^if <player.flag[especialidad].contains[Herboristero].not> && <player.flag[profesion].contains[Alquimista]> {
+            - ^if <player.flag[especialidad].contains[Orfebrero].not> && <player.jobs[Alquimista].xp.level> >= 50 {
+              - ^inventory open d:in@inv_aloys
+              - ^queue clear
+              } else if <player.flag[especialidad].contains[Orfebrero]> {
+              - ^inventory open d:in@inv_aloys_ok
+              - ^queue clear
+              }
+            } else if <player.flag[especialidad].contains[Herboristero]> && <player.flag[especialidad].contains[Orfebrero].not> {
+            - ^if <player.jobs[Herboristero].xp.level> >= 100 {
+              - ^inventory open d:in@inv_aloys
+              - ^queue clear
+              }
+            } else if <player.flag[especialidad].contains[Orfebrero]> {
             - ^inventory open d:in@inv_aloys_ok
+            - ^queue clear
             }
 aloys_craft1task:
     type: task
@@ -82,12 +115,9 @@ aloysevents:
     - ^inventory close d:in@inv_aloys
     on player clicks aceptarprof in inv_aloys:
     - ^inventory close d:in@inv_aloys
-    - ^if <player.flag[profesion].as_list> contains Herboristero {
-      - ^flag <player> profesion:<-:Herboristero
-      - ^execute as_op "jobs leave Herboristero" silent
-      }
     - ^execute as_op "jobs employ <player.name> Orfebrero" silent
-    - ^flag <player> profesion:->:Orfebrero
+    - ^flag <player> especialidad:->:Orfebrero
+    - ^title "subtitle:<green>Aloys: <yellow>Ahora eres <gold>Orfebrero!"
     - ^queue clear
 #  Listas de Crafteo
     on player clicks artilujioslist in inv_aloys_ok:
@@ -99,9 +129,9 @@ aloysevents:
     on player right clicks artilujioflameanteinfo in inv_aloys_craft1:
     - ^if <player.inventory.quantity[i@blaze_powder]> >= 16 && <player.inventory.quantity[i@papelastillado]> >= 1 {
       - ^inventory close d:in@inv_aloys_craft1
-      - ^actionbar "<gold>Aloys: <yellow>Creando... <player.name>"
+      - ^title "subtitle:<green>Aloys: <yellow>Creando... <player.name>"
       - ^wait 2
-      - ^actionbar "<gold>Aloys: <yellow>Ya casi!"
+      - ^title "subtitle:<green>Aloys: <yellow>Ya casi!"
       - ^wait 1
       - ^give i@artilujioflamente quantity:1
       - ^take i@blaze_powder quantity:16

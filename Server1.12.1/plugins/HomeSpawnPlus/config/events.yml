@@ -2,14 +2,13 @@
 # http://dev.bukkit.org/server-mods/homespawnplus/pages/strategy-doc/
 #
 events:
+  lastloc:
+    - spawnLastLocation
   # strategies to use when player is joining the game
+
   onJoin:
     - spawnNamedSpawn:Esparcraft
     - spawnNewPlayer
-    - spawnGroup
-    - spawnLocalWorld
-    - spawnDefaultWorld
-    - spawnLastLocation
 
   # strategies to use when player is respawning after a death
   onDeath:

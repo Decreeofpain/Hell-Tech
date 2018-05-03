@@ -21,7 +21,7 @@ core:
   # significantly speed up both reads and writes at a very small
   # cost of memory. Disabled by default for now while it is being
   # coded and tested.
-  inMemoryCache: false
+  inMemoryCache: true
 
   # localization. "en" for english, "fr" for french, etc. Will
   # use given localization if it exists, otherwise will fall
@@ -52,7 +52,7 @@ core:
 
   # The default/main world. Strategies reference this as the default
   # world, you can change that here if you like.
-  defaultWorld: world
+  defaultWorld: Esparcraft
 
   # any HSP permissions listed here are granted to every user on
   # the server (for HSP only, this DOES NOT affect other plugins).
@@ -63,7 +63,7 @@ core:
 
   # set to true to enable players setting their homes by clicking beds.
   # they must also have the 'hsp.home.bedsethome' permission.
-  bedsethome: true
+  bedsethome: false
 
   # If true, HSP will require 2 clicks on the bed to set the home. This
   # avoids accidentally setting your bedhome when you don't mean to.
@@ -88,7 +88,7 @@ core:
 
   # If true, sleeping in a bed will overwrite the default home,
   # usually the one set by "/sethome" with no args.
-  bedHomeOverwritesDefault: true
+  bedHomeOverwritesDefault: false
 
   # set to true if you want HSP to change the spawn of the actual map
   # (ie. even if you turn this plugin off later, whatever default spawn
@@ -100,7 +100,7 @@ core:
   # of just letting Bukkit do it. This is an attempt to work around a
   # bug where people logout close to a wall and Bukkit tries to respawn
   # them in the wall
-  recordLastLogout: false
+  recordLastLogout: true
 
   # set to true to have a bit more verbose logging in your server.log
   # about what HomeSpawnPlus is doing

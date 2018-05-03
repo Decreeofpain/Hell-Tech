@@ -24,37 +24,71 @@
         entry:
           radius: 4
           Script:
-          - ^if <player.has_flag[profesion].not> {
-            - ^actionbar "<gold>Jurian: <yellow>Fuera!"
+          - ^if <player.flag[especialidad].contains[Armero].not> && <player.flag[profesion].contains[Minero].not> {
+            - ^title "subtitle:<green>Jurian: <yellow>Basura, largo!"
             - ^queue clear
-            } else if <player.flag[profesion].as_list> !contains Minero && <player.has_flag[profesion]> {
-            - ^actionbar "<gold>Jurian: <yellow>Largo!"
-            - ^wait 2
-            - ^actionbar "<gold>Jurian: <yellow>Un maldito <dark_purple><player.flag[profesion].get[1]><yellow> no puede forjar"
-            - ^wait 2
-            - ^actionbar "<gold>Jurian: <yellow>las armaduras!"
+            } else if <player.has_flag[especialidad].not> && <player.has_flag[profesion].not> {
+              - ^title "subtitle:<green>Jurian: <yellow>Acaso quieres una paliza?"
+              - ^queue clear
+            } else if <player.flag[especialidad].contains[Armero].not> && <player.flag[especialidad].contains[Fraguador].not> && <player.flag[profesion].contains[Minero]> {
+            - ^if <player.jobs[Minero].xp.level> >= 50 {
+              - ^title "subtitle:<green>Jurian: <yellow>Hey <player.name>!"
+              - ^wait 1s
+              - ^title "subtitle:<yellow>Se que quieres crear Armaduras"
+              - ^wait 1s
+              - ^title "subtitle:<yellow>Firma con sangre y listo!"
+              - ^queue clear
+              } else {
+              - ^title "subtitle:<green>Jurian: <yellow>Porque a mi... porqueeee"
+              - ^wait 1s
+              - ^title "subtitle:<yellow>Necesitas ser nivel 50 de Minero"
+              - ^wait 1s
+              - ^title "subtitle:<yellow>Ahora ve a picar piedra como loco!!"
+              - ^queue clear
+              }
+            } else if <player.flag[especialidad].contains[Armero]> && <player.flag[especialidad].contains[Fraguador].not> {
+            - ^if <player.jobs[Armero].xp.level> >= 100 {
+              - ^title "subtitle:<green>Jurian: <gold><player.name> <yellow>ya era hora!"
+              - ^wait 1s
+              - ^title "subtitle:<yellow>Ahora tienes acceso a la profesion"
+              - ^wait 1s
+              - ^title "subtitle:<yellow>Podras usar la fragua amigo"
+              - ^queue clear
+              } else {
+              - ^title "subtitle:<green>Jurian: <gold><player.name> <yellow>matate por dios!"
+              - ^wait 1s
+              - ^title "subtitle:<yellow>Necesitas ser nivel 100 de Armero"
+              - ^wait 1s
+              - ^title "subtitle:<yellow>Ahora ve anda, corre!"
+              - ^queue clear
+              }
+            } else if <player.flag[especialidad].contains[Armero]> && <player.flag[especialidad].contains[Fraguador]> {
+            - ^title "subtitle:<green>Jurian: <gold><player.name> <yellow>Bienvenido!"
             - ^queue clear
-            } else if <player.flag[profesion].as_list> contains Minero && <player.has_flag[profesion]> && <player.flag[profesion].as_list> !contains Fraguador {
-            - ^actionbar "<gold>Jurian: <yellow>Al fin <player.name>!"
-            - ^wait 2
-            - ^actionbar "<gold>Jurian: <yellow>Quieres crear armas amigo?"
-            - ^wait 2
-            - ^actionbar "<gold>Jurian: <yellow>Yo se que si."
-            - ^queue clear
-            } else if <player.flag[profesion].as_list> contains Minero && <player.has_flag[profesion]> && <player.flag[profesion].as_list> contains Fraguador {
-            - ^actionbar "<gold>Jurian: <yellow>Hola <player.name> La fragua esta que arde."
-            - ^wait 2
-            - ^actionbar "<gold>Jurian: <yellow>Hay que martillar algunas armaduras!"
+            } else if <player.flag[especialidad].contains[Armero].not> && <player.flag[especialidad].contains[Fraguador]> {
+            - ^title "subtitle:<green>Jurian: <gold><player.name> <yellow>Bienvenido!"
             - ^queue clear
             }
       click trigger:
         Script:
-          - ^if <player.flag[profesion].as_list> contains Minero && <player.flag[profesion].as_list> !contains Fraguador && <player.has_flag[profesion]> {
-            - ^inventory open d:in@inv_jurian
-            - ^queue clear
-            } else if <player.flag[profesion].as_list> contains Minero && <player.flag[profesion].as_list> contains Fraguador && <player.has_flag[profesion]> {
+          - ^if <player.flag[especialidad].contains[Armero].not> && <player.flag[profesion].contains[Minero]> {
+            - ^if <player.flag[especialidad].contains[Fraguador].not> && <player.jobs[Minero].xp.level> >= 50 {
+              - ^inventory open d:in@inv_jurian
+              - ^queue clear
+              } else if <player.flag[especialidad].contains[Fraguador]> {
+              - ^inventory open d:in@inv_jurian_ok
+              - ^queue clear
+              }
+            } else if <player.flag[especialidad].contains[Armero]> && <player.flag[especialidad].contains[Fraguador].not> {
+            - ^if <player.jobs[Armero].xp.level> >= 100 {
+              - ^inventory open d:in@inv_jurian
+              - ^queue clear
+              }
+            } else if <player.flag[especialidad].contains[Fraguador]> {
             - ^inventory open d:in@inv_jurian_ok
+            - ^queue clear
             }
+
 jurian_craft1task:
     type: task
     script:
@@ -93,12 +127,9 @@ jurianevents:
     - ^inventory close d:in@inv_jurian
     on player clicks aceptarprof in inv_jurian:
     - ^inventory close d:in@inv_jurian
-    - ^if <player.flag[profesion].as_list> contains Armero {
-      - ^flag <player> profesion:<-:Armero
-      - ^execute as_op "jobs leave Armero" silent
-      }
     - ^execute as_op "jobs employ <player.name> Fraguador" silent
-    - ^flag <player> profesion:->:Fraguador
+    - ^flag <player> especialidad:->:Fraguador
+    - ^title "subtitle:<green>Aloys: <yellow>Ahora eres <gold>Fraguador!"
     - ^queue clear
 #  Listas de Crafteo
     on player clicks armaduraspiellist in inv_jurian_ok:
@@ -265,7 +296,7 @@ dijerojoinfo:
   - ''
   - '<gold>Materiales actuales:'
   - '<yellow><player.flag[cobblestone_slab].asint><&pipe>64<gray> Losa de piedra labrada <dark_gray>(Minero)'
-  - '<yellow><player.flag[artilujioflamente].asint><&pipe>1<gray> Artilujio Llameante <dark_gray>(Orfebrero)'
+  - '<yellow><player.flag[artilujioflamente].asint><&pipe>1<gray> Artilujio Llameante <dark_gray>(Armero)'
   - ''
   - '<green>Click <dark_green>derecho<green> para crear'
 # Armaduras
