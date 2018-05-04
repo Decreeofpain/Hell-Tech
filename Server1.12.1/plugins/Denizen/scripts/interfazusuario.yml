@@ -4,7 +4,7 @@ inv_guis_players:
     ##############################Block SLOT##
     on player joins:
 #    - ^if <player.inventory.slot[9].scriptname||false> != panel && !<player.inventory.contains[panelgui]> {
-    - ^if <player.flag[name]> == null {
+    - ^if <player.flag[name]> !== <player.name> {
       - ^flag <player> name:<player.name>
       - ^flag <player> piedrasdelalma:15
       - ^define jugador <player.name>
