@@ -1,37 +1,118 @@
+# Razas
+#  Humano: 2
+#  Licantropo: 3
+#  Vampiro: 4
+#  Vagabundo: 5
+# Naciones
+#  Glendara: 2
+#  Cannesh: 3
+#  Hexer: 4
+#  Meslajho: 5
+updateverificado:
+    type: task
+    script:
+    - ^wait 1s
+    - ^yaml load:personal/<player.name>.yml id:verificado<player.name>
+    - ^sql disconnect id:verificado<player.name>
+    - ~sql id:verificado<player.name> connect:esparcraft.net/esparcraft username:drAkeNess password:drakness666
+    - ^if <player.skillapi.main_class.name> == Mendigo {
+      - ^define nivel <player.skillapi.class_level[<player.skillapi.main_class>]>
+      - ^sql id:verificado<player.name> "update:UPDATE phpbb_profile_fields_data SET pf_pb_wow_race='5' WHERE user_id=<yaml[verificado<player.name>].read[UserID]>;"
+      - ^sql id:verificado<player.name> "update:UPDATE phpbb_profile_fields_data SET pf_pb_wow_class='5' WHERE user_id=<yaml[verificado<player.name>].read[UserID]>;"
+      - ^sql id:verificado<player.name> "update:UPDATE phpbb_profile_fields_data SET pf_pb_wow_guild='' WHERE user_id=<yaml[verificado<player.name>].read[UserID]>;"
+      - ^sql id:verificado<player.name> "update:UPDATE phpbb_profile_fields_data SET pf_pb_wow_level='<def[nivel]>' WHERE user_id=<yaml[verificado<player.name>].read[UserID]>;"
+      - ^sql disconnect id:verificado<player.name>
+      - ^yaml unload id:verificado<player.name>
+      - ^queue clear
+      } else if <player.skillapi.main_class.name> == Humano {
+      - ^if <player.flag[iniciado]> == ok {
+        - ^sql id:verificado<player.name> "update:UPDATE phpbb_profile_fields_data SET pf_pb_wow_race='2' WHERE user_id=<yaml[verificado<player.name>].read[UserID]>;"
+        - ^sql id:verificado<player.name> "update:UPDATE phpbb_profile_fields_data SET pf_pb_wow_class='2' WHERE user_id=<yaml[verificado<player.name>].read[UserID]>;"
+        - ^sql id:verificado<player.name> "update:UPDATE phpbb_profile_fields_data SET pf_pb_wow_guild='' WHERE user_id=<yaml[verificado<player.name>].read[UserID]>;"
+        - ^sql id:verificado<player.name> "update:UPDATE phpbb_profile_fields_data SET pf_pb_wow_level='<def[nivel]>' WHERE user_id=<yaml[verificado<player.name>].read[UserID]>;"
+        - ^sql disconnect id:verificado<player.name>
+        - ^yaml unload id:verificado<player.name>
+        - ^queue clear
+        } else {
+        - ^sql id:verificado<player.name> "update:UPDATE phpbb_profile_fields_data SET pf_pb_wow_race='2' WHERE user_id=<yaml[verificado<player.name>].read[UserID]>;"
+        - ^sql id:verificado<player.name> "update:UPDATE phpbb_profile_fields_data SET pf_pb_wow_class='5' WHERE user_id=<yaml[verificado<player.name>].read[UserID]>;"
+        - ^sql id:verificado<player.name> "update:UPDATE phpbb_profile_fields_data SET pf_pb_wow_guild='' WHERE user_id=<yaml[verificado<player.name>].read[UserID]>;"
+        - ^sql id:verificado<player.name> "update:UPDATE phpbb_profile_fields_data SET pf_pb_wow_level='<def[nivel]>' WHERE user_id=<yaml[verificado<player.name>].read[UserID]>;"
+        - ^sql disconnect id:verificado<player.name>
+        - ^yaml unload id:verificado<player.name>
+        - ^queue clear
+        }
+      } else if <player.skillapi.main_class.name> == Licantropo {
+      - ^if <player.flag[iniciado]> == ok {
+        - ^sql id:verificado<player.name> "update:UPDATE phpbb_profile_fields_data SET pf_pb_wow_race='3' WHERE user_id=<yaml[verificado<player.name>].read[UserID]>;"
+        - ^sql id:verificado<player.name> "update:UPDATE phpbb_profile_fields_data SET pf_pb_wow_class='3' WHERE user_id=<yaml[verificado<player.name>].read[UserID]>;"
+        - ^sql id:verificado<player.name> "update:UPDATE phpbb_profile_fields_data SET pf_pb_wow_guild='' WHERE user_id=<yaml[verificado<player.name>].read[UserID]>;"
+        - ^sql id:verificado<player.name> "update:UPDATE phpbb_profile_fields_data SET pf_pb_wow_level='<def[nivel]>' WHERE user_id=<yaml[verificado<player.name>].read[UserID]>;"
+        - ^sql disconnect id:verificado<player.name>
+        - ^yaml unload id:verificado<player.name>
+        - ^queue clear
+        } else {
+        - ^sql id:verificado<player.name> "update:UPDATE phpbb_profile_fields_data SET pf_pb_wow_race='3' WHERE user_id=<yaml[verificado<player.name>].read[UserID]>;"
+        - ^sql id:verificado<player.name> "update:UPDATE phpbb_profile_fields_data SET pf_pb_wow_class='5' WHERE user_id=<yaml[verificado<player.name>].read[UserID]>;"
+        - ^sql id:verificado<player.name> "update:UPDATE phpbb_profile_fields_data SET pf_pb_wow_guild='' WHERE user_id=<yaml[verificado<player.name>].read[UserID]>;"
+        - ^sql id:verificado<player.name> "update:UPDATE phpbb_profile_fields_data SET pf_pb_wow_level='<def[nivel]>' WHERE user_id=<yaml[verificado<player.name>].read[UserID]>;"
+        - ^sql disconnect id:verificado<player.name>
+        - ^yaml unload id:verificado<player.name>
+        - ^queue clear
+        }
+      } else if <player.skillapi.main_class.name> == Vampiro {
+      - ^if <player.flag[iniciado]> == ok {
+        - ^sql id:verificado<player.name> "update:UPDATE phpbb_profile_fields_data SET pf_pb_wow_race='4' WHERE user_id=<yaml[verificado<player.name>].read[UserID]>;"
+        - ^sql id:verificado<player.name> "update:UPDATE phpbb_profile_fields_data SET pf_pb_wow_class='4' WHERE user_id=<yaml[verificado<player.name>].read[UserID]>;"
+        - ^sql id:verificado<player.name> "update:UPDATE phpbb_profile_fields_data SET pf_pb_wow_guild='' WHERE user_id=<yaml[verificado<player.name>].read[UserID]>;"
+        - ^sql id:verificado<player.name> "update:UPDATE phpbb_profile_fields_data SET pf_pb_wow_level='<def[nivel]>' WHERE user_id=<yaml[verificado<player.name>].read[UserID]>;"
+        - ^sql disconnect id:verificado<player.name>
+        - ^yaml unload id:verificado<player.name>
+        - ^queue clear
+        } else {
+        - ^sql id:verificado<player.name> "update:UPDATE phpbb_profile_fields_data SET pf_pb_wow_race='4' WHERE user_id=<yaml[verificado<player.name>].read[UserID]>;"
+        - ^sql id:verificado<player.name> "update:UPDATE phpbb_profile_fields_data SET pf_pb_wow_class='5' WHERE user_id=<yaml[verificado<player.name>].read[UserID]>;"
+        - ^sql id:verificado<player.name> "update:UPDATE phpbb_profile_fields_data SET pf_pb_wow_guild='' WHERE user_id=<yaml[verificado<player.name>].read[UserID]>;"
+        - ^sql id:verificado<player.name> "update:UPDATE phpbb_profile_fields_data SET pf_pb_wow_level='<def[nivel]>' WHERE user_id=<yaml[verificado<player.name>].read[UserID]>;"
+        - ^sql disconnect id:verificado<player.name>
+        - ^yaml unload id:verificado<player.name>
+        - ^queue clear
+        }
+      }
+
 inv_guis_players:
   type: world
   events:
     ##############################Block SLOT##
     on player joins:
 #    - ^if <player.inventory.slot[9].scriptname||false> != panel && !<player.inventory.contains[panelgui]> {
-    - ^if <player.flag[name]> !== <player.name> {
+    - ^if <player.flag[verificado]> == null {
       - ^flag <player> name:<player.name>
+      - ^flag <player> verificado:ok
       - ^flag <player> piedrasdelalma:15
       - ^define jugador <player.name>
-      - ^sql id:GlobalSQL "query:SELECT user_id FROM phpbb_users WHERE username='<def[jugador]>';" save:resultado
+      - ^sql disconnect id:ID<player.name>
+      - ~sql id:ID<player.name> connect:esparcraft.net/esparcraft username:drAkeNess password:drakness666
+      - ^sql id:ID<player.name> "query:SELECT user_id FROM phpbb_users WHERE username='<def[jugador]>';" save:resultado
       - ^if <server.has_file[personal/<player.name>.yml]> {
         - ^yaml load:personal/<player.name>.yml id:<player.name>
         - ^define page1 '<black>Soy <dark_red><player.name><n><red>==================<n><black>Entre por primera ves en Esparcraft el dia<n><blue><player.first_played.time><p>Llegue al pueblo en busca de aventuras y creo este es el lugar perfecto.<p>La codicia se respira por todos lados.'
-        - ^yaml id:<player.name> set Libros.Diario:!
-        - ^yaml id:<player.name> set Libros.Diario:->:%page1%
+        - ^yaml id:<player.name> set Libros.Diario:%page1%
         - ^yaml id:<player.name> set UserID:<entry[resultado].result.parse[replace[/]].formatted>
         - ^yaml savefile:personal/<player.name>.yml id:<player.name>
         - ^yaml unload id:<player.name>
         } else {
         - ^yaml create id:<player.name>
         - ^define page1 '<black>Soy <dark_red><player.name><n><red>==================<n><black>Entre por primera ves en Esparcraft el dia<n><blue><player.first_played.time><p>Llegue al pueblo en busca de aventuras y creo este es el lugar perfecto.<p>La codicia se respira por todos lados.'
-        - ^yaml id:<player.name> set Libros.Diario:!
-        - ^yaml id:<player.name> set Libros.Diario:->:%page1%
+        - ^yaml id:<player.name> set Libros.Diario:%page1%
         - ^yaml id:<player.name> set UserID:<entry[resultado].result.parse[replace[/]].formatted>
         - ^yaml savefile:personal/<player.name>.yml id:<player.name>
         - ^yaml unload id:<player.name>
         }
-      - sql id:GlobalSQL "update:UPDATE phpbb_profile_fields_data SET pf_pb_wow_race='1' WHERE user_id=<yaml[<player.name>].read[UserID]>;"
-      - sql id:GlobalSQL "update:UPDATE phpbb_profile_fields_data SET pf_pb_wow_class='1' WHERE user_id=<yaml[<player.name>].read[UserID]>;"
-      - sql id:GlobalSQL "update:UPDATE phpbb_profile_fields_data SET pf_pb_wow_guild='' WHERE user_id=<yaml[<player.name>].read[UserID]>;"
       - ^if <player.skillapi.main_class.name> == null {
         - ^execute as_op "class profess Mendigo"
         }
+      - ^run 's@updateverificado'
       }
     - ^take slot:9
     - ^give i@panelgui slot:9
@@ -567,33 +648,33 @@ almakos:
   - '<green>Como conseguir dinero en el servidor'
   - '<green>las formas mas rapidas de hacerlo'
 
-torch_light_world:
-    type: world
-    debug: false
-    events:
-        on player steps on block:
-        - if <player.has_flag[torch_light_prev]> {
-          - light <context.previous_location> reset
-          - flag player torch_light_prev:!
-          }
-        - if <player.item_in_hand.material.name||null> == torch || <player.item_in_offhand.material.name||null> == torch {
-          - light <context.location.add[0,1,0]> 14
-          - flag player torch_light_prev
-          }
-        on player quits:
-        - if <player.has_flag[torch_light_prev]> {
-          - light <context.previous_location> reset
-          - flag player torch_light_prev:!
-          }
-        on player death:
-        - if <player.has_flag[torch_light_prev]> {
-          - light <context.previous_location> reset
-          - flag player torch_light_prev:!
-          }
-
-torch_light_version:
-  type: version
-  name: Torch Light
-  id: 13
-  description: Lights your way!
-  version: 1.2
+# torch_light_world:
+#     type: world
+#     debug: false
+#     events:
+#         on player steps on block:
+#         - if <player.has_flag[torch_light_prev]> {
+#           - light <context.previous_location> reset
+#           - flag player torch_light_prev:!
+#           }
+#         - if <player.item_in_hand.material.name||null> == torch || <player.item_in_offhand.material.name||null> == torch {
+#           - light <context.location.add[0,1,0]> 14
+#           - flag player torch_light_prev
+#           }
+#         on player quits:
+#         - if <player.has_flag[torch_light_prev]> {
+#           - light <context.previous_location> reset
+#           - flag player torch_light_prev:!
+#           }
+#         on player death:
+#         - if <player.has_flag[torch_light_prev]> {
+#           - light <context.previous_location> reset
+#           - flag player torch_light_prev:!
+#           }
+#
+# torch_light_version:
+#   type: version
+#   name: Torch Light
+#   id: 13
+#   description: Lights your way!
+#   version: 1.2

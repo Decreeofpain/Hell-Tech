@@ -19,19 +19,19 @@ Global:
 #Sistema de comandos
     on ? command:
     - if <player.is_op.not> && <player.is_player> {
-      - ^NARRATE format:formatesparcraft "No sea Curioso con los Plugins :)"
+      - ^NARRATE format:formatesparcraft "Muerte a los curiosos..."
       - ^playsound <player> sound:error custom
       - DETERMINE cancelled
       }
     on pl command:
     - if <player.is_op.not> && <player.is_player> {
-      - ^NARRATE format:formatesparcraft "No sea Curioso con los Plugins :)"
+      - ^NARRATE format:formatesparcraft "Muerte a los curiosos..."
       - ^playsound <player> sound:error custom
       - DETERMINE cancelled
       }
     on plugins command:
     - if <player.is_op.not> && <player.is_player> {
-      - ^NARRATE format:formatesparcraft "No sea Curioso con los Plugins :)"
+      - ^NARRATE format:formatesparcraft "Muerte a los curiosos..."
       - ^playsound <player> sound:error custom
       - DETERMINE cancelled
       }
