@@ -95,47 +95,6 @@ Esquirla:
   - '&7 causando 190% de tu poder de arma.'
   desc:  []
   components: 
-    Initialize: 
-      type: 'trigger'
-      indicator: '3D'
-      data: 
-        icon-key: ''
-        indicator: '2D'
-      children: 
-        Passive-z: 
-          type: 'mechanic'
-          indicator: '3D'
-          data: 
-            icon-key: ''
-            counts: 'True'
-            seconds-base: '2'
-            seconds-scale: '0'
-            indicator: '2D'
-          children: 
-            Value Set-ab: 
-              type: 'mechanic'
-              indicator: '3D'
-              data: 
-                icon-key: ''
-                counts: 'True'
-                key: 'lorepoder'
-                value-base: '1'
-                value-scale: '0'
-                indicator: '2D'
-              children:  {}
-            Value Lore-bb: 
-              type: 'mechanic'
-              indicator: '3D'
-              data: 
-                icon-key: ''
-                counts: 'True'
-                key: 'lorepoder'
-                hand: 'Main'
-                regex: 'Poder de Arma: {value}'
-                multiplier-base: '1'
-                multiplier-scale: '0'
-                indicator: '2D'
-              children:  {}
     Physical Damage: 
       type: 'trigger'
       indicator: '3D'
@@ -450,6 +409,47 @@ Esquirla:
                                     classifier: 'default'
                                     indicator: '2D'
                                   children:  {}
+    Initialize: 
+      type: 'trigger'
+      indicator: '3D'
+      data: 
+        icon-key: ''
+        indicator: '2D'
+      children: 
+        Passive-z: 
+          type: 'mechanic'
+          indicator: '3D'
+          data: 
+            icon-key: ''
+            counts: 'True'
+            seconds-base: '2'
+            seconds-scale: '0'
+            indicator: '2D'
+          children: 
+            Value Set-ab: 
+              type: 'mechanic'
+              indicator: '3D'
+              data: 
+                icon-key: ''
+                counts: 'True'
+                key: 'lorepoder'
+                value-base: '1'
+                value-scale: '0'
+                indicator: '2D'
+              children:  {}
+            Value Lore-bb: 
+              type: 'mechanic'
+              indicator: '3D'
+              data: 
+                icon-key: ''
+                counts: 'True'
+                key: 'lorepoder'
+                hand: 'Main'
+                regex: 'Poder de Arma: {value}'
+                multiplier-base: '1'
+                multiplier-scale: '0'
+                indicator: '2D'
+              children:  {}
 Guadaña Doble: 
   name: 'Guadaña Doble'
   type: 'Runa'
@@ -819,52 +819,6 @@ Guadaña:
                         value-scale: '0'
                         indicator: '2D'
                       children:  {}
-    Kill: 
-      type: 'trigger'
-      indicator: '3D'
-      data: 
-        icon-key: ''
-        mana: 'False'
-        cooldown: 'True'
-        indicator: '2D'
-      children: 
-        Item-lb: 
-          type: 'condition'
-          indicator: '3D'
-          data: 
-            icon-key: ''
-            check-mat: 'False'
-            check-data: 'False'
-            check-lore: 'True'
-            lore: 'Vida por Muerte:'
-            check-name: 'False'
-            regex: 'False'
-            indicator: '2D'
-          children: 
-            Value Lore-mb: 
-              type: 'mechanic'
-              indicator: '3D'
-              data: 
-                icon-key: ''
-                counts: 'True'
-                key: 'killheal'
-                hand: 'Main'
-                regex: 'Vida por Muerte: {value}'
-                multiplier-base: '1'
-                multiplier-scale: '0'
-                indicator: '2D'
-              children:  {}
-            Heal-nb: 
-              type: 'mechanic'
-              indicator: '3D'
-              data: 
-                icon-key: ''
-                counts: 'True'
-                type: 'Percent'
-                value-base: 'killheal'
-                value-scale: '1'
-                indicator: '2D'
-              children:  {}
     Death: 
       type: 'trigger'
       indicator: '3D'
@@ -1121,6 +1075,52 @@ Guadaña:
                 counts: 'True'
                 type: 'Health'
                 value-base: 'Poderarma'
+                value-scale: '1'
+                indicator: '2D'
+              children:  {}
+    Kill: 
+      type: 'trigger'
+      indicator: '3D'
+      data: 
+        icon-key: ''
+        mana: 'False'
+        cooldown: 'True'
+        indicator: '2D'
+      children: 
+        Item-lb: 
+          type: 'condition'
+          indicator: '3D'
+          data: 
+            icon-key: ''
+            check-mat: 'False'
+            check-data: 'False'
+            check-lore: 'True'
+            lore: 'Vida por Muerte:'
+            check-name: 'False'
+            regex: 'False'
+            indicator: '2D'
+          children: 
+            Value Lore-mb: 
+              type: 'mechanic'
+              indicator: '3D'
+              data: 
+                icon-key: ''
+                counts: 'True'
+                key: 'killheal'
+                hand: 'Main'
+                regex: 'Vida por Muerte: {value}'
+                multiplier-base: '1'
+                multiplier-scale: '0'
+                indicator: '2D'
+              children:  {}
+            Heal-nb: 
+              type: 'mechanic'
+              indicator: '3D'
+              data: 
+                icon-key: ''
+                counts: 'True'
+                type: 'Percent'
+                value-base: 'killheal'
                 value-scale: '1'
                 indicator: '2D'
               children:  {}
@@ -2358,47 +2358,6 @@ Penitencia:
   - '&7 causando 190% de tu poder de arma.'
   desc:  []
   components: 
-    Initialize: 
-      type: 'trigger'
-      indicator: '3D'
-      data: 
-        icon-key: ''
-        indicator: '2D'
-      children: 
-        Passive-z: 
-          type: 'mechanic'
-          indicator: '3D'
-          data: 
-            icon-key: ''
-            counts: 'True'
-            seconds-base: '2'
-            seconds-scale: '0'
-            indicator: '2D'
-          children: 
-            Value Set-ab: 
-              type: 'mechanic'
-              indicator: '3D'
-              data: 
-                icon-key: ''
-                counts: 'True'
-                key: 'lorepoder'
-                value-base: '1'
-                value-scale: '0'
-                indicator: '2D'
-              children:  {}
-            Value Lore-bb: 
-              type: 'mechanic'
-              indicator: '3D'
-              data: 
-                icon-key: ''
-                counts: 'True'
-                key: 'lorepoder'
-                hand: 'Main'
-                regex: 'Poder de Arma: {value}'
-                multiplier-base: '1'
-                multiplier-scale: '0'
-                indicator: '2D'
-              children:  {}
     Physical Damage: 
       type: 'trigger'
       indicator: '3D'
@@ -2713,6 +2672,47 @@ Penitencia:
                                     classifier: 'default'
                                     indicator: '2D'
                                   children:  {}
+    Initialize: 
+      type: 'trigger'
+      indicator: '3D'
+      data: 
+        icon-key: ''
+        indicator: '2D'
+      children: 
+        Passive-z: 
+          type: 'mechanic'
+          indicator: '3D'
+          data: 
+            icon-key: ''
+            counts: 'True'
+            seconds-base: '2'
+            seconds-scale: '0'
+            indicator: '2D'
+          children: 
+            Value Set-ab: 
+              type: 'mechanic'
+              indicator: '3D'
+              data: 
+                icon-key: ''
+                counts: 'True'
+                key: 'lorepoder'
+                value-base: '1'
+                value-scale: '0'
+                indicator: '2D'
+              children:  {}
+            Value Lore-bb: 
+              type: 'mechanic'
+              indicator: '3D'
+              data: 
+                icon-key: ''
+                counts: 'True'
+                key: 'lorepoder'
+                hand: 'Main'
+                regex: 'Poder de Arma: {value}'
+                multiplier-base: '1'
+                multiplier-scale: '0'
+                indicator: '2D'
+              children:  {}
 Critico: 
   name: 'Critico'
   type: 'Pasiva'
@@ -2864,7 +2864,7 @@ PasivArmas:
         type: 'Any'
         indicator: '2D'
       children: 
-        Offhand-l: 
+        Offhand-k: 
           type: 'condition'
           indicator: '3D'
           data: 
@@ -2877,7 +2877,7 @@ PasivArmas:
             regex: 'False'
             indicator: '2D'
           children: 
-            Value Lore-m: 
+            Value Lore-l: 
               type: 'mechanic'
               indicator: '3D'
               data: 
@@ -2890,7 +2890,7 @@ PasivArmas:
                 multiplier-scale: '0'
                 indicator: '2D'
               children:  {}
-        Item-n: 
+        Item-m: 
           type: 'condition'
           indicator: '3D'
           data: 
@@ -2903,7 +2903,7 @@ PasivArmas:
             regex: 'False'
             indicator: '2D'
           children: 
-            Value Lore-o: 
+            Value Lore-n: 
               type: 'mechanic'
               indicator: '3D'
               data: 
@@ -2916,7 +2916,7 @@ PasivArmas:
                 multiplier-scale: '0'
                 indicator: '2D'
               children:  {}
-        Offhand-p: 
+        Offhand-o: 
           type: 'condition'
           indicator: '3D'
           data: 
@@ -2929,7 +2929,7 @@ PasivArmas:
             regex: 'False'
             indicator: '2D'
           children: 
-            Value Lore-q: 
+            Value Lore-p: 
               type: 'mechanic'
               indicator: '3D'
               data: 
@@ -2942,7 +2942,7 @@ PasivArmas:
                 multiplier-scale: '0'
                 indicator: '2D'
               children:  {}
-            Value Multiply-r: 
+            Value Multiply-q: 
               type: 'mechanic'
               indicator: '3D'
               data: 
@@ -2953,7 +2953,7 @@ PasivArmas:
                 multiplier-scale: '0'
                 indicator: '2D'
               children:  {}
-            Value Add-s: 
+            Value Add-r: 
               type: 'mechanic'
               indicator: '3D'
               data: 
@@ -2964,7 +2964,7 @@ PasivArmas:
                 amount-scale: '0'
                 indicator: '2D'
               children:  {}
-        Item-t: 
+        Item-s: 
           type: 'condition'
           indicator: '3D'
           data: 
@@ -2977,7 +2977,7 @@ PasivArmas:
             regex: 'False'
             indicator: '2D'
           children: 
-            Value Lore-u: 
+            Value Lore-t: 
               type: 'mechanic'
               indicator: '3D'
               data: 
@@ -2990,7 +2990,7 @@ PasivArmas:
                 multiplier-scale: '0'
                 indicator: '2D'
               children:  {}
-            Value Multiply-v: 
+            Value Multiply-u: 
               type: 'mechanic'
               indicator: '3D'
               data: 
@@ -3001,7 +3001,7 @@ PasivArmas:
                 multiplier-scale: '0'
                 indicator: '2D'
               children:  {}
-            Value Add-w: 
+            Value Add-v: 
               type: 'mechanic'
               indicator: '3D'
               data: 
@@ -3012,7 +3012,7 @@ PasivArmas:
                 amount-scale: '0'
                 indicator: '2D'
               children:  {}
-        Offhand-x: 
+        Offhand-w: 
           type: 'condition'
           indicator: '3D'
           data: 
@@ -3025,7 +3025,7 @@ PasivArmas:
             regex: 'False'
             indicator: '2D'
           children: 
-            Value Lore-y: 
+            Value Lore-x: 
               type: 'mechanic'
               indicator: '3D'
               data: 
@@ -3038,7 +3038,7 @@ PasivArmas:
                 multiplier-scale: '0'
                 indicator: '2D'
               children:  {}
-        Item-z: 
+        Item-y: 
           type: 'condition'
           indicator: '3D'
           data: 
@@ -3051,7 +3051,7 @@ PasivArmas:
             regex: 'False'
             indicator: '2D'
           children: 
-            Value Lore-ab: 
+            Value Lore-z: 
               type: 'mechanic'
               indicator: '3D'
               data: 
@@ -3064,7 +3064,7 @@ PasivArmas:
                 multiplier-scale: '0'
                 indicator: '2D'
               children:  {}
-        Tool-bb: 
+        Tool-ab: 
           type: 'condition'
           indicator: '3D'
           data: 
@@ -3073,14 +3073,14 @@ PasivArmas:
             tool: 'Sword'
             indicator: '2D'
           children: 
-            Self-cb: 
+            Self-bb: 
               type: 'target'
               indicator: '3D'
               data: 
                 icon-key: ''
                 indicator: '2D'
               children: 
-                Damage Buff-db: 
+                Damage Buff-cb: 
                   type: 'mechanic'
                   indicator: '3D'
                   data: 
@@ -3094,7 +3094,7 @@ PasivArmas:
                     seconds-scale: '0'
                     indicator: '2D'
                   children:  {}
-        Offhand-eb: 
+        Offhand-db: 
           type: 'condition'
           indicator: '3D'
           data: 
@@ -3107,7 +3107,7 @@ PasivArmas:
             regex: 'False'
             indicator: '2D'
           children: 
-            Value Lore-fb: 
+            Value Lore-eb: 
               type: 'mechanic'
               indicator: '3D'
               data: 
@@ -3120,7 +3120,7 @@ PasivArmas:
                 multiplier-scale: '0'
                 indicator: '2D'
               children:  {}
-        Item-gb: 
+        Item-fb: 
           type: 'condition'
           indicator: '3D'
           data: 
@@ -3133,7 +3133,7 @@ PasivArmas:
             regex: 'False'
             indicator: '2D'
           children: 
-            Value Lore-hb: 
+            Value Lore-gb: 
               type: 'mechanic'
               indicator: '3D'
               data: 
@@ -3146,6 +3146,15 @@ PasivArmas:
                 multiplier-scale: '0'
                 indicator: '2D'
               children:  {}
+    Death: 
+      type: 'trigger'
+      indicator: '3D'
+      data: 
+        icon-key: ''
+        mana: 'False'
+        cooldown: 'False'
+        indicator: '2D'
+      children:  {}
     Initialize: 
       type: 'trigger'
       indicator: '3D'
@@ -3189,70 +3198,53 @@ PasivArmas:
                     multiplier-scale: '0'
                     indicator: '2D'
                   children:  {}
-                Message-e: 
-                  type: 'mechanic'
-                  indicator: '3D'
-                  data: 
-                    icon-key: ''
-                    counts: 'True'
-                    message: '{Poderarma} poder Single'
-                    indicator: '2D'
-                  children:  {}
-                Offhand-f: 
+                Skill Level-e: 
                   type: 'condition'
                   indicator: '3D'
                   data: 
                     icon-key: ''
-                    check-mat: 'False'
-                    check-data: 'False'
-                    check-lore: 'True'
-                    lore: 'Poder de Arma:'
-                    check-name: 'False'
-                    regex: 'False'
+                    skill: 'Guadaña Doble'
+                    min-level: '1'
+                    max-level: '1'
                     indicator: '2D'
                   children: 
-                    Value Lore-g: 
-                      type: 'mechanic'
+                    Offhand-f: 
+                      type: 'condition'
                       indicator: '3D'
                       data: 
                         icon-key: ''
-                        counts: 'True'
-                        key: 'Poderarmaoff'
-                        hand: 'Offhand'
-                        regex: 'Poder de Arma: {value}'
-                        multiplier-base: '1'
-                        multiplier-scale: '0'
+                        check-mat: 'False'
+                        check-data: 'False'
+                        check-lore: 'True'
+                        lore: 'Poder de Arma:'
+                        check-name: 'False'
+                        regex: 'False'
                         indicator: '2D'
-                      children:  {}
-                    Value Add-h: 
-                      type: 'mechanic'
-                      indicator: '3D'
-                      data: 
-                        icon-key: ''
-                        counts: 'True'
-                        key: 'Poderarma'
-                        amount-base: 'Poderarmaoff'
-                        amount-scale: '0'
-                        indicator: '2D'
-                      children:  {}
-                    Message-i: 
-                      type: 'mechanic'
-                      indicator: '3D'
-                      data: 
-                        icon-key: ''
-                        counts: 'True'
-                        message: '{Poderarma} poder DUO'
-                        indicator: '2D'
-                      children:  {}
-    Death: 
-      type: 'trigger'
-      indicator: '3D'
-      data: 
-        icon-key: ''
-        mana: 'False'
-        cooldown: 'False'
-        indicator: '2D'
-      children:  {}
+                      children: 
+                        Value Lore-g: 
+                          type: 'mechanic'
+                          indicator: '3D'
+                          data: 
+                            icon-key: ''
+                            counts: 'True'
+                            key: 'Poderarmaoff'
+                            hand: 'Offhand'
+                            regex: 'Poder de Arma: {value}'
+                            multiplier-base: '1'
+                            multiplier-scale: '0'
+                            indicator: '2D'
+                          children:  {}
+                        Value Add-h: 
+                          type: 'mechanic'
+                          indicator: '3D'
+                          data: 
+                            icon-key: ''
+                            counts: 'True'
+                            key: 'Poderarma'
+                            amount-base: 'Poderarmaoff'
+                            amount-scale: '0'
+                            indicator: '2D'
+                          children:  {}
 PasivVampire: 
   name: 'PasivVampire'
   type: 'Pasiva'
@@ -5251,6 +5243,19 @@ Absorber sangre:
   - '&2Cooldown: {attr:cooldown}'
   desc:  []
   components: 
+    Physical Damage: 
+      type: 'trigger'
+      indicator: '3D'
+      data: 
+        icon-key: ''
+        mana: 'False'
+        cooldown: 'False'
+        target: 'True'
+        type: 'Melee'
+        dmg-min: '0'
+        dmg-max: '9999999'
+        indicator: '2D'
+      children:  {}
     Cast: 
       type: 'trigger'
       indicator: '3D'
@@ -5327,16 +5332,3 @@ Absorber sangre:
                 right: '0'
                 indicator: '2D'
               children:  {}
-    Physical Damage: 
-      type: 'trigger'
-      indicator: '3D'
-      data: 
-        icon-key: ''
-        mana: 'False'
-        cooldown: 'False'
-        target: 'True'
-        type: 'Melee'
-        dmg-min: '0'
-        dmg-max: '9999999'
-        indicator: '2D'
-      children:  {}

@@ -1,0 +1,14 @@
+GlobalBlocks:
+  type: world
+  events:
+    on time changes in Esparcraft:
+    - ^foreach <cu@bosquespruce.blocks[166]> {
+      - ^wait 2t
+      - ^modifyblock <def[value]> spruce_log
+      }
+    on player breaks spruce_log in bosquespruce:
+    - ^narrate "<context.location> <context.material> <context.location.is_within[cu@bosquespruce]>"
+    - ^modifyblock <context.location> barrier
+    # - ^run 's@refreshblokslvl1'
+    - determine cancelled
+    - ^queue clear
