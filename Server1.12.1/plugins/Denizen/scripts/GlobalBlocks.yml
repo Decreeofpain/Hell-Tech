@@ -8,9 +8,18 @@ GlobalBlocks:
       - ^wait 2t
       - ^modifyblock <def[value]> spruce_log
       }
+    - ^foreach <cu@circulo1a.blocks[bedrock]> {
+      - ^wait 2t
+      - ^modifyblock <def[value]> coal_ore
+      }
     on player breaks spruce_log in bosquespruce:
     - ^narrate "<context.location> <context.material> <context.location.is_within[cu@bosquespruce]>"
     - ^modifyblock <context.location> barrier
     # - ^run 's@refreshblokslvl1'
     - ^determine cancelled
+    - ^queue clear
+    on player breaks coal_ore in circulo1a:
+    - ^wait 1t
+    - ^modifyblock <context.location> bedrock
+    # - ^run 's@refreshblokslvl1'
     - ^queue clear
