@@ -1,27 +1,16 @@
-Guadaña: 
+Guadaña:
   name: 'Guadaña'
   type: 'Principal'
   max-level: 1
   skill-req: 'None'
   skill-req-lvl: 1
   needs-permission: 'false'
-  attributes: 
-    level-base: '1'
-    level-scale: '0'
-    cost-base: '1'
-    cost-scale: '0'
-    cooldown-base: '0'
-    cooldown-scale: '0'
-    mana-base: '0'
-    mana-scale: '0'
-    points-spent-req-base: '0'
-    points-spent-req-scale: '0'
-    incompatible: 
-    - 'Esquirla'
   msg: '&6{player} &2has cast &6{skill}'
+  combo: ''
+  indicator: '2D'
   icon: 'IRON_AXE'
   icon-data: 0
-  icon-lore: 
+  icon-lore:
   - '&d{name} &7({level}/{max})'
   - '&2Tipo: &6{type}'
   - ''
@@ -29,551 +18,397 @@ Guadaña:
   - '&7 que impacta en area frente a ti'
   - '&7 causando 150% de tu poder de arma.'
   - '&2Cooldown: {attr:cooldown}'
-  desc:  []
-  components: 
-    Physical Damage: 
+  attributes:
+    level-base: 1
+    level-scale: 0
+    cost-base: 1
+    cost-scale: 0
+    cooldown-base: 0
+    cooldown-scale: 0
+    mana-base: 0
+    mana-scale: 0
+    points-spent-req-base: 0
+    points-spent-req-scale: 0
+    incompatible:
+    - 'Esquirla'
+  components:
+    Death-a:
       type: 'trigger'
-      indicator: '3D'
-      data: 
+      data:
+        icon-key: ''
+        mana: 'False'
+        cooldown: 'False'
+      children:
+        Skill Level-b:
+          type: 'condition'
+          data:
+            icon-key: ''
+            skill: 'Guadaña Doble'
+            min-level: 1
+            max-level: 1
+          children:
+            Particle Animation-c:
+              type: 'mechanic'
+              data:
+                icon-key: ''
+                counts: 'True'
+                steps: 5
+                frequency: 0.05
+                angle: -180
+                start: 90
+                duration-base: 0.4
+                duration-scale: 0
+                h-translation-base: 3
+                h-translation-scale: 0
+                v-translation-base: 2
+                v-translation-scale: 0
+                h-cycles: 2
+                v-cycles: 2
+                particle: 'Crit'
+                arrangement: 'Circle'
+                radius-base: 0.2
+                radius-scale: 0
+                particles-base: 5
+                particles-scale: 0
+                direction: 'XY'
+                visible-radius: 20
+                dx: 0
+                dy: 0
+                dz: 0
+                speed: 0
+                amount: 1
+                forward: 3
+                upward: 0
+                right: 0
+            Particle Animation-d:
+              type: 'mechanic'
+              data:
+                icon-key: ''
+                counts: 'True'
+                steps: 5
+                frequency: 0.05
+                angle: 180
+                start: -90
+                duration-base: 0.4
+                duration-scale: 0
+                h-translation-base: 3
+                h-translation-scale: 0
+                v-translation-base: 0
+                v-translation-scale: 0
+                h-cycles: 2
+                v-cycles: 2
+                particle: 'Witch Magic'
+                arrangement: 'Circle'
+                radius-base: 0.2
+                radius-scale: 0
+                particles-base: 5
+                particles-scale: 0
+                direction: 'YZ'
+                visible-radius: 20
+                dx: 0
+                dy: 0
+                dz: 0
+                speed: 0
+                amount: 1
+                forward: 3
+                upward: 0
+                right: 0
+            Value Multiply-e:
+              type: 'mechanic'
+              data:
+                icon-key: ''
+                counts: 'True'
+                key: 'Poderarma'
+                multiplier-base: 1.2
+                multiplier-scale: 0
+            Value Multiply-f:
+              type: 'mechanic'
+              data:
+                icon-key: ''
+                counts: 'True'
+                key: 'Poderarmaoff'
+                multiplier-base: 1.2
+                multiplier-scale: 0
+            Cone-g:
+              type: 'target'
+              data:
+                icon-key: ''
+                range-base: 4
+                range-scale: 0
+                angle-base: 60
+                angle-scale: 0
+                group: 'Enemy'
+                wall: 'False'
+                caster: 'False'
+                max-base: 99
+                max-scale: 0
+              children:
+                Damage-h:
+                  type: 'mechanic'
+                  data:
+                    icon-key: ''
+                    counts: 'True'
+                    type: 'Damage'
+                    value-base: Poderarma
+                    value-scale: 1
+                    true: 'False'
+                    classifier: 'default'
+                Damage-i:
+                  type: 'mechanic'
+                  data:
+                    icon-key: ''
+                    counts: 'True'
+                    type: 'Damage'
+                    value-base: Poderarmaoff
+                    value-scale: 1
+                    true: 'False'
+                    classifier: 'default'
+        Skill Level-j:
+          type: 'condition'
+          data:
+            icon-key: ''
+            skill: 'Guadaña Sangrienta'
+            min-level: 1
+            max-level: 1
+          children:
+            Particle Animation-k:
+              type: 'mechanic'
+              data:
+                icon-key: ''
+                counts: 'True'
+                steps: 5
+                frequency: 0.05
+                angle: -180
+                start: 90
+                duration-base: 0.4
+                duration-scale: 0
+                h-translation-base: 3
+                h-translation-scale: 0
+                v-translation-base: 2
+                v-translation-scale: 0
+                h-cycles: 2
+                v-cycles: 2
+                particle: 'Icon Crack'
+                material: 'Redstone'
+                type: 0
+                arrangement: 'Circle'
+                radius-base: 0.2
+                radius-scale: 0
+                particles-base: 5
+                particles-scale: 0
+                direction: 'XY'
+                forward: 3
+                upward: 0
+                right: 0
+            Value Multiply-l:
+              type: 'mechanic'
+              data:
+                icon-key: ''
+                counts: 'True'
+                key: 'Poderarma'
+                multiplier-base: 1.3
+                multiplier-scale: 0
+            Cone-m:
+              type: 'target'
+              data:
+                icon-key: ''
+                range-base: 4
+                range-scale: 0
+                angle-base: 60
+                angle-scale: 0
+                group: 'Enemy'
+                wall: 'False'
+                caster: 'False'
+                max-base: 99
+                max-scale: 0
+              children:
+                Damage-n:
+                  type: 'mechanic'
+                  data:
+                    icon-key: ''
+                    counts: 'True'
+                    type: 'Damage'
+                    value-base: Poderarma
+                    value-scale: 1
+                    true: 'False'
+                    classifier: 'default'
+            Value Multiply-o:
+              type: 'mechanic'
+              data:
+                icon-key: ''
+                counts: 'True'
+                key: 'Poderarma'
+                multiplier-base: 0.05
+                multiplier-scale: 0
+            Heal-p:
+              type: 'mechanic'
+              data:
+                icon-key: ''
+                counts: 'True'
+                type: 'Health'
+                value-base: Poderarma
+                value-scale: 1
+    Physical Damage-q:
+      type: 'trigger'
+      data:
         icon-key: ''
         mana: 'False'
         cooldown: 'True'
         target: 'True'
         type: 'Melee'
-        dmg-min: '0'
-        dmg-max: '999'
-        indicator: '2D'
-      children: 
-        Tool-r: 
+        dmg-min: 0
+        dmg-max: 999
+      children:
+        Tool-r:
           type: 'condition'
-          indicator: '3D'
-          data: 
+          data:
             icon-key: ''
             material: 'Any'
             tool: 'Sword'
-            indicator: '2D'
-          children: 
-            Skill Level-s: 
+          children:
+            Skill Level-s:
               type: 'condition'
-              indicator: '3D'
-              data: 
+              data:
                 icon-key: ''
                 skill: 'Guadaña Doble'
-                min-level: '0'
-                max-level: '0'
-                indicator: '2D'
-              children: 
-                Skill Level-t: 
+                min-level: 0
+                max-level: 0
+              children:
+                Skill Level-t:
                   type: 'condition'
-                  indicator: '3D'
-                  data: 
+                  data:
                     icon-key: ''
                     skill: 'Guadaña Sangrienta'
-                    min-level: '0'
-                    max-level: '0'
-                    indicator: '2D'
-                  children: 
-                    Item-u: 
+                    min-level: 0
+                    max-level: 0
+                  children:
+                    Else-u:
                       type: 'condition'
-                      indicator: '3D'
-                      data: 
+                      data:
                         icon-key: ''
-                        check-mat: 'False'
-                        check-data: 'False'
-                        check-lore: 'True'
-                        lore: 'Alcanse en Area:'
-                        check-name: 'False'
-                        regex: 'True'
-                        indicator: '2D'
-                      children: 
-                        Value Lore-v: 
+                      children:
+                        Particle Animation-v:
                           type: 'mechanic'
-                          indicator: '3D'
-                          data: 
+                          data:
                             icon-key: ''
                             counts: 'True'
-                            key: 'AOELores'
-                            hand: 'Main'
-                            regex: 'Alcanse en Area: {value}'
-                            multiplier-base: '1'
-                            multiplier-scale: '0'
-                            indicator: '2D'
-                          children:  {}
-                        Value Add-w: 
-                          type: 'mechanic'
-                          indicator: '3D'
-                          data: 
-                            icon-key: ''
-                            counts: 'True'
-                            key: 'AOELores'
-                            amount-base: '1'
-                            amount-scale: '0'
-                            indicator: '2D'
-                          children:  {}
-                        Particle Animation-x: 
-                          type: 'mechanic'
-                          indicator: '3D'
-                          data: 
-                            icon-key: ''
-                            counts: 'True'
-                            steps: '5'
-                            frequency: '0.05'
-                            angle: '-180'
-                            start: '90'
-                            duration-base: '0.4'
-                            duration-scale: '0'
-                            h-translation-base: 'AOELores'
-                            h-translation-scale: '0'
-                            v-translation-base: '1'
-                            v-translation-scale: '0'
-                            h-cycles: '2'
-                            v-cycles: '2'
+                            steps: 5
+                            frequency: 0.05
+                            angle: -180
+                            start: 90
+                            duration-base: 0.4
+                            duration-scale: 0
+                            h-translation-base: 1
+                            h-translation-scale: 0
+                            v-translation-base: 1
+                            v-translation-scale: 0
+                            h-cycles: 2
+                            v-cycles: 2
                             particle: 'Crit'
                             arrangement: 'Circle'
-                            radius-base: '0.2'
-                            radius-scale: '0'
-                            particles-base: '5'
-                            particles-scale: '0'
+                            radius-base: 0.2
+                            radius-scale: 0
+                            particles-base: 5
+                            particles-scale: 0
                             direction: 'XY'
-                            visible-radius: '20'
-                            dx: '0'
-                            dy: '0'
-                            dz: '0'
-                            speed: '0'
-                            amount: '1'
-                            forward: '3'
-                            upward: '0'
-                            right: '0'
-                            indicator: '2D'
-                          children:  {}
-                        Message-y: 
+                            visible-radius: 20
+                            dx: 0
+                            dy: 0
+                            dz: 0
+                            speed: 0
+                            amount: 1
+                            forward: 3
+                            upward: 0
+                            right: 0
+                        Message-w:
                           type: 'mechanic'
-                          indicator: '3D'
-                          data: 
-                            icon-key: ''
-                            counts: 'True'
-                            message: 'tiene {AOELores} {Regex} {regex} {Lore} {lore}'
-                            indicator: '2D'
-                          children:  {}
-                    Else-z: 
-                      type: 'condition'
-                      indicator: '3D'
-                      data: 
-                        icon-key: ''
-                        indicator: '2D'
-                      children: 
-                        Particle Animation-ab: 
-                          type: 'mechanic'
-                          indicator: '3D'
-                          data: 
-                            icon-key: ''
-                            counts: 'True'
-                            steps: '5'
-                            frequency: '0.05'
-                            angle: '-180'
-                            start: '90'
-                            duration-base: '0.4'
-                            duration-scale: '0'
-                            h-translation-base: '1'
-                            h-translation-scale: '0'
-                            v-translation-base: '1'
-                            v-translation-scale: '0'
-                            h-cycles: '2'
-                            v-cycles: '2'
-                            particle: 'Crit'
-                            arrangement: 'Circle'
-                            radius-base: '0.2'
-                            radius-scale: '0'
-                            particles-base: '5'
-                            particles-scale: '0'
-                            direction: 'XY'
-                            visible-radius: '20'
-                            dx: '0'
-                            dy: '0'
-                            dz: '0'
-                            speed: '0'
-                            amount: '1'
-                            forward: '3'
-                            upward: '0'
-                            right: '0'
-                            indicator: '2D'
-                          children:  {}
-                        Message-bb: 
-                          type: 'mechanic'
-                          indicator: '3D'
-                          data: 
+                          data:
                             icon-key: ''
                             counts: 'True'
                             message: 'No tiene'
-                            indicator: '2D'
-                          children:  {}
-                    Value Multiply-cb: 
+                    Value Multiply-x:
                       type: 'mechanic'
-                      indicator: '3D'
-                      data: 
+                      data:
                         icon-key: ''
                         counts: 'True'
                         key: 'Poderarma'
-                        multiplier-base: '1.5'
-                        multiplier-scale: '0'
-                        indicator: '2D'
-                      children:  {}
-                    Chance-db: 
+                        multiplier-base: 1.5
+                        multiplier-scale: 0
+                    Chance-y:
                       type: 'condition'
-                      indicator: '3D'
-                      data: 
+                      data:
                         icon-key: ''
-                        chance-base: '100critLore'
-                        chance-scale: '0'
-                        indicator: '2D'
-                      children: 
-                        Value Multiply-eb: 
+                        chance-base: 100critLore
+                        chance-scale: 0
+                      children:
+                        Value Multiply-z:
                           type: 'mechanic'
-                          indicator: '3D'
-                          data: 
+                          data:
                             icon-key: ''
                             counts: 'True'
                             key: 'Poderarma'
-                            multiplier-base: 'critLore'
-                            multiplier-scale: '0'
-                            indicator: '2D'
-                          children:  {}
-                        Command-fb: 
+                            multiplier-base: critLore
+                            multiplier-scale: 0
+                        Command-ab:
                           type: 'mechanic'
-                          indicator: '3D'
-                          data: 
+                          data:
                             icon-key: ''
                             counts: 'True'
                             command: 'ex title "title:<red>Critico" stay:0.1s fade_in:0.1s fade_out:0.1s'
                             type: 'OP'
-                            indicator: '2D'
-                          children:  {}
-                    Cone-gb: 
+                    Cone-bb:
                       type: 'target'
-                      indicator: '3D'
-                      data: 
+                      data:
                         icon-key: ''
-                        range-base: '4'
-                        range-scale: '0'
-                        angle-base: '60'
-                        angle-scale: '0'
+                        range-base: 4
+                        range-scale: 0
+                        angle-base: 60
+                        angle-scale: 0
                         group: 'Enemy'
                         wall: 'False'
                         caster: 'False'
-                        max-base: '99'
-                        max-scale: '0'
-                        indicator: '2D'
-                      children: 
-                        Damage-hb: 
+                        max-base: 99
+                        max-scale: 0
+                      children:
+                        Damage-cb:
                           type: 'mechanic'
-                          indicator: '3D'
-                          data: 
+                          data:
                             icon-key: ''
                             counts: 'True'
                             type: 'Damage'
-                            value-base: 'Poderarma'
-                            value-scale: '1'
+                            value-base: Poderarma
+                            value-scale: 1
                             true: 'False'
                             classifier: 'default'
-                            indicator: '2D'
-                          children:  {}
-                    Value Lore-ib: 
+                    Value Lore-db:
                       type: 'mechanic'
-                      indicator: '3D'
-                      data: 
+                      data:
                         icon-key: ''
                         counts: 'True'
                         key: 'Poderarma'
                         hand: 'Main'
                         regex: 'Poder de Arma: {value}'
-                        multiplier-base: '1'
-                        multiplier-scale: '0'
-                        indicator: '2D'
-                      children:  {}
-                    Cooldown-jb: 
+                        multiplier-base: 1
+                        multiplier-scale: 0
+                    Cooldown-eb:
                       type: 'mechanic'
-                      indicator: '3D'
-                      data: 
+                      data:
                         icon-key: ''
                         counts: 'True'
                         skill: 'Guadaña'
                         type: 'Seconds'
-                        value-base: 'cdbasico'
-                        value-scale: '0'
-                        indicator: '2D'
-                      children:  {}
-    Death: 
+                        value-base: cdbasico
+                        value-scale: 0
+    Kill-fb:
       type: 'trigger'
-      indicator: '3D'
-      data: 
-        icon-key: ''
-        mana: 'False'
-        cooldown: 'False'
-        indicator: '2D'
-      children: 
-        Skill Level-b: 
-          type: 'condition'
-          indicator: '3D'
-          data: 
-            icon-key: ''
-            skill: 'Guadaña Doble'
-            min-level: '1'
-            max-level: '1'
-            indicator: '2D'
-          children: 
-            Particle Animation-c: 
-              type: 'mechanic'
-              indicator: '3D'
-              data: 
-                icon-key: ''
-                counts: 'True'
-                steps: '5'
-                frequency: '0.05'
-                angle: '-180'
-                start: '90'
-                duration-base: '0.4'
-                duration-scale: '0'
-                h-translation-base: '3'
-                h-translation-scale: '0'
-                v-translation-base: '2'
-                v-translation-scale: '0'
-                h-cycles: '2'
-                v-cycles: '2'
-                particle: 'Crit'
-                arrangement: 'Circle'
-                radius-base: '0.2'
-                radius-scale: '0'
-                particles-base: '5'
-                particles-scale: '0'
-                direction: 'XY'
-                visible-radius: '20'
-                dx: '0'
-                dy: '0'
-                dz: '0'
-                speed: '0'
-                amount: '1'
-                forward: '3'
-                upward: '0'
-                right: '0'
-                indicator: '2D'
-              children:  {}
-            Particle Animation-d: 
-              type: 'mechanic'
-              indicator: '3D'
-              data: 
-                icon-key: ''
-                counts: 'True'
-                steps: '5'
-                frequency: '0.05'
-                angle: '180'
-                start: '-90'
-                duration-base: '0.4'
-                duration-scale: '0'
-                h-translation-base: '3'
-                h-translation-scale: '0'
-                v-translation-base: '0'
-                v-translation-scale: '0'
-                h-cycles: '2'
-                v-cycles: '2'
-                particle: 'Witch Magic'
-                arrangement: 'Circle'
-                radius-base: '0.2'
-                radius-scale: '0'
-                particles-base: '5'
-                particles-scale: '0'
-                direction: 'YZ'
-                visible-radius: '20'
-                dx: '0'
-                dy: '0'
-                dz: '0'
-                speed: '0'
-                amount: '1'
-                forward: '3'
-                upward: '0'
-                right: '0'
-                indicator: '2D'
-              children:  {}
-            Value Multiply-e: 
-              type: 'mechanic'
-              indicator: '3D'
-              data: 
-                icon-key: ''
-                counts: 'True'
-                key: 'Poderarma'
-                multiplier-base: '1.2'
-                multiplier-scale: '0'
-                indicator: '2D'
-              children:  {}
-            Value Multiply-f: 
-              type: 'mechanic'
-              indicator: '3D'
-              data: 
-                icon-key: ''
-                counts: 'True'
-                key: 'Poderarmaoff'
-                multiplier-base: '1.2'
-                multiplier-scale: '0'
-                indicator: '2D'
-              children:  {}
-            Cone-g: 
-              type: 'target'
-              indicator: '3D'
-              data: 
-                icon-key: ''
-                range-base: '4'
-                range-scale: '0'
-                angle-base: '60'
-                angle-scale: '0'
-                group: 'Enemy'
-                wall: 'False'
-                caster: 'False'
-                max-base: '99'
-                max-scale: '0'
-                indicator: '2D'
-              children: 
-                Damage-h: 
-                  type: 'mechanic'
-                  indicator: '3D'
-                  data: 
-                    icon-key: ''
-                    counts: 'True'
-                    type: 'Damage'
-                    value-base: 'Poderarma'
-                    value-scale: '1'
-                    true: 'False'
-                    classifier: 'default'
-                    indicator: '2D'
-                  children:  {}
-                Damage-i: 
-                  type: 'mechanic'
-                  indicator: '3D'
-                  data: 
-                    icon-key: ''
-                    counts: 'True'
-                    type: 'Damage'
-                    value-base: 'Poderarmaoff'
-                    value-scale: '1'
-                    true: 'False'
-                    classifier: 'default'
-                    indicator: '2D'
-                  children:  {}
-        Skill Level-j: 
-          type: 'condition'
-          indicator: '3D'
-          data: 
-            icon-key: ''
-            skill: 'Guadaña Sangrienta'
-            min-level: '1'
-            max-level: '1'
-            indicator: '2D'
-          children: 
-            Particle Animation-k: 
-              type: 'mechanic'
-              indicator: '3D'
-              data: 
-                icon-key: ''
-                counts: 'True'
-                steps: '5'
-                frequency: '0.05'
-                angle: '-180'
-                start: '90'
-                duration-base: '0.4'
-                duration-scale: '0'
-                h-translation-base: '3'
-                h-translation-scale: '0'
-                v-translation-base: '2'
-                v-translation-scale: '0'
-                h-cycles: '2'
-                v-cycles: '2'
-                particle: 'Icon Crack'
-                material: 'Redstone'
-                type: '0'
-                arrangement: 'Circle'
-                radius-base: '0.2'
-                radius-scale: '0'
-                particles-base: '5'
-                particles-scale: '0'
-                direction: 'XY'
-                forward: '3'
-                upward: '0'
-                right: '0'
-                indicator: '2D'
-              children:  {}
-            Value Multiply-l: 
-              type: 'mechanic'
-              indicator: '3D'
-              data: 
-                icon-key: ''
-                counts: 'True'
-                key: 'Poderarma'
-                multiplier-base: '1.3'
-                multiplier-scale: '0'
-                indicator: '2D'
-              children:  {}
-            Cone-m: 
-              type: 'target'
-              indicator: '3D'
-              data: 
-                icon-key: ''
-                range-base: '4'
-                range-scale: '0'
-                angle-base: '60'
-                angle-scale: '0'
-                group: 'Enemy'
-                wall: 'False'
-                caster: 'False'
-                max-base: '99'
-                max-scale: '0'
-                indicator: '2D'
-              children: 
-                Damage-n: 
-                  type: 'mechanic'
-                  indicator: '3D'
-                  data: 
-                    icon-key: ''
-                    counts: 'True'
-                    type: 'Damage'
-                    value-base: 'Poderarma'
-                    value-scale: '1'
-                    true: 'False'
-                    classifier: 'default'
-                    indicator: '2D'
-                  children:  {}
-            Value Multiply-o: 
-              type: 'mechanic'
-              indicator: '3D'
-              data: 
-                icon-key: ''
-                counts: 'True'
-                key: 'Poderarma'
-                multiplier-base: '0.05'
-                multiplier-scale: '0'
-                indicator: '2D'
-              children:  {}
-            Heal-p: 
-              type: 'mechanic'
-              indicator: '3D'
-              data: 
-                icon-key: ''
-                counts: 'True'
-                type: 'Health'
-                value-base: 'Poderarma'
-                value-scale: '1'
-                indicator: '2D'
-              children:  {}
-    Kill: 
-      type: 'trigger'
-      indicator: '3D'
-      data: 
+      data:
         icon-key: ''
         mana: 'False'
         cooldown: 'True'
-        indicator: '2D'
-      children: 
-        Item-lb: 
+      children:
+        Item-gb:
           type: 'condition'
-          indicator: '3D'
-          data: 
+          data:
             icon-key: ''
             check-mat: 'False'
             check-data: 'False'
@@ -581,29 +416,172 @@ Guadaña:
             lore: 'Vida por Muerte:'
             check-name: 'False'
             regex: 'False'
-            indicator: '2D'
-          children: 
-            Value Lore-mb: 
+          children:
+            Value Lore-hb:
               type: 'mechanic'
-              indicator: '3D'
-              data: 
+              data:
                 icon-key: ''
                 counts: 'True'
                 key: 'killheal'
                 hand: 'Main'
-                regex: 'Vida por Muerte: {value}'
-                multiplier-base: '1'
-                multiplier-scale: '0'
-                indicator: '2D'
-              children:  {}
-            Heal-nb: 
+                regex: 'Vida por Muerte:'
+                multiplier-base: 1
+                multiplier-scale: 0
+            Heal-ib:
               type: 'mechanic'
-              indicator: '3D'
-              data: 
+              data:
                 icon-key: ''
                 counts: 'True'
                 type: 'Percent'
-                value-base: 'killheal'
-                value-scale: '1'
-                indicator: '2D'
-              children:  {}
+                value-base: killheal
+                value-scale: 1
+    Took Physical Damage-jb:
+      type: 'trigger'
+      data:
+        icon-key: ''
+        mana: 'False'
+        cooldown: 'False'
+        target: 'True'
+        type: 'Both'
+        dmg-min: 0
+        dmg-max: 999
+      children:
+        Item-kb:
+          type: 'condition'
+          data:
+            icon-key: ''
+            check-mat: 'False'
+            check-data: 'False'
+            check-lore: 'True'
+            lore: 'Poder de Arma:'
+            check-name: 'False'
+            regex: 'False'
+          children:
+            Value Lore-lb:
+              type: 'mechanic'
+              data:
+                icon-key: ''
+                counts: 'True'
+                key: 'PoderarmaMain'
+                hand: 'Main'
+                regex: 'Poder de Arma: {value}'
+                multiplier-base: 1
+                multiplier-scale: 0
+            Value Attribute-mb:
+              type: 'mechanic'
+              data:
+                icon-key: ''
+                counts: 'True'
+                key: 'Poder de Arma:'
+                attribute: 'Vitality'
+    Took Skill Damage-nb:
+      type: 'trigger'
+      data:
+        icon-key: ''
+        mana: 'False'
+        cooldown: 'False'
+        target: 'True'
+        dmg-min: 0
+        dmg-max: 999
+        category: ''
+      children:
+        Value Set-ob:
+          type: 'mechanic'
+          data:
+            icon-key: ''
+            counts: 'True'
+            key: 'AOELores'
+            value-base: 1
+            value-scale: 0
+        Value Set-pb:
+          type: 'mechanic'
+          data:
+            icon-key: ''
+            counts: 'True'
+            key: '100critLore'
+            value-base: 0
+            value-scale: 0
+        Value Set-qb:
+          type: 'mechanic'
+          data:
+            icon-key: ''
+            counts: 'True'
+            key: 'critLore'
+            value-base: 1.02
+            value-scale: 0
+        Value Set-rb:
+          type: 'mechanic'
+          data:
+            icon-key: ''
+            counts: 'True'
+            key: 'Poderarma'
+            value-base: 0
+            value-scale: 0
+        Item-sb:
+          type: 'condition'
+          data:
+            icon-key: ''
+            check-mat: 'False'
+            check-data: 'False'
+            check-lore: 'True'
+            lore: 'Alcanse en Area:'
+            check-name: 'False'
+            regex: 'True'
+          children:
+            Value Lore-tb:
+              type: 'mechanic'
+              data:
+                icon-key: ''
+                counts: 'True'
+                key: 'AOELores'
+                hand: 'Main'
+                regex: 'Alcanse en Area: {value}'
+                multiplier-base: 1
+                multiplier-scale: 0
+            Value Add-ub:
+              type: 'mechanic'
+              data:
+                icon-key: ''
+                counts: 'True'
+                key: 'AOELores'
+                amount-base: 1
+                amount-scale: 0
+            Particle Animation-vb:
+              type: 'mechanic'
+              data:
+                icon-key: ''
+                counts: 'True'
+                steps: 5
+                frequency: 0.05
+                angle: -180
+                start: 90
+                duration-base: 0.4
+                duration-scale: 0
+                h-translation-base: AOELores
+                h-translation-scale: 0
+                v-translation-base: 1
+                v-translation-scale: 0
+                h-cycles: 2
+                v-cycles: 2
+                particle: 'Crit'
+                arrangement: 'Circle'
+                radius-base: 0.2
+                radius-scale: 0
+                particles-base: 5
+                particles-scale: 0
+                direction: 'XY'
+                visible-radius: 20
+                dx: 0
+                dy: 0
+                dz: 0
+                speed: 0
+                amount: 1
+                forward: 3
+                upward: 0
+                right: 0
+            Message-wb:
+              type: 'mechanic'
+              data:
+                icon-key: ''
+                counts: 'True'
+                message: 'tiene {AOELores} {Regex} {regex} {Lore} {lore}'

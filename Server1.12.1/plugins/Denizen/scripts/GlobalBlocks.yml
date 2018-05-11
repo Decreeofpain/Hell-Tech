@@ -1,6 +1,8 @@
 GlobalBlocks:
   type: world
   events:
+    on player enters circulo1a:
+    - ^title "title:<green>Mina" "subtitle:<gold>Zona A."
     on time changes in Esparcraft:
     - ^foreach <cu@bosquespruce.blocks[166]> {
       - ^wait 2t
@@ -10,5 +12,5 @@ GlobalBlocks:
     - ^narrate "<context.location> <context.material> <context.location.is_within[cu@bosquespruce]>"
     - ^modifyblock <context.location> barrier
     # - ^run 's@refreshblokslvl1'
-    - determine cancelled
+    - ^determine cancelled
     - ^queue clear
