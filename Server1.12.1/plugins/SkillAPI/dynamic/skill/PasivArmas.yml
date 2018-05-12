@@ -38,54 +38,7 @@ PasivArmas:
       data: 
         icon-key: ''
         indicator: '2D'
-      children: 
-        Skill Level-lb: 
-          type: 'condition'
-          indicator: '3D'
-          data: 
-            icon-key: ''
-            skill: 'Guadaña Doble'
-            min-level: '1'
-            max-level: '1'
-            indicator: '2D'
-          children: 
-            Offhand-mb: 
-              type: 'condition'
-              indicator: '3D'
-              data: 
-                icon-key: ''
-                check-mat: 'False'
-                check-data: 'False'
-                check-lore: 'True'
-                lore: 'Poder de Arma:'
-                check-name: 'False'
-                regex: 'False'
-                indicator: '2D'
-              children: 
-                Value Lore-nb: 
-                  type: 'mechanic'
-                  indicator: '3D'
-                  data: 
-                    icon-key: ''
-                    counts: 'True'
-                    key: 'Poderarmaoff'
-                    hand: 'Offhand'
-                    regex: 'Poder de Arma: {value}'
-                    multiplier-base: '1'
-                    multiplier-scale: '0'
-                    indicator: '2D'
-                  children:  {}
-                Value Add-ob: 
-                  type: 'mechanic'
-                  indicator: '3D'
-                  data: 
-                    icon-key: ''
-                    counts: 'True'
-                    key: 'Poderarma'
-                    amount-base: 'Poderarmaoff'
-                    amount-scale: '0'
-                    indicator: '2D'
-                  children:  {}
+      children:  {}
     Initialize: 
       type: 'trigger'
       indicator: '3D'
@@ -93,7 +46,7 @@ PasivArmas:
         icon-key: ''
         indicator: '2D'
       children: 
-        Passive-b: 
+        Passive-c: 
           type: 'mechanic'
           indicator: '3D'
           data: 
@@ -103,33 +56,7 @@ PasivArmas:
             seconds-scale: '0'
             indicator: '2D'
           children: 
-            Item-c: 
-              type: 'condition'
-              indicator: '3D'
-              data: 
-                icon-key: ''
-                check-mat: 'False'
-                check-data: 'False'
-                check-lore: 'True'
-                lore: 'Poder de Arma:'
-                check-name: 'False'
-                regex: 'False'
-                indicator: '2D'
-              children: 
-                Value Lore-d: 
-                  type: 'mechanic'
-                  indicator: '3D'
-                  data: 
-                    icon-key: ''
-                    counts: 'True'
-                    key: 'Poderarma'
-                    hand: 'Main'
-                    regex: 'Poder de Arma: {value}'
-                    multiplier-base: '1'
-                    multiplier-scale: '0'
-                    indicator: '2D'
-                  children:  {}
-            Slot-e: 
+            Slot-d: 
               type: 'condition'
               indicator: '3D'
               data: 
@@ -139,83 +66,20 @@ PasivArmas:
                 check-mat: 'False'
                 check-data: 'False'
                 check-lore: 'True'
-                lore: 'Probabilidad de critico:'
+                lore: 'Alcance en area:'
                 check-name: 'False'
                 regex: 'False'
                 indicator: '2D'
               children: 
-                Value Lore Slot-f: 
+                Message-e: 
                   type: 'mechanic'
                   indicator: '3D'
                   data: 
                     icon-key: ''
                     counts: 'True'
-                    key: '100critLorehelm'
-                    slot: '5'
-                    regex: 'Probabilidad de critico: {value}'
-                    multiplier-base: '1'
-                    multiplier-scale: '0'
+                    message: 'Tiene'
                     indicator: '2D'
                   children:  {}
-                Value Add-g: 
-                  type: 'mechanic'
-                  indicator: '3D'
-                  data: 
-                    icon-key: ''
-                    counts: 'True'
-                    key: '100critLore'
-                    amount-base: '100critLorehelm'
-                    amount-scale: '0'
-                    indicator: '2D'
-                  children:  {}
-            Slot-h: 
-              type: 'condition'
-              indicator: '3D'
-              data: 
-                icon-key: ''
-                slot: 
-                - '6'
-                check-mat: 'False'
-                check-data: 'False'
-                check-lore: 'True'
-                lore: 'Probabilidad de critico:'
-                check-name: 'False'
-                regex: 'False'
-                indicator: '2D'
-              children: 
-                Value Lore Slot-i: 
-                  type: 'mechanic'
-                  indicator: '3D'
-                  data: 
-                    icon-key: ''
-                    counts: 'True'
-                    key: '100critLorechest'
-                    slot: '6'
-                    regex: 'Probabilidad de critico: {value}'
-                    multiplier-base: '1'
-                    multiplier-scale: '0'
-                    indicator: '2D'
-                  children:  {}
-                Value Add-j: 
-                  type: 'mechanic'
-                  indicator: '3D'
-                  data: 
-                    icon-key: ''
-                    counts: 'True'
-                    key: '100critLore'
-                    amount-base: '100critLorechest'
-                    amount-scale: '0'
-                    indicator: '2D'
-                  children:  {}
-            Message-k: 
-              type: 'mechanic'
-              indicator: '3D'
-              data: 
-                icon-key: ''
-                counts: 'True'
-                message: '{100critLore}'
-                indicator: '2D'
-              children:  {}
     Launch: 
       type: 'trigger'
       indicator: '3D'
@@ -226,7 +90,7 @@ PasivArmas:
         type: 'Any'
         indicator: '2D'
       children: 
-        Offhand-p: 
+        Offhand-g: 
           type: 'condition'
           indicator: '3D'
           data: 
@@ -239,7 +103,7 @@ PasivArmas:
             regex: 'False'
             indicator: '2D'
           children: 
-            Value Lore-q: 
+            Value Lore-h: 
               type: 'mechanic'
               indicator: '3D'
               data: 
@@ -252,7 +116,7 @@ PasivArmas:
                 multiplier-scale: '0'
                 indicator: '2D'
               children:  {}
-        Offhand-r: 
+        Offhand-i: 
           type: 'condition'
           indicator: '3D'
           data: 
@@ -265,7 +129,7 @@ PasivArmas:
             regex: 'False'
             indicator: '2D'
           children: 
-            Value Lore-s: 
+            Value Lore-j: 
               type: 'mechanic'
               indicator: '3D'
               data: 
@@ -278,7 +142,7 @@ PasivArmas:
                 multiplier-scale: '0'
                 indicator: '2D'
               children:  {}
-            Value Multiply-t: 
+            Value Multiply-k: 
               type: 'mechanic'
               indicator: '3D'
               data: 
@@ -289,7 +153,7 @@ PasivArmas:
                 multiplier-scale: '0'
                 indicator: '2D'
               children:  {}
-            Value Add-u: 
+            Value Add-l: 
               type: 'mechanic'
               indicator: '3D'
               data: 
@@ -300,7 +164,7 @@ PasivArmas:
                 amount-scale: '0'
                 indicator: '2D'
               children:  {}
-        Item-v: 
+        Item-m: 
           type: 'condition'
           indicator: '3D'
           data: 
@@ -313,7 +177,7 @@ PasivArmas:
             regex: 'False'
             indicator: '2D'
           children: 
-            Value Lore-w: 
+            Value Lore-n: 
               type: 'mechanic'
               indicator: '3D'
               data: 
@@ -326,7 +190,7 @@ PasivArmas:
                 multiplier-scale: '0'
                 indicator: '2D'
               children:  {}
-            Value Multiply-x: 
+            Value Multiply-o: 
               type: 'mechanic'
               indicator: '3D'
               data: 
@@ -337,7 +201,7 @@ PasivArmas:
                 multiplier-scale: '0'
                 indicator: '2D'
               children:  {}
-            Value Add-y: 
+            Value Add-p: 
               type: 'mechanic'
               indicator: '3D'
               data: 
@@ -348,7 +212,7 @@ PasivArmas:
                 amount-scale: '0'
                 indicator: '2D'
               children:  {}
-        Offhand-z: 
+        Offhand-q: 
           type: 'condition'
           indicator: '3D'
           data: 
@@ -361,7 +225,7 @@ PasivArmas:
             regex: 'False'
             indicator: '2D'
           children: 
-            Value Lore-ab: 
+            Value Lore-r: 
               type: 'mechanic'
               indicator: '3D'
               data: 
@@ -374,7 +238,7 @@ PasivArmas:
                 multiplier-scale: '0'
                 indicator: '2D'
               children:  {}
-        Item-bb: 
+        Item-s: 
           type: 'condition'
           indicator: '3D'
           data: 
@@ -387,7 +251,7 @@ PasivArmas:
             regex: 'False'
             indicator: '2D'
           children: 
-            Value Lore-cb: 
+            Value Lore-t: 
               type: 'mechanic'
               indicator: '3D'
               data: 
@@ -400,7 +264,7 @@ PasivArmas:
                 multiplier-scale: '0'
                 indicator: '2D'
               children:  {}
-        Tool-db: 
+        Tool-u: 
           type: 'condition'
           indicator: '3D'
           data: 
@@ -409,14 +273,14 @@ PasivArmas:
             tool: 'Sword'
             indicator: '2D'
           children: 
-            Self-eb: 
+            Self-v: 
               type: 'target'
               indicator: '3D'
               data: 
                 icon-key: ''
                 indicator: '2D'
               children: 
-                Damage Buff-fb: 
+                Damage Buff-w: 
                   type: 'mechanic'
                   indicator: '3D'
                   data: 
@@ -430,7 +294,7 @@ PasivArmas:
                     seconds-scale: '0'
                     indicator: '2D'
                   children:  {}
-        Offhand-gb: 
+        Offhand-x: 
           type: 'condition'
           indicator: '3D'
           data: 
@@ -443,7 +307,7 @@ PasivArmas:
             regex: 'False'
             indicator: '2D'
           children: 
-            Value Lore-hb: 
+            Value Lore-y: 
               type: 'mechanic'
               indicator: '3D'
               data: 
@@ -456,7 +320,7 @@ PasivArmas:
                 multiplier-scale: '0'
                 indicator: '2D'
               children:  {}
-        Item-ib: 
+        Item-z: 
           type: 'condition'
           indicator: '3D'
           data: 
@@ -469,7 +333,7 @@ PasivArmas:
             regex: 'False'
             indicator: '2D'
           children: 
-            Value Lore-jb: 
+            Value Lore-ab: 
               type: 'mechanic'
               indicator: '3D'
               data: 
@@ -491,7 +355,7 @@ PasivArmas:
         cooldown: 'False'
         indicator: '2D'
       children: 
-        Item-m: 
+        Item-cb: 
           type: 'condition'
           indicator: '3D'
           data: 
@@ -504,7 +368,7 @@ PasivArmas:
             regex: 'False'
             indicator: '2D'
           children: 
-            Value Lore-n: 
+            Value Lore-db: 
               type: 'mechanic'
               indicator: '3D'
               data: 
