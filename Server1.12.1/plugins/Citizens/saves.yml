@@ -7,8 +7,8 @@ npc:
       cached-skin-uuid-name: wymond
       protected: true
       removefromplayerlist: true
-      player-skin-textures: eyJ0aW1lc3RhbXAiOjE1MjYwNTg1MDc5OTAsInByb2ZpbGVJZCI6ImJkMGMzMjVmMzU1ZTQxMmY4OTI3YmNlYjEyNTU0ODU3IiwicHJvZmlsZU5hbWUiOiJ3eW1vbmQiLCJzaWduYXR1cmVSZXF1aXJlZCI6dHJ1ZSwidGV4dHVyZXMiOnt9fQ==
-      player-skin-signature: tlKjWRK6cWEJjs8n+2erf+eAKj4l9taTuaV4E81rb5yYlHrYKCtRewqasVWe0exOf0iMFHZCOFPiZcLhuIrgOSAeUoaynKAQVwcite33UFfFy6lv8QigXTfcyonXkkLz3LtQUSQplzyd3kYjxjX6i+QGKr6DFV9ESU86xltnwfjcVhxH4ACGpXe4ZJ98abGGiI2g2VFUU5ee1SZBq3PYOW0urUPcbBh9BC1ydpeJoSL5ZuCg/zMhXlNPTpRq0iIdEG7rBT8h/RysCfh09v8pKOMfw642D5uDjcfZxuL+DEFHttwVz5WVspvxXDCecjzroQhD1t+DIs5jgYo15TWFT2Aa2ngKkX9kcx8NPHcfEyNrwBPYjoEE2kd6z+/zqOERA414PBIVUsQP7KG0Dx6d2AeHEXd2EwReJ0y0PBEuDJmxjxfbuRm/tFUgahv6PZMx/HHe4JRTxdTXr2fvnFnKSTxkn7F7XLDacmXT4E2T4f0vrMRl6lstcLucU8/5kIjCoClNevUisP2MPAQHnMZFU4f++bEie8aHW51xgyiOEUIWdHjf2nT5EAfxJZaXzb/CYZgPDK5g9jJUT09rYtfsOMSj+BS9wnZMvDdU1cB+2SsoVjGImA4vIXKPUV+Y5PAZjNn1PweT6WDtK4ZO5ZojF2V/LuPv2n/6YuLoRf9PiCQ=
+      player-skin-textures: eyJ0aW1lc3RhbXAiOjE1MjYxMDk2NzQ4MzMsInByb2ZpbGVJZCI6ImJkMGMzMjVmMzU1ZTQxMmY4OTI3YmNlYjEyNTU0ODU3IiwicHJvZmlsZU5hbWUiOiJ3eW1vbmQiLCJzaWduYXR1cmVSZXF1aXJlZCI6dHJ1ZSwidGV4dHVyZXMiOnt9fQ==
+      player-skin-signature: F4mQk2D20ZJBTe8+GKT+pnFjjHluGO1M1+cuAsUcMTU8oIEca680T0suvEWJV5Rnn4sfOHZ+5fwghacLhoPKRTLFA5G0ong94EeAzhrZf5mepoN/XSd3T0W19ESs7GyWH6LI14UtvmA3pC9nLAIlsvH4Q/rBHurso81Z0P6sDOjoWdysSbqfCkp4QHYjbvvSsJ0V/h8eHub1efrHFLxzFsCESegETCbTM3iSa0W3yNtVlcT2sOHigMLmXh/ZK3BCmwG2/1o6TqVimP1jGdwNPEBQ0OT4ju3yDo97nvt9RikN3TDpSuttbJDaQ7cPGIOTYPjAkMX/mM5HYlQwBEmGTxTwxnOMFI+GuMjEd5VA+bSD+DjncKYzN7JecSbOBeseMthm1s5PdDB1wlaEGbZm3P8C7OvDIPXQgsMsVk7aI0d6Jl9l/0Ha6Yu9+JvnIPnlBMe70MLkA63Qr+oqaHWxj6Q2RF1XP9ZipK66PZAU1iGKMgVnuGA0aAQwH/OapqrZygvuIEfLK4ijj9Lop7Ne+zL2OBJUORp995PydTBtfsoIcnhQz+WsxRv5bgseMY/McP5i6GjYCGP68IB/YZ4FNKqashB7P/KDmQD1cdFr4IF8eES/IVDhM07WpmIFvuCKpNhGf7if6GUQYsvf4Am+wPrUCNv9F8xd8lyKlRP+bfc=
     name: '&aWymond'
     uuid: 82e6e7d9-4078-4b75-8276-f75b7bc44285
     traits:
@@ -73,7 +73,7 @@ npc:
       owner:
         owner: drAkeNox
         uuid: 5918cb73-cfa2-3e47-a129-28edd0a3c800
-    traitnames: constants,spawned,type,assignment,inventory,trader,location,equipment,owner,wallet,lookclose,mounttrait,waypoints,gravity,triggers,anchors
+    traitnames: inventory,trader,gravity,wallet,triggers,waypoints,anchors,spawned,equipment,mounttrait,type,assignment,lookclose,constants,location,owner
     navigator:
       speedmodifier: '0.800000011920929'
       avoidwater: false
@@ -161,7 +161,7 @@ npc:
       owner:
         owner: drAkeNess
         uuid: 63d45060-8177-31f5-939e-7685b85bffe3
-    traitnames: constants,spawned,type,assignment,inventory,trader,location,equipment,wallet,lookclose,owner,mounttrait,waypoints,gravity,triggers,builder,anchors
+    traitnames: inventory,builder,trader,gravity,wallet,waypoints,triggers,anchors,equipment,spawned,mounttrait,type,lookclose,assignment,constants,location,owner
     navigator:
       speedmodifier: '0.800000011920929'
       avoidwater: false
@@ -171,8 +171,8 @@ npc:
       cached-skin-uuid: b2180507-c8d0-48cb-b212-0ca8624122fa
       cached-skin-uuid-name: spitfire45
       player-skin-name: spitfire45
-      player-skin-textures: eyJ0aW1lc3RhbXAiOjE1MjYwNTg1MDg1ODcsInByb2ZpbGVJZCI6ImIyMTgwNTA3YzhkMDQ4Y2JiMjEyMGNhODYyNDEyMmZhIiwicHJvZmlsZU5hbWUiOiJzcGl0ZmlyZTQ1Iiwic2lnbmF0dXJlUmVxdWlyZWQiOnRydWUsInRleHR1cmVzIjp7IlNLSU4iOnsidXJsIjoiaHR0cDovL3RleHR1cmVzLm1pbmVjcmFmdC5uZXQvdGV4dHVyZS8zNmIzZmY1YTVmNjg4YjNlNjA4Zjk2NDQ5ZTVlNThlMjg5M2E4YTRhZmJjNjI4NDgxZmY0YTcyM2VjNzMyIn19fQ==
-      player-skin-signature: hYowcY6nIdwRq2fK+pu6qJqLdz500Mrp+sCgqpb+fFmNLGTiTlM8m6FatfsKrR1AEYLAZqIE9TRRfgMm7rwsRk1cnisHarjXmeNhLwgjcZ2SBZPjfHKoFskZ+IRm7B2sRaOcuRd74/EoR4e+anVlL5RlkYeVk7o8l/IFKcw4O+LBdL/1uWl5kvnQ7waeLAqiBvd3oAoLmyGDjb/Dd7nrFWKVfIAFZLOAoniWvfrP8zF46CWFJz/G9afeeP75yll4A4JX73fRw4brHJE1ZsOldEFJLT7rKXk9PplOv7RZ606VurmEJkguyLcAZUiqB26VbBo32UCY0qLGJ0Kx0fHjaPUN/Pd5OvPmLWJwgRww44BYLzcnE2Fkfi9xxqujxQRi5YwBZL/MEG2Xr98WpZMMq1rgXNXCMuOuLrilROpy28edLaC8PPdJq9XltxKtjZeZOQ0rc23Ubf8GbvFG/SSudzFzoDj7xVmRr0kcZOiUNjGEuhvPbGYlv6/y9g9YTy2ds9Hi3fbcefHZAzHchgqQ58wrySfmSTQMOwpmXsS/aobadHuxhMWUm+MO/o+U9kyTBtVuf1zLY/hXXH5zrZ68O5zOZdHfkfKukS48Bc5BqrkJp+3fQByZV3vXMvlgn6oTWBU45XfZ8ftkFTTNxD/ahsusic+rXMWUPmlHTVEt3OI=
+      player-skin-textures: eyJ0aW1lc3RhbXAiOjE1MjYxMDk2NzU0NDUsInByb2ZpbGVJZCI6ImIyMTgwNTA3YzhkMDQ4Y2JiMjEyMGNhODYyNDEyMmZhIiwicHJvZmlsZU5hbWUiOiJzcGl0ZmlyZTQ1Iiwic2lnbmF0dXJlUmVxdWlyZWQiOnRydWUsInRleHR1cmVzIjp7IlNLSU4iOnsidXJsIjoiaHR0cDovL3RleHR1cmVzLm1pbmVjcmFmdC5uZXQvdGV4dHVyZS8zNmIzZmY1YTVmNjg4YjNlNjA4Zjk2NDQ5ZTVlNThlMjg5M2E4YTRhZmJjNjI4NDgxZmY0YTcyM2VjNzMyIn19fQ==
+      player-skin-signature: NG9XL2UwGas/064u+LRbiLbv/tOcFqHWSBnWi9qzj5s9btPtQ3Aus7j5NfhOo9M9qYTl80/YzDn59gMPyypVfwfh/57GCCSWSQxcceAkCex7GoYLLsjVKenyvRHoZyCa3tRaGoneq6Pks+9phRDM9wLY9PTps+DVAAu7WYOAyQ9FJcJrr2s5trkSLXYveFHtU35/xSjyoS+8YdheSoHsxu58J0yTnrrOZWdbfpcjeRbD17fREM/w0CCHEkoTqXnHFepp8Ns8LozjYyuPr7eQG0oY17R3qmyGUIdrNk99K3Go66xCkwaYvZgTvfZ+Ez29yjobZxQIWStiRVrh4zn9NCzxkSp3ei51Xp/ILn8V7D2g00QkzHrs8MijgOTN1meHQMEr69WWMBWLRE7OLJlPrZlfGy6/oEP4FWZdQXZvCt8Zxlv8/A2vp27JpHWFeeTKH3+T/0gYHskn7JmqT9YybY36at7lNmG8jMRoqKl+gvzakceE8JQwAZtpTxAsJYZBwPdtr1anar3VmjPwrEi/JrPX6CDiji+Y6WJNgaUSX/q5RTMq73xB2jTSb00ntu6q/Yy0bFF3ol8NUbveXkDBtGF51rWxGJA3ODKD2S68+7qXSeJDY1ot63tFaiZ6OVvW1Of+3kWwbnQ3mizsLqugz6YLDWn1emPEsZIAIdLGbeQ=
     name: '&aMack'
     uuid: a1d1bd26-dee6-4d21-b456-efcd48b07aa9
     traits:
@@ -238,7 +238,7 @@ npc:
       owner:
         owner: drAkeNess
         uuid: 63d45060-8177-31f5-939e-7685b85bffe3
-    traitnames: constants,spawned,type,assignment,location,inventory,equipment,owner,wallet,lookclose,mounttrait,waypoints,gravity,triggers,builder,anchors
+    traitnames: inventory,builder,gravity,wallet,waypoints,triggers,anchors,equipment,spawned,mounttrait,type,assignment,lookclose,constants,location,owner
     navigator:
       speedmodifier: '1.0'
       avoidwater: false
@@ -248,8 +248,8 @@ npc:
       cached-skin-uuid: 24498ae6-f8e3-418b-9cfe-85287bf96c68
       cached-skin-uuid-name: dagn
       player-skin-name: dagn
-      player-skin-textures: eyJ0aW1lc3RhbXAiOjE1MjYwNTg0OTc5MzYsInByb2ZpbGVJZCI6IjI0NDk4YWU2ZjhlMzQxOGI5Y2ZlODUyODdiZjk2YzY4IiwicHJvZmlsZU5hbWUiOiJEYWduIiwic2lnbmF0dXJlUmVxdWlyZWQiOnRydWUsInRleHR1cmVzIjp7IlNLSU4iOnsidXJsIjoiaHR0cDovL3RleHR1cmVzLm1pbmVjcmFmdC5uZXQvdGV4dHVyZS82MWZmMjE0MWM2MDZhNDdhY2NjYTUyYWRiMzY2ZmEyZTkzNzAxNjQ3YWQ1YmI5OTVmY2FkYmUxYTRhNzdmYyJ9fX0=
-      player-skin-signature: dZAj7k3rNy64n2RqNTTt7j8KDEqAgCyKGLjZvUIytK6b42yN54bbHhwJSU4YnHr5nFS9qCvmBM3cw+vnwL2FOUgL1J3zApkorul0/zTp/QC/b2unykw5g4UogOsr8WlcREpsirvPlpRrB3ANQGup4XJMOZ+Zu0pzSK1EEZQr3aMbd1fjfWVg76JniYmVyDFBRz40IDtxUwh0mmMkOtaLjJdtE5sC30ePB2qxqhwTXodm/gpoOjO2rjzDzlguy8i9hDWCLn67mEDPw0rU19QFrVssdlWMO2YeJQKYMmOG9Pa0F2WXgtiHWOW1bggg6Mntdd5xhvRI74zF4V3hmQxcp1BuGbXp3kJwmAhW6A7OEohkRGYbC46q3pvkXSVTFhVNpFaRlmVLirjxLjWmvaLWBkqZS9wfCNFeSWRy3eD7jQKplPRAKEyr0F9NRowrtlX5+LW6ykp6/XWt08kn66RV9I0H8ymGi3fEnPxhPuqw4tWFlEebQ13Xv+VvxE9N+XN7jF6rqkJPotX4jrBOUHJMpOI14YVnJGSsJrm8ImVi0AVnB6V/WADjnf3ZCrUY7gqTsZQkp/dKi5VbLm6ciwFwnDAAuqY/zEdKRF8h0VUMTgE5D9J5GilK/We2IaR9jMTPXiq4HQLGLRASk/sdIq+TFJ2f2yJbmnBbjmQ7zg3Kjmc=
+      player-skin-textures: eyJ0aW1lc3RhbXAiOjE1MjYxMDk2NjUwOTQsInByb2ZpbGVJZCI6IjI0NDk4YWU2ZjhlMzQxOGI5Y2ZlODUyODdiZjk2YzY4IiwicHJvZmlsZU5hbWUiOiJEYWduIiwic2lnbmF0dXJlUmVxdWlyZWQiOnRydWUsInRleHR1cmVzIjp7IlNLSU4iOnsidXJsIjoiaHR0cDovL3RleHR1cmVzLm1pbmVjcmFmdC5uZXQvdGV4dHVyZS82MWZmMjE0MWM2MDZhNDdhY2NjYTUyYWRiMzY2ZmEyZTkzNzAxNjQ3YWQ1YmI5OTVmY2FkYmUxYTRhNzdmYyJ9fX0=
+      player-skin-signature: aIqjOlZkU8DLX61qCj/lhJAzKJFUiGHuayQB14rJy+yCoZyAakEJLFtnWuCSjuTiPkKiJTNBPxJecwSXUyLfum3y5ew0PC3VGK3cOy6SLUgqDtXP67mWauSXTq9SdsDuozjAx9Ic+lS5GNhT5b7V0H1PH87u2I+7gVbxBpm8kVNGKnfpEVRUdYA4H927F7E1tDafftmKEhXANnDtXZsbwv96APbqRxyOZdXYXS3wKAlno770d//lFicWMDsHPqVEnrU0Zxhdlm8fQF4oBwN/uzBAZTET5rj7Ptjf5EfnBCvEomSw8IA3964R1kY17YGd0ou7SBWjT7wuWSAICwip4kpjmvAATc6a7aG+GN+Duhra6E5vMRcMJpzNN3VMqFHLSc41mXgzak2tPxHa/ZSD+2z/eBgzQoV854hkMeaIQHrQHf30MjOQKSBB2ZIkR0An65ur6iS+Oy2NT2Xq3NYbb+1H3yTEeC3+4ejRAjAgA0dHE9Bcfqb8PVwRUrQjGnaoeDBbEiiOeWjkyhuh0RM6SGMaj0K+gXhv5RqX2Kk3fMQsID6t6BAYgmnrPeyrVu8ryVDwqEHQWAjQA4ZVKHVNdLBWIFhOAINT7LiaV+2+6kvIvOdSa1nVp6Tk/CYZWUie2dDrA8n5l7ctN4EZ8i52PIXOCjK9usiZE6O/8AdZ0dQ=
     name: '&aJurian'
     uuid: 9f0410f0-c853-40c5-8333-71d860eba562
     traits:
@@ -316,7 +316,7 @@ npc:
       owner:
         owner: drAkeNess
         uuid: 63d45060-8177-31f5-939e-7685b85bffe3
-    traitnames: constants,spawned,type,assignment,location,inventory,equipment,wallet,lookclose,owner,mounttrait,waypoints,gravity,triggers,builder,anchors
+    traitnames: inventory,builder,gravity,wallet,triggers,waypoints,anchors,spawned,equipment,mounttrait,type,lookclose,assignment,constants,location,owner
     navigator:
       speedmodifier: '0.800000011920929'
       avoidwater: false
@@ -385,7 +385,7 @@ npc:
       owner:
         owner: drAkeNess
         uuid: 63d45060-8177-31f5-939e-7685b85bffe3
-    traitnames: constants,spawned,type,assignment,inventory,location,equipment,lookclose,wallet,owner,mounttrait,gravity,triggers,builder,anchors
+    traitnames: inventory,builder,gravity,wallet,triggers,anchors,equipment,spawned,mounttrait,type,lookclose,assignment,constants,location,owner
     navigator:
       speedmodifier: '1.0'
       avoidwater: false
@@ -394,14 +394,14 @@ npc:
       cached-skin-uuid: 455b2d45-5565-4d93-96bf-9996765720d7
       player-skin-name: Nokcihc
       cached-skin-uuid-name: nokcihc
-      player-skin-textures: eyJ0aW1lc3RhbXAiOjE1MjYwNTg1MDUxNTUsInByb2ZpbGVJZCI6IjQ1NWIyZDQ1NTU2NTRkOTM5NmJmOTk5Njc2NTcyMGQ3IiwicHJvZmlsZU5hbWUiOiJOb2tjaWhjIiwic2lnbmF0dXJlUmVxdWlyZWQiOnRydWUsInRleHR1cmVzIjp7IlNLSU4iOnsidXJsIjoiaHR0cDovL3RleHR1cmVzLm1pbmVjcmFmdC5uZXQvdGV4dHVyZS82YjY2MTMyZWZjZGU4Y2VlY2IxNGI3Y2ViOGY3MmVmNWM2OTY0M2UzMDY0OTJjZTM4YmM2NjQ1ZDg2MzVlIn19fQ==
-      player-skin-signature: fIus65MkKzQfu9kuqJ+c+A8cL4KsL1TJgBID8NMzU0ch/6x1ZiLoBGoXeK4Ua+asU0vvnHuaJz8k1EM0mU5oIxq38uDcloPG1/s0Mr8hnt8+SZo7Yj0ojxhOLhQluimb2+6FEQhjHybq1RlN/WOkooREQj93EFWNIrgRyNQICgHIICqxu2BilXNj4YSgPqIZaEerhYsXroVcVMREQSal7uTDFhfkHxyi6BMzbB29OlnW3R1AYeLipeE0MoJSrpDws2bojPN6CCQPZLgU83zbs3a6nTafg2YdT70TboHU90Au31dsy3UE/2L6o1MCDIjYdU8F+NsP5Fa+zHXj39kkzIOzeunztw+SKVOHui8etP87Sechi0BpyyLQ6P3rVRNXFDIvZldb0WDQiDsZD8hXFO8wuxaj8BXFGslNwFn3swXjXveAO/XPmpDOv+3HWlGg53+SLc3RP9r+AkapO7Tj01ZK6UfFfHJXUFGYQGxCWBvkWoLmCjzl4Qb/GrwRsK+qcxR7afXAXDH7wEGbXFbkT18NOD5sFvyfXe5iXVWfnnDDGYqmpRZXLnSCadGjpeIBe6QiOm4LR1mbb7cYSLukqRc8beA0eRkyq4/iy75qlCoJ6r0wen9MB37NPps0Dvaw0suQP1v1bjzS68bYQlAIs4FtHHIUXD6CQGQ71OKzBcI=
+      player-skin-textures: eyJ0aW1lc3RhbXAiOjE1MjYxMDk2NzEzMTYsInByb2ZpbGVJZCI6IjQ1NWIyZDQ1NTU2NTRkOTM5NmJmOTk5Njc2NTcyMGQ3IiwicHJvZmlsZU5hbWUiOiJOb2tjaWhjIiwic2lnbmF0dXJlUmVxdWlyZWQiOnRydWUsInRleHR1cmVzIjp7IlNLSU4iOnsidXJsIjoiaHR0cDovL3RleHR1cmVzLm1pbmVjcmFmdC5uZXQvdGV4dHVyZS82YjY2MTMyZWZjZGU4Y2VlY2IxNGI3Y2ViOGY3MmVmNWM2OTY0M2UzMDY0OTJjZTM4YmM2NjQ1ZDg2MzVlIn19fQ==
+      player-skin-signature: JST4NXM5/1fN+Aod6ygjzRAtL9MyuKNb4syiYzTNWRcSF6d9mO+4bKd3Lm+5yhQuwUWLkYFxRJYGQ4B4VXu/gULp8+5B1aUiPcTS++WsVvCc+MnqdO75IZT6cP/3E6FRCTRlKUK8w6S/0uGzzMA8h0aOiecqK/fcu23P2TBuPC2bj0EhDwrilEjYn03+o4B1QpL/FHd292ji6yCo9UQxPEgtpkwUt328UGcIk8+yMHaEOq/qNIW18PhtCq3OFcvVFvBaXw/x3U71ohwiNaDUS6iCLjM9Si9DQnMXpKWZ5jDn1qPlJyPTXcrJFe+8TI5L1VeBmeXS+Yf7r3F8wz4wktQO12CseXg/RrYG3i3n7wIRM/xAWeEu5803/ggkP9kNhvsvgSF968qQggMN2judalWqNtXoL0tjFsSyDIo7JpfAO1LBgLjJyXGgwvINwNqq0HNaPb4ARcOBBHdmC3qvt0uy9u6YEfI1HrtktOC9bs7jlvA2MUaIeEQAEzJ3A8t2RNnHJKvDvHhsVDDzEOlJqPT81z2Uq/EQVIr8C4wMNuVE9GpqJr0xMhCv2V4Pkzc2vdCObfXD9MzpS4MBE/2BMOP1/DLf5V19/flcP/zWmTdBslAtL2Gj5UrPbIfUe/khvP1yMJ3uwxDi3wExKdZIp/Cg1hwsjuEcrO7q6uDnLgY=
   '5':
     metadata:
       cached-skin-uuid: 16f205aa-ff44-412e-96e3-1a0ba3ee539c
       cached-skin-uuid-name: aloys
-      player-skin-textures: eyJ0aW1lc3RhbXAiOjE1MjYwNTg1MDMyMTEsInByb2ZpbGVJZCI6IjE2ZjIwNWFhZmY0NDQxMmU5NmUzMWEwYmEzZWU1MzljIiwicHJvZmlsZU5hbWUiOiJBbG95cyIsInNpZ25hdHVyZVJlcXVpcmVkIjp0cnVlLCJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvZmYzMTRmMzQ1OTY1N2Y1N2FlN2FkNjIzYjE0MzUyYzJlMWU2ZmQ0ZmJmZjNlNjQ3NjI1ODYzNzJhMGNiZmI3MyJ9fX0=
-      player-skin-signature: XgbgKJbFKgXBtRG2e88JASnBEmlvzMaE70zXKyLHss7skOMrva2Cws4XpGeYBPL9ESBsz5g6C3A8k7CpLsa77JJv69x5G3GmhfiI/WWhYUKrpgtrcY2EQGRHjRwERfkajT1BJO+QDyltIhSKXrz0kwCkJ2wzu45NhwB2VTZKs6lJWvYpQH57Zh/vx5EBSqdwH6PQqOHGrhr5JH2xj9gK0X0SV4hX4ZCECsWucPzyoYOQf3d5qBIhXl32hl69xUhWMxh4qSRh9OgJrDo22HILZsBDS/6I1s1/zp3fekfkRt5llLUSNh4WXKEyI/NTRkrvXUoOGL7uVgXsAo+tn78wKLR9zhdJoVW5U8SNyNlZ+5eRyZU5lzdUO0gnXchyRlRiAr01Cc7pJmdKSp3zfrAUtCbRmS2IXSbJeTtZ1YwtpkzKSOOxIJ99Z+1Kyb/z+qCFx/ivPEYlriu3gxT3K2Z1HgisysKcBHjybNWahJzOl38sUapFsGb7pcNI6XxhwbTwgFM4VX9kB3TCYowdOWUpVnkmkp2PUFfRYH9mMNAbl0PFB3d5wVnvykbGRy3HakgvHAwyse/q6Ucr0Ma9AX882IO5uQn33P5o7o3PQAWNWxyD4GLe8qPYKPuWIU3kLaEVK4vYRIPeXqGlPQh0JuV2B6eNBATH68B3i6XIcRKSS8c=
+      player-skin-textures: eyJ0aW1lc3RhbXAiOjE1MjYxMDk2Njk0ODIsInByb2ZpbGVJZCI6IjE2ZjIwNWFhZmY0NDQxMmU5NmUzMWEwYmEzZWU1MzljIiwicHJvZmlsZU5hbWUiOiJBbG95cyIsInNpZ25hdHVyZVJlcXVpcmVkIjp0cnVlLCJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvZmYzMTRmMzQ1OTY1N2Y1N2FlN2FkNjIzYjE0MzUyYzJlMWU2ZmQ0ZmJmZjNlNjQ3NjI1ODYzNzJhMGNiZmI3MyJ9fX0=
+      player-skin-signature: Bhdn9VGrhmdcY9WYYb1TKJgRotvQj4aJas92/ypoArUeMV7ZvjWtTWO/SWAlWc3YBKYewvJ+PKQAzx5R+fG4dJV5/Hr0UWB1ZLhLb1jQozSgPjWPjeD2WFDBUKj8bjl+bmp0Dx2cA2Amj2Znn4hfyPt1Fqi8fLqZNSsdHtX4z94uI9fXRz2Ok9Ru6ChPtZGMWP3l8xc6+3a5fg/hZc2ACI4han9YMwZbq3sJ33ik/KWXzfFA5e1wZjKQkfyCvune/acXMB7S4THJsbFidjfZjh69K9Bq9Fv0TLGD+YpQI1J3Guxcom4vWJc0OGfjqZwBQOM0BJDSEZ3kterHoQ20LraAG+yPZ+Twu6PXxCxFDIJ7wLP3pCokC8Js7/pRFxdnUaPuYAXHJKPENVwHfwY4jwDrFYzlu+hGuWTEXMw22qdoVR4fM0/9em2H68CuU9i+M9GsUSGdOfGfi+ChqtRSSn1mzXJvcWB4h9fO8W6xrjHX7uozA2PyLHI1VZzJyAvBQI/NbbfUkIXiMCVEWPyyMo8WanK6M6OoJaWnkk9aEnvEd/X0pX9y+bm9mp52/YhfPKNW73viFTWrdxLmfUl4RzzPAzxgHMdXz8MjaqPmwFpzoGEi+ZwO7holz3cdKT1cXTfRWB1t7RzZ8e6V5E5YpPzXDoNNlJKx+W7z/9BAqHo=
     name: '&aAloys'
     uuid: 0a8e3fba-49e8-42cd-a506-d43dea11f5fe
     traits:
@@ -465,7 +465,7 @@ npc:
       owner:
         owner: drAkeNess
         uuid: 63d45060-8177-31f5-939e-7685b85bffe3
-    traitnames: constants,spawned,type,assignment,location,inventory,equipment,lookclose,wallet,owner,mounttrait,gravity,triggers,builder,anchors
+    traitnames: inventory,builder,gravity,wallet,triggers,anchors,equipment,spawned,mounttrait,type,lookclose,assignment,constants,location,owner
     navigator:
       speedmodifier: '1.0'
       avoidwater: false
@@ -476,10 +476,10 @@ npc:
     traits:
       location:
         world: Esparcraft
-        x: '2294.8264'
+        x: '2294.4158'
         y: '71.0'
-        z: '1950.5158'
-        yaw: '92.77633666992188'
+        z: '1935.8372'
+        yaw: '-166.01284790039062'
         pitch: '0.0'
       inventory: {}
       spawned: true
@@ -527,7 +527,7 @@ npc:
       owner:
         owner: drAkeNox
         uuid: 5918cb73-cfa2-3e47-a129-28edd0a3c800
-    traitnames: constants,spawned,type,assignment,location,trader,inventory,equipment,lookclose,owner,wallet,mounttrait,waypoints,gravity,triggers,anchors
+    traitnames: inventory,trader,gravity,wallet,waypoints,triggers,anchors,spawned,equipment,mounttrait,type,assignment,lookclose,constants,location,owner
     navigator:
       speedmodifier: '1.0'
       avoidwater: false
@@ -536,15 +536,15 @@ npc:
       cached-skin-uuid: 94996dd5-d2ff-43f6-9a2c-242f9287176f
       player-skin-name: pedroamerico
       cached-skin-uuid-name: pedroamerico
-      player-skin-textures: eyJ0aW1lc3RhbXAiOjE1MjYwNTg1MDcyOTEsInByb2ZpbGVJZCI6Ijk0OTk2ZGQ1ZDJmZjQzZjY5YTJjMjQyZjkyODcxNzZmIiwicHJvZmlsZU5hbWUiOiJwZWRyb2FtZXJpY28iLCJzaWduYXR1cmVSZXF1aXJlZCI6dHJ1ZSwidGV4dHVyZXMiOnsiU0tJTiI6eyJ1cmwiOiJodHRwOi8vdGV4dHVyZXMubWluZWNyYWZ0Lm5ldC90ZXh0dXJlL2ZiZDJmOTYzMTI5YmUyYjc4ZWNmYjAxN2NmOWI0NjUzZjgxZDU2ZTgyN2M4MzA5ZWNlYWM1NDYwYTlkMzg4NjIifX19
-      player-skin-signature: q5wZeO4Nr8icy3zcskQBCP6UxGgf596MhK+/jKy/qRm1QIeR2VyaEMx71LxxfOtu77D8f29n8K0ZjU8+7lD/k5s49Nd6MXB27MDoY6ZRQoF0Z+pcftrwpaAjWcRjNa5geVFBmsswW+JkmH3NWH06gmAHsLpC32hjxKJRTmysa9crFNFFRFe6A/5/040/Et26yfjJXTQxGwWfPGQWfh19pXMPKoDN1l5cimiOpedIRDr4iWAMlvqavnG3ZWjCw56p8pce0V+gt3/7Tojmk3vnxVk5sbcAbJP1zNJfVEP7oOeCe3R+oXU7A4gLq5VEOM0sh9Fmd1igGWhxV4tPsmUn6/Y8Tn7/SpeJ1yf/yaccOdN7cCNHPYqjPPX5Z1Ee2YsaEUW+rXCykwCUzWsm2uHtVqZb+n2HY8V+QuMoXFY9dUPE6fcqRolI/ZueFvHwoO2YSUM4ByomUBF+gFufc8SFUnQ8cLWWTnZ1v3UTgByFEdYP8fMvIcMLStiQJybXDcJ/ava8eaYt2WmT6QCpkEr01EkyqRo8Q+7Dpft3BxHTcpwmwxCJd9XxKxr9B9/bz0SMNkbTH2HlE397fpjUGMg/HobComOE1XitiVSPXSCApqR7SjBk236DFoepidSTpRPhhBwrdFOwdkIB9n60BdV3R4W0fdmXq0ULbFWO2TkpaFo=
+      player-skin-textures: eyJ0aW1lc3RhbXAiOjE1MjYxMDk2NzQyMzMsInByb2ZpbGVJZCI6Ijk0OTk2ZGQ1ZDJmZjQzZjY5YTJjMjQyZjkyODcxNzZmIiwicHJvZmlsZU5hbWUiOiJwZWRyb2FtZXJpY28iLCJzaWduYXR1cmVSZXF1aXJlZCI6dHJ1ZSwidGV4dHVyZXMiOnsiU0tJTiI6eyJ1cmwiOiJodHRwOi8vdGV4dHVyZXMubWluZWNyYWZ0Lm5ldC90ZXh0dXJlL2ZiZDJmOTYzMTI5YmUyYjc4ZWNmYjAxN2NmOWI0NjUzZjgxZDU2ZTgyN2M4MzA5ZWNlYWM1NDYwYTlkMzg4NjIifX19
+      player-skin-signature: B6BaqeQI94OOnNWLKnn/j1fxilNsH1M0yD3nL2jY9Lx81yDDeRcRvckz/j9i8gTP4LVPw2YhGJ2BCLQskHpTON8Am/aEvFOgA997orJ1cgabAqVYUw8hHDRaAeAQvmOzDfYGEq2UHDpu6qQu+3EwmWYCvA3o6FznXIkrQaWkTb8xpceG6XBZxJZ+AHR2iQ19EhAgRJG839pDX5y7Rv1IXW5A75QEN13DEqQv/iMj7GdZGejGPOyT3j+fTmZEdIrr7fyJf59BuvvjWurecSVtBneumovDNjWMxHmZzojUH5ZAyLC3oVkFUEcYtVBgDqbcDAaHxiQpsFoe1Js7LnHEL4GZTJeqi+4agho30tmAFRH5g9RkfqcXUvM9Eu5y9yprheTXcqXQtMMyNNuWLwDb+2dDyUC24aCX7P8BU8drYVDg5o9IpFljW6m86BnnrhPWH6JvBSCc8ceHXsYmRJWsqixyN+2TvkQB5JKZGyTuIqs46PWzRHrSTmxZwQiHsZDOzzpMSF0DOuNmArjwplOXC/up485GakD8OK7QzxSei12KUFSFH4ttlvPGVuprAbDlStbK4F54fOHkXkJ5yepgiEMbPKc+v4oFV0qm9iZYXIVIaXsBTFdllFNOPt+Ozuzk1Di+517ayY0jbhTrF06dThKP+9G7Brnu9Wk+wMCep0I=
   '2':
     metadata:
       cached-skin-uuid: 57c01d59-8853-4bb1-bfe6-514080fac509
       cached-skin-uuid-name: swagg
       player-skin-name: swagg
-      player-skin-textures: eyJ0aW1lc3RhbXAiOjE1MjYwNTg0OTkxOTgsInByb2ZpbGVJZCI6IjU3YzAxZDU5ODg1MzRiYjFiZmU2NTE0MDgwZmFjNTA5IiwicHJvZmlsZU5hbWUiOiJTd2FnZyIsInNpZ25hdHVyZVJlcXVpcmVkIjp0cnVlLCJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvOGQ0MDcyNmQ0ZjViZmI5NTEwNjZmZGYxMjM4ZWM0MTc1ZDVlODU5YTFhNGE1YjhmYjgxNTI4ZTE4NzY5YmM4In19fQ==
-      player-skin-signature: xgSyLHwv78bNKCjbC0uC33kScfODAXwRxWV1/V+I3qpoqN3lCuRgcGIGtUvT7Gbg9Xd83WWnKxHWurPScSXDfic0+Y+9H5CyXJaVr4Dr43f3s+l670MaXtn5THATATo6UD1VXC3IUp2FkD5Jv3AphhHLPBDxqVBQ2K5KwTV2KY3oF92FxPD9tmegY8nKZGasv28In9+dQAgO4XosI6uMJUu6HB+8eQZ93b60bz3+f9Up01vTbCTHJiUHICFVGM4qqnqACkusadhwiKzz6guSmgfKdg4mzJW+mgKwZ1t25zVR7RRthphgCW45+islAO31vCu+eCIVc8/BpNvzWCFjq1aBqNzx4k8l0PHXvjyzU7iHYys7rpndUKVWK1MBwE6AKV2F3CU89Z+4M33DR++Z51ZS2LHU1STiTTQO/uyGcuC9v1T7ZXj6LoYwzYzIPT3gEyZbU95HjJ/KujcpM4WgKYtk1FRvDKsjyf20OjGatiKImJBUDS7Ii7pEMdeFhptMVKzJV1Npkp8QcBH71oUQTrQYO/4t92YflFX0L/cnr/755X4xxum8NlkkkEt5CCLvxioykwc5kUoyfEqUfMNjxKxfHceDctWEmaG0FwZ+bZSt9DKB4oP2jrrDSQJVgvtrv5W6K6E9xFqSIQVKHhlRjsbwkh6kejpTeat0j7u9o4I=
+      player-skin-textures: eyJ0aW1lc3RhbXAiOjE1MjYxMDk2NjYzOTAsInByb2ZpbGVJZCI6IjU3YzAxZDU5ODg1MzRiYjFiZmU2NTE0MDgwZmFjNTA5IiwicHJvZmlsZU5hbWUiOiJTd2FnZyIsInNpZ25hdHVyZVJlcXVpcmVkIjp0cnVlLCJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvOGQ0MDcyNmQ0ZjViZmI5NTEwNjZmZGYxMjM4ZWM0MTc1ZDVlODU5YTFhNGE1YjhmYjgxNTI4ZTE4NzY5YmM4In19fQ==
+      player-skin-signature: BoBdvG7Y+rurbEqs25zYUOoAJVSWnpy6+RX5InyHXr6HZK81ES7vC9SsOZPDGnIXDnrdnpdGDU9Rz4wES6CblqccEgYRW+51xel2vKf45eSZskBw8mOLXVI1u7Xv3ezwtoKutPdVzAOiw+16qfdxTzf8yNm2ZhYNo2RQINVLnzYy0duImCxJAkJcV0JaMzo/VzLJvKvE85Qje+ozcteAGpXkUzZvX42P/xR20zHJVWLvs6IkgV+Zkof8CYfUzPzNbaSjHdwSQqbzqss8SaoCb/V4yfGSqeI8S4N6tKfjF0JSFnfKXwhY5xGrsnruv1A5hNfUlYCZRb9g08UrWXnb6ptJsXilKvIQCnssd5K8EZFUfZiwG/XjKSebsdtNRZU532dONNq9tb6j0Uh1QL89H+kUuorg0VqcgTe1ef6Ai8v7dGu3yIBIsAyq9E2mFgjQj9a3VbF8Q5GuN/oYUKSL335kl1M0foBWdt6LHfEr196p6tjJ8l4WPDuJ2eBUPal8F/xBGzvqJCNpytD6oZiOIE7XFOt4lrwoKCy40gpJ2E+U7l5yU2tnz596Pv16XWHmifFysnrXOalx02XS/VGX1+pAIIkiGx81QvSIAXMXI+olZVcs545Z17zPgqJxUbTLzBfT1plcl9dh4iqsNYWHpxaCQJXEF6su6B/vOPxJ0R8=
     name: '&aPiers'
     uuid: 5d8b5321-0ab8-4369-98b9-9d88a5649360
     traits:
@@ -600,7 +600,7 @@ npc:
       owner:
         owner: drAkeNox
         uuid: 5918cb73-cfa2-3e47-a129-28edd0a3c800
-    traitnames: constants,spawned,type,assignment,trader,inventory,location,equipment,lookclose,owner,wallet,mounttrait,waypoints,gravity,triggers,anchors
+    traitnames: inventory,trader,gravity,wallet,triggers,waypoints,anchors,equipment,spawned,mounttrait,type,lookclose,assignment,constants,location,owner
     navigator:
       speedmodifier: '0.800000011920929'
       avoidwater: false
@@ -699,7 +699,7 @@ npc:
       owner:
         owner: drAkeNess
         uuid: 63d45060-8177-31f5-939e-7685b85bffe3
-    traitnames: constants,spawned,type,assignment,location,inventory,equipment,lookclose,owner,mounttrait,waypoints,gravity,blacksmith,triggers,builder,anchors
+    traitnames: inventory,builder,blacksmith,gravity,waypoints,triggers,anchors,spawned,equipment,mounttrait,type,lookclose,assignment,constants,location,owner
     navigator:
       speedmodifier: '0.800000011920929'
       avoidwater: false
@@ -708,15 +708,15 @@ npc:
       cached-skin-uuid: 1dcd916f-d95d-48ac-8ff1-44be476435b5
       player-skin-name: timbo
       cached-skin-uuid-name: timbo
-      player-skin-textures: eyJ0aW1lc3RhbXAiOjE1MjYwNTg1MTE1ODIsInByb2ZpbGVJZCI6IjFkY2Q5MTZmZDk1ZDQ4YWM4ZmYxNDRiZTQ3NjQzNWI1IiwicHJvZmlsZU5hbWUiOiJ0aW1ibyIsInNpZ25hdHVyZVJlcXVpcmVkIjp0cnVlLCJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvZGU3N2RlYWJhMmY4NzgyNzFlNWI5NWY2ODQ2YmJlOWY0YWNlNmE4Y2QxM2M4ZTdlZTJhZWZhOGQzY2QyMjEifX19
-      player-skin-signature: YzFF4lXXPsJYaHNfqd3qxmBNte1HQnsWRMHSE5h8NgJGsigQz5TEciDIbwBJcm0Azqpjry8dOAgOGYRGvjL06Elj6BR5QLplqY84Qlx1Rd2H9i8jAG4aNHmgVCA0mE88EibLcSQ+uj9bYC2FXFiMqN1iruGIUjVWc6eWGBGukV7YTe2aHLdK0UyuAZfGXgLmaxgcF2fTHX+/vuLJEF7/aIMo5BY08aLHDiL0LNtW+NDf48qmemL0NQKKNZcKjk4RNjNe2Et/SI7qH4ucyzdG4C4GXDp0areHh1SP9RnnaktpdA0r8hThUH5lxuDNbkscSRuDMnJAaLFw4ZBM75YkiDVBlCp5R50t/XPu0Jj2kM1z2oMMbhrz4hSjkVtRAmcURYI6za4XQgDeCMxNmDzDRs8hGtgiEMhjvUAGN8FTDVA6qajKwJPSTkQuAVS66koGS+fYj2SxFmZeAXBaI6p+qiVfgiEmnBsfk0jFDYQ0lcht1kXivFoVY8wJpsYLa23jPzvjegO+hTLnZhxsENjEo0F00IO9w28QwCwDnaMhEpW38Ph5fOGGtuken1Ne6YbgjtyGUikP94BNtIctPaRWRRBC+Ig7cChxyw9hCxVu4nZ9W5fvP8xLYS9Cb4ZpIDiRQzSjsb7J9kh07wWJYItb9lWfzcZDKrax3zjZ/ZHGwG0=
+      player-skin-textures: eyJ0aW1lc3RhbXAiOjE1MjYxMDk2NzgwMTgsInByb2ZpbGVJZCI6IjFkY2Q5MTZmZDk1ZDQ4YWM4ZmYxNDRiZTQ3NjQzNWI1IiwicHJvZmlsZU5hbWUiOiJ0aW1ibyIsInNpZ25hdHVyZVJlcXVpcmVkIjp0cnVlLCJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvZGU3N2RlYWJhMmY4NzgyNzFlNWI5NWY2ODQ2YmJlOWY0YWNlNmE4Y2QxM2M4ZTdlZTJhZWZhOGQzY2QyMjEifX19
+      player-skin-signature: nQSc0W/MDsVwRs1aYibbeiiaBi6vhGft9rtfV1BxBSPkzUe26LBZLWEACtVNZWIiVaaiAdq0+AXjEX0m2w/NTJc/vtuq06QcvL/TK8goHKt3yoZZaIppILKJNrPvSYUl3aIjJwgw2XbkVKILjYDhJtFeCPGrTkf57l40yAOaXbMPLZV3Q+H1NKND8cMoYgRSmyESp60ZI+Ed6L7WLy7rqFSazchADwzqP/cZdNKIqWXwOJffjHJNP/nrWL3Ii1VCBaprTBlCrVP6K+9IeBKErDAk4zZrNMJq80ztF6jXl1Llnu28gspXDk3ysx6uDarplZeMxKX4JoDVvlBoRhEuOqdqxC/iWjwbsmSjk0j+pRwFUa+iETFixB2VPzj6r2DOWn2WDB8rOUSMEWGqJYQrgvvBcpGyqtmMqB1kCq/E7zJFV5F1fuTU28WJh+bExyDCMWyaezN3HFk3M/qYIDJh8BtQqpSyjB6tMWV5aPYp+NlK3pHy4mbg7VlJ+F+EyZT0YwT8OrA4mzQiGKMjK9KCpzvkq5NdJZ8h/L6ZIgzdJqyywHzyEa36jW1xHO1BkY+9PVJUFxDrtLwjRLqX8V9FjuY7fg5h8ArZRoHyfAd+eSoDsW1bREdjbqYZtr2I66Hir7d+iAKVqVuL2MyNrZ4cp6DAa8POAIXn3uhG4lZ3OYI=
   '27':
     metadata:
       cached-skin-uuid: a83e1b1b-944e-4db8-be37-960329f6a600
       cached-skin-uuid-name: tornado95
       player-skin-name: Tornado95
-      player-skin-textures: eyJ0aW1lc3RhbXAiOjE1MjYwNTg1MDc3OTksInByb2ZpbGVJZCI6ImE4M2UxYjFiOTQ0ZTRkYjhiZTM3OTYwMzI5ZjZhNjAwIiwicHJvZmlsZU5hbWUiOiJUb3JuYWRvOTUiLCJzaWduYXR1cmVSZXF1aXJlZCI6dHJ1ZSwidGV4dHVyZXMiOnsiU0tJTiI6eyJ1cmwiOiJodHRwOi8vdGV4dHVyZXMubWluZWNyYWZ0Lm5ldC90ZXh0dXJlL2VkYTY1OTU1NWQ4MzFlZmI4YTRkZmFmZDNlNDIzMjQzMDdkYzFjOWIyY2VjZjFkN2M2MjdhZTFmM2ZjNGQifX19
-      player-skin-signature: JmL4lZ8fXvO96gnSiPsgMB7uj/i53DQlUNDpcX4QcHTZDFdBEDhOElWEJDTV90bR8x0kjQ3/IJKJ85RnGpQq7YBVPxoaKyBW3nYY1Hvfqv9ElKjqyE/yBnWB1gJoC79T6hwjcj6kEsMw9yLLMPcGDhhOLTpRiuNoSP2zjzVLira5044pev+YfkpmDC8XED2pdNQGAP9RLrc640FOGitBD1Mou/Ard2EtN6XGGwHxNYnjFFPXvFDj5Gw9ClrwqYzu1dUNynp2e4GtIKKa4Hlkh/Tr9IbBB3y7HSKfsxhCLu6cqQDQQaWDmnIGRft6Memms8qUZO1Uy9JTK1NsbinxS13WaWrjsOhZfHEPdQZ87mOqiia8ELpIc8yLmEOrSfqB56jsJMApFngqIZAsMoKoAkO1TR/mabzW8fxD0pGh/bMJHJQJ3XxKpNOmbPO9nmn/+Fs7S9C3vtiGfva3+yJfv1lGLczy75ea+KncjeARKDErLhtoflJ0MzDZHD+nniKFMbGLikzDaeFgzBCljnF6pESUzQcNnglZMOYfqZxoEW980+gH2Gy+JwnHoj2u25NvYHgxTOM4JnjsyQiSd9HOfut3ZwED/7MMOrvCTe3J5JHR5GtQ82066KcHOh1SIVCtYxFpZpm1rEpRsTwUQk+ONHfcCSwjsjBtKvCo0YHMaHk=
+      player-skin-textures: eyJ0aW1lc3RhbXAiOjE1MjYxMDk2NzQ3MDUsInByb2ZpbGVJZCI6ImE4M2UxYjFiOTQ0ZTRkYjhiZTM3OTYwMzI5ZjZhNjAwIiwicHJvZmlsZU5hbWUiOiJUb3JuYWRvOTUiLCJzaWduYXR1cmVSZXF1aXJlZCI6dHJ1ZSwidGV4dHVyZXMiOnsiU0tJTiI6eyJ1cmwiOiJodHRwOi8vdGV4dHVyZXMubWluZWNyYWZ0Lm5ldC90ZXh0dXJlL2VkYTY1OTU1NWQ4MzFlZmI4YTRkZmFmZDNlNDIzMjQzMDdkYzFjOWIyY2VjZjFkN2M2MjdhZTFmM2ZjNGQifX19
+      player-skin-signature: NTdpxuGzuF5aBahaePOMntI/nje39RI9GWQvysMc57aVJ3YMp0+dSVrrf/5LQD7nwM7W3RQCJK9Ci+GtE1vutg44rFxUkJVvdVX5e0m/dZ3y0yT2dQUXSduVk4T1UAzbJl6ihHIuthGxeDlJQy4pzFjR2KLHZEUNnT8GGSZSRKH+EdYM5BrHk5KLXrHBIQQ7V6rrK5Xy1MaX/2cPkOU+5WDKtwR51JKb6ycNhMMzfBb7ub2kmQFJuBeMEngcrrOBjhpelSOP7ri27id8l3m9GPgjXzaEpq+uGSHw1+2AOcOjy/a4eWa7MCsD6WAUHJ0OemIaVZt+KO+cSClDe+F1Bo3PXf3w3Jo7gw0QP7MMi/BAnFo3yeGrA/JgLNmAeTUFMqGypa6EwwDhW7f6LgHnFhv24L2k0AqKsJ3IiOE2j0x+UV1C4Inq1GZIPhBex+jRFaAGKFGmKEOXj2G85HlLPn8XIlu3TthiffWVF3jfLCbE0lR1gwR9FOIQOGcaQjlP07W1d0pL/ffzkMXJu3TENp1Ae6kPJNnmPRNUZYi+uKLZXaIV/lkJa03MYjnSV5HPjfWpKlDO8fgA3AyjAdQx+YcFgUoQWNd+msgK4Co4MHOFxhFjYfNpsNRMdUXNRK4hh4ecb3pEVPHvU3/PWaGWMH9r5ueYDhur//pz0Q7Xcco=
     name: '&cAlvar'
     uuid: a3872c99-1ff2-4af9-a21a-fa7f6b3744d5
     traits:
@@ -786,7 +786,7 @@ npc:
       owner:
         owner: drAkeNess
         uuid: 63d45060-8177-31f5-939e-7685b85bffe3
-    traitnames: constants,spawned,type,assignment,sitting,inventory,location,equipment,owner,lookclose,mounttrait,gravity,triggers,builder,anchors
+    traitnames: inventory,builder,gravity,triggers,anchors,spawned,equipment,mounttrait,type,assignment,lookclose,constants,location,sitting,owner
     navigator:
       speedmodifier: '0.800000011920929'
       avoidwater: false
@@ -885,7 +885,7 @@ npc:
       owner:
         owner: drAke
         uuid: df1c5d6c-590c-3191-baf6-1b169f07d99f
-    traitnames: constants,spawned,type,assignment,location,inventory,equipment,owner,lookclose,mounttrait,waypoints,triggers,anchors
+    traitnames: inventory,waypoints,triggers,anchors,equipment,spawned,mounttrait,type,lookclose,assignment,constants,location,owner
     navigator:
       stationaryticks: 100
       speedmodifier: '0.800000011920929'
@@ -971,7 +971,7 @@ npc:
       owner:
         owner: drAke
         uuid: df1c5d6c-590c-3191-baf6-1b169f07d99f
-    traitnames: constants,spawned,type,assignment,inventory,trader,location,equipment,lookclose,owner,wallet,mounttrait,waypoints,triggers,anchors
+    traitnames: inventory,trader,wallet,waypoints,triggers,anchors,spawned,equipment,mounttrait,type,lookclose,assignment,constants,location,owner
     navigator:
       speedmodifier: '0.800000011920929'
       avoidwater: false
@@ -1048,7 +1048,7 @@ npc:
       owner:
         owner: drAkeNess
         uuid: 63d45060-8177-31f5-939e-7685b85bffe3
-    traitnames: constants,spawned,type,assignment,inventory,location,equipment,lookclose,owner,mounttrait,waypoints,gravity,triggers,builder,anchors
+    traitnames: inventory,builder,gravity,triggers,waypoints,anchors,equipment,spawned,mounttrait,type,lookclose,assignment,constants,location,owner
     navigator:
       speedmodifier: '1.0'
       avoidwater: false
@@ -1057,8 +1057,8 @@ npc:
       cached-skin-uuid: e5026df3-1572-48bc-a3a6-75509964f74f
       player-skin-name: Bubbles
       cached-skin-uuid-name: bubbles
-      player-skin-textures: eyJ0aW1lc3RhbXAiOjE1MjYwNTg1MDM3ODIsInByb2ZpbGVJZCI6ImU1MDI2ZGYzMTU3MjQ4YmNhM2E2NzU1MDk5NjRmNzRmIiwicHJvZmlsZU5hbWUiOiJCdWJibGVzIiwic2lnbmF0dXJlUmVxdWlyZWQiOnRydWUsInRleHR1cmVzIjp7IlNLSU4iOnsidXJsIjoiaHR0cDovL3RleHR1cmVzLm1pbmVjcmFmdC5uZXQvdGV4dHVyZS85MDY2MmIyNzk1YmNmZWViYTQxMTRkYzEyMjYxMTMyZDkyNzQzMTM3MDE3NGY3MWI0ZjhmNWJkNDMzNGQxNTMifX19
-      player-skin-signature: bxryfMwdwfL2EgUEPKVlja/RmH/wVMgfSc/hWeo2vkAcGy639g56FveMLLzVKZnlq9Rn3+XjcgYsfO+mX7pjV+Z6JRWyn9qM4nzlq/acComOYczuAoF2SzUbLazQs4e2tL0QCSUHdZlK/dUJ2VUZint1A/kaWBGlHJCj+cPdxE0pWgW1e4/FeuWddXH4yvBFt4tJZNtmtnrq01HMftpybzVQCkMaYjbl4Do5nCMnoBynI9YJP+cKPt+ShTget5A4fKa46fild6wUvwO2rF9oGuWGozaaHkYC0ifYW/EunXbVctRS+IpgN3vsBc3UIx7+8Ik2IaYWNXhEIl2c55zoqphJMM9XWgE+iupgcheWTBiCO9L9bcVv8wAy2gzd8c3oDBLLlduekNKQnnhzSs8TeFH3rZ1CEvRkj7MA5/qUeHDdSs08hCO7cs1OQJVNU3sDIWT7Solzfngj+pmnAhO2bDJJLMNicIulWGk6oHDMua1G/z29R5QUlIwgfbcXtP1xG6Uf7wChi4rUJz50EPA0yFlKvZeU1umkrrX+MC3ulgCG0PwulYdAHvQ7+5sXmFAdL83PY7OXoZywZOJzYZRQtpFoau8+CvbblERchfMwoaKi6EFVraJej0doz/CNXDwdEDFpRH0kjuk1uIQ7EojgIpDjsBHeX+ojJSIQY3OvP54=
+      player-skin-textures: eyJ0aW1lc3RhbXAiOjE1MjYxMDk2NzAwNzAsInByb2ZpbGVJZCI6ImU1MDI2ZGYzMTU3MjQ4YmNhM2E2NzU1MDk5NjRmNzRmIiwicHJvZmlsZU5hbWUiOiJCdWJibGVzIiwic2lnbmF0dXJlUmVxdWlyZWQiOnRydWUsInRleHR1cmVzIjp7IlNLSU4iOnsidXJsIjoiaHR0cDovL3RleHR1cmVzLm1pbmVjcmFmdC5uZXQvdGV4dHVyZS85MDY2MmIyNzk1YmNmZWViYTQxMTRkYzEyMjYxMTMyZDkyNzQzMTM3MDE3NGY3MWI0ZjhmNWJkNDMzNGQxNTMifX19
+      player-skin-signature: jr8hcYH9x16pI7aEMkfqJpjuwFg9Xdz1/H6of92LecQCuUQRljbDJKYfYFHz10cBcRHQ5MskYcyMPJmCe6J8K/V9aCKjt+W6guxTTsFzsIDg2AOFL52+gwjdxuPcS9XqopO92uCfT7RxILCfqqGziXmA4KdM0rWmUuJeHJfKy0tsoQrld8gzDORNTIDqw+rAJUUJNZwZAXphNsLFZ3ymSM3ErHJharH+WVPc+5KE/FhGVCSqem9YDYwLfOl05AiAN1Mt0SQU3AbOHQ8OqYdkqHD/HhsyEAx8HxS8OFH1iZP2ciSOVtTg4dzJv8NwyypgU6fxOY2t3YXPPii8Ry0+v/KNBfwpL+jnOt1hC8y3wz8+oiFdLxLYmKyJXFkq0qZD2De+9SAogAKQYYSobqPw4PRdc8jpc1kAc2M711Wk4UEIp2WP72lCfmvQrXXedjG29CtR1xZsyKvr7IZ0pbRj+0kFpnIZF5W0rrNvwdVF1FBUAEl0vKZ7O4+2rLXlwLpTZLnGfiGis4KFeEoOrjRiqQqwhfTr0FNcbOtoHU6OzNzS8TdcPQnK0EXol60Rq/0Bku2ItMalOE182CMWqc/jhI4UjkBEhN0pVqTnHtblwp7iss2zWZ6fsbf9L/L1GQRCBArDAezNQFA8IgEFw0FXUlF53NjdWVAlC/a/ZKDDN+8=
   '36':
     name: '&dManfredo'
     uuid: 2fadbdb3-ba79-49e1-8d5c-4c26c085137e
@@ -1109,7 +1109,7 @@ npc:
       owner:
         owner: drAke
         uuid: df1c5d6c-590c-3191-baf6-1b169f07d99f
-    traitnames: waypoints,constants,spawned,type,assignment,location,inventory,lookclose,triggers,owner,mounttrait,anchors
+    traitnames: anchors,spawned,inventory,mounttrait,type,lookclose,assignment,constants,location,waypoints,triggers,owner
     navigator:
       speedmodifier: '0.800000011920929'
       avoidwater: false
@@ -1125,8 +1125,8 @@ npc:
       cached-skin-uuid: 20f63f00-33cd-41b9-81a3-186f131b1435
       cached-skin-uuid-name: sylithion
       player-skin-name: Sylithion
-      player-skin-textures: eyJ0aW1lc3RhbXAiOjE1MjYwNTg1MDAyMzQsInByb2ZpbGVJZCI6IjIwZjYzZjAwMzNjZDQxYjk4MWEzMTg2ZjEzMWIxNDM1IiwicHJvZmlsZU5hbWUiOiJTeWxpdGhpb24iLCJzaWduYXR1cmVSZXF1aXJlZCI6dHJ1ZSwidGV4dHVyZXMiOnsiU0tJTiI6eyJ1cmwiOiJodHRwOi8vdGV4dHVyZXMubWluZWNyYWZ0Lm5ldC90ZXh0dXJlL2M2NmRjZGIyNTc5YTgzYjFmMWU3ZGQxODkxZTg3ZTNkMzViZWNmNjg3ZTE3NWI0N2U3MTc0MTc0MTEyZDMifX19
-      player-skin-signature: KuzcnqnBAEm8KpEuiT/egkmPAHG9299WMLHrvfAa8F9YJhjdeoJeUm/wAGPL58ann29gUNxlXSn2l54LULBncfGsnbfp22MoOgle6sa5qB3y7E5Iu5y3SAp4WlA3tRutbghh2cEtbDNQLUkJDWo8X1PccrHmzywtPtumA5B2UyY5jmV4cYrzX2n87+E32pPIHk7foCNkmePFi5pazVzQjTZEeSI46vRcbLNHOSKhWQ00lr+b+Oclpuktud51Wo5GvZm7Ic0Jzrwaw4Z24LtyoAvUKKBtUE0haH5zwQCmbmYoQ5Efx0JzuB5m7RXSVIzmtLOzh6cpJseIyVwLkBS0DMNHLEA4J99mUALC+K8A/f2Im6RykAzpJdnR6M7LVsnsUeuoA6dAmi/6u+34nTJOcx04JmjBMT5ZLTacCOyfljUnQRtYNpMqaCeoPlE739cqMOt4PpBQX7rtJWsgf1lP5rHzbhOFAGSnQrmmpU9AyhAuVZDc1FhbgYkB3RNPbX99zNZ+3Tw1ybhqbkM2IUrEQPcqdtSjwI8FJSh2jq/s+UQVHBZOMNvaeXAmEJ1dxhctr4rlp2qLz087Y1LZVrYwXaFtlnbGxLYBoilAtn9lnVSeGApEd1BAViKjnG7eTBoXcZZnKc1HQLHU1y5llOOAQebtW52PJpIma6Y6MiXBaIs=
+      player-skin-textures: eyJ0aW1lc3RhbXAiOjE1MjYxMDk2NjcyOTEsInByb2ZpbGVJZCI6IjIwZjYzZjAwMzNjZDQxYjk4MWEzMTg2ZjEzMWIxNDM1IiwicHJvZmlsZU5hbWUiOiJTeWxpdGhpb24iLCJzaWduYXR1cmVSZXF1aXJlZCI6dHJ1ZSwidGV4dHVyZXMiOnsiU0tJTiI6eyJ1cmwiOiJodHRwOi8vdGV4dHVyZXMubWluZWNyYWZ0Lm5ldC90ZXh0dXJlL2M2NmRjZGIyNTc5YTgzYjFmMWU3ZGQxODkxZTg3ZTNkMzViZWNmNjg3ZTE3NWI0N2U3MTc0MTc0MTEyZDMifX19
+      player-skin-signature: IeXmhME7DRdY2WC/mDvbaYslCIQAAk7OMzTfBOBM2l1xJAZD0UnrgunFmCzH0xzjVje8AxSAvRu2aNr5vDP40nRgziD6aEOWSJixg40X+Zexdcr04S6aH5Td+fewAs9OslavHAkoiter3wjpTZypSuBoVurVfK4ILagbtp1G6rgbaPVm4lmaTInmrtJurXwJClJEh/ZDbCGPbsXjd9e2CA1o8He0Vt13wTXRxiu3kObU/tzy2okR84sB2cGI4boaQLdpvXSN4pryiVH6UpzP5dauXgyN990z2jtRHDkEmW5sXkwI3UlcHeycqW3lEA8kuokMkzsgzt/ZTja3PcXAHieoTmYejSXzCGRAKGplyrGI5A3HStBVdiUbfU9KFKPmGDGBvMEkh3XaUWIM2UR+UmIghoEypg0NbzG2vaz1rDRxqBqCmj6NDGWsClppAH0MEYaY3x45Q0PuEszD0PRJzhLN07WiJEMTZLntj+4vTNQ/KWz0xrl0V29OjqeAF+XUsUlNs4B9qtU0iV2nA0VjIdnQ92mzUWsQU4/XItoDdyHSwHw0RxpvAP6ZCXhVqBHYnGXieLq3fS7gjHV3MEGrYUpxqjqTk3Zx7zjllIoXEq37cVjg1/qkYAECsswGC1gImb0D9QMDotN7Em1Btue4WEEwwIga4g/QR7CADzIjlaM=
     name: '&cBlade'
     uuid: baa2c39e-3655-49c8-8bdb-99b8edad27a8
     traits:
@@ -1185,7 +1185,7 @@ npc:
       owner:
         owner: drAke
         uuid: df1c5d6c-590c-3191-baf6-1b169f07d99f
-    traitnames: waypoints,constants,spawned,type,assignment,location,inventory,triggers,owner,lookclose,mounttrait,builder
+    traitnames: spawned,inventory,builder,mounttrait,type,assignment,lookclose,constants,location,waypoints,triggers,owner
     navigator:
       speedmodifier: '5.0'
       avoidwater: false
@@ -1195,8 +1195,8 @@ npc:
       cached-skin-uuid: 60cb9962-becd-462c-9717-82c40d042ee4
       cached-skin-uuid-name: sax
       player-skin-name: Sax
-      player-skin-textures: eyJ0aW1lc3RhbXAiOjE1MjYwNTg1MTAzNDQsInByb2ZpbGVJZCI6IjYwY2I5OTYyYmVjZDQ2MmM5NzE3ODJjNDBkMDQyZWU0IiwicHJvZmlsZU5hbWUiOiJTYXgiLCJzaWduYXR1cmVSZXF1aXJlZCI6dHJ1ZSwidGV4dHVyZXMiOnsiU0tJTiI6eyJ1cmwiOiJodHRwOi8vdGV4dHVyZXMubWluZWNyYWZ0Lm5ldC90ZXh0dXJlLzRmZGYyNWE3ZDQwNTU0ZDc1ZTA2MjNkNzU4ZTQyMDUwN2ZiYjVjYmEyNmY2MTY1ZWEyNWI5OWNhMjcyN2IifX19
-      player-skin-signature: CIbSnY441l997MQHVogBcPoyLjfzPNJdIHPYEC9XhIGRPo9fYnQBLIhF2GBjzYVvESWjBnoiJQ+QSMmnCNoJJpgd7gHz1ne8I5U1ucwtwVi9fx+8erTJhDAtZyN9XfpRhHsBXJ7UKH0e0Ic80MeEH96RO5hWkmKjT8oMpHePaIcS9iZyOdGhGpPEHjvmfaD8EjS9Y2USPV4qrqqJBLZg1f6FZyADFM3TyqXvr5GCki0+MV95YE9prBhOe6zQDX7fuShxVU9gsB9G27l5rh424YBt5gSrIX6bNZZnPWploIJToE/eDHJ4LzWQRL5UkmW0SBDx4llcQCaR+RrndISQnKhFYrM8fcrlbtcJmHZJ9iZZBy6dvo+htyNjYgWVg8HqX0JfvyhDnjj88xcRX+Dt6AnS9cZ9bYYG4jJgeaW//Pc6SmY0nNbu3doe5XT6JNePcljMiSv9Oij84EMEIJEZ5sUdlDwvnZgTD1+39Z+tPNpRxkjDlVG/Upzc9HM1+AYWm6zj47slRscv/nVleIgFpCJCoFrDxh2BFqvrV0y8P3S0o69mPTqBg7URjxJ1VnUachHlrt9WjdE2R3kg0kFQdnW6mSau/ZGSlMvnEcINmuME1p8siykMJL4ja7qfOsaPJq3Fn5MV7vFEo5Sjn38GjDwETDs1Z7SlF6UghyLUnL4=
+      player-skin-textures: eyJ0aW1lc3RhbXAiOjE1MjYxMDk2NzYzOTgsInByb2ZpbGVJZCI6IjYwY2I5OTYyYmVjZDQ2MmM5NzE3ODJjNDBkMDQyZWU0IiwicHJvZmlsZU5hbWUiOiJTYXgiLCJzaWduYXR1cmVSZXF1aXJlZCI6dHJ1ZSwidGV4dHVyZXMiOnsiU0tJTiI6eyJ1cmwiOiJodHRwOi8vdGV4dHVyZXMubWluZWNyYWZ0Lm5ldC90ZXh0dXJlLzRmZGYyNWE3ZDQwNTU0ZDc1ZTA2MjNkNzU4ZTQyMDUwN2ZiYjVjYmEyNmY2MTY1ZWEyNWI5OWNhMjcyN2IifX19
+      player-skin-signature: QXCylqSC/PAqaE+BYEDALNPxEMIY8avsUpL7lp3howQ8zNxIjS59AHQH5BOaSnbFqK/QsjJBDD9mnbBf4y+1WmISakgDbbCF9uS0LOcj7N/ZNjTSkLuYqAHtinJ2GO7vUl53Pf20lb/YdkIIhsviDNIm4WubQmDIrnvzrc/ie1MFZ7EjZvDHaEC/sCZbuv2jJF+kP8Ya/hi5YGtvTAuX8qIPoD1yvCCx9f1TDCQGQ8zQrS4VwpQzBfF169QVixNib/orcVOJuW0JxNrVYbe+yHJAtPu7rrShG+VnJx+insbg3oZmYBLgdY3LVjOWDYUp4Z2JU2sctoBgk0/yFg92u2OW85Sr/i/1B8nfMe9161jwP20gALbwCcsCUyZ9AhpJCcDaYtvdP4M0Tyg9juRjmKdSo13nO11szVqkv6OQMpe41aUEDw4qMrtDpGeCHc6YE/q1MfbKap2TlJPUibo+neFLxmwG3ZyvRHknk1CLpX/8S8jobFXqyZHAlZayEdxMSRV8uJsfKA6S68cBnSt5FzvEvQTOf0jq96aQqQQO2Ugo/M6i5eZYFvh+eygspWA2YAkkB3fUtXA4g0P7xA/PPMPYec6ql+t5Oz77qVn5PncmskFlXoKWll0LM2vImg+i1qbxbHQAdDzyV0JmHO/eskqCo70Qq6xffU1zo7wAnhQ=
     name: '&2Athelwulf'
     uuid: 51e1fd38-d08c-422f-a51b-f37f0d03f321
     traits:
@@ -1232,7 +1232,7 @@ npc:
       owner:
         owner: drAke
         uuid: df1c5d6c-590c-3191-baf6-1b169f07d99f
-    traitnames: waypoints,constants,spawned,type,assignment,location,inventory,owner,lookclose,triggers,mounttrait
+    traitnames: spawned,inventory,mounttrait,type,assignment,lookclose,constants,location,waypoints,owner,triggers
     navigator:
       speedmodifier: '0.800000011920929'
       avoidwater: false
@@ -1242,8 +1242,8 @@ npc:
       cached-skin-uuid: 1c5acbe7-f96f-434e-be1e-af20ff3d862a
       player-skin-name: killpod
       cached-skin-uuid-name: killpod
-      player-skin-textures: eyJ0aW1lc3RhbXAiOjE1MjYwNTg1MDI3MjAsInByb2ZpbGVJZCI6IjFjNWFjYmU3Zjk2ZjQzNGViZTFlYWYyMGZmM2Q4NjJhIiwicHJvZmlsZU5hbWUiOiJraWxscG9kIiwic2lnbmF0dXJlUmVxdWlyZWQiOnRydWUsInRleHR1cmVzIjp7IlNLSU4iOnsidXJsIjoiaHR0cDovL3RleHR1cmVzLm1pbmVjcmFmdC5uZXQvdGV4dHVyZS80Y2I2NDAyN2QxMzAzM2IxNDlkMzQzZDZlMDdmNmVmM2U3NjFkODk1ZTI4YTU1ZjU0YTZkYTRlMmE2N2I2ZiJ9fX0=
-      player-skin-signature: tKQEBmAtMYaBjCD1EfzKQOsqYdk20dRIP35bibY6HGBQ9VGqvan/4vll/p36dRKmlGyARdlX8mRuRAb59Dfd/v5oeBQgC8LfemEhDsWaLIWHH0aK7CZYABIbZ3eTWW72ZYm3LsAj94nv6V2ZjBnXFObYCc4DaAIViqCa88szTlU10sBXzzM9JNdt7vN3HmeoxpEFvcxEJkc/XjC7BCvW+xoyRl9QiOY/uuRi0g0KsCGwwqk8F/nJjIuOqgS3K0bMtOKtkvoX1xu9ZXM6yejjKGR0bQUQu3UTQ5m+HjIBJ7jpmu4V4Jm2+7j6vlzgB766V8P5d2VT3aiJ9XlNrlJbmOnilwy/a4ho80HTKNQE30xwEuqbYtJJclohmV5wP+fdTcJyo9hmbCuPLIMMl1L5ecyLVvXQ0jluhZ/m/BMce1PVkNKOpTazbwv0yshGishXnXHiiTPUCbEeVagQeaKZqDufaloRE34bq3cVcQMvhNG3PebAAir5Fy0mjK79iorbHXqmnQh6VRzNRFirD0jxC7tpUDpOz6r2cZzyXUV154YJ5oCg08qAGQiaUn6YfkdKFwBfREQ3YONGZgMxsVk5fGveDFCwv7wzla/7GcB5ptGnOF9Be7oQApASTnGfb6+yvCcrS5g+Dys5JK+FgKlWadkvPT4Ovo+awTwCCJ2bBqk=
+      player-skin-textures: eyJ0aW1lc3RhbXAiOjE1MjYxMDk2NjkwMzcsInByb2ZpbGVJZCI6IjFjNWFjYmU3Zjk2ZjQzNGViZTFlYWYyMGZmM2Q4NjJhIiwicHJvZmlsZU5hbWUiOiJraWxscG9kIiwic2lnbmF0dXJlUmVxdWlyZWQiOnRydWUsInRleHR1cmVzIjp7IlNLSU4iOnsidXJsIjoiaHR0cDovL3RleHR1cmVzLm1pbmVjcmFmdC5uZXQvdGV4dHVyZS80Y2I2NDAyN2QxMzAzM2IxNDlkMzQzZDZlMDdmNmVmM2U3NjFkODk1ZTI4YTU1ZjU0YTZkYTRlMmE2N2I2ZiJ9fX0=
+      player-skin-signature: PxKQLSoJKNp9CBRQkHrwj9iwYWassOoSrVNVuy8qnXkdc/5ZdIs9/Y/LUjYsgObjQF43EV0DcuN+k1mWQFui9YtbOmLstksfGye2fb/lOUU4YLP6a87O1TZ+ba6LOYKuFPrXWC/wAjUgVZ90Hubk4Ai+vhAGWDe7xfkzNXiH5K/Q9/M8uMYsryhW1Kj0WzrqLw6om+bLEl5FzkPHTgJCed+p7gX/f4SQ+KzvND0lNLoSMHx1PMJZCUOacVRS4jEjM6iZmC9tWUD8pJ+GLO4fccz4cnZZvdJajejZlk+OVk1Hs9i7gThJ1Bdl2edKBaOYH3o46rCrsIPisFFAXYm5Hk5giZinQoq1F2CW4EIYaPghxE5c8/iOKe5EWhicEyCLhbJQ9lxX0cD+tftiaqLgJ7Y19Xgb70yWEhs3153FPNFtzJljxtMUTBatEm+pz03Z5tewcxdusbWZa4r12GgzGxeOvV5O2ni8OF8/3Qv0yr84CLEFmWa36AfobxIkPCwKU6tqEp7MFJLjSejYoi8bwjmx2tT7xPPRaWKgkFqsqtPqlqYsi/WOami4CQV3llYhLxjM90jUg/2SgNwFWsHE7hpz1NrNwnuUJKkieuGuK4BJGXeolzXohsm3GmauDeN2krEoGdNdP5eVroRmQjT4pgPYDDyp96pE8uLdV1Ac3ck=
     name: '&4Claudec'
     uuid: c28380d0-fe8a-4cd5-b339-1c2c242f050d
     traits:
@@ -1316,7 +1316,7 @@ npc:
       owner:
         owner: drAkeNess
         uuid: 63d45060-8177-31f5-939e-7685b85bffe3
-    traitnames: constants,spawned,type,assignment,location,inventory,equipment,owner,lookclose,mounttrait,waypoints,gravity,triggers,builder,anchors
+    traitnames: inventory,builder,gravity,waypoints,triggers,anchors,spawned,equipment,mounttrait,type,assignment,lookclose,constants,location,owner
     navigator:
       pathfindingrange: '100.0'
       speedmodifier: '1.0'
@@ -1360,7 +1360,7 @@ npc:
       owner:
         owner: drAke
         uuid: df1c5d6c-590c-3191-baf6-1b169f07d99f
-    traitnames: constants,spawned,type,assignment,inventory,location,equipment,owner,lookclose,mounttrait,gravity,triggers,anchors
+    traitnames: inventory,gravity,triggers,anchors,spawned,equipment,mounttrait,type,lookclose,assignment,constants,location,owner
     navigator:
       pathfindingrange: '100.0'
       speedmodifier: '1.0'
@@ -1433,7 +1433,7 @@ npc:
       owner:
         owner: drAke
         uuid: df1c5d6c-590c-3191-baf6-1b169f07d99f
-    traitnames: waypoints,constants,spawned,type,assignment,inventory,location,lookclose,owner,triggers,mounttrait,builder
+    traitnames: spawned,inventory,builder,mounttrait,type,lookclose,assignment,constants,location,owner,waypoints,triggers
     navigator:
       pathfindingrange: '100.0'
       speedmodifier: '1.0'
@@ -1443,8 +1443,8 @@ npc:
     metadata:
       cached-skin-uuid: 522a6e09-007f-41c4-89e5-478e5ef35a94
       cached-skin-uuid-name: undertale
-      player-skin-textures: eyJ0aW1lc3RhbXAiOjE1MjYwNTg1MDMzMDAsInByb2ZpbGVJZCI6IjUyMmE2ZTA5MDA3ZjQxYzQ4OWU1NDc4ZTVlZjM1YTk0IiwicHJvZmlsZU5hbWUiOiJVbmRlcnRhbGUiLCJzaWduYXR1cmVSZXF1aXJlZCI6dHJ1ZSwidGV4dHVyZXMiOnsiU0tJTiI6eyJ1cmwiOiJodHRwOi8vdGV4dHVyZXMubWluZWNyYWZ0Lm5ldC90ZXh0dXJlLzc2ZTI3ODJjYmU4MDIzNGFhYTViMTgzZTRmOTY0NGFjYjkxYjE0MzdkMGExMmU5ODQ4NDc2ZjczODliNWMxZmQiLCJtZXRhZGF0YSI6eyJtb2RlbCI6InNsaW0ifX19fQ==
-      player-skin-signature: O/3TVGJY7ow0wm9tylR8UfTsWrxwu2IFqYNm2KoEmtKyva9AyzIvCJcu/r0sJHTej+j3nHHJk6W3sGFORnFKZwg8AwTvdjnBYqDwU7QuxXPYs/pIZ7CvpVedKr6DYOMX79zFt2/jB+B9fEdM9dHrUfgH/65V4nmmZrTDXk2jAz3anjku76TMkB4DGcs6gig7rttDDbgW9eLoTj9yQxyolQgTIgqiAc9rR3wbxyYY53UvCzuklIHvQzLhxJKpqQKoWamkxeJblru+/s7vvB4FuRWbfXUXkd7SANv3qS5sr1TjSl6pnUydcNPzJrhQ8T/A+/dVcfjcRSvx0F1vIUlBiqrL9C3c3GgV4A6rFSxEx4U49EUigRIhylkudL7GZy97Lr0Zt+C7VfTn6g0qcF/dSf3nNel6wBLe94wh8TabN8WnK2NkgQ8IIwa7cx3tGhlnKPLUpIcCY5VJC/QSI5HVxM3sE5JXXRBipIn/m3dw/Q+tB8u2z+7KClkHi9DKcZPte3S5hxRhx0PVuepHlWW/cFo5LVBr+mNRMbd02TsnNFYAVyaE6T/HIxoSAajn9yUJoz3vlOYZXjtDykwcShNlkytHgaEVOFts+lx/sEZ3RMCPhXhEjTltY3o0sMi4J1RMXlaOv5f9x+epo4NV2xw6bvErHBpcgjRcJj4J6AKeU2E=
+      player-skin-textures: eyJ0aW1lc3RhbXAiOjE1MjYxMDk2Njk2NjksInByb2ZpbGVJZCI6IjUyMmE2ZTA5MDA3ZjQxYzQ4OWU1NDc4ZTVlZjM1YTk0IiwicHJvZmlsZU5hbWUiOiJVbmRlcnRhbGUiLCJzaWduYXR1cmVSZXF1aXJlZCI6dHJ1ZSwidGV4dHVyZXMiOnsiU0tJTiI6eyJ1cmwiOiJodHRwOi8vdGV4dHVyZXMubWluZWNyYWZ0Lm5ldC90ZXh0dXJlLzc2ZTI3ODJjYmU4MDIzNGFhYTViMTgzZTRmOTY0NGFjYjkxYjE0MzdkMGExMmU5ODQ4NDc2ZjczODliNWMxZmQiLCJtZXRhZGF0YSI6eyJtb2RlbCI6InNsaW0ifX19fQ==
+      player-skin-signature: jOtUm+fXDBZ49zBkuHU+QBM0DM7brjiWayeOteIzuRsuefd44B1TNGj+V7E3PlhHzPztb3nEIREZXXDpdowiYpH1IEfesR35CeQuwCy8zaH2ehzGdp0vUTpWNWbvrfD3r6oC5wDzjAGvHBx0u22N1fmSjmZwZCiCD6CeRhjXkp5WmMaa+KNquLr9qcl96my7/+zeMWrlVli2vVd55peLC+OaH1pOT7b+kz75LyPw9ZGy+loQw/13V6AIcZkT9R8XxtL/dekx7XfdP+NR1P66F5aanrzl3kR0b9dvfqZHwVGolFJaY2dxKQNBpkZ0y2mLySa/Ew4N2MzpLcE+YLk2dk6LpHNg6t3rHOGyrB5LVEvakkotJPekkZ5aKR87m6d0J44pPcgsjpaeUeEXY4Q5cNm8Va+U6MFTQ5eviaVLczTIMrUcurl7z8YJGKKBiOZjEbXAK88lmBqX42CHbDBfq0R/oJh22TGOqLo9CXllhUXg27nszuclPBu5FfezuARxmImv0WPjjdEat0b2iWZhVFiR0sRJkF8iBHnB6tKqiNKAPApF+4LFmEK+YLNEgcog0PQzwPSCVdpZDUwQ0/W+rSRoFMF2XshB2C9wqW8xFSZXAf8VGRh8RJlXj/uIDhIBroe8gfr+lszz9OuAEiEBy2Pnd+rRBbpwnoO9ae8xCLY=
       player-skin-name: undertale
     name: '&5Freya'
     uuid: 4f89f178-339d-4a3b-a709-48fdd92c0221
@@ -1483,7 +1483,7 @@ npc:
       owner:
         owner: drAke
         uuid: df1c5d6c-590c-3191-baf6-1b169f07d99f
-    traitnames: constants,spawned,type,assignment,inventory,location,equipment,lookclose,owner,mounttrait,gravity,triggers,anchors
+    traitnames: inventory,gravity,triggers,anchors,equipment,spawned,mounttrait,type,lookclose,assignment,constants,location,owner
     navigator:
       pathfindingrange: '100.0'
       speedmodifier: '1.0'
@@ -1494,8 +1494,8 @@ npc:
       cached-skin-uuid: 6fa1c32c-c60b-4219-9024-a5b2f7fbbcb0
       player-skin-name: jeragen
       cached-skin-uuid-name: jeragen
-      player-skin-textures: eyJ0aW1lc3RhbXAiOjE1MjYwNTg1MDU1MTksInByb2ZpbGVJZCI6IjZmYTFjMzJjYzYwYjQyMTk5MDI0YTViMmY3ZmJiY2IwIiwicHJvZmlsZU5hbWUiOiJqZXJhZ2VuIiwic2lnbmF0dXJlUmVxdWlyZWQiOnRydWUsInRleHR1cmVzIjp7IlNLSU4iOnsidXJsIjoiaHR0cDovL3RleHR1cmVzLm1pbmVjcmFmdC5uZXQvdGV4dHVyZS85YjQxZmU2ZGUxZDhmNzMxMWQ4M2M5Mzc4Njg5NzAzNzFlOGQ4MjliYmE5MjBjZGE4YjYwOGZlZmNlZGYxOSJ9fX0=
-      player-skin-signature: cEHHk3wxgEgxprVqK7c1hnnNJKfVoBREYGdjKPXUbScW/nXwMPjVnji/qgiNFbQwbyDd75tfS7CuwU5h2Ti+6rCIMuwwC3rj5ZJhertu0WsbttXgmq0QEMxi8wr7UjtloknNqsUmEm32sci8l+dKX8lNngl5gnpCCMvix4EFcaC25mhAwWuRHTKhQx6IpC+kMYPkO+ypLTRKjjL4+NUkxSC7mOk56hZQaHf7ZL1aAlMlH790F4whM/gQliBQ7uvFR6VC9i7SgRd27cMOOb/IjQT6tkSkBFGlGocVjxlg0NRGY0CtF5RAn70uMUWCFDHGovhYQt+VbIvYF/AlRK+aBXwPPXfl5xFUvHNm1JLPToNdQO4cwXQVKfJBp+ZQRh8uVZJ6DOETjG/m4k4CnCDg1YCKNc+kdWgUuH1U+HA4TRYjyt7ooUs9ohSD/nh7olGUDS9sXi+aod9GQs6we6s0vQRPQgBDjkfOqpEsLCfhJ6q7itADb2moEYY0eCbKC6ZhImgb2KXlH/lJ1Opk3UROefQTIeblFUkx9GSf51GA3OblqzjU7OBdA6GShd1vjivk5z0ZvWTGO+9HyP0Rh8H18hgGDJrsg29TbwsWmHwSvMWGMMkgn1xjlPQVmSHn72ADu5Tl/9q5WyyJufoCovXgzWavsxjrWY0Ken/Ppe8A5kg=
+      player-skin-textures: eyJ0aW1lc3RhbXAiOjE1MjYxMDk2NzE3NDYsInByb2ZpbGVJZCI6IjZmYTFjMzJjYzYwYjQyMTk5MDI0YTViMmY3ZmJiY2IwIiwicHJvZmlsZU5hbWUiOiJqZXJhZ2VuIiwic2lnbmF0dXJlUmVxdWlyZWQiOnRydWUsInRleHR1cmVzIjp7IlNLSU4iOnsidXJsIjoiaHR0cDovL3RleHR1cmVzLm1pbmVjcmFmdC5uZXQvdGV4dHVyZS85YjQxZmU2ZGUxZDhmNzMxMWQ4M2M5Mzc4Njg5NzAzNzFlOGQ4MjliYmE5MjBjZGE4YjYwOGZlZmNlZGYxOSJ9fX0=
+      player-skin-signature: yQiUlstECxr01f2XmXd1bxh0l+vDNV5sYyon9g6l5FU5i66Hi425/fJLIu5SIJ+x8tYcmB4QPQlZGw92NhJrmicCrAW84PCtt2a3fRbTH6fR0uuFzC4uZrUsbg6ak5/ZX09fhLBVTL1BarDXBaxxGzRL1uWprpCkh2l/KbF7YzbXhd0+P/mJf35Kc51LZscuT85yLqMBXRWVgbPtRgAVfr6UiSN91ckw0DupCV64XcJMf7tJ2Oo9nLcMbkWpRnctAdRvHI82EWKPxJqJJmuLUuK6o8jAr2cy979kNy8gbjwcewQHyBrj/ue3KAG7GtjglWa/0yod2FxdLMFIZVEeoY3Fc3A44L6kHiE1LovZLtp89LWJ4BarzoC0sberuTt6sA7j034vrvKO0tRxTVT91IAi+lSmrQ3goSg3KJ+iY7uK7RZoLtw8qcQuP3BPVKujAdejQOecLC2prdIkvfh42/ebKT0uk9fmWsUtAGUvPU6fmi0fx6Ox7KnIQNvlRdAecY0SONeDnoz4aR2IrI2HbH2H3Cfnd/57TMCkMK/XxFrJZt0OdMavF/1uDNnZoivdIxKeH8w/601KkYdWmXLT8Uda3dZbaNX029k9qlZ1VpjcYvBeN7BitViAgzarZQJtcTUpOPVlNUvCOWDbWuLvgM7Va/oBDye0WowKcrBNpJ4=
     name: '&bGalthalas'
     uuid: 2232b1c7-15a6-4102-8c31-e6a979c1f447
     traits:
@@ -1533,7 +1533,7 @@ npc:
       owner:
         owner: drAke
         uuid: df1c5d6c-590c-3191-baf6-1b169f07d99f
-    traitnames: waypoints,constants,spawned,type,assignment,inventory,location,equipment,triggers,owner,lookclose,mounttrait
+    traitnames: spawned,equipment,inventory,mounttrait,type,assignment,lookclose,constants,location,waypoints,triggers,owner
     navigator:
       pathfindingrange: '100.0'
       speedmodifier: '1.0'
@@ -1544,8 +1544,8 @@ npc:
       cached-skin-uuid: 172285ff-5aa7-445c-a92d-8027375d98c9
       player-skin-name: gemini4ni
       cached-skin-uuid-name: gemini4ni
-      player-skin-textures: eyJ0aW1lc3RhbXAiOjE1MjYwNTg1MDYxMDUsInByb2ZpbGVJZCI6IjE3MjI4NWZmNWFhNzQ0NWNhOTJkODAyNzM3NWQ5OGM5IiwicHJvZmlsZU5hbWUiOiJHZW1pbmk0bmkiLCJzaWduYXR1cmVSZXF1aXJlZCI6dHJ1ZSwidGV4dHVyZXMiOnsiU0tJTiI6eyJ1cmwiOiJodHRwOi8vdGV4dHVyZXMubWluZWNyYWZ0Lm5ldC90ZXh0dXJlLzUzMjNlOTlmMWRlNGNjMmFkNGJhYjE1OWM1YTkzNjRhMTExM2E0MjM4NDI5MTIwNjNmYzEyY2E5ZmU5ZGUwIn19fQ==
-      player-skin-signature: EX+2F+NKm8EfhK7kILS377+bEbNXkwt2k2vfPwwzVLJo0TBFCkCocwxKj8ejeHXsgN1jNskI1u51wtM6+XsWAM6nZkLtFY0igilfidrAwV3gz/6f5FkWP22pMCWto5p0FHMYs8VBdIJaJCgwf+Ld9+3ngtx+j7xn72rtkleqO+ruYO51Jeelo/p22JXRPuD95eQLXagZCihcJEFbVTvuAb0QcGujD0ZHut3QfwUI/UEjqtkrX/YVcb1tVsVikd6LYxCABEQRDnqrWIZBa5zYA4INpjWkdK+hvL+aHhAznzScKkgB9syi7b+N2Ssfy/jGYvnyhw7dVoqqoapP7Y64lGAHB9FKBfCi9hwm4UdEnGq8Vezk37KrC50b/YIECGK640Ht05bQaIGCcYTh+WhuUkTpgIekLRAIuVulRiKti4b5fTrvGdBmCa8QLa/hSRxtgq0w0ylAOcDGtVqcFp+QJ9kgjTmvIfloQ0fjs24Kzbl4nZJAZp+pZIPW3GHy21FN/aR9YmZ/ZxGzQkEM+nOVR7NmEruoFI5GDy7jTuEFJ56GhBmSOfOrt4kXAfSei/x11RNiC92YSnlkZqMXMoAQ6thaElUCzTdAY9l8QPEOsE4aRcXJqS24Kpu16ObnfjGVp+1gvy5vj4nInEMjIxxWVKyNW6hpM85zdyRJ01pLqvM=
+      player-skin-textures: eyJ0aW1lc3RhbXAiOjE1MjYxMDk2NzI0MTQsInByb2ZpbGVJZCI6IjE3MjI4NWZmNWFhNzQ0NWNhOTJkODAyNzM3NWQ5OGM5IiwicHJvZmlsZU5hbWUiOiJHZW1pbmk0bmkiLCJzaWduYXR1cmVSZXF1aXJlZCI6dHJ1ZSwidGV4dHVyZXMiOnsiU0tJTiI6eyJ1cmwiOiJodHRwOi8vdGV4dHVyZXMubWluZWNyYWZ0Lm5ldC90ZXh0dXJlLzUzMjNlOTlmMWRlNGNjMmFkNGJhYjE1OWM1YTkzNjRhMTExM2E0MjM4NDI5MTIwNjNmYzEyY2E5ZmU5ZGUwIn19fQ==
+      player-skin-signature: CSPil+GtXUY5ArbWlvqFBfgOdIXQUX7x22zT7LecAPtG3wvlRoG+AYKKzojUNvgaJxw/y85eb/gosobM1e3c8mtTAEEDlYEssjkPfVnJA1JBB6Vz5pE9QRGtE4NOS8R6QJq3aTjFqTHxb1l/qpJSr9aaKXLBvFwBNTe2WcdQ0CpDSdAtpo5N2uMML9l4GmTW/8LiScNyWZraEfqwvq6eYWz70k8kluUV64gMHhwHclI6IjY7Xbx9Bzr0jzMo0ThR1uTULergHv9S+IRygnooBEfOpw5B/JSbbkyCtxULQZtC7oGrN6+SLGz2vPVOhzq0FVHnFj74OPW548ktKOqwBSp4GoEnatx9cWUIN5l9LGw8uZIiGx7LhSG29TSjRK2u1hq9duuiu8/mPCC+aNs8YAoyljtu6Tp1/+Ay8T/PxXTv+9R0smGBX7hFVBfe5l0zsusH8HBJ06R6E2cVLQRLwlYvxhUaqpDitD275LKuTnVnCE/WhiCteRwIbgOjtOzXhABcSQL3HMB3jmOS5DTjnF6qrtBmcxdDgz3+MDmPF2nRtH4LyWPZYfICjwHpeVLGz6mgaOiOUXXI2748+ESBUz8gh26Rky1QAqfN1debf2HXyj6neYkls3PkACUleHGBUpj58VecOOxRDJrPOOw0SdhK8OjwV6ZM78QcZN4K3XY=
     name: §4Zane Kilgore
     uuid: 34511b2d-9193-4124-bf6b-4e2628ee14bc
     traits:
@@ -1588,7 +1588,7 @@ npc:
       owner:
         owner: drAke
         uuid: df1c5d6c-590c-3191-baf6-1b169f07d99f
-    traitnames: constants,spawned,type,assignment,inventory,location,equipment,lookclose,owner,mounttrait,waypoints,gravity,triggers,anchors
+    traitnames: inventory,gravity,triggers,waypoints,anchors,equipment,spawned,mounttrait,type,lookclose,assignment,constants,location,owner
     navigator:
       pathfindingrange: '100.0'
       speedmodifier: '0.699999988079071'
@@ -1642,7 +1642,7 @@ npc:
       owner:
         owner: drAke
         uuid: df1c5d6c-590c-3191-baf6-1b169f07d99f
-    traitnames: waypoints,spawned,type,inventory,location,equipment,lookclose,owner,mounttrait,anchors
+    traitnames: anchors,equipment,spawned,inventory,mounttrait,type,lookclose,location,waypoints,owner
     navigator:
       pathfindingrange: '100.0'
       speedmodifier: '0.800000011920929'
@@ -1653,8 +1653,8 @@ npc:
       cached-skin-uuid: 6e5691ea-7671-4cf5-ad4c-615dbb763c3f
       cached-skin-uuid-name: rehib
       player-skin-name: rehib
-      player-skin-textures: eyJ0aW1lc3RhbXAiOjE1MjYwNTg0OTk2NDMsInByb2ZpbGVJZCI6IjZlNTY5MWVhNzY3MTRjZjVhZDRjNjE1ZGJiNzYzYzNmIiwicHJvZmlsZU5hbWUiOiJyZWhpYiIsInNpZ25hdHVyZVJlcXVpcmVkIjp0cnVlLCJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvYjZkYjQxZDYzODNhMzdmZDczMmEzZTQ2ZDMyYjE2Zjc2NDE5ZjUwYWRhOGUwOTljYjE5YjRlMmRiZDVjIn19fQ==
-      player-skin-signature: bismem8XVji4X0fXuqWEVYDogVbonW1a4Qs1enfY3KJM0ChxBz73FQhChZX519dW8p46rP7jjj9NRtP7lMqqTaV0M7toWwnE0SsDeEZO2Trdy0looQhOHhNOkQegDbDSJPBHEO4VhDDNmo7XTDNrZ0QCwEnY01W4vqliJrv3fUtZimZANCKUxT0MAS3k1wLac9BVZd4NQsXtg0CJNnLEFKL2gaDwvtxJ8osbA+ES4L5qp6ZNGFoB/E6F9+OAkmVANfrmjT6fGDTi6XsTNKsXPmWvOabP/q4gCTSrHxr6avoHOC4sT2Q7SIGP9vo/Y5ztPmBGadFhHfI6zwzsftSjVjcq4k6gotCjrXDsbt9GzZpCDQ1yVJ/H477CU2Yg9LcKhVI6S6i68ZhVuqjlxSN/jBG82xazjNAJXidcaNjrXGiUH1iqRyL2tNdBI/zFcXFn0uZKO3EvE62bmSRqH6t9tpge8PL0h3glsTxhlgUlEEQd5Toc8GZl7e/C/xLIGJNqs+v2o4J+St0C6mSNk3fxFjEno5MJeZO3e15UT2jncVJsEOAWlgz3EPcLfuYVt3FUtl0Eu3v3QcwuPVUF94mqg1dfjEA9hsBdmSO+GOBm4sF4Eb1a3y8wewMQmPYFLLr7kOXeP7Ih4ItUES0fgJFLu6jtMc92G8s3tk3Fyh1wJLc=
+      player-skin-textures: eyJ0aW1lc3RhbXAiOjE1MjYxMDk2NjY3NTgsInByb2ZpbGVJZCI6IjZlNTY5MWVhNzY3MTRjZjVhZDRjNjE1ZGJiNzYzYzNmIiwicHJvZmlsZU5hbWUiOiJyZWhpYiIsInNpZ25hdHVyZVJlcXVpcmVkIjp0cnVlLCJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvYjZkYjQxZDYzODNhMzdmZDczMmEzZTQ2ZDMyYjE2Zjc2NDE5ZjUwYWRhOGUwOTljYjE5YjRlMmRiZDVjIn19fQ==
+      player-skin-signature: GpZXxkQFt9TUYEN5fTDqMyt18Sr7ge87ISyjBAhktsnL36hAN5eBtECrM4wi9dgX80qFAkF3heVQ+2caBt9LBTWncezKw+3r4pv6K+qD47r+R3G8r8Y95dNDITccMM5gZ1kPA5gXt5DhdOpHxNQAWsHvy2qJqiJAXIPuIYfeAy0TPOCdxeNzMWKts5505jgUgz3d6VzUDfPGq/Y8256d3gaFhJ691NdrJHbUJavl4+58M5eqWTXGAK7UhZ5kqE1QJD0v5/uwtg4U5CsW5zUvJAktQJepiMS8SnFHPOH1l5jel20QNqsxCWYUp2OLlgcPtqJ+izXduuMZ5XJ39dKNWCxsPpHLKnybn1B9Qd6A1n+XD6GC1FZ0aAMmBszxDLAGjEbTZt521uITfkpXKBt54QI0/BEk6DqlJ3LlXhm7Wyi35NcXcv90sIijHLonKQIECYdRUOE24y9xYCXk449bcuPF5spZTX1gYXjsHbten5OC8UZCi/K5lVMHhrw1qs90rg4iLJWrbeBjtfGk+D4CdbGbT9ZvolQB4u4uh5LHFxQBy/EA2O2nqjku1dPFuU+CD0XxDIlRl8qdodyet/uVYb0JjPXglMEIhbU1PWHW/3BU4PtcBz2FzpXLEpf8Ie/f4XMAPZOZJkUaeiRnDLp+XpN2VRYz2GZebNGQIyb+F/8=
     name: '&eOdon'
     uuid: 412cb888-67bb-40ce-bfbd-e801c8b6849f
     traits:
@@ -1689,7 +1689,7 @@ npc:
       owner:
         owner: drAke
         uuid: df1c5d6c-590c-3191-baf6-1b169f07d99f
-    traitnames: constants,spawned,type,assignment,location,inventory,triggers,owner,lookclose,mounttrait
+    traitnames: spawned,inventory,mounttrait,type,assignment,lookclose,constants,location,triggers,owner
     navigator:
       pathfindingrange: '100.0'
       speedmodifier: '1.0'
@@ -1733,7 +1733,7 @@ npc:
       owner:
         owner: drAke
         uuid: df1c5d6c-590c-3191-baf6-1b169f07d99f
-    traitnames: spawned,type,inventory,location,equipment,lookclose,owner,mounttrait,anchors
+    traitnames: anchors,spawned,equipment,inventory,mounttrait,type,lookclose,location,owner
     navigator:
       pathfindingrange: '100.0'
       stationaryticks: 100
@@ -1745,8 +1745,8 @@ npc:
       cached-skin-uuid: 739d066b-bef0-4bf8-b1ce-b091396ca047
       player-skin-name: bhartley23
       cached-skin-uuid-name: bhartley23
-      player-skin-textures: eyJ0aW1lc3RhbXAiOjE1MjYwNTg1MTE4OTgsInByb2ZpbGVJZCI6IjczOWQwNjZiYmVmMDRiZjhiMWNlYjA5MTM5NmNhMDQ3IiwicHJvZmlsZU5hbWUiOiJiaGFydGxleTIzIiwic2lnbmF0dXJlUmVxdWlyZWQiOnRydWUsInRleHR1cmVzIjp7IlNLSU4iOnsidXJsIjoiaHR0cDovL3RleHR1cmVzLm1pbmVjcmFmdC5uZXQvdGV4dHVyZS80MjkwMjE0NmMyNDI4YmI4MDg3M2M4ZjVlOGFhZTRiMzA5NjczZDhjZjNlODNlMWY0NGFhOWJkZGU2MDZmYWQifX19
-      player-skin-signature: smUmHst27y1TuFwRvNWFfzOkHZFB9m5KspASB/KDROJGFRRUV6V9HvCFZiAfBn8CHF1hwsI/MvMmuzPA5EbH6B2y0ZydCZbkr1oH7CZe3IaO16KRU1KOjMJs3TqZqMsO+miyp6UyP6df4p3LMfCLEoJVxZDBxHRQHEW7EpAPZv4VQbtBi/Gn1zIvtsOP9CSIOtFnRXuScjuFvje1mlwPTnUaFpiuUI37SdYeWbVsfYPCZujJiCNj1wSUaiKF6GsGqwa2zdmLlZiqf6LvXr3jcc6gz4pPcxNBMTerAuwFRnEaMFYLJ2t+NPoTq5piuKq4YZXgnuvKxoWL7gr6wqkcnGogBwt8g5CONoWpvP2CZ1jDZ9eGJVaR62V1c/ogSl3dQpjYfvUv7oyb1X16lg7i62DFSCr4cxofepSkULjZS+5Kx2an21oybNzRS0tSgWVaBAIthsCpoSG04rJMHSyhBdioPjjVDADnHw0GJ1ZoyBwcc6VTryKnu5d1SYf+MQ4MmxsWNYgOCJZx9e/6zL5xjZ7jJ8UCOubNJWBJSE2h1SCkQc9SXZmkmDy5nvVWg1WTbsDUGfiAFepBSw4RN050b6WBtaA55+KkqTR6pob26xRc48Fj6FMZYQqowVXbLvZKE6LUiP6Sa1tDwineGRIcsBnWXw7Eu1nwsGnmYSbv804=
+      player-skin-textures: eyJ0aW1lc3RhbXAiOjE1MjYxMDk2NzgzNzUsInByb2ZpbGVJZCI6IjczOWQwNjZiYmVmMDRiZjhiMWNlYjA5MTM5NmNhMDQ3IiwicHJvZmlsZU5hbWUiOiJiaGFydGxleTIzIiwic2lnbmF0dXJlUmVxdWlyZWQiOnRydWUsInRleHR1cmVzIjp7IlNLSU4iOnsidXJsIjoiaHR0cDovL3RleHR1cmVzLm1pbmVjcmFmdC5uZXQvdGV4dHVyZS80MjkwMjE0NmMyNDI4YmI4MDg3M2M4ZjVlOGFhZTRiMzA5NjczZDhjZjNlODNlMWY0NGFhOWJkZGU2MDZmYWQifX19
+      player-skin-signature: vlk1ThCWeWAc/56wg916nI9FqTiCC96cBG1vflcRztbgLIUCnxGRHsssCLQywItF2pCrSDRpxGGHZFWDySUNq0kPAvIZY0j38xYOMjKJNH4i94ja2l/A6EYuooCLJG/OYFPVt1FCZw8LOtUNogt9Rz2q2JWmfpkBJE+8mdeVwMgTM6iLh4ubVLLog+6OoiHXilsHqcgfzbwu6H8dynrOKJKbBK+dqJRHOGvTUghzwxGFRUvzix7pgsaYGYb03h9j7sPJmIBJYW4bEjNF0XvUXxRkRiLPTTkP5joDJYyWm5IIl6gWJ1blyMwb99DtsHK3vuxPqqkgZbMcsKDbNYymrNM5LpSPqC0Cvjmu32HatBre5FNFj0AzhIIYG7BHyJy065jqihmYY1G1ceU5PaT5Kr7ZTPVLMvEXSCKh1/uVMGhLu9HEplyzwroLwvsEckqhK8mF1ILr1VQ6IX6Irts9iSgNgT4c8rNFJqFIQZt+gE6yvYgNo2ZArtcZSyVIxb7EDgIJlRGPtn4/TJKAkAr8pP0zCa0cq1PqlMwF+Idf1BbP1NYRBGaJQ35Bw1x1CK9z6d8txxVd9uvnS4lYBwpuI4NThO1TNAFjQvYJZfVLUIolqHLT1/kFWfd3o/Cx2p9OJRAzyiVdPAJmYN7ANtR7sdOYU89CX3NyDrKMf7SwffU=
     name: §aCarl
     uuid: 19f4a456-de21-4a52-8e09-3a3f3b71b62b
     traits:
@@ -1784,7 +1784,7 @@ npc:
       owner:
         owner: drAke
         uuid: df1c5d6c-590c-3191-baf6-1b169f07d99f
-    traitnames: spawned,type,location,trader,inventory,equipment,gravity,lookclose,wallet,owner,mounttrait,anchors
+    traitnames: anchors,equipment,spawned,inventory,mounttrait,trader,type,lookclose,gravity,location,wallet,owner
     navigator:
       pathfindingrange: '100.0'
       stationaryticks: 100
@@ -1862,7 +1862,7 @@ npc:
       owner:
         owner: drAkeNess
         uuid: 63d45060-8177-31f5-939e-7685b85bffe3
-    traitnames: constants,spawned,type,assignment,location,inventory,equipment,owner,lookclose,mounttrait,waypoints,gravity,triggers,builder,anchors
+    traitnames: inventory,builder,gravity,waypoints,triggers,anchors,equipment,spawned,mounttrait,type,assignment,lookclose,constants,location,owner
     navigator:
       pathfindingrange: '100.0'
       speedmodifier: '0.800000011920929'
@@ -1870,24 +1870,24 @@ npc:
       usedefaultstuckaction: true
     metadata:
       cached-skin-uuid: b070465e-5b44-43ce-8897-853c30487a36
-      player-skin-textures: eyJ0aW1lc3RhbXAiOjE1MjYwNTg1MDIxODksInByb2ZpbGVJZCI6ImIwNzA0NjVlNWI0NDQzY2U4ODk3ODUzYzMwNDg3YTM2IiwicHJvZmlsZU5hbWUiOiJFdWRlcyIsInNpZ25hdHVyZVJlcXVpcmVkIjp0cnVlLCJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvZTE2MWRjOTM5NGY5OWZlOTllNmIyMWZiYTIzMWY2YWE3NDQ0YjI2ZmE4ZmM1NmQ4NWZiZGM4N2M2YmMxNCJ9fX0=
-      player-skin-signature: RnBvXN0dWTr/1KfvoDWH9t9Fk2EyRojJe0d1ATNvWDyZKf2qqcs7G0PPUTTsUNOPP/CK08HQVzeZt2T34sBLrG71d18Rl5e3tTq0Ju+k/eJFEtoI4myUQf/JHCfKofTEcstzGhpme/3a9s3MvU7K16vVNcqWu9YSVPbtpV71Dht0ztbGTii2AHmELxDulX58LSF/HxBk7CTjkVC33LEYYd2qUVd0q8pkd2x2s8s3jKyX5OksfzArwk2GUfWP1bEPsPBWffJnzOL8A2l91sJ6uruQYhES0o3rVQSFnBuTqJU+7y6PNxgkRshLNAecDsFxt01s2ZVljF8MmXpircK7ure8ddDbEVwAsvuVAtsKnQXNPun/B1idztlDdMYsdeDGC4tFT6TT/pprtBx/4XSll3HzfDf+hGQejyPCYAiWumdePjCRUoYsrTu4UXGbftD6EIyTgyDlKyM3kNQIIrz0geVor+jBWqkK8ZYibom4xCsBAO90jPzEYY8lWa3Ccs9WHZAa2wqUBouZP1Z7PJPR50odbQ8VOVZfynww+y1cAhSUKLgRQbqD1legU2wAG2rk+E4xEQ5vHYFssmG5ICNWSK6ovsgMjnBr9UduT2055IHoUKeCVY0MiJbmiqupaGcfA7sc8ZAzCWLTLMkmiWTTTFKy5e1r5Du6+elMUg5vlxk=
+      player-skin-textures: eyJ0aW1lc3RhbXAiOjE1MjYxMDk2Njg0ODgsInByb2ZpbGVJZCI6ImIwNzA0NjVlNWI0NDQzY2U4ODk3ODUzYzMwNDg3YTM2IiwicHJvZmlsZU5hbWUiOiJFdWRlcyIsInNpZ25hdHVyZVJlcXVpcmVkIjp0cnVlLCJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvZTE2MWRjOTM5NGY5OWZlOTllNmIyMWZiYTIzMWY2YWE3NDQ0YjI2ZmE4ZmM1NmQ4NWZiZGM4N2M2YmMxNCJ9fX0=
+      player-skin-signature: aDfoSJLM8NGMLlftjPyfAZ6c841ZiROzrF9JKkDwVVQ0lZ5YoRB8ifyeJOsnYf1s967HCgUY1bc1zwGwsnk50c7jiLUMhHNmfFEWp3CUl5Owbd3K8uL0efNZU+TNryWk7NhRdE4X/3hjdqzEm1xOR3yjSVDkydJ+DA25bRwPGCFtjW0cboRXbfx9q3V3lYDIc5R9mmnCgv/ymVFQXFLtE4qnpy1sLf91BgjyValyqR7gqI4fOqY4TpDQ7Nro1p9p1GBDG9Gm4X5LSrSSYXoTBnR3pUWJ1+fnLgmH814h10RN/leMRI7mOqzJtAn0MEMe0Jcn9veMCfYGVtEkDHwKyiY/gzbGVHVM2uDcaHFqJ3K7a4Oqhh6SAZWDHfFam934wyXPr8kmioOr7iVtrqkteduyZBJf+XnOkCiNz7j8wNlODM6fbjr8eIme4etOcPk9H8AXFUr8Fd9UoUV3WK5G2Vwii+ZBkQhBjA5QSTNCXXe+zTbmV9DjQ+xRZELgV9mC3FfcROuGQ4CYynWXixdNhG+9+diKxjFZMdCFMbAn35PBOh5E8fQfnkgBoER6bjH+r0B3VKTcJzgOXfBofzjvLO1nkjNnckHgENPEyZCkV7UtTy6iApW4kYNTjyx3HBQKbmIrHSAE44m1okOSW/iankcGqCqKCRWwWcz7jPzfi4M=
       cached-skin-uuid-name: eudes
   '96':
     metadata:
       cached-skin-uuid: a9e154eb-433a-4978-8c86-241dd1c40b69
       cached-skin-uuid-name: hann
-      player-skin-textures: eyJ0aW1lc3RhbXAiOjE1MjYwNTg1MDY0NzEsInByb2ZpbGVJZCI6ImE5ZTE1NGViNDMzYTQ5Nzg4Yzg2MjQxZGQxYzQwYjY5IiwicHJvZmlsZU5hbWUiOiJIYW5uIiwic2lnbmF0dXJlUmVxdWlyZWQiOnRydWUsInRleHR1cmVzIjp7IlNLSU4iOnsidXJsIjoiaHR0cDovL3RleHR1cmVzLm1pbmVjcmFmdC5uZXQvdGV4dHVyZS85YTRkZGE2ZWUxYjU0NjYxMjNhMmU0YTkzZTUzZDUwYzE4MGQzNGExYWI0YTc3NmE4OTgzMjE3ZWE5ODMyNyJ9fX0=
-      player-skin-signature: abSx9Gn49yK/kb0Se9fvDLtUOi1kJx0TQ/tMFDptTQf5GewAcB9fInLKKWnO3iTkckpJu2i0ibd7PAa5kmySXx+jsGD95pg+JWoRsG1KdE+uOHqhdHFpEOaaZTJjv4QUZT6Zs41TSolz1/lHdq8b9MpuDpdIFjzB+Xwp5boK025MdlAbDkURjVq1tCyTRGgEL3QHU9mW4BPtlodpQEL7l0gV3mx0p2WtT5ECwBz/5c4DVQ0kIMgl68gl0j5ZafAnzQDLMwFHh/XMOlZU7ggp/yFny9xQ6N3fB9et0GjSHZNZ5ML8taPp9R5FL+A5HZ6Lig684shDtz4nw8ste/vTwWp/ubyqiPf/8qYcOsEqbCPszTfSP1h1w1vhZFypcPz+UwGBfD8MLXJX7lzfKc8zWYpgrKg2/FQj9nAhjtL3l7huMooS1NEYmsfZAkDwolKKloXHO1zB+/ohVplXfHhhY/dYTSwSTRkAu3FrNH+7P2iBsUbOgEHvUuFCTvA4oUXvuuQsxNF1/R0VktyfrDZQUbpSMPVeKxhdHPX3MUUBKEHgDVzD6WPD+0GC8jrWJc//GPMoLATQyNPwpPohh3iYQ/Du4zgVA+0U14tSBzfYcyhTpkOrErtgNTgG9QTLSa4w6HLLxRsgPET7non0fMa6aG4KSTveWN3TnOCRL5bCD3c=
+      player-skin-textures: eyJ0aW1lc3RhbXAiOjE1MjYxMDk2NzMyMTgsInByb2ZpbGVJZCI6ImE5ZTE1NGViNDMzYTQ5Nzg4Yzg2MjQxZGQxYzQwYjY5IiwicHJvZmlsZU5hbWUiOiJIYW5uIiwic2lnbmF0dXJlUmVxdWlyZWQiOnRydWUsInRleHR1cmVzIjp7IlNLSU4iOnsidXJsIjoiaHR0cDovL3RleHR1cmVzLm1pbmVjcmFmdC5uZXQvdGV4dHVyZS85YTRkZGE2ZWUxYjU0NjYxMjNhMmU0YTkzZTUzZDUwYzE4MGQzNGExYWI0YTc3NmE4OTgzMjE3ZWE5ODMyNyJ9fX0=
+      player-skin-signature: Tv2E0VRndkUPruuvuPp32M8pwMh93s6bEojYc0CNg4CmLeik5iHqNDdvJi7q6an3IrCcMZaRfq2uxpzKw00Ztxkmlt0GgG2azUL/HJhJCq2JULmQ2dop0hl+8PLsx024dzok00BQVywuiUYn8pzcTZKlMjTYEln8xrfq8OyqMNjCEyAZEm8Vi0p/u/yNBUUTY+JLH/2Fxg8gFsIzB13GwzUw5ze/949FaEJaPYCWbXoLPpD6WZ79JyekiT8UQByqkyZhha1YFGrc2XZ4aFjzSxXMtFi5ZNmd5LhN5QjQATbp6IvLwADgm8Kj7gaeK86ZXvvc3cwg2ex7tM+wyiLCjKpY5tXTFwD7eyI6lbJ3GJc7Jlhri+K0yV0ktUtC5DdlF/Cid96/lapSAiv9fdpXGpQkE2d+hv+MGW3WPt6TlDX2C3Ga9Dujol71VYbj0Xgf5MnLrPLvZ8TpJC58FkNi7m5jdrHQ9T0IMegu7IkhnorfJJFQPr0ixGskVJBP7nnj6IiRMERa3McnXMQDSyMUlNrGjK1r4rTGqF6KYTQ3YNWzG8lzHVEfi/+HUXs1p6DD+CMvPzr87xcqYYl3JMJxTPwcMkUR9xFo/c6/XLg6vPtU0U0TURiE9kGT0BuI8/TlB2LMpJBNj5lTJnlz7mhXVjA+9zDWNuHUy4m951ilsPg=
     name: §bHann
     uuid: 55e31f1b-c4e5-46ee-99cd-0fb979937b84
     traits:
       location:
         world: Esparcraft
-        x: '2345.4966'
+        x: '2345.3099'
         y: '28.0'
-        z: '1894.9926'
-        yaw: '-179.61343383789062'
+        z: '1894.9072'
+        yaw: '-172.31210327148438'
         pitch: '0.0'
       inventory: {}
       spawned: true
@@ -1943,7 +1943,7 @@ npc:
       owner:
         owner: drAkeNess
         uuid: 63d45060-8177-31f5-939e-7685b85bffe3
-    traitnames: constants,spawned,type,assignment,inventory,location,equipment,owner,lookclose,mounttrait,waypoints,gravity,triggers,builder,anchors
+    traitnames: inventory,builder,gravity,waypoints,triggers,anchors,equipment,spawned,mounttrait,type,assignment,lookclose,constants,location,owner
     navigator:
       pathfindingrange: '100.0'
       speedmodifier: '0.800000011920929'
@@ -2006,7 +2006,7 @@ npc:
       owner:
         owner: drAke
         uuid: df1c5d6c-590c-3191-baf6-1b169f07d99f
-    traitnames: waypoints,constants,spawned,type,assignment,inventory,location,owner,triggers,lookclose,mounttrait,anchors
+    traitnames: anchors,spawned,inventory,mounttrait,type,lookclose,assignment,constants,location,owner,triggers,waypoints
     navigator:
       pathfindingrange: '100.0'
       speedmodifier: '0.800000011920929'
@@ -2070,7 +2070,7 @@ npc:
       owner:
         owner: drAke
         uuid: df1c5d6c-590c-3191-baf6-1b169f07d99f
-    traitnames: constants,spawned,type,assignment,inventory,location,lookclose,owner,mounttrait,sleeping,waypoints,triggers,anchors
+    traitnames: inventory,triggers,waypoints,sleeping,anchors,spawned,mounttrait,type,lookclose,assignment,constants,location,owner
     navigator:
       pathfindingrange: '100.0'
       speedmodifier: '0.800000011920929'
@@ -2149,7 +2149,7 @@ npc:
       owner:
         owner: drAkeNess
         uuid: 63d45060-8177-31f5-939e-7685b85bffe3
-    traitnames: constants,spawned,type,assignment,inventory,location,equipment,owner,lookclose,mounttrait,waypoints,gravity,triggers,builder,anchors
+    traitnames: inventory,builder,gravity,waypoints,triggers,anchors,spawned,equipment,mounttrait,type,assignment,lookclose,constants,location,owner
     navigator:
       pathfindingrange: '100.0'
       speedmodifier: '0.800000011920929'
@@ -2158,15 +2158,15 @@ npc:
     metadata:
       cached-skin-uuid: 356df953-05c1-4268-92be-b63fe98fcf98
       player-skin-name: wuolf
-      player-skin-textures: eyJ0aW1lc3RhbXAiOjE1MjYwNTg1MDU5NjksInByb2ZpbGVJZCI6IjM1NmRmOTUzMDVjMTQyNjg5MmJlYjYzZmU5OGZjZjk4IiwicHJvZmlsZU5hbWUiOiJXdW9sZiIsInNpZ25hdHVyZVJlcXVpcmVkIjp0cnVlLCJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvNzY1MGNhY2JmYzY0YmE2MDgyYmNlZTIxNDBiMDVmMzI4M2M4OTc5YzVjM2Y5ZDQ5NzFkNDY2OGI5ZjJlYjU4YSJ9fX0=
-      player-skin-signature: gD3Lfs8fD/33CszNtZR/VZyk1DTfxuyLFWgjIa5voKjCHWFoAX1+43iJ1/o/EJS+DGFGdvbRYTTJTUHLFtb7Pq4nuqrna8VmPMzsep3M9C1LjfsHnaUxXhvrE9rTpyfXBWNaJ/XmDkt7k9H1P3pgCARwceGf/LOtF1WPqIv6FqBYKTYySx1d/oyEpEYcKddKOcvSiO1by43sFJGsfVSdQFK+391H9/q30I9qJtzHvsYJJpOz5b+MRd8zliKSESFhF296ZQR46gcHCqjVcrTH+ChrSM0j72etjUaMT7sOTyLnAzFaqB/cBDwUfMxaEE7QFuiIMqFgM37Pei+NdCfeMvLucf5T8cC60tVzAmPLsphVbpllpR3L6BkBUI4uZi6NcurLE6XQTuZocaBSB9Q2+KGXsg5zNGW+UGFcaNNGgUiTMK6vMn8z3vaN3PegiDA6J+0EAGCjReJYNZyLtNJF+RBYs840bpnb+Ecz3LvUpVMhTWuJm7WhD3zUSjod2I4ZQu2zBDWMZY+LPBF8NdlwEHrcnNwtFSiFbQ9TYTHvPvby6x6nMNv5BNtwA4BfEAY4p8KclWS0f/lY8CkRee1BQ2b/6JtmtH31Ulgo4D4IlsbX/+A354q+4V23qLV9uQr0kz4iwchQhX/zZf+ZiZkuhew2kRElTY9st/SDG7FfF0Q=
+      player-skin-textures: eyJ0aW1lc3RhbXAiOjE1MjYxMDk2NzIzMTcsInByb2ZpbGVJZCI6IjM1NmRmOTUzMDVjMTQyNjg5MmJlYjYzZmU5OGZjZjk4IiwicHJvZmlsZU5hbWUiOiJXdW9sZiIsInNpZ25hdHVyZVJlcXVpcmVkIjp0cnVlLCJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvNzY1MGNhY2JmYzY0YmE2MDgyYmNlZTIxNDBiMDVmMzI4M2M4OTc5YzVjM2Y5ZDQ5NzFkNDY2OGI5ZjJlYjU4YSJ9fX0=
+      player-skin-signature: YSwz7dX13bwDmNOgQ03bZLM9uinsMal3W+J/K5wL/MKLahr/6hwf1NE6ozvfLcbk1wbdosuD6AXFWKDlq0/9vCT9+hC89ioaZO2y2yVQMMGmQ9CQ0D/du2ES8tgdfNM+7Rp7HrY7O1bsE8y19lyawwHCP0PfcfYsO1UCh2+jJHiAFlu64WKEt08We74UeMNO/A+WZhwH3csaX4cVzDnQEuNZId6pa8P6d14vBfbkHbfUAVephr3ocCOnEk+ZWlYf8cMBh4Xki6tBS+xNswepzwhOwuhEo5dU0BMnnfqv9mzdQS7seklOO7rRxnwX3vIqoE77IG8x509A/69mxB4FO4a2laZ4eDd+Xyu1Gx2WCZfkJ4O8qtbMIT9XWKL1LvqGu2iX4it8ONtIB6GrQrlDY+cxQttprW3UKGq0watAB6GiDMFkcrMGDeKzH9n7qIPRPldXvCwr5bzaO35hZzPSY3VjGkOvGs+XCH9kgnaDCiCNLuVZOrB+FAeEmtNp7QhCoTF8Qk1lee5VvDlqjZ3ckZf3pNDSj7WVM9xFrFvQnw7YlHp0EUhVArsWrQNZlzRdvKy9HHEayBZdC1QWlMu3aVU1OogqyOqsyAeF9Ibg3KEQC88oUTdq/UhDdMRGu+mxDT/089XhqNkK5dTBHAeKLQ6m292EOkWGQgW7PvBBUSw=
       cached-skin-uuid-name: wuolf
   '100':
     metadata:
       cached-skin-uuid: 806147f1-e3c6-4f6a-b781-7fd29ce11d0b
       cached-skin-uuid-name: elitechad255
-      player-skin-textures: eyJ0aW1lc3RhbXAiOjE1MjYwNTg0OTgwNzQsInByb2ZpbGVJZCI6IjgwNjE0N2YxZTNjNjRmNmFiNzgxN2ZkMjljZTExZDBiIiwicHJvZmlsZU5hbWUiOiJlbGl0ZWNoYWQyNTUiLCJzaWduYXR1cmVSZXF1aXJlZCI6dHJ1ZSwidGV4dHVyZXMiOnsiU0tJTiI6eyJ1cmwiOiJodHRwOi8vdGV4dHVyZXMubWluZWNyYWZ0Lm5ldC90ZXh0dXJlL2MxNTNlM2FiZDI1YWUxNmM3OTgyMGFlYzFhYmQyYjg0Yzk2OGYyY2MxNDk1NWRhYTQ5YTE5NzRlMTVhMzBlZSJ9fX0=
-      player-skin-signature: H6/LuwuWa31QiEUs5WP229nbOhVKR1AUgHVIqIrjsqU5/qqo44K/9XYgI7/muz4+U13yq6Ovlsmyiq1+Yt5jXwsrTNX3Tn10dXys4h5YtoUD1c+fg8fELFigrKXtkhlGKqZYsM3xwl90gR/j28Mncs+6oVPe8ds7Tj5im9w2uy5cX+UwoX7yaM3n7W13q7G7FcNXu+bY/v3q+y0GHjOFcAERt8HXHEklN1peMsLOHsY36Ca2xFicJAwr90sdP4PCVos6LUN6wUbpKRURM8XIReGhBKyBqV+0zNQiQ6kDuCjpWoCPyivvg4hIXi8pO58Xt71Cmta1Ov5kdkpNAUNcH6N/4rZReUJTBtxZKK/72KDABqZShZFBCxETV2HbuqsXC1QMnrV06XvqF3Pytv5gC4s+JTNUBrys19+R9yyvloyOOrdoYWWAphD4SG7SJIhOviRduywgsqYo2HMrwaDpoRZP++nirYmzRXe+lsUFZDXaqPRykQQj/+6lxuqQ4smz2H+gxbJMZlPZt3SZq1xvuhxGIOY8ahTQKmRHL93DRR48x/sRjOVpgr+5MpQz3oncb+Z6UY/KvvGlzHqlTedr3IP9IjiL3cD+fsyIlgzQJgC9UcvBbbKNRXA+q66ByrhtiBFzXneTzDSptWB9egs3eOLIa6OiqtEJD/ACnVLPlvc=
+      player-skin-textures: eyJ0aW1lc3RhbXAiOjE1MjYxMDk2NjUyNjksInByb2ZpbGVJZCI6IjgwNjE0N2YxZTNjNjRmNmFiNzgxN2ZkMjljZTExZDBiIiwicHJvZmlsZU5hbWUiOiJlbGl0ZWNoYWQyNTUiLCJzaWduYXR1cmVSZXF1aXJlZCI6dHJ1ZSwidGV4dHVyZXMiOnsiU0tJTiI6eyJ1cmwiOiJodHRwOi8vdGV4dHVyZXMubWluZWNyYWZ0Lm5ldC90ZXh0dXJlL2MxNTNlM2FiZDI1YWUxNmM3OTgyMGFlYzFhYmQyYjg0Yzk2OGYyY2MxNDk1NWRhYTQ5YTE5NzRlMTVhMzBlZSJ9fX0=
+      player-skin-signature: NxYMlz2PDNSsXC5UYNJBbGnl1uMSWX3cJ5frrad2X/8Ds62IV/S/ocj2YuOUzi08P4SlmmzvzhjRMvQCOINNTHrdQ7k44g15a5gaOeTNsiu5I+Ios1W6Ibmx/Wl8G5qqr3WatR7utrP1SyXKOld5MD8TRuUFa1j2emSWx99kdKCX6Pu7M4ExylHqCUS/5nloOKcaTduAkbfhcZ2dhAy0yJ9DZ7sDyXEz2D6j9gZeZeJfJYbjqAtmFHK40oCL6m3vXeARC9uLwjKvJQYn6iq2BF3ajwcts/ccS4m3U9W6vSD9SaVGrY0MvZRnw20P7VF7AjhAaVqYcBoM7Q+YjV3D4U1XYUYBIlCFx68BDnno0IGzxsbBso22d7DTsv5xOtzAfrun09lX/RuIj5TMTSTL8IrRog5ozAMdRIr/EqdyE7c3ysstEJzK9RnlO2/aJkAFDCFv7BiwfZiQcq3PeeOGrw0oY0AYtij54QZ+AYj79LRfzq1+UK4Zcq19foQ9qzr/rzlPyowLa0t/XvMklyi7hSR2I30CdJecGA1Ftm4O/L9w4Fm9rgCocV6eh8hduV4iKfMSWAcvbT3EmgDBQ3B1OEZRg18OJBbwwdyL5803P86sjJq2Cex6/sk9YuKaVH3y5iCMsmmVGBaQcYuOFoPHsg/82oqSEvAtdsJQ45Hwo6U=
       player-skin-name: elitechad255
     name: §bYorick
     uuid: 5b475c53-1273-476d-a96f-eb0e54b3fb4d
@@ -2175,10 +2175,10 @@ npc:
       spawned: true
       location:
         world: Esparcraft
-        x: '2292.4347'
+        x: '2287.286'
         y: '71.0'
-        z: '1946.4999'
-        yaw: '-89.99822998046875'
+        z: '1948.3869'
+        yaw: '81.82565307617188'
         pitch: '0.0'
       assignment:
         assignment: YORICK
@@ -2232,7 +2232,7 @@ npc:
       owner:
         owner: drAkeNess
         uuid: 63d45060-8177-31f5-939e-7685b85bffe3
-    traitnames: constants,spawned,type,assignment,inventory,location,equipment,lookclose,owner,mounttrait,waypoints,gravity,triggers,builder,anchors
+    traitnames: inventory,builder,gravity,triggers,waypoints,anchors,equipment,spawned,mounttrait,type,lookclose,assignment,constants,location,owner
     navigator:
       pathfindingrange: '100.0'
       speedmodifier: '0.800000011920929'
@@ -2288,7 +2288,7 @@ npc:
       owner:
         owner: drAke
         uuid: df1c5d6c-590c-3191-baf6-1b169f07d99f
-    traitnames: waypoints,constants,spawned,type,assignment,inventory,location,triggers,lookclose,owner,mounttrait,anchors
+    traitnames: anchors,spawned,inventory,mounttrait,type,assignment,lookclose,constants,location,waypoints,triggers,owner
     navigator:
       pathfindingrange: '100.0'
       speedmodifier: '0.800000011920929'
@@ -2357,7 +2357,7 @@ npc:
       owner:
         owner: drAke
         uuid: df1c5d6c-590c-3191-baf6-1b169f07d99f
-    traitnames: waypoints,constants,spawned,type,assignment,location,inventory,lookclose,triggers,owner,mounttrait,anchors
+    traitnames: anchors,spawned,inventory,mounttrait,type,lookclose,assignment,constants,location,triggers,waypoints,owner
     navigator:
       pathfindingrange: '100.0'
       speedmodifier: '0.800000011920929'
@@ -2367,8 +2367,8 @@ npc:
     metadata:
       cached-skin-uuid: 99a0e36a-a8d7-487e-a61f-d12822415dc7
       cached-skin-uuid-name: sanwolf
-      player-skin-textures: eyJ0aW1lc3RhbXAiOjE1MjYwNTg0OTg2MDcsInByb2ZpbGVJZCI6Ijk5YTBlMzZhYThkNzQ4N2VhNjFmZDEyODIyNDE1ZGM3IiwicHJvZmlsZU5hbWUiOiJTYW5Xb2xmIiwic2lnbmF0dXJlUmVxdWlyZWQiOnRydWUsInRleHR1cmVzIjp7IlNLSU4iOnsidXJsIjoiaHR0cDovL3RleHR1cmVzLm1pbmVjcmFmdC5uZXQvdGV4dHVyZS80YzhmNGY5ZDM0ZGI3NGIyODg2OWRkZWZlN2M1ZjcyMzdmMjc5YTM1ZDQ0MzU4ZWUzOGM5OTBmNDM1NmI5MjMifX19
-      player-skin-signature: TmJ6uSGXQdWoOR2Nu9HrwECUb58fJZvyuHzuWvSI319PlQhbj54RMM2JPGT/DFeC72wHN52cZrBtZVtv7mRmZs5qUWO9Qw68OBySKm1xkIjSTaiK2YdQNb66rY81cKKHaygEp8q8icprmZrL+KrdW4scYC5mSgifsDlVehqGNFT2KFaNAuY9jl12fRotzDmioJMZyWy0FLIXoHEytTVUm2OICQl2bledxaer+waJRXKXjVXpCm3aynTaKMz2sUy+jw2EJ96cdgtpcVIrfBHvPX92jP+i0mbrn33FaDrO0I8z6vm99I5ThAPAnF/rMVR+9/1oty0SO6JTApl8Uww4PS2k/GC/tBI5UuIVn1J8n9QonIRG/vn+Tm5s/C8MKvHX7YM1LZjY3lniSu6P78V1aSchg/NTXCWYZiNPK+5sJxsemXY4rDAe99eMqUPRbZomxwhqO4c8dxGM/Ra/cIzgAlZccvFdq/CWi9sWxAEDv92ZCgTCCZQtc6MKhGPXWvU0nTLYFIvZWia/HIG7KAAy+ab97SN0G6ih/XwsRtghdVk9eEX4zNBpzEutZ14i3spBAA0H5QKD4BCIheuRT/M54SkSHkeXf3FAE1iv2fCaenSVjpV8kEQDgYmFOAIQoOBb1izv9RLui32YhK0KFJk7Zfg+7/in78cLkEE+oNRoFAc=
+      player-skin-textures: eyJ0aW1lc3RhbXAiOjE1MjYxMDk2NjU4MzksInByb2ZpbGVJZCI6Ijk5YTBlMzZhYThkNzQ4N2VhNjFmZDEyODIyNDE1ZGM3IiwicHJvZmlsZU5hbWUiOiJTYW5Xb2xmIiwic2lnbmF0dXJlUmVxdWlyZWQiOnRydWUsInRleHR1cmVzIjp7IlNLSU4iOnsidXJsIjoiaHR0cDovL3RleHR1cmVzLm1pbmVjcmFmdC5uZXQvdGV4dHVyZS80YzhmNGY5ZDM0ZGI3NGIyODg2OWRkZWZlN2M1ZjcyMzdmMjc5YTM1ZDQ0MzU4ZWUzOGM5OTBmNDM1NmI5MjMifX19
+      player-skin-signature: Pw6mS4/RQsSSzFsHPQaOBgrWB4aeHYXH9LfeVSipA3nSpk8euuvWvGD8Bh1JAHfHKDcgjAbuMqujtcUHgH8vuiWb/4TDyShj7r0lO3GTUZR0OYQMFLHprYyJVQ/8XU++aqpiWzOY6aaEki66AVonAy2HoerfG1YwqCfwxTBZQlGw13WjocXK7vb2N0V2NiDcjzDf7i1AflOddAiq/CLTUYC8vrd54a53wHckXySFKZCBX0WoGuA2E4HMHqfMaOclnekWPDBt6S6T74ZQQHCaNp4Zv4e4avgmzHM7WsI1idsA6TjMxqNDKSIhMZl8ctf5TCkG20OMHoCAsm9/LmXXKxNqXTYIb9HTqfDTt1X/Kn88Y7cp0gKrSSxi4/NBwIX9wnwqUOIsqe60tvDnzwrMWd6zfRP7hUD5MqrMRdzBNZ58hiqgweq1FiLsQSn0z1s85d8loUzRPpum5W8rv82vyhgQLCM7Idb0GmxvdjRFc9llpYlY02EA0ykVV/9vzMtvfVcD7E0QENS+C6VHYykQbPQvoJtkRf5E2cea9G92xHL+j1O/pSioNQt4mfqslaNzbOtP0ELFaAPV8aQqbpMPbJZMOEDfEZpGtSKJjRvE6X1zC/Hy+iZeQiTpPQB7IY+D62mU+sp6DLhNTu4MIbi1NKGzXmuFOVNzA/KdY6IAspc=
     name: '&aSanwolf'
     uuid: 796167e0-eabd-4f08-9ffc-7b9140cc88e8
     traits:
@@ -2425,7 +2425,7 @@ npc:
       owner:
         owner: drAke
         uuid: df1c5d6c-590c-3191-baf6-1b169f07d99f
-    traitnames: waypoints,constants,spawned,type,assignment,inventory,location,triggers,owner,lookclose,mounttrait,builder
+    traitnames: spawned,inventory,builder,mounttrait,type,assignment,lookclose,constants,location,triggers,owner,waypoints
     navigator:
       speedmodifier: '1.0'
       avoidwater: false
@@ -2434,8 +2434,8 @@ npc:
     metadata:
       cached-skin-uuid: a9a7dd00-d384-4d0c-8f79-f5e287dba7ee
       cached-skin-uuid-name: carmin
-      player-skin-textures: eyJ0aW1lc3RhbXAiOjE1MjYwNTg0OTc1MzgsInByb2ZpbGVJZCI6ImE5YTdkZDAwZDM4NDRkMGM4Zjc5ZjVlMjg3ZGJhN2VlIiwicHJvZmlsZU5hbWUiOiJDYXJtaW4iLCJzaWduYXR1cmVSZXF1aXJlZCI6dHJ1ZSwidGV4dHVyZXMiOnsiU0tJTiI6eyJ1cmwiOiJodHRwOi8vdGV4dHVyZXMubWluZWNyYWZ0Lm5ldC90ZXh0dXJlLzdjYjMzMThkMmJjNmEzN2Q1MTI3MTU3Mzc1Mjg3ZDQ2N2IwNDM4OWQwYWZhOTE0NGZkNzM1OTAyZDdlZGQifX19
-      player-skin-signature: GB8gCpMXGbYtIWD3Luxf5w9pRCMMMS+hK/j0vcKR5KQ164Qzf4STUeK1ag8cGxgJEoVq26U/aPgBkSfD4kXhVlUFbVH1QvVZz9DFTBsnAmqzDjMlFpy3FTxqVm7dLkvvzMRF6F2ElHlJnbEYmedQYLLV/08Usc6nT7yUbuQ3wlatilUfo0o0aE2NJMX3GZ/iUPpY36N5PBAUdZDwnyxNmZQdx/whI+vtaiWwulB9CXCfNXm9q6UM+qs/fcosy9Mc7usDk4q22LIT50Un+3LfZVpsf4SyJC2Tgizkhew1oM38kHZ9iAFWcpF5J/WSy/FHicsye7Y96b/cTGT9VFXEjHfTrMOhl7vnz3VutNxzT+RWvJsbPeHE3tz21QxyQGe7tuTKGe2qia9GOIYurhQNmDfda4gNTuYi46fWrDZy5F/DeIJX0kYJfti60q2aaNESMK+2QXHQIu122QOqsZ0t7Bp7AQuhHY/NlXRiu/lkW/mcf5s54iICNsL0YJR0EEk8soriO59sw6O1rrgecw3rbeLnlKOVh+EfYLgfTBsdBBhrFG7BQfwCD6LiyjtNs3hfd2BKlwS1ucv7fXEZ4ITlcHh9WBU0MXtX3ooGzoG/UtFhXGd7MGrsC64Lm4Ukjdz8QhdP9hZCOF4nTLdg6a1K5WcH4cLA7fop2+M7PXTIEPY=
+      player-skin-textures: eyJ0aW1lc3RhbXAiOjE1MjYxMDk2NjQ2NzksInByb2ZpbGVJZCI6ImE5YTdkZDAwZDM4NDRkMGM4Zjc5ZjVlMjg3ZGJhN2VlIiwicHJvZmlsZU5hbWUiOiJDYXJtaW4iLCJzaWduYXR1cmVSZXF1aXJlZCI6dHJ1ZSwidGV4dHVyZXMiOnsiU0tJTiI6eyJ1cmwiOiJodHRwOi8vdGV4dHVyZXMubWluZWNyYWZ0Lm5ldC90ZXh0dXJlLzdjYjMzMThkMmJjNmEzN2Q1MTI3MTU3Mzc1Mjg3ZDQ2N2IwNDM4OWQwYWZhOTE0NGZkNzM1OTAyZDdlZGQifX19
+      player-skin-signature: OiCigY9722ZgfuL7uRX2M/nEPMrDV0xkiEjRWkf9/8slpeqIeh6UACbKxiHiMFbEbE5wEsYfAc0/YW7Ic29+QY1dAamsJttfNVz8PskEV42+g7eXG60tPlDcM92jlTnN8yWDE9YYJp3i1GFqWpluG3/0lIgsTouTB8NSutERASHM7vXhU10bou+QdEIJ97Ecu2GvqXSUQCSqnjv1LWqP3ak2d8/AgVk7vhcYQwSGwjwSkh8e84VoKSMSfa2HWu3qprcmuOjjVAzGA5ASWwUXwWbRqnpO3lwV4HpvCVGupXlaUuKt/CCbhHzGXhBA6SQtSjjATosgtNUhPdH4hOGAyRF2lEKbbOJwNVn341o6stRyAy56APPHuUxc4a6yTOOCY7DNwJXaF6C5daklZjKym+Ru/xLi0x/xyVNCNqGTvnOYYM5UwgdeOqrYDmaPzrVTa0mf2VdPf8XaVAbD4wy0iOe49wC7Xx211/wW+DzMuFJfsHbfT3DzKZ429OoSIdLUJmuM/joB12KbZyAF9ZHv6LsdedPkAhh4arV2OFH4tz25z8MmvNKoixn81lIn/0/49z31fX7OB5TMxcE0NUTLRydrSHEup8BX0uxWP5K2M1Gj2c4eX4svMvBtNRczsT1NMNSwPgXqUAToLpBCBVx3QsLlSQcbCoIQ6am5Dvqd3iY=
     name: '&bCarmin'
     uuid: 0422d0c3-bd4f-43f1-9bc7-cce301698de9
     traits:
@@ -2492,7 +2492,7 @@ npc:
       owner:
         owner: drAke
         uuid: df1c5d6c-590c-3191-baf6-1b169f07d99f
-    traitnames: waypoints,constants,spawned,type,assignment,location,inventory,lookclose,owner,triggers,mounttrait,builder
+    traitnames: spawned,inventory,builder,mounttrait,type,lookclose,assignment,constants,location,owner,triggers,waypoints
     navigator:
       speedmodifier: '2.0'
       avoidwater: false
@@ -2501,8 +2501,8 @@ npc:
     metadata:
       cached-skin-uuid: b6765e4e-fa3e-49a6-ac4d-1e90d3c876b9
       cached-skin-uuid-name: drago
-      player-skin-textures: eyJ0aW1lc3RhbXAiOjE1MjYwNTg0OTg0NDMsInByb2ZpbGVJZCI6ImI2NzY1ZTRlZmEzZTQ5YTZhYzRkMWU5MGQzYzg3NmI5IiwicHJvZmlsZU5hbWUiOiJEcmFnbyIsInNpZ25hdHVyZVJlcXVpcmVkIjp0cnVlLCJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvZjhkOTY0YjUzNTJkMGY5ZTFmMTdmYWJjOGRiMzE2ZTU1ZmU3MzRkYmU0Yjg4MWUyNzFjMWJmZWJmYTY0YmYifX19
-      player-skin-signature: qOIJz3fxpUJJ0t1WxLMveC/yKo57M2RN25O5LmZG9j4nKd0FFV8ujPGbrf1oUa5fHRALpVdltO8fjscu3bNQGdZwDk6ASM/qWxClazbvuKGZeL1Po1DiUg6bf0z6nRtSJozNGjVxL+if67pcV+o7Hhfsk0Ifz9MMpbPzMHRhprIimddlsrZa61mvV69j4e+RChnR7Mhjt7OIppd+PDtyQcyTBcyqaEvbqWOXhLGPhYOGgIw0zc/tTjQaaWmNzHv53CpDfzNAduQ/eJJJu//zHNxuee8TAqFv6E9iGK3CX/2vlcDa019AqNbfK0kG+ANcfay0TDfbataN7xstdX8wcbJJWzbMk13FVmHXs/BUGP2oPHKXpsxPNbwA5gpcA7wtEK9pDRO2Yt89PCmy9TeXGXuxs1hHkE7/BSK4xoL4tKntzmRdazN2xh+ToAh8EEd6XXjQQM7j34EJlVkpv2/y5qo6PKncGEndWgQ0rbxv3zEX1imE0Jq8LqyMMwUx8YcMNfWLIpaC7Knx7cmj785KvDy5dOA/rnXG7/5H3q5oIJBJEoP642heTazv+J/Jq+mSoMAIDv4qb7CzBn930UPtKbhiaBwtq8dsJbM8sjcHkiSer2iE+iP8WM5jTqLJyJRwW9a1VhT64Vu57Os3aCeEoi0w7Jio427CKqOFXOmay/c=
+      player-skin-textures: eyJ0aW1lc3RhbXAiOjE1MjYxMDk2NjU2NzgsInByb2ZpbGVJZCI6ImI2NzY1ZTRlZmEzZTQ5YTZhYzRkMWU5MGQzYzg3NmI5IiwicHJvZmlsZU5hbWUiOiJEcmFnbyIsInNpZ25hdHVyZVJlcXVpcmVkIjp0cnVlLCJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvZjhkOTY0YjUzNTJkMGY5ZTFmMTdmYWJjOGRiMzE2ZTU1ZmU3MzRkYmU0Yjg4MWUyNzFjMWJmZWJmYTY0YmYifX19
+      player-skin-signature: AkYmHMSxNnR9EjF89UVlNwZXB4FnTZoU8D6pEDC1iVkxSDG5m3YbmuVgkO7aXY6Vh2OlQLuO/hLInhTUF2x3QadUo6CjYmCeL16Yjr3Q1ijdfcVJd2w4nakQD3ybsGRJKLZXzZEONutMm/DApisOPZ7Ec/K59Q3Nq3yID1t73V3A5uujra/vwaySyqe9XueycoZXrjVyireo/v3hr7GngvSiZbWtrnkp2rl0NMIVNmxS3HgvjtNIrlTr2+JE14nJVOvXwxuxL4U0ICKjNTMmZdxgsqFbY0ltxcV2BY+hb6gvSZzDxdzrfX91wRz+bgVNVzTOGFK/7i6o+uTUSYy8V9V3Ef3e+wZSbxoLKtIRkaImr4fWY03iOPkf8sLF/CIClS9U06z6KVdcgQTlp6527gCPyojwlnZEZRuuvG/q4+cIWhJ37p+qdznwK1AaKWkN8SHuMT0qgkA5Z7KRSZ5E7eYWCt2KI7duyj8cllDJh8UnjVEG0b+3433yQ82MOk956QMoiww5vnyJbph8sWtxz2akvjMq3nx3yjMWSTL0cbTwFIktWE5AsYWMRMRUZorF/g/t/ZIemmxjI82VacBiw1L72uv0zH6CYs2B/NDGzZFlfZCnFku/ASu3cysXJjYi35PUSzV8ds6UKrvbt7DSrfhx+waLZs0GjPuU0zMh42Y=
     name: '&eDrago'
     uuid: 902c8232-cb4a-4e32-8f69-11dc6de2793c
     traits:
@@ -2553,7 +2553,7 @@ npc:
       owner:
         owner: drAke
         uuid: df1c5d6c-590c-3191-baf6-1b169f07d99f
-    traitnames: waypoints,constants,spawned,type,assignment,inventory,location,lookclose,owner,triggers,mounttrait,anchors
+    traitnames: anchors,spawned,inventory,mounttrait,type,assignment,lookclose,constants,location,owner,waypoints,triggers
     navigator:
       speedmodifier: '0.800000011920929'
       avoidwater: false
@@ -2607,15 +2607,15 @@ npc:
       owner:
         owner: drAke
         uuid: df1c5d6c-590c-3191-baf6-1b169f07d99f
-    traitnames: spawned,type,trader,inventory,location,lookclose,owner,wallet,mounttrait
+    traitnames: spawned,inventory,mounttrait,trader,type,lookclose,location,wallet,owner
     navigator:
       speedmodifier: '1.0'
       avoidwater: false
       usedefaultstuckaction: true
     metadata:
       cached-skin-uuid: 47096954-51ed-4ef4-8bb2-8c2d162672c9
-      player-skin-textures: eyJ0aW1lc3RhbXAiOjE1MjYwNTg1MTA3MDMsInByb2ZpbGVJZCI6IjQ3MDk2OTU0NTFlZDRlZjQ4YmIyOGMyZDE2MjY3MmM5IiwicHJvZmlsZU5hbWUiOiJhd2Vzb21lX2NtbyIsInNpZ25hdHVyZVJlcXVpcmVkIjp0cnVlLCJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvMzQ1MGM3MTIxNzM5NDllMjRjZTI3YTc1ODExNTVkODc4ODU4MzUzYzg3OTdiNTAyYzhiNTQ5MWU3NWE1NCJ9fX0=
-      player-skin-signature: EN3wN3LbFkcjMyGqTC6KAkbCkBwGtOFaGIj4ffYeAwSidJGWGZ7KZ0A3DAOpOZfXerCS3T8AUAri45+W5N5VazFO8XxoMd+unu86+lL3FRPFXgpLqjyXCjMfDm2e8Xiaw/a/WX9uOkQVlnPICtsRhnlybYqyAJIaz5CteJwTBFGq/iPV4EpTYvqMA6BQO/facGiPtHHsEOemfKheQdQi2QhbFX4UpyUrsdwSS2dlxeh/z4WXY4xJ4eLySLHMNqK8GAn7KLQ2VC+wpS7ZPrvZ0U9fxzGZRasbtlEVVGJM6oTOMbz1MGUhE/+OmL3EOPIu5zcV2DOr461b+7Vpzu4cPeYyyCEeyBJTvxvNKEgs6KRz2vqgMIR7ZYXHItrXGfRsOhSj2XGzWXgx/VilUxAMkFA74y8LrVCJWwxMNrTEWuom4kxmSmU0wU2WYdLMmF6/UlJWwJrN1rDisLpGi5o6PP5ptBuYd7VwOWLEP6p9ahO4Togxg5ZSk0nd6yX9iODBGYkWxETLPH1c6+1YJ6l7Rra3AXCCqAgPGojHEqiZ+iIKdo4qXPzoEYf+qprR5tJ2StLk7FwqQQ+GKXciFy7Z+e20UpESRxVTWoFqomEwNA5MuxPtK7GS82Kq2KXDsBMzz3e5Wg3WI6pHbEQD2vrMwdF/Nxlow53hBGUoV8PZbqk=
+      player-skin-textures: eyJ0aW1lc3RhbXAiOjE1MjYxMDk2NzY4NzQsInByb2ZpbGVJZCI6IjQ3MDk2OTU0NTFlZDRlZjQ4YmIyOGMyZDE2MjY3MmM5IiwicHJvZmlsZU5hbWUiOiJhd2Vzb21lX2NtbyIsInNpZ25hdHVyZVJlcXVpcmVkIjp0cnVlLCJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvMzQ1MGM3MTIxNzM5NDllMjRjZTI3YTc1ODExNTVkODc4ODU4MzUzYzg3OTdiNTAyYzhiNTQ5MWU3NWE1NCJ9fX0=
+      player-skin-signature: lBdd2FgN87ss6hhSehfkGa7sg1eHlB8Q1YzN/gLyn6CyA8nR27C0rfTCQnv86b5X566DmmT/CUcfYG8zuRDdtvvY5tBj5c4Q/xxHaXxGbfKCOqKv5zxP0fUdsPOr/4leU2QaFTtsMshZG+kJoI3BTfW5EX4hQoW1d8pijocauzvVGyq+nT+cy31gVru+wphLVTpHIGdbE38LHXbbe4Oa7Qi2AWZXSYSM+gwWhZ06zNtvZF3W4HtL6eYMEhbfjPa+HSK9TsBCYE890033sDQ2dtIwYhlATwPcjfx0vU73iX87DEL0bWh8eLK8exrLwbm+sUe0dJhJg83LdyzsgGgMqHutccOPygsxzLZQwSkvQJum/da0Y9kb5BYLQmFB+/CregX9OVA2/rnYWdAx2/w13Sqg7qiZSr//StKUT7dynDTlUoKEjnPeOxSua4iPHJZu4D0swKTlSbT7BsoW+ylkzxyWgEfstUyFC1GJjLwH9vK6LT02AXH2dFRSJ+LkS5EnKSiGKFzoVkaNmwe4/eVejDeRa5GLT2UIqkA7rAXola58NAHbzuRnmEPewwKU/4rBvKAS4h2P3PTrLehRkSg1ayZdnL4+IhLWMrW1E39RGGZPSdoI54vsfXJBehGKcz8EBqY9N9jXnrBBtWdfeUqhwvpIfCdp3eeuJltXEFW5I3I=
       cached-skin-uuid-name: awesome_cmo
       player-skin-name: awesome_cmo
   '113':
@@ -2689,7 +2689,7 @@ npc:
       owner:
         owner: drAke
         uuid: df1c5d6c-590c-3191-baf6-1b169f07d99f
-    traitnames: spawned,type,inventory,location,equipment,lookclose,owner,mounttrait
+    traitnames: equipment,spawned,inventory,mounttrait,type,lookclose,location,owner
     navigator:
       speedmodifier: '1.0'
       avoidwater: false
@@ -2698,10 +2698,10 @@ npc:
       stationaryticks: 100
   '138':
     metadata:
-      player-skin-textures: eyJ0aW1lc3RhbXAiOjE1MjYwNTg1MDIzMTAsInByb2ZpbGVJZCI6IjkxNmFlYmZhYWZlOTQyOTNhMGZkZmJjMmM2MzE2MzNmIiwicHJvZmlsZU5hbWUiOiJHdWFyZGlhIiwic2lnbmF0dXJlUmVxdWlyZWQiOnRydWUsInRleHR1cmVzIjp7fX0=
+      player-skin-textures: eyJ0aW1lc3RhbXAiOjE1MjYxMDk2Njg1ODcsInByb2ZpbGVJZCI6IjkxNmFlYmZhYWZlOTQyOTNhMGZkZmJjMmM2MzE2MzNmIiwicHJvZmlsZU5hbWUiOiJHdWFyZGlhIiwic2lnbmF0dXJlUmVxdWlyZWQiOnRydWUsInRleHR1cmVzIjp7fX0=
       cached-skin-uuid-name: guardia
       cached-skin-uuid: 916aebfa-afe9-4293-a0fd-fbc2c631633f
-      player-skin-signature: aUOPDg3Vn/cTnufb336nIcLvytjldNv4oQ43GSHM5o/It6goRq+MTh0DiCnMsyENVqOu4um/5nBze1GlI8aRBcq2ZICCxwwuKZdKebRLvfHWQ+JYlc2tsfWmWLtCvalRyxZAkt70QG+NB64umKXHI7b2p18IO7YdOWMTeoY9ta45oYIfXSsRp/GevRMc/QHimBGrn4MxIpbqfA3/2sXvJdBYi+f01KQ/tzgWJsCL9kNm38fxW6TDb7ZVwGxb5iOGKohSvoqlfmhS3T44rsZBR/gqUkxSOGzbRO73sAHXUCg0X0OUoNJzgZXRQgf9JWWlVEzku3OCkHBwHFzcwPJJnx1NE+ee2OAdSA1oVKnLTBZo+8KroldRJR3tBRn5C5RfXi7sPOl4Dsa+AyNKN+UQWAM5QffXjgbusTXMh9zkRyYY+xVhbvOpSE/tKHybPQlpxtPgKkzFGyZ7NlkBY8YLG2Sk5OBz06zmQwgGd6YMRO8xXYaeVJJuRB7Po9PyXU4CXTZmHgGzJNWsuVzlNv6nmYBjgT4X/CPZK2YTTmksfdTUrLd8YbDAgLXeNhaIoW1uygKyXBkMidcJ3NxE2YpwzwzuvpoP81ZHLBGUdD0CE7AuwraEp1SW2uqJO788dCJj25RQeFv6VrwJON/EIBoMbhu8tdao12szzgAODwI4fAA=
+      player-skin-signature: U0bYHVUJYgyx0HZ7atvIiiKE+RXenW/rr70eOaiL0IyR1dYh2vYVODyvSqAe7yfD8zWUq/06SoTUR8I2iG1VSaYDCMenIzpyQq6DSUVHJ+kZJidGh9BkY13EVpUbpD2Ody2K5GzxT9Cz0BCA/7t3KerJT2FMF4KQfkWcxDGQt68mjASFMqPcxPYPO4AYRseh31tK09DWKjRutaqUDOOJ96Mmr7+Zl2ysASoQ5BVPlJv+dYw90sW60Z6ht21VgLl/i3VN43rF7W0IGvJ38DITomyOSNFwTN0BbGkhkYCTa69p1iO58rO0pk/HcCSSbgKsbi9OZt1HT/QAg2fpvjnNZc9Ef8EZRFJFaEiTW6wgcrTDTkhc3bapTAerYozWFMyaTIWZnsThmLXV9fOXCmu6pEuQHKk/UNpvMQUnsVX5nKVNm91DNsEWT/V68kQERb8axmIDfvl21LrFuSGuCsCLhN1eZIA2GwdTlf8N9PdM9kwUdQK7dmIvZlGIhS9A2qprPEW7SHmOQEwcD+pox08CyRSIsGOr3sxWu44J98S3WM7lDiTEgxr83cS0zMOt8sy263QXbnqNjwMKxzRI+GJNvyaERNtS/auU9XS7Zf+mWGHJCZwQ9rJadffJOCY+YJkfIzRziFQ8E6e3wD6fLZHOkQRkHfYbIOGKZHaRHQWCSjY=
     name: Guardia
     uuid: 71852531-167d-4eef-a42b-2ac64e5c9a14
     traits:
@@ -2767,7 +2767,7 @@ npc:
       owner:
         owner: drAke
         uuid: df1c5d6c-590c-3191-baf6-1b169f07d99f
-    traitnames: spawned,type,location,inventory,equipment,lookclose,owner,mounttrait
+    traitnames: equipment,spawned,inventory,mounttrait,type,lookclose,location,owner
     navigator:
       pathfindingrange: '105.0'
       stationaryticks: 100
@@ -2807,7 +2807,7 @@ npc:
       owner:
         owner: drAke
         uuid: df1c5d6c-590c-3191-baf6-1b169f07d99f
-    traitnames: constants,spawned,type,assignment,inventory,location,lookclose,triggers,owner,mounttrait
+    traitnames: spawned,inventory,mounttrait,type,lookclose,assignment,constants,location,triggers,owner
     navigator:
       speedmodifier: '1.0'
       avoidwater: false
@@ -2836,7 +2836,7 @@ npc:
       owner:
         owner: drAke
         uuid: df1c5d6c-590c-3191-baf6-1b169f07d99f
-    traitnames: waypoints,spawned,type,location,inventory,owner,lookclose,mounttrait
+    traitnames: spawned,inventory,mounttrait,type,lookclose,location,owner,waypoints
     navigator:
       speedmodifier: '0.800000011920929'
       avoidwater: false
@@ -2874,7 +2874,7 @@ npc:
       owner:
         owner: drAke
         uuid: df1c5d6c-590c-3191-baf6-1b169f07d99f
-    traitnames: constants,spawned,type,assignment,location,inventory,owner,lookclose,triggers,mounttrait
+    traitnames: spawned,inventory,mounttrait,type,assignment,lookclose,constants,location,owner,triggers
     navigator:
       speedmodifier: '1.0'
       avoidwater: false
@@ -2900,7 +2900,7 @@ npc:
       owner:
         owner: drAke
         uuid: df1c5d6c-590c-3191-baf6-1b169f07d99f
-    traitnames: spawned,type,location,inventory,lookclose,owner,mounttrait
+    traitnames: spawned,inventory,mounttrait,type,lookclose,location,owner
     navigator:
       speedmodifier: '1.0'
       avoidwater: false
@@ -2955,7 +2955,7 @@ npc:
       owner:
         owner: drAke
         uuid: df1c5d6c-590c-3191-baf6-1b169f07d99f
-    traitnames: spawned,type,inventory,location,blacksmith,owner,lookclose,mounttrait
+    traitnames: spawned,inventory,mounttrait,type,lookclose,blacksmith,location,owner
     navigator:
       speedmodifier: '1.0'
       avoidwater: false
@@ -2981,7 +2981,7 @@ npc:
       owner:
         owner: drAke
         uuid: df1c5d6c-590c-3191-baf6-1b169f07d99f
-    traitnames: spawned,type,location,inventory,owner,lookclose,mounttrait
+    traitnames: spawned,inventory,mounttrait,type,lookclose,location,owner
     navigator:
       speedmodifier: '1.0'
       avoidwater: false
@@ -3007,7 +3007,7 @@ npc:
       owner:
         owner: drAke
         uuid: df1c5d6c-590c-3191-baf6-1b169f07d99f
-    traitnames: spawned,type,inventory,location,owner,lookclose,mounttrait
+    traitnames: spawned,inventory,mounttrait,type,lookclose,location,owner
     navigator:
       speedmodifier: '1.0'
       avoidwater: false
@@ -3033,7 +3033,7 @@ npc:
       owner:
         owner: drAke
         uuid: df1c5d6c-590c-3191-baf6-1b169f07d99f
-    traitnames: spawned,type,inventory,location,owner,lookclose,mounttrait
+    traitnames: spawned,inventory,mounttrait,type,lookclose,location,owner
     navigator:
       speedmodifier: '1.0'
       avoidwater: false
@@ -3059,7 +3059,7 @@ npc:
       owner:
         owner: drAke
         uuid: df1c5d6c-590c-3191-baf6-1b169f07d99f
-    traitnames: spawned,type,location,inventory,lookclose,owner,mounttrait
+    traitnames: spawned,inventory,mounttrait,type,lookclose,location,owner
     navigator:
       speedmodifier: '1.0'
       avoidwater: false
@@ -3090,17 +3090,17 @@ npc:
       owner:
         owner: drAke
         uuid: df1c5d6c-590c-3191-baf6-1b169f07d99f
-    traitnames: spawned,type,location,inventory,owner,lookclose,mounttrait
+    traitnames: spawned,inventory,mounttrait,type,lookclose,location,owner
     navigator:
       speedmodifier: '1.0'
       avoidwater: false
       usedefaultstuckaction: true
   '150':
     metadata:
-      player-skin-textures: eyJ0aW1lc3RhbXAiOjE1MjYwNTg1MTI3MjIsInByb2ZpbGVJZCI6IjZiZDExZjVjMjQwNDQzMzA4ZWYyMmFmODAwZDNlMjVkIiwicHJvZmlsZU5hbWUiOiJKZWhhbiIsInNpZ25hdHVyZVJlcXVpcmVkIjp0cnVlLCJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvOTdjZTdiYzNhZTZhOTU4NTg2MTVmZTc4ZWJmOTYzZDk3NzQ3ZjNmZGE0MjIzNDU5ZTE3NzMzODIyZTM4NWFhYSIsIm1ldGFkYXRhIjp7Im1vZGVsIjoic2xpbSJ9fX19
+      player-skin-textures: eyJ0aW1lc3RhbXAiOjE1MjYxMDk2NzkwMTUsInByb2ZpbGVJZCI6IjZiZDExZjVjMjQwNDQzMzA4ZWYyMmFmODAwZDNlMjVkIiwicHJvZmlsZU5hbWUiOiJKZWhhbiIsInNpZ25hdHVyZVJlcXVpcmVkIjp0cnVlLCJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvOTdjZTdiYzNhZTZhOTU4NTg2MTVmZTc4ZWJmOTYzZDk3NzQ3ZjNmZGE0MjIzNDU5ZTE3NzMzODIyZTM4NWFhYSIsIm1ldGFkYXRhIjp7Im1vZGVsIjoic2xpbSJ9fX19
       cached-skin-uuid-name: jehan
       cached-skin-uuid: 6bd11f5c-2404-4330-8ef2-2af800d3e25d
-      player-skin-signature: x/v38njwi4WvzkGB9Nv9JF1FD5JBOSV6IHDQ+i+208RF0/wkP2CWEHaSVfUXae58TvXz1FCSRtLE5TfJzf/vGeog5ii8qcIrsf7VBslpfcwgxCQB3afmmY+s4qbRnh9Pj6FnQGuV422SJ9es1ymWF7aDZL/NW6wUJxPvTUweaL9tGrYsvrHW9lZnlaVr3u4nOxBgwjviZ6lhCl6QPJdson2aACejve+Zy67bDNF0fwdhu3vFMmE3g78ozca2Du/cYgCCAEJvkk5eRXGh1BoPw59xvmNLOIBGuNxBUuOV8Swb3hzbz3zKxa4FeZLRwff4/MWr8KSkZRfEcvm9UsyZHLgjcMp6bUQCF8t1N1xV2GLWeSNo89gBm1vYC1RqB9QEYx+UiTUzvqYhOZ/ljDWfEoY7tgGA3DQ++hyQAMjrwS/Q3aGMnx/JuWZjbgPWg/fZQP2pDinQ1grN4tuY4v/RnhToWnpe73axQOcHjCwFm2lZP/86z5Nc8jFsAiajuIQLNb0/brmJj2zenNdCWWHauvfYt1EB9YyStvmSPwdX7iS+9Mo3JFeNRRvPx5DGpqubJKVhfErvUNKNU/YmdtwT/mA10/Mzi/YrJvjGgRPxMOT5nsqgMiA5M+MqiGboFEVo9NzecnlbpmkEIJrgh6BdVH3mA7TXfoJxLmaIxBpzt3Y=
+      player-skin-signature: E7cl7BEcNW6MO+mqmvGmatzsY4Z1nG1+Zek0lS/4FgeM9DlzztPDREyPMUYJQNFuMHdHpiTcsXtuajLsVusL/PvUm1vRoM9Klc2+6pQSeL1Ddkeh/lSEsbWClA5hmaziu5T0YrtA80OBAuu90zP/503p9LXs24KFtr3UEvYP56DyawoGw4nhUEaykvqRwBjazPDujDDIMQ6edmsiFLRkAhtCEkK44IuoAP2She2v+m5CT7yYmtIrQLUT0ROgoYzVniA5Wx49K14pTBJ16nL+TlCVsFanEmFypuUc0ULheKFh1K7BxggInyzhtv80Sgu3y4pLu/EQm4a0oXBnmmlxaik0am8GYcrzFHlmuM8+cX/XlCG2pJtlWtr++1pENSvU1djCYFUSqLrtIVHS0/WH4vVZwZ9TTFdsfARMATJqOEwbUMsmx5iB+4Ypz5IA3ISanQ8b51oFyNTUoTlcxam4uMmzCIEmIfKIln6h8PQkfzYwI44FmvwzKXSoae3t4dUM2pyvdw8bI0wXm2kYyDa7c1bwvQuSB9CMqX2fS9OMMQLKC4v5kezTK0LGThcJ5R/vWVDgvDeydXvdm8gldjyBzB/JlI+f+1NKHHwPE7ycEOKLW7Yx1D23iIg43xp7tScsV73LXNZmNMsY1nM5NT8j24etqek+ZFt/C11sFkJVJ+8=
     name: §bJehan
     uuid: 05d0f2b7-9e32-4138-bd69-f75409763268
     traits:
@@ -3135,17 +3135,17 @@ npc:
       owner:
         owner: drAke
         uuid: df1c5d6c-590c-3191-baf6-1b169f07d99f
-    traitnames: constants,spawned,type,assignment,location,inventory,equipment,lookclose,owner,triggers,mounttrait
+    traitnames: equipment,spawned,inventory,mounttrait,type,lookclose,assignment,constants,location,owner,triggers
     navigator:
       speedmodifier: '1.0'
       avoidwater: false
       usedefaultstuckaction: true
   '152':
     metadata:
-      player-skin-textures: eyJ0aW1lc3RhbXAiOjE1MjYwNTg1MTEyMTUsInByb2ZpbGVJZCI6IjFiOTYxNmJkMmY3NzQxNzlhNDExYTM5YzY5MDM5YmU4IiwicHJvZmlsZU5hbWUiOiJTbGF2a28iLCJzaWduYXR1cmVSZXF1aXJlZCI6dHJ1ZSwidGV4dHVyZXMiOnt9fQ==
+      player-skin-textures: eyJ0aW1lc3RhbXAiOjE1MjYxMDk2NzczNzYsInByb2ZpbGVJZCI6IjFiOTYxNmJkMmY3NzQxNzlhNDExYTM5YzY5MDM5YmU4IiwicHJvZmlsZU5hbWUiOiJTbGF2a28iLCJzaWduYXR1cmVSZXF1aXJlZCI6dHJ1ZSwidGV4dHVyZXMiOnt9fQ==
       cached-skin-uuid-name: slavko
       cached-skin-uuid: 1b9616bd-2f77-4179-a411-a39c69039be8
-      player-skin-signature: VmYwp5pEt/jx/5LOZi87jkhY5Ylg4Er+Q1Yp/xJWmjuqOkIcvgCyenXZEzhBkEQNfwEIX5nakVL+un8WpWbvEtZKsg+mg3eiDC3/bjOsecVebM1l/um/ZRE7QJ63FI4E8RtVxKhMGYuqT49DJEoTiqZ9rH6ep+qnASL/trQ6uRl8/okas7B9euKrlPgPWiQzNmxQKiqxrGxuMnGhltsZtws7P5gEIWl9L2SZlJpe03M36Qwz98AQmzDQNB5thjVpkpEiSuPx9M3P6vA5nQxEjKiQwVJTXj/qKW6I63cCqMPn7Eqd82RM8wLTApA/v/CnEFbxgHMmcbHLgRPHUllkD+/ImBWPKVdiK47ueIUwDlobCIh2jSd1iWrB4rQTeO+4BWulQA+4K7U+HfrNWhpCDFO/ZhfMfSAmJVxGLjv35Nyhp2383yUcTCE5CjLhQrW7oWr7R+7btOEMUsmvVE8ceb+fvJmBhYovBM2o7rgN8uevT0x6WAysvMpe2NjPvkTtqBYCq/kosZuBa4PapT9j9mZwsQnhWayZdVDDnJosQqQ1e3rxCVvpXMoUdA0TaRlkPNisF06SI8AK0JUJtZW7fjXUgcg+pClvvTfp6HQNDfrK21FVuCbyarTX9alihn+bnvrqnw068Pay19VgwizDgl4IFBf7vmsS6qUIYDxzcDY=
+      player-skin-signature: x1vc3HYvp4U3mAY36y2dO+M8UyHGhJj9R6tgVjMHVZx26gySraTmPkzjxXYGA6sTmNbh+j+aKIvRqZxhSE/g3QjWh+D2NXjf+UBQzmNUWt62K7KSPN0eDVjsXP8Ei9kd4adi3d0f7XA/SM9wmpDuI6Gsy1aDykobQqZYjdc10KK7boEIdbiUKHY/oAYwO+zAN1ydsWKdNRYIqwjnvAoG9+0Nj0MddYQVZMMKEu17ZFPEtWAgOWzsg4TdeCRFqEZ9roZtVbjrWYCRbj1SW980tPMMVO/gZ79WSduTFE9Y5N8PXuTnzIl4HxKveFiv9Zh6XSbNP4YaGh5E6cUnvPoQkBgBQ+1ft1pXMRrr+gkjSclopFTGG4F1jZOqArqS98mfIen/LRVH4/saVdii02eCek9RG1q67qIROHCWSFwGMVHbY7v/0IZUKmI/1jAGD+mikhis4gRVgyByChNKTve+yXCB0Wjxms7r11SATdPLofL7ltsITI7epQG6Z01QlMfNUxYtPCq36e+vhmz+aPlqMXnYxZQJMidKIz/RWHw8ipLIF099s2sPynGcKYbVvtabZCDjKXBcZiOvSa84KLLbL9R7WUZr+xbD8sE9gFUJPnjwRX70rQ8wDCwnJkeAGJVb/ETByKV500LYHugRksVAGvyqvcIPlYnBM0t1eOU1IuE=
     name: §bSlavko
     uuid: 549b17ee-0a7f-4484-9ac4-6cc75a2e0421
     traits:
@@ -3178,17 +3178,17 @@ npc:
       owner:
         owner: drAke
         uuid: df1c5d6c-590c-3191-baf6-1b169f07d99f
-    traitnames: constants,spawned,type,assignment,location,inventory,owner,lookclose,triggers,mounttrait
+    traitnames: spawned,inventory,mounttrait,type,assignment,lookclose,constants,location,owner,triggers
     navigator:
       speedmodifier: '1.0'
       avoidwater: false
       usedefaultstuckaction: true
   '151':
     metadata:
-      player-skin-textures: eyJ0aW1lc3RhbXAiOjE1MjYwNTg1MDQxOTgsInByb2ZpbGVJZCI6ImZmZTdkNDc5M2IxNTQyMTZhMmYyZmNkZDlmYjhlNGU0IiwicHJvZmlsZU5hbWUiOiJqdWRkIiwic2lnbmF0dXJlUmVxdWlyZWQiOnRydWUsInRleHR1cmVzIjp7fX0=
+      player-skin-textures: eyJ0aW1lc3RhbXAiOjE1MjYxMDk2NzAyNjYsInByb2ZpbGVJZCI6ImZmZTdkNDc5M2IxNTQyMTZhMmYyZmNkZDlmYjhlNGU0IiwicHJvZmlsZU5hbWUiOiJqdWRkIiwic2lnbmF0dXJlUmVxdWlyZWQiOnRydWUsInRleHR1cmVzIjp7fX0=
       cached-skin-uuid-name: judd
       cached-skin-uuid: ffe7d479-3b15-4216-a2f2-fcdd9fb8e4e4
-      player-skin-signature: VL5eFTAbdGXFsNsqmxZIbSWfRUZOdZMJXLmx53QzPt8A4e/M1bKgN6x7xoAEEkRPna+W/3WN/cIAVTPoa83kAwhLVGD/voDOATxb4UswEWRyTTFu7g05wkDAbV0WYSO8VvoUJzdMior7c1lAhWPn5lNIQZPbbCj7jT2W5gC4SfYUGU7ASjmGG4kcG5bPu3dSR6wqkt2A9nzG1X8htuR6HJocx2HxsuRp231QvuJvDBQpmOF6qEL+t+HXU0hP4C8BlPYkIq7ZjzMJIfPXxv59q0b6fDp4DIbBb6hyoIJZxAFLRBOzYDNeR2dJvPiYoYk4LLeGimsTt2gZU7FUXh1+b46j6RPDRq/vfWm0VyAbHvDq+b0rqfBmAXqskHCwpqym7JqQlecAVkuIX0c3x3PfOGR3u0CuomcnLzNv+KeOcXEfI77SsQznYUmo9jr/OU6rCilJZ51hTMvsb0tjmyOq7Ghj6nZVwkPD5XbWZ87s7Ez+OkHQPYPfGkOMSyzCeaRwIIdMmdqtGizMvScSAQLyddxjAOPo0SNsKyFDdJNedtj6v/GrTTzeaDI/ap8H0unNapTWwqGo1l8zIxUcpZ/g9ndzraJsiIhq87jR0Drppc7PXuEYeicNBX5l/hfgU5UKeuMjBxo6+Y8KPvdQ9d+68hJXvSTADcvlKeoui/39v+U=
+      player-skin-signature: mG2VQ++QKptnlMGnLeNfuD/KsHtGvc6ebAn9zZQzrFiQ0L3+NieGszK/i6AU5mPkHt8iEgH0+K9qtmCklWGHa5ACWdQ5FGLw8/ylbXYBdiz7jbvGdaft/YivEzsOFVyVq+o2kkO/aYq+jV3cryWvLOGgGgJlHoBgg3n9F7LL/yiGbJNLDFey5LDRaXTYciGd6giOzzvLKfQlJ2nm4OcXSsmoAxl80+Rq8H8rNwxR6NDkIKJvO/Nbv9x8h6KItUn4O3xt8QTY5flZg4T+0lwS7/H24BXrP7ZJGtn3v6+e0ojk8gBHVmdXKvp4epeEdBxAVwuxMVMmSK6nRvq6FnvqMvxpaNICKsk8IGZbSuiDcKJDbf2Q8PxEMJDGPVoxgGCTAjRRW1ejziBZrfMRLt3vFBiaJ8AY4U9jwfERpYR07G/gQZ6nEGMpXq0CScdb+RsVp/llRrVMkO58FZ+z5EUgt2gMy9hDdCwEVR/0Q2ym6R6dqsU7USU9NBB14S54X76CBCXYAB17GWwxCyRkD182BQtscNYwHEyRrE3sfKY1r7woKBm1MN4jd0zYx7ZG1QGwgTeTIWOVPTqgYxGHPDzt2vZ4902ax2+V3L9Oau4egI3NegtahOzqt+ZQtEdIaHaFXOoc5rvkqI3FOa+/3aIs+Cg3IJkkXJp4aMEIo2VD+lc=
     name: §bJudd
     uuid: c70bd841-64d8-4adc-b532-cdb0eab6067a
     traits:
@@ -3211,7 +3211,7 @@ npc:
       owner:
         owner: drAke
         uuid: df1c5d6c-590c-3191-baf6-1b169f07d99f
-    traitnames: spawned,type,location,inventory,equipment,owner,lookclose,mounttrait
+    traitnames: spawned,equipment,inventory,mounttrait,type,lookclose,location,owner
     navigator:
       speedmodifier: '1.0'
       avoidwater: false
@@ -3244,17 +3244,17 @@ npc:
       owner:
         owner: drAke
         uuid: df1c5d6c-590c-3191-baf6-1b169f07d99f
-    traitnames: spawned,type,location,inventory,equipment,lookclose,owner,mounttrait
+    traitnames: equipment,spawned,inventory,mounttrait,type,lookclose,location,owner
     navigator:
       speedmodifier: '1.0'
       avoidwater: false
       usedefaultstuckaction: true
   '155':
     metadata:
-      player-skin-textures: eyJ0aW1lc3RhbXAiOjE1MjYwNTg1MDEyMjIsInByb2ZpbGVJZCI6ImVmZDNkNmQ2MjZhZTQyMjhiOWNjN2U4OGEzNTlmODE2IiwicHJvZmlsZU5hbWUiOiJ2ZWxhc2NvIiwic2lnbmF0dXJlUmVxdWlyZWQiOnRydWUsInRleHR1cmVzIjp7IlNLSU4iOnsidXJsIjoiaHR0cDovL3RleHR1cmVzLm1pbmVjcmFmdC5uZXQvdGV4dHVyZS9mYzJkYzVkMjM3MDg3YTMxZTUxZWNjZjQ0M2NkOGI5ZGJkZGViNTlkM2JjNGIwNWJiZmUyNTdjZGE5MWU3ZSJ9fX0=
+      player-skin-textures: eyJ0aW1lc3RhbXAiOjE1MjYxMDk2Njc5MjQsInByb2ZpbGVJZCI6ImVmZDNkNmQ2MjZhZTQyMjhiOWNjN2U4OGEzNTlmODE2IiwicHJvZmlsZU5hbWUiOiJ2ZWxhc2NvIiwic2lnbmF0dXJlUmVxdWlyZWQiOnRydWUsInRleHR1cmVzIjp7IlNLSU4iOnsidXJsIjoiaHR0cDovL3RleHR1cmVzLm1pbmVjcmFmdC5uZXQvdGV4dHVyZS9mYzJkYzVkMjM3MDg3YTMxZTUxZWNjZjQ0M2NkOGI5ZGJkZGViNTlkM2JjNGIwNWJiZmUyNTdjZGE5MWU3ZSJ9fX0=
       cached-skin-uuid-name: velasco
       cached-skin-uuid: efd3d6d6-26ae-4228-b9cc-7e88a359f816
-      player-skin-signature: kTwO1uguIVVyoETsaZoA3P2Qhgm7y/9EGZngnEUQE5fHRQjg2xW4B4iaQZdKb7oqqUZKvnCSUVv1abxiu9SoH5KSsQt3QVZ/xF8G7U0D7MRBl4hXraYgm2yecuzTc1YUuknX5A8JI10wIyIB4Q6tJVOCx8kQPtgYR5Z6gxzSzyREZSw5s8tKmJUQcst5/4CgbUG1EB9LqL2HxmZwcGmkNxObejuAopi96F5rroE39hRe18hoFoLlalM6+sUDxZLQ50sMFjsLMUveW+sGdv6bZwJ4ZFhma2AyUaAvr7c0MZ+xIhdP3eWaSwe9VFjE2lbkPIJWoyzQLPw5CKBv2jiDCmh55OKpBsmm83wLJ1LsZTgny8cue+06w/1U31GFplg/Uu07R3LPhvOaleP2OgiLYlTZV/hmralzxVLONtNgo9FuH0SeOLQPCIwVolOYHBQKq7p49ahtSVK9MrMy0M44Yv+4c8RhsiqHCIQAeYNOzqYZ/a4GgW4fff2FOn0dxuo1YsUf1xSjt0Vl0EP5a70LOw/1+OViyZM/gz0+dXkrJP6svTYhNKsLGjr9q+SvYMdPg9Ot21Uct8z52w2TPH7ugoORWieJSsHo1euNRv5SPqeieYnIrRzr9+QrXzNjHvLI8GNmC08fLQLdpjiJ8gWi68SPrvvfdroSV0AqaGugKyM=
+      player-skin-signature: kwy23EKESrZ2WxAUuaG/d3/zHBl4RQQo5ipeIdb96olHh0aWADv7t2G13TI7x6DI9qyscD+En+cBwzdH4byOzetexaeWFiwW5IskSrZk4KNTu6yd8iZ/bVZMUMWdW2hCZ12/GIaaXpbwbSl5/ghI6ZxX21rRt3gwxJ6H/AHxHKOdlB5wEkPGV2dekdpOnY7vRmyswSnZ+ojgHolvmEogkz2H5g5o7w25p2mWPD3MNKUQT6OGuDDpKcPf+M7/8Rj566q7CgyfptWU9oZ85hTlrqQx91ap6Mr8OOHVl++ByxcufMCnuFiFLF3DH5aQuwvYeI9OXTRwxRyiLdHEUS/4EPt9voAslMq0B6jYa8xmu63z9wHvOCvz/+LdVRKQ5PX8A+EbIDwBrcSZN0o5k+zncmdgYPP/Vd+rWzcg3KQFd+3k2Y7hITvyfE0GkKrYZiug+1KxW+Oo7LpBuHdBdeWnwMwYA1FxnfEylaw9uc6WY3cudfZp31CQ8irHFAuS1iSsyXnvbuBwQPf1iouu5EbXHiOSOrgJ+KaJEJDx0iHPrcCdrcPaNu6FKmL3S1fc95hSGRldbIuVeelce6rEAreq0uMvObnN62Cm2eMuH9fMEL9P5h5CogxMU8LDXstUaNUq+TSM8Sx6YqLXOsBDYFP47BL42lOnww7p784HIHVHprE=
     name: §bVelasco
     uuid: a99e8127-b143-48ec-943b-97088101eeab
     traits:
@@ -3277,7 +3277,7 @@ npc:
       owner:
         owner: drAke
         uuid: df1c5d6c-590c-3191-baf6-1b169f07d99f
-    traitnames: spawned,type,inventory,location,equipment,lookclose,owner,mounttrait
+    traitnames: equipment,spawned,inventory,mounttrait,type,lookclose,location,owner
     navigator:
       speedmodifier: '1.0'
       avoidwater: false
@@ -3327,7 +3327,7 @@ npc:
       owner:
         owner: drAke
         uuid: df1c5d6c-590c-3191-baf6-1b169f07d99f
-    traitnames: spawned,type,inventory,location,blacksmith,owner,lookclose,mounttrait
+    traitnames: spawned,inventory,mounttrait,type,lookclose,blacksmith,location,owner
     navigator:
       speedmodifier: '1.0'
       avoidwater: false
@@ -3355,7 +3355,7 @@ npc:
       owner:
         owner: drAke
         uuid: df1c5d6c-590c-3191-baf6-1b169f07d99f
-    traitnames: spawned,type,location,inventory,equipment,lookclose,owner,mounttrait
+    traitnames: spawned,equipment,inventory,mounttrait,type,lookclose,location,owner
     navigator:
       speedmodifier: '1.0'
       avoidwater: false
@@ -3383,16 +3383,16 @@ npc:
       owner:
         owner: drAke
         uuid: df1c5d6c-590c-3191-baf6-1b169f07d99f
-    traitnames: spawned,type,location,inventory,equipment,lookclose,owner,mounttrait
+    traitnames: equipment,spawned,inventory,mounttrait,type,lookclose,location,owner
     navigator:
       speedmodifier: '1.0'
       avoidwater: false
       usedefaultstuckaction: true
     metadata:
-      player-skin-textures: eyJ0aW1lc3RhbXAiOjE1MjYwNTg1MTAxOTMsInByb2ZpbGVJZCI6IjE5NmQ0MmFiZDM1ZjRlMDhiMWE0MjMzOGM5NTMyMDQyIiwicHJvZmlsZU5hbWUiOiJaaGl2a28iLCJzaWduYXR1cmVSZXF1aXJlZCI6dHJ1ZSwidGV4dHVyZXMiOnsiU0tJTiI6eyJ1cmwiOiJodHRwOi8vdGV4dHVyZXMubWluZWNyYWZ0Lm5ldC90ZXh0dXJlLzY3MjE1MGI2NDY2YjlkNmFhYTE4NTNkZDc0NjE2Mzc4Zjc4OTZiODdhY2NhYzNmNjRhZDQzZWMzMmRiODgxYyJ9fX0=
+      player-skin-textures: eyJ0aW1lc3RhbXAiOjE1MjYxMDk2NzYzMTEsInByb2ZpbGVJZCI6IjE5NmQ0MmFiZDM1ZjRlMDhiMWE0MjMzOGM5NTMyMDQyIiwicHJvZmlsZU5hbWUiOiJaaGl2a28iLCJzaWduYXR1cmVSZXF1aXJlZCI6dHJ1ZSwidGV4dHVyZXMiOnsiU0tJTiI6eyJ1cmwiOiJodHRwOi8vdGV4dHVyZXMubWluZWNyYWZ0Lm5ldC90ZXh0dXJlLzY3MjE1MGI2NDY2YjlkNmFhYTE4NTNkZDc0NjE2Mzc4Zjc4OTZiODdhY2NhYzNmNjRhZDQzZWMzMmRiODgxYyJ9fX0=
       cached-skin-uuid-name: zhivko
       cached-skin-uuid: 196d42ab-d35f-4e08-b1a4-2338c9532042
-      player-skin-signature: BOqncOf+cwihdAL3JhcMhtLZkw4EKqq7e+b3yoTcJOYLs8dQUFj1O6mQSdnvXQQbD/ce5ZEEKkzLPSNE6BJnk8NpB3bVIMnpJWVS2wqSSCUcJrK9uD6/vqP4IYn3+ChGwi/BxhbSs3bht3VkiKgrCZ+lbYS/ilCkBWVH/7OYMMWAW0Q0yM0fONSXXGhM96LtLSy4XH/Hwd7RYa60zhc4DdsOIkn9/XiS5ckBvizPijjx+AdaBZTLX1Jf4PM8jo/CU2jLB6zL4bKlX+Ek5dEFX+rwJp/N7M/mtyNc1SH4gyyIokxl0Tap6xe+vmzX94+8GhLOAhTzNlfogsAXHt0lT0Vk/zhFWv9hjSyQ5doe7+rU1EeSsDnL+abZUSryJB1X2BinYdbtNH2waUYHxmv6tJ0NSdn9svRuL0VbtCUw/WvoImtqqTBFx8OsGbyIkmmGvi//XWe/se9dsKG/CUHVqKMRSmXcwvlVJnDWYOciF1yf2TP1WnHe4mdRk801jd99SglRypW1/h2jBQ/SH0vcDinCrNKrPWQlVzHu5GEMc38m9xy94xLjsV+HOFLTImMox4Yyt+H4GM3l7DK/baENmAAgdQ4ghMnNYy20zVsDYPTsCQmaDHKBBPx16jp2ve9kS73AOfESLY4WcERkSvfkJyvFjeqlRtmMuyZLM0QOmVg=
+      player-skin-signature: JE70jPwU3X7IiZhvkS/OVOfVIcSWqcYV7S3PtMy86v5VO5U5g7ftgZmdlYasIMlMy5Hqjd1dEFci8kKYx9IKM4jUCjGSz7XxFXshX1Bssr8Z84OgBOfG3Dr90mmG5jEVvHnRw83QmBvjfHCVWF1QzeOA8pIPuwqTlH5sXnNv42I87LfuuCE4V65O0UP4Aj/pgsO6oHMHeLJrwxi+zCz4eZ+vN6HeZURzvfdmYjq0UYIAYYSS9ZN0YodnHXuRmfh+iB7Utc2XlLc3yjynTFovu/mWAblUhutbROTekDZ3ikWcbmF2YBG7yGF3e7nrJxGCKBrSYE5OZ9BOkourn3IXDnXaSS+8Sj9dEa4iNJPpuD84K3dO68gLQZzeRtvaPz3Pr2lVuXki6semIWWy4hX0akb+Pjj9JaplE22+3DRP8CF0gNJ4u9ZZ+DykLj7TmUNUV9lkyeQa6RdWsB2btVvDIxODkDVgui0ImD3c6tglx/Mxmx0cHatmpS8cANWa9XIlI+j5I/qahXFxF3v1zRh4aY4qBhUB/LC79gJoM4gO6wgr6EpyDvcoAZxvQ3+FyF6Dh2XFE4RgqSZ+VLBRFo1i4XMbNs/CEOEkUhqguT2lIV+bVpB5dmI54iak0qao09x0W+kpA6P+ymBzXMjIQx6Z7oTpUTYqKuU6Ae74q7VpVXs=
   '157':
     name: §bYoslav
     uuid: e9d9d708-de05-49cb-801e-eec6db5a293a
@@ -3416,7 +3416,7 @@ npc:
       owner:
         owner: drAke
         uuid: df1c5d6c-590c-3191-baf6-1b169f07d99f
-    traitnames: spawned,type,location,inventory,equipment,owner,lookclose,mounttrait
+    traitnames: equipment,spawned,inventory,mounttrait,type,lookclose,location,owner
     navigator:
       speedmodifier: '1.0'
       avoidwater: false
@@ -3456,22 +3456,22 @@ npc:
       owner:
         owner: drAke
         uuid: df1c5d6c-590c-3191-baf6-1b169f07d99f
-    traitnames: constants,spawned,type,assignment,inventory,location,lookclose,triggers,owner,mounttrait
+    traitnames: spawned,inventory,mounttrait,type,assignment,lookclose,constants,location,triggers,owner
     navigator:
       speedmodifier: '1.0'
       avoidwater: false
       usedefaultstuckaction: true
     metadata:
       cached-skin-uuid: 9040f03c-84d8-4b80-b1e4-71682bbf6d04
-      player-skin-textures: eyJ0aW1lc3RhbXAiOjE1MjYwNTg1MDY2MTEsInByb2ZpbGVJZCI6IjkwNDBmMDNjODRkODRiODBiMWU0NzE2ODJiYmY2ZDA0IiwicHJvZmlsZU5hbWUiOiJMYXlyZSIsInNpZ25hdHVyZVJlcXVpcmVkIjp0cnVlLCJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvN2UzYzFjZGFlZWE3ZGMwMWViNjY3MzNmM2M4MTgxNGZlMTcxYjVjZjE3NGE0M2U1ZjNiZWM5YzkzYTEwIn19fQ==
-      player-skin-signature: hB3ET+euxLAjr7qbawvn+u3lbmHnL+BO2lF0ljR+8aJ91TL4Yg+XdmJUcxmrKfQxL/Rako1uPWkjk9PkqVce9jwidGvjc2kFxo5cNIvoIMnWcFXFG2TfmLhKdWPq/9aj/p4r09jezYBAkIX0Jy+L4/1UO6mCz7fSHGx49Y1EoPQKnJXOPN7n4NRWZb5bkBgBokTA3Gj+yryZ7/MNnyG+RIdXx3/r/3Y7RJ9g89nOQ7oecFy7JD0eGPzaVYn4KsycCKCjNCYfOvP/2keVlw2VzOG7NVKOT7jUNUWgXqHyCotOGxM8XY7D++kx2RRoXSzo5vsb+Id4rgdIAdeLsbZMA/9TK/3SbarKJmqYYYSLf8PQGeuq78vdL3xys4yTOVn7hNBkLcw9NqPmp58mfZi9H+gElHijhk0D3Il98quOlC5VcMQwQIuKrSCEYxro2FrOmoWQvvF3dCyx/QNcwlWpVq3AYvpMe+6dDjMsE5jVIDBkZ8Mf0iHoSOdt9Sb7A7EkoAnHxGlV/JeGHsrS3T4cmiKqLECll0RpTnBSmXZo2ihcuTLOpKfsHfvlHfEC+xEOZpFn/vqCaorzxs9A9QUGQXwl4czdRL9xhE9YJHZDRNbk1s3HnBmD+Cnw/Irkm5PAc2wnU8zpPwl9YxhkVuI7NsuqcZA0xdps4MA0/gnlDUk=
+      player-skin-textures: eyJ0aW1lc3RhbXAiOjE1MjYxMDk2NzMzNjMsInByb2ZpbGVJZCI6IjkwNDBmMDNjODRkODRiODBiMWU0NzE2ODJiYmY2ZDA0IiwicHJvZmlsZU5hbWUiOiJMYXlyZSIsInNpZ25hdHVyZVJlcXVpcmVkIjp0cnVlLCJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvN2UzYzFjZGFlZWE3ZGMwMWViNjY3MzNmM2M4MTgxNGZlMTcxYjVjZjE3NGE0M2U1ZjNiZWM5YzkzYTEwIn19fQ==
+      player-skin-signature: AhJBhs8xXMOkHEr57yW8BrblCf/xO/xMVkIK1gbvnRn3QCT0i4gOlBRArGDhIZ8u9hhntx/X9Jt6ymOLk6UmfZ2iFtx13hDYQJRSa0atCn0gOk0/fLv7HTMCVgImqZID7ome+QFg0cON/HdG+UL9mJRn4axDLqAndRHFXTiztR4f2olKdjqq2v49xO+u9u5fU5A7qG1PoU2iF3ERXDegK/MBFVe15SICdcqxLxfURza5QH0nf+uNlzyjWL4lFDf/KCad8Q4Dk8US5hbsLvKm9v1LgUJc7DyrsBz1PpxB3Ca7YbbHm61Vsk6EJ5SF5hBOBmkGwepIBIC6lEwo1iityX6DChD7ZlfL9HLcRnvsEPtpQ7xt3yasmk0UOZXfCKeDWaV/FZ5BblrpJ2jRrjv+EjWZZc79DY2RHAIGz6L1iksmzSJeygUqF9yJ7HdFxKN6NLAc9w1Ba5A9HE/Luw2xSzHgmqVuKKN0y17mw+WHpGJZinXoEDSipe1enYgZiCxGFyKopO85H13mIqNBgW1D8HgngJgVIcBwRf1s9v57bDcbsedTAFhQWXQsyPzXyZqfjeuEFQsIicWCj+VNhMCoBYcBS1lQS8ddpZ5tZcdNvPmk+6po/GY+MPDThrYf62ztvJorOlia8IPhf0v5jIcPq/LPCtbe6j+gk7t5/ENMZds=
       cached-skin-uuid-name: layre
   '159':
     metadata:
-      player-skin-textures: eyJ0aW1lc3RhbXAiOjE1MjYwNTg1MDcyMDEsInByb2ZpbGVJZCI6ImYzOTgxOTBlNTBmNDQzYTBhYWI1OTk0MWFjNDBhZmQ4IiwicHJvZmlsZU5hbWUiOiJCbGF6aCIsInNpZ25hdHVyZVJlcXVpcmVkIjp0cnVlLCJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvNDE2ZjVmODdmMDc1ZWY1ZGZhM2VhNGZmM2E1ZTc2MjdkNjg0YWU3Mzg3ODM0OTY3OTI0ZWM5NTdhZThjOWJhIn19fQ==
+      player-skin-textures: eyJ0aW1lc3RhbXAiOjE1MjYxMDk2NzQwOTQsInByb2ZpbGVJZCI6ImYzOTgxOTBlNTBmNDQzYTBhYWI1OTk0MWFjNDBhZmQ4IiwicHJvZmlsZU5hbWUiOiJCbGF6aCIsInNpZ25hdHVyZVJlcXVpcmVkIjp0cnVlLCJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvNDE2ZjVmODdmMDc1ZWY1ZGZhM2VhNGZmM2E1ZTc2MjdkNjg0YWU3Mzg3ODM0OTY3OTI0ZWM5NTdhZThjOWJhIn19fQ==
       cached-skin-uuid-name: blazh
       cached-skin-uuid: f398190e-50f4-43a0-aab5-9941ac40afd8
-      player-skin-signature: fggPm114QfqNwnkmSdbR+y/3zvrdHjIBW3TGSaIJDvx7IhHMGp2bvqPhCM62OHsZB9YQ7w8H4PpJOKqQPAFxI9cC5R7bVNRSrTeQxFS6N2DIBWnbZYUOSAksQBH4dUu11veRwvXp4sYB3Z1W6P3GhXBbWdOvyrXnTmUhIq+86XEvIpLPa7JXMj2aPVC5Mt8E1SHdlbUdLPOqA67L9ce+MlSfplQPnfaF/W4UszB6Efyy1nxFq+vhxoYvshMM8/YWsqVUTLM3Wo/Q9PPXss7BO2IMEjWgKngoV/3YQBPDcZ7h1RfS1NK38L2A6IkRnJ9tJmUmR2KHAS0PFW5WBjnrYevj9yti4EeblpGwINgRHNpaigNO6oE4aAYnAlVs0pP4K1q4FOpOS8bc5x3s1MiX5ol3CkkMgUhxtmpvKzSz3XGSngGzgodOayf24prUinX7UiC1tPTBZTn0EbQIytXjzNEx720UUYk1bFP6LYQGqEpAjmzd0ydi/FVKPdcdf9PWoMJgeu8QWeq/Z0q4YaMz1uzNt0Tnq12zNcYVUKUx7ynubzDervIMePyWlvSzgwfa+Z8bM5LTD+g0eI4hagLkvBF3hHqHFRDAyXx3GTYJp/h6UmwZ+4yo3F5bqAWnbKs4FDUt+jkW2v1dKW4hf5OVRvNe8OT+YCoHyKrKQyPxN/Y=
+      player-skin-signature: x0wVp4wTwaWlWF4WrcRvLVFkKCOT81jH+UlA2ANJDVGukuWTg6ihwvCoeJ7zTXfKqCzW4LY3ihC8MChj+XcEtKLesGwXG/PSiLbAjwvE1PJxu5wKdqjExUdIRDSeBwpM/miEh1aVy0jXpjCers9dwCsmyt/0vqx3I2D+3CC/rJYNxvP0U5Cp7nxg8eZlWkQmYvJGU8e1KScv4UJ0n9+huhb1Xa4HiaDtm8R30MZlZr0vHZID8vkDUWkAqcuUX/jnWDQ+1vmXypDMAkrjCIfve+s9UjjBsOD4U2n+9xtH/LtANMEgKDpRElCMBnIe4ukXwxz0v5suWTWl1mVC5EnrOIpgzrOeXM9fJrTpXaO5Eo/9aVM2DA2TpOnheQEt/5GYgoYxn7eU0G2bjcTmRejBZlbsb4psSX+rjvVrky8CsRMJQUEnu9WgBePdU9hOTbJm3VvFYIFx4i1ePU+yKbNBIgcXZk0LBCgbTreG9dGMdEC6Q2+6ubY638KbTaB3jNcf68DAwJ07mCxOiyHUMLvQLo5HldYAJO2X4l+B/e8EpHGTHS7T1+vD/tMESJQcU86L9WVLPO2p+f1BoFw0JBLxaCzDPi790Z0y6CgVe+vqet/G7LIIr9GHH1kcKvJxYen52S9Kq5zw8hHK2JPf5uZqux8H30/QAIK99lurjkbXzL0=
     name: §cBlazh
     uuid: 37d04be4-8e16-4d16-a3fe-d81b4a09d2ee
     traits:
@@ -3506,17 +3506,17 @@ npc:
       owner:
         owner: drAke
         uuid: df1c5d6c-590c-3191-baf6-1b169f07d99f
-    traitnames: constants,spawned,type,assignment,inventory,location,triggers,owner,lookclose,mounttrait
+    traitnames: spawned,inventory,mounttrait,type,assignment,lookclose,constants,location,triggers,owner
     navigator:
       speedmodifier: '1.0'
       avoidwater: false
       usedefaultstuckaction: true
   '164':
     metadata:
-      player-skin-textures: eyJ0aW1lc3RhbXAiOjE1MjYwNTg0OTk3NzMsInByb2ZpbGVJZCI6IjI3OGJiNTU1NjM0ZTRjYTdhMmY5MjcxZTQ3NGI5YzZkIiwicHJvZmlsZU5hbWUiOiJTZXZlcnVzIiwic2lnbmF0dXJlUmVxdWlyZWQiOnRydWUsInRleHR1cmVzIjp7IlNLSU4iOnsidXJsIjoiaHR0cDovL3RleHR1cmVzLm1pbmVjcmFmdC5uZXQvdGV4dHVyZS9iOWU5MTRmMjU4MDQ0MDQ1NzQyN2VjNjFiYzM0NzlkMWI4ZmQ0ZjlkNDM5NGQxZmUwN2Q0MjQyODVhOTVkIn19fQ==
+      player-skin-textures: eyJ0aW1lc3RhbXAiOjE1MjYxMDk2NjY5MjAsInByb2ZpbGVJZCI6IjI3OGJiNTU1NjM0ZTRjYTdhMmY5MjcxZTQ3NGI5YzZkIiwicHJvZmlsZU5hbWUiOiJTZXZlcnVzIiwic2lnbmF0dXJlUmVxdWlyZWQiOnRydWUsInRleHR1cmVzIjp7IlNLSU4iOnsidXJsIjoiaHR0cDovL3RleHR1cmVzLm1pbmVjcmFmdC5uZXQvdGV4dHVyZS9iOWU5MTRmMjU4MDQ0MDQ1NzQyN2VjNjFiYzM0NzlkMWI4ZmQ0ZjlkNDM5NGQxZmUwN2Q0MjQyODVhOTVkIn19fQ==
       cached-skin-uuid-name: severus
       cached-skin-uuid: 278bb555-634e-4ca7-a2f9-271e474b9c6d
-      player-skin-signature: VHunRzLE1R+W+vktJkEXdK/LJNCAGjFXLwU3iGudeY1DzebCAy9uMvdUrp+tE6FlY6v1wqXB+Bwblcz5FnzTl+IXp2oeL1Cj/zmjs8e5ZOFutywoA4Mml4kajDtq5e6y6CtcaPaAnWVmbJd0YuIjFN+aciwT6WUan7TyWKbvmQSXAd3X/b844Rcusw798usAHDy0IbV3ENWbdfVrthqxqC9yFho+73HW5owKX82g/JNxHPJzrTDQTrT7rKz0AymgIahdkU4Mw2NGSSSLqj5gJ96gW/vVAmD0MCQ7DEr7Ya2oVVGYCtXYYyCH3gF9t6Rksp0HF4qmOK1erq1TKBAEnB/6qYMJsWnwaFFEQkZ7Ak7/+GIXQFMuczlxQswfys5ehI40vXIrNsDCeenxSmZgtmQfqnf3jOhXpDhd2XqvmJ08CUyvdIlFIpJ2CfXDBxtgJqed6aPPNcS0gAhf3lZ4KXCrrh3qr/wCVXf6ST8Q92d3OsReVGMOhZQXoybvUrSVwO9ScOyhGmTSTzeDJ02d0kEoVUZgcNyJhXjFNTkZeF28oW5Trps500SY0PTJ6EJxCLOoXhPy4NIzGR4lw/h5Aa04bTAwRvODgLoqsgEfNgET6xAy30HQjJsCmYspiCKJrZNToQ5FhgkGGKWOaTOUob5ny5UDCPWX78Timxdt6eY=
+      player-skin-signature: Jw0HX7MWro9+9LkxEJiEZQeF4urEZE3qoMXFjZl35Tg5iuwRaYxNmNhmnZ3K1vGnvP0+pzLSPQZOxihV07WylvvgvZhDm5iuVJ0DTbcSi1Rem5EIg/GIAKrmqWtgyPYhnsOVciNKD1iFMBbI7y84u9pyli2ihgB3k+9Ou20N/5zGHgUQ4BOlmSPJaeKTk8WVji0shvvaoccZR/D9oEsMM/MXiPDzP4pXA5jYCwy8n5CTQm1M6QcolXKRF3PoPyCaYOUCDx9ZxGseYRmy6A5MYxy/CbjLBv45Lp5F9QSAvcuk8oBeB/eRGmEfl+t7zpbgShpnZdrBUEHLsP3rOGV4KJTC7LlofhoETO+KpCiot4D+sw7uRCgI2YSY2KcsqMNVVnNk4Rb+plTvtBHBuIBTwOI3TQ/4tzUy2JePk4J5QXFQsbxjrkcrgLm3Q+mzTfJmnnb/KfjR9GIr+0iiG4sLvFTm/lMahdWU9rpM38psni8JCsLK8u3eldAI5aBKu7ePK/DATo21lZAxfdnfpLuQaTC+JDPW7T3+R3NXjt4WDoY42YGSNElD6hwyoHeMLL6gv5wgyENDMU4n2XqcFuH1437l2lpT/CRDFT48HiCxIhKsMCj2G9JyYuuQNcAxbynIpzar9YLw7DS35N456cpgyfgule38dOr/8CbsMwl04Kw=
     name: §4Severus
     uuid: 35e215dd-0464-46bb-ad5d-98ff3060b778
     traits:
@@ -3538,7 +3538,7 @@ npc:
       owner:
         owner: drAke
         uuid: df1c5d6c-590c-3191-baf6-1b169f07d99f
-    traitnames: spawned,type,location,inventory,lookclose,owner,mounttrait
+    traitnames: spawned,inventory,mounttrait,type,lookclose,location,owner
     navigator:
       speedmodifier: '1.0'
       avoidwater: false
@@ -3568,7 +3568,7 @@ npc:
       owner:
         owner: drAke
         uuid: df1c5d6c-590c-3191-baf6-1b169f07d99f
-    traitnames: spawned,type,location,inventory,lookclose,owner,mounttrait
+    traitnames: spawned,inventory,mounttrait,type,lookclose,location,owner
     navigator:
       speedmodifier: '1.0'
       avoidwater: false
@@ -3598,7 +3598,7 @@ npc:
       owner:
         owner: drAke
         uuid: df1c5d6c-590c-3191-baf6-1b169f07d99f
-    traitnames: spawned,type,inventory,location,owner,lookclose,mounttrait
+    traitnames: spawned,inventory,mounttrait,type,lookclose,location,owner
     navigator:
       speedmodifier: '1.0'
       avoidwater: false
@@ -3628,7 +3628,7 @@ npc:
       owner:
         owner: drAke
         uuid: df1c5d6c-590c-3191-baf6-1b169f07d99f
-    traitnames: spawned,type,location,inventory,owner,lookclose,mounttrait
+    traitnames: spawned,inventory,mounttrait,type,lookclose,location,owner
     navigator:
       speedmodifier: '1.0'
       avoidwater: false
@@ -3658,17 +3658,17 @@ npc:
       owner:
         owner: drAke
         uuid: df1c5d6c-590c-3191-baf6-1b169f07d99f
-    traitnames: spawned,type,location,inventory,owner,lookclose,mounttrait
+    traitnames: spawned,inventory,mounttrait,type,lookclose,location,owner
     navigator:
       speedmodifier: '1.0'
       avoidwater: false
       usedefaultstuckaction: true
   '168':
     metadata:
-      player-skin-textures: eyJ0aW1lc3RhbXAiOjE1MjYwNTg1MDQ1ODcsInByb2ZpbGVJZCI6ImMwYzVkYzI4YzI3ZjQ3ZTA5MWYwMzU4Y2Q3NGQxMjZkIiwicHJvZmlsZU5hbWUiOiJDYW5lIiwic2lnbmF0dXJlUmVxdWlyZWQiOnRydWUsInRleHR1cmVzIjp7IlNLSU4iOnsidXJsIjoiaHR0cDovL3RleHR1cmVzLm1pbmVjcmFmdC5uZXQvdGV4dHVyZS84NDQ4ZDlmMDY4OGY4YzYzY2RlODk3ZWY4Nzg4NGY1MjRhYmQwN2Q1OWQzYzI2NWZkYTNjYjkyNjI3NjRkYTgiLCJtZXRhZGF0YSI6eyJtb2RlbCI6InNsaW0ifX19fQ==
+      player-skin-textures: eyJ0aW1lc3RhbXAiOjE1MjYxMDk2NzA2NjMsInByb2ZpbGVJZCI6ImMwYzVkYzI4YzI3ZjQ3ZTA5MWYwMzU4Y2Q3NGQxMjZkIiwicHJvZmlsZU5hbWUiOiJDYW5lIiwic2lnbmF0dXJlUmVxdWlyZWQiOnRydWUsInRleHR1cmVzIjp7IlNLSU4iOnsidXJsIjoiaHR0cDovL3RleHR1cmVzLm1pbmVjcmFmdC5uZXQvdGV4dHVyZS84NDQ4ZDlmMDY4OGY4YzYzY2RlODk3ZWY4Nzg4NGY1MjRhYmQwN2Q1OWQzYzI2NWZkYTNjYjkyNjI3NjRkYTgiLCJtZXRhZGF0YSI6eyJtb2RlbCI6InNsaW0ifX19fQ==
       cached-skin-uuid-name: cane
       cached-skin-uuid: c0c5dc28-c27f-47e0-91f0-358cd74d126d
-      player-skin-signature: LzHPCZ3e1Q4zRmUleUQWazM85dd2A20MLh7sDnXb0S0yqGCcdMJXfNOCr4vW7ediKJ1WeslnLEJS8wItGXzfsQS5l0duE+IJr/irAM3Kwd5xBUKBGDe/Xw5kfzO7BfOHxImewBNlfpcajG1IV6ZJjJNzqqA2i9pqqU00f9ZoTOiOG0QBms5FpqGUKQtMp9bSGFChjDmF50aH6mo25n80sXYkCNPGigOhYeLiG04Wrul4TTW/XFRBzSGSJ2mDBrfUSX/iornqopJck9xWJMc3ZTfZMRoM5pes/7G27m4E9k0wNpZkrLaL19Osz4FBTSYx32kF4KZYNMd1IlbZmBdcpCn04r764+o12yrjBapE1eKrfLqnKlShn7i5vyOp5C/HhE/oS8sP+OXoV7N3vSgLK9sItaS6/MJExcEZT2uknEkgvozfSX6RXxcGKOSyPlyt5tYxCNcrKG9TeH5OGfp5NhlPp4hgZQeLCIsu6UjhDlTd+GkDEuaLMk1SPMOqV4EThROFuArdIydSU9d+B48lVRP1ThxPde2GL9zyEWnvn0j+lKoT+BL+XgMu7zpzpcoSv/9MRqrmlytxuzNUdg6+LYXrdm9tFBhLzhQ8O329YqmH0Rcl7WFrXpcw5CeuzuduG/lua3yfsMBndw18WvduFG0PdBT7XaFDki3S8cue0To=
+      player-skin-signature: wyA2oEZ2EX0fsWVkTY+WVsblpPwBWDWc6hGDl4i8D6Z8YEUiKPFyw2n6y+MxPUsFrOXHcj+6IZAmaTryNvNaQSm6m35nqOo82WvlG1d+Dxrs+jyC+WnMU5b4C0LS6PkmgxNwkqNagpFmsjc48bPWwKxee58ZxfJyisEhnl55XmB+ZlCdNPWGFaN8sE1YCSvzS7ql9AIKb/sPilhkVl4J0l1JwatOujrHc+OlX8nYKTg0HT48ueCkQdvshmful15kmTQIFxKMvqFuX3E4FiGWmlnq9n1xsgHnsJ4TIwlM0y1PhGSv34TZmikWmdrIwBnx7bfv1knwvIvZD0D2tGxVVdZLe7B75XPwIXIHx2BYsPZceP+HMaADV1KO7nNz7dNHxA/nIX06ECqLNYwcF1NPLU71yuJlGhOmhcfMmNOoVJ6uB45u/bEKy5s6cKGjOx3sYu+FSNhLWjz1+OidBfM2nTGWLo3uAGB+o8QZLRxUGJkzX2uvadQpEP5/3TzuGazC1MStvCov3MRqdA+JCyKkIRxFvlsrXPth1JJBVYitISZAPFBJIc4nOASAN1zUfxZYovGSt2GKqpWD17j0iTsd7Mcx1qJB5qVu8IvpR8avpbJsCMZeclElr/+uNk/dcb+dPd7Gjupydd2vnyQxzVDigh7PiSu6gyeizrIbFUyHQe4=
     name: §4Cane
     uuid: 4b2852e2-0a99-4ea1-bad7-cbc7e1c54226
     traits:
@@ -3690,17 +3690,17 @@ npc:
       owner:
         owner: drAke
         uuid: df1c5d6c-590c-3191-baf6-1b169f07d99f
-    traitnames: spawned,type,location,inventory,lookclose,owner,mounttrait
+    traitnames: spawned,inventory,mounttrait,type,lookclose,location,owner
     navigator:
       speedmodifier: '1.0'
       avoidwater: false
       usedefaultstuckaction: true
   '167':
     metadata:
-      player-skin-textures: eyJ0aW1lc3RhbXAiOjE1MjYwNTg0OTkwMDEsInByb2ZpbGVJZCI6ImEwMWRjZmJjZGM5YzQwOWE4MzlmY2JiZWYwOTdjYzM0IiwicHJvZmlsZU5hbWUiOiJUaG9ybmUiLCJzaWduYXR1cmVSZXF1aXJlZCI6dHJ1ZSwidGV4dHVyZXMiOnt9fQ==
+      player-skin-textures: eyJ0aW1lc3RhbXAiOjE1MjYxMDk2NjYyMzgsInByb2ZpbGVJZCI6ImEwMWRjZmJjZGM5YzQwOWE4MzlmY2JiZWYwOTdjYzM0IiwicHJvZmlsZU5hbWUiOiJUaG9ybmUiLCJzaWduYXR1cmVSZXF1aXJlZCI6dHJ1ZSwidGV4dHVyZXMiOnt9fQ==
       cached-skin-uuid-name: thorne
       cached-skin-uuid: a01dcfbc-dc9c-409a-839f-cbbef097cc34
-      player-skin-signature: PRH0tKRTHFs9tUD3vA/cJQ1rQOv0ecTw2EO5N/DCc1q8qO8Xxmc4fP6UxmCGm7XQqnTlnvoOattu+sfEVl0JoX2EULXrCGK6VH60lyfufQv1DQX6HDdtMEELLejf/LVIu0Pdg6R+NsbxlyvHFXbClyrXHRhL7M3L+qsh9rNc9jycRCuYUfvkQn6FyIprwK+WiYjYhxpdZujbwDNGQxGUIPdnde1wy8PMc5w2NHJnEUF8DV2IP0W9KBH+5Jt+1teXPS3nAMwU3kH9Zrb+BE//Ld4vYgGgdm7IyiBXOSWKCF+0M8nrEXPnRkOmn3WKozvmrOQYVP7Rr3zX//Vz9naq9IpaDoTcEbJuc1b3t2TChRTXTFui2YNWRduqF4a/3zVHAPXtGICRzBaGlHEV9gW31f8izdysPcMMD4VvWynjvA9pL6pQ0m/o2uVeBq9LZfnX0xKItNzEzj5qOxfiM7D9OTZPlK6ezJdWkGStj7ESLmItFKYjQX+7KaMF00gmRjffaevKFztBfxQXqc3BBeKIbW0CrQqlac36QJ0leQYldlSMmRX8WrN+yUnLWpGxgZzeGHoY8t3QuQ4JnJHFIZoUE/teZqJLk2w9Diq8gpC5GIO7u/BB3PPHSLzBvkzmjsebU3PI4fRoy6MN0a0dJmCkulSsM3/cTEge5hT/v6x/7C0=
+      player-skin-signature: lcQJjWRrVev7UvtdDSregX2+MZlbbY6ALJ3IaqZ8me3ph7VBqSMiSh7iOWlMmvcJRK8Gg3n6YYHBAb/vT5HkEAZkfjBCH+Eqy0nnL7V1VM+pt/UmsnrO77tpCphk3i6z06u+w49IB0t4LRMrNZ0akc/R4eW4UGdo/UNjy1RxmJpByMieBsqc7hWc5JgrJqlnzCtkwTAcweos7WBN21ogGH29MD08gEt9aHkuKSIfeaCyxCetLYYqd47XT6ovtbJK61zG7GsQEoxVOh0XUJ/phxBziQkhWREVjWJZcPSido2+VXthhFowAXRqZe6j/wvAzEaJjrw0LJcxDYhW8KQy/optz+maBQ9WexhyQSctCpXd2H05ZPV4mxkdcVdRmoMffze+sl5N2ggDMyYdLtf4B3r6R7bkqw3g3ulPMbUyf3YL/FALVVnbxlJSJkfx6Y01yREmRt39aMm/XFucnEiif/GfZ12IBHLsELNgo0dtrCZh7SHePBwARM0AyxyTiXCJnKX3V85EVZuiuRQS3bHjtq+Qf4Olku0cfshMAxW++T3iOZiJkrhhJPP6Nuq7Pa1nDGb/hbra2V9uSzRQwuVtPoeiRFIAAXOSTmtopAaBDvRBnsVNLultzSwLUPpY/ffrw/jrbKPxryGpxObXJYPVCWU/aZKSnLpO8YsWsfpsxJ8=
     name: §4Thorne
     uuid: 8efb01d6-799e-4d6e-a21b-d3dd26186d9c
     traits:
@@ -3722,18 +3722,18 @@ npc:
       owner:
         owner: drAke
         uuid: df1c5d6c-590c-3191-baf6-1b169f07d99f
-    traitnames: spawned,type,inventory,location,lookclose,owner,mounttrait
+    traitnames: spawned,inventory,mounttrait,type,lookclose,location,owner
     navigator:
       speedmodifier: '1.0'
       avoidwater: false
       usedefaultstuckaction: true
   '176':
     metadata:
-      player-skin-textures: eyJ0aW1lc3RhbXAiOjE1MjYwNTg1MDg0MjgsInByb2ZpbGVJZCI6IjRiZTJkZDUyNjlkNzQwY2U4ZTUzMWFkYWU1Y2FhZDE4IiwicHJvZmlsZU5hbWUiOiJEb2xwaGluVHVuYSIsInNpZ25hdHVyZVJlcXVpcmVkIjp0cnVlLCJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvM2M2Yjk1NDhlNDE0MjRhMTQxNmVjYzdkYzFhMDVkZWFhOTc3OTZlMjQ5ZjhiNWQzZTVjZTU3YTI2YWFhYzRmIn19fQ==
+      player-skin-textures: eyJ0aW1lc3RhbXAiOjE1MjYxMDk2NzUyNzIsInByb2ZpbGVJZCI6IjRiZTJkZDUyNjlkNzQwY2U4ZTUzMWFkYWU1Y2FhZDE4IiwicHJvZmlsZU5hbWUiOiJEb2xwaGluVHVuYSIsInNpZ25hdHVyZVJlcXVpcmVkIjp0cnVlLCJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvM2M2Yjk1NDhlNDE0MjRhMTQxNmVjYzdkYzFhMDVkZWFhOTc3OTZlMjQ5ZjhiNWQzZTVjZTU3YTI2YWFhYzRmIn19fQ==
       cached-skin-uuid-name: dolphintuna
       cached-skin-uuid: 4be2dd52-69d7-40ce-8e53-1adae5caad18
       player-skin-name: dolphintuna
-      player-skin-signature: syte6Njlf94M5LwVOe6RdiDnXmnNymo2ERua/9noKmAHkVKUCIkkLY4FLkuEV3kgpMrEpcpuIPu8Z6wTlMsJHYADAdQnSxmbimhbz5tSV8RX6n5gY6EIm8JEF3JWlp12oz5r41d1hXY94/tHDsIAJuL+EUtkahXAvm/D6mZzTcozS+TmjtiLiq4QDlnt2E0c0rYOlgr0tk7su0EcWqKKd5J0zRsbXO1D0P3VYvcD8PPm/+Vee7ire6npZLYERFHV+nh4+mpltslrNO9/PIkN88GVOqdCBjfBIopiQE1rNBw7QU86jqHlj2TJfWDV5oZoLxUZeUw81znsplBhpupBBtKxKFgue3BJP/NWr7+Fxruo9GY0yBQzWCSLVQEskRukP4tQEOTpHIwaxf+9euggU9SZW6aehDXfOM1DtDkdgSB8H5TraO4UyNpM510lxUGmINHgKyjycxajBy9FEIAWnYZK5gDeSmknDy1EKFXdQLneTBbwUV27m6xsARSG7D/RSmuX0GGy9REkTeHlkKfYCL2dSECsNFN33TwEj4gdZ9zpk57wwHQsVprALEyUEPqnkSJ+snNxdaqu8++x5LChRhHQ1X1+pI3lp9sHqiXM+NSRSXZbhkkl+0fWpUt4Cjuy9XP3q/r1RXZnuBx8Z1ujIjTsBnbH9bGTbizxW+wd4/4=
+      player-skin-signature: W7tQW58CqDKR3qCNZMXHyIscPJyUisy84Yc+Udd5lhTsrwqQDh18ltrWU9o9WMo4exX3p4n4A0IMnUVQI6MyFbs2P2zlQ00DouIgRg/4p1rR+aIh9oH7zFg8ow8mNTbRuUszFFjYW1mvJ30CABk8izqzrgcpJowJ/pHNc37MO6mOiZZ3DyfSbx7hSK5n0nzVQlhjnnjfCi7gh/Rk1tYHPoCZE4iYFFe2nBVYMGzKsdsi3vIsgnLpqJFz+3BPKFlHQXiO8QAxs+qjlBtuHYUEWcxnKVG5jy72AmDiGIidFJCYIbOEiVlRaxKl7hISSZPy5+zpS/NTE5w+pCLNzFUw4i0IyVqADjDujIl2B7UDZsoTsgCmeHzXUElZa1L24oaqAI2EgnFxNG7XkmcxQL/LFBfIKzs1yO31sR997F25kGhJWviSg6Dmm/GrYiaNDAFw+gvIa5Db9GCgz/yG1xeztvPmytQi14NCVA0I3pMe3xDnMqqWtPJFcJIJjp7G6Jgx56V9Ksqwyt4xsV+vHa4d+kiX4AngVoCjgq/3ZqYZsI0sVvsXgoGFVY9+EFMltpkjTrwoiIOQIObancu+b8CBgVNhOCEVHGb/53HIZ6nY4gecgj0GqadoVyfL0fw6gXhK9roqcLcF0mKj4ES03V+/gWCJ+289CdKS3g4JuvmOm08=
     name: §aMurlew
     uuid: 1020c3da-fccf-47f2-8539-bd9894710bab
     traits:
@@ -3784,18 +3784,18 @@ npc:
       owner:
         owner: drAke
         uuid: df1c5d6c-590c-3191-baf6-1b169f07d99f
-    traitnames: waypoints,spawned,type,location,inventory,trader,lookclose,wallet,owner,mounttrait,anchors
+    traitnames: anchors,spawned,inventory,mounttrait,trader,type,lookclose,location,wallet,owner,waypoints
     navigator:
       speedmodifier: '0.800000011920929'
       avoidwater: false
       usedefaultstuckaction: true
   '177':
     metadata:
-      player-skin-textures: eyJ0aW1lc3RhbXAiOjE1MjYwNTg1MDE4MDIsInByb2ZpbGVJZCI6Ijk1NzE1NDI1MGZlZDQ4ODY5MmYxNWE2YTI3NDIwMTFlIiwicHJvZmlsZU5hbWUiOiJGcmV6b24iLCJzaWduYXR1cmVSZXF1aXJlZCI6dHJ1ZSwidGV4dHVyZXMiOnsiU0tJTiI6eyJ1cmwiOiJodHRwOi8vdGV4dHVyZXMubWluZWNyYWZ0Lm5ldC90ZXh0dXJlL2I1ZTE0MDJjZThkMmNlOTBmYTgyZjA0NzgyNGQzMGY0MmRjZDUyNzFhMTZkYTdmODUwNDllZWJlZTg3MmE1In19fQ==
+      player-skin-textures: eyJ0aW1lc3RhbXAiOjE1MjYxMDk2NjgwMjAsInByb2ZpbGVJZCI6Ijk1NzE1NDI1MGZlZDQ4ODY5MmYxNWE2YTI3NDIwMTFlIiwicHJvZmlsZU5hbWUiOiJGcmV6b24iLCJzaWduYXR1cmVSZXF1aXJlZCI6dHJ1ZSwidGV4dHVyZXMiOnsiU0tJTiI6eyJ1cmwiOiJodHRwOi8vdGV4dHVyZXMubWluZWNyYWZ0Lm5ldC90ZXh0dXJlL2I1ZTE0MDJjZThkMmNlOTBmYTgyZjA0NzgyNGQzMGY0MmRjZDUyNzFhMTZkYTdmODUwNDllZWJlZTg3MmE1In19fQ==
       cached-skin-uuid-name: frezon
       cached-skin-uuid: 95715425-0fed-4886-92f1-5a6a2742011e
       player-skin-name: frezon
-      player-skin-signature: moC9u9peCcjAwkaAxqm7wa2riH8+m15MpdAeV8zyKOuFUkbpz1HZLss0Ld8i+wmHtqTt8WYF58G6BoQ3bYiFb/yzyT5qpX7yvpDi8Ofpgg4TIVQBHDfolMHdgpA/+1/C4cvpr8o9R6kgg3veqiFq9fYnDhdsGCfFzGLmu96yWWF9pRHwYnQ12yIIzVSc1XRZeQScEPQIspuAOx8WXPPmVuL9NjxbqNl/f30TFZUp1HlH/HCmgIil2uTBxgEFAJlEAvw71aQRNxdyE/ta1/dlqvptNr7N9AOSc0/dQ/m4045+9bZFwxrMNy6d0j4bAG3pxnBp/9vzEqzsk5HE8ZMpoUZVkHMy0Ne19xiWXAI3S0oklOG5dYr4NuLLdgrF5VNmDCRHwF6n3ThfHcDViHTA9bSCWuTf7TUUonthoGFhBEygcaJtkPYOnMnvgPxWZnG5MtaBIXppJJGelkw6XyJ4p0NAFo1kMwTidfr5yM7gYsPiFNEyxpYi32uTfle2oUKyiBE5xEZcnAIzFyNhIWk+vkeKty+YW13amMwgruJh59dSkUr9HfDCy8BC7PcYtWFtojBunsXgPlKYWwthgwCVpZoOu7JU/qMGkmcSEO7JuAcM/RsGk3jzlfi52gvPKOnFS9wLY/z4DmrIB48MuAffUI1ABGXrL00LtNNesWpNVbE=
+      player-skin-signature: V7kfxB8eluJL0EYsh4K6ZRBUFFhbmK5dDcSA4fj+GWsDE2tVKNB5wwvh6SOrEVJZkpQTeJGH5jf0IZe0LtGgeg08svlYwa5l+eUUNr/VTJELtA5DFS4MH1nEnFz999ldszYMTMnExvZZPbPspJA/ToIRzk70GIqJXXHVh66E7WYiykJSeWZMF4O0U6C+IWl9KTkDbvc7LhKv6ExQHv2C1fdEL7dREafxGwLly9vM6xiwdMQUCbOjyUwT94ydH+FjAdrgkzZgMa1COI5K1qP4GwKyw0OubmpPbK+lsnIQbEuuO1K3ABmQwQyaHY6B+EF8nh0nG8lJU9PERxECOBSmMU1+Y+urks0CNI321S1P5RGDVHLq7mVrPmXScLB6Nq691UJXisCPcuOyP5pnkM/IG18FD5ZfSiPY6WU1i9PjB5sK2NgRlM9Z3k2CkJPWLnscfd3+b0lQ3h4Q8UFmj9mVVgwt63etVpwaB6FsvcuH1XOsuAIJyp7tWF3Whz8AZnCWmwgX/jyCR/ohR6zRpYU8DPjE4Z4J4gVYJb26Ual4+6grgc2DD+k3yfYcdXKp0xigUpyijDqAzizu68eG9NbrHqXQZ7jcKxOYdP9TeMy2o4gw21MmNEUXg9GnUT7qRtflV/FD4lL1gYrmOSBdCoufY9mCq4eaRH/7C4f/71xolrs=
     name: §4Drumke
     uuid: 17f11a23-f3fe-4f57-a90e-7d1f6577a5bb
     traits:
@@ -3827,17 +3827,17 @@ npc:
       owner:
         owner: drAkeNess
         uuid: 63d45060-8177-31f5-939e-7685b85bffe3
-    traitnames: constants,spawned,type,assignment,inventory,location,equipment,gravity,lookclose,triggers,owner,mounttrait
+    traitnames: spawned,equipment,inventory,mounttrait,type,assignment,lookclose,constants,gravity,location,triggers,owner
     navigator:
       speedmodifier: '1.0'
       avoidwater: false
       usedefaultstuckaction: true
   '181':
     metadata:
-      player-skin-textures: eyJ0aW1lc3RhbXAiOjE1MjYwNTg1MDUwMTMsInByb2ZpbGVJZCI6IjQ4OTU2MTVlZTg2ODQwYTY4ZjhjNDNhMTE4YTYyOTA3IiwicHJvZmlsZU5hbWUiOiJUcmVtYXIiLCJzaWduYXR1cmVSZXF1aXJlZCI6dHJ1ZSwidGV4dHVyZXMiOnsiU0tJTiI6eyJ1cmwiOiJodHRwOi8vdGV4dHVyZXMubWluZWNyYWZ0Lm5ldC90ZXh0dXJlL2E4YTI1YjQ3N2FkNTBjNjMwZWQ1YTZlYzViNGY0ZDA3MmVkY2FjM2I4NjUwMWNhMzFjOWM1YjEzZjNhZmYifX19
+      player-skin-textures: eyJ0aW1lc3RhbXAiOjE1MjYxMDk2NzExNDYsInByb2ZpbGVJZCI6IjQ4OTU2MTVlZTg2ODQwYTY4ZjhjNDNhMTE4YTYyOTA3IiwicHJvZmlsZU5hbWUiOiJUcmVtYXIiLCJzaWduYXR1cmVSZXF1aXJlZCI6dHJ1ZSwidGV4dHVyZXMiOnsiU0tJTiI6eyJ1cmwiOiJodHRwOi8vdGV4dHVyZXMubWluZWNyYWZ0Lm5ldC90ZXh0dXJlL2E4YTI1YjQ3N2FkNTBjNjMwZWQ1YTZlYzViNGY0ZDA3MmVkY2FjM2I4NjUwMWNhMzFjOWM1YjEzZjNhZmYifX19
       cached-skin-uuid-name: tremar
       cached-skin-uuid: 4895615e-e868-40a6-8f8c-43a118a62907
-      player-skin-signature: DwdcyW1oqcrFOMPCVI6PApqtskn4f0U5RObGQFNEfpjNlsOaY1qGOj1sWqVzEQCwRZ1hqMNZwVHx5/xkvPXp9dHzEXcI3cakGp9whfsie7WQRiVMrjYeDKSvQYMFszP81/ok1TL0Y2F05YhR8tWWuVqQ/TXM0+oSS52OH3PK6jOOJBqABu8HFR2hyE9485dLNbbu8rkGKYv3TaP0vs+UDxokNK0RcOTqD1V1+INgpo0QY515Bi7dWgWR83D1yIjCQ/N5Xavq0tRv2QZ1weWj/oGepa/QF0EHv3MdpL4+Jr21PUOM4C7wn2m+qwuCs61pocQEjTrKlYQ38dntPXJsoMMfAH+9qb07X1AlLMNm4jIgxYZlkklTqoHUTLDfgktMhIkXd0Ep65ZSqTh4hCEtZZxnQnOT8hvBs/J6QMJqYg+2j/Ymnk0rQnoq3M/C8nXgZYvSKi7/T3xgHmkkyTYteP7W8teOMgtFxGzdzswXos1JmLitV94RiUTWbNmzhlutx8FarYJtDGSJaddk3WcSD6uz3GwcFcqd+Wk8veAEEU4zP2gOnTC7m4XsqoHHQO77dNyjfniI6bWlRhkP6Xzzf3h8i9oVqUsHdVkmU4GtqPML0wf4x2P/K8k1qgyMxUchrJ+2MCoEI4Zcp66BamtWjDPsrxwYtec9/CA1sVHf+4w=
+      player-skin-signature: pe2YpjNakFbVHJXlBm+NHcJXhFJ6rf88+pHxSaIV8KBgAAv/uny1FXfPobxgih3/nDfPuH26iG0LgK57NYBW4g7r7YiYd8JBBbp/xjeKXwS926qKBJpt4PbmqVCUpJj6gkzzbuNq4BlnQdIcb5A+laFNnS0HJfnaiIBzAvYXh7hxxw7b5VeyZtU4Ke4N23cx2RVftaQyh6uTfRrRMmVGHlG60GYpXwUU3sC3ZZpQ18cy7i/bQ5ktiQUDrQL3fZV92blKde3bGUiMslGwU9PsLMXjP5B+ZJCJTlZlEUWQlMrqiOo8kYbZ7l+cMlG+yCUKSgIdyUGETvzdNzpbTcXRM1wC6hlWOYXqRoQbTC44bVARAeTiTRNM5cqIodca275LcZCoS64PDkuw6z9QAQJh9QH7JAwIFBC2gy4MpIq05P+dqDmcFhDanU8bvWKEJGuGuLiYSdz2EscQLo7dnvU3OZhEc8oAwbi66B3DYgHXA8C/R555Mw8tDdQIM7eCgGaoSvAJZQE/ye3gv8nkwh2pFbonAP6ePZ5ZdIklC/9rs6zExol43Mqihcz1Qn0Yt+pkJU8afw1RGln1fsnVfRYjohObwzbWMsZ6/JA+INVh3+OorJ8U/VxGaOxFPFtbkn3QfW3ckZsQLf2agMkIeiKMgBtouVEP/pQUPoQCCiIs3Mc=
     name: §6Tremar
     uuid: 4962c5db-492f-48b2-8d1c-e66f27f6020c
     traits:
@@ -3846,7 +3846,7 @@ npc:
         x: '2183.9695'
         y: '46.0'
         z: '1896.865'
-        yaw: '73.71284484863281'
+        yaw: '128.67259216308594'
         pitch: '0.0'
       type: PLAYER
       spawned: true
@@ -3869,7 +3869,7 @@ npc:
       owner:
         owner: drAkeNess
         uuid: 63d45060-8177-31f5-939e-7685b85bffe3
-    traitnames: constants,spawned,type,assignment,inventory,location,equipment,gravity,lookclose,owner,triggers,mounttrait
+    traitnames: equipment,spawned,inventory,mounttrait,type,lookclose,assignment,constants,gravity,location,owner,triggers
     navigator:
       speedmodifier: '1.0'
       avoidwater: false
@@ -3906,18 +3906,18 @@ npc:
       owner:
         owner: drAkeNess
         uuid: 63d45060-8177-31f5-939e-7685b85bffe3
-    traitnames: constants,spawned,type,assignment,location,inventory,equipment,lookclose,owner,triggers,mounttrait
+    traitnames: equipment,spawned,inventory,mounttrait,type,lookclose,assignment,constants,location,owner,triggers
     navigator:
       speedmodifier: '1.0'
       avoidwater: false
       usedefaultstuckaction: true
   '190':
     metadata:
-      player-skin-textures: eyJ0aW1lc3RhbXAiOjE1MjYwNTg1MDAzNzksInByb2ZpbGVJZCI6IjY4YzA5MWI3MTNiMjRhMjJhNzZjODhlMzU4Mjk1Mzk5IiwicHJvZmlsZU5hbWUiOiJsbGlhbmF0b3IiLCJzaWduYXR1cmVSZXF1aXJlZCI6dHJ1ZSwidGV4dHVyZXMiOnsiU0tJTiI6eyJ1cmwiOiJodHRwOi8vdGV4dHVyZXMubWluZWNyYWZ0Lm5ldC90ZXh0dXJlLzJiOTk2MjA0ZWUxYTk1ZWY4Yzk2OWE3MjU2NzQwNzFmNTE2ZWE1OGMxNmQyNzhiY2RkN2FjZWQxYzZjNWIifX19
+      player-skin-textures: eyJ0aW1lc3RhbXAiOjE1MjYxMDk2Njc1MjYsInByb2ZpbGVJZCI6IjY4YzA5MWI3MTNiMjRhMjJhNzZjODhlMzU4Mjk1Mzk5IiwicHJvZmlsZU5hbWUiOiJsbGlhbmF0b3IiLCJzaWduYXR1cmVSZXF1aXJlZCI6dHJ1ZSwidGV4dHVyZXMiOnsiU0tJTiI6eyJ1cmwiOiJodHRwOi8vdGV4dHVyZXMubWluZWNyYWZ0Lm5ldC90ZXh0dXJlLzJiOTk2MjA0ZWUxYTk1ZWY4Yzk2OWE3MjU2NzQwNzFmNTE2ZWE1OGMxNmQyNzhiY2RkN2FjZWQxYzZjNWIifX19
       cached-skin-uuid-name: llianator
       cached-skin-uuid: 68c091b7-13b2-4a22-a76c-88e358295399
       player-skin-name: llianator
-      player-skin-signature: sQ/xNbg9BRNdBo1ii7gdCU5/x8Vp+kCgO4JoXLgK72lj1ajnzj43zye/NmbRf6MxoWY4F6jVR1r59Iui3JH+Iyx1emq063NvmbTlaCwXwQnXr7mUN2lTu1u23MGnd0Oq14gw8N7HQRu4Ps6k6LQ5teml27P5YXNbWezbQ0mWAySkbAGTYDMvHxConRx4Dc3C87iE8+WrLHyzaoPGKD7XVT0ryP7dWNpTmxir4zrLJTpDfP7QrJtym7+mzPQtdJdh59aBKGUlaPIr0doIpPC9K+JtwocBfqwWYRU4776L7U6eI9Bl4H+yRkWcjUgtdDdMrw7/upCPQw5Mag39kSxL45ccIIGggWhJdkqJHa1pwjwYRFvuTY4qLlJUt4BGuPNAbqhS4o66Lb9a5qpO9ywBc4XGwjeTICIX9LOafC0ZHt//Eu5VEZJJqLF/5mQHL7LWSsF6C5bGx1jfbedI1ypsIve0+HxNwzeTvWTSULLgB9Bpr0xGOGf4E60PUr+sI+fSSDzcd8tAPRMMlieX+8OW4uwOLpS9qp2q7nyaBfA8QtvDefgO/SAzFaNMdEPuThoy6/pPb1SgW2ohE7I52ySPKhIWYqJSsCPV9r4IKLsSdstcPmYxLxVsr+6I6yvu74WS4dweUdvXiDEDh18Ov7q115LfDOmr0OoJxrNgSrPVMb4=
+      player-skin-signature: sNjkMZ1s789Mhd+0pEbHmISOV1l0uf8OW/oC9DOkQ9CyqDLHQXLD1jIYweEXaWrHVg60j1EV9x83TSqEMkq+dnkEBC/+BiXsau6Zvv4X5DNu/IQLsALBf+wTftM36vx3vZzSt5fADUgtJlycRd/3ySLbNwZKSryW1vkx6SDB6qpaR/jdzZLZ593mybMMeneUsbtbeSBXm0u9ydQ4G8co4RG4XCkYAFZpLELumuZVVbknExPzdzKRkUJjd4r1is/gjXLp1Ps3OJMRpwxRGEwJwqI6//awEUrOVndVm4Bfup29EPbdyZ6sR1xHGFm/wJ2lI5ynvSw+wmBilUOyD6FZnbqaNAZ3dQd3mwzVnwtQVxH4tDcpiAVD67vKaTZfc8fEGarJymho3zk22mB2SAmZo2mVPm03ua658ngycmMSohLvg0jH+Wf/XnGO7+XCL2B2Dsgvyt0/tyudB9Pmv3aO5An87vs9xz3ikJSwyY37R8DOb99tXcjp7CGumHIBMe1K7yY5odxerVSXSp0YpZyr/TR+yjBpbmhBJq6F+WyhowtYQAgu4COREqR3rCjKIIpC5GrY3lcwkj3OIpv1l4KViAve7PV3Diut8e5r2rqP/yAGtKihh8ZMUIZY9wDFUAzrn1eMxLaiX5Arjup1xHMk1n58w8hJtbn9f4jcLS/47fw=
     name: §6Brayton
     uuid: d450d3df-df40-4e5f-a73a-9e041293a17f
     traits:
@@ -3949,18 +3949,18 @@ npc:
       owner:
         owner: drAkeNess
         uuid: 63d45060-8177-31f5-939e-7685b85bffe3
-    traitnames: constants,spawned,type,assignment,inventory,location,equipment,gravity,lookclose,triggers,owner,mounttrait
+    traitnames: spawned,equipment,inventory,mounttrait,type,lookclose,assignment,constants,gravity,location,triggers,owner
     navigator:
       speedmodifier: '1.0'
       avoidwater: false
       usedefaultstuckaction: true
   '193':
     metadata:
-      player-skin-textures: eyJ0aW1lc3RhbXAiOjE1MjYwNTg1MDkzNDUsInByb2ZpbGVJZCI6IjBmNzRjMTBlMWNkOTRmMzhiZjkxNmMyYjgyNDEzYmQ0IiwicHJvZmlsZU5hbWUiOiJCZXJlZ2hvc3QiLCJzaWduYXR1cmVSZXF1aXJlZCI6dHJ1ZSwidGV4dHVyZXMiOnsiU0tJTiI6eyJ1cmwiOiJodHRwOi8vdGV4dHVyZXMubWluZWNyYWZ0Lm5ldC90ZXh0dXJlLzhkY2IxNWZiZTVhZThmNTkzMzRjMjAyYzNlZGE3YWZjZmJlODk1MjFkYjllZTUzOWUzYzllN2RjZDhiYjAxMSJ9fX0=
+      player-skin-textures: eyJ0aW1lc3RhbXAiOjE1MjYxMDk2NzU4ODksInByb2ZpbGVJZCI6IjBmNzRjMTBlMWNkOTRmMzhiZjkxNmMyYjgyNDEzYmQ0IiwicHJvZmlsZU5hbWUiOiJCZXJlZ2hvc3QiLCJzaWduYXR1cmVSZXF1aXJlZCI6dHJ1ZSwidGV4dHVyZXMiOnsiU0tJTiI6eyJ1cmwiOiJodHRwOi8vdGV4dHVyZXMubWluZWNyYWZ0Lm5ldC90ZXh0dXJlLzhkY2IxNWZiZTVhZThmNTkzMzRjMjAyYzNlZGE3YWZjZmJlODk1MjFkYjllZTUzOWUzYzllN2RjZDhiYjAxMSJ9fX0=
       cached-skin-uuid-name: bereghost
       cached-skin-uuid: 0f74c10e-1cd9-4f38-bf91-6c2b82413bd4
       player-skin-name: bereghost
-      player-skin-signature: JFLEUShZeCfSIu0XXGUomiBIVzIsRNymkISN0dKSBsvdneeWhl9Js2F0dy/NOmvOIfZluiMeqXsRBhPZHblLuF9BfKF9f+GMYO0fAmo8fBB+PdoZF9GpwdriqcCyhSceYfsSpukIvfbaJH3fCjU2WyvRc3KE8SGleHiprxg97FO08ODpFdw7O1zkoG42ig24IUS4RdhA0xzeI/BkF63mgHIAAWCOPpRksn3YYI/PMJWz3tkP3W+gc/KRocVsEYLk1S9jAQbEJfHtYBLgdc62mpXPd9ZHcnxKpuwf67prIzm2efKCQUDkz+duHB8w6tB9y6Lm6OAHuVBm9mN4P86tR/OE+YjlhVk1xLj/c3JsGW739ISc6lh2cFjdPoQsgH2kzKUZFsrfrltrIcWtUklKajcDu1t/vTb5K6UA3YkCENuqI1i39tg+ZrtDyYmLbR/hXs1xSxlIRct59J/Yaacyv+3bte8nn6gWs7s+XEtNH8+0cwAbN/sej6EPk0f1RiVZsp5kpnX/RPjLE8ryd8NIBUnRYsMzvtV3CzBbcjIibPqGC0Hk0Mpjsoe3882YmsCgHnAy7Bmtz/tfzgj5kuAcPAd2aYBwSL28YTSKPZ+zyU5bl9AxuLF/9JxfXoO8MjkyFd3vLmivLncFGVOew9QWk6blW0MKm+NgvoahkdfgDqs=
+      player-skin-signature: UO3inpad5yvWTM5eAMCek/8gYqPzG3D2cOO0Bquk9pDW/yvE4IcFLBk8j4HBeDMcbQZdocnL9Ou6FKNzq5zrZ8QG566UWMZM3/ixVtqPrtpjBJUUiOi5kuUQjU2Xyv+jV87NllcwCBl0As6FgydHzDssvdo57FnbfeMVswBJWd3KC4yC2rr40M0olETck5Lm2QuttcAJIIccrCtbfQe2J4yHamNFB3/G8A/d4rvjx0wiP6YT0uKzbC+ZjYox8NblyGAOWe8avp0Y/+QkRp5g+R24sTMDGbtiPj5tOkEZEWvfUSjtbrt6bY6h2b/ckCfNKpMu83iF/GIXgRF9hCPjk2mOHc98zJD6S8R4Na8EO7qclZaRikPPKV+9a8GOvKTLlA9RWwPwHlJDlfVjYsJ4KSOqpyJ+/Dd+f87R6uZgnaC/5ZOCp4f5ojmpi5jCxEhB96nLIf+eHEZSz2nA7xkeVTXCPGiACa4wvTQCF/hCAtx1jk95/cBh1rJb2JrTtD4Ice+ofV6VUoAp4psZMxw1YOKpW3cic+qNMn4ymjdZS9nECW4gaitJ6q3lFVKmPzHhEzqsOS6NUU7488Qmu7M3qmLs2fzmRo8v0KwRXYhLGNSngQCHZHeafUvBLgyW+gOhiUcafcPSrI3/o7dusMGE+6bw//PB7Z+mz041rLypNmE=
     name: §6Ladislao
     uuid: e0f66658-448f-49dc-b2f7-99fdf34cd0fe
     traits:
@@ -3968,10 +3968,10 @@ npc:
         assignment: LADISLAO
       location:
         world: Esparcraft
-        x: '2336.364'
+        x: '2338.3778'
         y: '71.0'
-        z: '1918.5174'
-        yaw: '139.66033935546875'
+        z: '1920.5842'
+        yaw: '-7.595703125'
         pitch: '0.0'
       lookclose:
         enabled: true
@@ -3997,18 +3997,18 @@ npc:
       owner:
         owner: drAkeNess
         uuid: 63d45060-8177-31f5-939e-7685b85bffe3
-    traitnames: constants,spawned,type,assignment,location,inventory,equipment,lookclose,owner,mounttrait,gravity,triggers,anchors
+    traitnames: inventory,gravity,triggers,anchors,equipment,spawned,mounttrait,type,lookclose,assignment,constants,location,owner
     navigator:
       speedmodifier: '1.0'
       avoidwater: false
       usedefaultstuckaction: true
   '192':
     metadata:
-      player-skin-textures: eyJ0aW1lc3RhbXAiOjE1MjYwNTg1MTA4NDIsInByb2ZpbGVJZCI6IjkyMjdjOWJjM2I4ODQyYjRiODljYTFlMDhhYzZhNmE4IiwicHJvZmlsZU5hbWUiOiJBcG9zdGF0YSIsInNpZ25hdHVyZVJlcXVpcmVkIjp0cnVlLCJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvOTNhYmIwZjUyMzE5NzY0MjdhNGUwMmJlNTc2NDUyOTg1ZTJjNzZmNTU4ZTU3YzFiOGNiNTk4YTJlYzVjNTNlIn19fQ==
+      player-skin-textures: eyJ0aW1lc3RhbXAiOjE1MjYxMDk2NzcwMTIsInByb2ZpbGVJZCI6IjkyMjdjOWJjM2I4ODQyYjRiODljYTFlMDhhYzZhNmE4IiwicHJvZmlsZU5hbWUiOiJBcG9zdGF0YSIsInNpZ25hdHVyZVJlcXVpcmVkIjp0cnVlLCJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvOTNhYmIwZjUyMzE5NzY0MjdhNGUwMmJlNTc2NDUyOTg1ZTJjNzZmNTU4ZTU3YzFiOGNiNTk4YTJlYzVjNTNlIn19fQ==
       cached-skin-uuid-name: apostata
       cached-skin-uuid: 9227c9bc-3b88-42b4-b89c-a1e08ac6a6a8
       player-skin-name: apostata
-      player-skin-signature: B++azybOt8eWa2AZe4l1lZaAN+lL+AydEyFz7jASdBJZFgnaTAbOn5qIcH7uYkypykQYG0pFGh+VSJIQwE3H0CZEQy+H3AhZJ/KsQKHfAl8ZOIbgjxDtU6rn7iUQF7ChnTfbsX1TpXG0nBpBgyBNDNLIWoYcyoWL3a+ianXnNZ9tS9e6X7nLIRhEo3PQLOJoQE3BwseGqLnS+VHQLFD7sVAlt9fhvuF8HlJpesmyXAvSrkn+EcclpZo7YVMmXstBuwS8tLFQ9V/BhXamMP3Eo4H6H3sDKz/mDobiiyAChldXI0LpzyIQ909w7Zubnp2MMum8TigzU2Ly1PK2OPbanWIncvedaJTEd6+ZnRph/aQRvHAlnbNjyNkLwhSBucq0EQHzcp1iLnR0ILaMH6Kk+6UR7KHqnmg5tfdjIu5XI6g+ngCltVkapOo862LRhcLW2frk9+zbEZ015UzAREwONkZXOVESU3F1U21CWiFG/8P2veY/iK3sU5n0YNJmiPBaRC7zlp4FSEfqggGkJzIOApmmB3BmRHtFcYB6D36fRNInqvRu/6x78SQ2x+LdVNGR7x0sly7uOwQW0al6S3nCRmF+SD6zsdrPLxod57S+cJD4ns3pGSa3SW+vyCoDR+ZxeWBVpnegOhdl+d8oWWy9Uq283no2quohCS1sZT/n6Vg=
+      player-skin-signature: bzY3h5K1SoVzgfJ0MHvX6S51EjRICDCephvVXecMP8x8FabMrGD1hQkvARf05jY7MxkGvuc163ZsHLjISDhxAeIGYqKrYkVs3E33eOMOx7smUZrWtTmWxASf1JRjGF0Vojf4MPzebyy0f5C5Vw1MceVxUSUxJ2G+aXRLWwE9UclM4ndxrqgzMl2TIgdvOXgWcy8tnWYM4hkQezyTZAUJuWYEonsQKET1YW/NNB0K7//qVpR6BR50By8fNPDKrDrIPskVt9jZ90G+Igpbu78Zrw+wQRM2wZuSBgKElB/887+yu04uah6Eb3dUKfHqTADk1i6xoREMS6HpZLsgPvlTam4cYF8baJ06x2lqyE0Sq0wwk8/UHXVa7X/F+rbKNcWl2zZctT4OHe6ikXOzw+YxFVqNgWEJwfVZvIvYxjNRqtWnNYLTUxYNcLet+MvktYq5v3AOswQBfjMj3CXe5rpGYGJBa1Ef1y9kPV5vBjXyfMPiKiWBRH8sLPuCR8uAmXIaVsJrL/pzieik9rgFMpfF35i7msbim3EmTBNdpCT0ny42DcurWYJLiQ42sgHlj3IgCWtDGtwfIfXtI6H/NcCz49j9UFEqEs/MIcCuiMFevAJ+Trf5Dz6Hc/GDLcWCvZ3zKEgYqPQHWJT2Q6/66NoOx0n53BaLVXH9tLG6HNH0A5w=
     name: §6Ricker
     uuid: cb4be202-bf64-44de-9d25-98bd551f3021
     traits:
@@ -4040,18 +4040,18 @@ npc:
       owner:
         owner: drAkeNess
         uuid: 63d45060-8177-31f5-939e-7685b85bffe3
-    traitnames: constants,spawned,type,assignment,inventory,location,equipment,gravity,lookclose,triggers,owner,mounttrait
+    traitnames: spawned,equipment,inventory,mounttrait,type,assignment,lookclose,constants,gravity,location,triggers,owner
     navigator:
       speedmodifier: '1.0'
       avoidwater: false
       usedefaultstuckaction: true
   '194':
     metadata:
-      player-skin-textures: eyJ0aW1lc3RhbXAiOjE1MjYwNTg1MTIyNzQsInByb2ZpbGVJZCI6IjQ5ZDFmZTA0ZTI0MTRhZWFhZWUzNGM0ZGUzNzAyNmFlIiwicHJvZmlsZU5hbWUiOiJEZWx0YVpZVCIsInNpZ25hdHVyZVJlcXVpcmVkIjp0cnVlLCJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvM2ZmNDhhNGVkNDAzNzUzOTBmYTI3Zjg5ZGZiZTIyY2U4Mjk5ODhhMGZkZmFmOTQxOWJhNmI1YmYxOWRhIn19fQ==
+      player-skin-textures: eyJ0aW1lc3RhbXAiOjE1MjYxMDk2Nzg4NTMsInByb2ZpbGVJZCI6IjQ5ZDFmZTA0ZTI0MTRhZWFhZWUzNGM0ZGUzNzAyNmFlIiwicHJvZmlsZU5hbWUiOiJEZWx0YVpZVCIsInNpZ25hdHVyZVJlcXVpcmVkIjp0cnVlLCJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvM2ZmNDhhNGVkNDAzNzUzOTBmYTI3Zjg5ZGZiZTIyY2U4Mjk5ODhhMGZkZmFmOTQxOWJhNmI1YmYxOWRhIn19fQ==
       cached-skin-uuid-name: deltazyt
       cached-skin-uuid: 49d1fe04-e241-4aea-aee3-4c4de37026ae
       player-skin-name: deltazyt
-      player-skin-signature: oq5gwx/QmJy1Oa0B5dkTEM64j3JhttB0+0Rv5KjOU5jW9ZY1awoWU8LOH9NQNKU0oVYV4dBLE8zN7vaAU2wJE5aSPm0uwAgZIo8b1VSsQ//Kw4uG9N0v4b5u9ZIw2a1lGOKkkNUhyPlldYFprj3JMD8grRtD7Dz/6SFnGVEJCejGuO8XctUNTAt4vY6t/DUFUcN2IjrXIdFILtdaga61N6dWgBIurNp1vpKHFZnXODk9sztHa7pFc9yn4wPtB3wJqYVfoBFgQw8bCDkptOAemVdOPZq6Ux43G+u4U5jjvcS4ncrSB3Nl6XcCR5f+9xbKqKhsIFv9bS1EbOy6Uy4OAFZTZxQ+gFB9vd+cgLS1uC+wVFKmfUuytChPgyI01qr2YP9XEgnIZKSyBJIf4ldqJK7DNgm4eCwJ7bVvmcIDmrQ8aEmXdZuXGPeg7VYI+JWGFy7m7xfkA4rVYdMDKIJHsIi6isikzA5HUHsroU+MzaiRakCsbFOjFKziy2IkXBKic1pI48u4B7zQnSlmujZVYjSZrVL/u/27x1xh7asdH19VDMYBSqzRbbpvGngUH0nu8Ow5g6yT/30/3ZpTtHrhxTY3yc4wRx12WhGJJDkdl3P+7JhJtxHLYE/0mZln+GcinpfIaYtdXyxYe9JNVInVukan7/ZOniC16LDMbhZeCwk=
+      player-skin-signature: wjcCDDMB6I11U8wodOfCNqHtQadXmeDSqVm7KtN/7j9P6OqTRp+pneGYyM01k4k+mfwIFGFLcdnKGz0EIR3fNzrOB6JVHtr9leinh5FD274ic9mHy6NHRsBBKHaUvJGYyAlJJMWLolUf/PIXQGcZgP1CV3i1KJ49SRrZK7A0wK+K5SQMDn7YSklgRgNP6knCWyV7hZIvlvmScx6W9d9JFhxbgaJygNzKI5l7UJTIx5Bsnh5otOMTAsckuBC2DJiHxi7RHTMbd45GXFbkKEApw0x4eWExoTMpenOUGoJJIkjU4cnv4XXOeSwp3M49Xg0Saj3e1HnANtYbRv25YBtR9yHoIg9lWy6C2Yc46zSuDZKLGIc4ZmT2GgkHT6k4uTbkaTTVLVnx+z2qdqpWk180ObrsNoL/PZQICa2lqToJK71NQDn7hP0BsHq12Av0XIVEYVCeBqLvAq1HicsmzWA073AM6OxBGavVHjKcHjdvN1DHic/Gca69tu1ZbrsAELqkxC/ln+QJu5Nsk+SeLWS/nZSIXLCzQAoK7HQnnLeNRBMxDWfIOfeHgTozqnW238kQJNcZjeZwsYSuu6KJWOCQJ88kGIyTx0HPXYmL2OMgm6ATRcL5oZ9M5dbHF1dCtFUWOq+It2rf9f2fNw9b0Jz+3oqcCOZufCjgRnU2k/rBkss=
     name: §6Bronson
     uuid: 74cd1a90-f3c3-47cb-ba1b-fcc44b97baf4
     traits:
@@ -4083,7 +4083,7 @@ npc:
       owner:
         owner: drAkeNess
         uuid: 63d45060-8177-31f5-939e-7685b85bffe3
-    traitnames: constants,spawned,type,assignment,location,inventory,equipment,gravity,lookclose,triggers,owner,mounttrait
+    traitnames: equipment,spawned,inventory,mounttrait,type,lookclose,assignment,constants,gravity,location,triggers,owner
     navigator:
       speedmodifier: '1.0'
       avoidwater: false

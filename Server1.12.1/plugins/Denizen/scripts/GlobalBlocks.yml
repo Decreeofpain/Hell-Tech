@@ -1,10 +1,11 @@
+# note <player.selected_region> as:circulo1a
 GlobalBlocks:
   type: world
   events:
     on player enters circulo1a:
     - ^title "title:<green>Mina" "subtitle:<gold>Zona A."
     on time changes in Esparcraft:
-    - ^foreach <cu@bosquespruce.blocks[166]> {
+    - ^foreach <cu@circulo1a.blocks[166]> {
       - ^wait 2t
       - ^modifyblock <def[value]> spruce_log
       }
@@ -12,14 +13,11 @@ GlobalBlocks:
       - ^wait 2t
       - ^modifyblock <def[value]> coal_ore
       }
-    on player breaks spruce_log in bosquespruce:
-    - ^narrate "<context.location> <context.material> <context.location.is_within[cu@bosquespruce]>"
+    on player breaks spruce_log in circulo1a:
+    - ^wait 1t
     - ^modifyblock <context.location> barrier
-    # - ^run 's@refreshblokslvl1'
-    - ^determine cancelled
     - ^queue clear
     on player breaks coal_ore in circulo1a:
     - ^wait 1t
     - ^modifyblock <context.location> bedrock
-    # - ^run 's@refreshblokslvl1'
     - ^queue clear
