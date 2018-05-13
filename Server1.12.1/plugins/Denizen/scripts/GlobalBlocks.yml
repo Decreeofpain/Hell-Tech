@@ -14,10 +14,21 @@ GlobalBlocks:
       - ^modifyblock <def[value]> coal_ore
       }
     on player breaks spruce_log in circulo1a:
-    - ^wait 1t
+    - ^wait 2t
     - ^modifyblock <context.location> barrier
     - ^queue clear
     on player breaks coal_ore in circulo1a:
-    - ^wait 1t
+    - ^wait 2t
     - ^modifyblock <context.location> bedrock
     - ^queue clear
+
+testblocks:
+    type: task
+    script:
+    - ^foreach <cu@circulo1a.list_partitial_chunks> {
+      - ^foreach <def[value].cuboid.blocks[bedrock]> {
+        - ^wait 2t
+        - ^modifyblock <def[value]> coal_ore
+        }
+      - ^wait 2t
+      }
