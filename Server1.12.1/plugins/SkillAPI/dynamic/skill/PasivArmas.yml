@@ -32,6 +32,209 @@ PasivArmas:
   - '&2Cooldown: {attr:cooldown}'
   desc:  []
   components: 
+    Cleanup: 
+      type: 'trigger'
+      indicator: '3D'
+      data: 
+        icon-key: ''
+        indicator: '2D'
+      children: 
+        Slot-b: 
+          type: 'condition'
+          indicator: '3D'
+          data: 
+            icon-key: ''
+            slot: 
+            - '37'
+            check-mat: 'False'
+            check-data: 'False'
+            check-lore: 'True'
+            lore: 'Alcanse en area:'
+            check-name: 'False'
+            regex: 'False'
+            indicator: '2D'
+          children: 
+            Value Lore Slot-c: 
+              type: 'mechanic'
+              indicator: '3D'
+              data: 
+                icon-key: ''
+                counts: 'True'
+                key: 'trol'
+                slot: '37'
+                regex: 'Alcanse en area: {value}'
+                multiplier-base: '1'
+                multiplier-scale: '0'
+                indicator: '2D'
+              children:  {}
+            Message-d: 
+              type: 'mechanic'
+              indicator: '3D'
+              data: 
+                icon-key: ''
+                counts: 'True'
+                message: 'Tiene Inventory {trol} Leggings'
+                indicator: '2D'
+              children:  {}
+        Slot-e: 
+          type: 'condition'
+          indicator: '3D'
+          data: 
+            icon-key: ''
+            slot: 
+            - '39'
+            check-mat: 'False'
+            check-data: 'False'
+            check-lore: 'True'
+            lore: 'Alcanse en area:'
+            check-name: 'False'
+            regex: 'False'
+            indicator: '2D'
+          children: 
+            Value Lore Slot-f: 
+              type: 'mechanic'
+              indicator: '3D'
+              data: 
+                icon-key: ''
+                counts: 'True'
+                key: 'trol'
+                slot: '39'
+                regex: 'Alcanse en area: {value}'
+                multiplier-base: '1'
+                multiplier-scale: '0'
+                indicator: '2D'
+              children:  {}
+            Message-g: 
+              type: 'mechanic'
+              indicator: '3D'
+              data: 
+                icon-key: ''
+                counts: 'True'
+                message: 'Tiene Inventory {trol} Helmet'
+                indicator: '2D'
+              children:  {}
+        Slot-h: 
+          type: 'condition'
+          indicator: '3D'
+          data: 
+            icon-key: ''
+            slot: 
+            - '38'
+            check-mat: 'False'
+            check-data: 'False'
+            check-lore: 'True'
+            lore: 'Alcanse en area:'
+            check-name: 'False'
+            regex: 'False'
+            indicator: '2D'
+          children: 
+            Value Lore Slot-i: 
+              type: 'mechanic'
+              indicator: '3D'
+              data: 
+                icon-key: ''
+                counts: 'True'
+                key: 'trol'
+                slot: '37'
+                regex: 'Alcanse en area: {value}'
+                multiplier-base: '1'
+                multiplier-scale: '0'
+                indicator: '2D'
+              children:  {}
+            Message-j: 
+              type: 'mechanic'
+              indicator: '3D'
+              data: 
+                icon-key: ''
+                counts: 'True'
+                message: 'Tiene Inventory {trol} Chestplate'
+                indicator: '2D'
+              children:  {}
+        Slot-k: 
+          type: 'condition'
+          indicator: '3D'
+          data: 
+            icon-key: ''
+            slot: 
+            - '36'
+            check-mat: 'False'
+            check-data: 'False'
+            check-lore: 'True'
+            lore: 'Alcanse en area:'
+            check-name: 'False'
+            regex: 'False'
+            indicator: '2D'
+          children: 
+            Value Lore Slot-l: 
+              type: 'mechanic'
+              indicator: '3D'
+              data: 
+                icon-key: ''
+                counts: 'True'
+                key: 'trol'
+                slot: '36'
+                regex: 'Alcanse en area: {value}'
+                multiplier-base: '1'
+                multiplier-scale: '0'
+                indicator: '2D'
+              children:  {}
+            Message-m: 
+              type: 'mechanic'
+              indicator: '3D'
+              data: 
+                icon-key: ''
+                counts: 'True'
+                message: 'Tiene Inventory {trol} Boots'
+                indicator: '2D'
+              children:  {}
+    Death: 
+      type: 'trigger'
+      indicator: '3D'
+      data: 
+        icon-key: ''
+        mana: 'False'
+        cooldown: 'False'
+        indicator: '2D'
+      children: 
+        Message-nb: 
+          type: 'mechanic'
+          indicator: '3D'
+          data: 
+            icon-key: ''
+            counts: 'True'
+            message: 'Active'
+            indicator: '2D'
+          children:  {}
+    Initialize: 
+      type: 'trigger'
+      indicator: '3D'
+      data: 
+        icon-key: ''
+        indicator: '2D'
+      children: 
+        Passive-o: 
+          type: 'mechanic'
+          indicator: '3D'
+          data: 
+            icon-key: ''
+            counts: 'True'
+            seconds-base: '1'
+            seconds-scale: '0'
+            indicator: '2D'
+          children: 
+            Trigger-p: 
+              type: 'mechanic'
+              indicator: '3D'
+              data: 
+                icon-key: ''
+                counts: 'True'
+                trigger: 'Death'
+                duration-base: '1'
+                duration-scale: '0'
+                stackable: 'False'
+                once: 'True'
+                indicator: '2D'
+              children:  {}
     Launch: 
       type: 'trigger'
       indicator: '3D'
@@ -42,7 +245,7 @@ PasivArmas:
         type: 'Any'
         indicator: '2D'
       children: 
-        Offhand-j: 
+        Offhand-r: 
           type: 'condition'
           indicator: '3D'
           data: 
@@ -55,7 +258,7 @@ PasivArmas:
             regex: 'False'
             indicator: '2D'
           children: 
-            Value Lore-k: 
+            Value Lore-s: 
               type: 'mechanic'
               indicator: '3D'
               data: 
@@ -68,7 +271,7 @@ PasivArmas:
                 multiplier-scale: '0'
                 indicator: '2D'
               children:  {}
-        Offhand-l: 
+        Offhand-t: 
           type: 'condition'
           indicator: '3D'
           data: 
@@ -81,7 +284,7 @@ PasivArmas:
             regex: 'False'
             indicator: '2D'
           children: 
-            Value Lore-m: 
+            Value Lore-u: 
               type: 'mechanic'
               indicator: '3D'
               data: 
@@ -94,7 +297,7 @@ PasivArmas:
                 multiplier-scale: '0'
                 indicator: '2D'
               children:  {}
-            Value Multiply-n: 
+            Value Multiply-v: 
               type: 'mechanic'
               indicator: '3D'
               data: 
@@ -105,7 +308,7 @@ PasivArmas:
                 multiplier-scale: '0'
                 indicator: '2D'
               children:  {}
-            Value Add-o: 
+            Value Add-w: 
               type: 'mechanic'
               indicator: '3D'
               data: 
@@ -116,7 +319,7 @@ PasivArmas:
                 amount-scale: '0'
                 indicator: '2D'
               children:  {}
-        Item-p: 
+        Item-x: 
           type: 'condition'
           indicator: '3D'
           data: 
@@ -129,7 +332,7 @@ PasivArmas:
             regex: 'False'
             indicator: '2D'
           children: 
-            Value Lore-q: 
+            Value Lore-y: 
               type: 'mechanic'
               indicator: '3D'
               data: 
@@ -142,7 +345,7 @@ PasivArmas:
                 multiplier-scale: '0'
                 indicator: '2D'
               children:  {}
-            Value Multiply-r: 
+            Value Multiply-z: 
               type: 'mechanic'
               indicator: '3D'
               data: 
@@ -153,7 +356,7 @@ PasivArmas:
                 multiplier-scale: '0'
                 indicator: '2D'
               children:  {}
-            Value Add-s: 
+            Value Add-ab: 
               type: 'mechanic'
               indicator: '3D'
               data: 
@@ -164,7 +367,7 @@ PasivArmas:
                 amount-scale: '0'
                 indicator: '2D'
               children:  {}
-        Offhand-t: 
+        Offhand-bb: 
           type: 'condition'
           indicator: '3D'
           data: 
@@ -177,7 +380,7 @@ PasivArmas:
             regex: 'False'
             indicator: '2D'
           children: 
-            Value Lore-u: 
+            Value Lore-cb: 
               type: 'mechanic'
               indicator: '3D'
               data: 
@@ -190,7 +393,7 @@ PasivArmas:
                 multiplier-scale: '0'
                 indicator: '2D'
               children:  {}
-        Item-v: 
+        Item-db: 
           type: 'condition'
           indicator: '3D'
           data: 
@@ -203,7 +406,7 @@ PasivArmas:
             regex: 'False'
             indicator: '2D'
           children: 
-            Value Lore-w: 
+            Value Lore-eb: 
               type: 'mechanic'
               indicator: '3D'
               data: 
@@ -216,7 +419,7 @@ PasivArmas:
                 multiplier-scale: '0'
                 indicator: '2D'
               children:  {}
-        Tool-x: 
+        Tool-fb: 
           type: 'condition'
           indicator: '3D'
           data: 
@@ -225,14 +428,14 @@ PasivArmas:
             tool: 'Sword'
             indicator: '2D'
           children: 
-            Self-y: 
+            Self-gb: 
               type: 'target'
               indicator: '3D'
               data: 
                 icon-key: ''
                 indicator: '2D'
               children: 
-                Damage Buff-z: 
+                Damage Buff-hb: 
                   type: 'mechanic'
                   indicator: '3D'
                   data: 
@@ -246,7 +449,7 @@ PasivArmas:
                     seconds-scale: '0'
                     indicator: '2D'
                   children:  {}
-        Offhand-ab: 
+        Offhand-ib: 
           type: 'condition'
           indicator: '3D'
           data: 
@@ -259,7 +462,7 @@ PasivArmas:
             regex: 'False'
             indicator: '2D'
           children: 
-            Value Lore-bb: 
+            Value Lore-jb: 
               type: 'mechanic'
               indicator: '3D'
               data: 
@@ -272,7 +475,7 @@ PasivArmas:
                 multiplier-scale: '0'
                 indicator: '2D'
               children:  {}
-        Item-cb: 
+        Item-kb: 
           type: 'condition'
           indicator: '3D'
           data: 
@@ -285,7 +488,7 @@ PasivArmas:
             regex: 'False'
             indicator: '2D'
           children: 
-            Value Lore-db: 
+            Value Lore-lb: 
               type: 'mechanic'
               indicator: '3D'
               data: 
@@ -294,129 +497,6 @@ PasivArmas:
                 key: 'Vidamuerte'
                 hand: 'Main'
                 regex: 'Vida por Muerte: {value}'
-                multiplier-base: '1'
-                multiplier-scale: '0'
-                indicator: '2D'
-              children:  {}
-    Initialize: 
-      type: 'trigger'
-      indicator: '3D'
-      data: 
-        icon-key: ''
-        indicator: '2D'
-      children: 
-        Passive-d: 
-          type: 'mechanic'
-          indicator: '3D'
-          data: 
-            icon-key: ''
-            counts: 'True'
-            seconds-base: '1'
-            seconds-scale: '0'
-            indicator: '2D'
-          children: 
-            Slot-e: 
-              type: 'condition'
-              indicator: '3D'
-              data: 
-                icon-key: ''
-                slot: 
-                - '40'
-                - '39'
-                - '38'
-                - '37'
-                check-mat: 'False'
-                check-data: 'False'
-                check-lore: 'True'
-                lore: 'Alcanse en area:'
-                check-name: 'False'
-                regex: 'False'
-                indicator: '2D'
-              children: 
-                Value Lore Slot-f: 
-                  type: 'mechanic'
-                  indicator: '3D'
-                  data: 
-                    icon-key: ''
-                    counts: 'True'
-                    key: 'trol'
-                    slot: '40'
-                    regex: 'Alcanse en area: {value}'
-                    multiplier-base: '1'
-                    multiplier-scale: '0'
-                    indicator: '2D'
-                  children:  {}
-                Message-g: 
-                  type: 'mechanic'
-                  indicator: '3D'
-                  data: 
-                    icon-key: ''
-                    counts: 'True'
-                    message: 'Tiene Inventory {trol}'
-                    indicator: '2D'
-                  children:  {}
-                Value Set-h: 
-                  type: 'mechanic'
-                  indicator: '3D'
-                  data: 
-                    icon-key: ''
-                    counts: 'True'
-                    key: 'trol'
-                    value-base: '0'
-                    value-scale: '0'
-                    indicator: '2D'
-                  children:  {}
-    Cleanup: 
-      type: 'trigger'
-      indicator: '3D'
-      data: 
-        icon-key: ''
-        indicator: '2D'
-      children: 
-        Trigger-b: 
-          type: 'mechanic'
-          indicator: '3D'
-          data: 
-            icon-key: ''
-            counts: 'True'
-            trigger: 'Death'
-            duration-base: '5'
-            duration-scale: '0'
-            stackable: 'True'
-            once: 'True'
-            indicator: '2D'
-          children:  {}
-    Death: 
-      type: 'trigger'
-      indicator: '3D'
-      data: 
-        icon-key: ''
-        mana: 'False'
-        cooldown: 'False'
-        indicator: '2D'
-      children: 
-        Item-fb: 
-          type: 'condition'
-          indicator: '3D'
-          data: 
-            icon-key: ''
-            check-mat: 'False'
-            check-data: 'False'
-            check-lore: 'True'
-            lore: 'Probabilidad de critico:'
-            check-name: 'False'
-            regex: 'False'
-            indicator: '2D'
-          children: 
-            Value Lore-gb: 
-              type: 'mechanic'
-              indicator: '3D'
-              data: 
-                icon-key: ''
-                counts: 'True'
-                key: '100critLore'
-                hand: 'Main'
-                regex: 'Probabilidad de critico: {value}'
                 multiplier-base: '1'
                 multiplier-scale: '0'
                 indicator: '2D'

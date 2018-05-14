@@ -6,8 +6,6 @@ GlobalBlocks:
     - ^title "title:<green>Mina" "subtitle:<gold>Zona A."
     on time changes in Esparcraft:
     - ^run 's@testblocks'
-    - ^narrate "starttarget" targets:<server.list_online_players>
-
     # on player breaks spruce_log in circulo1a:
     # - ^wait 2t
     # - ^modifyblock <context.location> barrier
@@ -46,15 +44,20 @@ testblocks:
 
 
 
-
-    # - ^foreach <cu@circulo1a.list_partial_chunks> {
-    #   - ^narrate <def[value].cuboid.get_blocks[bedrock].size>
-    #   - ^foreach <def[value].cuboid.blocks[bedrock]> {
-    #     - ^modifyblock <def[value]> coal_ore
-    #     }
-    #   - ^foreach <def[value].cuboid.blocks[166]> {
-    #     - ^modifyblock <def[value]> spruce_log
-    #     }
-    #   }
-    # - ^narrate "end"
-    # - ^narrate "endtarget" targets:<server.list_online_players>
+indexblocks:
+    type: task
+    script:
+    - ^yaml load:pueblos/blockindex.yml id:esparcraftblocksindex
+    - ^yaml id:esparcraftblocksindex set material.spruce.locations:!
+    - ^foreach <cu@circulo1a.list_partial_chunks> {
+      - ^narrate <def[value].cuboid.get_blocks[spruce_log].size>
+      - ^foreach <def[value].cuboid.blocks[spruce_log]> {
+        - ^if <yaml[esparcraftblocksindex].read[material.spruce.locations].as_list> !contains <def[value]> {
+          - ^wait 1t
+          - ^yaml id:esparcraftblocksindex set material.spruce.locations:->:<def[value]>
+          - ^yaml savefile:pueblos/blockindex.yml id:esparcraftblocksindex
+          }
+        }
+      }
+    - ^yaml unload id:esparcraftblocksindex
+    - ^narrate "end" targets:<server.list_online_players>
