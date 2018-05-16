@@ -1,5 +1,5 @@
-Guadaña Doble:
-  name: 'Guadaña Doble'
+Guadaña Sangrienta:
+  name: 'Guadaña Sangrienta'
   type: 'Principal'
   max-level: 1
   skill-req: ''
@@ -262,36 +262,7 @@ Guadaña Doble:
                     key: 'Poderarma'
                     amount-base: PoderarmaAdd
                     amount-scale: 0
-            Offhand-y:
-              type: 'condition'
-              data:
-                icon-key: ''
-                check-mat: 'False'
-                check-data: 'False'
-                check-lore: 'True'
-                lore: 'Poder de Arma:'
-                check-name: 'False'
-                regex: 'False'
-              children:
-                Value Lore-z:
-                  type: 'mechanic'
-                  data:
-                    icon-key: ''
-                    counts: 'True'
-                    key: 'PoderarmaAdd'
-                    hand: 'Main'
-                    regex: 'Poder de Arma: {value}'
-                    multiplier-base: 1
-                    multiplier-scale: 0
-                Value Add-ab:
-                  type: 'mechanic'
-                  data:
-                    icon-key: ''
-                    counts: 'True'
-                    key: 'Poderarma'
-                    amount-base: PoderarmaAdd
-                    amount-scale: 0
-            Value Set-bb:
+            Value Set-y:
               type: 'mechanic'
               data:
                 icon-key: ''
@@ -299,7 +270,7 @@ Guadaña Doble:
                 key: 'AOELores'
                 value-base: 1
                 value-scale: 0
-            Item-cb:
+            Item-z:
               type: 'condition'
               data:
                 icon-key: ''
@@ -310,13 +281,44 @@ Guadaña Doble:
                 check-name: 'False'
                 regex: 'False'
               children:
-                Value Lore-db:
+                Value Lore-ab:
                   type: 'mechanic'
                   data:
                     icon-key: ''
                     counts: 'True'
                     key: 'AOELoresAdd'
                     hand: 'Main'
+                    regex: 'Alcanse en area: {value}'
+                    multiplier-base: 1
+                    multiplier-scale: 0
+                Value Add-bb:
+                  type: 'mechanic'
+                  data:
+                    icon-key: ''
+                    counts: 'True'
+                    key: 'AOELores'
+                    amount-base: AOELoresAdd
+                    amount-scale: 0
+            Slot-cb:
+              type: 'condition'
+              data:
+                icon-key: ''
+                slot:
+                - '39'
+                check-mat: 'False'
+                check-data: 'False'
+                check-lore: 'True'
+                lore: 'Alcanse en area:'
+                check-name: 'False'
+                regex: 'False'
+              children:
+                Value Lore Slot-db:
+                  type: 'mechanic'
+                  data:
+                    icon-key: ''
+                    counts: 'True'
+                    key: 'AOELoresAdd'
+                    slot: 39
                     regex: 'Alcanse en area: {value}'
                     multiplier-base: 1
                     multiplier-scale: 0
@@ -328,10 +330,12 @@ Guadaña Doble:
                     key: 'AOELores'
                     amount-base: AOELoresAdd
                     amount-scale: 0
-            Offhand-fb:
+            Slot-fb:
               type: 'condition'
               data:
                 icon-key: ''
+                slot:
+                - '38'
                 check-mat: 'False'
                 check-data: 'False'
                 check-lore: 'True'
@@ -339,13 +343,13 @@ Guadaña Doble:
                 check-name: 'False'
                 regex: 'False'
               children:
-                Value Lore-gb:
+                Value Lore Slot-gb:
                   type: 'mechanic'
                   data:
                     icon-key: ''
                     counts: 'True'
                     key: 'AOELoresAdd'
-                    hand: 'Main'
+                    slot: 38
                     regex: 'Alcanse en area: {value}'
                     multiplier-base: 1
                     multiplier-scale: 0
@@ -362,7 +366,7 @@ Guadaña Doble:
               data:
                 icon-key: ''
                 slot:
-                - '39'
+                - '37'
                 check-mat: 'False'
                 check-data: 'False'
                 check-lore: 'True'
@@ -376,7 +380,7 @@ Guadaña Doble:
                     icon-key: ''
                     counts: 'True'
                     key: 'AOELoresAdd'
-                    slot: 39
+                    slot: 37
                     regex: 'Alcanse en area: {value}'
                     multiplier-base: 1
                     multiplier-scale: 0
@@ -393,7 +397,7 @@ Guadaña Doble:
               data:
                 icon-key: ''
                 slot:
-                - '38'
+                - '36'
                 check-mat: 'False'
                 check-data: 'False'
                 check-lore: 'True'
@@ -407,7 +411,7 @@ Guadaña Doble:
                     icon-key: ''
                     counts: 'True'
                     key: 'AOELoresAdd'
-                    slot: 38
+                    slot: 36
                     regex: 'Alcanse en area: {value}'
                     multiplier-base: 1
                     multiplier-scale: 0
@@ -419,69 +423,7 @@ Guadaña Doble:
                     key: 'AOELores'
                     amount-base: AOELoresAdd
                     amount-scale: 0
-            Slot-ob:
-              type: 'condition'
-              data:
-                icon-key: ''
-                slot:
-                - '37'
-                check-mat: 'False'
-                check-data: 'False'
-                check-lore: 'True'
-                lore: 'Alcanse en area:'
-                check-name: 'False'
-                regex: 'False'
-              children:
-                Value Lore Slot-pb:
-                  type: 'mechanic'
-                  data:
-                    icon-key: ''
-                    counts: 'True'
-                    key: 'AOELoresAdd'
-                    slot: 37
-                    regex: 'Alcanse en area: {value}'
-                    multiplier-base: 1
-                    multiplier-scale: 0
-                Value Add-qb:
-                  type: 'mechanic'
-                  data:
-                    icon-key: ''
-                    counts: 'True'
-                    key: 'AOELores'
-                    amount-base: AOELoresAdd
-                    amount-scale: 0
-            Slot-rb:
-              type: 'condition'
-              data:
-                icon-key: ''
-                slot:
-                - '36'
-                check-mat: 'False'
-                check-data: 'False'
-                check-lore: 'True'
-                lore: 'Alcanse en area:'
-                check-name: 'False'
-                regex: 'False'
-              children:
-                Value Lore Slot-sb:
-                  type: 'mechanic'
-                  data:
-                    icon-key: ''
-                    counts: 'True'
-                    key: 'AOELoresAdd'
-                    slot: 36
-                    regex: 'Alcanse en area: {value}'
-                    multiplier-base: 1
-                    multiplier-scale: 0
-                Value Add-tb:
-                  type: 'mechanic'
-                  data:
-                    icon-key: ''
-                    counts: 'True'
-                    key: 'AOELores'
-                    amount-base: AOELoresAdd
-                    amount-scale: 0
-            Value Set-ub:
+            Value Set-ob:
               type: 'mechanic'
               data:
                 icon-key: ''
@@ -489,7 +431,7 @@ Guadaña Doble:
                 key: 'ProbcritLore'
                 value-base: 0
                 value-scale: 0
-            Item-vb:
+            Item-pb:
               type: 'condition'
               data:
                 icon-key: ''
@@ -500,13 +442,75 @@ Guadaña Doble:
                 check-name: 'False'
                 regex: 'False'
               children:
-                Value Lore-wb:
+                Value Lore-qb:
                   type: 'mechanic'
                   data:
                     icon-key: ''
                     counts: 'True'
                     key: 'ProbcritLoreAdd'
                     hand: 'Main'
+                    regex: 'Probabilidad de critico: {value}'
+                    multiplier-base: 1
+                    multiplier-scale: 0
+                Value Add-rb:
+                  type: 'mechanic'
+                  data:
+                    icon-key: ''
+                    counts: 'True'
+                    key: 'ProbcritLore'
+                    amount-base: ProbcritLoreAdd
+                    amount-scale: 0
+            Slot-sb:
+              type: 'condition'
+              data:
+                icon-key: ''
+                slot:
+                - '39'
+                check-mat: 'False'
+                check-data: 'False'
+                check-lore: 'True'
+                lore: 'Probabilidad de critico:'
+                check-name: 'False'
+                regex: 'False'
+              children:
+                Value Lore Slot-tb:
+                  type: 'mechanic'
+                  data:
+                    icon-key: ''
+                    counts: 'True'
+                    key: 'ProbcritLoreAdd'
+                    slot: 39
+                    regex: 'Probabilidad de critico: {value}'
+                    multiplier-base: 1
+                    multiplier-scale: 0
+                Value Add-ub:
+                  type: 'mechanic'
+                  data:
+                    icon-key: ''
+                    counts: 'True'
+                    key: 'ProbcritLore'
+                    amount-base: ProbcritLoreAdd
+                    amount-scale: 0
+            Slot-vb:
+              type: 'condition'
+              data:
+                icon-key: ''
+                slot:
+                - '38'
+                check-mat: 'False'
+                check-data: 'False'
+                check-lore: 'True'
+                lore: 'Probabilidad de critico:'
+                check-name: 'False'
+                regex: 'False'
+              children:
+                Value Lore Slot-wb:
+                  type: 'mechanic'
+                  data:
+                    icon-key: ''
+                    counts: 'True'
+                    key: 'ProbcritLoreAdd'
+                    slot: 38
                     regex: 'Probabilidad de critico: {value}'
                     multiplier-base: 1
                     multiplier-scale: 0
@@ -518,10 +522,12 @@ Guadaña Doble:
                     key: 'ProbcritLore'
                     amount-base: ProbcritLoreAdd
                     amount-scale: 0
-            Offhand-yb:
+            Slot-yb:
               type: 'condition'
               data:
                 icon-key: ''
+                slot:
+                - '37'
                 check-mat: 'False'
                 check-data: 'False'
                 check-lore: 'True'
@@ -529,13 +535,13 @@ Guadaña Doble:
                 check-name: 'False'
                 regex: 'False'
               children:
-                Value Lore-zb:
+                Value Lore Slot-zb:
                   type: 'mechanic'
                   data:
                     icon-key: ''
                     counts: 'True'
                     key: 'ProbcritLoreAdd'
-                    hand: 'Main'
+                    slot: 37
                     regex: 'Probabilidad de critico: {value}'
                     multiplier-base: 1
                     multiplier-scale: 0
@@ -552,7 +558,7 @@ Guadaña Doble:
               data:
                 icon-key: ''
                 slot:
-                - '39'
+                - '36'
                 check-mat: 'False'
                 check-data: 'False'
                 check-lore: 'True'
@@ -566,7 +572,7 @@ Guadaña Doble:
                     icon-key: ''
                     counts: 'True'
                     key: 'ProbcritLoreAdd'
-                    slot: 39
+                    slot: 36
                     regex: 'Probabilidad de critico: {value}'
                     multiplier-base: 1
                     multiplier-scale: 0
@@ -578,100 +584,7 @@ Guadaña Doble:
                     key: 'ProbcritLore'
                     amount-base: ProbcritLoreAdd
                     amount-scale: 0
-            Slot-ec:
-              type: 'condition'
-              data:
-                icon-key: ''
-                slot:
-                - '38'
-                check-mat: 'False'
-                check-data: 'False'
-                check-lore: 'True'
-                lore: 'Probabilidad de critico:'
-                check-name: 'False'
-                regex: 'False'
-              children:
-                Value Lore Slot-fc:
-                  type: 'mechanic'
-                  data:
-                    icon-key: ''
-                    counts: 'True'
-                    key: 'ProbcritLoreAdd'
-                    slot: 38
-                    regex: 'Probabilidad de critico: {value}'
-                    multiplier-base: 1
-                    multiplier-scale: 0
-                Value Add-gc:
-                  type: 'mechanic'
-                  data:
-                    icon-key: ''
-                    counts: 'True'
-                    key: 'ProbcritLore'
-                    amount-base: ProbcritLoreAdd
-                    amount-scale: 0
-            Slot-hc:
-              type: 'condition'
-              data:
-                icon-key: ''
-                slot:
-                - '37'
-                check-mat: 'False'
-                check-data: 'False'
-                check-lore: 'True'
-                lore: 'Probabilidad de critico:'
-                check-name: 'False'
-                regex: 'False'
-              children:
-                Value Lore Slot-ic:
-                  type: 'mechanic'
-                  data:
-                    icon-key: ''
-                    counts: 'True'
-                    key: 'ProbcritLoreAdd'
-                    slot: 37
-                    regex: 'Probabilidad de critico: {value}'
-                    multiplier-base: 1
-                    multiplier-scale: 0
-                Value Add-jc:
-                  type: 'mechanic'
-                  data:
-                    icon-key: ''
-                    counts: 'True'
-                    key: 'ProbcritLore'
-                    amount-base: ProbcritLoreAdd
-                    amount-scale: 0
-            Slot-kc:
-              type: 'condition'
-              data:
-                icon-key: ''
-                slot:
-                - '36'
-                check-mat: 'False'
-                check-data: 'False'
-                check-lore: 'True'
-                lore: 'Probabilidad de critico:'
-                check-name: 'False'
-                regex: 'False'
-              children:
-                Value Lore Slot-lc:
-                  type: 'mechanic'
-                  data:
-                    icon-key: ''
-                    counts: 'True'
-                    key: 'ProbcritLoreAdd'
-                    slot: 36
-                    regex: 'Probabilidad de critico: {value}'
-                    multiplier-base: 1
-                    multiplier-scale: 0
-                Value Add-mc:
-                  type: 'mechanic'
-                  data:
-                    icon-key: ''
-                    counts: 'True'
-                    key: 'ProbcritLore'
-                    amount-base: ProbcritLoreAdd
-                    amount-scale: 0
-            Value Set-nc:
+            Value Set-ec:
               type: 'mechanic'
               data:
                 icon-key: ''
@@ -679,7 +592,7 @@ Guadaña Doble:
                 key: 'critLore'
                 value-base: 1
                 value-scale: 0
-            Item-oc:
+            Item-fc:
               type: 'condition'
               data:
                 icon-key: ''
@@ -690,7 +603,7 @@ Guadaña Doble:
                 check-name: 'False'
                 regex: 'False'
               children:
-                Value Lore-pc:
+                Value Lore-gc:
                   type: 'mechanic'
                   data:
                     icon-key: ''
@@ -700,7 +613,7 @@ Guadaña Doble:
                     regex: 'Daño por critico: {value}'
                     multiplier-base: 1
                     multiplier-scale: 0
-                Value Add-qc:
+                Value Add-hc:
                   type: 'mechanic'
                   data:
                     icon-key: ''
@@ -708,36 +621,7 @@ Guadaña Doble:
                     key: 'critLore'
                     amount-base: critLoreAdd
                     amount-scale: 0
-            Offhand-rc:
-              type: 'condition'
-              data:
-                icon-key: ''
-                check-mat: 'False'
-                check-data: 'False'
-                check-lore: 'True'
-                lore: 'Daño por critico:'
-                check-name: 'False'
-                regex: 'False'
-              children:
-                Value Lore-sc:
-                  type: 'mechanic'
-                  data:
-                    icon-key: ''
-                    counts: 'True'
-                    key: 'critLoreAdd'
-                    hand: 'Main'
-                    regex: 'Daño por critico: {value}'
-                    multiplier-base: 1
-                    multiplier-scale: 0
-                Value Add-tc:
-                  type: 'mechanic'
-                  data:
-                    icon-key: ''
-                    counts: 'True'
-                    key: 'critLore'
-                    amount-base: critLoreAdd
-                    amount-scale: 0
-            Slot-uc:
+            Slot-ic:
               type: 'condition'
               data:
                 icon-key: ''
@@ -750,7 +634,7 @@ Guadaña Doble:
                 check-name: 'False'
                 regex: 'False'
               children:
-                Value Lore Slot-vc:
+                Value Lore Slot-jc:
                   type: 'mechanic'
                   data:
                     icon-key: ''
@@ -760,7 +644,7 @@ Guadaña Doble:
                     regex: 'Daño por critico: {value}'
                     multiplier-base: 1
                     multiplier-scale: 0
-                Value Add-wc:
+                Value Add-kc:
                   type: 'mechanic'
                   data:
                     icon-key: ''
@@ -768,7 +652,7 @@ Guadaña Doble:
                     key: 'critLore'
                     amount-base: critLoreAdd
                     amount-scale: 0
-            Slot-xc:
+            Slot-lc:
               type: 'condition'
               data:
                 icon-key: ''
@@ -781,7 +665,7 @@ Guadaña Doble:
                 check-name: 'False'
                 regex: 'False'
               children:
-                Value Lore Slot-yc:
+                Value Lore Slot-mc:
                   type: 'mechanic'
                   data:
                     icon-key: ''
@@ -791,7 +675,7 @@ Guadaña Doble:
                     regex: 'Daño por critico: {value}'
                     multiplier-base: 1
                     multiplier-scale: 0
-                Value Add-zc:
+                Value Add-nc:
                   type: 'mechanic'
                   data:
                     icon-key: ''
@@ -799,7 +683,7 @@ Guadaña Doble:
                     key: 'critLore'
                     amount-base: critLoreAdd
                     amount-scale: 0
-            Slot-ad:
+            Slot-oc:
               type: 'condition'
               data:
                 icon-key: ''
@@ -812,7 +696,7 @@ Guadaña Doble:
                 check-name: 'False'
                 regex: 'False'
               children:
-                Value Lore Slot-bd:
+                Value Lore Slot-pc:
                   type: 'mechanic'
                   data:
                     icon-key: ''
@@ -822,7 +706,7 @@ Guadaña Doble:
                     regex: 'Daño por critico: {value}'
                     multiplier-base: 1
                     multiplier-scale: 0
-                Value Add-cd:
+                Value Add-qc:
                   type: 'mechanic'
                   data:
                     icon-key: ''
@@ -830,7 +714,7 @@ Guadaña Doble:
                     key: 'critLore'
                     amount-base: critLoreAdd
                     amount-scale: 0
-            Slot-dd:
+            Slot-rc:
               type: 'condition'
               data:
                 icon-key: ''
@@ -843,7 +727,7 @@ Guadaña Doble:
                 check-name: 'False'
                 regex: 'False'
               children:
-                Value Lore Slot-ed:
+                Value Lore Slot-sc:
                   type: 'mechanic'
                   data:
                     icon-key: ''
@@ -853,7 +737,7 @@ Guadaña Doble:
                     regex: 'Daño por critico: {value}'
                     multiplier-base: 1
                     multiplier-scale: 0
-                Value Add-fd:
+                Value Add-tc:
                   type: 'mechanic'
                   data:
                     icon-key: ''
@@ -861,7 +745,7 @@ Guadaña Doble:
                     key: 'critLore'
                     amount-base: critLoreAdd
                     amount-scale: 0
-            Value Multiply-gd:
+            Value Multiply-uc:
               type: 'mechanic'
               data:
                 icon-key: ''
@@ -869,7 +753,7 @@ Guadaña Doble:
                 key: 'Poderarma'
                 multiplier-base: 1.2
                 multiplier-scale: 0
-            Value Multiply-hd:
+            Value Multiply-vc:
               type: 'mechanic'
               data:
                 icon-key: ''
@@ -877,7 +761,7 @@ Guadaña Doble:
                 key: 'critLore'
                 multiplier-base: 0.01
                 multiplier-scale: 0
-            Value Add-id:
+            Value Add-wc:
               type: 'mechanic'
               data:
                 icon-key: ''
@@ -885,14 +769,14 @@ Guadaña Doble:
                 key: 'critLore'
                 amount-base: 1
                 amount-scale: 0
-            Chance-jd:
+            Chance-xc:
               type: 'condition'
               data:
                 icon-key: ''
                 chance-base: ProbcritLore
                 chance-scale: 0
               children:
-                Value Multiply-kd:
+                Value Multiply-yc:
                   type: 'mechanic'
                   data:
                     icon-key: ''
@@ -900,14 +784,14 @@ Guadaña Doble:
                     key: 'Poderarma'
                     multiplier-base: critLore
                     multiplier-scale: 0
-                Command-ld:
+                Command-zc:
                   type: 'mechanic'
                   data:
                     icon-key: ''
                     counts: 'True'
                     command: 'ex title "title:<red>Critico" stay:0.1s fade_in:0.1s fade_out:0.1s'
                     type: 'OP'
-            Cone-md:
+            Cone-ad:
               type: 'target'
               data:
                 icon-key: ''
@@ -921,7 +805,7 @@ Guadaña Doble:
                 max-base: 99
                 max-scale: 0
               children:
-                Damage-nd:
+                Damage-bd:
                   type: 'mechanic'
                   data:
                     icon-key: ''
@@ -931,14 +815,30 @@ Guadaña Doble:
                     value-scale: 1
                     true: 'False'
                     classifier: 'default'
-            Value Attribute-od:
+            Value Multiply-cd:
+              type: 'mechanic'
+              data:
+                icon-key: ''
+                counts: 'True'
+                key: 'Poderarma'
+                multiplier-base: 0.01
+                multiplier-scale: 0
+            Heal-dd:
+              type: 'mechanic'
+              data:
+                icon-key: ''
+                counts: 'True'
+                type: 'Health'
+                value-base: Poderarma
+                value-scale: 1
+            Value Attribute-ed:
               type: 'mechanic'
               data:
                 icon-key: ''
                 counts: 'True'
                 key: 'Poderarma'
                 attribute: 'Agilidad'
-            Value Lore-pd:
+            Value Lore-fd:
               type: 'mechanic'
               data:
                 icon-key: ''
@@ -948,7 +848,7 @@ Guadaña Doble:
                 regex: 'Poder de Arma: {value}'
                 multiplier-base: 1
                 multiplier-scale: 0
-            Value Add-qd:
+            Value Add-gd:
               type: 'mechanic'
               data:
                 icon-key: ''
@@ -956,7 +856,7 @@ Guadaña Doble:
                 key: 'Poderarma'
                 amount-base: PoderarmaAdd
                 amount-scale: 0
-            Particle Animation-rd:
+            Particle Animation-hd:
               type: 'mechanic'
               data:
                 icon-key: ''
@@ -973,7 +873,7 @@ Guadaña Doble:
                 v-translation-scale: 0
                 h-cycles: 2
                 v-cycles: 2
-                particle: 'Crit'
+                particle: 'Instant Spell'
                 arrangement: 'Circle'
                 radius-base: 0.2
                 radius-scale: 0
@@ -989,40 +889,7 @@ Guadaña Doble:
                 forward: 3
                 upward: 0
                 right: 0
-            Particle Animation-sd:
-              type: 'mechanic'
-              data:
-                icon-key: ''
-                counts: 'True'
-                steps: 5
-                frequency: 0.05
-                angle: 180
-                start: -90
-                duration-base: 0.4
-                duration-scale: 0
-                h-translation-base: AOELores
-                h-translation-scale: 0
-                v-translation-base: 0
-                v-translation-scale: 0
-                h-cycles: 2
-                v-cycles: 2
-                particle: 'Witch Magic'
-                arrangement: 'Circle'
-                radius-base: 0.2
-                radius-scale: 0
-                particles-base: 5
-                particles-scale: 0
-                direction: 'YZ'
-                visible-radius: 20
-                dx: 0
-                dy: 0
-                dz: 0
-                speed: 0
-                amount: 1
-                forward: 3
-                upward: 0
-                right: 0
-            Cooldown-td:
+            Cooldown-id:
               type: 'mechanic'
               data:
                 icon-key: ''
