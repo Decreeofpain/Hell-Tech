@@ -1,16 +1,26 @@
-Guadaña Doble:
+Guadaña Doble: 
   name: 'Guadaña Doble'
   type: 'Principal'
   max-level: 1
-  skill-req: ''
   skill-req-lvl: 1
-  needs-permission: 'False'
+  needs-permission: 'false'
+  attributes: 
+    level-base: '1'
+    level-scale: '0'
+    cost-base: '1'
+    cost-scale: '0'
+    cooldown-base: '0'
+    cooldown-scale: '0'
+    mana-base: '0'
+    mana-scale: '0'
+    points-spent-req-base: '0'
+    points-spent-req-scale: '0'
+    incompatible: 
+    - 'Esquirla'
   msg: '&6{player} &2has cast &6{skill}'
-  combo: ''
-  indicator: '2D'
-  icon: 'Iron Axe'
+  icon: 'IRON_AXE'
   icon-data: 0
-  icon-lore:
+  icon-lore: 
   - '&d{name} &7({level}/{max})'
   - '&2Tipo: &6{type}'
   - ''
@@ -18,38 +28,1071 @@ Guadaña Doble:
   - '&7 que impacta en area frente a ti'
   - '&7 causando 150% de tu poder de arma.'
   - '&2Cooldown: {attr:cooldown}'
-  attributes:
-    level-base: 1
-    level-scale: 0
-    cost-base: 1
-    cost-scale: 0
-    cooldown-base: 0
-    cooldown-scale: 0
-    mana-base: 0
-    mana-scale: 0
-    points-spent-req-base: 0
-    points-spent-req-scale: 0
-    incompatible:
-    - 'Esquirla'
-  components:
-    Kill-a:
+  desc:  []
+  components: 
+    Physical Damage: 
       type: 'trigger'
-      data:
+      indicator: '3D'
+      data: 
         icon-key: ''
         mana: 'False'
         cooldown: 'True'
-      children:
-        Value Set-b:
+        target: 'True'
+        type: 'Melee'
+        dmg-min: '0'
+        dmg-max: '999'
+        indicator: '2D'
+      children: 
+        Tool-w: 
+          type: 'condition'
+          indicator: '3D'
+          data: 
+            icon-key: ''
+            material: 'Any'
+            tool: 'Sword'
+            indicator: '2D'
+          children: 
+            Value Attribute-x: 
+              type: 'mechanic'
+              indicator: '3D'
+              data: 
+                icon-key: ''
+                counts: 'True'
+                key: 'Poderarma'
+                attribute: 'Agilidad'
+                indicator: '2D'
+              children:  {}
+            Item-y: 
+              type: 'condition'
+              indicator: '3D'
+              data: 
+                icon-key: ''
+                check-mat: 'False'
+                check-data: 'False'
+                check-lore: 'True'
+                lore: 'Poder de Arma:'
+                check-name: 'False'
+                regex: 'False'
+                indicator: '2D'
+              children: 
+                Value Lore-z: 
+                  type: 'mechanic'
+                  indicator: '3D'
+                  data: 
+                    icon-key: ''
+                    counts: 'True'
+                    key: 'PoderarmaAdd'
+                    hand: 'Main'
+                    regex: 'Poder de Arma: {value}'
+                    multiplier-base: '1'
+                    multiplier-scale: '0'
+                    indicator: '2D'
+                  children:  {}
+                Value Add-ab: 
+                  type: 'mechanic'
+                  indicator: '3D'
+                  data: 
+                    icon-key: ''
+                    counts: 'True'
+                    key: 'Poderarma'
+                    amount-base: 'PoderarmaAdd'
+                    amount-scale: '0'
+                    indicator: '2D'
+                  children:  {}
+            Offhand-bb: 
+              type: 'condition'
+              indicator: '3D'
+              data: 
+                icon-key: ''
+                check-mat: 'False'
+                check-data: 'False'
+                check-lore: 'True'
+                lore: 'Poder de Arma:'
+                check-name: 'False'
+                regex: 'False'
+                indicator: '2D'
+              children: 
+                Value Lore-cb: 
+                  type: 'mechanic'
+                  indicator: '3D'
+                  data: 
+                    icon-key: ''
+                    counts: 'True'
+                    key: 'PoderarmaAdd'
+                    hand: 'Main'
+                    regex: 'Poder de Arma: {value}'
+                    multiplier-base: '1'
+                    multiplier-scale: '0'
+                    indicator: '2D'
+                  children:  {}
+                Value Add-db: 
+                  type: 'mechanic'
+                  indicator: '3D'
+                  data: 
+                    icon-key: ''
+                    counts: 'True'
+                    key: 'Poderarma'
+                    amount-base: 'PoderarmaAdd'
+                    amount-scale: '0'
+                    indicator: '2D'
+                  children:  {}
+            Value Set-eb: 
+              type: 'mechanic'
+              indicator: '3D'
+              data: 
+                icon-key: ''
+                counts: 'True'
+                key: 'AOELores'
+                value-base: '1'
+                value-scale: '0'
+                indicator: '2D'
+              children:  {}
+            Item-fb: 
+              type: 'condition'
+              indicator: '3D'
+              data: 
+                icon-key: ''
+                check-mat: 'False'
+                check-data: 'False'
+                check-lore: 'True'
+                lore: 'Alcanse en area:'
+                check-name: 'False'
+                regex: 'False'
+                indicator: '2D'
+              children: 
+                Value Lore-gb: 
+                  type: 'mechanic'
+                  indicator: '3D'
+                  data: 
+                    icon-key: ''
+                    counts: 'True'
+                    key: 'AOELoresAdd'
+                    hand: 'Main'
+                    regex: 'Alcanse en area: {value}'
+                    multiplier-base: '1'
+                    multiplier-scale: '0'
+                    indicator: '2D'
+                  children:  {}
+                Value Add-hb: 
+                  type: 'mechanic'
+                  indicator: '3D'
+                  data: 
+                    icon-key: ''
+                    counts: 'True'
+                    key: 'AOELores'
+                    amount-base: 'AOELoresAdd'
+                    amount-scale: '0'
+                    indicator: '2D'
+                  children:  {}
+            Offhand-ib: 
+              type: 'condition'
+              indicator: '3D'
+              data: 
+                icon-key: ''
+                check-mat: 'False'
+                check-data: 'False'
+                check-lore: 'True'
+                lore: 'Alcanse en area:'
+                check-name: 'False'
+                regex: 'False'
+                indicator: '2D'
+              children: 
+                Value Lore-jb: 
+                  type: 'mechanic'
+                  indicator: '3D'
+                  data: 
+                    icon-key: ''
+                    counts: 'True'
+                    key: 'AOELoresAdd'
+                    hand: 'Main'
+                    regex: 'Alcanse en area: {value}'
+                    multiplier-base: '1'
+                    multiplier-scale: '0'
+                    indicator: '2D'
+                  children:  {}
+                Value Add-kb: 
+                  type: 'mechanic'
+                  indicator: '3D'
+                  data: 
+                    icon-key: ''
+                    counts: 'True'
+                    key: 'AOELores'
+                    amount-base: 'AOELoresAdd'
+                    amount-scale: '0'
+                    indicator: '2D'
+                  children:  {}
+            Slot-lb: 
+              type: 'condition'
+              indicator: '3D'
+              data: 
+                icon-key: ''
+                slot: 
+                - '39'
+                check-mat: 'False'
+                check-data: 'False'
+                check-lore: 'True'
+                lore: 'Alcanse en area:'
+                check-name: 'False'
+                regex: 'False'
+                indicator: '2D'
+              children: 
+                Value Lore Slot-mb: 
+                  type: 'mechanic'
+                  indicator: '3D'
+                  data: 
+                    icon-key: ''
+                    counts: 'True'
+                    key: 'AOELoresAdd'
+                    slot: '39'
+                    regex: 'Alcanse en area: {value}'
+                    multiplier-base: '1'
+                    multiplier-scale: '0'
+                    indicator: '2D'
+                  children:  {}
+                Value Add-nb: 
+                  type: 'mechanic'
+                  indicator: '3D'
+                  data: 
+                    icon-key: ''
+                    counts: 'True'
+                    key: 'AOELores'
+                    amount-base: 'AOELoresAdd'
+                    amount-scale: '0'
+                    indicator: '2D'
+                  children:  {}
+            Slot-ob: 
+              type: 'condition'
+              indicator: '3D'
+              data: 
+                icon-key: ''
+                slot: 
+                - '38'
+                check-mat: 'False'
+                check-data: 'False'
+                check-lore: 'True'
+                lore: 'Alcanse en area:'
+                check-name: 'False'
+                regex: 'False'
+                indicator: '2D'
+              children: 
+                Value Lore Slot-pb: 
+                  type: 'mechanic'
+                  indicator: '3D'
+                  data: 
+                    icon-key: ''
+                    counts: 'True'
+                    key: 'AOELoresAdd'
+                    slot: '38'
+                    regex: 'Alcanse en area: {value}'
+                    multiplier-base: '1'
+                    multiplier-scale: '0'
+                    indicator: '2D'
+                  children:  {}
+                Value Add-qb: 
+                  type: 'mechanic'
+                  indicator: '3D'
+                  data: 
+                    icon-key: ''
+                    counts: 'True'
+                    key: 'AOELores'
+                    amount-base: 'AOELoresAdd'
+                    amount-scale: '0'
+                    indicator: '2D'
+                  children:  {}
+            Slot-rb: 
+              type: 'condition'
+              indicator: '3D'
+              data: 
+                icon-key: ''
+                slot: 
+                - '37'
+                check-mat: 'False'
+                check-data: 'False'
+                check-lore: 'True'
+                lore: 'Alcanse en area:'
+                check-name: 'False'
+                regex: 'False'
+                indicator: '2D'
+              children: 
+                Value Lore Slot-sb: 
+                  type: 'mechanic'
+                  indicator: '3D'
+                  data: 
+                    icon-key: ''
+                    counts: 'True'
+                    key: 'AOELoresAdd'
+                    slot: '37'
+                    regex: 'Alcanse en area: {value}'
+                    multiplier-base: '1'
+                    multiplier-scale: '0'
+                    indicator: '2D'
+                  children:  {}
+                Value Add-tb: 
+                  type: 'mechanic'
+                  indicator: '3D'
+                  data: 
+                    icon-key: ''
+                    counts: 'True'
+                    key: 'AOELores'
+                    amount-base: 'AOELoresAdd'
+                    amount-scale: '0'
+                    indicator: '2D'
+                  children:  {}
+            Slot-ub: 
+              type: 'condition'
+              indicator: '3D'
+              data: 
+                icon-key: ''
+                slot: 
+                - '36'
+                check-mat: 'False'
+                check-data: 'False'
+                check-lore: 'True'
+                lore: 'Alcanse en area:'
+                check-name: 'False'
+                regex: 'False'
+                indicator: '2D'
+              children: 
+                Value Lore Slot-vb: 
+                  type: 'mechanic'
+                  indicator: '3D'
+                  data: 
+                    icon-key: ''
+                    counts: 'True'
+                    key: 'AOELoresAdd'
+                    slot: '36'
+                    regex: 'Alcanse en area: {value}'
+                    multiplier-base: '1'
+                    multiplier-scale: '0'
+                    indicator: '2D'
+                  children:  {}
+                Value Add-wb: 
+                  type: 'mechanic'
+                  indicator: '3D'
+                  data: 
+                    icon-key: ''
+                    counts: 'True'
+                    key: 'AOELores'
+                    amount-base: 'AOELoresAdd'
+                    amount-scale: '0'
+                    indicator: '2D'
+                  children:  {}
+            Value Set-xb: 
+              type: 'mechanic'
+              indicator: '3D'
+              data: 
+                icon-key: ''
+                counts: 'True'
+                key: 'ProbcritLore'
+                value-base: '0'
+                value-scale: '0'
+                indicator: '2D'
+              children:  {}
+            Item-yb: 
+              type: 'condition'
+              indicator: '3D'
+              data: 
+                icon-key: ''
+                check-mat: 'False'
+                check-data: 'False'
+                check-lore: 'True'
+                lore: 'Probabilidad de critico:'
+                check-name: 'False'
+                regex: 'False'
+                indicator: '2D'
+              children: 
+                Value Lore-zb: 
+                  type: 'mechanic'
+                  indicator: '3D'
+                  data: 
+                    icon-key: ''
+                    counts: 'True'
+                    key: 'ProbcritLoreAdd'
+                    hand: 'Main'
+                    regex: 'Probabilidad de critico: {value}'
+                    multiplier-base: '1'
+                    multiplier-scale: '0'
+                    indicator: '2D'
+                  children:  {}
+                Value Add-ac: 
+                  type: 'mechanic'
+                  indicator: '3D'
+                  data: 
+                    icon-key: ''
+                    counts: 'True'
+                    key: 'ProbcritLore'
+                    amount-base: 'ProbcritLoreAdd'
+                    amount-scale: '0'
+                    indicator: '2D'
+                  children:  {}
+            Offhand-bc: 
+              type: 'condition'
+              indicator: '3D'
+              data: 
+                icon-key: ''
+                check-mat: 'False'
+                check-data: 'False'
+                check-lore: 'True'
+                lore: 'Probabilidad de critico:'
+                check-name: 'False'
+                regex: 'False'
+                indicator: '2D'
+              children: 
+                Value Lore-cc: 
+                  type: 'mechanic'
+                  indicator: '3D'
+                  data: 
+                    icon-key: ''
+                    counts: 'True'
+                    key: 'ProbcritLoreAdd'
+                    hand: 'Main'
+                    regex: 'Probabilidad de critico: {value}'
+                    multiplier-base: '1'
+                    multiplier-scale: '0'
+                    indicator: '2D'
+                  children:  {}
+                Value Add-dc: 
+                  type: 'mechanic'
+                  indicator: '3D'
+                  data: 
+                    icon-key: ''
+                    counts: 'True'
+                    key: 'ProbcritLore'
+                    amount-base: 'ProbcritLoreAdd'
+                    amount-scale: '0'
+                    indicator: '2D'
+                  children:  {}
+            Slot-ec: 
+              type: 'condition'
+              indicator: '3D'
+              data: 
+                icon-key: ''
+                slot: 
+                - '39'
+                check-mat: 'False'
+                check-data: 'False'
+                check-lore: 'True'
+                lore: 'Probabilidad de critico:'
+                check-name: 'False'
+                regex: 'False'
+                indicator: '2D'
+              children: 
+                Value Lore Slot-fc: 
+                  type: 'mechanic'
+                  indicator: '3D'
+                  data: 
+                    icon-key: ''
+                    counts: 'True'
+                    key: 'ProbcritLoreAdd'
+                    slot: '39'
+                    regex: 'Probabilidad de critico: {value}'
+                    multiplier-base: '1'
+                    multiplier-scale: '0'
+                    indicator: '2D'
+                  children:  {}
+                Value Add-gc: 
+                  type: 'mechanic'
+                  indicator: '3D'
+                  data: 
+                    icon-key: ''
+                    counts: 'True'
+                    key: 'ProbcritLore'
+                    amount-base: 'ProbcritLoreAdd'
+                    amount-scale: '0'
+                    indicator: '2D'
+                  children:  {}
+            Slot-hc: 
+              type: 'condition'
+              indicator: '3D'
+              data: 
+                icon-key: ''
+                slot: 
+                - '38'
+                check-mat: 'False'
+                check-data: 'False'
+                check-lore: 'True'
+                lore: 'Probabilidad de critico:'
+                check-name: 'False'
+                regex: 'False'
+                indicator: '2D'
+              children: 
+                Value Lore Slot-ic: 
+                  type: 'mechanic'
+                  indicator: '3D'
+                  data: 
+                    icon-key: ''
+                    counts: 'True'
+                    key: 'ProbcritLoreAdd'
+                    slot: '38'
+                    regex: 'Probabilidad de critico: {value}'
+                    multiplier-base: '1'
+                    multiplier-scale: '0'
+                    indicator: '2D'
+                  children:  {}
+                Value Add-jc: 
+                  type: 'mechanic'
+                  indicator: '3D'
+                  data: 
+                    icon-key: ''
+                    counts: 'True'
+                    key: 'ProbcritLore'
+                    amount-base: 'ProbcritLoreAdd'
+                    amount-scale: '0'
+                    indicator: '2D'
+                  children:  {}
+            Slot-kc: 
+              type: 'condition'
+              indicator: '3D'
+              data: 
+                icon-key: ''
+                slot: 
+                - '37'
+                check-mat: 'False'
+                check-data: 'False'
+                check-lore: 'True'
+                lore: 'Probabilidad de critico:'
+                check-name: 'False'
+                regex: 'False'
+                indicator: '2D'
+              children: 
+                Value Lore Slot-lc: 
+                  type: 'mechanic'
+                  indicator: '3D'
+                  data: 
+                    icon-key: ''
+                    counts: 'True'
+                    key: 'ProbcritLoreAdd'
+                    slot: '37'
+                    regex: 'Probabilidad de critico: {value}'
+                    multiplier-base: '1'
+                    multiplier-scale: '0'
+                    indicator: '2D'
+                  children:  {}
+                Value Add-mc: 
+                  type: 'mechanic'
+                  indicator: '3D'
+                  data: 
+                    icon-key: ''
+                    counts: 'True'
+                    key: 'ProbcritLore'
+                    amount-base: 'ProbcritLoreAdd'
+                    amount-scale: '0'
+                    indicator: '2D'
+                  children:  {}
+            Slot-nc: 
+              type: 'condition'
+              indicator: '3D'
+              data: 
+                icon-key: ''
+                slot: 
+                - '36'
+                check-mat: 'False'
+                check-data: 'False'
+                check-lore: 'True'
+                lore: 'Probabilidad de critico:'
+                check-name: 'False'
+                regex: 'False'
+                indicator: '2D'
+              children: 
+                Value Lore Slot-oc: 
+                  type: 'mechanic'
+                  indicator: '3D'
+                  data: 
+                    icon-key: ''
+                    counts: 'True'
+                    key: 'ProbcritLoreAdd'
+                    slot: '36'
+                    regex: 'Probabilidad de critico: {value}'
+                    multiplier-base: '1'
+                    multiplier-scale: '0'
+                    indicator: '2D'
+                  children:  {}
+                Value Add-pc: 
+                  type: 'mechanic'
+                  indicator: '3D'
+                  data: 
+                    icon-key: ''
+                    counts: 'True'
+                    key: 'ProbcritLore'
+                    amount-base: 'ProbcritLoreAdd'
+                    amount-scale: '0'
+                    indicator: '2D'
+                  children:  {}
+            Value Set-qc: 
+              type: 'mechanic'
+              indicator: '3D'
+              data: 
+                icon-key: ''
+                counts: 'True'
+                key: 'critLore'
+                value-base: '1'
+                value-scale: '0'
+                indicator: '2D'
+              children:  {}
+            Item-rc: 
+              type: 'condition'
+              indicator: '3D'
+              data: 
+                icon-key: ''
+                check-mat: 'False'
+                check-data: 'False'
+                check-lore: 'True'
+                lore: 'Daño por critico:'
+                check-name: 'False'
+                regex: 'False'
+                indicator: '2D'
+              children: 
+                Value Lore-sc: 
+                  type: 'mechanic'
+                  indicator: '3D'
+                  data: 
+                    icon-key: ''
+                    counts: 'True'
+                    key: 'critLoreAdd'
+                    hand: 'Main'
+                    regex: 'Daño por critico: {value}'
+                    multiplier-base: '1'
+                    multiplier-scale: '0'
+                    indicator: '2D'
+                  children:  {}
+                Value Add-tc: 
+                  type: 'mechanic'
+                  indicator: '3D'
+                  data: 
+                    icon-key: ''
+                    counts: 'True'
+                    key: 'critLore'
+                    amount-base: 'critLoreAdd'
+                    amount-scale: '0'
+                    indicator: '2D'
+                  children:  {}
+            Offhand-uc: 
+              type: 'condition'
+              indicator: '3D'
+              data: 
+                icon-key: ''
+                check-mat: 'False'
+                check-data: 'False'
+                check-lore: 'True'
+                lore: 'Daño por critico:'
+                check-name: 'False'
+                regex: 'False'
+                indicator: '2D'
+              children: 
+                Value Lore-vc: 
+                  type: 'mechanic'
+                  indicator: '3D'
+                  data: 
+                    icon-key: ''
+                    counts: 'True'
+                    key: 'critLoreAdd'
+                    hand: 'Main'
+                    regex: 'Daño por critico: {value}'
+                    multiplier-base: '1'
+                    multiplier-scale: '0'
+                    indicator: '2D'
+                  children:  {}
+                Value Add-wc: 
+                  type: 'mechanic'
+                  indicator: '3D'
+                  data: 
+                    icon-key: ''
+                    counts: 'True'
+                    key: 'critLore'
+                    amount-base: 'critLoreAdd'
+                    amount-scale: '0'
+                    indicator: '2D'
+                  children:  {}
+            Slot-xc: 
+              type: 'condition'
+              indicator: '3D'
+              data: 
+                icon-key: ''
+                slot: 
+                - '39'
+                check-mat: 'False'
+                check-data: 'False'
+                check-lore: 'True'
+                lore: 'Daño por critico:'
+                check-name: 'False'
+                regex: 'False'
+                indicator: '2D'
+              children: 
+                Value Lore Slot-yc: 
+                  type: 'mechanic'
+                  indicator: '3D'
+                  data: 
+                    icon-key: ''
+                    counts: 'True'
+                    key: 'critLoreAdd'
+                    slot: '39'
+                    regex: 'Daño por critico: {value}'
+                    multiplier-base: '1'
+                    multiplier-scale: '0'
+                    indicator: '2D'
+                  children:  {}
+                Value Add-zc: 
+                  type: 'mechanic'
+                  indicator: '3D'
+                  data: 
+                    icon-key: ''
+                    counts: 'True'
+                    key: 'critLore'
+                    amount-base: 'critLoreAdd'
+                    amount-scale: '0'
+                    indicator: '2D'
+                  children:  {}
+            Slot-ad: 
+              type: 'condition'
+              indicator: '3D'
+              data: 
+                icon-key: ''
+                slot: 
+                - '38'
+                check-mat: 'False'
+                check-data: 'False'
+                check-lore: 'True'
+                lore: 'Daño por critico:'
+                check-name: 'False'
+                regex: 'False'
+                indicator: '2D'
+              children: 
+                Value Lore Slot-bd: 
+                  type: 'mechanic'
+                  indicator: '3D'
+                  data: 
+                    icon-key: ''
+                    counts: 'True'
+                    key: 'critLoreAdd'
+                    slot: '38'
+                    regex: 'Daño por critico: {value}'
+                    multiplier-base: '1'
+                    multiplier-scale: '0'
+                    indicator: '2D'
+                  children:  {}
+                Value Add-cd: 
+                  type: 'mechanic'
+                  indicator: '3D'
+                  data: 
+                    icon-key: ''
+                    counts: 'True'
+                    key: 'critLore'
+                    amount-base: 'critLoreAdd'
+                    amount-scale: '0'
+                    indicator: '2D'
+                  children:  {}
+            Slot-dd: 
+              type: 'condition'
+              indicator: '3D'
+              data: 
+                icon-key: ''
+                slot: 
+                - '37'
+                check-mat: 'False'
+                check-data: 'False'
+                check-lore: 'True'
+                lore: 'Daño por critico:'
+                check-name: 'False'
+                regex: 'False'
+                indicator: '2D'
+              children: 
+                Value Lore Slot-ed: 
+                  type: 'mechanic'
+                  indicator: '3D'
+                  data: 
+                    icon-key: ''
+                    counts: 'True'
+                    key: 'critLoreAdd'
+                    slot: '37'
+                    regex: 'Daño por critico: {value}'
+                    multiplier-base: '1'
+                    multiplier-scale: '0'
+                    indicator: '2D'
+                  children:  {}
+                Value Add-fd: 
+                  type: 'mechanic'
+                  indicator: '3D'
+                  data: 
+                    icon-key: ''
+                    counts: 'True'
+                    key: 'critLore'
+                    amount-base: 'critLoreAdd'
+                    amount-scale: '0'
+                    indicator: '2D'
+                  children:  {}
+            Slot-gd: 
+              type: 'condition'
+              indicator: '3D'
+              data: 
+                icon-key: ''
+                slot: 
+                - '36'
+                check-mat: 'False'
+                check-data: 'False'
+                check-lore: 'True'
+                lore: 'Daño por critico:'
+                check-name: 'False'
+                regex: 'False'
+                indicator: '2D'
+              children: 
+                Value Lore Slot-hd: 
+                  type: 'mechanic'
+                  indicator: '3D'
+                  data: 
+                    icon-key: ''
+                    counts: 'True'
+                    key: 'critLoreAdd'
+                    slot: '36'
+                    regex: 'Daño por critico: {value}'
+                    multiplier-base: '1'
+                    multiplier-scale: '0'
+                    indicator: '2D'
+                  children:  {}
+                Value Add-id: 
+                  type: 'mechanic'
+                  indicator: '3D'
+                  data: 
+                    icon-key: ''
+                    counts: 'True'
+                    key: 'critLore'
+                    amount-base: 'critLoreAdd'
+                    amount-scale: '0'
+                    indicator: '2D'
+                  children:  {}
+            Value Multiply-jd: 
+              type: 'mechanic'
+              indicator: '3D'
+              data: 
+                icon-key: ''
+                counts: 'True'
+                key: 'Poderarma'
+                multiplier-base: '1.2'
+                multiplier-scale: '0'
+                indicator: '2D'
+              children:  {}
+            Value Multiply-kd: 
+              type: 'mechanic'
+              indicator: '3D'
+              data: 
+                icon-key: ''
+                counts: 'True'
+                key: 'critLore'
+                multiplier-base: '0.01'
+                multiplier-scale: '0'
+                indicator: '2D'
+              children:  {}
+            Value Add-ld: 
+              type: 'mechanic'
+              indicator: '3D'
+              data: 
+                icon-key: ''
+                counts: 'True'
+                key: 'critLore'
+                amount-base: '1'
+                amount-scale: '0'
+                indicator: '2D'
+              children:  {}
+            Chance-md: 
+              type: 'condition'
+              indicator: '3D'
+              data: 
+                icon-key: ''
+                chance-base: 'ProbcritLore'
+                chance-scale: '0'
+                indicator: '2D'
+              children: 
+                Value Multiply-nd: 
+                  type: 'mechanic'
+                  indicator: '3D'
+                  data: 
+                    icon-key: ''
+                    counts: 'True'
+                    key: 'Poderarma'
+                    multiplier-base: 'critLore'
+                    multiplier-scale: '0'
+                    indicator: '2D'
+                  children:  {}
+                Command-od: 
+                  type: 'mechanic'
+                  indicator: '3D'
+                  data: 
+                    icon-key: ''
+                    counts: 'True'
+                    command: 'ex title "title:<red>Critico" stay:0.1s fade_in:0.1s fade_out:0.1s'
+                    type: 'OP'
+                    indicator: '2D'
+                  children:  {}
+            Cone-pd: 
+              type: 'target'
+              indicator: '3D'
+              data: 
+                icon-key: ''
+                range-base: 'AOELores'
+                range-scale: '0'
+                angle-base: '60'
+                angle-scale: '0'
+                group: 'Enemy'
+                wall: 'False'
+                caster: 'False'
+                max-base: '99'
+                max-scale: '0'
+                indicator: '2D'
+              children: 
+                Damage-qd: 
+                  type: 'mechanic'
+                  indicator: '3D'
+                  data: 
+                    icon-key: ''
+                    counts: 'True'
+                    type: 'Damage'
+                    value-base: 'Poderarma'
+                    value-scale: '1'
+                    true: 'False'
+                    classifier: 'default'
+                    indicator: '2D'
+                  children:  {}
+            Value Attribute-rd: 
+              type: 'mechanic'
+              indicator: '3D'
+              data: 
+                icon-key: ''
+                counts: 'True'
+                key: 'Poderarma'
+                attribute: 'Agilidad'
+                indicator: '2D'
+              children:  {}
+            Value Lore-sd: 
+              type: 'mechanic'
+              indicator: '3D'
+              data: 
+                icon-key: ''
+                counts: 'True'
+                key: 'PoderarmaAdd'
+                hand: 'Main'
+                regex: 'Poder de Arma: {value}'
+                multiplier-base: '1'
+                multiplier-scale: '0'
+                indicator: '2D'
+              children:  {}
+            Value Add-td: 
+              type: 'mechanic'
+              indicator: '3D'
+              data: 
+                icon-key: ''
+                counts: 'True'
+                key: 'Poderarma'
+                amount-base: 'PoderarmaAdd'
+                amount-scale: '0'
+                indicator: '2D'
+              children:  {}
+            Particle Animation-ud: 
+              type: 'mechanic'
+              indicator: '3D'
+              data: 
+                icon-key: ''
+                counts: 'True'
+                steps: '5'
+                frequency: '0.05'
+                angle: '-180'
+                start: '90'
+                duration-base: '0.4'
+                duration-scale: '0'
+                h-translation-base: 'AOELores'
+                h-translation-scale: '0'
+                v-translation-base: '2'
+                v-translation-scale: '0'
+                h-cycles: '2'
+                v-cycles: '2'
+                particle: 'Crit'
+                arrangement: 'Circle'
+                radius-base: '0.2'
+                radius-scale: '0'
+                particles-base: '5'
+                particles-scale: '0'
+                direction: 'XY'
+                visible-radius: '20'
+                dx: '0'
+                dy: '0'
+                dz: '0'
+                speed: '0'
+                amount: '1'
+                forward: '3'
+                upward: '0'
+                right: '0'
+                indicator: '2D'
+              children:  {}
+            Particle Animation-vd: 
+              type: 'mechanic'
+              indicator: '3D'
+              data: 
+                icon-key: ''
+                counts: 'True'
+                steps: '5'
+                frequency: '0.05'
+                angle: '180'
+                start: '-90'
+                duration-base: '0.4'
+                duration-scale: '0'
+                h-translation-base: 'AOELores'
+                h-translation-scale: '0'
+                v-translation-base: '0'
+                v-translation-scale: '0'
+                h-cycles: '2'
+                v-cycles: '2'
+                particle: 'Witch Magic'
+                arrangement: 'Circle'
+                radius-base: '0.2'
+                radius-scale: '0'
+                particles-base: '5'
+                particles-scale: '0'
+                direction: 'YZ'
+                visible-radius: '20'
+                dx: '0'
+                dy: '0'
+                dz: '0'
+                speed: '0'
+                amount: '1'
+                forward: '3'
+                upward: '0'
+                right: '0'
+                indicator: '2D'
+              children:  {}
+            Cooldown-wd: 
+              type: 'mechanic'
+              indicator: '3D'
+              data: 
+                icon-key: ''
+                counts: 'True'
+                skill: 'Guadaña Doble'
+                type: 'Seconds'
+                value-base: 'cdbasico'
+                value-scale: '0'
+                indicator: '2D'
+              children:  {}
+    Kill: 
+      type: 'trigger'
+      indicator: '3D'
+      data: 
+        icon-key: ''
+        mana: 'False'
+        cooldown: 'True'
+        indicator: '2D'
+      children: 
+        Value Set-b: 
           type: 'mechanic'
-          data:
+          indicator: '3D'
+          data: 
             icon-key: ''
             counts: 'True'
             key: 'LifetoKill'
-            value-base: 0
-            value-scale: 0
-        Item-c:
+            value-base: '0'
+            value-scale: '0'
+            indicator: '2D'
+          children:  {}
+        Item-c: 
           type: 'condition'
-          data:
+          indicator: '3D'
+          data: 
             icon-key: ''
             check-mat: 'False'
             check-data: 'False'
@@ -57,28 +1100,36 @@ Guadaña Doble:
             lore: 'Vida por muerte:'
             check-name: 'False'
             regex: 'False'
-          children:
-            Value Lore-d:
+            indicator: '2D'
+          children: 
+            Value Lore-d: 
               type: 'mechanic'
-              data:
+              indicator: '3D'
+              data: 
                 icon-key: ''
                 counts: 'True'
                 key: 'LifetoKillAdd'
                 hand: 'Main'
                 regex: 'Vida por muerte: {value}'
-                multiplier-base: 1
-                multiplier-scale: 0
-            Value Add-e:
+                multiplier-base: '1'
+                multiplier-scale: '0'
+                indicator: '2D'
+              children:  {}
+            Value Add-e: 
               type: 'mechanic'
-              data:
+              indicator: '3D'
+              data: 
                 icon-key: ''
                 counts: 'True'
                 key: 'LifetoKill'
-                amount-base: LifetoKillAdd
-                amount-scale: 0
-        Offhand-f:
+                amount-base: 'LifetoKillAdd'
+                amount-scale: '0'
+                indicator: '2D'
+              children:  {}
+        Offhand-f: 
           type: 'condition'
-          data:
+          indicator: '3D'
+          data: 
             icon-key: ''
             check-mat: 'False'
             check-data: 'False'
@@ -86,30 +1137,38 @@ Guadaña Doble:
             lore: 'Poder de Arma:'
             check-name: 'False'
             regex: 'False'
-          children:
-            Value Lore-g:
+            indicator: '2D'
+          children: 
+            Value Lore-g: 
               type: 'mechanic'
-              data:
+              indicator: '3D'
+              data: 
                 icon-key: ''
                 counts: 'True'
                 key: 'PoderarmaAdd'
                 hand: 'Main'
                 regex: 'Poder de Arma: {value}'
-                multiplier-base: 1
-                multiplier-scale: 0
-            Value Add-h:
+                multiplier-base: '1'
+                multiplier-scale: '0'
+                indicator: '2D'
+              children:  {}
+            Value Add-h: 
               type: 'mechanic'
-              data:
+              indicator: '3D'
+              data: 
                 icon-key: ''
                 counts: 'True'
                 key: 'Poderarma'
-                amount-base: PoderarmaAdd
-                amount-scale: 0
-        Slot-i:
+                amount-base: 'PoderarmaAdd'
+                amount-scale: '0'
+                indicator: '2D'
+              children:  {}
+        Slot-i: 
           type: 'condition'
-          data:
+          indicator: '3D'
+          data: 
             icon-key: ''
-            slot:
+            slot: 
             - '39'
             check-mat: 'False'
             check-data: 'False'
@@ -117,30 +1176,38 @@ Guadaña Doble:
             lore: 'Vida por muerte:'
             check-name: 'False'
             regex: 'False'
-          children:
-            Value Lore Slot-j:
+            indicator: '2D'
+          children: 
+            Value Lore Slot-j: 
               type: 'mechanic'
-              data:
+              indicator: '3D'
+              data: 
                 icon-key: ''
                 counts: 'True'
                 key: 'LifetoKillAdd'
-                slot: 39
+                slot: '39'
                 regex: 'Vida por muerte: {value}'
-                multiplier-base: 1
-                multiplier-scale: 0
-            Value Add-k:
+                multiplier-base: '1'
+                multiplier-scale: '0'
+                indicator: '2D'
+              children:  {}
+            Value Add-k: 
               type: 'mechanic'
-              data:
+              indicator: '3D'
+              data: 
                 icon-key: ''
                 counts: 'True'
                 key: 'LifetoKill'
-                amount-base: LifetoKillAdd
-                amount-scale: 0
-        Slot-l:
+                amount-base: 'LifetoKillAdd'
+                amount-scale: '0'
+                indicator: '2D'
+              children:  {}
+        Slot-l: 
           type: 'condition'
-          data:
+          indicator: '3D'
+          data: 
             icon-key: ''
-            slot:
+            slot: 
             - '38'
             check-mat: 'False'
             check-data: 'False'
@@ -148,30 +1215,38 @@ Guadaña Doble:
             lore: 'Vida por muerte:'
             check-name: 'False'
             regex: 'False'
-          children:
-            Value Lore Slot-m:
+            indicator: '2D'
+          children: 
+            Value Lore Slot-m: 
               type: 'mechanic'
-              data:
+              indicator: '3D'
+              data: 
                 icon-key: ''
                 counts: 'True'
                 key: 'LifetoKillAdd'
-                slot: 38
+                slot: '38'
                 regex: 'Vida por muerte: {value}'
-                multiplier-base: 1
-                multiplier-scale: 0
-            Value Add-n:
+                multiplier-base: '1'
+                multiplier-scale: '0'
+                indicator: '2D'
+              children:  {}
+            Value Add-n: 
               type: 'mechanic'
-              data:
+              indicator: '3D'
+              data: 
                 icon-key: ''
                 counts: 'True'
                 key: 'LifetoKill'
-                amount-base: LifetoKillAdd
-                amount-scale: 0
-        Slot-o:
+                amount-base: 'LifetoKillAdd'
+                amount-scale: '0'
+                indicator: '2D'
+              children:  {}
+        Slot-o: 
           type: 'condition'
-          data:
+          indicator: '3D'
+          data: 
             icon-key: ''
-            slot:
+            slot: 
             - '37'
             check-mat: 'False'
             check-data: 'False'
@@ -179,30 +1254,38 @@ Guadaña Doble:
             lore: 'Vida por muerte:'
             check-name: 'False'
             regex: 'False'
-          children:
-            Value Lore Slot-p:
+            indicator: '2D'
+          children: 
+            Value Lore Slot-p: 
               type: 'mechanic'
-              data:
+              indicator: '3D'
+              data: 
                 icon-key: ''
                 counts: 'True'
                 key: 'LifetoKillAdd'
-                slot: 37
+                slot: '37'
                 regex: 'Vida por muerte: {value}'
-                multiplier-base: 1
-                multiplier-scale: 0
-            Value Add-q:
+                multiplier-base: '1'
+                multiplier-scale: '0'
+                indicator: '2D'
+              children:  {}
+            Value Add-q: 
               type: 'mechanic'
-              data:
+              indicator: '3D'
+              data: 
                 icon-key: ''
                 counts: 'True'
                 key: 'LifetoKill'
-                amount-base: LifetoKillAdd
-                amount-scale: 0
-        Slot-r:
+                amount-base: 'LifetoKillAdd'
+                amount-scale: '0'
+                indicator: '2D'
+              children:  {}
+        Slot-r: 
           type: 'condition'
-          data:
+          indicator: '3D'
+          data: 
             icon-key: ''
-            slot:
+            slot: 
             - '36'
             check-mat: 'False'
             check-data: 'False'
@@ -210,853 +1293,40 @@ Guadaña Doble:
             lore: 'Vida por muerte:'
             check-name: 'False'
             regex: 'False'
-          children:
-            Value Lore Slot-s:
+            indicator: '2D'
+          children: 
+            Value Lore Slot-s: 
               type: 'mechanic'
-              data:
+              indicator: '3D'
+              data: 
                 icon-key: ''
                 counts: 'True'
                 key: 'LifetoKillAdd'
-                slot: 36
+                slot: '36'
                 regex: 'Vida por muerte: {value}'
-                multiplier-base: 1
-                multiplier-scale: 0
-            Value Add-t:
+                multiplier-base: '1'
+                multiplier-scale: '0'
+                indicator: '2D'
+              children:  {}
+            Value Add-t: 
               type: 'mechanic'
-              data:
+              indicator: '3D'
+              data: 
                 icon-key: ''
                 counts: 'True'
                 key: 'LifetoKill'
-                amount-base: LifetoKillAdd
-                amount-scale: 0
-        Heal-u:
+                amount-base: 'LifetoKillAdd'
+                amount-scale: '0'
+                indicator: '2D'
+              children:  {}
+        Heal-u: 
           type: 'mechanic'
-          data:
+          indicator: '3D'
+          data: 
             icon-key: ''
             counts: 'True'
             type: 'Percent'
-            value-base: LifetoKill
-            value-scale: 1
-    Physical Damage-v:
-      type: 'trigger'
-      data:
-        icon-key: ''
-        mana: 'False'
-        cooldown: 'True'
-        target: 'True'
-        type: 'Melee'
-        dmg-min: 0
-        dmg-max: 999
-      children:
-        Tool-w:
-          type: 'condition'
-          data:
-            icon-key: ''
-            material: 'Any'
-            tool: 'Sword'
-          children:
-            Value Attribute-x:
-              type: 'mechanic'
-              data:
-                icon-key: ''
-                counts: 'True'
-                key: 'Poderarma'
-                attribute: 'Agilidad'
-            Item-y:
-              type: 'condition'
-              data:
-                icon-key: ''
-                check-mat: 'False'
-                check-data: 'False'
-                check-lore: 'True'
-                lore: 'Poder de Arma:'
-                check-name: 'False'
-                regex: 'False'
-              children:
-                Value Lore-z:
-                  type: 'mechanic'
-                  data:
-                    icon-key: ''
-                    counts: 'True'
-                    key: 'PoderarmaAdd'
-                    hand: 'Main'
-                    regex: 'Poder de Arma: {value}'
-                    multiplier-base: 1
-                    multiplier-scale: 0
-                Value Add-ab:
-                  type: 'mechanic'
-                  data:
-                    icon-key: ''
-                    counts: 'True'
-                    key: 'Poderarma'
-                    amount-base: PoderarmaAdd
-                    amount-scale: 0
-            Offhand-bb:
-              type: 'condition'
-              data:
-                icon-key: ''
-                check-mat: 'False'
-                check-data: 'False'
-                check-lore: 'True'
-                lore: 'Poder de Arma:'
-                check-name: 'False'
-                regex: 'False'
-              children:
-                Value Lore-cb:
-                  type: 'mechanic'
-                  data:
-                    icon-key: ''
-                    counts: 'True'
-                    key: 'PoderarmaAdd'
-                    hand: 'Main'
-                    regex: 'Poder de Arma: {value}'
-                    multiplier-base: 1
-                    multiplier-scale: 0
-                Value Add-db:
-                  type: 'mechanic'
-                  data:
-                    icon-key: ''
-                    counts: 'True'
-                    key: 'Poderarma'
-                    amount-base: PoderarmaAdd
-                    amount-scale: 0
-            Value Set-eb:
-              type: 'mechanic'
-              data:
-                icon-key: ''
-                counts: 'True'
-                key: 'AOELores'
-                value-base: 1
-                value-scale: 0
-            Item-fb:
-              type: 'condition'
-              data:
-                icon-key: ''
-                check-mat: 'False'
-                check-data: 'False'
-                check-lore: 'True'
-                lore: 'Alcanse en area:'
-                check-name: 'False'
-                regex: 'False'
-              children:
-                Value Lore-gb:
-                  type: 'mechanic'
-                  data:
-                    icon-key: ''
-                    counts: 'True'
-                    key: 'AOELoresAdd'
-                    hand: 'Main'
-                    regex: 'Alcanse en area: {value}'
-                    multiplier-base: 1
-                    multiplier-scale: 0
-                Value Add-hb:
-                  type: 'mechanic'
-                  data:
-                    icon-key: ''
-                    counts: 'True'
-                    key: 'AOELores'
-                    amount-base: AOELoresAdd
-                    amount-scale: 0
-            Offhand-ib:
-              type: 'condition'
-              data:
-                icon-key: ''
-                check-mat: 'False'
-                check-data: 'False'
-                check-lore: 'True'
-                lore: 'Alcanse en area:'
-                check-name: 'False'
-                regex: 'False'
-              children:
-                Value Lore-jb:
-                  type: 'mechanic'
-                  data:
-                    icon-key: ''
-                    counts: 'True'
-                    key: 'AOELoresAdd'
-                    hand: 'Main'
-                    regex: 'Alcanse en area: {value}'
-                    multiplier-base: 1
-                    multiplier-scale: 0
-                Value Add-kb:
-                  type: 'mechanic'
-                  data:
-                    icon-key: ''
-                    counts: 'True'
-                    key: 'AOELores'
-                    amount-base: AOELoresAdd
-                    amount-scale: 0
-            Slot-lb:
-              type: 'condition'
-              data:
-                icon-key: ''
-                slot:
-                - '39'
-                check-mat: 'False'
-                check-data: 'False'
-                check-lore: 'True'
-                lore: 'Alcanse en area:'
-                check-name: 'False'
-                regex: 'False'
-              children:
-                Value Lore Slot-mb:
-                  type: 'mechanic'
-                  data:
-                    icon-key: ''
-                    counts: 'True'
-                    key: 'AOELoresAdd'
-                    slot: 39
-                    regex: 'Alcanse en area: {value}'
-                    multiplier-base: 1
-                    multiplier-scale: 0
-                Value Add-nb:
-                  type: 'mechanic'
-                  data:
-                    icon-key: ''
-                    counts: 'True'
-                    key: 'AOELores'
-                    amount-base: AOELoresAdd
-                    amount-scale: 0
-            Slot-ob:
-              type: 'condition'
-              data:
-                icon-key: ''
-                slot:
-                - '38'
-                check-mat: 'False'
-                check-data: 'False'
-                check-lore: 'True'
-                lore: 'Alcanse en area:'
-                check-name: 'False'
-                regex: 'False'
-              children:
-                Value Lore Slot-pb:
-                  type: 'mechanic'
-                  data:
-                    icon-key: ''
-                    counts: 'True'
-                    key: 'AOELoresAdd'
-                    slot: 38
-                    regex: 'Alcanse en area: {value}'
-                    multiplier-base: 1
-                    multiplier-scale: 0
-                Value Add-qb:
-                  type: 'mechanic'
-                  data:
-                    icon-key: ''
-                    counts: 'True'
-                    key: 'AOELores'
-                    amount-base: AOELoresAdd
-                    amount-scale: 0
-            Slot-rb:
-              type: 'condition'
-              data:
-                icon-key: ''
-                slot:
-                - '37'
-                check-mat: 'False'
-                check-data: 'False'
-                check-lore: 'True'
-                lore: 'Alcanse en area:'
-                check-name: 'False'
-                regex: 'False'
-              children:
-                Value Lore Slot-sb:
-                  type: 'mechanic'
-                  data:
-                    icon-key: ''
-                    counts: 'True'
-                    key: 'AOELoresAdd'
-                    slot: 37
-                    regex: 'Alcanse en area: {value}'
-                    multiplier-base: 1
-                    multiplier-scale: 0
-                Value Add-tb:
-                  type: 'mechanic'
-                  data:
-                    icon-key: ''
-                    counts: 'True'
-                    key: 'AOELores'
-                    amount-base: AOELoresAdd
-                    amount-scale: 0
-            Slot-ub:
-              type: 'condition'
-              data:
-                icon-key: ''
-                slot:
-                - '36'
-                check-mat: 'False'
-                check-data: 'False'
-                check-lore: 'True'
-                lore: 'Alcanse en area:'
-                check-name: 'False'
-                regex: 'False'
-              children:
-                Value Lore Slot-vb:
-                  type: 'mechanic'
-                  data:
-                    icon-key: ''
-                    counts: 'True'
-                    key: 'AOELoresAdd'
-                    slot: 36
-                    regex: 'Alcanse en area: {value}'
-                    multiplier-base: 1
-                    multiplier-scale: 0
-                Value Add-wb:
-                  type: 'mechanic'
-                  data:
-                    icon-key: ''
-                    counts: 'True'
-                    key: 'AOELores'
-                    amount-base: AOELoresAdd
-                    amount-scale: 0
-            Value Set-xb:
-              type: 'mechanic'
-              data:
-                icon-key: ''
-                counts: 'True'
-                key: 'ProbcritLore'
-                value-base: 0
-                value-scale: 0
-            Item-yb:
-              type: 'condition'
-              data:
-                icon-key: ''
-                check-mat: 'False'
-                check-data: 'False'
-                check-lore: 'True'
-                lore: 'Probabilidad de critico:'
-                check-name: 'False'
-                regex: 'False'
-              children:
-                Value Lore-zb:
-                  type: 'mechanic'
-                  data:
-                    icon-key: ''
-                    counts: 'True'
-                    key: 'ProbcritLoreAdd'
-                    hand: 'Main'
-                    regex: 'Probabilidad de critico: {value}'
-                    multiplier-base: 1
-                    multiplier-scale: 0
-                Value Add-ac:
-                  type: 'mechanic'
-                  data:
-                    icon-key: ''
-                    counts: 'True'
-                    key: 'ProbcritLore'
-                    amount-base: ProbcritLoreAdd
-                    amount-scale: 0
-            Offhand-bc:
-              type: 'condition'
-              data:
-                icon-key: ''
-                check-mat: 'False'
-                check-data: 'False'
-                check-lore: 'True'
-                lore: 'Probabilidad de critico:'
-                check-name: 'False'
-                regex: 'False'
-              children:
-                Value Lore-cc:
-                  type: 'mechanic'
-                  data:
-                    icon-key: ''
-                    counts: 'True'
-                    key: 'ProbcritLoreAdd'
-                    hand: 'Main'
-                    regex: 'Probabilidad de critico: {value}'
-                    multiplier-base: 1
-                    multiplier-scale: 0
-                Value Add-dc:
-                  type: 'mechanic'
-                  data:
-                    icon-key: ''
-                    counts: 'True'
-                    key: 'ProbcritLore'
-                    amount-base: ProbcritLoreAdd
-                    amount-scale: 0
-            Slot-ec:
-              type: 'condition'
-              data:
-                icon-key: ''
-                slot:
-                - '39'
-                check-mat: 'False'
-                check-data: 'False'
-                check-lore: 'True'
-                lore: 'Probabilidad de critico:'
-                check-name: 'False'
-                regex: 'False'
-              children:
-                Value Lore Slot-fc:
-                  type: 'mechanic'
-                  data:
-                    icon-key: ''
-                    counts: 'True'
-                    key: 'ProbcritLoreAdd'
-                    slot: 39
-                    regex: 'Probabilidad de critico: {value}'
-                    multiplier-base: 1
-                    multiplier-scale: 0
-                Value Add-gc:
-                  type: 'mechanic'
-                  data:
-                    icon-key: ''
-                    counts: 'True'
-                    key: 'ProbcritLore'
-                    amount-base: ProbcritLoreAdd
-                    amount-scale: 0
-            Slot-hc:
-              type: 'condition'
-              data:
-                icon-key: ''
-                slot:
-                - '38'
-                check-mat: 'False'
-                check-data: 'False'
-                check-lore: 'True'
-                lore: 'Probabilidad de critico:'
-                check-name: 'False'
-                regex: 'False'
-              children:
-                Value Lore Slot-ic:
-                  type: 'mechanic'
-                  data:
-                    icon-key: ''
-                    counts: 'True'
-                    key: 'ProbcritLoreAdd'
-                    slot: 38
-                    regex: 'Probabilidad de critico: {value}'
-                    multiplier-base: 1
-                    multiplier-scale: 0
-                Value Add-jc:
-                  type: 'mechanic'
-                  data:
-                    icon-key: ''
-                    counts: 'True'
-                    key: 'ProbcritLore'
-                    amount-base: ProbcritLoreAdd
-                    amount-scale: 0
-            Slot-kc:
-              type: 'condition'
-              data:
-                icon-key: ''
-                slot:
-                - '37'
-                check-mat: 'False'
-                check-data: 'False'
-                check-lore: 'True'
-                lore: 'Probabilidad de critico:'
-                check-name: 'False'
-                regex: 'False'
-              children:
-                Value Lore Slot-lc:
-                  type: 'mechanic'
-                  data:
-                    icon-key: ''
-                    counts: 'True'
-                    key: 'ProbcritLoreAdd'
-                    slot: 37
-                    regex: 'Probabilidad de critico: {value}'
-                    multiplier-base: 1
-                    multiplier-scale: 0
-                Value Add-mc:
-                  type: 'mechanic'
-                  data:
-                    icon-key: ''
-                    counts: 'True'
-                    key: 'ProbcritLore'
-                    amount-base: ProbcritLoreAdd
-                    amount-scale: 0
-            Slot-nc:
-              type: 'condition'
-              data:
-                icon-key: ''
-                slot:
-                - '36'
-                check-mat: 'False'
-                check-data: 'False'
-                check-lore: 'True'
-                lore: 'Probabilidad de critico:'
-                check-name: 'False'
-                regex: 'False'
-              children:
-                Value Lore Slot-oc:
-                  type: 'mechanic'
-                  data:
-                    icon-key: ''
-                    counts: 'True'
-                    key: 'ProbcritLoreAdd'
-                    slot: 36
-                    regex: 'Probabilidad de critico: {value}'
-                    multiplier-base: 1
-                    multiplier-scale: 0
-                Value Add-pc:
-                  type: 'mechanic'
-                  data:
-                    icon-key: ''
-                    counts: 'True'
-                    key: 'ProbcritLore'
-                    amount-base: ProbcritLoreAdd
-                    amount-scale: 0
-            Value Set-qc:
-              type: 'mechanic'
-              data:
-                icon-key: ''
-                counts: 'True'
-                key: 'critLore'
-                value-base: 1
-                value-scale: 0
-            Item-rc:
-              type: 'condition'
-              data:
-                icon-key: ''
-                check-mat: 'False'
-                check-data: 'False'
-                check-lore: 'True'
-                lore: 'Daño por critico:'
-                check-name: 'False'
-                regex: 'False'
-              children:
-                Value Lore-sc:
-                  type: 'mechanic'
-                  data:
-                    icon-key: ''
-                    counts: 'True'
-                    key: 'critLoreAdd'
-                    hand: 'Main'
-                    regex: 'Daño por critico: {value}'
-                    multiplier-base: 1
-                    multiplier-scale: 0
-                Value Add-tc:
-                  type: 'mechanic'
-                  data:
-                    icon-key: ''
-                    counts: 'True'
-                    key: 'critLore'
-                    amount-base: critLoreAdd
-                    amount-scale: 0
-            Offhand-uc:
-              type: 'condition'
-              data:
-                icon-key: ''
-                check-mat: 'False'
-                check-data: 'False'
-                check-lore: 'True'
-                lore: 'Daño por critico:'
-                check-name: 'False'
-                regex: 'False'
-              children:
-                Value Lore-vc:
-                  type: 'mechanic'
-                  data:
-                    icon-key: ''
-                    counts: 'True'
-                    key: 'critLoreAdd'
-                    hand: 'Main'
-                    regex: 'Daño por critico: {value}'
-                    multiplier-base: 1
-                    multiplier-scale: 0
-                Value Add-wc:
-                  type: 'mechanic'
-                  data:
-                    icon-key: ''
-                    counts: 'True'
-                    key: 'critLore'
-                    amount-base: critLoreAdd
-                    amount-scale: 0
-            Slot-xc:
-              type: 'condition'
-              data:
-                icon-key: ''
-                slot:
-                - '39'
-                check-mat: 'False'
-                check-data: 'False'
-                check-lore: 'True'
-                lore: 'Daño por critico:'
-                check-name: 'False'
-                regex: 'False'
-              children:
-                Value Lore Slot-yc:
-                  type: 'mechanic'
-                  data:
-                    icon-key: ''
-                    counts: 'True'
-                    key: 'critLoreAdd'
-                    slot: 39
-                    regex: 'Daño por critico: {value}'
-                    multiplier-base: 1
-                    multiplier-scale: 0
-                Value Add-zc:
-                  type: 'mechanic'
-                  data:
-                    icon-key: ''
-                    counts: 'True'
-                    key: 'critLore'
-                    amount-base: critLoreAdd
-                    amount-scale: 0
-            Slot-ad:
-              type: 'condition'
-              data:
-                icon-key: ''
-                slot:
-                - '38'
-                check-mat: 'False'
-                check-data: 'False'
-                check-lore: 'True'
-                lore: 'Daño por critico:'
-                check-name: 'False'
-                regex: 'False'
-              children:
-                Value Lore Slot-bd:
-                  type: 'mechanic'
-                  data:
-                    icon-key: ''
-                    counts: 'True'
-                    key: 'critLoreAdd'
-                    slot: 38
-                    regex: 'Daño por critico: {value}'
-                    multiplier-base: 1
-                    multiplier-scale: 0
-                Value Add-cd:
-                  type: 'mechanic'
-                  data:
-                    icon-key: ''
-                    counts: 'True'
-                    key: 'critLore'
-                    amount-base: critLoreAdd
-                    amount-scale: 0
-            Slot-dd:
-              type: 'condition'
-              data:
-                icon-key: ''
-                slot:
-                - '37'
-                check-mat: 'False'
-                check-data: 'False'
-                check-lore: 'True'
-                lore: 'Daño por critico:'
-                check-name: 'False'
-                regex: 'False'
-              children:
-                Value Lore Slot-ed:
-                  type: 'mechanic'
-                  data:
-                    icon-key: ''
-                    counts: 'True'
-                    key: 'critLoreAdd'
-                    slot: 37
-                    regex: 'Daño por critico: {value}'
-                    multiplier-base: 1
-                    multiplier-scale: 0
-                Value Add-fd:
-                  type: 'mechanic'
-                  data:
-                    icon-key: ''
-                    counts: 'True'
-                    key: 'critLore'
-                    amount-base: critLoreAdd
-                    amount-scale: 0
-            Slot-gd:
-              type: 'condition'
-              data:
-                icon-key: ''
-                slot:
-                - '36'
-                check-mat: 'False'
-                check-data: 'False'
-                check-lore: 'True'
-                lore: 'Daño por critico:'
-                check-name: 'False'
-                regex: 'False'
-              children:
-                Value Lore Slot-hd:
-                  type: 'mechanic'
-                  data:
-                    icon-key: ''
-                    counts: 'True'
-                    key: 'critLoreAdd'
-                    slot: 36
-                    regex: 'Daño por critico: {value}'
-                    multiplier-base: 1
-                    multiplier-scale: 0
-                Value Add-id:
-                  type: 'mechanic'
-                  data:
-                    icon-key: ''
-                    counts: 'True'
-                    key: 'critLore'
-                    amount-base: critLoreAdd
-                    amount-scale: 0
-            Value Multiply-jd:
-              type: 'mechanic'
-              data:
-                icon-key: ''
-                counts: 'True'
-                key: 'Poderarma'
-                multiplier-base: 1.2
-                multiplier-scale: 0
-            Value Multiply-kd:
-              type: 'mechanic'
-              data:
-                icon-key: ''
-                counts: 'True'
-                key: 'critLore'
-                multiplier-base: 0.01
-                multiplier-scale: 0
-            Value Add-ld:
-              type: 'mechanic'
-              data:
-                icon-key: ''
-                counts: 'True'
-                key: 'critLore'
-                amount-base: 1
-                amount-scale: 0
-            Chance-md:
-              type: 'condition'
-              data:
-                icon-key: ''
-                chance-base: ProbcritLore
-                chance-scale: 0
-              children:
-                Value Multiply-nd:
-                  type: 'mechanic'
-                  data:
-                    icon-key: ''
-                    counts: 'True'
-                    key: 'Poderarma'
-                    multiplier-base: critLore
-                    multiplier-scale: 0
-                Command-od:
-                  type: 'mechanic'
-                  data:
-                    icon-key: ''
-                    counts: 'True'
-                    command: 'ex title "title:<red>Critico" stay:0.1s fade_in:0.1s fade_out:0.1s'
-                    type: 'OP'
-            Cone-pd:
-              type: 'target'
-              data:
-                icon-key: ''
-                range-base: AOELores
-                range-scale: 0
-                angle-base: 60
-                angle-scale: 0
-                group: 'Enemy'
-                wall: 'False'
-                caster: 'False'
-                max-base: 99
-                max-scale: 0
-              children:
-                Damage-qd:
-                  type: 'mechanic'
-                  data:
-                    icon-key: ''
-                    counts: 'True'
-                    type: 'Damage'
-                    value-base: Poderarma
-                    value-scale: 1
-                    true: 'False'
-                    classifier: 'default'
-            Value Attribute-rd:
-              type: 'mechanic'
-              data:
-                icon-key: ''
-                counts: 'True'
-                key: 'Poderarma'
-                attribute: 'Agilidad'
-            Value Lore-sd:
-              type: 'mechanic'
-              data:
-                icon-key: ''
-                counts: 'True'
-                key: 'PoderarmaAdd'
-                hand: 'Main'
-                regex: 'Poder de Arma: {value}'
-                multiplier-base: 1
-                multiplier-scale: 0
-            Value Add-td:
-              type: 'mechanic'
-              data:
-                icon-key: ''
-                counts: 'True'
-                key: 'Poderarma'
-                amount-base: PoderarmaAdd
-                amount-scale: 0
-            Particle Animation-ud:
-              type: 'mechanic'
-              data:
-                icon-key: ''
-                counts: 'True'
-                steps: 5
-                frequency: 0.05
-                angle: -180
-                start: 90
-                duration-base: 0.4
-                duration-scale: 0
-                h-translation-base: AOELores
-                h-translation-scale: 0
-                v-translation-base: 2
-                v-translation-scale: 0
-                h-cycles: 2
-                v-cycles: 2
-                particle: 'Crit'
-                arrangement: 'Circle'
-                radius-base: 0.2
-                radius-scale: 0
-                particles-base: 5
-                particles-scale: 0
-                direction: 'XY'
-                visible-radius: 20
-                dx: 0
-                dy: 0
-                dz: 0
-                speed: 0
-                amount: 1
-                forward: 3
-                upward: 0
-                right: 0
-            Particle Animation-vd:
-              type: 'mechanic'
-              data:
-                icon-key: ''
-                counts: 'True'
-                steps: 5
-                frequency: 0.05
-                angle: 180
-                start: -90
-                duration-base: 0.4
-                duration-scale: 0
-                h-translation-base: AOELores
-                h-translation-scale: 0
-                v-translation-base: 0
-                v-translation-scale: 0
-                h-cycles: 2
-                v-cycles: 2
-                particle: 'Witch Magic'
-                arrangement: 'Circle'
-                radius-base: 0.2
-                radius-scale: 0
-                particles-base: 5
-                particles-scale: 0
-                direction: 'YZ'
-                visible-radius: 20
-                dx: 0
-                dy: 0
-                dz: 0
-                speed: 0
-                amount: 1
-                forward: 3
-                upward: 0
-                right: 0
-            Cooldown-wd:
-              type: 'mechanic'
-              data:
-                icon-key: ''
-                counts: 'True'
-                skill: 'Guadaña Doble'
-                type: 'Seconds'
-                value-base: cdbasico
-                value-scale: 0
+            value-base: 'LifetoKill'
+            value-scale: '1'
+            indicator: '2D'
+          children:  {}

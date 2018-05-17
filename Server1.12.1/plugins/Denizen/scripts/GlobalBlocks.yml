@@ -16,8 +16,6 @@ GlobalBlocks:
       - ^yaml id:esparcraftblocks<player.name> set material.coal.locations:->:<context.location>
       - ^yaml savefile:pueblos/blockupdate.yml id:esparcraftblocks<player.name>
       }
-    - ^wait 2t
-    - ^modifyblock <context.location> bedrock
     - ^yaml unload id:esparcraftblocks<player.name>
     - ^queue clear
 

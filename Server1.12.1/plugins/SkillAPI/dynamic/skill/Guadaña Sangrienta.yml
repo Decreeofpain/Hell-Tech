@@ -1,16 +1,26 @@
-Guadaña Sangrienta:
+Guadaña Sangrienta: 
   name: 'Guadaña Sangrienta'
   type: 'Principal'
   max-level: 1
-  skill-req: ''
   skill-req-lvl: 1
-  needs-permission: 'False'
+  needs-permission: 'false'
+  attributes: 
+    level-base: '1'
+    level-scale: '0'
+    cost-base: '1'
+    cost-scale: '0'
+    cooldown-base: '0'
+    cooldown-scale: '0'
+    mana-base: '0'
+    mana-scale: '0'
+    points-spent-req-base: '0'
+    points-spent-req-scale: '0'
+    incompatible: 
+    - 'Esquirla'
   msg: '&6{player} &2has cast &6{skill}'
-  combo: ''
-  indicator: '2D'
-  icon: 'Iron Axe'
+  icon: 'IRON_AXE'
   icon-data: 0
-  icon-lore:
+  icon-lore: 
   - '&d{name} &7({level}/{max})'
   - '&2Tipo: &6{type}'
   - ''
@@ -18,224 +28,44 @@ Guadaña Sangrienta:
   - '&7 que impacta en area frente a ti'
   - '&7 causando 150% de tu poder de arma.'
   - '&2Cooldown: {attr:cooldown}'
-  attributes:
-    level-base: 1
-    level-scale: 0
-    cost-base: 1
-    cost-scale: 0
-    cooldown-base: 0
-    cooldown-scale: 0
-    mana-base: 0
-    mana-scale: 0
-    points-spent-req-base: 0
-    points-spent-req-scale: 0
-    incompatible:
-    - 'Esquirla'
-  components:
-    Kill-a:
+  desc:  []
+  components: 
+    Physical Damage: 
       type: 'trigger'
-      data:
-        icon-key: ''
-        mana: 'False'
-        cooldown: 'True'
-      children:
-        Value Set-b:
-          type: 'mechanic'
-          data:
-            icon-key: ''
-            counts: 'True'
-            key: 'LifetoKill'
-            value-base: 0
-            value-scale: 0
-        Item-c:
-          type: 'condition'
-          data:
-            icon-key: ''
-            check-mat: 'False'
-            check-data: 'False'
-            check-lore: 'True'
-            lore: 'Vida por muerte:'
-            check-name: 'False'
-            regex: 'False'
-          children:
-            Value Lore-d:
-              type: 'mechanic'
-              data:
-                icon-key: ''
-                counts: 'True'
-                key: 'LifetoKillAdd'
-                hand: 'Main'
-                regex: 'Vida por muerte: {value}'
-                multiplier-base: 1
-                multiplier-scale: 0
-            Value Add-e:
-              type: 'mechanic'
-              data:
-                icon-key: ''
-                counts: 'True'
-                key: 'LifetoKill'
-                amount-base: LifetoKillAdd
-                amount-scale: 0
-        Slot-f:
-          type: 'condition'
-          data:
-            icon-key: ''
-            slot:
-            - '39'
-            check-mat: 'False'
-            check-data: 'False'
-            check-lore: 'True'
-            lore: 'Vida por muerte:'
-            check-name: 'False'
-            regex: 'False'
-          children:
-            Value Lore Slot-g:
-              type: 'mechanic'
-              data:
-                icon-key: ''
-                counts: 'True'
-                key: 'LifetoKillAdd'
-                slot: 39
-                regex: 'Vida por muerte: {value}'
-                multiplier-base: 1
-                multiplier-scale: 0
-            Value Add-h:
-              type: 'mechanic'
-              data:
-                icon-key: ''
-                counts: 'True'
-                key: 'LifetoKill'
-                amount-base: LifetoKillAdd
-                amount-scale: 0
-        Slot-i:
-          type: 'condition'
-          data:
-            icon-key: ''
-            slot:
-            - '38'
-            check-mat: 'False'
-            check-data: 'False'
-            check-lore: 'True'
-            lore: 'Vida por muerte:'
-            check-name: 'False'
-            regex: 'False'
-          children:
-            Value Lore Slot-j:
-              type: 'mechanic'
-              data:
-                icon-key: ''
-                counts: 'True'
-                key: 'LifetoKillAdd'
-                slot: 38
-                regex: 'Vida por muerte: {value}'
-                multiplier-base: 1
-                multiplier-scale: 0
-            Value Add-k:
-              type: 'mechanic'
-              data:
-                icon-key: ''
-                counts: 'True'
-                key: 'LifetoKill'
-                amount-base: LifetoKillAdd
-                amount-scale: 0
-        Slot-l:
-          type: 'condition'
-          data:
-            icon-key: ''
-            slot:
-            - '37'
-            check-mat: 'False'
-            check-data: 'False'
-            check-lore: 'True'
-            lore: 'Vida por muerte:'
-            check-name: 'False'
-            regex: 'False'
-          children:
-            Value Lore Slot-m:
-              type: 'mechanic'
-              data:
-                icon-key: ''
-                counts: 'True'
-                key: 'LifetoKillAdd'
-                slot: 37
-                regex: 'Vida por muerte: {value}'
-                multiplier-base: 1
-                multiplier-scale: 0
-            Value Add-n:
-              type: 'mechanic'
-              data:
-                icon-key: ''
-                counts: 'True'
-                key: 'LifetoKill'
-                amount-base: LifetoKillAdd
-                amount-scale: 0
-        Slot-o:
-          type: 'condition'
-          data:
-            icon-key: ''
-            slot:
-            - '36'
-            check-mat: 'False'
-            check-data: 'False'
-            check-lore: 'True'
-            lore: 'Vida por muerte:'
-            check-name: 'False'
-            regex: 'False'
-          children:
-            Value Lore Slot-p:
-              type: 'mechanic'
-              data:
-                icon-key: ''
-                counts: 'True'
-                key: 'LifetoKillAdd'
-                slot: 36
-                regex: 'Vida por muerte: {value}'
-                multiplier-base: 1
-                multiplier-scale: 0
-            Value Add-q:
-              type: 'mechanic'
-              data:
-                icon-key: ''
-                counts: 'True'
-                key: 'LifetoKill'
-                amount-base: LifetoKillAdd
-                amount-scale: 0
-        Heal-r:
-          type: 'mechanic'
-          data:
-            icon-key: ''
-            counts: 'True'
-            type: 'Percent'
-            value-base: LifetoKill
-            value-scale: 1
-    Physical Damage-s:
-      type: 'trigger'
-      data:
+      indicator: '3D'
+      data: 
         icon-key: ''
         mana: 'False'
         cooldown: 'True'
         target: 'True'
         type: 'Melee'
-        dmg-min: 0
-        dmg-max: 999
-      children:
-        Tool-t:
+        dmg-min: '0'
+        dmg-max: '999'
+        indicator: '2D'
+      children: 
+        Tool-t: 
           type: 'condition'
-          data:
+          indicator: '3D'
+          data: 
             icon-key: ''
             material: 'Any'
             tool: 'Sword'
-          children:
-            Value Attribute-u:
+            indicator: '2D'
+          children: 
+            Value Attribute-u: 
               type: 'mechanic'
-              data:
+              indicator: '3D'
+              data: 
                 icon-key: ''
                 counts: 'True'
                 key: 'Poderarma'
                 attribute: 'Agilidad'
-            Item-v:
+                indicator: '2D'
+              children:  {}
+            Item-v: 
               type: 'condition'
-              data:
+              indicator: '3D'
+              data: 
                 icon-key: ''
                 check-mat: 'False'
                 check-data: 'False'
@@ -243,36 +73,47 @@ Guadaña Sangrienta:
                 lore: 'Poder de Arma:'
                 check-name: 'False'
                 regex: 'False'
-              children:
-                Value Lore-w:
+                indicator: '2D'
+              children: 
+                Value Lore-w: 
                   type: 'mechanic'
-                  data:
+                  indicator: '3D'
+                  data: 
                     icon-key: ''
                     counts: 'True'
                     key: 'PoderarmaAdd'
                     hand: 'Main'
                     regex: 'Poder de Arma: {value}'
-                    multiplier-base: 1
-                    multiplier-scale: 0
-                Value Add-x:
+                    multiplier-base: '1'
+                    multiplier-scale: '0'
+                    indicator: '2D'
+                  children:  {}
+                Value Add-x: 
                   type: 'mechanic'
-                  data:
+                  indicator: '3D'
+                  data: 
                     icon-key: ''
                     counts: 'True'
                     key: 'Poderarma'
-                    amount-base: PoderarmaAdd
-                    amount-scale: 0
-            Value Set-y:
+                    amount-base: 'PoderarmaAdd'
+                    amount-scale: '0'
+                    indicator: '2D'
+                  children:  {}
+            Value Set-y: 
               type: 'mechanic'
-              data:
+              indicator: '3D'
+              data: 
                 icon-key: ''
                 counts: 'True'
                 key: 'AOELores'
-                value-base: 1
-                value-scale: 0
-            Item-z:
+                value-base: '1'
+                value-scale: '0'
+                indicator: '2D'
+              children:  {}
+            Item-z: 
               type: 'condition'
-              data:
+              indicator: '3D'
+              data: 
                 icon-key: ''
                 check-mat: 'False'
                 check-data: 'False'
@@ -280,30 +121,38 @@ Guadaña Sangrienta:
                 lore: 'Alcanse en area:'
                 check-name: 'False'
                 regex: 'False'
-              children:
-                Value Lore-ab:
+                indicator: '2D'
+              children: 
+                Value Lore-ab: 
                   type: 'mechanic'
-                  data:
+                  indicator: '3D'
+                  data: 
                     icon-key: ''
                     counts: 'True'
                     key: 'AOELoresAdd'
                     hand: 'Main'
                     regex: 'Alcanse en area: {value}'
-                    multiplier-base: 1
-                    multiplier-scale: 0
-                Value Add-bb:
+                    multiplier-base: '1'
+                    multiplier-scale: '0'
+                    indicator: '2D'
+                  children:  {}
+                Value Add-bb: 
                   type: 'mechanic'
-                  data:
+                  indicator: '3D'
+                  data: 
                     icon-key: ''
                     counts: 'True'
                     key: 'AOELores'
-                    amount-base: AOELoresAdd
-                    amount-scale: 0
-            Slot-cb:
+                    amount-base: 'AOELoresAdd'
+                    amount-scale: '0'
+                    indicator: '2D'
+                  children:  {}
+            Slot-cb: 
               type: 'condition'
-              data:
+              indicator: '3D'
+              data: 
                 icon-key: ''
-                slot:
+                slot: 
                 - '39'
                 check-mat: 'False'
                 check-data: 'False'
@@ -311,30 +160,38 @@ Guadaña Sangrienta:
                 lore: 'Alcanse en area:'
                 check-name: 'False'
                 regex: 'False'
-              children:
-                Value Lore Slot-db:
+                indicator: '2D'
+              children: 
+                Value Lore Slot-db: 
                   type: 'mechanic'
-                  data:
+                  indicator: '3D'
+                  data: 
                     icon-key: ''
                     counts: 'True'
                     key: 'AOELoresAdd'
-                    slot: 39
+                    slot: '39'
                     regex: 'Alcanse en area: {value}'
-                    multiplier-base: 1
-                    multiplier-scale: 0
-                Value Add-eb:
+                    multiplier-base: '1'
+                    multiplier-scale: '0'
+                    indicator: '2D'
+                  children:  {}
+                Value Add-eb: 
                   type: 'mechanic'
-                  data:
+                  indicator: '3D'
+                  data: 
                     icon-key: ''
                     counts: 'True'
                     key: 'AOELores'
-                    amount-base: AOELoresAdd
-                    amount-scale: 0
-            Slot-fb:
+                    amount-base: 'AOELoresAdd'
+                    amount-scale: '0'
+                    indicator: '2D'
+                  children:  {}
+            Slot-fb: 
               type: 'condition'
-              data:
+              indicator: '3D'
+              data: 
                 icon-key: ''
-                slot:
+                slot: 
                 - '38'
                 check-mat: 'False'
                 check-data: 'False'
@@ -342,30 +199,38 @@ Guadaña Sangrienta:
                 lore: 'Alcanse en area:'
                 check-name: 'False'
                 regex: 'False'
-              children:
-                Value Lore Slot-gb:
+                indicator: '2D'
+              children: 
+                Value Lore Slot-gb: 
                   type: 'mechanic'
-                  data:
+                  indicator: '3D'
+                  data: 
                     icon-key: ''
                     counts: 'True'
                     key: 'AOELoresAdd'
-                    slot: 38
+                    slot: '38'
                     regex: 'Alcanse en area: {value}'
-                    multiplier-base: 1
-                    multiplier-scale: 0
-                Value Add-hb:
+                    multiplier-base: '1'
+                    multiplier-scale: '0'
+                    indicator: '2D'
+                  children:  {}
+                Value Add-hb: 
                   type: 'mechanic'
-                  data:
+                  indicator: '3D'
+                  data: 
                     icon-key: ''
                     counts: 'True'
                     key: 'AOELores'
-                    amount-base: AOELoresAdd
-                    amount-scale: 0
-            Slot-ib:
+                    amount-base: 'AOELoresAdd'
+                    amount-scale: '0'
+                    indicator: '2D'
+                  children:  {}
+            Slot-ib: 
               type: 'condition'
-              data:
+              indicator: '3D'
+              data: 
                 icon-key: ''
-                slot:
+                slot: 
                 - '37'
                 check-mat: 'False'
                 check-data: 'False'
@@ -373,30 +238,38 @@ Guadaña Sangrienta:
                 lore: 'Alcanse en area:'
                 check-name: 'False'
                 regex: 'False'
-              children:
-                Value Lore Slot-jb:
+                indicator: '2D'
+              children: 
+                Value Lore Slot-jb: 
                   type: 'mechanic'
-                  data:
+                  indicator: '3D'
+                  data: 
                     icon-key: ''
                     counts: 'True'
                     key: 'AOELoresAdd'
-                    slot: 37
+                    slot: '37'
                     regex: 'Alcanse en area: {value}'
-                    multiplier-base: 1
-                    multiplier-scale: 0
-                Value Add-kb:
+                    multiplier-base: '1'
+                    multiplier-scale: '0'
+                    indicator: '2D'
+                  children:  {}
+                Value Add-kb: 
                   type: 'mechanic'
-                  data:
+                  indicator: '3D'
+                  data: 
                     icon-key: ''
                     counts: 'True'
                     key: 'AOELores'
-                    amount-base: AOELoresAdd
-                    amount-scale: 0
-            Slot-lb:
+                    amount-base: 'AOELoresAdd'
+                    amount-scale: '0'
+                    indicator: '2D'
+                  children:  {}
+            Slot-lb: 
               type: 'condition'
-              data:
+              indicator: '3D'
+              data: 
                 icon-key: ''
-                slot:
+                slot: 
                 - '36'
                 check-mat: 'False'
                 check-data: 'False'
@@ -404,36 +277,47 @@ Guadaña Sangrienta:
                 lore: 'Alcanse en area:'
                 check-name: 'False'
                 regex: 'False'
-              children:
-                Value Lore Slot-mb:
+                indicator: '2D'
+              children: 
+                Value Lore Slot-mb: 
                   type: 'mechanic'
-                  data:
+                  indicator: '3D'
+                  data: 
                     icon-key: ''
                     counts: 'True'
                     key: 'AOELoresAdd'
-                    slot: 36
+                    slot: '36'
                     regex: 'Alcanse en area: {value}'
-                    multiplier-base: 1
-                    multiplier-scale: 0
-                Value Add-nb:
+                    multiplier-base: '1'
+                    multiplier-scale: '0'
+                    indicator: '2D'
+                  children:  {}
+                Value Add-nb: 
                   type: 'mechanic'
-                  data:
+                  indicator: '3D'
+                  data: 
                     icon-key: ''
                     counts: 'True'
                     key: 'AOELores'
-                    amount-base: AOELoresAdd
-                    amount-scale: 0
-            Value Set-ob:
+                    amount-base: 'AOELoresAdd'
+                    amount-scale: '0'
+                    indicator: '2D'
+                  children:  {}
+            Value Set-ob: 
               type: 'mechanic'
-              data:
+              indicator: '3D'
+              data: 
                 icon-key: ''
                 counts: 'True'
                 key: 'ProbcritLore'
-                value-base: 0
-                value-scale: 0
-            Item-pb:
+                value-base: '0'
+                value-scale: '0'
+                indicator: '2D'
+              children:  {}
+            Item-pb: 
               type: 'condition'
-              data:
+              indicator: '3D'
+              data: 
                 icon-key: ''
                 check-mat: 'False'
                 check-data: 'False'
@@ -441,30 +325,38 @@ Guadaña Sangrienta:
                 lore: 'Probabilidad de critico:'
                 check-name: 'False'
                 regex: 'False'
-              children:
-                Value Lore-qb:
+                indicator: '2D'
+              children: 
+                Value Lore-qb: 
                   type: 'mechanic'
-                  data:
+                  indicator: '3D'
+                  data: 
                     icon-key: ''
                     counts: 'True'
                     key: 'ProbcritLoreAdd'
                     hand: 'Main'
                     regex: 'Probabilidad de critico: {value}'
-                    multiplier-base: 1
-                    multiplier-scale: 0
-                Value Add-rb:
+                    multiplier-base: '1'
+                    multiplier-scale: '0'
+                    indicator: '2D'
+                  children:  {}
+                Value Add-rb: 
                   type: 'mechanic'
-                  data:
+                  indicator: '3D'
+                  data: 
                     icon-key: ''
                     counts: 'True'
                     key: 'ProbcritLore'
-                    amount-base: ProbcritLoreAdd
-                    amount-scale: 0
-            Slot-sb:
+                    amount-base: 'ProbcritLoreAdd'
+                    amount-scale: '0'
+                    indicator: '2D'
+                  children:  {}
+            Slot-sb: 
               type: 'condition'
-              data:
+              indicator: '3D'
+              data: 
                 icon-key: ''
-                slot:
+                slot: 
                 - '39'
                 check-mat: 'False'
                 check-data: 'False'
@@ -472,30 +364,38 @@ Guadaña Sangrienta:
                 lore: 'Probabilidad de critico:'
                 check-name: 'False'
                 regex: 'False'
-              children:
-                Value Lore Slot-tb:
+                indicator: '2D'
+              children: 
+                Value Lore Slot-tb: 
                   type: 'mechanic'
-                  data:
+                  indicator: '3D'
+                  data: 
                     icon-key: ''
                     counts: 'True'
                     key: 'ProbcritLoreAdd'
-                    slot: 39
+                    slot: '39'
                     regex: 'Probabilidad de critico: {value}'
-                    multiplier-base: 1
-                    multiplier-scale: 0
-                Value Add-ub:
+                    multiplier-base: '1'
+                    multiplier-scale: '0'
+                    indicator: '2D'
+                  children:  {}
+                Value Add-ub: 
                   type: 'mechanic'
-                  data:
+                  indicator: '3D'
+                  data: 
                     icon-key: ''
                     counts: 'True'
                     key: 'ProbcritLore'
-                    amount-base: ProbcritLoreAdd
-                    amount-scale: 0
-            Slot-vb:
+                    amount-base: 'ProbcritLoreAdd'
+                    amount-scale: '0'
+                    indicator: '2D'
+                  children:  {}
+            Slot-vb: 
               type: 'condition'
-              data:
+              indicator: '3D'
+              data: 
                 icon-key: ''
-                slot:
+                slot: 
                 - '38'
                 check-mat: 'False'
                 check-data: 'False'
@@ -503,30 +403,38 @@ Guadaña Sangrienta:
                 lore: 'Probabilidad de critico:'
                 check-name: 'False'
                 regex: 'False'
-              children:
-                Value Lore Slot-wb:
+                indicator: '2D'
+              children: 
+                Value Lore Slot-wb: 
                   type: 'mechanic'
-                  data:
+                  indicator: '3D'
+                  data: 
                     icon-key: ''
                     counts: 'True'
                     key: 'ProbcritLoreAdd'
-                    slot: 38
+                    slot: '38'
                     regex: 'Probabilidad de critico: {value}'
-                    multiplier-base: 1
-                    multiplier-scale: 0
-                Value Add-xb:
+                    multiplier-base: '1'
+                    multiplier-scale: '0'
+                    indicator: '2D'
+                  children:  {}
+                Value Add-xb: 
                   type: 'mechanic'
-                  data:
+                  indicator: '3D'
+                  data: 
                     icon-key: ''
                     counts: 'True'
                     key: 'ProbcritLore'
-                    amount-base: ProbcritLoreAdd
-                    amount-scale: 0
-            Slot-yb:
+                    amount-base: 'ProbcritLoreAdd'
+                    amount-scale: '0'
+                    indicator: '2D'
+                  children:  {}
+            Slot-yb: 
               type: 'condition'
-              data:
+              indicator: '3D'
+              data: 
                 icon-key: ''
-                slot:
+                slot: 
                 - '37'
                 check-mat: 'False'
                 check-data: 'False'
@@ -534,30 +442,38 @@ Guadaña Sangrienta:
                 lore: 'Probabilidad de critico:'
                 check-name: 'False'
                 regex: 'False'
-              children:
-                Value Lore Slot-zb:
+                indicator: '2D'
+              children: 
+                Value Lore Slot-zb: 
                   type: 'mechanic'
-                  data:
+                  indicator: '3D'
+                  data: 
                     icon-key: ''
                     counts: 'True'
                     key: 'ProbcritLoreAdd'
-                    slot: 37
+                    slot: '37'
                     regex: 'Probabilidad de critico: {value}'
-                    multiplier-base: 1
-                    multiplier-scale: 0
-                Value Add-ac:
+                    multiplier-base: '1'
+                    multiplier-scale: '0'
+                    indicator: '2D'
+                  children:  {}
+                Value Add-ac: 
                   type: 'mechanic'
-                  data:
+                  indicator: '3D'
+                  data: 
                     icon-key: ''
                     counts: 'True'
                     key: 'ProbcritLore'
-                    amount-base: ProbcritLoreAdd
-                    amount-scale: 0
-            Slot-bc:
+                    amount-base: 'ProbcritLoreAdd'
+                    amount-scale: '0'
+                    indicator: '2D'
+                  children:  {}
+            Slot-bc: 
               type: 'condition'
-              data:
+              indicator: '3D'
+              data: 
                 icon-key: ''
-                slot:
+                slot: 
                 - '36'
                 check-mat: 'False'
                 check-data: 'False'
@@ -565,36 +481,47 @@ Guadaña Sangrienta:
                 lore: 'Probabilidad de critico:'
                 check-name: 'False'
                 regex: 'False'
-              children:
-                Value Lore Slot-cc:
+                indicator: '2D'
+              children: 
+                Value Lore Slot-cc: 
                   type: 'mechanic'
-                  data:
+                  indicator: '3D'
+                  data: 
                     icon-key: ''
                     counts: 'True'
                     key: 'ProbcritLoreAdd'
-                    slot: 36
+                    slot: '36'
                     regex: 'Probabilidad de critico: {value}'
-                    multiplier-base: 1
-                    multiplier-scale: 0
-                Value Add-dc:
+                    multiplier-base: '1'
+                    multiplier-scale: '0'
+                    indicator: '2D'
+                  children:  {}
+                Value Add-dc: 
                   type: 'mechanic'
-                  data:
+                  indicator: '3D'
+                  data: 
                     icon-key: ''
                     counts: 'True'
                     key: 'ProbcritLore'
-                    amount-base: ProbcritLoreAdd
-                    amount-scale: 0
-            Value Set-ec:
+                    amount-base: 'ProbcritLoreAdd'
+                    amount-scale: '0'
+                    indicator: '2D'
+                  children:  {}
+            Value Set-ec: 
               type: 'mechanic'
-              data:
+              indicator: '3D'
+              data: 
                 icon-key: ''
                 counts: 'True'
                 key: 'critLore'
-                value-base: 1
-                value-scale: 0
-            Item-fc:
+                value-base: '1'
+                value-scale: '0'
+                indicator: '2D'
+              children:  {}
+            Item-fc: 
               type: 'condition'
-              data:
+              indicator: '3D'
+              data: 
                 icon-key: ''
                 check-mat: 'False'
                 check-data: 'False'
@@ -602,30 +529,38 @@ Guadaña Sangrienta:
                 lore: 'Daño por critico:'
                 check-name: 'False'
                 regex: 'False'
-              children:
-                Value Lore-gc:
+                indicator: '2D'
+              children: 
+                Value Lore-gc: 
                   type: 'mechanic'
-                  data:
+                  indicator: '3D'
+                  data: 
                     icon-key: ''
                     counts: 'True'
                     key: 'critLoreAdd'
                     hand: 'Main'
                     regex: 'Daño por critico: {value}'
-                    multiplier-base: 1
-                    multiplier-scale: 0
-                Value Add-hc:
+                    multiplier-base: '1'
+                    multiplier-scale: '0'
+                    indicator: '2D'
+                  children:  {}
+                Value Add-hc: 
                   type: 'mechanic'
-                  data:
+                  indicator: '3D'
+                  data: 
                     icon-key: ''
                     counts: 'True'
                     key: 'critLore'
-                    amount-base: critLoreAdd
-                    amount-scale: 0
-            Slot-ic:
+                    amount-base: 'critLoreAdd'
+                    amount-scale: '0'
+                    indicator: '2D'
+                  children:  {}
+            Slot-ic: 
               type: 'condition'
-              data:
+              indicator: '3D'
+              data: 
                 icon-key: ''
-                slot:
+                slot: 
                 - '39'
                 check-mat: 'False'
                 check-data: 'False'
@@ -633,30 +568,38 @@ Guadaña Sangrienta:
                 lore: 'Daño por critico:'
                 check-name: 'False'
                 regex: 'False'
-              children:
-                Value Lore Slot-jc:
+                indicator: '2D'
+              children: 
+                Value Lore Slot-jc: 
                   type: 'mechanic'
-                  data:
+                  indicator: '3D'
+                  data: 
                     icon-key: ''
                     counts: 'True'
                     key: 'critLoreAdd'
-                    slot: 39
+                    slot: '39'
                     regex: 'Daño por critico: {value}'
-                    multiplier-base: 1
-                    multiplier-scale: 0
-                Value Add-kc:
+                    multiplier-base: '1'
+                    multiplier-scale: '0'
+                    indicator: '2D'
+                  children:  {}
+                Value Add-kc: 
                   type: 'mechanic'
-                  data:
+                  indicator: '3D'
+                  data: 
                     icon-key: ''
                     counts: 'True'
                     key: 'critLore'
-                    amount-base: critLoreAdd
-                    amount-scale: 0
-            Slot-lc:
+                    amount-base: 'critLoreAdd'
+                    amount-scale: '0'
+                    indicator: '2D'
+                  children:  {}
+            Slot-lc: 
               type: 'condition'
-              data:
+              indicator: '3D'
+              data: 
                 icon-key: ''
-                slot:
+                slot: 
                 - '38'
                 check-mat: 'False'
                 check-data: 'False'
@@ -664,30 +607,38 @@ Guadaña Sangrienta:
                 lore: 'Daño por critico:'
                 check-name: 'False'
                 regex: 'False'
-              children:
-                Value Lore Slot-mc:
+                indicator: '2D'
+              children: 
+                Value Lore Slot-mc: 
                   type: 'mechanic'
-                  data:
+                  indicator: '3D'
+                  data: 
                     icon-key: ''
                     counts: 'True'
                     key: 'critLoreAdd'
-                    slot: 38
+                    slot: '38'
                     regex: 'Daño por critico: {value}'
-                    multiplier-base: 1
-                    multiplier-scale: 0
-                Value Add-nc:
+                    multiplier-base: '1'
+                    multiplier-scale: '0'
+                    indicator: '2D'
+                  children:  {}
+                Value Add-nc: 
                   type: 'mechanic'
-                  data:
+                  indicator: '3D'
+                  data: 
                     icon-key: ''
                     counts: 'True'
                     key: 'critLore'
-                    amount-base: critLoreAdd
-                    amount-scale: 0
-            Slot-oc:
+                    amount-base: 'critLoreAdd'
+                    amount-scale: '0'
+                    indicator: '2D'
+                  children:  {}
+            Slot-oc: 
               type: 'condition'
-              data:
+              indicator: '3D'
+              data: 
                 icon-key: ''
-                slot:
+                slot: 
                 - '37'
                 check-mat: 'False'
                 check-data: 'False'
@@ -695,30 +646,38 @@ Guadaña Sangrienta:
                 lore: 'Daño por critico:'
                 check-name: 'False'
                 regex: 'False'
-              children:
-                Value Lore Slot-pc:
+                indicator: '2D'
+              children: 
+                Value Lore Slot-pc: 
                   type: 'mechanic'
-                  data:
+                  indicator: '3D'
+                  data: 
                     icon-key: ''
                     counts: 'True'
                     key: 'critLoreAdd'
-                    slot: 37
+                    slot: '37'
                     regex: 'Daño por critico: {value}'
-                    multiplier-base: 1
-                    multiplier-scale: 0
-                Value Add-qc:
+                    multiplier-base: '1'
+                    multiplier-scale: '0'
+                    indicator: '2D'
+                  children:  {}
+                Value Add-qc: 
                   type: 'mechanic'
-                  data:
+                  indicator: '3D'
+                  data: 
                     icon-key: ''
                     counts: 'True'
                     key: 'critLore'
-                    amount-base: critLoreAdd
-                    amount-scale: 0
-            Slot-rc:
+                    amount-base: 'critLoreAdd'
+                    amount-scale: '0'
+                    indicator: '2D'
+                  children:  {}
+            Slot-rc: 
               type: 'condition'
-              data:
+              indicator: '3D'
+              data: 
                 icon-key: ''
-                slot:
+                slot: 
                 - '36'
                 check-mat: 'False'
                 check-data: 'False'
@@ -726,175 +685,449 @@ Guadaña Sangrienta:
                 lore: 'Daño por critico:'
                 check-name: 'False'
                 regex: 'False'
-              children:
-                Value Lore Slot-sc:
+                indicator: '2D'
+              children: 
+                Value Lore Slot-sc: 
                   type: 'mechanic'
-                  data:
+                  indicator: '3D'
+                  data: 
                     icon-key: ''
                     counts: 'True'
                     key: 'critLoreAdd'
-                    slot: 36
+                    slot: '36'
                     regex: 'Daño por critico: {value}'
-                    multiplier-base: 1
-                    multiplier-scale: 0
-                Value Add-tc:
+                    multiplier-base: '1'
+                    multiplier-scale: '0'
+                    indicator: '2D'
+                  children:  {}
+                Value Add-tc: 
                   type: 'mechanic'
-                  data:
+                  indicator: '3D'
+                  data: 
                     icon-key: ''
                     counts: 'True'
                     key: 'critLore'
-                    amount-base: critLoreAdd
-                    amount-scale: 0
-            Value Multiply-uc:
+                    amount-base: 'critLoreAdd'
+                    amount-scale: '0'
+                    indicator: '2D'
+                  children:  {}
+            Value Multiply-uc: 
               type: 'mechanic'
-              data:
+              indicator: '3D'
+              data: 
                 icon-key: ''
                 counts: 'True'
                 key: 'Poderarma'
-                multiplier-base: 1.2
-                multiplier-scale: 0
-            Value Multiply-vc:
+                multiplier-base: '1.2'
+                multiplier-scale: '0'
+                indicator: '2D'
+              children:  {}
+            Value Multiply-vc: 
               type: 'mechanic'
-              data:
+              indicator: '3D'
+              data: 
                 icon-key: ''
                 counts: 'True'
                 key: 'critLore'
-                multiplier-base: 0.01
-                multiplier-scale: 0
-            Value Add-wc:
+                multiplier-base: '0.01'
+                multiplier-scale: '0'
+                indicator: '2D'
+              children:  {}
+            Value Add-wc: 
               type: 'mechanic'
-              data:
+              indicator: '3D'
+              data: 
                 icon-key: ''
                 counts: 'True'
                 key: 'critLore'
-                amount-base: 1
-                amount-scale: 0
-            Chance-xc:
+                amount-base: '1'
+                amount-scale: '0'
+                indicator: '2D'
+              children:  {}
+            Chance-xc: 
               type: 'condition'
-              data:
+              indicator: '3D'
+              data: 
                 icon-key: ''
-                chance-base: ProbcritLore
-                chance-scale: 0
-              children:
-                Value Multiply-yc:
+                chance-base: 'ProbcritLore'
+                chance-scale: '0'
+                indicator: '2D'
+              children: 
+                Value Multiply-yc: 
                   type: 'mechanic'
-                  data:
+                  indicator: '3D'
+                  data: 
                     icon-key: ''
                     counts: 'True'
                     key: 'Poderarma'
-                    multiplier-base: critLore
-                    multiplier-scale: 0
-                Command-zc:
+                    multiplier-base: 'critLore'
+                    multiplier-scale: '0'
+                    indicator: '2D'
+                  children:  {}
+                Command-zc: 
                   type: 'mechanic'
-                  data:
+                  indicator: '3D'
+                  data: 
                     icon-key: ''
                     counts: 'True'
                     command: 'ex title "title:<red>Critico" stay:0.1s fade_in:0.1s fade_out:0.1s'
                     type: 'OP'
-            Cone-ad:
+                    indicator: '2D'
+                  children:  {}
+            Cone-ad: 
               type: 'target'
-              data:
+              indicator: '3D'
+              data: 
                 icon-key: ''
-                range-base: AOELores
-                range-scale: 0
-                angle-base: 60
-                angle-scale: 0
+                range-base: 'AOELores'
+                range-scale: '0'
+                angle-base: '60'
+                angle-scale: '0'
                 group: 'Enemy'
                 wall: 'False'
                 caster: 'False'
-                max-base: 99
-                max-scale: 0
-              children:
-                Damage-bd:
+                max-base: '99'
+                max-scale: '0'
+                indicator: '2D'
+              children: 
+                Damage-bd: 
                   type: 'mechanic'
-                  data:
+                  indicator: '3D'
+                  data: 
                     icon-key: ''
                     counts: 'True'
                     type: 'Damage'
-                    value-base: Poderarma
-                    value-scale: 1
+                    value-base: 'Poderarma'
+                    value-scale: '1'
                     true: 'False'
                     classifier: 'default'
-            Value Multiply-cd:
+                    indicator: '2D'
+                  children:  {}
+            Value Multiply-cd: 
               type: 'mechanic'
-              data:
+              indicator: '3D'
+              data: 
                 icon-key: ''
                 counts: 'True'
                 key: 'Poderarma'
-                multiplier-base: 0.01
-                multiplier-scale: 0
-            Heal-dd:
+                multiplier-base: '0.01'
+                multiplier-scale: '0'
+                indicator: '2D'
+              children:  {}
+            Heal-dd: 
               type: 'mechanic'
-              data:
+              indicator: '3D'
+              data: 
                 icon-key: ''
                 counts: 'True'
                 type: 'Health'
-                value-base: Poderarma
-                value-scale: 1
-            Value Attribute-ed:
+                value-base: 'Poderarma'
+                value-scale: '1'
+                indicator: '2D'
+              children:  {}
+            Value Attribute-ed: 
               type: 'mechanic'
-              data:
+              indicator: '3D'
+              data: 
                 icon-key: ''
                 counts: 'True'
                 key: 'Poderarma'
                 attribute: 'Agilidad'
-            Value Lore-fd:
+                indicator: '2D'
+              children:  {}
+            Value Lore-fd: 
               type: 'mechanic'
-              data:
+              indicator: '3D'
+              data: 
                 icon-key: ''
                 counts: 'True'
                 key: 'PoderarmaAdd'
                 hand: 'Main'
                 regex: 'Poder de Arma: {value}'
-                multiplier-base: 1
-                multiplier-scale: 0
-            Value Add-gd:
+                multiplier-base: '1'
+                multiplier-scale: '0'
+                indicator: '2D'
+              children:  {}
+            Value Add-gd: 
               type: 'mechanic'
-              data:
+              indicator: '3D'
+              data: 
                 icon-key: ''
                 counts: 'True'
                 key: 'Poderarma'
-                amount-base: PoderarmaAdd
-                amount-scale: 0
-            Particle Animation-hd:
+                amount-base: 'PoderarmaAdd'
+                amount-scale: '0'
+                indicator: '2D'
+              children:  {}
+            Particle Animation-hd: 
               type: 'mechanic'
-              data:
+              indicator: '3D'
+              data: 
                 icon-key: ''
                 counts: 'True'
-                steps: 5
-                frequency: 0.05
-                angle: -180
-                start: 90
-                duration-base: 0.4
-                duration-scale: 0
-                h-translation-base: AOELores
-                h-translation-scale: 0
-                v-translation-base: 2
-                v-translation-scale: 0
-                h-cycles: 2
-                v-cycles: 2
+                steps: '5'
+                frequency: '0.05'
+                angle: '-180'
+                start: '90'
+                duration-base: '0.4'
+                duration-scale: '0'
+                h-translation-base: 'AOELores'
+                h-translation-scale: '0'
+                v-translation-base: '2'
+                v-translation-scale: '0'
+                h-cycles: '2'
+                v-cycles: '2'
                 particle: 'Instant Spell'
                 arrangement: 'Circle'
-                radius-base: 0.2
-                radius-scale: 0
-                particles-base: 5
-                particles-scale: 0
+                radius-base: '0.2'
+                radius-scale: '0'
+                particles-base: '5'
+                particles-scale: '0'
                 direction: 'XY'
-                visible-radius: 20
-                dx: 0
-                dy: 0
-                dz: 0
-                speed: 0
-                amount: 1
-                forward: 3
-                upward: 0
-                right: 0
-            Cooldown-id:
+                visible-radius: '20'
+                dx: '0'
+                dy: '0'
+                dz: '0'
+                speed: '0'
+                amount: '1'
+                forward: '3'
+                upward: '0'
+                right: '0'
+                indicator: '2D'
+              children:  {}
+            Cooldown-id: 
               type: 'mechanic'
-              data:
+              indicator: '3D'
+              data: 
                 icon-key: ''
                 counts: 'True'
                 skill: 'Guadaña Doble'
                 type: 'Seconds'
-                value-base: cdbasico
-                value-scale: 0
+                value-base: 'cdbasico'
+                value-scale: '0'
+                indicator: '2D'
+              children:  {}
+    Kill: 
+      type: 'trigger'
+      indicator: '3D'
+      data: 
+        icon-key: ''
+        mana: 'False'
+        cooldown: 'True'
+        indicator: '2D'
+      children: 
+        Value Set-b: 
+          type: 'mechanic'
+          indicator: '3D'
+          data: 
+            icon-key: ''
+            counts: 'True'
+            key: 'LifetoKill'
+            value-base: '0'
+            value-scale: '0'
+            indicator: '2D'
+          children:  {}
+        Item-c: 
+          type: 'condition'
+          indicator: '3D'
+          data: 
+            icon-key: ''
+            check-mat: 'False'
+            check-data: 'False'
+            check-lore: 'True'
+            lore: 'Vida por muerte:'
+            check-name: 'False'
+            regex: 'False'
+            indicator: '2D'
+          children: 
+            Value Lore-d: 
+              type: 'mechanic'
+              indicator: '3D'
+              data: 
+                icon-key: ''
+                counts: 'True'
+                key: 'LifetoKillAdd'
+                hand: 'Main'
+                regex: 'Vida por muerte: {value}'
+                multiplier-base: '1'
+                multiplier-scale: '0'
+                indicator: '2D'
+              children:  {}
+            Value Add-e: 
+              type: 'mechanic'
+              indicator: '3D'
+              data: 
+                icon-key: ''
+                counts: 'True'
+                key: 'LifetoKill'
+                amount-base: 'LifetoKillAdd'
+                amount-scale: '0'
+                indicator: '2D'
+              children:  {}
+        Slot-f: 
+          type: 'condition'
+          indicator: '3D'
+          data: 
+            icon-key: ''
+            slot: 
+            - '39'
+            check-mat: 'False'
+            check-data: 'False'
+            check-lore: 'True'
+            lore: 'Vida por muerte:'
+            check-name: 'False'
+            regex: 'False'
+            indicator: '2D'
+          children: 
+            Value Lore Slot-g: 
+              type: 'mechanic'
+              indicator: '3D'
+              data: 
+                icon-key: ''
+                counts: 'True'
+                key: 'LifetoKillAdd'
+                slot: '39'
+                regex: 'Vida por muerte: {value}'
+                multiplier-base: '1'
+                multiplier-scale: '0'
+                indicator: '2D'
+              children:  {}
+            Value Add-h: 
+              type: 'mechanic'
+              indicator: '3D'
+              data: 
+                icon-key: ''
+                counts: 'True'
+                key: 'LifetoKill'
+                amount-base: 'LifetoKillAdd'
+                amount-scale: '0'
+                indicator: '2D'
+              children:  {}
+        Slot-i: 
+          type: 'condition'
+          indicator: '3D'
+          data: 
+            icon-key: ''
+            slot: 
+            - '38'
+            check-mat: 'False'
+            check-data: 'False'
+            check-lore: 'True'
+            lore: 'Vida por muerte:'
+            check-name: 'False'
+            regex: 'False'
+            indicator: '2D'
+          children: 
+            Value Lore Slot-j: 
+              type: 'mechanic'
+              indicator: '3D'
+              data: 
+                icon-key: ''
+                counts: 'True'
+                key: 'LifetoKillAdd'
+                slot: '38'
+                regex: 'Vida por muerte: {value}'
+                multiplier-base: '1'
+                multiplier-scale: '0'
+                indicator: '2D'
+              children:  {}
+            Value Add-k: 
+              type: 'mechanic'
+              indicator: '3D'
+              data: 
+                icon-key: ''
+                counts: 'True'
+                key: 'LifetoKill'
+                amount-base: 'LifetoKillAdd'
+                amount-scale: '0'
+                indicator: '2D'
+              children:  {}
+        Slot-l: 
+          type: 'condition'
+          indicator: '3D'
+          data: 
+            icon-key: ''
+            slot: 
+            - '37'
+            check-mat: 'False'
+            check-data: 'False'
+            check-lore: 'True'
+            lore: 'Vida por muerte:'
+            check-name: 'False'
+            regex: 'False'
+            indicator: '2D'
+          children: 
+            Value Lore Slot-m: 
+              type: 'mechanic'
+              indicator: '3D'
+              data: 
+                icon-key: ''
+                counts: 'True'
+                key: 'LifetoKillAdd'
+                slot: '37'
+                regex: 'Vida por muerte: {value}'
+                multiplier-base: '1'
+                multiplier-scale: '0'
+                indicator: '2D'
+              children:  {}
+            Value Add-n: 
+              type: 'mechanic'
+              indicator: '3D'
+              data: 
+                icon-key: ''
+                counts: 'True'
+                key: 'LifetoKill'
+                amount-base: 'LifetoKillAdd'
+                amount-scale: '0'
+                indicator: '2D'
+              children:  {}
+        Slot-o: 
+          type: 'condition'
+          indicator: '3D'
+          data: 
+            icon-key: ''
+            slot: 
+            - '36'
+            check-mat: 'False'
+            check-data: 'False'
+            check-lore: 'True'
+            lore: 'Vida por muerte:'
+            check-name: 'False'
+            regex: 'False'
+            indicator: '2D'
+          children: 
+            Value Lore Slot-p: 
+              type: 'mechanic'
+              indicator: '3D'
+              data: 
+                icon-key: ''
+                counts: 'True'
+                key: 'LifetoKillAdd'
+                slot: '36'
+                regex: 'Vida por muerte: {value}'
+                multiplier-base: '1'
+                multiplier-scale: '0'
+                indicator: '2D'
+              children:  {}
+            Value Add-q: 
+              type: 'mechanic'
+              indicator: '3D'
+              data: 
+                icon-key: ''
+                counts: 'True'
+                key: 'LifetoKill'
+                amount-base: 'LifetoKillAdd'
+                amount-scale: '0'
+                indicator: '2D'
+              children:  {}
+        Heal-r: 
+          type: 'mechanic'
+          indicator: '3D'
+          data: 
+            icon-key: ''
+            counts: 'True'
+            type: 'Percent'
+            value-base: 'LifetoKill'
+            value-scale: '1'
+            indicator: '2D'
+          children:  {}
