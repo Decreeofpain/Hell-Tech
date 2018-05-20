@@ -65,7 +65,7 @@ drops:
 ## This is the chance for a mob to get items at all.
 ## This is also coincidentally the chance for a mob
 ## to get an item with a tier.
-  item-chance: 0.02
+  item-chance: 0.0
 ## If a mob does not receive an item with a tier,
 ## this is the chance for a mob to spawn with a
 ## custom item.
@@ -84,7 +84,7 @@ drops:
   identity-tome-chance: 0.0
 components:
 ## Should creatures be able to spawn with items?
-  creature-spawning-enabled: true
+  creature-spawning-enabled: false
 ## Should MythicDrops enable its repairing feature
 ## and disable the vanilla Minecraft repairing
 ## feature (recommended)?
@@ -98,7 +98,7 @@ components:
 ## Should MythicDrops enable distance-from-spawn
 ## based drops, i.e., drops that can only spawn within
 ## certain distances from the spawn of a world?
-  distance-zones-enabled: true
+  distance-zones-enabled: false
 display:
   item-display-name-format: '%materialprefix% %tierprefix% %tiersuffix%'
   tooltip-format:
