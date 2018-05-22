@@ -469,6 +469,7 @@ profquestsrandomyorick:
     - ^yaml load:profesiones/data.yml id:<player.name>profcarp
     - ^define questalmakos <math.asint:<player.jobs[Carpintero].xp.level||>*50>
     - ^define questprof <yaml[<player.name>profcarp].list_keys[carpinteria].filter[is[LESS].than[<player.jobs[Carpintero].xp.level||>]].random[1].formatted>
+    - ^define questidname <yaml[<player.name>profcarp].read[carpinteria.<def[questprof]>.name]>
     - ^define questidmaterial <yaml[<player.name>profcarp].read[carpinteria.<def[questprof]>.material]>
     - ^define questidexp <math:<yaml[<player.name>profcarp].read[carpinteria.<def[questprof]>.exp]>*2>
     - ^define questidalmakos "<math:<def[questidexp]>*8>"
@@ -484,9 +485,11 @@ profquestsrandomyorick:
     - ^yaml id:<player.name> set carpinteria.misionprof.xpreward:<math.asint:<def[questprofcant]>*<def[questidexp]>>
     - ^yaml id:<player.name> set carpinteria.misionprof.xpid:<def[questidexp]>
     - ^yaml id:<player.name> set carpinteria.misionprof.obj:<def[questidmaterial]>
+    - ^yaml id:<player.name> set carpinteria.misionprof.name:<def[questidname]>
     - ^yaml id:<player.name> set carpinteria.misionprof.data:<yaml[<player.name>profcarp].read[carpinteria.<def[questprof]>.data]>
     - ^flag <player> questprofcant:<yaml[<player.name>].read[carpinteria.misionprof.cant]>
     - ^flag <player> questproftarjet:<yaml[<player.name>].read[carpinteria.misionprof.obj]>
+    - ^flag <player> questprofname:<yaml[<player.name>].read[carpinteria.misionprof.name]>
     - ^flag <player> questprofdata:<yaml[<player.name>].read[carpinteria.misionprof.data]>
     - ^flag <player> profreward:<yaml[<player.name>].read[carpinteria.misionprof.reward]>
     - ^flag <player> profrewardxp:<yaml[<player.name>].read[carpinteria.misionprof.xpreward]>
@@ -494,6 +497,7 @@ profquestsrandomyorick:
     - ^inventory open d:in@inv_yorick_ok
     - ^flag <player> questprofcant:!
     - ^flag <player> questproftarjet:!
+    - ^flag <player> questprofname:!
     - ^flag <player> questprofdata:!
     - ^flag <player> profreward:!
     - ^flag <player> profrewardxp:!
@@ -508,12 +512,14 @@ profquestscheckyorick:
     - ^yaml load:personal/<player.name>.yml id:<player.name>
     - ^flag <player> questprofcant:<yaml[<player.name>].read[carpinteria.misionprof.cant]>
     - ^flag <player> questproftarjet:<yaml[<player.name>].read[carpinteria.misionprof.obj]>
+    - ^flag <player> questprofname:<yaml[<player.name>].read[carpinteria.misionprof.name]>
     - ^flag <player> questprofdata:<yaml[<player.name>].read[carpinteria.misionprof.data]>
     - ^flag <player> profreward:<yaml[<player.name>].read[carpinteria.misionprof.reward]>
     - ^flag <player> profrewardxp:<yaml[<player.name>].read[carpinteria.misionprof.xpreward]>
     - ^inventory open d:in@inv_yorick_ok
     - ^flag <player> questprofcant:!
     - ^flag <player> questproftarjet:!
+    - ^flag <player> questprofname:!
     - ^flag <player> questprofdata:!
     - ^flag <player> profreward:!
     - ^flag <player> profrewardxp:!

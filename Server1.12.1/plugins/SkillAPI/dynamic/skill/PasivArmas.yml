@@ -187,6 +187,54 @@ PasivArmas:
                 message: 'Tiene Inventory {trol} Boots'
                 indicator: '2D'
               children:  {}
+    Initialize: 
+      type: 'trigger'
+      indicator: '3D'
+      data: 
+        icon-key: ''
+        indicator: '2D'
+      children: 
+        Passive-o: 
+          type: 'mechanic'
+          indicator: '3D'
+          data: 
+            icon-key: ''
+            counts: 'True'
+            seconds-base: '1'
+            seconds-scale: '0'
+            indicator: '2D'
+          children: 
+            Trigger-p: 
+              type: 'mechanic'
+              indicator: '3D'
+              data: 
+                icon-key: ''
+                counts: 'True'
+                trigger: 'Death'
+                duration-base: '1'
+                duration-scale: '0'
+                stackable: 'False'
+                once: 'True'
+                indicator: '2D'
+              children:  {}
+    Death: 
+      type: 'trigger'
+      indicator: '3D'
+      data: 
+        icon-key: ''
+        mana: 'False'
+        cooldown: 'False'
+        indicator: '2D'
+      children: 
+        Message-nb: 
+          type: 'mechanic'
+          indicator: '3D'
+          data: 
+            icon-key: ''
+            counts: 'True'
+            message: 'Active'
+            indicator: '2D'
+          children:  {}
     Launch: 
       type: 'trigger'
       indicator: '3D'
@@ -451,53 +499,5 @@ PasivArmas:
                 regex: 'Vida por Muerte: {value}'
                 multiplier-base: '1'
                 multiplier-scale: '0'
-                indicator: '2D'
-              children:  {}
-    Death: 
-      type: 'trigger'
-      indicator: '3D'
-      data: 
-        icon-key: ''
-        mana: 'False'
-        cooldown: 'False'
-        indicator: '2D'
-      children: 
-        Message-nb: 
-          type: 'mechanic'
-          indicator: '3D'
-          data: 
-            icon-key: ''
-            counts: 'True'
-            message: 'Active'
-            indicator: '2D'
-          children:  {}
-    Initialize: 
-      type: 'trigger'
-      indicator: '3D'
-      data: 
-        icon-key: ''
-        indicator: '2D'
-      children: 
-        Passive-o: 
-          type: 'mechanic'
-          indicator: '3D'
-          data: 
-            icon-key: ''
-            counts: 'True'
-            seconds-base: '1'
-            seconds-scale: '0'
-            indicator: '2D'
-          children: 
-            Trigger-p: 
-              type: 'mechanic'
-              indicator: '3D'
-              data: 
-                icon-key: ''
-                counts: 'True'
-                trigger: 'Death'
-                duration-base: '1'
-                duration-scale: '0'
-                stackable: 'False'
-                once: 'True'
                 indicator: '2D'
               children:  {}

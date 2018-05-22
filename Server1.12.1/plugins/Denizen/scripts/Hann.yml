@@ -495,6 +495,7 @@ profquestsrandomhann:
     - ^define questalmakos <math.asint:<player.jobs[Minero].xp.level||>*50>
     - ^define questprof <yaml[<player.name>profmin].list_keys[mineria].filter[is[LESS].than[<player.jobs[Minero].xp.level||>]].random[1].formatted>
     - ^define questidmaterial <yaml[<player.name>profmin].read[mineria.<def[questprof]>.material]>
+    - ^define questidname <yaml[<player.name>profmin].read[mineria.<def[questprof]>.name]>
     - ^define questidexp <math:<yaml[<player.name>profmin].read[mineria.<def[questprof]>.exp]>*2>
     - ^define questidalmakos "<math:<def[questidexp]>*8>"
     - ^define questconteo "<math.asint:<def[questalmakos]>/<def[questidalmakos]>>"
@@ -509,8 +510,10 @@ profquestsrandomhann:
     - ^yaml id:<player.name> set mineria.misionprof.xpreward:<math.asint:<def[questprofcant]>*<def[questidexp]>>
     - ^yaml id:<player.name> set mineria.misionprof.xpid:<def[questidexp]>
     - ^yaml id:<player.name> set mineria.misionprof.obj:<def[questidmaterial]>
+    - ^yaml id:<player.name> set mineria.misionprof.name:<def[questidname]>
     - ^yaml id:<player.name> set mineria.misionprof.data:<yaml[<player.name>profmin].read[mineria.<def[questprof]>.data]>
     - ^flag <player> questprofcant:<yaml[<player.name>].read[mineria.misionprof.cant]>
+    - ^flag <player> questprofname:<yaml[<player.name>].read[mineria.misionprof.name]>
     - ^flag <player> questproftarjet:<yaml[<player.name>].read[mineria.misionprof.obj]>
     - ^flag <player> questprofdata:<yaml[<player.name>].read[mineria.misionprof.data]>
     - ^flag <player> profreward:<yaml[<player.name>].read[mineria.misionprof.reward]>
@@ -518,6 +521,7 @@ profquestsrandomhann:
     - ^flag <player> MineriaON:ok
     - ^inventory open d:in@inv_hann_ok
     - ^flag <player> questprofcant:!
+    - ^flag <player> questprofname:!
     - ^flag <player> questproftarjet:!
     - ^flag <player> questprofdata:!
     - ^flag <player> profreward:!
@@ -531,6 +535,7 @@ profquestscheckhann:
     type: task
     script:
     - ^yaml load:personal/<player.name>.yml id:<player.name>
+    - ^flag <player> questprofname:<yaml[<player.name>].read[mineria.misionprof.name]>
     - ^flag <player> questprofcant:<yaml[<player.name>].read[mineria.misionprof.cant]>
     - ^flag <player> questproftarjet:<yaml[<player.name>].read[mineria.misionprof.obj]>
     - ^flag <player> questprofdata:<yaml[<player.name>].read[mineria.misionprof.data]>
@@ -539,6 +544,7 @@ profquestscheckhann:
     - ^flag <player> profreward:<yaml[<player.name>].read[mineria.misionprof.reward]>
     - ^flag <player> profrewardxp:<yaml[<player.name>].read[mineria.misionprof.xpreward]>
     - ^inventory open d:in@inv_hann_ok
+    - ^flag <player> questprofname:!
     - ^flag <player> questprofcant:!
     - ^flag <player> questproftarjet:!
     - ^flag <player> questprofdata:!

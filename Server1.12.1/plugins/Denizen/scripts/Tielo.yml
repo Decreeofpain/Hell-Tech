@@ -347,6 +347,7 @@ profquestsrandomtielo:
     - ^define questalmakos <math.asint:<player.jobs[Ganadero].xp.level||>*50>
     - ^define questprof <yaml[<player.name>profgnr].list_keys[ganaderia].filter[is[LESS].than[<player.jobs[Ganadero].xp.level||>]].random[1].formatted>
     - ^define questidmaterial <yaml[<player.name>profgnr].read[ganaderia.<def[questprof]>.material]>
+    - ^define questidname <yaml[<player.name>profgnr].read[ganaderia.<def[questprof]>.name]>
     - ^define questidexp <math:<yaml[<player.name>profgnr].read[ganaderia.<def[questprof]>.exp]>*2>
     - ^define questidalmakos "<math:<def[questidexp]>*8>"
     - ^define questconteo "<math.asint:<def[questalmakos]>/<def[questidalmakos]>>"
@@ -361,9 +362,11 @@ profquestsrandomtielo:
     - ^yaml id:<player.name> set ganaderia.misionprof.xpreward:<math.asint:<def[questprofcant]>*<def[questidexp]>>
     - ^yaml id:<player.name> set ganaderia.misionprof.xpid:<def[questidexp]>
     - ^yaml id:<player.name> set ganaderia.misionprof.obj:<def[questidmaterial]>
+    - ^yaml id:<player.name> set ganaderia.misionprof.name:<def[questidname]>
     - ^yaml id:<player.name> set ganaderia.misionprof.data:<yaml[<player.name>profgnr].read[ganaderia.<def[questprof]>.data]>
     - ^flag <player> questprofcant:<yaml[<player.name>].read[ganaderia.misionprof.cant]>
     - ^flag <player> questproftarjet:<yaml[<player.name>].read[ganaderia.misionprof.obj]>
+    - ^flag <player> questprofname:<yaml[<player.name>].read[ganaderia.misionprof.name]>
     - ^flag <player> questprofdata:<yaml[<player.name>].read[ganaderia.misionprof.data]>
     - ^flag <player> profreward:<yaml[<player.name>].read[ganaderia.misionprof.reward]>
     - ^flag <player> profrewardxp:<yaml[<player.name>].read[ganaderia.misionprof.xpreward]>
@@ -371,6 +374,7 @@ profquestsrandomtielo:
     - ^inventory open d:in@inv_tielo_ok
     - ^flag <player> questprofcant:!
     - ^flag <player> questproftarjet:!
+    - ^flag <player> questprofname:!
     - ^flag <player> questprofdata:!
     - ^flag <player> profreward:!
     - ^flag <player> profrewardxp:!
@@ -383,6 +387,7 @@ profquestschecktielo:
     type: task
     script:
     - ^yaml load:personal/<player.name>.yml id:<player.name>
+    - ^flag <player> questprofname:<yaml[<player.name>].read[ganaderia.misionprof.name]>
     - ^flag <player> questprofcant:<yaml[<player.name>].read[ganaderia.misionprof.cant]>
     - ^flag <player> questproftarjet:<yaml[<player.name>].read[ganaderia.misionprof.obj]>
     - ^flag <player> questprofdata:<yaml[<player.name>].read[ganaderia.misionprof.data]>
@@ -391,6 +396,7 @@ profquestschecktielo:
     - ^flag <player> profreward:<yaml[<player.name>].read[ganaderia.misionprof.reward]>
     - ^flag <player> profrewardxp:<yaml[<player.name>].read[ganaderia.misionprof.xpreward]>
     - ^inventory open d:in@inv_tielo_ok
+    - ^flag <player> questprofname:!
     - ^flag <player> questprofcant:!
     - ^flag <player> questproftarjet:!
     - ^flag <player> questprofdata:!
