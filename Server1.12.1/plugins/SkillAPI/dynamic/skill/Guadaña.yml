@@ -31,230 +31,6 @@ Guadaña:
   - '&2Cooldown: {attr:cooldown}'
   desc:  []
   components: 
-    Kill: 
-      type: 'trigger'
-      indicator: '3D'
-      data: 
-        icon-key: ''
-        mana: 'False'
-        cooldown: 'True'
-        indicator: '2D'
-      children: 
-        Value Set-sc: 
-          type: 'mechanic'
-          indicator: '3D'
-          data: 
-            icon-key: ''
-            counts: 'True'
-            key: 'LifetoKill'
-            value-base: '0'
-            value-scale: '0'
-            indicator: '2D'
-          children:  {}
-        Item-tc: 
-          type: 'condition'
-          indicator: '3D'
-          data: 
-            icon-key: ''
-            check-mat: 'False'
-            check-data: 'False'
-            check-lore: 'True'
-            lore: 'Vida por muerte:'
-            check-name: 'False'
-            regex: 'False'
-            indicator: '2D'
-          children: 
-            Value Lore-uc: 
-              type: 'mechanic'
-              indicator: '3D'
-              data: 
-                icon-key: ''
-                counts: 'True'
-                key: 'LifetoKillAdd'
-                hand: 'Main'
-                regex: 'Vida por muerte: {value}'
-                multiplier-base: '1'
-                multiplier-scale: '0'
-                indicator: '2D'
-              children:  {}
-            Value Add-vc: 
-              type: 'mechanic'
-              indicator: '3D'
-              data: 
-                icon-key: ''
-                counts: 'True'
-                key: 'LifetoKill'
-                amount-base: 'LifetoKillAdd'
-                amount-scale: '0'
-                indicator: '2D'
-              children:  {}
-        Slot-wc: 
-          type: 'condition'
-          indicator: '3D'
-          data: 
-            icon-key: ''
-            slot: 
-            - '39'
-            check-mat: 'False'
-            check-data: 'False'
-            check-lore: 'True'
-            lore: 'Vida por muerte:'
-            check-name: 'False'
-            regex: 'False'
-            indicator: '2D'
-          children: 
-            Value Lore Slot-xc: 
-              type: 'mechanic'
-              indicator: '3D'
-              data: 
-                icon-key: ''
-                counts: 'True'
-                key: 'LifetoKillAdd'
-                slot: '39'
-                regex: 'Vida por muerte: {value}'
-                multiplier-base: '1'
-                multiplier-scale: '0'
-                indicator: '2D'
-              children:  {}
-            Value Add-yc: 
-              type: 'mechanic'
-              indicator: '3D'
-              data: 
-                icon-key: ''
-                counts: 'True'
-                key: 'LifetoKill'
-                amount-base: 'LifetoKillAdd'
-                amount-scale: '0'
-                indicator: '2D'
-              children:  {}
-        Slot-zc: 
-          type: 'condition'
-          indicator: '3D'
-          data: 
-            icon-key: ''
-            slot: 
-            - '38'
-            check-mat: 'False'
-            check-data: 'False'
-            check-lore: 'True'
-            lore: 'Vida por muerte:'
-            check-name: 'False'
-            regex: 'False'
-            indicator: '2D'
-          children: 
-            Value Lore Slot-ad: 
-              type: 'mechanic'
-              indicator: '3D'
-              data: 
-                icon-key: ''
-                counts: 'True'
-                key: 'LifetoKillAdd'
-                slot: '38'
-                regex: 'Vida por muerte: {value}'
-                multiplier-base: '1'
-                multiplier-scale: '0'
-                indicator: '2D'
-              children:  {}
-            Value Add-bd: 
-              type: 'mechanic'
-              indicator: '3D'
-              data: 
-                icon-key: ''
-                counts: 'True'
-                key: 'LifetoKill'
-                amount-base: 'LifetoKillAdd'
-                amount-scale: '0'
-                indicator: '2D'
-              children:  {}
-        Slot-cd: 
-          type: 'condition'
-          indicator: '3D'
-          data: 
-            icon-key: ''
-            slot: 
-            - '37'
-            check-mat: 'False'
-            check-data: 'False'
-            check-lore: 'True'
-            lore: 'Vida por muerte:'
-            check-name: 'False'
-            regex: 'False'
-            indicator: '2D'
-          children: 
-            Value Lore Slot-dd: 
-              type: 'mechanic'
-              indicator: '3D'
-              data: 
-                icon-key: ''
-                counts: 'True'
-                key: 'LifetoKillAdd'
-                slot: '37'
-                regex: 'Vida por muerte: {value}'
-                multiplier-base: '1'
-                multiplier-scale: '0'
-                indicator: '2D'
-              children:  {}
-            Value Add-ed: 
-              type: 'mechanic'
-              indicator: '3D'
-              data: 
-                icon-key: ''
-                counts: 'True'
-                key: 'LifetoKill'
-                amount-base: 'LifetoKillAdd'
-                amount-scale: '0'
-                indicator: '2D'
-              children:  {}
-        Slot-fd: 
-          type: 'condition'
-          indicator: '3D'
-          data: 
-            icon-key: ''
-            slot: 
-            - '36'
-            check-mat: 'False'
-            check-data: 'False'
-            check-lore: 'True'
-            lore: 'Vida por muerte:'
-            check-name: 'False'
-            regex: 'False'
-            indicator: '2D'
-          children: 
-            Value Lore Slot-gd: 
-              type: 'mechanic'
-              indicator: '3D'
-              data: 
-                icon-key: ''
-                counts: 'True'
-                key: 'LifetoKillAdd'
-                slot: '36'
-                regex: 'Vida por muerte: {value}'
-                multiplier-base: '1'
-                multiplier-scale: '0'
-                indicator: '2D'
-              children:  {}
-            Value Add-hd: 
-              type: 'mechanic'
-              indicator: '3D'
-              data: 
-                icon-key: ''
-                counts: 'True'
-                key: 'LifetoKill'
-                amount-base: 'LifetoKillAdd'
-                amount-scale: '0'
-                indicator: '2D'
-              children:  {}
-        Heal-id: 
-          type: 'mechanic'
-          indicator: '3D'
-          data: 
-            icon-key: ''
-            counts: 'True'
-            type: 'Percent'
-            value-base: 'LifetoKill'
-            value-scale: '1'
-            indicator: '2D'
-          children:  {}
     Physical Damage: 
       type: 'trigger'
       indicator: '3D'
@@ -1130,3 +906,227 @@ Guadaña:
                         value-scale: '0'
                         indicator: '2D'
                       children:  {}
+    Kill: 
+      type: 'trigger'
+      indicator: '3D'
+      data: 
+        icon-key: ''
+        mana: 'False'
+        cooldown: 'True'
+        indicator: '2D'
+      children: 
+        Value Set-sc: 
+          type: 'mechanic'
+          indicator: '3D'
+          data: 
+            icon-key: ''
+            counts: 'True'
+            key: 'LifetoKill'
+            value-base: '0'
+            value-scale: '0'
+            indicator: '2D'
+          children:  {}
+        Item-tc: 
+          type: 'condition'
+          indicator: '3D'
+          data: 
+            icon-key: ''
+            check-mat: 'False'
+            check-data: 'False'
+            check-lore: 'True'
+            lore: 'Vida por muerte:'
+            check-name: 'False'
+            regex: 'False'
+            indicator: '2D'
+          children: 
+            Value Lore-uc: 
+              type: 'mechanic'
+              indicator: '3D'
+              data: 
+                icon-key: ''
+                counts: 'True'
+                key: 'LifetoKillAdd'
+                hand: 'Main'
+                regex: 'Vida por muerte: {value}'
+                multiplier-base: '1'
+                multiplier-scale: '0'
+                indicator: '2D'
+              children:  {}
+            Value Add-vc: 
+              type: 'mechanic'
+              indicator: '3D'
+              data: 
+                icon-key: ''
+                counts: 'True'
+                key: 'LifetoKill'
+                amount-base: 'LifetoKillAdd'
+                amount-scale: '0'
+                indicator: '2D'
+              children:  {}
+        Slot-wc: 
+          type: 'condition'
+          indicator: '3D'
+          data: 
+            icon-key: ''
+            slot: 
+            - '39'
+            check-mat: 'False'
+            check-data: 'False'
+            check-lore: 'True'
+            lore: 'Vida por muerte:'
+            check-name: 'False'
+            regex: 'False'
+            indicator: '2D'
+          children: 
+            Value Lore Slot-xc: 
+              type: 'mechanic'
+              indicator: '3D'
+              data: 
+                icon-key: ''
+                counts: 'True'
+                key: 'LifetoKillAdd'
+                slot: '39'
+                regex: 'Vida por muerte: {value}'
+                multiplier-base: '1'
+                multiplier-scale: '0'
+                indicator: '2D'
+              children:  {}
+            Value Add-yc: 
+              type: 'mechanic'
+              indicator: '3D'
+              data: 
+                icon-key: ''
+                counts: 'True'
+                key: 'LifetoKill'
+                amount-base: 'LifetoKillAdd'
+                amount-scale: '0'
+                indicator: '2D'
+              children:  {}
+        Slot-zc: 
+          type: 'condition'
+          indicator: '3D'
+          data: 
+            icon-key: ''
+            slot: 
+            - '38'
+            check-mat: 'False'
+            check-data: 'False'
+            check-lore: 'True'
+            lore: 'Vida por muerte:'
+            check-name: 'False'
+            regex: 'False'
+            indicator: '2D'
+          children: 
+            Value Lore Slot-ad: 
+              type: 'mechanic'
+              indicator: '3D'
+              data: 
+                icon-key: ''
+                counts: 'True'
+                key: 'LifetoKillAdd'
+                slot: '38'
+                regex: 'Vida por muerte: {value}'
+                multiplier-base: '1'
+                multiplier-scale: '0'
+                indicator: '2D'
+              children:  {}
+            Value Add-bd: 
+              type: 'mechanic'
+              indicator: '3D'
+              data: 
+                icon-key: ''
+                counts: 'True'
+                key: 'LifetoKill'
+                amount-base: 'LifetoKillAdd'
+                amount-scale: '0'
+                indicator: '2D'
+              children:  {}
+        Slot-cd: 
+          type: 'condition'
+          indicator: '3D'
+          data: 
+            icon-key: ''
+            slot: 
+            - '37'
+            check-mat: 'False'
+            check-data: 'False'
+            check-lore: 'True'
+            lore: 'Vida por muerte:'
+            check-name: 'False'
+            regex: 'False'
+            indicator: '2D'
+          children: 
+            Value Lore Slot-dd: 
+              type: 'mechanic'
+              indicator: '3D'
+              data: 
+                icon-key: ''
+                counts: 'True'
+                key: 'LifetoKillAdd'
+                slot: '37'
+                regex: 'Vida por muerte: {value}'
+                multiplier-base: '1'
+                multiplier-scale: '0'
+                indicator: '2D'
+              children:  {}
+            Value Add-ed: 
+              type: 'mechanic'
+              indicator: '3D'
+              data: 
+                icon-key: ''
+                counts: 'True'
+                key: 'LifetoKill'
+                amount-base: 'LifetoKillAdd'
+                amount-scale: '0'
+                indicator: '2D'
+              children:  {}
+        Slot-fd: 
+          type: 'condition'
+          indicator: '3D'
+          data: 
+            icon-key: ''
+            slot: 
+            - '36'
+            check-mat: 'False'
+            check-data: 'False'
+            check-lore: 'True'
+            lore: 'Vida por muerte:'
+            check-name: 'False'
+            regex: 'False'
+            indicator: '2D'
+          children: 
+            Value Lore Slot-gd: 
+              type: 'mechanic'
+              indicator: '3D'
+              data: 
+                icon-key: ''
+                counts: 'True'
+                key: 'LifetoKillAdd'
+                slot: '36'
+                regex: 'Vida por muerte: {value}'
+                multiplier-base: '1'
+                multiplier-scale: '0'
+                indicator: '2D'
+              children:  {}
+            Value Add-hd: 
+              type: 'mechanic'
+              indicator: '3D'
+              data: 
+                icon-key: ''
+                counts: 'True'
+                key: 'LifetoKill'
+                amount-base: 'LifetoKillAdd'
+                amount-scale: '0'
+                indicator: '2D'
+              children:  {}
+        Heal-id: 
+          type: 'mechanic'
+          indicator: '3D'
+          data: 
+            icon-key: ''
+            counts: 'True'
+            type: 'Percent'
+            value-base: 'LifetoKill'
+            value-scale: '1'
+            indicator: '2D'
+          children:  {}
