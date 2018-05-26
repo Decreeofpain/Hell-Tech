@@ -13,6 +13,18 @@
 config-version: 11
 settings:
   debug: false
+  save-user-cache-on-stop-only: false
+  sample-count: 12
+  item-dirty-ticks: 20
+  user-cache-size: 1000
+  int-cache-limit: 1024
+  player-shuffle: 0
+  bungeecord: false
+  late-bind: false
+  netty-threads: 4
+  timeout-time: 60
+  restart-on-crash: true
+  restart-script: ./start.sh
   attribute:
     maxHealth:
       max: 2000000.0
@@ -20,21 +32,16 @@ settings:
       max: 2000000.0
     attackDamage:
       max: 2000000.0
-  late-bind: false
-  timeout-time: 60
-  restart-on-crash: true
-  restart-script: ./start.sh
-  netty-threads: 4
-  int-cache-limit: 1024
-  user-cache-size: 1000
-  item-dirty-ticks: 20
-  bungeecord: false
-  player-shuffle: 0
-  sample-count: 12
-  save-user-cache-on-stop-only: false
   filter-creative-items: true
   moved-wrongly-threshold: 0.0625
   moved-too-quickly-multiplier: 10.0
+messages:
+  whitelist: You are not whitelisted on this server!
+  unknown-command: Eso no existe amigo hahaha!
+  server-full: Esto esta lleno, espera a que algunos mueran!
+  outdated-client: Cliente desactualizado {0}
+  outdated-server: No tienes la vercion de Esparcraft {0}
+  restart: Estamos quitando unos zombies atascados... reiniciamos
 commands:
   tab-complete: 0
   replace-commands:
@@ -42,17 +49,10 @@ commands:
   - summon
   - testforblock
   - tellraw
+  log: true
   spam-exclusions:
   - /skill
-  log: true
   silent-commandblock-console: false
-messages:
-  restart: Estamos quitando unos zombies atascados... reiniciamos
-  whitelist: You are not whitelisted on this server!
-  unknown-command: Eso no existe amigo hahaha!
-  server-full: Esto esta lleno, espera a que algunos mueran!
-  outdated-client: Cliente desactualizado {0}
-  outdated-server: No tienes la vercion de Esparcraft {0}
 stats:
   disable-saving: false
   forced-stats: {}
@@ -63,24 +63,38 @@ advancements:
 world-settings:
   default:
     verbose: false
-    arrow-despawn-rate: 1200
+    seed-village: 10387312
+    seed-feature: 14357617
+    seed-monument: 10387313
+    seed-slime: 987234911
+    dragon-death-sound-radius: 0
+    item-despawn-rate: 6000
+    merge-radius:
+      item: 2.5
+      exp: 3.0
     view-distance: 7
-    enable-zombie-pigmen-portal-spawns: true
+    arrow-despawn-rate: 1200
     wither-spawn-sound-radius: 0
     hanging-tick-frequency: 100
-    merge-radius:
-      exp: 3.0
-      item: 2.5
-    nerf-spawner-mobs: false
-    item-despawn-rate: 6000
+    enable-zombie-pigmen-portal-spawns: true
     zombie-aggressive-towards-villager: true
+    nerf-spawner-mobs: false
+    mob-spawn-range: 4
     entity-activation-range:
       animals: 32
       monsters: 32
       misc: 16
       tick-inactive-villagers: true
-    squid-spawn-range:
-      min: 45.0
+    entity-tracking-range:
+      players: 48
+      animals: 48
+      monsters: 48
+      misc: 32
+      other: 64
+    ticks-per:
+      hopper-transfer: 8
+      hopper-check: 1
+    hopper-amount: 1
     growth:
       cactus-modifier: 100000
       cane-modifier: 100000
@@ -92,18 +106,11 @@ world-settings:
       netherwart-modifier: 100000
       vine-modifier: 100000
       cocoa-modifier: 100000
-    entity-tracking-range:
-      players: 48
-      animals: 48
-      monsters: 48
-      misc: 32
-      other: 64
-    ticks-per:
-      hopper-transfer: 8
-      hopper-check: 1
-    hopper-amount: 1
-    random-light-updates: false
-    mob-spawn-range: 4
+    squid-spawn-range:
+      min: 45.0
+    max-tick-time:
+      tile: 50
+      entity: 50
     save-structure-info: true
     hunger:
       jump-walk-exhaustion: 0.05
@@ -113,12 +120,5 @@ world-settings:
       swim-multiplier: 0.01
       sprint-multiplier: 0.1
       other-multiplier: 0.0
-    max-tick-time:
-      tile: 50
-      entity: 50
     max-tnt-per-tick: 100
-    seed-village: 10387312
-    seed-feature: 14357617
-    seed-monument: 10387313
-    seed-slime: 987234911
-    dragon-death-sound-radius: 0
+    random-light-updates: false

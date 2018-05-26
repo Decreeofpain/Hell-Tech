@@ -111,7 +111,8 @@ countprofqpotion:
     type: task
     script:
     - ^yaml load:personal/<player.name>.yml id:<player.name>
-    - ^if <player.flag[potion]> == <yaml[<player.name>].read[<player.flag[proforigin]>.misionprof.potion]> {
+    - ^if <player.flag[potion]> contains <yaml[<player.name>].read[<player.flag[proforigin]>.misionprof.obj]> {
+      - ^narrate SI
       - ^if <yaml[<player.name>].read[<player.flag[proforigin]>.misionprof.cant]> > 0 {
         - ^adjust <player> item_on_cursor:i@air
         - ^yaml id:<player.name> set <player.flag[proforigin]>.misionprof.cant:-:<player.flag[cursoridqty]>
@@ -153,6 +154,7 @@ countprofqpotion:
         }
       } else {
       - ^actionbar "<red>Ese articulo no es de la mision"
+      - ^narrate NO
       }
     - ^flag <player> cursorid:!
     - ^flag <player> cursoridqty:!
