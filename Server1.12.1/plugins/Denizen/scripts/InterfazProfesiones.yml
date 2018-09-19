@@ -122,6 +122,8 @@ countprofqpotion:
         - ^flag <player> questprofdata:<yaml[<player.name>].read[<player.flag[proforigin]>.misionprof.data]>
         - ^flag <player> profreward:<yaml[<player.name>].read[<player.flag[proforigin]>.misionprof.reward]>
         - ^flag <player> profrewardxp:<yaml[<player.name>].read[<player.flag[proforigin]>.misionprof.xpreward]>
+        - ^define lore "|&ss6Cantidad &sse<yaml[<player.name>].read[alquimia.misionprof.cant]>||&ss2Recompensas|&sse<yaml[<player.name>].read[alquimia.misionprof.reward]> &ss5Almakos|&sse<yaml[<player.name>].read[alquimia.misionprof.xpreward]> &ss5Experiencia"
+        - ^flag <player> lorepotion:<def[lore]>
         - ^inventory open d:in@<player.flag[profinv]>
         - ^actionbar "<gray>Entregaste: <gold><player.flag[cursoridqty]> <dark_green>Articulos"
         - ^if <yaml[<player.name>].read[<player.flag[proforigin]>.misionprof.cant]> < 1 {
