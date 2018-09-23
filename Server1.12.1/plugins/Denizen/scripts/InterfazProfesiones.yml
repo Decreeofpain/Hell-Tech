@@ -112,7 +112,6 @@ countprofqpotion:
     script:
     - ^yaml load:personal/<player.name>.yml id:<player.name>
     - ^if <player.flag[potion]> contains <yaml[<player.name>].read[<player.flag[proforigin]>.misionprof.obj]> {
-      - ^narrate SI
       - ^if <yaml[<player.name>].read[<player.flag[proforigin]>.misionprof.cant]> > 0 {
         - ^adjust <player> item_on_cursor:i@air
         - ^yaml id:<player.name> set <player.flag[proforigin]>.misionprof.cant:-:<player.flag[cursoridqty]>
@@ -125,7 +124,7 @@ countprofqpotion:
         - ^define lore "|&ss6Cantidad &sse<yaml[<player.name>].read[alquimia.misionprof.cant]>||&ss2Recompensas|&sse<yaml[<player.name>].read[alquimia.misionprof.reward]> &ss5Almakos|&sse<yaml[<player.name>].read[alquimia.misionprof.xpreward]> &ss5Experiencia"
         - ^flag <player> lorepotion:<def[lore]>
         - ^inventory open d:in@<player.flag[profinv]>
-        - ^actionbar "<gray>Entregaste: <gold><player.flag[cursoridqty]> <dark_green>Articulos"
+        - ^actionbar "<gray>Entregaste: <gold><player.flag[cursoridqty]> <dark_green>Articulos" 
         - ^if <yaml[<player.name>].read[<player.flag[proforigin]>.misionprof.cant]> < 1 {
           - ^inventory close
           - ^narrate "<gold>Recompensas:"
@@ -156,7 +155,6 @@ countprofqpotion:
         }
       } else {
       - ^actionbar "<red>Ese articulo no es de la mision"
-      - ^narrate NO
       }
     - ^flag <player> cursorid:!
     - ^flag <player> cursoridqty:!

@@ -314,7 +314,6 @@ Eudesevents:
     - ^queue clear
 
     on player clicks Entregar in inv_eudes_ok_potion:
-    - ^narrate <context.cursor_item>
     - ^flag <player> potion:<context.cursor_item>
     - ^flag <player> cursoridqty:<context.cursor_item.quantity>
     - ^flag <player> profinv:inv_eudes_ok_potion
