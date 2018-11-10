@@ -20,52 +20,48 @@
   Requirements:
     Mode: all
     List:
-    - valueof <global.flag[capitulos].contains[CAPITULO1P2OK]>
-    - -valueof <player.flag[progreso].contains[tutorial_ok]>
+    - valueof <global.flag[capitulos].contains[INICIO]>
+    - -valueof <global.flag[capitulos].contains[mesreconstruido]>
+    - -valueof <global.flag[capitulos].contains[ONINTRO]>
   Steps:
     '1':
       proximity trigger:
         entry:
           radius: 4
           Script:
-          - ^if <player.flag[misiones].as_list> contains tuto_04 && <player.flag[misiones].as_list> !contains tuto_05 {
-            - ^run 's@bookq5'
-            - ^bossbar remove obj<player.name>
-            - ^define objetivo "<gold>Tutorial: <green>Visitar a <gold>Jurian <green>en la herreria"
-            - ^flag <player> objetivo:<def[objetivo]>
-            - ^bossbar obj<player.name> players:<player> "title:<player.flag[objetivo]>" color:BLUE
-            - ^compass <npc.location.simple> npc:7
-            - ^zap step:5 script:Jurianscript
-            - ^ZAP step:2
-            - ^playsound <player> sound:complete custom
+#======================= Si el pueblo no esta destruido
+          - ^if <l@2330,83,1853,Esparcraft.material.id> != 87 {
+            - ^random 6
+            - ^title 'subtitle:<yellow>Hammon:<white> Metete a la taberna'
+            - ^title 'subtitle:<yellow>Hammon:<white> Te vas a congelar'
+            - ^title 'subtitle:<yellow>Hammon:<white> Moriras de frio'
+            - ^title 'subtitle:<yellow>Hammon:<white> Pobre diablo'
+            - ^title 'subtitle:<yellow>Hammon:<white> Tienes frio? jaja'
+            - ^title 'subtitle:<yellow>Hammon:<white> Te vas a morir de frio'
+            - ^queue clear
             }
-
-    '2':
-      proximity trigger:
-        entry:
-          radius: 4
-          Script:
-          - ^if <player.flag[misiones].as_list> contains tuto_04 && <player.flag[misiones].as_list> !contains tuto_05 {
-            - ^NARRATE "<gold>Hammon: <yellow>Regresa despues caray... Quiza <green>Jurian <yellow>ya tenga tu armadura"
-            - ^compass <npc.location.simple> npc:7
-            }
-    '3':
-      proximity trigger:
-        entry:
-          radius: 4
-          Script:
-          - ^if <player.flag[misiones].as_list> contains tuto_04 && <player.flag[misiones].as_list> !contains tuto_05 {
-            - ^inventory open d:in@inv_espadas
-            }
-    '4':
-      proximity trigger:
-        entry:
-          radius: 4
-          Script:
-          - ^if <player.flag[misiones].as_list> contains tuto_05 && <player.flag[misiones].as_list> !contains tuto_06 {
-            - ^NARRATE "<gold>Hammon: <gold><player.name> <yellow>busca al inutil de <red>Telmo"
-            - ^compass <npc.location.simple> npc:33
-            }
+#======================= Si el pueblo esta destruido
+          - ^if <server.flag[capitulos].as_list> contains destroy && <server.flag[capitulos].as_list> !contains pdamesok {
+          - ^random 7
+          - ^title 'subtitle:<yellow>Hammon:<yellow> Ve a la mina con Hann'
+          - ^title 'subtitle:<yellow>Hammon:<yellow> La brujula te dice donde ir'
+          - ^title 'subtitle:<yellow>Hammon:<yellow> La mina esta bajo el pueblo'
+          - ^title 'subtitle:<yellow>Hammon:<yellow> Busca las escaleras de la mina'
+          - ^title 'subtitle:<yellow>Hammon:<yellow> Todos ayudan a la mision'
+          - ^title 'subtitle:<yellow>Hammon:<yellow> Hay que reconstruir el pueblo'
+          - ^title 'subtitle:<yellow>Hammon:<yellow> Dirijete a la mina'
+          - ^queue clear
+          } else if <server.flag[capitulos].as_list> contains destroy && <server.flag[capitulos].as_list> contains pdamesok {
+          - ^random 7
+          - ^title 'subtitle:<yellow>Hammon:<yellow> Busca a Yorick'
+          - ^title 'subtitle:<yellow>Hammon:<yellow> Ve al Suroeste'
+          - ^title 'subtitle:<yellow>Hammon:<yellow> Hay que ir por madera'
+          - ^title 'subtitle:<yellow>Hammon:<yellow> Vamos ve con Yorick'
+          - ^title 'subtitle:<yellow>Hammon:<yellow> Ocupamos reparar esto'
+          - ^title 'subtitle:<yellow>Hammon:<yellow> Yorick ocupa madera'
+          - ^title 'subtitle:<yellow>Hammon:<yellow> Ayuda a Yorick amigo.'
+          - ^queue clear
+          }
 
 herreriaend:
     type: task

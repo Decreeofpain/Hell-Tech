@@ -19,6 +19,14 @@ cast:
   sender: 'PLAYER_ONLY'
   enabled: 'true'
   cooldown: 0
+changeclass: 
+  name: 'changeclass'
+  description: 'Swaps classes'
+  permission: 'skillapi.force'
+  args: '<player> <group> <class>'
+  sender: 'ANYONE'
+  enabled: 'true'
+  cooldown: 0
 clearbind: 
   name: 'clearbind'
   description: 'Clears skill binds'
@@ -59,8 +67,6 @@ level:
   sender: 'ANYONE'
   enabled: 'true'
   cooldown: 0
-  messages: 
-    received-level: '&2You have received &6{level} levels &2from &6{player}'
 list: 
   name: 'list'
   description: 'Displays accounts'
@@ -109,9 +115,6 @@ profess:
   sender: 'PLAYER_ONLY'
   enabled: 'true'
   cooldown: 0
-  messages: 
-    invalid-class: '&cThat is not a valid class'
-    not-available: "&cThere's no profession available at this time"
 reload: 
   name: 'reload'
   description: 'Reloads the plugin'
@@ -120,8 +123,6 @@ reload:
   sender: 'ANYONE'
   enabled: 'true'
   cooldown: 0
-  messages: 
-    done: '&2The plugin has been reloaded'
 reset: 
   name: 'reset'
   description: 'Resets account data'
@@ -130,10 +131,6 @@ reset:
   sender: 'PLAYER_ONLY'
   enabled: 'true'
   cooldown: 0
-  messages: 
-    confirm: "&4This will delete your active account's data entirely"
-    instructions: '&7Type &6/class reset confirm&7 to continue'
-    reset: '&2You have reset your active account data'
 skill: 
   name: 'skill'
   description: 'Shows player skills'

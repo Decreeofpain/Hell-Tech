@@ -40,12 +40,12 @@
             - ^queue clear
             } else if <player.flag[misiones].as_list> contains mesmadera && <server.flag[capitulos].as_list> !contains mdrmesok {
             - ^random 6
-            - ^actionbar '<aqua>Yorick:<yellow> Entra al bosque y trae madera <red><player.name>'
-            - ^actionbar '<aqua>Yorick:<yellow> Trae unos trocos de madera'
-            - ^actionbar '<aqua>Yorick:<yellow> Apurate necesitamos mas madera'
-            - ^actionbar '<aqua>Yorick:<yellow> Vamos, muevete, tre la madera maldicion'
-            - ^actionbar '<aqua>Yorick:<yellow> Tan dificil es traer madera?'
-            - ^actionbar '<aqua>Yorick:<yellow> Vamos esclavos traiganme madera ahahaha'
+            - ^title 'subtitle:<aqua>Yorick:<yellow> Entra al bosque y trae madera <red><player.name>'
+            - ^title 'subtitle:<aqua>Yorick:<yellow> Trae unos trocos de madera'
+            - ^title 'subtitle:<aqua>Yorick:<yellow> Apurate necesitamos mas madera'
+            - ^title 'subtitle:<aqua>Yorick:<yellow> Vamos, muevete, tre la madera maldicion'
+            - ^title 'subtitle:<aqua>Yorick:<yellow> Tan dificil es traer madera?'
+            - ^title 'subtitle:<aqua>Yorick:<yellow> Vamos esclavos traiganme madera ahahaha'
             - ^queue clear
             } else if <player.flag[misiones].as_list> contains mesmadera && <server.flag[capitulos].as_list> contains mdrmesok && <server.flag[capitulos].as_list> !contains mesreconstruido {
             - ^title "subtitle:<aqua>Yorick: <yellow>Por fin recolectamos todo ve con <red>Alvar <yellow>a la taberna!"
@@ -68,10 +68,10 @@
 
 'yorickscript':
   Type: Interact
-#  Requirements:
-#    Mode: all
-#    List:
-#    - valueof <player.flag[progreso].contains[conducta_ok]>
+  Requirements:
+    Mode: all
+    List:
+    - valueof <global.flag[capitulos].contains[mesreconstruido]>
   Steps:
     '1':
       proximity trigger:
@@ -418,6 +418,10 @@ meslajhocountwood:
         - ^yaml savefile:capitulos/capitulo1.yml id:capitulo<player.name>
         - ^inventory open d:in@inv_yorick_meslajho
         - ^title "subtitle:<aqua>Yorick: <gray>Entregaste: <gold><player.flag[cursoridqty]> <dark_green>de madera"
+        - if <player.flag[cursoridqty]> == 64 {
+          - ^give 271
+          - ^give 297
+          }
         - if <yaml[capitulo<player.name>].read[meslajho.materiales.wood.cantidad]> <= 0 {
           - ^inventory close
           - ^yaml load:capitulos/global.yml id:global<player.name>
@@ -1663,3 +1667,6 @@ infoquestmeswood:
   - '<green>Entregar madera del aserradero'
   - '<gray>4000 troncos de madera'
   - '<yellow>bloques faltantes: <red><yaml[capitulo<player.name>].read[meslajho.materiales.wood.cantidad].asint>'
+  - ''
+  - '<green>Tip:<white> puedes extraer madera en el bosque'
+  - '<white>esta atras del aserradero.'

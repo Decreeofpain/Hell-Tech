@@ -10,7 +10,7 @@
 Accounts: 
 
   # The main class group used for GUI displays
-  main-class-group: 'class'
+  main-class-group: 'raza'
 
   # Allows one "account" per class, providing the "/class switch"
   # command to change between them. This is an alternative to
@@ -21,7 +21,7 @@ Accounts:
   one-per-class: 'false'
 
   # The max number of accounts a normal user can use
-  max-accounts: '3'
+  max-accounts: '1'
 
   # The max number of accounts users can have with certain permissions
   # must be in the format '<permission>:<accounts>'
@@ -63,15 +63,21 @@ Targeting:
   player-ally: 'false'
 
   # Whether or not to check for player allies via Parties
-  parties-ally: 'false'
+  parties-ally: 'true'
+
+  # Whether or not for skills to affect NPCs
+  affect-npcs: 'false'
+
+  # Whether or not for skills to affect armor stands
+  affect-armor-stands: 'false'
 
 Saving: 
 
   # Whether or not to auto save data periodically
-  auto-save: 'false'
+  auto-save: 'true'
 
   # How often to auto-save in minutes
-  minutes: '30'
+  minutes: '10'
 
   # Whether or not to use an SQL database to save
   sql-database: 'false'
@@ -83,7 +89,7 @@ Saving:
     database: 'plugins'
     username: 'username'
     password: 'password'
-    # Time to wait on loading data from the SQL database in milliseconds.
+    # Time to wait on loading data from the SQL database in ticks.
     # Can be used to give time for other servers to synchronize data. Note:
     # this does not apply when loading player data on server startup since
     # players wouldn't be coming from another server.
@@ -104,7 +110,7 @@ Classes:
   attributes-enabled: 'true'
 
   # Whether or not attributes can be refunded
-  attributes-downgrade: 'true'
+  attributes-downgrade: 'false'
 
   # This casts the dynamic skill for the player when they level up,
   # allowing you to use dynamic mechanics for level up effects. If
@@ -123,13 +129,13 @@ Mana:
 Skills: 
 
   # Whether or not players are allowed to downgrade skills
-  allow-downgrade: 'true'
+  allow-downgrade: 'false'
 
   # Whether or not messages should be shown on casting a skill
   show-messages: 'true'
 
   # The radius in which to show cast messages to nearby players
-  message-radius: '20'
+  message-radius: '10'
 
   # Whether or not to apply damage knockback when damage is blocked
   # by defensive or offesnive buffs and debuffs
@@ -149,35 +155,35 @@ Items:
 
   # Whether or not to check for class, level, and attribute
   # requirements in an item's lore
-  lore-requirements: 'false'
+  lore-requirements: 'true'
 
   # Whether or not to check for skill requirements
   # in an item's lore
-  skill-requirements: 'false'
+  skill-requirements: 'true'
 
   # Whether or not to check for stat bonuses in an item's lore
-  lore-attributes: 'false'
+  lore-attributes: 'true'
 
   # Whether or not to drop weapons when unable to use them
   drop-weapon: 'false'
 
   # The text used for class requirements in the lore
-  lore-class-text: 'Class Req: '
+  lore-class-text: 'Clase: '
 
   # The text used for skill requirements in lore
   lore-skill-text: 'Requires {skill}: '
 
   # the text used for level requirements in the lore
-  lore-level-text: 'Level Req: '
+  lore-level-text: '• Nivel: '
 
   # The text used for excluded classes in the lore
   lore-exclude-text: 'Excluded Class: '
 
   # The text used for attribute requirements
-  lore-attribute-text: '{attr} Req: '
+  lore-attribute-text: '• {attr} lvl: '
 
   # The text used for providing attributes
-  attribute-text: '{attr}: '
+  attribute-text: '• {attr}: '
 
   # The slots to check for items in and apply requirements to.
   # This does not include held item, as that fluctuates and is assumed
@@ -208,7 +214,7 @@ GUI:
 
   # This is what to display using the level bar, if anything.
   # Options are: none, mana, level
-  level-bar: 'none'
+  level-bar: 'level'
 
   # This is what to display using the food bar, if anything.
   # Options are: none, mana, exp
@@ -236,7 +242,7 @@ GUI:
   action-bar-text: '{combo}'
 
   # Whether or not to use title messages
-  title-enabled: 'false'
+  title-enabled: 'true'
 
   # Duration for title messages in seconds
   title-duration: '3'
@@ -269,7 +275,13 @@ GUI:
 
   # The text to show with the player's level when enabled.
   # This always appears as {level} {text}
-  class-level-text: 'Level'
+  class-level-text: 'Nivel'
+
+  # Whether or not to append text to skill icons to show what type of item the skill is bound to
+  show-binds: 'false'
+
+  # Text to show for bound materials
+  show-bind-text: 'Bound to {material}'
 
 Casting: 
 
@@ -382,6 +394,12 @@ Click Combos:
   # Whether or not players can customize their combos
   allow-custom: 'false'
 
+  # Whether or not to automatically assign combos to skills
+  # without a combo manually defined. When disabled, only skills
+  # configured to have a combo or have had a combo set by
+  # a command will have combos.
+  auto-assign: 'true'
+
   # Whether or not left clicks are allowed at all
   use-click-left: 'true'
 
@@ -391,15 +409,15 @@ Click Combos:
   # Whether or not shift clicks are allowed at all
   use-click-shift: 'false'
 
-  # Whether or not shift clicks are allowed at all
+  # Whether or not right shift clicks are allowed at all
   # This will disable "use-click-shift" if enabled
   use-click-right-shift: 'false'
 
-  # Whether or not shift clicks are allowed at all
+  # Whether or not left shift clicks are allowed at all
   # This will disable "use-click-shift" if enabled
   use-click-left-shift: 'false'
 
-  # Whether or not shift clicks are allowed at all
+  # Whether or not jump clicks are allowed at all
   use-click-space: 'false'
 
   # Whether or not Q clicks are allowed at all.
@@ -407,7 +425,7 @@ Click Combos:
   use-click-q: 'false'
 
   # How many clicks are needed to perform a combo
-  combo-size: '4'
+  combo-size: '5'
 
   # Inactivity time in seconds before clicks for a combo are reset
   click-time: '1.0'
@@ -463,22 +481,22 @@ Experience:
   # Note: any dropped exp will not count towards class exp,
   # only enabled sources will count. By default, this is only
   # mob deaths.
-  use-exp-orbs: 'true'
+  use-exp-orbs: 'false'
 
   # Whether or not to prevent gaining experience from mobs
   # spawned via a mob spawner block
-  block-mob-spawner: 'true'
+  block-mob-spawner: 'false'
 
   # Whether or not to prevent gaining experience from mobs
   # spawned via a mob spawn egg
-  block-mob-egg: 'true'
+  block-mob-egg: 'false'
 
   # Whether or not to prevent gaining experience while
   # in creative mode
-  block-creative: 'true'
+  block-creative: 'false'
 
   # Whether or not to display a message when gaining experience
-  exp-message-enabled: 'true'
+  exp-message-enabled: 'false'
 
   # Whether or not to display a message when gaining a level
   level-message-enabled: 'true'
@@ -486,50 +504,56 @@ Experience:
   # Whether or not to show a message when losing exp de to dying
   lose-exp-message: 'true'
 
+  # Worlds where experience is not lost on death
+  lose-exp-blacklist: 
+  - 'pvpWorld'
+
   # The formula used for calculating required experience
   # The formula is: x*lvl*lvl + y*lvl + z
   formula: 
     x: '1'
-    y: '8'
-    z: '16'
+    y: '4'
+    z: '10'
 
   # Whether or not to use a custom equation
   use-custom: 'false'
 
   # The custom formula to use with 'lvl' being the current player level
+  # Note: this formula does not use x, y, or z. Use numbers directly
+  # in the formula instead.
   custom-formula: '25(1.1^(lvl-1))'
 
   # The experience yields from each mob type
   # When exp orbs are enabled, these values are ignored
   yields: 
-    blaze: '10'
-    cavespider: '5'
-    creeper: '3'
-    elderguardian: '10'
-    enderdragon: '400'
-    enderman: '5'
-    endermite: '3'
-    evoker: '10'
-    ghast: '5'
-    giant: '20'
-    guardian: '10'
-    husk: '2'
-    irongolem: '10'
-    magmacube: '1'
-    pigzombie: '5'
-    player: '5'
-    shulker: '5'
-    silverfish: '2'
-    skeleton: '3'
-    slime: '1'
-    spider: '3'
-    stray: '5'
-    vex: '3'
-    vindicator: '5'
-    witch: '3'
-    wither: '500'
-    witherskeleton: '5'
-    zombie: '2'
+    blaze: '0'
+    cavespider: '0'
+    creeper: '0'
+    elderguardian: '0'
+    enderdragon: '0'
+    enderman: '0'
+    endermite: '0'
+    evoker: '0'
+    ghast: '0'
+    giant: '0'
+    guardian: '0'
+    husk: '0'
+    irongolem: '0'
+    magmacube: '0'
+    pigzombie: '0'
+    player: '0'
+    shulker: '0'
+    silverfish: '0'
+    skeleton: '0'
+    slime: '0'
+    spider: '0'
+    stray: '0'
+    vex: '0'
+    vindicator: '0'
+    witch: '0'
+    wither: '0'
+    witherskeleton: '0'
+    zombie: '0'
 
 # How much logging to do when loading SkillAPI
 # When testing setting up skills/classes, increase this to 1-5

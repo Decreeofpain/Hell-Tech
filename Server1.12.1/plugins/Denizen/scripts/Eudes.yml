@@ -5,7 +5,7 @@
       on assignment:
       - trigger name:CHAT toggle:false
       - trigger name:click toggle:true
-      - trigger name:proximity toggle:true radius:3
+      - trigger name:proximity toggle:true radius:2
 
       on Build Complete:
       - ^run 's@molinoend'
@@ -15,10 +15,10 @@
 
 'Eudesscript':
   Type: Interact
-  # Requirements:
-    # Mode: all
-    # List:
-    # - valueof <player.flag[progreso].contains[conducta_ok]>
+  Requirements:
+    Mode: all
+    List:
+    - valueof <global.flag[capitulos].contains[mesreconstruido]>
   Steps:
     '1':
       proximity trigger:

@@ -33,16 +33,16 @@ Schematics:
     - ^title "title:<green>Mina Visener" "subtitle:<gold>Aqui puedes extraer oro."
 
 
-    # on 8:00 in Esparcraft:
-    # - ^if <cu@minacobblestone.get_blocks[stone].size> < 40000 {
-    #   - ^schematic load name:minacobblestone
-    #   - ^schematic paste name:minacobblestone location:<cu@minacobblestone.min>
-    #   - ^schematic unload name:minacobblestone
-    #   - ^foreach <cu@minacobblestone.list_players> {
-    #     - ^title "title:<green>Restableciendo" "subtitle:<gold>La mina de piedra!" stay:10s
-    #     }
-    #   - ^teleport <cu@minacobblestone.list_players> dminacobblestone
-    #   }
+    on 8:00 in Esparcraft:
+    - ^if <cu@minacobblestone.get_blocks[stone].size> < 40000 {
+      - ^schematic load name:minacobblestone
+      - ^schematic paste name:minacobblestone location:<cu@minacobblestone.min>
+      - ^schematic unload name:minacobblestone
+      - ^foreach <cu@minacobblestone.list_players> {
+        - ^title "title:<green>Restableciendo" "subtitle:<gold>La mina de piedra!" stay:10s
+        }
+      - ^teleport <cu@minacobblestone.list_players> dminacobblestone
+      }
     # - wait 2
     # - ^if <cu@minacoal.get_blocks[stone].size> < 5600 {
     #   - ^schematic load name:minacoal
@@ -65,16 +65,16 @@ Schematics:
     #   }
     # - queue clear
     #
-    # on 7:00 in Esparcraft:
-    # - if <cu@bosqueoak.get_blocks[log].size> < 330 {
-    #   - ^schematic load name:bosqueoak
-    #   - ^schematic paste name:bosqueoak location:<cu@bosqueoak.min>
-    #   - ^schematic unload name:bosqueoak
-    #   - ^foreach <cu@bosqueoak.list_players> {
-    #     - ^title "title:<green>Restableciendo" "subtitle:<gold>El bosque de meslajho" stay:10s
-    #     }
-    #   - ^teleport <cu@bosqueoak.list_players> dbosqueoak
-    #   }
+    on 7:00 in Esparcraft:
+    - if <cu@bosqueoak.get_blocks[log].size> < 330 {
+      - ^schematic load name:bosqueoak
+      - ^schematic paste name:bosqueoak location:<cu@bosqueoak.min>
+      - ^schematic unload name:bosqueoak
+      - ^foreach <cu@bosqueoak.list_players> {
+        - ^title "title:<green>Restableciendo" "subtitle:<gold>El bosque de meslajho" stay:10s
+        }
+      - ^teleport <cu@bosqueoak.list_players> dbosqueoak
+      }
     # - wait 2
     # - if <cu@bosquespruce.get_blocks[log].size> < 1000 {
     #   - ^schematic load name:bosquespruce

@@ -528,3 +528,740 @@ Caused by: java.net.ConnectException: Connection refused: connect
 [03-20 20:46:14]: [INFO] AuthMe 5.4-SNAPSHOT build n.1856 correctly enabled!
 [03-20 20:48:21]: [FINE] drAkeNess logged in!
 [03-20 20:50:54]: [INFO] AuthMe 5.4-SNAPSHOT-b1856 disabled!
+[10-29 15:29:55]: [INFO] Connection arguments loaded, Hikari ConnectionPool ready!
+[10-29 15:30:17]: [WARN] Can't initialize the MySQL database: [CommunicationsException]: Communications link failure
+
+The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.
+[10-29 15:30:17]: com.mysql.jdbc.exceptions.jdbc4.CommunicationsException: Communications link failure
+
+The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(Unknown Source)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(Unknown Source)
+	at java.lang.reflect.Constructor.newInstance(Unknown Source)
+	at com.mysql.jdbc.Util.handleNewInstance(Util.java:425)
+	at com.mysql.jdbc.SQLError.createCommunicationsException(SQLError.java:990)
+	at com.mysql.jdbc.MysqlIO.<init>(MysqlIO.java:341)
+	at com.mysql.jdbc.ConnectionImpl.coreConnect(ConnectionImpl.java:2186)
+	at com.mysql.jdbc.ConnectionImpl.connectOneTryOnly(ConnectionImpl.java:2219)
+	at com.mysql.jdbc.ConnectionImpl.createNewIO(ConnectionImpl.java:2014)
+	at com.mysql.jdbc.ConnectionImpl.<init>(ConnectionImpl.java:776)
+	at com.mysql.jdbc.JDBC4Connection.<init>(JDBC4Connection.java:47)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(Unknown Source)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(Unknown Source)
+	at java.lang.reflect.Constructor.newInstance(Unknown Source)
+	at com.mysql.jdbc.Util.handleNewInstance(Util.java:425)
+	at com.mysql.jdbc.ConnectionImpl.getInstance(ConnectionImpl.java:386)
+	at com.mysql.jdbc.NonRegisteringDriver.connect(NonRegisteringDriver.java:330)
+	at fr.xephi.authme.libs.zaxxer.hikari.util.DriverDataSource.getConnection(DriverDataSource.java:117)
+	at fr.xephi.authme.libs.zaxxer.hikari.util.DriverDataSource.getConnection(DriverDataSource.java:123)
+	at fr.xephi.authme.libs.zaxxer.hikari.pool.PoolBase.newConnection(PoolBase.java:375)
+	at fr.xephi.authme.libs.zaxxer.hikari.pool.PoolBase.newPoolEntry(PoolBase.java:204)
+	at fr.xephi.authme.libs.zaxxer.hikari.pool.HikariPool.createPoolEntry(HikariPool.java:445)
+	at fr.xephi.authme.libs.zaxxer.hikari.pool.HikariPool.checkFailFast(HikariPool.java:516)
+	at fr.xephi.authme.libs.zaxxer.hikari.pool.HikariPool.<init>(HikariPool.java:116)
+	at fr.xephi.authme.libs.zaxxer.hikari.HikariDataSource.getConnection(HikariDataSource.java:97)
+	at fr.xephi.authme.datasource.MySQL.getConnection(MySQL.java:157)
+	at fr.xephi.authme.datasource.MySQL.checkTablesAndColumns(MySQL.java:164)
+	at fr.xephi.authme.datasource.MySQL.<init>(MySQL.java:69)
+	at fr.xephi.authme.initialization.DataSourceProvider.createDataSource(DataSourceProvider.java:72)
+	at fr.xephi.authme.initialization.DataSourceProvider.get(DataSourceProvider.java:49)
+	at fr.xephi.authme.initialization.DataSourceProvider.get(DataSourceProvider.java:26)
+	at fr.xephi.authme.libs.jalu.injector.handlers.provider.ProviderHandlerImpl$UninitializedProviderInstantiation.instantiateWith(ProviderHandlerImpl.java:141)
+	at fr.xephi.authme.libs.jalu.injector.InjectorImpl.instantiate(InjectorImpl.java:181)
+	at fr.xephi.authme.libs.jalu.injector.InjectorImpl.get(InjectorImpl.java:155)
+	at fr.xephi.authme.libs.jalu.injector.InjectorImpl.getSingleton(InjectorImpl.java:56)
+	at fr.xephi.authme.AuthMe.instantiateServices(AuthMe.java:246)
+	at fr.xephi.authme.AuthMe.initialize(AuthMe.java:221)
+	at fr.xephi.authme.AuthMe.onEnable(AuthMe.java:136)
+	at org.bukkit.plugin.java.JavaPlugin.setEnabled(JavaPlugin.java:264)
+	at org.bukkit.plugin.java.JavaPluginLoader.enablePlugin(JavaPluginLoader.java:337)
+	at org.bukkit.plugin.SimplePluginManager.enablePlugin(SimplePluginManager.java:403)
+	at org.bukkit.craftbukkit.v1_12_R1.CraftServer.enablePlugin(CraftServer.java:381)
+	at org.bukkit.craftbukkit.v1_12_R1.CraftServer.enablePlugins(CraftServer.java:330)
+	at org.bukkit.craftbukkit.v1_12_R1.CraftServer.reload(CraftServer.java:752)
+	at org.bukkit.Bukkit.reload(Bukkit.java:525)
+	at org.bukkit.command.defaults.ReloadCommand.execute(ReloadCommand.java:27)
+	at org.bukkit.command.SimpleCommandMap.dispatch(SimpleCommandMap.java:141)
+	at org.bukkit.craftbukkit.v1_12_R1.CraftServer.dispatchCommand(CraftServer.java:648)
+	at net.minecraft.server.v1_12_R1.PlayerConnection.handleCommand(PlayerConnection.java:1397)
+	at net.minecraft.server.v1_12_R1.PlayerConnection.a(PlayerConnection.java:1232)
+	at net.minecraft.server.v1_12_R1.PacketPlayInChat.a(PacketPlayInChat.java:45)
+	at net.minecraft.server.v1_12_R1.PacketPlayInChat.a(PacketPlayInChat.java:1)
+	at net.minecraft.server.v1_12_R1.PlayerConnectionUtils$1.run(SourceFile:13)
+	at java.util.concurrent.Executors$RunnableAdapter.call(Unknown Source)
+	at java.util.concurrent.FutureTask.run(Unknown Source)
+	at net.minecraft.server.v1_12_R1.SystemUtils.a(SourceFile:46)
+	at net.minecraft.server.v1_12_R1.MinecraftServer.D(MinecraftServer.java:748)
+	at net.minecraft.server.v1_12_R1.DedicatedServer.D(DedicatedServer.java:406)
+	at net.minecraft.server.v1_12_R1.MinecraftServer.C(MinecraftServer.java:679)
+	at net.minecraft.server.v1_12_R1.MinecraftServer.run(MinecraftServer.java:577)
+	at java.lang.Thread.run(Unknown Source)
+Caused by: java.net.ConnectException: Connection timed out: connect
+	at java.net.DualStackPlainSocketImpl.waitForConnect(Native Method)
+	at java.net.DualStackPlainSocketImpl.socketConnect(Unknown Source)
+	at java.net.AbstractPlainSocketImpl.doConnect(Unknown Source)
+	at java.net.AbstractPlainSocketImpl.connectToAddress(Unknown Source)
+	at java.net.AbstractPlainSocketImpl.connect(Unknown Source)
+	at java.net.PlainSocketImpl.connect(Unknown Source)
+	at java.net.SocksSocketImpl.connect(Unknown Source)
+	at java.net.Socket.connect(Unknown Source)
+	at com.mysql.jdbc.StandardSocketFactory.connect(StandardSocketFactory.java:211)
+	at com.mysql.jdbc.MysqlIO.<init>(MysqlIO.java:300)
+	... 56 more
+
+[10-29 15:30:17]: [WARN] Please check your database settings in the config.yml file!
+[10-29 15:30:17]: [WARN] Could not create data source: [CommunicationsException]: Communications link failure
+
+The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.
+[10-29 15:30:17]: com.mysql.jdbc.exceptions.jdbc4.CommunicationsException: Communications link failure
+
+The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(Unknown Source)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(Unknown Source)
+	at java.lang.reflect.Constructor.newInstance(Unknown Source)
+	at com.mysql.jdbc.Util.handleNewInstance(Util.java:425)
+	at com.mysql.jdbc.SQLError.createCommunicationsException(SQLError.java:990)
+	at com.mysql.jdbc.MysqlIO.<init>(MysqlIO.java:341)
+	at com.mysql.jdbc.ConnectionImpl.coreConnect(ConnectionImpl.java:2186)
+	at com.mysql.jdbc.ConnectionImpl.connectOneTryOnly(ConnectionImpl.java:2219)
+	at com.mysql.jdbc.ConnectionImpl.createNewIO(ConnectionImpl.java:2014)
+	at com.mysql.jdbc.ConnectionImpl.<init>(ConnectionImpl.java:776)
+	at com.mysql.jdbc.JDBC4Connection.<init>(JDBC4Connection.java:47)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(Unknown Source)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(Unknown Source)
+	at java.lang.reflect.Constructor.newInstance(Unknown Source)
+	at com.mysql.jdbc.Util.handleNewInstance(Util.java:425)
+	at com.mysql.jdbc.ConnectionImpl.getInstance(ConnectionImpl.java:386)
+	at com.mysql.jdbc.NonRegisteringDriver.connect(NonRegisteringDriver.java:330)
+	at fr.xephi.authme.libs.zaxxer.hikari.util.DriverDataSource.getConnection(DriverDataSource.java:117)
+	at fr.xephi.authme.libs.zaxxer.hikari.util.DriverDataSource.getConnection(DriverDataSource.java:123)
+	at fr.xephi.authme.libs.zaxxer.hikari.pool.PoolBase.newConnection(PoolBase.java:375)
+	at fr.xephi.authme.libs.zaxxer.hikari.pool.PoolBase.newPoolEntry(PoolBase.java:204)
+	at fr.xephi.authme.libs.zaxxer.hikari.pool.HikariPool.createPoolEntry(HikariPool.java:445)
+	at fr.xephi.authme.libs.zaxxer.hikari.pool.HikariPool.checkFailFast(HikariPool.java:516)
+	at fr.xephi.authme.libs.zaxxer.hikari.pool.HikariPool.<init>(HikariPool.java:116)
+	at fr.xephi.authme.libs.zaxxer.hikari.HikariDataSource.getConnection(HikariDataSource.java:97)
+	at fr.xephi.authme.datasource.MySQL.getConnection(MySQL.java:157)
+	at fr.xephi.authme.datasource.MySQL.checkTablesAndColumns(MySQL.java:164)
+	at fr.xephi.authme.datasource.MySQL.<init>(MySQL.java:69)
+	at fr.xephi.authme.initialization.DataSourceProvider.createDataSource(DataSourceProvider.java:72)
+	at fr.xephi.authme.initialization.DataSourceProvider.get(DataSourceProvider.java:49)
+	at fr.xephi.authme.initialization.DataSourceProvider.get(DataSourceProvider.java:26)
+	at fr.xephi.authme.libs.jalu.injector.handlers.provider.ProviderHandlerImpl$UninitializedProviderInstantiation.instantiateWith(ProviderHandlerImpl.java:141)
+	at fr.xephi.authme.libs.jalu.injector.InjectorImpl.instantiate(InjectorImpl.java:181)
+	at fr.xephi.authme.libs.jalu.injector.InjectorImpl.get(InjectorImpl.java:155)
+	at fr.xephi.authme.libs.jalu.injector.InjectorImpl.getSingleton(InjectorImpl.java:56)
+	at fr.xephi.authme.AuthMe.instantiateServices(AuthMe.java:246)
+	at fr.xephi.authme.AuthMe.initialize(AuthMe.java:221)
+	at fr.xephi.authme.AuthMe.onEnable(AuthMe.java:136)
+	at org.bukkit.plugin.java.JavaPlugin.setEnabled(JavaPlugin.java:264)
+	at org.bukkit.plugin.java.JavaPluginLoader.enablePlugin(JavaPluginLoader.java:337)
+	at org.bukkit.plugin.SimplePluginManager.enablePlugin(SimplePluginManager.java:403)
+	at org.bukkit.craftbukkit.v1_12_R1.CraftServer.enablePlugin(CraftServer.java:381)
+	at org.bukkit.craftbukkit.v1_12_R1.CraftServer.enablePlugins(CraftServer.java:330)
+	at org.bukkit.craftbukkit.v1_12_R1.CraftServer.reload(CraftServer.java:752)
+	at org.bukkit.Bukkit.reload(Bukkit.java:525)
+	at org.bukkit.command.defaults.ReloadCommand.execute(ReloadCommand.java:27)
+	at org.bukkit.command.SimpleCommandMap.dispatch(SimpleCommandMap.java:141)
+	at org.bukkit.craftbukkit.v1_12_R1.CraftServer.dispatchCommand(CraftServer.java:648)
+	at net.minecraft.server.v1_12_R1.PlayerConnection.handleCommand(PlayerConnection.java:1397)
+	at net.minecraft.server.v1_12_R1.PlayerConnection.a(PlayerConnection.java:1232)
+	at net.minecraft.server.v1_12_R1.PacketPlayInChat.a(PacketPlayInChat.java:45)
+	at net.minecraft.server.v1_12_R1.PacketPlayInChat.a(PacketPlayInChat.java:1)
+	at net.minecraft.server.v1_12_R1.PlayerConnectionUtils$1.run(SourceFile:13)
+	at java.util.concurrent.Executors$RunnableAdapter.call(Unknown Source)
+	at java.util.concurrent.FutureTask.run(Unknown Source)
+	at net.minecraft.server.v1_12_R1.SystemUtils.a(SourceFile:46)
+	at net.minecraft.server.v1_12_R1.MinecraftServer.D(MinecraftServer.java:748)
+	at net.minecraft.server.v1_12_R1.DedicatedServer.D(DedicatedServer.java:406)
+	at net.minecraft.server.v1_12_R1.MinecraftServer.C(MinecraftServer.java:679)
+	at net.minecraft.server.v1_12_R1.MinecraftServer.run(MinecraftServer.java:577)
+	at java.lang.Thread.run(Unknown Source)
+Caused by: java.net.ConnectException: Connection timed out: connect
+	at java.net.DualStackPlainSocketImpl.waitForConnect(Native Method)
+	at java.net.DualStackPlainSocketImpl.socketConnect(Unknown Source)
+	at java.net.AbstractPlainSocketImpl.doConnect(Unknown Source)
+	at java.net.AbstractPlainSocketImpl.connectToAddress(Unknown Source)
+	at java.net.AbstractPlainSocketImpl.connect(Unknown Source)
+	at java.net.PlainSocketImpl.connect(Unknown Source)
+	at java.net.SocksSocketImpl.connect(Unknown Source)
+	at java.net.Socket.connect(Unknown Source)
+	at com.mysql.jdbc.StandardSocketFactory.connect(StandardSocketFactory.java:211)
+	at com.mysql.jdbc.MysqlIO.<init>(MysqlIO.java:300)
+	... 56 more
+
+[10-29 15:30:17]: [WARN] Aborting initialization of AuthMe: [IllegalStateException]: Error during initialization of data source
+[10-29 15:30:17]: java.lang.IllegalStateException: Error during initialization of data source
+	at fr.xephi.authme.initialization.DataSourceProvider.get(DataSourceProvider.java:52)
+	at fr.xephi.authme.initialization.DataSourceProvider.get(DataSourceProvider.java:26)
+	at fr.xephi.authme.libs.jalu.injector.handlers.provider.ProviderHandlerImpl$UninitializedProviderInstantiation.instantiateWith(ProviderHandlerImpl.java:141)
+	at fr.xephi.authme.libs.jalu.injector.InjectorImpl.instantiate(InjectorImpl.java:181)
+	at fr.xephi.authme.libs.jalu.injector.InjectorImpl.get(InjectorImpl.java:155)
+	at fr.xephi.authme.libs.jalu.injector.InjectorImpl.getSingleton(InjectorImpl.java:56)
+	at fr.xephi.authme.AuthMe.instantiateServices(AuthMe.java:246)
+	at fr.xephi.authme.AuthMe.initialize(AuthMe.java:221)
+	at fr.xephi.authme.AuthMe.onEnable(AuthMe.java:136)
+	at org.bukkit.plugin.java.JavaPlugin.setEnabled(JavaPlugin.java:264)
+	at org.bukkit.plugin.java.JavaPluginLoader.enablePlugin(JavaPluginLoader.java:337)
+	at org.bukkit.plugin.SimplePluginManager.enablePlugin(SimplePluginManager.java:403)
+	at org.bukkit.craftbukkit.v1_12_R1.CraftServer.enablePlugin(CraftServer.java:381)
+	at org.bukkit.craftbukkit.v1_12_R1.CraftServer.enablePlugins(CraftServer.java:330)
+	at org.bukkit.craftbukkit.v1_12_R1.CraftServer.reload(CraftServer.java:752)
+	at org.bukkit.Bukkit.reload(Bukkit.java:525)
+	at org.bukkit.command.defaults.ReloadCommand.execute(ReloadCommand.java:27)
+	at org.bukkit.command.SimpleCommandMap.dispatch(SimpleCommandMap.java:141)
+	at org.bukkit.craftbukkit.v1_12_R1.CraftServer.dispatchCommand(CraftServer.java:648)
+	at net.minecraft.server.v1_12_R1.PlayerConnection.handleCommand(PlayerConnection.java:1397)
+	at net.minecraft.server.v1_12_R1.PlayerConnection.a(PlayerConnection.java:1232)
+	at net.minecraft.server.v1_12_R1.PacketPlayInChat.a(PacketPlayInChat.java:45)
+	at net.minecraft.server.v1_12_R1.PacketPlayInChat.a(PacketPlayInChat.java:1)
+	at net.minecraft.server.v1_12_R1.PlayerConnectionUtils$1.run(SourceFile:13)
+	at java.util.concurrent.Executors$RunnableAdapter.call(Unknown Source)
+	at java.util.concurrent.FutureTask.run(Unknown Source)
+	at net.minecraft.server.v1_12_R1.SystemUtils.a(SourceFile:46)
+	at net.minecraft.server.v1_12_R1.MinecraftServer.D(MinecraftServer.java:748)
+	at net.minecraft.server.v1_12_R1.DedicatedServer.D(DedicatedServer.java:406)
+	at net.minecraft.server.v1_12_R1.MinecraftServer.C(MinecraftServer.java:679)
+	at net.minecraft.server.v1_12_R1.MinecraftServer.run(MinecraftServer.java:577)
+	at java.lang.Thread.run(Unknown Source)
+Caused by: com.mysql.jdbc.exceptions.jdbc4.CommunicationsException: Communications link failure
+
+The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(Unknown Source)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(Unknown Source)
+	at java.lang.reflect.Constructor.newInstance(Unknown Source)
+	at com.mysql.jdbc.Util.handleNewInstance(Util.java:425)
+	at com.mysql.jdbc.SQLError.createCommunicationsException(SQLError.java:990)
+	at com.mysql.jdbc.MysqlIO.<init>(MysqlIO.java:341)
+	at com.mysql.jdbc.ConnectionImpl.coreConnect(ConnectionImpl.java:2186)
+	at com.mysql.jdbc.ConnectionImpl.connectOneTryOnly(ConnectionImpl.java:2219)
+	at com.mysql.jdbc.ConnectionImpl.createNewIO(ConnectionImpl.java:2014)
+	at com.mysql.jdbc.ConnectionImpl.<init>(ConnectionImpl.java:776)
+	at com.mysql.jdbc.JDBC4Connection.<init>(JDBC4Connection.java:47)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(Unknown Source)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(Unknown Source)
+	at java.lang.reflect.Constructor.newInstance(Unknown Source)
+	at com.mysql.jdbc.Util.handleNewInstance(Util.java:425)
+	at com.mysql.jdbc.ConnectionImpl.getInstance(ConnectionImpl.java:386)
+	at com.mysql.jdbc.NonRegisteringDriver.connect(NonRegisteringDriver.java:330)
+	at fr.xephi.authme.libs.zaxxer.hikari.util.DriverDataSource.getConnection(DriverDataSource.java:117)
+	at fr.xephi.authme.libs.zaxxer.hikari.util.DriverDataSource.getConnection(DriverDataSource.java:123)
+	at fr.xephi.authme.libs.zaxxer.hikari.pool.PoolBase.newConnection(PoolBase.java:375)
+	at fr.xephi.authme.libs.zaxxer.hikari.pool.PoolBase.newPoolEntry(PoolBase.java:204)
+	at fr.xephi.authme.libs.zaxxer.hikari.pool.HikariPool.createPoolEntry(HikariPool.java:445)
+	at fr.xephi.authme.libs.zaxxer.hikari.pool.HikariPool.checkFailFast(HikariPool.java:516)
+	at fr.xephi.authme.libs.zaxxer.hikari.pool.HikariPool.<init>(HikariPool.java:116)
+	at fr.xephi.authme.libs.zaxxer.hikari.HikariDataSource.getConnection(HikariDataSource.java:97)
+	at fr.xephi.authme.datasource.MySQL.getConnection(MySQL.java:157)
+	at fr.xephi.authme.datasource.MySQL.checkTablesAndColumns(MySQL.java:164)
+	at fr.xephi.authme.datasource.MySQL.<init>(MySQL.java:69)
+	at fr.xephi.authme.initialization.DataSourceProvider.createDataSource(DataSourceProvider.java:72)
+	at fr.xephi.authme.initialization.DataSourceProvider.get(DataSourceProvider.java:49)
+	... 31 more
+Caused by: java.net.ConnectException: Connection timed out: connect
+	at java.net.DualStackPlainSocketImpl.waitForConnect(Native Method)
+	at java.net.DualStackPlainSocketImpl.socketConnect(Unknown Source)
+	at java.net.AbstractPlainSocketImpl.doConnect(Unknown Source)
+	at java.net.AbstractPlainSocketImpl.connectToAddress(Unknown Source)
+	at java.net.AbstractPlainSocketImpl.connect(Unknown Source)
+	at java.net.PlainSocketImpl.connect(Unknown Source)
+	at java.net.SocksSocketImpl.connect(Unknown Source)
+	at java.net.Socket.connect(Unknown Source)
+	at com.mysql.jdbc.StandardSocketFactory.connect(StandardSocketFactory.java:211)
+	at com.mysql.jdbc.MysqlIO.<init>(MysqlIO.java:300)
+	... 56 more
+
+[10-29 15:30:17]: [WARN] THE SERVER IS GOING TO SHUT DOWN AS DEFINED IN THE CONFIGURATION!
+[10-29 15:30:17]: [INFO] AuthMe 5.4.0-b1877 disabled!
+[10-29 15:32:10]: [INFO] Connection arguments loaded, Hikari ConnectionPool ready!
+[10-29 15:32:17]: [WARN] Can't initialize the MySQL database: [SQLException]: Access denied for user 'drAkeNess'@'189.134.6.97' (using password: YES)
+[10-29 15:32:17]: java.sql.SQLException: Access denied for user 'drAkeNess'@'189.134.6.97' (using password: YES)
+	at com.mysql.jdbc.SQLError.createSQLException(SQLError.java:965)
+	at com.mysql.jdbc.MysqlIO.checkErrorPacket(MysqlIO.java:3973)
+	at com.mysql.jdbc.MysqlIO.checkErrorPacket(MysqlIO.java:3909)
+	at com.mysql.jdbc.MysqlIO.checkErrorPacket(MysqlIO.java:873)
+	at com.mysql.jdbc.MysqlIO.proceedHandshakeWithPluggableAuthentication(MysqlIO.java:1710)
+	at com.mysql.jdbc.MysqlIO.doHandshake(MysqlIO.java:1226)
+	at com.mysql.jdbc.ConnectionImpl.coreConnect(ConnectionImpl.java:2188)
+	at com.mysql.jdbc.ConnectionImpl.connectOneTryOnly(ConnectionImpl.java:2219)
+	at com.mysql.jdbc.ConnectionImpl.createNewIO(ConnectionImpl.java:2014)
+	at com.mysql.jdbc.ConnectionImpl.<init>(ConnectionImpl.java:776)
+	at com.mysql.jdbc.JDBC4Connection.<init>(JDBC4Connection.java:47)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(Unknown Source)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(Unknown Source)
+	at java.lang.reflect.Constructor.newInstance(Unknown Source)
+	at com.mysql.jdbc.Util.handleNewInstance(Util.java:425)
+	at com.mysql.jdbc.ConnectionImpl.getInstance(ConnectionImpl.java:386)
+	at com.mysql.jdbc.NonRegisteringDriver.connect(NonRegisteringDriver.java:330)
+	at fr.xephi.authme.libs.zaxxer.hikari.util.DriverDataSource.getConnection(DriverDataSource.java:117)
+	at fr.xephi.authme.libs.zaxxer.hikari.util.DriverDataSource.getConnection(DriverDataSource.java:123)
+	at fr.xephi.authme.libs.zaxxer.hikari.pool.PoolBase.newConnection(PoolBase.java:375)
+	at fr.xephi.authme.libs.zaxxer.hikari.pool.PoolBase.newPoolEntry(PoolBase.java:204)
+	at fr.xephi.authme.libs.zaxxer.hikari.pool.HikariPool.createPoolEntry(HikariPool.java:445)
+	at fr.xephi.authme.libs.zaxxer.hikari.pool.HikariPool.checkFailFast(HikariPool.java:516)
+	at fr.xephi.authme.libs.zaxxer.hikari.pool.HikariPool.<init>(HikariPool.java:116)
+	at fr.xephi.authme.libs.zaxxer.hikari.HikariDataSource.getConnection(HikariDataSource.java:97)
+	at fr.xephi.authme.datasource.MySQL.getConnection(MySQL.java:157)
+	at fr.xephi.authme.datasource.MySQL.checkTablesAndColumns(MySQL.java:164)
+	at fr.xephi.authme.datasource.MySQL.<init>(MySQL.java:69)
+	at fr.xephi.authme.initialization.DataSourceProvider.createDataSource(DataSourceProvider.java:72)
+	at fr.xephi.authme.initialization.DataSourceProvider.get(DataSourceProvider.java:49)
+	at fr.xephi.authme.initialization.DataSourceProvider.get(DataSourceProvider.java:26)
+	at fr.xephi.authme.libs.jalu.injector.handlers.provider.ProviderHandlerImpl$UninitializedProviderInstantiation.instantiateWith(ProviderHandlerImpl.java:141)
+	at fr.xephi.authme.libs.jalu.injector.InjectorImpl.instantiate(InjectorImpl.java:181)
+	at fr.xephi.authme.libs.jalu.injector.InjectorImpl.get(InjectorImpl.java:155)
+	at fr.xephi.authme.libs.jalu.injector.InjectorImpl.getSingleton(InjectorImpl.java:56)
+	at fr.xephi.authme.AuthMe.instantiateServices(AuthMe.java:246)
+	at fr.xephi.authme.AuthMe.initialize(AuthMe.java:221)
+	at fr.xephi.authme.AuthMe.onEnable(AuthMe.java:136)
+	at org.bukkit.plugin.java.JavaPlugin.setEnabled(JavaPlugin.java:264)
+	at org.bukkit.plugin.java.JavaPluginLoader.enablePlugin(JavaPluginLoader.java:337)
+	at org.bukkit.plugin.SimplePluginManager.enablePlugin(SimplePluginManager.java:403)
+	at org.bukkit.craftbukkit.v1_12_R1.CraftServer.enablePlugin(CraftServer.java:381)
+	at org.bukkit.craftbukkit.v1_12_R1.CraftServer.enablePlugins(CraftServer.java:330)
+	at net.minecraft.server.v1_12_R1.MinecraftServer.t(MinecraftServer.java:422)
+	at net.minecraft.server.v1_12_R1.MinecraftServer.l(MinecraftServer.java:383)
+	at net.minecraft.server.v1_12_R1.MinecraftServer.a(MinecraftServer.java:338)
+	at net.minecraft.server.v1_12_R1.DedicatedServer.init(DedicatedServer.java:272)
+	at net.minecraft.server.v1_12_R1.MinecraftServer.run(MinecraftServer.java:545)
+	at java.lang.Thread.run(Unknown Source)
+
+[10-29 15:32:17]: [WARN] Please check your database settings in the config.yml file!
+[10-29 15:32:17]: [WARN] Could not create data source: [SQLException]: Access denied for user 'drAkeNess'@'189.134.6.97' (using password: YES)
+[10-29 15:32:17]: java.sql.SQLException: Access denied for user 'drAkeNess'@'189.134.6.97' (using password: YES)
+	at com.mysql.jdbc.SQLError.createSQLException(SQLError.java:965)
+	at com.mysql.jdbc.MysqlIO.checkErrorPacket(MysqlIO.java:3973)
+	at com.mysql.jdbc.MysqlIO.checkErrorPacket(MysqlIO.java:3909)
+	at com.mysql.jdbc.MysqlIO.checkErrorPacket(MysqlIO.java:873)
+	at com.mysql.jdbc.MysqlIO.proceedHandshakeWithPluggableAuthentication(MysqlIO.java:1710)
+	at com.mysql.jdbc.MysqlIO.doHandshake(MysqlIO.java:1226)
+	at com.mysql.jdbc.ConnectionImpl.coreConnect(ConnectionImpl.java:2188)
+	at com.mysql.jdbc.ConnectionImpl.connectOneTryOnly(ConnectionImpl.java:2219)
+	at com.mysql.jdbc.ConnectionImpl.createNewIO(ConnectionImpl.java:2014)
+	at com.mysql.jdbc.ConnectionImpl.<init>(ConnectionImpl.java:776)
+	at com.mysql.jdbc.JDBC4Connection.<init>(JDBC4Connection.java:47)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(Unknown Source)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(Unknown Source)
+	at java.lang.reflect.Constructor.newInstance(Unknown Source)
+	at com.mysql.jdbc.Util.handleNewInstance(Util.java:425)
+	at com.mysql.jdbc.ConnectionImpl.getInstance(ConnectionImpl.java:386)
+	at com.mysql.jdbc.NonRegisteringDriver.connect(NonRegisteringDriver.java:330)
+	at fr.xephi.authme.libs.zaxxer.hikari.util.DriverDataSource.getConnection(DriverDataSource.java:117)
+	at fr.xephi.authme.libs.zaxxer.hikari.util.DriverDataSource.getConnection(DriverDataSource.java:123)
+	at fr.xephi.authme.libs.zaxxer.hikari.pool.PoolBase.newConnection(PoolBase.java:375)
+	at fr.xephi.authme.libs.zaxxer.hikari.pool.PoolBase.newPoolEntry(PoolBase.java:204)
+	at fr.xephi.authme.libs.zaxxer.hikari.pool.HikariPool.createPoolEntry(HikariPool.java:445)
+	at fr.xephi.authme.libs.zaxxer.hikari.pool.HikariPool.checkFailFast(HikariPool.java:516)
+	at fr.xephi.authme.libs.zaxxer.hikari.pool.HikariPool.<init>(HikariPool.java:116)
+	at fr.xephi.authme.libs.zaxxer.hikari.HikariDataSource.getConnection(HikariDataSource.java:97)
+	at fr.xephi.authme.datasource.MySQL.getConnection(MySQL.java:157)
+	at fr.xephi.authme.datasource.MySQL.checkTablesAndColumns(MySQL.java:164)
+	at fr.xephi.authme.datasource.MySQL.<init>(MySQL.java:69)
+	at fr.xephi.authme.initialization.DataSourceProvider.createDataSource(DataSourceProvider.java:72)
+	at fr.xephi.authme.initialization.DataSourceProvider.get(DataSourceProvider.java:49)
+	at fr.xephi.authme.initialization.DataSourceProvider.get(DataSourceProvider.java:26)
+	at fr.xephi.authme.libs.jalu.injector.handlers.provider.ProviderHandlerImpl$UninitializedProviderInstantiation.instantiateWith(ProviderHandlerImpl.java:141)
+	at fr.xephi.authme.libs.jalu.injector.InjectorImpl.instantiate(InjectorImpl.java:181)
+	at fr.xephi.authme.libs.jalu.injector.InjectorImpl.get(InjectorImpl.java:155)
+	at fr.xephi.authme.libs.jalu.injector.InjectorImpl.getSingleton(InjectorImpl.java:56)
+	at fr.xephi.authme.AuthMe.instantiateServices(AuthMe.java:246)
+	at fr.xephi.authme.AuthMe.initialize(AuthMe.java:221)
+	at fr.xephi.authme.AuthMe.onEnable(AuthMe.java:136)
+	at org.bukkit.plugin.java.JavaPlugin.setEnabled(JavaPlugin.java:264)
+	at org.bukkit.plugin.java.JavaPluginLoader.enablePlugin(JavaPluginLoader.java:337)
+	at org.bukkit.plugin.SimplePluginManager.enablePlugin(SimplePluginManager.java:403)
+	at org.bukkit.craftbukkit.v1_12_R1.CraftServer.enablePlugin(CraftServer.java:381)
+	at org.bukkit.craftbukkit.v1_12_R1.CraftServer.enablePlugins(CraftServer.java:330)
+	at net.minecraft.server.v1_12_R1.MinecraftServer.t(MinecraftServer.java:422)
+	at net.minecraft.server.v1_12_R1.MinecraftServer.l(MinecraftServer.java:383)
+	at net.minecraft.server.v1_12_R1.MinecraftServer.a(MinecraftServer.java:338)
+	at net.minecraft.server.v1_12_R1.DedicatedServer.init(DedicatedServer.java:272)
+	at net.minecraft.server.v1_12_R1.MinecraftServer.run(MinecraftServer.java:545)
+	at java.lang.Thread.run(Unknown Source)
+
+[10-29 15:32:17]: [WARN] Aborting initialization of AuthMe: [IllegalStateException]: Error during initialization of data source
+[10-29 15:32:17]: java.lang.IllegalStateException: Error during initialization of data source
+	at fr.xephi.authme.initialization.DataSourceProvider.get(DataSourceProvider.java:52)
+	at fr.xephi.authme.initialization.DataSourceProvider.get(DataSourceProvider.java:26)
+	at fr.xephi.authme.libs.jalu.injector.handlers.provider.ProviderHandlerImpl$UninitializedProviderInstantiation.instantiateWith(ProviderHandlerImpl.java:141)
+	at fr.xephi.authme.libs.jalu.injector.InjectorImpl.instantiate(InjectorImpl.java:181)
+	at fr.xephi.authme.libs.jalu.injector.InjectorImpl.get(InjectorImpl.java:155)
+	at fr.xephi.authme.libs.jalu.injector.InjectorImpl.getSingleton(InjectorImpl.java:56)
+	at fr.xephi.authme.AuthMe.instantiateServices(AuthMe.java:246)
+	at fr.xephi.authme.AuthMe.initialize(AuthMe.java:221)
+	at fr.xephi.authme.AuthMe.onEnable(AuthMe.java:136)
+	at org.bukkit.plugin.java.JavaPlugin.setEnabled(JavaPlugin.java:264)
+	at org.bukkit.plugin.java.JavaPluginLoader.enablePlugin(JavaPluginLoader.java:337)
+	at org.bukkit.plugin.SimplePluginManager.enablePlugin(SimplePluginManager.java:403)
+	at org.bukkit.craftbukkit.v1_12_R1.CraftServer.enablePlugin(CraftServer.java:381)
+	at org.bukkit.craftbukkit.v1_12_R1.CraftServer.enablePlugins(CraftServer.java:330)
+	at net.minecraft.server.v1_12_R1.MinecraftServer.t(MinecraftServer.java:422)
+	at net.minecraft.server.v1_12_R1.MinecraftServer.l(MinecraftServer.java:383)
+	at net.minecraft.server.v1_12_R1.MinecraftServer.a(MinecraftServer.java:338)
+	at net.minecraft.server.v1_12_R1.DedicatedServer.init(DedicatedServer.java:272)
+	at net.minecraft.server.v1_12_R1.MinecraftServer.run(MinecraftServer.java:545)
+	at java.lang.Thread.run(Unknown Source)
+Caused by: java.sql.SQLException: Access denied for user 'drAkeNess'@'189.134.6.97' (using password: YES)
+	at com.mysql.jdbc.SQLError.createSQLException(SQLError.java:965)
+	at com.mysql.jdbc.MysqlIO.checkErrorPacket(MysqlIO.java:3973)
+	at com.mysql.jdbc.MysqlIO.checkErrorPacket(MysqlIO.java:3909)
+	at com.mysql.jdbc.MysqlIO.checkErrorPacket(MysqlIO.java:873)
+	at com.mysql.jdbc.MysqlIO.proceedHandshakeWithPluggableAuthentication(MysqlIO.java:1710)
+	at com.mysql.jdbc.MysqlIO.doHandshake(MysqlIO.java:1226)
+	at com.mysql.jdbc.ConnectionImpl.coreConnect(ConnectionImpl.java:2188)
+	at com.mysql.jdbc.ConnectionImpl.connectOneTryOnly(ConnectionImpl.java:2219)
+	at com.mysql.jdbc.ConnectionImpl.createNewIO(ConnectionImpl.java:2014)
+	at com.mysql.jdbc.ConnectionImpl.<init>(ConnectionImpl.java:776)
+	at com.mysql.jdbc.JDBC4Connection.<init>(JDBC4Connection.java:47)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(Unknown Source)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(Unknown Source)
+	at java.lang.reflect.Constructor.newInstance(Unknown Source)
+	at com.mysql.jdbc.Util.handleNewInstance(Util.java:425)
+	at com.mysql.jdbc.ConnectionImpl.getInstance(ConnectionImpl.java:386)
+	at com.mysql.jdbc.NonRegisteringDriver.connect(NonRegisteringDriver.java:330)
+	at fr.xephi.authme.libs.zaxxer.hikari.util.DriverDataSource.getConnection(DriverDataSource.java:117)
+	at fr.xephi.authme.libs.zaxxer.hikari.util.DriverDataSource.getConnection(DriverDataSource.java:123)
+	at fr.xephi.authme.libs.zaxxer.hikari.pool.PoolBase.newConnection(PoolBase.java:375)
+	at fr.xephi.authme.libs.zaxxer.hikari.pool.PoolBase.newPoolEntry(PoolBase.java:204)
+	at fr.xephi.authme.libs.zaxxer.hikari.pool.HikariPool.createPoolEntry(HikariPool.java:445)
+	at fr.xephi.authme.libs.zaxxer.hikari.pool.HikariPool.checkFailFast(HikariPool.java:516)
+	at fr.xephi.authme.libs.zaxxer.hikari.pool.HikariPool.<init>(HikariPool.java:116)
+	at fr.xephi.authme.libs.zaxxer.hikari.HikariDataSource.getConnection(HikariDataSource.java:97)
+	at fr.xephi.authme.datasource.MySQL.getConnection(MySQL.java:157)
+	at fr.xephi.authme.datasource.MySQL.checkTablesAndColumns(MySQL.java:164)
+	at fr.xephi.authme.datasource.MySQL.<init>(MySQL.java:69)
+	at fr.xephi.authme.initialization.DataSourceProvider.createDataSource(DataSourceProvider.java:72)
+	at fr.xephi.authme.initialization.DataSourceProvider.get(DataSourceProvider.java:49)
+	... 19 more
+
+[10-29 15:32:17]: [WARN] THE SERVER IS GOING TO SHUT DOWN AS DEFINED IN THE CONFIGURATION!
+[10-29 15:32:17]: [INFO] AuthMe 5.4.0-b1877 disabled!
+[10-29 15:35:26]: [INFO] Connection arguments loaded, Hikari ConnectionPool ready!
+[10-29 15:35:30]: [INFO] Created column 'regdate' and set the current timestamp, 1540848929918, to all 0 rows
+[10-29 15:35:32]: [INFO] MySQL setup finished
+[10-29 15:35:32]: [INFO] No supported permissions system found! Permissions are disabled!
+[10-29 15:35:32]: [INFO] Hooked successfully into Multiverse-Core
+[10-29 15:35:33]: [WARN] WARNING! The protectInventory feature requires ProtocolLib! Disabling it...
+[10-29 15:35:33]: [INFO] Development builds are available on our jenkins, thanks to f14stelt.
+[10-29 15:35:33]: [INFO] Do you want a good game server? Look at our sponsor GameHosting.it leader in Italy as Game Server Provider!
+[10-29 15:35:33]: [INFO] AuthMe 5.4.0 build n.1877 correctly enabled!
+[10-29 15:35:56]: [INFO] AuthMe 5.4.0-b1877 disabled!
+[10-29 15:36:32]: [INFO] Connection arguments loaded, Hikari ConnectionPool ready!
+[10-29 15:36:37]: [INFO] MySQL setup finished
+[10-29 15:36:38]: [INFO] No supported permissions system found! Permissions are disabled!
+[10-29 15:36:38]: [INFO] [LICENSE] This product uses data from the GeoLite API created by MaxMind, available at http://www.maxmind.com
+[10-29 15:36:38]: [INFO] Hooked successfully into Multiverse-Core
+[10-29 15:36:38]: [INFO] Development builds are available on our jenkins, thanks to f14stelt.
+[10-29 15:36:38]: [INFO] Do you want a good game server? Look at our sponsor GameHosting.it leader in Italy as Game Server Provider!
+[10-29 15:36:38]: [INFO] AuthMe 5.4.0 build n.1877 correctly enabled!
+[10-29 15:41:38]: [INFO] AuthMe 5.4.0-b1877 disabled!
+[10-29 15:42:07]: [INFO] Connection arguments loaded, Hikari ConnectionPool ready!
+[10-29 15:42:15]: [WARN] Can't initialize the MySQL database: [MySQLSyntaxErrorException]: Access denied for user 'drAkeNess'@'189.134.6.97' to database 'i5154090_bb1'
+[10-29 15:42:15]: com.mysql.jdbc.exceptions.jdbc4.MySQLSyntaxErrorException: Access denied for user 'drAkeNess'@'189.134.6.97' to database 'i5154090_bb1'
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(Unknown Source)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(Unknown Source)
+	at java.lang.reflect.Constructor.newInstance(Unknown Source)
+	at com.mysql.jdbc.Util.handleNewInstance(Util.java:425)
+	at com.mysql.jdbc.Util.getInstance(Util.java:408)
+	at com.mysql.jdbc.SQLError.createSQLException(SQLError.java:944)
+	at com.mysql.jdbc.MysqlIO.checkErrorPacket(MysqlIO.java:3973)
+	at com.mysql.jdbc.MysqlIO.checkErrorPacket(MysqlIO.java:3909)
+	at com.mysql.jdbc.MysqlIO.checkErrorPacket(MysqlIO.java:873)
+	at com.mysql.jdbc.MysqlIO.proceedHandshakeWithPluggableAuthentication(MysqlIO.java:1710)
+	at com.mysql.jdbc.MysqlIO.doHandshake(MysqlIO.java:1226)
+	at com.mysql.jdbc.ConnectionImpl.coreConnect(ConnectionImpl.java:2188)
+	at com.mysql.jdbc.ConnectionImpl.connectOneTryOnly(ConnectionImpl.java:2219)
+	at com.mysql.jdbc.ConnectionImpl.createNewIO(ConnectionImpl.java:2014)
+	at com.mysql.jdbc.ConnectionImpl.<init>(ConnectionImpl.java:776)
+	at com.mysql.jdbc.JDBC4Connection.<init>(JDBC4Connection.java:47)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(Unknown Source)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(Unknown Source)
+	at java.lang.reflect.Constructor.newInstance(Unknown Source)
+	at com.mysql.jdbc.Util.handleNewInstance(Util.java:425)
+	at com.mysql.jdbc.ConnectionImpl.getInstance(ConnectionImpl.java:386)
+	at com.mysql.jdbc.NonRegisteringDriver.connect(NonRegisteringDriver.java:330)
+	at fr.xephi.authme.libs.zaxxer.hikari.util.DriverDataSource.getConnection(DriverDataSource.java:117)
+	at fr.xephi.authme.libs.zaxxer.hikari.util.DriverDataSource.getConnection(DriverDataSource.java:123)
+	at fr.xephi.authme.libs.zaxxer.hikari.pool.PoolBase.newConnection(PoolBase.java:375)
+	at fr.xephi.authme.libs.zaxxer.hikari.pool.PoolBase.newPoolEntry(PoolBase.java:204)
+	at fr.xephi.authme.libs.zaxxer.hikari.pool.HikariPool.createPoolEntry(HikariPool.java:445)
+	at fr.xephi.authme.libs.zaxxer.hikari.pool.HikariPool.checkFailFast(HikariPool.java:516)
+	at fr.xephi.authme.libs.zaxxer.hikari.pool.HikariPool.<init>(HikariPool.java:116)
+	at fr.xephi.authme.libs.zaxxer.hikari.HikariDataSource.getConnection(HikariDataSource.java:97)
+	at fr.xephi.authme.datasource.MySQL.getConnection(MySQL.java:157)
+	at fr.xephi.authme.datasource.MySQL.checkTablesAndColumns(MySQL.java:164)
+	at fr.xephi.authme.datasource.MySQL.<init>(MySQL.java:69)
+	at fr.xephi.authme.initialization.DataSourceProvider.createDataSource(DataSourceProvider.java:72)
+	at fr.xephi.authme.initialization.DataSourceProvider.get(DataSourceProvider.java:49)
+	at fr.xephi.authme.initialization.DataSourceProvider.get(DataSourceProvider.java:26)
+	at fr.xephi.authme.libs.jalu.injector.handlers.provider.ProviderHandlerImpl$UninitializedProviderInstantiation.instantiateWith(ProviderHandlerImpl.java:141)
+	at fr.xephi.authme.libs.jalu.injector.InjectorImpl.instantiate(InjectorImpl.java:181)
+	at fr.xephi.authme.libs.jalu.injector.InjectorImpl.get(InjectorImpl.java:155)
+	at fr.xephi.authme.libs.jalu.injector.InjectorImpl.getSingleton(InjectorImpl.java:56)
+	at fr.xephi.authme.AuthMe.instantiateServices(AuthMe.java:246)
+	at fr.xephi.authme.AuthMe.initialize(AuthMe.java:221)
+	at fr.xephi.authme.AuthMe.onEnable(AuthMe.java:136)
+	at org.bukkit.plugin.java.JavaPlugin.setEnabled(JavaPlugin.java:264)
+	at org.bukkit.plugin.java.JavaPluginLoader.enablePlugin(JavaPluginLoader.java:337)
+	at org.bukkit.plugin.SimplePluginManager.enablePlugin(SimplePluginManager.java:403)
+	at org.bukkit.craftbukkit.v1_12_R1.CraftServer.enablePlugin(CraftServer.java:381)
+	at org.bukkit.craftbukkit.v1_12_R1.CraftServer.enablePlugins(CraftServer.java:330)
+	at net.minecraft.server.v1_12_R1.MinecraftServer.t(MinecraftServer.java:422)
+	at net.minecraft.server.v1_12_R1.MinecraftServer.l(MinecraftServer.java:383)
+	at net.minecraft.server.v1_12_R1.MinecraftServer.a(MinecraftServer.java:338)
+	at net.minecraft.server.v1_12_R1.DedicatedServer.init(DedicatedServer.java:272)
+	at net.minecraft.server.v1_12_R1.MinecraftServer.run(MinecraftServer.java:545)
+	at java.lang.Thread.run(Unknown Source)
+
+[10-29 15:42:15]: [WARN] Please check your database settings in the config.yml file!
+[10-29 15:42:15]: [WARN] Could not create data source: [MySQLSyntaxErrorException]: Access denied for user 'drAkeNess'@'189.134.6.97' to database 'i5154090_bb1'
+[10-29 15:42:15]: com.mysql.jdbc.exceptions.jdbc4.MySQLSyntaxErrorException: Access denied for user 'drAkeNess'@'189.134.6.97' to database 'i5154090_bb1'
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(Unknown Source)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(Unknown Source)
+	at java.lang.reflect.Constructor.newInstance(Unknown Source)
+	at com.mysql.jdbc.Util.handleNewInstance(Util.java:425)
+	at com.mysql.jdbc.Util.getInstance(Util.java:408)
+	at com.mysql.jdbc.SQLError.createSQLException(SQLError.java:944)
+	at com.mysql.jdbc.MysqlIO.checkErrorPacket(MysqlIO.java:3973)
+	at com.mysql.jdbc.MysqlIO.checkErrorPacket(MysqlIO.java:3909)
+	at com.mysql.jdbc.MysqlIO.checkErrorPacket(MysqlIO.java:873)
+	at com.mysql.jdbc.MysqlIO.proceedHandshakeWithPluggableAuthentication(MysqlIO.java:1710)
+	at com.mysql.jdbc.MysqlIO.doHandshake(MysqlIO.java:1226)
+	at com.mysql.jdbc.ConnectionImpl.coreConnect(ConnectionImpl.java:2188)
+	at com.mysql.jdbc.ConnectionImpl.connectOneTryOnly(ConnectionImpl.java:2219)
+	at com.mysql.jdbc.ConnectionImpl.createNewIO(ConnectionImpl.java:2014)
+	at com.mysql.jdbc.ConnectionImpl.<init>(ConnectionImpl.java:776)
+	at com.mysql.jdbc.JDBC4Connection.<init>(JDBC4Connection.java:47)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(Unknown Source)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(Unknown Source)
+	at java.lang.reflect.Constructor.newInstance(Unknown Source)
+	at com.mysql.jdbc.Util.handleNewInstance(Util.java:425)
+	at com.mysql.jdbc.ConnectionImpl.getInstance(ConnectionImpl.java:386)
+	at com.mysql.jdbc.NonRegisteringDriver.connect(NonRegisteringDriver.java:330)
+	at fr.xephi.authme.libs.zaxxer.hikari.util.DriverDataSource.getConnection(DriverDataSource.java:117)
+	at fr.xephi.authme.libs.zaxxer.hikari.util.DriverDataSource.getConnection(DriverDataSource.java:123)
+	at fr.xephi.authme.libs.zaxxer.hikari.pool.PoolBase.newConnection(PoolBase.java:375)
+	at fr.xephi.authme.libs.zaxxer.hikari.pool.PoolBase.newPoolEntry(PoolBase.java:204)
+	at fr.xephi.authme.libs.zaxxer.hikari.pool.HikariPool.createPoolEntry(HikariPool.java:445)
+	at fr.xephi.authme.libs.zaxxer.hikari.pool.HikariPool.checkFailFast(HikariPool.java:516)
+	at fr.xephi.authme.libs.zaxxer.hikari.pool.HikariPool.<init>(HikariPool.java:116)
+	at fr.xephi.authme.libs.zaxxer.hikari.HikariDataSource.getConnection(HikariDataSource.java:97)
+	at fr.xephi.authme.datasource.MySQL.getConnection(MySQL.java:157)
+	at fr.xephi.authme.datasource.MySQL.checkTablesAndColumns(MySQL.java:164)
+	at fr.xephi.authme.datasource.MySQL.<init>(MySQL.java:69)
+	at fr.xephi.authme.initialization.DataSourceProvider.createDataSource(DataSourceProvider.java:72)
+	at fr.xephi.authme.initialization.DataSourceProvider.get(DataSourceProvider.java:49)
+	at fr.xephi.authme.initialization.DataSourceProvider.get(DataSourceProvider.java:26)
+	at fr.xephi.authme.libs.jalu.injector.handlers.provider.ProviderHandlerImpl$UninitializedProviderInstantiation.instantiateWith(ProviderHandlerImpl.java:141)
+	at fr.xephi.authme.libs.jalu.injector.InjectorImpl.instantiate(InjectorImpl.java:181)
+	at fr.xephi.authme.libs.jalu.injector.InjectorImpl.get(InjectorImpl.java:155)
+	at fr.xephi.authme.libs.jalu.injector.InjectorImpl.getSingleton(InjectorImpl.java:56)
+	at fr.xephi.authme.AuthMe.instantiateServices(AuthMe.java:246)
+	at fr.xephi.authme.AuthMe.initialize(AuthMe.java:221)
+	at fr.xephi.authme.AuthMe.onEnable(AuthMe.java:136)
+	at org.bukkit.plugin.java.JavaPlugin.setEnabled(JavaPlugin.java:264)
+	at org.bukkit.plugin.java.JavaPluginLoader.enablePlugin(JavaPluginLoader.java:337)
+	at org.bukkit.plugin.SimplePluginManager.enablePlugin(SimplePluginManager.java:403)
+	at org.bukkit.craftbukkit.v1_12_R1.CraftServer.enablePlugin(CraftServer.java:381)
+	at org.bukkit.craftbukkit.v1_12_R1.CraftServer.enablePlugins(CraftServer.java:330)
+	at net.minecraft.server.v1_12_R1.MinecraftServer.t(MinecraftServer.java:422)
+	at net.minecraft.server.v1_12_R1.MinecraftServer.l(MinecraftServer.java:383)
+	at net.minecraft.server.v1_12_R1.MinecraftServer.a(MinecraftServer.java:338)
+	at net.minecraft.server.v1_12_R1.DedicatedServer.init(DedicatedServer.java:272)
+	at net.minecraft.server.v1_12_R1.MinecraftServer.run(MinecraftServer.java:545)
+	at java.lang.Thread.run(Unknown Source)
+
+[10-29 15:42:15]: [WARN] Aborting initialization of AuthMe: [IllegalStateException]: Error during initialization of data source
+[10-29 15:42:15]: java.lang.IllegalStateException: Error during initialization of data source
+	at fr.xephi.authme.initialization.DataSourceProvider.get(DataSourceProvider.java:52)
+	at fr.xephi.authme.initialization.DataSourceProvider.get(DataSourceProvider.java:26)
+	at fr.xephi.authme.libs.jalu.injector.handlers.provider.ProviderHandlerImpl$UninitializedProviderInstantiation.instantiateWith(ProviderHandlerImpl.java:141)
+	at fr.xephi.authme.libs.jalu.injector.InjectorImpl.instantiate(InjectorImpl.java:181)
+	at fr.xephi.authme.libs.jalu.injector.InjectorImpl.get(InjectorImpl.java:155)
+	at fr.xephi.authme.libs.jalu.injector.InjectorImpl.getSingleton(InjectorImpl.java:56)
+	at fr.xephi.authme.AuthMe.instantiateServices(AuthMe.java:246)
+	at fr.xephi.authme.AuthMe.initialize(AuthMe.java:221)
+	at fr.xephi.authme.AuthMe.onEnable(AuthMe.java:136)
+	at org.bukkit.plugin.java.JavaPlugin.setEnabled(JavaPlugin.java:264)
+	at org.bukkit.plugin.java.JavaPluginLoader.enablePlugin(JavaPluginLoader.java:337)
+	at org.bukkit.plugin.SimplePluginManager.enablePlugin(SimplePluginManager.java:403)
+	at org.bukkit.craftbukkit.v1_12_R1.CraftServer.enablePlugin(CraftServer.java:381)
+	at org.bukkit.craftbukkit.v1_12_R1.CraftServer.enablePlugins(CraftServer.java:330)
+	at net.minecraft.server.v1_12_R1.MinecraftServer.t(MinecraftServer.java:422)
+	at net.minecraft.server.v1_12_R1.MinecraftServer.l(MinecraftServer.java:383)
+	at net.minecraft.server.v1_12_R1.MinecraftServer.a(MinecraftServer.java:338)
+	at net.minecraft.server.v1_12_R1.DedicatedServer.init(DedicatedServer.java:272)
+	at net.minecraft.server.v1_12_R1.MinecraftServer.run(MinecraftServer.java:545)
+	at java.lang.Thread.run(Unknown Source)
+Caused by: com.mysql.jdbc.exceptions.jdbc4.MySQLSyntaxErrorException: Access denied for user 'drAkeNess'@'189.134.6.97' to database 'i5154090_bb1'
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(Unknown Source)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(Unknown Source)
+	at java.lang.reflect.Constructor.newInstance(Unknown Source)
+	at com.mysql.jdbc.Util.handleNewInstance(Util.java:425)
+	at com.mysql.jdbc.Util.getInstance(Util.java:408)
+	at com.mysql.jdbc.SQLError.createSQLException(SQLError.java:944)
+	at com.mysql.jdbc.MysqlIO.checkErrorPacket(MysqlIO.java:3973)
+	at com.mysql.jdbc.MysqlIO.checkErrorPacket(MysqlIO.java:3909)
+	at com.mysql.jdbc.MysqlIO.checkErrorPacket(MysqlIO.java:873)
+	at com.mysql.jdbc.MysqlIO.proceedHandshakeWithPluggableAuthentication(MysqlIO.java:1710)
+	at com.mysql.jdbc.MysqlIO.doHandshake(MysqlIO.java:1226)
+	at com.mysql.jdbc.ConnectionImpl.coreConnect(ConnectionImpl.java:2188)
+	at com.mysql.jdbc.ConnectionImpl.connectOneTryOnly(ConnectionImpl.java:2219)
+	at com.mysql.jdbc.ConnectionImpl.createNewIO(ConnectionImpl.java:2014)
+	at com.mysql.jdbc.ConnectionImpl.<init>(ConnectionImpl.java:776)
+	at com.mysql.jdbc.JDBC4Connection.<init>(JDBC4Connection.java:47)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(Unknown Source)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(Unknown Source)
+	at java.lang.reflect.Constructor.newInstance(Unknown Source)
+	at com.mysql.jdbc.Util.handleNewInstance(Util.java:425)
+	at com.mysql.jdbc.ConnectionImpl.getInstance(ConnectionImpl.java:386)
+	at com.mysql.jdbc.NonRegisteringDriver.connect(NonRegisteringDriver.java:330)
+	at fr.xephi.authme.libs.zaxxer.hikari.util.DriverDataSource.getConnection(DriverDataSource.java:117)
+	at fr.xephi.authme.libs.zaxxer.hikari.util.DriverDataSource.getConnection(DriverDataSource.java:123)
+	at fr.xephi.authme.libs.zaxxer.hikari.pool.PoolBase.newConnection(PoolBase.java:375)
+	at fr.xephi.authme.libs.zaxxer.hikari.pool.PoolBase.newPoolEntry(PoolBase.java:204)
+	at fr.xephi.authme.libs.zaxxer.hikari.pool.HikariPool.createPoolEntry(HikariPool.java:445)
+	at fr.xephi.authme.libs.zaxxer.hikari.pool.HikariPool.checkFailFast(HikariPool.java:516)
+	at fr.xephi.authme.libs.zaxxer.hikari.pool.HikariPool.<init>(HikariPool.java:116)
+	at fr.xephi.authme.libs.zaxxer.hikari.HikariDataSource.getConnection(HikariDataSource.java:97)
+	at fr.xephi.authme.datasource.MySQL.getConnection(MySQL.java:157)
+	at fr.xephi.authme.datasource.MySQL.checkTablesAndColumns(MySQL.java:164)
+	at fr.xephi.authme.datasource.MySQL.<init>(MySQL.java:69)
+	at fr.xephi.authme.initialization.DataSourceProvider.createDataSource(DataSourceProvider.java:72)
+	at fr.xephi.authme.initialization.DataSourceProvider.get(DataSourceProvider.java:49)
+	... 19 more
+
+[10-29 15:42:15]: [WARN] THE SERVER IS GOING TO SHUT DOWN AS DEFINED IN THE CONFIGURATION!
+[10-29 15:42:15]: [INFO] AuthMe 5.4.0-b1877 disabled!
+[10-29 15:42:57]: [INFO] Connection arguments loaded, Hikari ConnectionPool ready!
+[10-29 15:43:00]: [INFO] Created column 'regdate' and set the current timestamp, 1540849380669, to all 0 rows
+[10-29 15:43:04]: [INFO] MySQL setup finished
+[10-29 15:43:04]: [INFO] No supported permissions system found! Permissions are disabled!
+[10-29 15:43:04]: [INFO] [LICENSE] This product uses data from the GeoLite API created by MaxMind, available at http://www.maxmind.com
+[10-29 15:43:04]: [INFO] Hooked successfully into Multiverse-Core
+[10-29 15:43:04]: [INFO] Development builds are available on our jenkins, thanks to f14stelt.
+[10-29 15:43:04]: [INFO] Do you want a good game server? Look at our sponsor GameHosting.it leader in Italy as Game Server Provider!
+[10-29 15:43:04]: [INFO] AuthMe 5.4.0 build n.1877 correctly enabled!
+[10-29 15:43:41]: [INFO] AuthMe 5.4.0-b1877 disabled!
+[10-29 15:49:49]: [INFO] Connection arguments loaded, Hikari ConnectionPool ready!
+[10-29 15:49:53]: [INFO] Created column 'regdate' and set the current timestamp, 1540849793643, to all 47 rows
+[10-29 15:49:56]: [INFO] MySQL setup finished
+[10-29 15:49:56]: [INFO] No supported permissions system found! Permissions are disabled!
+[10-29 15:49:56]: [INFO] [LICENSE] This product uses data from the GeoLite API created by MaxMind, available at http://www.maxmind.com
+[10-29 15:49:56]: [INFO] Hooked successfully into Multiverse-Core
+[10-29 15:49:56]: [INFO] Development builds are available on our jenkins, thanks to f14stelt.
+[10-29 15:49:56]: [INFO] Do you want a good game server? Look at our sponsor GameHosting.it leader in Italy as Game Server Provider!
+[10-29 15:49:56]: [INFO] AuthMe 5.4.0 build n.1877 correctly enabled!
+[10-29 15:50:17]: [FINE] drAkeNess logged in!
+[10-29 20:10:37]: [INFO] Connection arguments loaded, Hikari ConnectionPool ready!
+[10-29 20:10:43]: [INFO] MySQL setup finished
+[10-29 20:10:43]: [INFO] No supported permissions system found! Permissions are disabled!
+[10-29 20:10:43]: [INFO] [LICENSE] This product uses data from the GeoLite API created by MaxMind, available at http://www.maxmind.com
+[10-29 20:10:44]: [INFO] Hooked successfully into Multiverse-Core
+[10-29 20:10:44]: [INFO] Development builds are available on our jenkins, thanks to f14stelt.
+[10-29 20:10:44]: [INFO] Do you want a good game server? Look at our sponsor GameHosting.it leader in Italy as Game Server Provider!
+[10-29 20:10:44]: [INFO] AuthMe 5.4.0 build n.1877 correctly enabled!
+[10-29 20:10:56]: [INFO] AuthMe 5.4.0-b1877 disabled!
+[10-29 20:13:26]: [INFO] Connection arguments loaded, Hikari ConnectionPool ready!
+[10-29 20:13:32]: [INFO] MySQL setup finished
+[10-29 20:13:32]: [INFO] No supported permissions system found! Permissions are disabled!
+[10-29 20:13:32]: [INFO] [LICENSE] This product uses data from the GeoLite API created by MaxMind, available at http://www.maxmind.com
+[10-29 20:13:32]: [INFO] Hooked successfully into Multiverse-Core
+[10-29 20:13:32]: [INFO] Development builds are available on our jenkins, thanks to f14stelt.
+[10-29 20:13:32]: [INFO] Do you want a good game server? Look at our sponsor GameHosting.it leader in Italy as Game Server Provider!
+[10-29 20:13:32]: [INFO] AuthMe 5.4.0 build n.1877 correctly enabled!
+[10-29 20:14:06]: [INFO] AuthMe 5.4.0-b1877 disabled!
+[10-29 20:14:50]: [INFO] Connection arguments loaded, Hikari ConnectionPool ready!
+[10-29 20:14:56]: [INFO] MySQL setup finished
+[10-29 20:14:56]: [INFO] No supported permissions system found! Permissions are disabled!
+[10-29 20:14:56]: [INFO] Hooked successfully into Multiverse-Core
+[10-29 20:14:56]: [INFO] [LICENSE] This product uses data from the GeoLite API created by MaxMind, available at http://www.maxmind.com
+[10-29 20:14:57]: [INFO] Development builds are available on our jenkins, thanks to f14stelt.
+[10-29 20:14:57]: [INFO] Do you want a good game server? Look at our sponsor GameHosting.it leader in Italy as Game Server Provider!
+[10-29 20:14:57]: [INFO] AuthMe 5.4.0 build n.1877 correctly enabled!
+[10-29 20:15:42]: [INFO] Connection arguments loaded, Hikari ConnectionPool ready!
+[10-29 20:15:48]: [INFO] MySQL setup finished
+[10-29 20:15:48]: [INFO] No supported permissions system found! Permissions are disabled!
+[10-29 20:15:48]: [INFO] [LICENSE] This product uses data from the GeoLite API created by MaxMind, available at http://www.maxmind.com
+[10-29 20:15:48]: [INFO] Hooked successfully into Multiverse-Core
+[10-29 20:15:49]: [INFO] Development builds are available on our jenkins, thanks to f14stelt.
+[10-29 20:15:49]: [INFO] Do you want a good game server? Look at our sponsor GameHosting.it leader in Italy as Game Server Provider!
+[10-29 20:15:49]: [INFO] AuthMe 5.4.0 build n.1877 correctly enabled!
+[10-29 20:19:34]: [INFO] AuthMe 5.4.0-b1877 disabled!
+[10-30 03:00:43]: [INFO] Connection arguments loaded, Hikari ConnectionPool ready!
+[10-30 03:00:49]: [INFO] MySQL setup finished
+[10-30 03:00:49]: [INFO] No supported permissions system found! Permissions are disabled!
+[10-30 03:00:49]: [INFO] Hooked successfully into Multiverse-Core
+[10-30 03:00:49]: [INFO] [LICENSE] This product uses data from the GeoLite API created by MaxMind, available at http://www.maxmind.com
+[10-30 03:00:50]: [INFO] Development builds are available on our jenkins, thanks to f14stelt.
+[10-30 03:00:50]: [INFO] Do you want a good game server? Look at our sponsor GameHosting.it leader in Italy as Game Server Provider!
+[10-30 03:00:50]: [INFO] AuthMe 5.4.0 build n.1877 correctly enabled!
+[10-30 03:01:28]: [FINE] drAkeNess logged in!
+[10-30 03:12:19]: [INFO] AuthMe 5.4.0-b1877 disabled!
+[10-30 03:13:01]: [INFO] Connection arguments loaded, Hikari ConnectionPool ready!
+[10-30 03:13:08]: [INFO] MySQL setup finished
+[10-30 03:13:08]: [INFO] No supported permissions system found! Permissions are disabled!
+[10-30 03:13:08]: [INFO] Hooked successfully into Multiverse-Core
+[10-30 03:13:08]: [INFO] [LICENSE] This product uses data from the GeoLite API created by MaxMind, available at http://www.maxmind.com
+[10-30 03:13:09]: [INFO] Development builds are available on our jenkins, thanks to f14stelt.
+[10-30 03:13:09]: [INFO] Do you want a good game server? Look at our sponsor GameHosting.it leader in Italy as Game Server Provider!
+[10-30 03:13:09]: [INFO] AuthMe 5.4.0 build n.1877 correctly enabled!
+[10-30 03:14:26]: [FINE] drAkeNess logged in!
+[10-30 03:16:01]: [INFO] AuthMe 5.4.0-b1877 disabled!
+[10-30 03:23:20]: [INFO] Connection arguments loaded, Hikari ConnectionPool ready!
+[10-30 03:23:27]: [INFO] MySQL setup finished
+[10-30 03:23:27]: [INFO] No supported permissions system found! Permissions are disabled!
+[10-30 03:23:27]: [INFO] Hooked successfully into Multiverse-Core
+[10-30 03:23:27]: [INFO] [LICENSE] This product uses data from the GeoLite API created by MaxMind, available at http://www.maxmind.com
+[10-30 03:23:27]: [INFO] Development builds are available on our jenkins, thanks to f14stelt.
+[10-30 03:23:27]: [INFO] Do you want a good game server? Look at our sponsor GameHosting.it leader in Italy as Game Server Provider!
+[10-30 03:23:27]: [INFO] AuthMe 5.4.0 build n.1877 correctly enabled!
+[10-30 03:24:03]: [FINE] drAkeNess logged in!
+[10-30 03:24:23]: [INFO] AuthMe 5.4.0-b1877 disabled!
+[10-30 03:25:57]: [INFO] Connection arguments loaded, Hikari ConnectionPool ready!
+[10-30 03:26:04]: [INFO] MySQL setup finished
+[10-30 03:26:04]: [INFO] Hooked into PermissionsEx!
+[10-30 03:26:04]: [INFO] Hooked successfully into Multiverse-Core
+[10-30 03:26:04]: [INFO] [LICENSE] This product uses data from the GeoLite API created by MaxMind, available at http://www.maxmind.com
+[10-30 03:26:05]: [INFO] Development builds are available on our jenkins, thanks to f14stelt.
+[10-30 03:26:05]: [INFO] Do you want a good game server? Look at our sponsor GameHosting.it leader in Italy as Game Server Provider!
+[10-30 03:26:05]: [INFO] AuthMe 5.4.0 build n.1877 correctly enabled!
+[10-30 03:26:53]: [INFO] The user drAkeNess has been automatically logged in, as requested by the AuthMeBungee integration.
+[10-30 03:26:55]: [FINE] drAkeNess logged in!
+[10-30 03:27:29]: [INFO] The user drAkeNess has been automatically logged in, as requested by the AuthMeBungee integration.
+[10-30 03:27:31]: [FINE] drAkeNess logged in!
+[10-30 03:29:06]: [INFO] The user drAkeNess has been automatically logged in, as requested by the AuthMeBungee integration.
+[10-30 03:29:08]: [FINE] drAkeNess logged in!
+[10-30 03:29:37]: [INFO] The user drAkeNess has been automatically logged in, as requested by the AuthMeBungee integration.
+[10-30 03:29:38]: [FINE] drAkeNess logged in!
+[10-30 03:30:27]: [INFO] The user drAkeNess has been automatically logged in, as requested by the AuthMeBungee integration.
+[10-30 03:30:27]: [FINE] drAkeNess logged in!
+[10-30 03:48:58]: [INFO] The user drAkeNess has been automatically logged in, as requested by the AuthMeBungee integration.
+[10-30 03:49:00]: [FINE] drAkeNess logged in!
+[10-30 03:56:01]: [INFO] The user drAkeNess has been automatically logged in, as requested by the AuthMeBungee integration.
+[10-30 03:56:02]: [FINE] drAkeNess logged in!
+[10-30 04:13:52]: [INFO] AuthMe 5.4.0-b1877 disabled!
+[10-30 04:14:47]: [INFO] Connection arguments loaded, Hikari ConnectionPool ready!
+[10-30 04:14:53]: [INFO] MySQL setup finished
+[10-30 04:14:53]: [INFO] Hooked into PermissionsEx!
+[10-30 04:14:53]: [INFO] [LICENSE] This product uses data from the GeoLite API created by MaxMind, available at http://www.maxmind.com
+[10-30 04:14:53]: [INFO] Hooked successfully into Multiverse-Core
+[10-30 04:14:54]: [INFO] Development builds are available on our jenkins, thanks to f14stelt.
+[10-30 04:14:54]: [INFO] Do you want a good game server? Look at our sponsor GameHosting.it leader in Italy as Game Server Provider!
+[10-30 04:14:54]: [INFO] AuthMe 5.4.0 build n.1877 correctly enabled!
+[10-30 04:27:15]: [INFO] AuthMe 5.4.0-b1877 disabled!

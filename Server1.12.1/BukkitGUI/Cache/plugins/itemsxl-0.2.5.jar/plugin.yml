@@ -1,0 +1,20 @@
+name: ItemsXL
+main: io.github.dre2n.itemsxl.ItemsXL
+version: 0.2.5
+author: Daniel Saukel
+description: A plugin to create and (de-) serialize custom items and mobs.
+website: https://dre2n.github.io
+commands:
+  itemsxl:
+    description: ItemsXL core command.
+    aliases: [ixl]
+permissions:
+  ixl.give.*:
+    description: Get all IXL items.
+    default: op
+  ixl.info.*:
+    description: Get information about all IXL items.
+    default: true
+  ixl.reload:
+    description: Reload all config files.
+    default: op

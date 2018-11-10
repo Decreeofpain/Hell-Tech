@@ -40,17 +40,17 @@
             - ^queue clear
             } else if <player.flag[misiones].as_list> contains mescobble && <server.flag[capitulos].as_list> !contains pdamesok {
             - ^random 8
-            - ^actionbar '<aqua>Hann:<yellow> Trae piedra <red><player.name>'
-            - ^actionbar '<aqua>Hann:<yellow> Necesitamos mucha piedra'
-            - ^actionbar '<aqua>Hann:<yellow> Ve a la mina y trae piedra'
-            - ^actionbar '<aqua>Hann:<yellow> Necesitamos piedra mucha, mucha!!'
-            - ^actionbar '<aqua>Hann:<yellow> Tenemos que reconstruir el pueblo'
-            - ^actionbar '<aqua>Hann:<yellow> Aun no tenemos toda la piedra'
-            - ^actionbar '<aqua>Hann:<yellow> Tan dificil es minar? ve por piedra'
-            - ^actionbar '<aqua>Hann:<yellow> Vamos ve por la piedra'
+            - ^title 'subtitle:<aqua>Hann:<yellow> Trae piedra <red><player.name>'
+            - ^title 'subtitle:<aqua>Hann:<yellow> Necesitamos mucha piedra'
+            - ^title 'subtitle:<aqua>Hann:<yellow> Ve a la mina y trae piedra'
+            - ^title 'subtitle:<aqua>Hann:<yellow> Necesitamos piedra mucha, mucha!!'
+            - ^title 'subtitle:<aqua>Hann:<yellow> Tenemos que reconstruir el pueblo'
+            - ^title 'subtitle:<aqua>Hann:<yellow> Aun no tenemos toda la piedra'
+            - ^title 'subtitle:<aqua>Hann:<yellow> Tan dificil es minar? ve por piedra'
+            - ^title 'subtitle:<aqua>Hann:<yellow> Vamos ve por la piedra'
             - ^queue clear
             } else if <player.flag[misiones].as_list> contains mescobble && <server.flag[capitulos].as_list> contains pdamesok && <server.flag[capitulos].as_list> !contains mesreconstruido {
-            - ^title "subtitle:<aqua>Hann: <yellow>Ya terminamos de traer la piedra ahora ve con Yorick al aserradero"
+            - ^title "title:<red>Mision completada" "subtitle:<yellow>Ya terminamos aqui ve con Yorick"
             - ^bossbar remove obj<player.name>
             - ^define objetivo "<gold><green>Busca a <aqua>Yorick <green>en el Aserradero"
             - ^flag <player> objetivo:<def[objetivo]>
@@ -71,10 +71,10 @@
 
 'Hannscript':
   Type: Interact
-#  Requirements:
-#    Mode: all
-#    List:
-#    - valueof <player.flag[progreso].contains[conducta_ok]>
+  Requirements:
+    Mode: all
+    List:
+    - valueof <global.flag[capitulos].contains[mesreconstruido]>
   Steps:
     '1':
       proximity trigger:
@@ -450,6 +450,10 @@ meslajhocountstone:
         - ^yaml savefile:capitulos/capitulo1.yml id:capitulo<player.name>
         - ^inventory open d:in@inv_hann_meslajho
         - ^title "subtitle:<aqua>Hann: <gray>Entregaste: <gold><player.flag[cursoridqty]> <dark_green>de cobblestone"
+        - if <player.flag[cursoridqty]> == 64 {
+          - ^give 270
+          - ^give 297
+          }
         - if <yaml[capitulo<player.name>].read[meslajho.materiales.cobblestone.cantidad]> <= 0 {
           - ^inventory close
           - ^yaml load:capitulos/global.yml id:global<player.name>
@@ -481,7 +485,7 @@ updateobjstonemes:
     type: task
     script:
     - ^bossbar remove obj<player.name>
-    - ^define objetivo "<gold><green>Busca a <aqua>Yorick <green>en el Aserradero"
+    - ^define objetivo "<green>Busca a <aqua>Yorick <green>en el Aserradero"
     - ^flag <player> objetivo:<def[objetivo]>
     - ^bossbar obj<player.name> players:<player> "title:<player.flag[objetivo]>" color:BLUE
     - ^compass <npc.location.simple> npc:100
@@ -2865,3 +2869,6 @@ infoquestmesstone:
   - '<green>Entregar piedra de la mina'
   - '<gray>4000 bloques de cobblestone'
   - '<yellow>bloques faltantes: <red><yaml[capitulo<player.name>].read[meslajho.materiales.cobblestone.cantidad].asint>'
+  - ''
+  - '<green>Tip:<white> puedes extraer piedra en esta mina'
+  - '<white>entra y sabras donde es...'

@@ -20,6 +20,7 @@ Absorber sangre:
     - ''
   msg: '&6{player} &2has cast &6{skill}'
   icon: 'REDSTONE'
+  icon-durability: 0
   icon-data: 0
   icon-lore: 
   - '&d{name} &7({level}/{max})'
@@ -32,6 +33,19 @@ Absorber sangre:
   - '&2Cooldown: {attr:cooldown}'
   desc:  []
   components: 
+    Physical Damage: 
+      type: 'trigger'
+      indicator: '3D'
+      data: 
+        icon-key: ''
+        mana: 'False'
+        cooldown: 'False'
+        target: 'True'
+        type: 'Melee'
+        dmg-min: '0'
+        dmg-max: '9999999'
+        indicator: '2D'
+      children:  {}
     Cast: 
       type: 'trigger'
       indicator: '3D'
@@ -108,16 +122,3 @@ Absorber sangre:
                 right: '0'
                 indicator: '2D'
               children:  {}
-    Physical Damage: 
-      type: 'trigger'
-      indicator: '3D'
-      data: 
-        icon-key: ''
-        mana: 'False'
-        cooldown: 'False'
-        target: 'True'
-        type: 'Melee'
-        dmg-min: '0'
-        dmg-max: '9999999'
-        indicator: '2D'
-      children:  {}

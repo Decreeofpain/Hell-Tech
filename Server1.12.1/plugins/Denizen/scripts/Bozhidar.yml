@@ -5,19 +5,18 @@
       - trigger name:CHAT toggle:false
       - trigger name:click toggle:true
       - trigger name:proximity toggle:true radius:3
+      on Build Complete:
+      - ^run 's@arcanoend'
 
     interact scripts:
     - 18 Bozhidarartesano
-    - 16 bozhidarscript
 
 'Bozhidarartesano':
   Type: Interact
-  # Requirements:
-  #   Mode: all
-  #   List:
-  #   - valueof <global.flag[capitulos].contains[destroy]>
-  #   - valueof <player.flag[misiones].contains[destroy]>
-  #   - -valueof <global.flag[capitulos].contains[mesreconstruido]>
+  Requirements:
+    Mode: all
+    List:
+    - valueof <global.flag[capitulos].contains[mesreconstruido]>
   Steps:
     '1':
       proximity trigger:
@@ -252,3 +251,19 @@ cortezasinfo:
   - '<yellow><player.flag[oak_log].asint><&pipe>64<gray> Tronco de roble <dark_gray>(Escriba)'
   - ''
   - '<green>Click <dark_green>derecho<green> para crear'
+arcanoend:
+    type: task
+    script:
+    - ^schematic load name:arcano
+    - ^schematic paste name:arcano location:<cu@arcano.min>
+    - ^schematic unload name:arcano
+    - ^foreach <server.list_online_players> {
+      - ^title "title:<aqua>Bozhidar" "subtitle:<yellow>arcano reconstruida" stay:5s targets:%value%
+      }
+    - ^flag <server> tempmeslajho:->:arcano
+    - ^if <server.flag[tempmeslajho].as_list.contains[taberna|herreria|armeria|establo|cocina|arcano|arcano|deshuesadero|arcano|aserradero|arcano|molino]> {
+      - ^foreach li@n@1|n@2|n@3|n@5|n@6|n@7|n@8|n@9|n@10|n@35|n@66|n@85|n@91|n@94|n@96|n@99|n@100 {
+        - ^define npctarget %value%
+        - ^teleport <def[npctarget]> <def[npctarget].anchor[construct]>
+        }
+      }

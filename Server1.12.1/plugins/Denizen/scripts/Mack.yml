@@ -5,19 +5,51 @@
       - trigger name:CHAT toggle:false
       - trigger name:click toggle:true
       - trigger name:proximity toggle:true radius:3
+      on Build Complete:
+      - ^run 's@armeriaend'
 
     interact scripts:
-    - 18 Mackarmero
-    - 16 mackscript
+    - 18 Mackinicio
+    - 16 Mackarmero
+'Mackinicio':
+  Type: Interact
+  Requirements:
+    Mode: all
+    List:
+    - valueof <global.flag[capitulos].contains[INICIO]>
+    - -valueof <global.flag[capitulos].contains[mesreconstruido]>
+    - -valueof <global.flag[capitulos].contains[ONINTRO]>
+  Steps:
+    '1':
+      proximity trigger:
+        entry:
+          radius: 4
+          Script:
+#======================= Si el pueblo esta destruido
+          - ^if <server.flag[capitulos].as_list> contains destroy && <server.flag[capitulos].as_list> !contains pdamesok {
+          - ^random 5
+          - ^title 'subtitle:<green>Mack:<yellow> La mina esta enfrente!'
+          - ^title 'subtitle:<green>Mack:<yellow> Carajo ve a la mina'
+          - ^title 'subtitle:<green>Mack:<yellow> Las escaleras estan enfrente'
+          - ^title 'subtitle:<green>Mack:<yellow> Busca un letrero de la mina'
+          - ^title 'subtitle:<green>Mack:<yellow> Ayuda a la mision'
+          - ^queue clear
+          } else if <server.flag[capitulos].as_list> contains destroy && <server.flag[capitulos].as_list> contains pdamesok {
+          - ^random 5
+          - ^title 'subtitle:<green>Mack:<yellow> Yorick esta al frente'
+          - ^title 'subtitle:<green>Mack:<yellow> Consigue madera'
+          - ^title 'subtitle:<green>Mack:<yellow> Hay que ir por madera'
+          - ^title 'subtitle:<green>Mack:<yellow> Vamos ve con Yorick'
+          - ^title 'subtitle:<green>Mack:<yellow> Busca el aserradero'
+          - ^queue clear
+          }
 
 'Mackarmero':
   Type: Interact
-  # Requirements:
-  #   Mode: all
-  #   List:
-  #   - valueof <global.flag[capitulos].contains[destroy]>
-  #   - valueof <player.flag[misiones].contains[destroy]>
-  #   - -valueof <global.flag[capitulos].contains[mesreconstruido]>
+  Requirements:
+    Mode: all
+    List:
+    - valueof <global.flag[capitulos].contains[mesreconstruido]>
   Steps:
     '1':
       proximity trigger:
@@ -269,3 +301,19 @@ pedruzcollameanteinfo:
   - '<yellow><player.flag[furnace].asint><&pipe>1<gray> Horno <dark_gray>(Minero)'
   - ''
   - '<green>Click <dark_green>derecho<green> para crear'
+armeriaend:
+    type: task
+    script:
+    - ^schematic load name:armeria
+    - ^schematic paste name:armeria location:<cu@armeria.min>
+    - ^schematic unload name:armeria
+    - ^foreach <server.list_online_players> {
+      - ^title "title:<aqua>Mack" "subtitle:<yellow>armeria reconstruida" stay:5s targets:%value%
+      }
+    - ^flag <server> tempmeslajho:->:armeria
+    - ^if <server.flag[tempmeslajho].as_list.contains[taberna|herreria|armeria|establo|cocina|arcano|fragua|deshuesadero|libreria|aserradero|armeria|molino]> {
+      - ^foreach li@n@1|n@2|n@3|n@5|n@6|n@7|n@8|n@9|n@10|n@35|n@66|n@85|n@91|n@94|n@96|n@99|n@100|n@27 {
+        - ^define npctarget %value%
+        - ^teleport <def[npctarget]> <def[npctarget].anchor[construct]>
+        }
+      }

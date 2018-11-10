@@ -1,0 +1,27 @@
+name: MythicMobs
+author: Xikage AKA Ashijin
+main: io.lumine.xikage.mythicmobs.MythicMobs
+version: 4.4.0-SNAPSHOT
+softdepend: [Multiverse-Core,Heroes,PhatLoots,Vault,MagicSpells,MiniaturePets,BarAPI,LanguageAPI,LibsDisguises,WorldGuard,Holograms]
+loadbefore: [Quests,Nations]
+description: The total solution for all things mob-related.
+commands:
+  mythicmobs:
+    description: MythicMobs base command
+    aliases: [mm]
+  mythicmobslegacy:
+    description: MythicMobs Legacy Commands
+    aliases: [mml]
+  spawnmob:
+    description: Spawn a mob
+    aliases: [spawnmythicmob]
+permissions:
+  mythicmobs.admin:
+    description: Gives access to everything!
+    default: op
+  mythicmobs.reload:
+    description: Gives access /mm reload!
+    default: op
+  mythicmobs.signal:
+    description: Gives access /mm signal!
+    default: op

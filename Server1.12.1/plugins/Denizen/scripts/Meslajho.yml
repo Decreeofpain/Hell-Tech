@@ -51,13 +51,17 @@ looprain:
 
 meslajholive:
   type: world
+  Requirements:
+    Mode: all
+    List:
+    - valueof <global.flag[capitulos].contains[mesreconstruido]>
   events:
     on time changes:
     - ^if !<server.has_flag[rainstorm]> queue clear
     - ^run looprain
     # - ^narrate lol targets:<server.list_online_players>
     on 6:00 in Esparcraft:
-    - ^foreach li@n@1|n@2|n@3|n@5|n@6|n@7|n@8|n@9|n@10|n@27|n@35|n@66|n@85|n@91|n@94|n@96|n@99|n@100|n@193 {
+    - ^foreach li@n@1|n@2|n@3|n@5|n@6|n@7|n@8|n@9|n@10|n@27|n@35|n@66|n@85|n@91|n@94|n@96|n@99|n@100|n@192|n@193 {
       - ^define npctarget %value%
       - ^walk location:<anchor:day> npc:<def[npctarget]>
       }
@@ -70,34 +74,34 @@ meslajholive:
       - ^schematic unload name:entradamesopen
       }
     on 19:00 in Esparcraft:
-    - ^foreach li@n@1|n@2|n@3|n@5|n@6|n@7|n@8|n@9|n@10|n@27|n@35|n@66|n@85|n@91|n@94|n@96|n@99|n@100|n@193 {
+    - ^foreach li@n@1|n@2|n@3|n@5|n@6|n@7|n@8|n@9|n@10|n@27|n@35|n@66|n@85|n@91|n@94|n@96|n@99|n@100|n@192|n@193 {
       - ^define npctarget %value%
       - ^walk location:<anchor:night> npc:<def[npctarget]>
       }
 # ============== PUENTES DE MESLAJHO ================
     - ^flag <global> puentesmesdeg:+:1
-    - ^if <global.flag[puentesmesdeg]> >= 36 {
+    - ^if <global.flag[puentesmesdeg]> >= 60 {
       - ^schematic load name:puentemes1off
       - ^schematic paste name:puentemes1off location:<cu@puente1mes.min>
       - ^schematic unload name:puentemes1off
       - ^schematic load name:puentemes2off
       - ^schematic paste name:puentemes2off location:<cu@puente2mes.min>
       - ^schematic unload name:puentemes2off
-      } else if <global.flag[puentesmesdeg]> == 24 {
+      } else if <global.flag[puentesmesdeg]> == 45 {
       - ^schematic load name:puentemes1deg3
       - ^schematic paste name:puentemes1deg3 location:<cu@puente1mes.min>
       - ^schematic unload name:puentemes1deg3
       - ^schematic load name:puentemes2deg3
       - ^schematic paste name:puentemes2deg3 location:<cu@puente2mes.min>
       - ^schematic unload name:puentemes2deg3
-      } else if <global.flag[puentesmesdeg]> == 16 {
+      } else if <global.flag[puentesmesdeg]> == 30 {
       - ^schematic load name:puentemes1deg2
       - ^schematic paste name:puentemes1deg2 location:<cu@puente1mes.min>
       - ^schematic unload name:puentemes1deg2
       - ^schematic load name:puentemes2deg2
       - ^schematic paste name:puentemes2deg2 location:<cu@puente2mes.min>
       - ^schematic unload name:puentemes2deg2
-      } else if <global.flag[puentesmesdeg]> == 8 {
+      } else if <global.flag[puentesmesdeg]> == 15 {
       - ^schematic load name:puentemes1deg1
       - ^schematic paste name:puentemes1deg1 location:<cu@puente1mes.min>
       - ^schematic unload name:puentemes1deg1

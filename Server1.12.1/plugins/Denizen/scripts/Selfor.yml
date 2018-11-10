@@ -14,6 +14,10 @@
 
 'SleepSelfor':
   type: interact
+  Requirements:
+    Mode: all
+    List:
+    - valueof <global.flag[capitulos].contains[mesreconstruido]>
   Steps:
     '1':
       proximity trigger:

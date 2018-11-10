@@ -1,0 +1,37 @@
+name: AuctionChest
+author: RagingCat
+main: me.ragingcat.auctionchest.main
+version: 1.11
+
+depend: [Vault]
+
+commands:
+   auctionchest:
+     description: displays other commands for the plugin.
+     aliases: [auc]
+
+permissions:
+  auctionchest.get:
+    description: allows usage of '/auctionchest get <name>' command
+    default: op
+  auctionchest.reload:
+    description: allows usage of '/auctionchest reload' command
+    default: op
+  auctionchest.count:
+    description: allows usage of '/auctionchest count' command
+    default: op
+  auctionchest.clean:
+    description: allows usage of '/auctionchest clean' command
+    default: op
+  auctionchest.maxslots:
+    description: allows usage of '/auctionchest maxslots <player> <number>' command
+    default: op
+  auctionchest.silent:
+    description: allows usage of '/auctionchest silent' command
+    default: true
+  auctionchest.sell:
+    description: allows to sell items in the auction chest
+    default: true
+  auctionchest.buy:
+    description: allows to buy items from the auction chest
+    default: true

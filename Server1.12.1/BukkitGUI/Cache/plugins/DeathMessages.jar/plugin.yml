@@ -1,0 +1,18 @@
+name: DeathMessages
+version: 3.1.1
+description: Change the Default Bukkit Death Messages as you wish, including colors, victim name, killer name and weapon/material/name...  also other General messages as Join/Kick/Leave.
+author: Jose Manuel Gassin Perez-Traverso
+main: com.gmail.josemanuelgassin.deathmessages.A
+
+commands:
+  deathmessages:
+  dm:
+permissions:
+  deathmessages.admin:
+    default: op
+  deathmessages.user:
+    default: op
+  deathmessages..silent.join:
+    default: false
+  deathmessages..silent.quit:
+    default: false

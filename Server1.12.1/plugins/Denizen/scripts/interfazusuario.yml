@@ -138,10 +138,10 @@ inv_guis_players:
     - DETERMINE cancelled
     on player quits:
     - ^bossbar remove obj<player.name>
-    on player clicks with compass:
+    on player clicks with panelgui:
     - ^inventory open d:in@inv_GUIprincipal
     - DETERMINE cancelled
-    on player clicks compass in inventory:
+    on player clicks panelgui in inventory:
     - ^inventory open d:in@inv_GUIprincipal
     - DETERMINE cancelled
 ##########################################

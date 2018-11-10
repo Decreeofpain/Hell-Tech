@@ -42,7 +42,7 @@ Global:
     - 172
     - 173
     PUENTESMESDEG:
-    - '1068.0'
+    - '1191'
     CAPITULOS:
     - inicio
     - destroy
@@ -51,6 +51,15 @@ Global:
     - mesreconstruido
     INICIO:
     - asd
+    CAPITULOSEND:
+    - capitulo1
+    - capitulo1
+    - capitulo1
+    - capitulo1
+    BLOCKS:
+    - l@2404.0,47.0,1734.0,Esparcraft
+    - l@2403.0,47.0,1733.0,Esparcraft
+    BLOCKS-expiration: 1525895801399
     TEMPMESLAJHO:
     - arcano
     - cocina
@@ -64,75 +73,18 @@ Global:
     - taberna
     - aserradero
     - establo
-    - aserradero
-    CAPITULOSEND:
-    - capitulo1
-    BLOCKS:
-    - l@2404.0,47.0,1734.0,Esparcraft
-    - l@2403.0,47.0,1733.0,Esparcraft
-    BLOCKS-expiration: 1525895801399
 Players:
   '63':
     63D45060817731F5939E7685B85BFFE3:
       Flags:
-        PROFESION:
-        - Alquimista
-        - Ganadero
-        - Minero
-        - Carpintero
-        ESPECIALIDAD:
-        - 'ON'
-        - Herboristero
-        - Orfebrero
-        - Carnicero
-        - Peletero
-        - Armero
-        - Fraguador
-        - Artesano
-        - Escriba
-        PIEDRASDELALMA:
-        - '15'
         OBJETIVO:
-        - '§6Objetivo: §aBusca la taberna y habla con §4Alvar'
+        - §6§aBusca a §bYorick §aen el Aserradero
         OBJLOC:
-        - 2339,69,1854,Esparcraft
-        GANADERIAON:
-        - ok
-        MINERIAON:
-        - ok
-        CARPINTERIAON:
-        - ok
-        NAME:
-        - drAkeNess
-        CURSORDATA:
-        - '15'
-        VERIFICADO:
-        - ok
-        POTION:
-        - i@potion[potion_effects=li@REGEN,true,false]
-        ALQUIMIAON:
-        - ok
-        LOREPOTION:
-        - '|&ss6Cantidad &sse2.0||&ss2Recompensas|&sse4896 &ss5Almakos|&sse612 &ss5Experiencia'
-        PROFORIGIN:
-        - alquimia
-        ARTILUJIOFLAMENTE:
-        - '0'
-        ARTILUJIOFLAMENTE-expiration: 1537397835136
-        COBBLESTONE_SLAB:
-        - '0'
-        COBBLESTONE_SLAB-expiration: 1537397894546
-        FURNACE:
-        - '0'
-        FURNACE-expiration: 1537397894546
-        TESTFLAG:
-        - asd
-        - '1000'
-        - '100'
-        - iniciado
-        - iniciado
-        - zona
-        - complatezona
+        - 2287,71,1947,Esparcraft
+        MISIONES:
+        - destroy
+        - mescobble
+        - mesmadera
   B0:
     B01F638286223DA196F55A807636752D:
       Flags:
@@ -145,3 +97,16 @@ Players:
       Scripts:
         ALVARINICIAL:
           Current Step: '2'
+  DF:
+    DF1C5D6C590C3191BAF61B169F07D99F:
+      Flags:
+        NAME:
+        - drAke
+        VERIFICADO:
+        - ok
+        PIEDRASDELALMA:
+        - '15'
+        OBJETIVO:
+        - '§6Objetivo: §aBusca la taberna y habla con §4Alvar'
+        OBJLOC:
+        - 2339,69,1854,Esparcraft

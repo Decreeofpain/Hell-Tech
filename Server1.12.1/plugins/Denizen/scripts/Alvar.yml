@@ -5,7 +5,7 @@
       on assignment:
       - trigger name:CHAT toggle:true
       - trigger name:click toggle:true
-      - trigger name:proximity toggle:true radius:3
+      - trigger name:proximity toggle:true radius:2
 
       on Build Complete:
       - ^run 's@tabernaend'
@@ -20,6 +20,7 @@
     Mode: all
     List:
     - valueof <global.flag[capitulos].contains[INICIO]>
+    - -valueof <global.flag[capitulos].contains[ONINTRO]>
     - -valueof <global.flag[capitulos].contains[mesreconstruido]>
   Steps:
     '1':
@@ -28,43 +29,25 @@
           radius: 4
           Script:
 #======================= Si el pueblo no esta destruido
-          - ^yaml load:personal/<player.name>.yml id:<player.name>
-          - ^define page1 '<black>Cuando llegue habia una tormenta que te helaba hasta los huesos.<p>Pero debo resistir esto solo es una prueba de mi valor y mis habilidades.<p>Nadie podra detenerme para alcanzar la gloria.'
-          - ^yaml id:<player.name> set Libros.Diario:->:%page1%
-          - ^yaml savefile:personal/<player.name>.yml id:<player.name>
-          - ^yaml unload id:<player.name>
-          - ^random 8
-          - ^actionbar '<red>Alvar:<yellow> Que hace alguien como tu en mi taberna?'
-          - ^actionbar '<red>Alvar:<yellow> Tomate un trago y deja de mirarme'
-          - ^actionbar '<red>Alvar:<yellow> No molestes maldito forastero'
-          - ^actionbar '<red>Alvar:<yellow> Aqui solo conseguiras que te maten'
-          - ^actionbar '<red>Alvar:<yellow> Porque no sales a tomar el aire helado hahahaha'
-          - ^actionbar '<red>Alvar:<yellow> Emborrachate como los demas'
-          - ^actionbar '<red>Alvar:<yellow> Si sabes que aqui hay puro asesino verdad?'
-          - ^actionbar '<red>Alvar:<yellow> Traes pinta de cadaver'
-          - ^ZAP step:2
-          - ^queue clear
-    '2':
-      proximity trigger:
-        entry:
-          radius: 4
-          Script:
-#======================= Si el pueblo no esta destruido
           - ^if <l@2330,83,1853,Esparcraft.material.id> != 87 {
             - ^random 8
-            - ^actionbar '<red>Alvar:<yellow> Que hace alguien como tu en mi taberna?'
-            - ^actionbar '<red>Alvar:<yellow> Tomate un trago y deja de mirarme'
-            - ^actionbar '<red>Alvar:<yellow> No molestes maldito forastero'
-            - ^actionbar '<red>Alvar:<yellow> Aqui solo conseguiras que te maten'
-            - ^actionbar '<red>Alvar:<yellow> Porque no sales a tomar el aire helado hahahaha'
-            - ^actionbar '<red>Alvar:<yellow> Emborrachate como los demas'
-            - ^actionbar '<red>Alvar:<yellow> Si sabes que aqui hay puro asesino verdad?'
-            - ^actionbar '<red>Alvar:<yellow> Traes pinta de cadaver'
+            - ^title 'subtitle:<red>Alvar:<yellow> Que haces en mi taberna? largate'
+            - ^title 'subtitle:<red>Alvar:<yellow> Tomate un trago y vete!'
+            - ^title 'subtitle:<red>Alvar:<yellow> No molestes maldito forastero'
+            - ^title 'subtitle:<red>Alvar:<yellow> Eres un maldito cadaver'
+            - ^title 'subtitle:<red>Alvar:<yellow> Sal a tomar aire helado jaja'
+            - ^title 'subtitle:<red>Alvar:<yellow> Emborrachate como los demas'
+            - ^title 'subtitle:<red>Alvar:<yellow> Vas a morir maldito!'
+            - ^title 'subtitle:<red>Alvar:<yellow> Pide algo o largate!'
             - ^queue clear
             }
 #======================= Si el pueblo esta destruido
-          - ^if <player.flag[misiones].as_list> !contains destroy && <server.flag[capitulos].as_list> contains destroy {
-            - ^run 's@bookinicial'
+          - ^if <player.flag[misiones].as_list> !contains destroy && <server.flag[capitulos].as_list> contains destroy && <player.flag[misiones].as_list> !contains mescobble {
+            - ^yaml load:personal/<player.name>.yml id:<player.name>
+            - ^define page1 '<black>Cuando llegue habia una tormenta que te helaba hasta los huesos.<p>Pero debo resistir esto solo es una prueba de mi valor y mis habilidades.<p>Nadie podra detenerme para alcanzar la gloria.'
+            - ^yaml id:<player.name> set Libros.Diario:->:%page1%
+            - ^yaml savefile:personal/<player.name>.yml id:<player.name>
+            - ^yaml unload id:<player.name>
             - ^bossbar remove obj<player.name>
             - ^define objetivo "<green>Busca a <aqua>Haan <green>en la mina de Meslajho"
             - ^flag <player> objetivo:<def[objetivo]>
@@ -73,23 +56,48 @@
             - ^define objloc "<npc.location.simple>" npc:96
             - ^flag <player> objloc:<def[objloc]>
             - ^flag <player> misiones:destroy
+            - ^run 's@bookinicial'
             - ^queue clear
-            } else if <player.flag[misiones].as_list> contains destroy && <server.flag[capitulos].as_list> contains destroy {
-            - ^random 8
-            - ^actionbar '<red>Alvar:<yellow> Maldita sea aun no reconstruimos la taberna'
-            - ^actionbar '<red>Alvar:<yellow> Con un demonio esto es un desastre'
-            - ^actionbar '<red>Alvar:<yellow> Hey tu ve y alluda a Hann en la mina'
-            - ^actionbar '<red>Alvar:<yellow> Aun sigues aqui? ve con Hann maldicion'
-            - ^actionbar '<red>Alvar:<yellow> Porque te quedas ahi parado!'
-            - ^actionbar '<red>Alvar:<yellow> Mueve las piernas y ve con Hann'
-            - ^actionbar '<red>Alvar:<yellow> No sabes hacer otra cosa mas que mirarme?'
-            - ^actionbar '<red>Alvar:<yellow> Ayuda a Hann malditasea, buscalo!'
+            } else if <player.flag[misiones].as_list> contains destroy && <server.flag[capitulos].as_list> contains destroy && <server.flag[capitulos].as_list> !contains pdamesok {
+            - ^if <player.flag[misiones].as_list> !contains mescobble {
+              - ^run 's@bookinicial'
+              }
+            - ^random 7
+            - ^title 'subtitle:<red>Alvar:<yellow> Maldita sea ve con Hann'
+            - ^title 'subtitle:<red>Alvar:<yellow> esto es un desastre ve con Hann'
+            - ^title 'subtitle:<red>Alvar:<yellow> Hey tu ve y ayuda a Hann'
+            - ^title 'subtitle:<red>Alvar:<yellow> Aun aqui? ve con Hann maldicion'
+            - ^title 'subtitle:<red>Alvar:<yellow> Porque te quedas ahi parado!'
+            - ^title 'subtitle:<red>Alvar:<yellow> Mueve las piernas y ve con Hann'
+            - ^title 'subtitle:<red>Alvar:<yellow> Ayuda a Hann malditasea, buscalo!'
+            - ^queue clear
+            } else if <player.flag[misiones].as_list> contains destroy && <server.flag[capitulos].as_list> contains destroy && <server.flag[capitulos].as_list> contains pdamesok {
+            - ^if <player.flag[misiones].as_list> !contains mesmadera {
+              - ^run 's@bookinicial2'
+              - ^bossbar remove obj<player.name>
+              - ^define objetivo "<green>Busca a <aqua>Yorick <green>en el Aserradero"
+              - ^flag <player> objetivo:<def[objetivo]>
+              - ^bossbar obj<player.name> players:<player> "title:<player.flag[objetivo]>" color:BLUE
+              - ^compass <npc.location.simple> npc:100
+              - ^define objloc "<npc.location.simple>" npc:100
+              - ^flag <player> objloc:<def[objloc]>
+              }
+            - ^random 7
+            - ^title 'subtitle:<red>Alvar:<yellow> Ve al Aserradero'
+            - ^title 'subtitle:<red>Alvar:<yellow> Consigue madera para Yorick'
+            - ^title 'subtitle:<red>Alvar:<yellow> Ve con Yorick'
+            - ^title 'subtitle:<red>Alvar:<yellow> Deja de perder el tiempo'
+            - ^title 'subtitle:<red>Alvar:<yellow> Busca a Yorick'
+            - ^title 'subtitle:<red>Alvar:<yellow> Yorick necesita ayuda'
+            - ^title 'subtitle:<red>Alvar:<yellow> Ayuda a Yorick maldicion.'
             - ^queue clear
             }
       click trigger:
         Script:
-        - ^if <player.flag[misiones].as_list> contains destroy {
+        - ^if <player.flag[misiones].as_list> contains destroy && <server.flag[capitulos].as_list> !contains pdamesok {
           - ^run 's@bookinicial'
+          } else if <player.flag[misiones].as_list> contains destroy && <server.flag[capitulos].as_list> contains pdamesok {
+          - ^run 's@bookinicial2'
           }
 
 tabernaend:
@@ -120,6 +128,7 @@ tabernaend:
     Mode: all
     List:
     - valueof <global.flag[capitulosend].contains[capitulo1]>
+    - -valueof <global.flag[capitulos].contains[ONINTRO]>
   Steps:
     '1':
       proximity trigger:
@@ -252,10 +261,32 @@ bookinicial:
 
 libroqinicial:
   type: book
-  title: Quests!
+  title: Quests
   author: Alvar
   text:
-  - 'Malditasea <dark_red><player.name>.<p><black>Mi taberna con un demonio... Pero que diablos todo el pueblo esta todo estrozado.<p>Dirijete a la <blue>mina<black> y habla con Hann.<p>Tenemos que reparar este desastre'
+  - 'Malditasea <dark_red><player.name>.<p><black>Mi taberna con un demonio... Pero que diablos todo el pueblo esta todo estrozado.<p>Dirijete a la <blue>mina<black> y habla con Hann.<p>Mira la brujula de tu inventario te dira a donde ir.'
+  - '<dark_green>Tip<black>: La mina esta en el centro del pueblo y se encuentra bajando unas escaleras muy largas.<p>Ahi encontraras a Hann'
+
+bookinicial2:
+    type: task
+    script:
+    - ^define old_slot <player.item_in_hand.slot>
+    - ^adjust <player> item_slot:9
+    - ^take <player.item_in_hand> qty:<player.item_in_hand.qty>
+    - ^give i@libroqinicial2 slot:9
+    - ^adjust <player> open_book
+    - ^take slot:9
+    - ^give i@panelgui slot:9
+    - ^adjust <player> item_slot:%old_slot%
+    - ^queue clear
+
+libroqinicial2:
+  type: book
+  title: Quests
+  author: Alvar
+  text:
+  - 'Bien <dark_red><player.name>.<p><black>Muchos viajeros ayudaron a recolectar toda la piedra que Hann necesitaba en la mina.<p>Ahora <dark_green>Yorick <black>ocupa de tu ayuda. ve con el lo encuentras en el aserradero.'
+  - '<dark_green>Tip<black>: El Aserradero esta al Suroeste del pueblo.<p>Sigue tu brujula.'
 
 bookq1:
     type: task

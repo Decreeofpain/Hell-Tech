@@ -5,19 +5,18 @@
       - trigger name:CHAT toggle:false
       - trigger name:click toggle:true
       - trigger name:proximity toggle:true radius:3
+      on Build Complete:
+      - ^run 's@libreriaend'
 
     interact scripts:
     - 18 Aloysorfebrera
-    - 16 aloysscript
 
 'Aloysorfebrera':
   Type: Interact
-  # Requirements:
-  #   Mode: all
-  #   List:
-  #   - valueof <global.flag[capitulos].contains[destroy]>
-  #   - valueof <player.flag[misiones].contains[destroy]>
-  #   - -valueof <global.flag[capitulos].contains[mesreconstruido]>
+  Requirements:
+    Mode: all
+    List:
+    - valueof <global.flag[capitulos].contains[mesreconstruido]>
   Steps:
     '1':
       proximity trigger:
@@ -208,3 +207,19 @@ artilujioflameanteinfo:
   - '<yellow><player.flag[papelastillado].asint><&pipe>1<gray> Papel Astillado'
   - ''
   - '<green>Click <dark_green>derecho<green> para crear'
+libreriaend:
+    type: task
+    script:
+    - ^schematic load name:libreria
+    - ^schematic paste name:libreria location:<cu@libreria.min>
+    - ^schematic unload name:libreria
+    - ^foreach <server.list_online_players> {
+      - ^title "title:<aqua>Aloys" "subtitle:<yellow>Libreria reconstruida" stay:5s targets:%value%
+      }
+    - ^flag <server> tempmeslajho:->:libreria
+    - ^if <server.flag[tempmeslajho].as_list.contains[taberna|herreria|armeria|establo|cocina|arcano|libreria|deshuesadero|libreria|aserradero|libreria|molino]> {
+      - ^foreach li@n@1|n@2|n@3|n@5|n@6|n@7|n@8|n@9|n@10|n@35|n@66|n@85|n@91|n@94|n@96|n@99|n@100 {
+        - ^define npctarget %value%
+        - ^teleport <def[npctarget]> <def[npctarget].anchor[construct]>
+        }
+      }

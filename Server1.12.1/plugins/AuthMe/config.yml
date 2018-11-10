@@ -7,7 +7,7 @@ DataSource:
     # or when a website integration is being used.
     caching: true
     # Database host address
-    mySQLHost: 'esparcraft.net'
+    mySQLHost: 'dop-network.com'
     # Database port
     mySQLPort: '3306'
     # Connect to MySQL database over SSL
@@ -17,9 +17,9 @@ DataSource:
     # Password to connect to the MySQL database
     mySQLPassword: 'drakness666'
     # Database Name, use with converters or as SQLITE database name
-    mySQLDatabase: 'esparcraft'
+    mySQLDatabase: 'i5154090_bb1'
     # Table of the database
-    mySQLTablename: 'phpbb_users'
+    mySQLTablename: 'bb_users'
     # Column of IDs to sort data
     mySQLColumnId: 'user_id'
     # Column for storing or checking players nickname
@@ -100,7 +100,7 @@ settings:
         timeout: 10
     # Message language, available languages:
     # https://github.com/AuthMe/AuthMeReloaded/blob/master/docs/translations.md
-    messagesLanguage: 'en'
+    messagesLanguage: 'es'
     # Forces authme to hook into Vault instead of a specific permission handler system.
     forceVaultHook: false
     # Log level: INFO, FINE, DEBUG. Use INFO for general messages,
@@ -124,14 +124,10 @@ settings:
         # Allowed commands for unauthenticated players
         allowCommands:
         - '/login'
-        - '/register'
         - '/l'
-        - '/reg'
-        - '/email'
-        - '/captcha'
         # Max number of allowed registrations per IP
         # The value 0 means an unlimited number of registrations!
-        maxRegPerIp: 1
+        maxRegPerIp: 3
         # Minimum allowed username length
         minNicknameLength: 3
         # Maximum allowed username length
@@ -175,7 +171,7 @@ settings:
         # Should not logged in players be teleported to the spawn?
         # After the authentication they will be teleported back to
         # their normal position.
-        teleportUnAuthedToSpawn: false
+        teleportUnAuthedToSpawn: true
         # Can unregistered players walk around?
         allowMovement: false
         # After how many seconds should players who fail to login or register
@@ -287,7 +283,7 @@ settings:
     # {MAXPLAYERS}: display server slots, {IP}: player ip, {LOGINS}: number of players logged,
     # {WORLD}: player current world, {SERVER}: server name
     # {VERSION}: get current bukkit version, {COUNTRY}: player country
-    useWelcomeMessage: true
+    useWelcomeMessage: false
     # Broadcast the welcome message to the server or only to the player?
     # set true for server or false for player
     broadcastWelcomeMessage: false
@@ -367,7 +363,7 @@ Hooks:
     # Do we need to hook with multiverse for spawn checking?
     multiverse: true
     # Do we need to hook with BungeeCord?
-    bungeecord: false
+    bungeecord: true
     # Send player to this BungeeCord server after register/login
     sendPlayerTo: ''
     # Do we need to disable Essentials SocialSpy on join?

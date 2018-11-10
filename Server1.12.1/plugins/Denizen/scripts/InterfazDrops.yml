@@ -10,52 +10,39 @@ kill_mobs:
   type: world
   events:
 ##########################################
+
     on mythicmob mob dies by player:
     - ^if <util.random.int[1].to[100]> <= 10 {
-      - ^if <util.random.int[1].to[100]> <= 2 {
-        - ^if <player.skillapi.class_level[<player.skillapi.main_class.name>]> < 48 {
-          - ^queue clear
-          }
+      - ^define probabilidad <util.random.int[1].to[100]>
+      - ^if <def[probabilidad]> <= 2 && <player.skillapi.class_level[<player.skillapi.main_class.name>]> < 400 {
         - ^yaml load:drops/data.yml id:<player.name>mobs
         - ^define leveldrop <yaml[<player.name>mobs].list_keys[mythicdrops.ancestral].filter[is[LESS].than[<math.asint:<context.level||>+47>]].random[1].formatted>
         - ^define tierdrop <yaml[<player.name>mobs].read[mythicdrops.ancestral.<def[leveldrop]>.tier]>
         - ^execute as_op "md drop <context.entity.location.x> <context.entity.location.y> <context.entity.location.z> -t <def[tierdrop]>"
         - ^yaml unload id:<player.name>mobs
         - ^queue clear
-        } else if <util.random.int[1].to[100]> <= 6 {
-        - ^if <player.skillapi.class_level[<player.skillapi.main_class.name>]> < 38 {
-          - ^queue clear
-          }
+        } else if <def[probabilidad]> <= 6 && <player.skillapi.class_level[<player.skillapi.main_class.name>]> < 200 {
         - ^yaml load:drops/data.yml id:<player.name>mobs
         - ^define leveldrop <yaml[<player.name>mobs].list_keys[mythicdrops.legendario].filter[is[LESS].than[<math.asint:<context.level||>+37>]].random[1].formatted>
         - ^define tierdrop <yaml[<player.name>mobs].read[mythicdrops.legendario.<def[leveldrop]>.tier]>
         - ^execute as_op "md drop <context.entity.location.x> <context.entity.location.y> <context.entity.location.z> -t <def[tierdrop]>"
         - ^yaml unload id:<player.name>mobs
         - ^queue clear
-        } else if <util.random.int[1].to[100]> <= 12 {
-        - ^if <player.skillapi.class_level[<player.skillapi.main_class.name>]> < 28 {
-          - ^queue clear
-          }
+        } else if <def[probabilidad]> <= 12 && <player.skillapi.class_level[<player.skillapi.main_class.name>]> < 50 {
         - ^yaml load:drops/data.yml id:<player.name>mobs
         - ^define leveldrop <yaml[<player.name>mobs].list_keys[mythicdrops.raro].filter[is[LESS].than[<math.asint:<context.level||>+27>]].random[1].formatted>
         - ^define tierdrop <yaml[<player.name>mobs].read[mythicdrops.raro.<def[leveldrop]>.tier]>
         - ^execute as_op "md drop <context.entity.location.x> <context.entity.location.y> <context.entity.location.z> -t <def[tierdrop]>"
         - ^yaml unload id:<player.name>mobs
         - ^queue clear
-        } else if <util.random.int[1].to[100]> <= 24 {
-        - ^if <player.skillapi.class_level[<player.skillapi.main_class.name>]> < 18 {
-          - ^queue clear
-          }
+        } else if <def[probabilidad]> <= 24 && <player.skillapi.class_level[<player.skillapi.main_class.name>]> < 20 {
         - ^yaml load:drops/data.yml id:<player.name>mobs
         - ^define leveldrop <yaml[<player.name>mobs].list_keys[mythicdrops.magico].filter[is[LESS].than[<math.asint:<context.level||>+17>]].random[1].formatted>
         - ^define tierdrop <yaml[<player.name>mobs].read[mythicdrops.magico.<def[leveldrop]>.tier]>
         - ^execute as_op "md drop <context.entity.location.x> <context.entity.location.y> <context.entity.location.z> -t <def[tierdrop]>"
         - ^yaml unload id:<player.name>mobs
         - ^queue clear
-        } else {
-        - ^if <player.skillapi.class_level[<player.skillapi.main_class.name>]> < 8 {
-          - ^queue clear
-          }
+        } else if <player.skillapi.class_level[<player.skillapi.main_class.name>]> < 8 {
         - ^yaml load:drops/data.yml id:<player.name>mobs
         - ^define leveldrop <yaml[<player.name>mobs].list_keys[mythicdrops.comun].filter[is[LESS].than[<math.asint:<context.level||>+7>]].random[1].formatted>
         - ^define tierdrop <yaml[<player.name>mobs].read[mythicdrops.comun.<def[leveldrop]>.tier]>
@@ -63,4 +50,5 @@ kill_mobs:
         - ^yaml unload id:<player.name>mobs
         - ^queue clear
         }
+      - ^queue clear
       }
