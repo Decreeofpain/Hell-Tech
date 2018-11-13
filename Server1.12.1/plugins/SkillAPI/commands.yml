@@ -75,6 +75,10 @@ list:
   sender: 'ANYONE'
   enabled: 'true'
   cooldown: 0
+  messages: 
+    title: '&8--&2 {player} &8-----------'
+    line: '&7[&6{id}&7] &2Lv&6{level} {class}'
+    end: '&8----------------------------'
 lore: 
   name: 'lore'
   description: 'Adds lore to item'
@@ -115,6 +119,8 @@ profess:
   sender: 'PLAYER_ONLY'
   enabled: 'true'
   cooldown: 0
+  messages: 
+    professed: '&2You are now a &6{class}'
 reload: 
   name: 'reload'
   description: 'Reloads the plugin'
@@ -123,6 +129,8 @@ reload:
   sender: 'ANYONE'
   enabled: 'true'
   cooldown: 0
+  messages: 
+    done: '&2The plugin has been reloaded'
 reset: 
   name: 'reset'
   description: 'Resets account data'

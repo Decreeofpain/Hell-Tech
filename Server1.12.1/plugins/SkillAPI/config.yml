@@ -69,7 +69,7 @@ Targeting:
   affect-npcs: 'false'
 
   # Whether or not for skills to affect armor stands
-  affect-armor-stands: 'false'
+  affect-armor-stands: 'true'
 
 Saving: 
 
@@ -129,10 +129,10 @@ Mana:
 Skills: 
 
   # Whether or not players are allowed to downgrade skills
-  allow-downgrade: 'false'
+  allow-downgrade: 'true'
 
   # Whether or not messages should be shown on casting a skill
-  show-messages: 'true'
+  show-messages: 'false'
 
   # The radius in which to show cast messages to nearby players
   message-radius: '10'
@@ -168,7 +168,7 @@ Items:
   drop-weapon: 'false'
 
   # The text used for class requirements in the lore
-  lore-class-text: 'Clase: '
+  lore-class-text: '!Clase: '
 
   # The text used for skill requirements in lore
   lore-skill-text: 'Requires {skill}: '
@@ -342,7 +342,7 @@ Casting:
       amount: '1'
 
   # The slot the item is kept in, must be in the range 1-9
-  slot: '9'
+  slot: '8'
 
   # The item to use in the cast slot.
   # When not using bars, this only shows up when no skills
