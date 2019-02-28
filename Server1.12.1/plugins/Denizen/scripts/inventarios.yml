@@ -26,10 +26,6 @@ inv_events:
     - DETERMINE cancelled
     on player drags in inv_combate:
     - DETERMINE cancelled
-    on player clicks in inv_piedras:
-    - DETERMINE cancelled
-    on player drags in inv_piedras:
-    - DETERMINE cancelled
     on player clicks in inv_fernan:
     - DETERMINE cancelled
     on player drags in inv_fernan:
@@ -424,35 +420,6 @@ inv_events:
     - ^wait 3s
     - ^run 's@bookq9'
     - ^zap step:2 script:M6
-
-#--------------Piedras del Alma---------------------
-    on player clicks Piedra in inv_piedras:
-    - ^if <player.money> < <math.asint:<player.skillapi.class_level[<player.skillapi.main_class>]>*200> {
-      - ^narrate "<dark_red>Claudec: <red>No tienes suficientes <dark_purple>Almakos"
-      } else if <player.money> >= <math.asint:<player.skillapi.class_level[<player.skillapi.main_class>]>*200> {
-      - ^if <player.skillapi.class_level[<player.skillapi.main_class>]> < 50 && <player.flag[piedrasdelalma].asint> < 15 {
-        - ^flag <player> piedrasdelalma:+:1
-        - ^take money quantity:<math.asint:<player.skillapi.class_level[<player.skillapi.main_class>]>*200>
-        - ^narrate "<dark_red>Claudec: <red>Conseguiste una piedra del Alma"
-        - ^narrate "<red>Ahora tienes <aqua><player.flag[piedrasdelalma].asint> <dark_aqua>piedras del Alma"
-        - ^queue clear
-        } else if <player.skillapi.class_level[<player.skillapi.main_class>]> < 300 && <player.flag[piedrasdelalma].asint> < 10 {
-        - ^flag <player> piedrasdelalma:+:1
-        - ^take money quantity:<math.asint:<player.skillapi.class_level[<player.skillapi.main_class>]>*200>
-        - ^narrate "<dark_red>Claudec: <red>Conseguiste una piedra del Alma"
-        - ^narrate "<red>Ahora tienes <aqua><player.flag[piedrasdelalma].asint> <dark_aqua>piedras del Alma"
-        - ^queue clear
-        } else if <player.skillapi.class_level[<player.skillapi.main_class>]> < 601 && <player.flag[piedrasdelalma].asint> < 5 {
-        - ^flag <player> piedrasdelalma:+:1
-        - ^take money quantity:<math.asint:<player.skillapi.class_level[<player.skillapi.main_class>]>*200>
-        - ^narrate "<dark_red>Claudec: <red>Conseguiste una piedra del Alma"
-        - ^narrate "<red>Ahora tienes <aqua><player.flag[piedrasdelalma].asint> <dark_aqua>piedras del Alma"
-        - ^queue clear
-        } else {
-        - ^narrate "<dark_red>Claudec: <red>Ya tienes el maximo de <dark_purple>Piedras del alma"
-        - ^queue clear
-        }
-      }
 
 #--------------Arenas---------------------
     on player clicks Sipregunta in inv_arena:
@@ -1489,13 +1456,6 @@ inv_combate:
   slots:
   - "[i@human_skull[display_name=&ss4Telmo;lore=&ss7Hey antes de cualquier cosa|&ss7que clase de combate prefieres?;skull_skin=donsavage]] [i@cancelslot] [i@cancelslot] [i@Combate3H2] [i@Combate1L2] [i@Combate2V2] [i@Combate1L1] [i@Combate3H1] [i@Combate2V1]"
 
-
-inv_piedras:
-  type: inventory
-  title: <gold>Piedras
-  size: 9
-  slots:
-  - "[i@Piedra] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot]"
 
 inv_fernan:
   type: inventory

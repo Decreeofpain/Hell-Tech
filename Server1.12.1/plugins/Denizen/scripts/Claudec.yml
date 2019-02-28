@@ -8,48 +8,69 @@
       - trigger name:proximity toggle:true radius:4
 
     interact scripts:
-    - 14 Claudscriptsouls
-    - 12 Claudscript
+    - 12 Claudscriptsouls
 
 'Claudscriptsouls':
   Type: Interact
   Requirements:
     Mode: all
     List:
-    - valueof <global.flag[capitulos].contains[CAPITULO1P2OK]>
-    - valueof <player.flag[progreso].contains[tutorial_ok]>
+    # - valueof <global.flag[capitulos].contains[CAPITULO1P2OK]>
+    # - valueof <player.flag[progreso].contains[tutorial_ok]>
   Steps:
     '1':
       click trigger:
         Script:
-          - ^inventory open d:in@inv_piedras
+          - ^inventory open d:in@inv_claudec
       proximity trigger:
         entry:
           radius: 4
           Script:
+          - ^playsound <player> sound:complete custom
           - ^narrate '<dark_red>Claudec: <gold><player.name>, <yellow>Tienes <dark_purple><player.flag[piedrasdelalma].asint> <yellow>Piedras del alma'
 
-'Claudscript':
-  Type: Interact
-  Requirements:
-    Mode: all
-    List:
-    - valueof <global.flag[capitulos].contains[CAPITULO1P2OK]>
-    - -valueof <player.flag[progreso].contains[tutorial_ok]>
-  Steps:
-    '1':
-      proximity trigger:
-        entry:
-          radius: 4
-          Script:
-          - ^if <player.flag[misiones].as_list> contains tuto_06 && <player.flag[misiones].as_list> !contains tuto_07 {
-            - ^inventory open d:in@inv_stats
-            - ^playsound <player> sound:complete custom
-            }
 #- adjust <server> delete_file:personal/<player.name>.yml
 ClaudecSistem:
   type: world
   events:
+    on player clicks in inv_piedras:
+    - DETERMINE cancelled
+    on player drags in inv_piedras:
+    - DETERMINE cancelled
+    on player clicks in inv_claudec:
+    - DETERMINE cancelled
+    on player drags in inv_claudec:
+    - DETERMINE cancelled
+    on player clicks Tecnologias in inv_claudec:
+    - ^inventory open d:in@inv_tecnology_mineria_meslajho
+#--------------Piedras del Alma---------------------
+    on player clicks Piedra in inv_claudec:
+    - ^if <player.money> < <math.asint:<player.skillapi.class_level[<player.skillapi.main_class>]>*200> {
+      - ^narrate "<dark_red>Claudec: <red>No tienes suficientes <dark_purple>Almakos"
+      } else if <player.money> >= <math.asint:<player.skillapi.class_level[<player.skillapi.main_class>]>*200> {
+      - ^if <player.skillapi.class_level[<player.skillapi.main_class>]> < 50 && <player.flag[piedrasdelalma].asint> < 15 {
+        - ^flag <player> piedrasdelalma:+:1
+        - ^take money quantity:<math.asint:<player.skillapi.class_level[<player.skillapi.main_class>]>*200>
+        - ^narrate "<dark_red>Claudec: <red>Conseguiste una piedra del Alma"
+        - ^narrate "<red>Ahora tienes <aqua><player.flag[piedrasdelalma].asint> <dark_aqua>piedras del Alma"
+        - ^queue clear
+        } else if <player.skillapi.class_level[<player.skillapi.main_class>]> < 300 && <player.flag[piedrasdelalma].asint> < 10 {
+        - ^flag <player> piedrasdelalma:+:1
+        - ^take money quantity:<math.asint:<player.skillapi.class_level[<player.skillapi.main_class>]>*200>
+        - ^narrate "<dark_red>Claudec: <red>Conseguiste una piedra del Alma"
+        - ^narrate "<red>Ahora tienes <aqua><player.flag[piedrasdelalma].asint> <dark_aqua>piedras del Alma"
+        - ^queue clear
+        } else if <player.skillapi.class_level[<player.skillapi.main_class>]> < 601 && <player.flag[piedrasdelalma].asint> < 5 {
+        - ^flag <player> piedrasdelalma:+:1
+        - ^take money quantity:<math.asint:<player.skillapi.class_level[<player.skillapi.main_class>]>*200>
+        - ^narrate "<dark_red>Claudec: <red>Conseguiste una piedra del Alma"
+        - ^narrate "<red>Ahora tienes <aqua><player.flag[piedrasdelalma].asint> <dark_aqua>piedras del Alma"
+        - ^queue clear
+        } else {
+        - ^narrate "<dark_red>Claudec: <red>Ya tienes el maximo de <dark_purple>Piedras del alma"
+        - ^queue clear
+        }
+      }
     on player death:
     - ^flag <player> muerto:si
     - ^modifyblock location:2990,105,3224,Esparcraft 96,1
@@ -142,3 +163,33 @@ ClaudecSistem:
       - ^give i@panelgui slot:9
       - ^title "title:<dark_red>Claudec" "subtitle:<red><player.name> Ahora nadie te recuerda" stay:10s
       }
+
+Piedra:
+  type: item
+  material: nether_star
+  display name: '<dark_red>P<red>iedr<dark_red>a <dark_gray>del <dark_red>A<red>lm<dark_red>a'
+  lore:
+  - '<gold>Tienes <dark_purple><player.flag[piedrasdelalma]> <gold>Quieres mas?'
+  - ''
+  - '<green>El precio es de <gold><math.asint:<player.skillapi.class_level[<player.skillapi.main_class>]>*200> <yellow>Almakos'
+  - ''
+  - '<dark_red>hacemos el trato?'
+
+Tecnologias:
+  type: item
+  material: nether_star
+  display name: '<dark_red>T<red>ecnologias'
+  lore:
+  - '<gold>Bienvenido <white><player.skillapi.main_class.name>!'
+  - '<red>Tengo algunas tecnologias para ti'
+  - '<red>por un insignificante costo'
+  - ''
+  - '<dark_red>echales un vistazo<gold>!'
+
+inv_claudec:
+  type: inventory
+  inventory: HOPPER
+  title: '<gold>C<dark_red>laudec'
+  size: 5
+  slots:
+  - "[i@Piedra] [] [] [] [i@Tecnologias]"
