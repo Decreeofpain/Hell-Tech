@@ -1,0 +1,1510 @@
+"Eudes":
+    type: assignment
+
+    actions:
+      on assignment:
+      - trigger name:CHAT toggle:false
+      - trigger name:click toggle:true
+      - trigger name:proximity toggle:true radius:2
+
+      on Build Complete:
+      - ^run 's@molinoend'
+
+    interact scripts:
+    - 16 Eudesscript
+
+'Eudesscript':
+  Type: Interact
+  Requirements:
+    Mode: all
+    List:
+    - valueof <global.flag[capitulos].contains[mesreconstruido]>
+  Steps:
+    '1':
+      proximity trigger:
+        entry:
+          radius: 4
+          Script:
+          - ^if <player.has_flag[profesion].not> {
+            - ^title "subtitle:<blue>Eudes: <yellow>Aun sin profesion <gold><player.name>?"
+            - ^wait
+            - ^title "subtitle:<yellow>Y que estas haciendo ahi parado..."
+            - ^wait
+            - ^title "subtitle:<yellow>Hay mucha Alquimia que hacer"
+            - ^queue clear
+            } else if <player.flag[profesion].size> == 1 && <player.flag[profesion].as_list> !contains Alquimista {
+            - ^if <player.jobs[<player.flag[profesion].get[1]>].xp.level> >= 25 {
+              - ^title "subtitle:<blue>Eudes: <yellow>Quieres hacer explotar algo?"
+              - ^wait
+              - ^title "subtitle:<yellow>Unete a los Alquimios hahaha"
+              - ^queue clear
+              } else {
+              - ^title "subtitle:<blue>Eudes: <yellow>Que pasa <gold><player.name>"
+              - ^wait
+              - ^title "subtitle:<yellow>Aun no eres Nivel 25 de <player.flag[profesion].get[1]>" stay:2s
+              - ^wait
+              - ^title "subtitle:<yellow>No me quites mi maldito tiempo!"
+              - ^queue clear
+              }
+            } else if <player.flag[profesion].size> == 1 && <player.flag[profesion].as_list> contains Alquimista {
+            - ^if <player.has_flag[qprofStatusalquimia].not> {
+              - ^if <player.has_flag[AlquimiaON]> {
+                - ^title "subtitle:<blue>Eudes: <yellow>Ya traes lo de la mision <gold><player.name>?"
+                - ^flag <player> checkprof:alquimia
+                - ^run 's@profcheckcount'
+                - ^flag <player> checkprof:!
+                - ^queue clear
+                } else {
+                - ^run 's@profquestsrandomeudes'
+                - ^queue clear
+                }
+              } else if <player.has_flag[qprofStatusalquimia]> {
+              - ^title "subtitle:<green>Regresa en <player.flag[qprofStatusalquimia].expiration.in_seconds.asint> segundos por otra mision!" stay:5s
+              - ^queue clear
+              }
+            } else if <player.flag[profesion].size> == 2 && <player.flag[profesion].as_list> !contains Alquimista {
+            - ^if <player.jobs[<player.flag[profesion].get[1]>].xp.level> >= 50 && <player.jobs[<player.flag[profesion].get[2]>].xp.level> >= 50 {
+              - ^title "subtitle:<blue>Eudes: <yellow>Venga <gold><player.name>"
+              - ^wait
+              - ^title "subtitle:<yellow>Por fin ya puedes ser Alquimista..."
+              - ^queue clear
+              } else {
+              - ^title "subtitle:<blue>Eudes: <yellow>Hey <gold><player.name>"
+              - ^wait
+              - ^title "subtitle:<yellow>Ocupas nivel 50 de tus profesiones"
+              - ^wait
+              - ^title "subtitle:<yellow><player.flag[profesion].get[1]> y <player.flag[profesion].get[2]>"
+              - ^wait
+              - ^title "subtitle:<yellow>Mientras tanto largo!"
+              - ^queue clear
+              }
+            } else if <player.flag[profesion].size> == 2 && <player.flag[profesion].as_list> contains Alquimista {
+            - ^if <player.has_flag[qprofStatusalquimia].not> {
+              - ^if <player.has_flag[AlquimiaON]> {
+                - ^title "subtitle:<blue>Eudes: <yellow>Completa tu mision <gold><player.name>!"
+                - ^flag <player> checkprof:alquimia
+                - ^run 's@profcheckcount'
+                - ^flag <player> checkprof:!
+                - ^queue clear
+                } else {
+                - ^run 's@profquestsrandomeudes'
+                - ^queue clear
+                }
+              } else if <player.has_flag[qprofStatusalquimia]> {
+              - ^title "subtitle:<green>Regresa en <player.flag[qprofStatusalquimia].expiration.in_seconds.asint> segundos por otra mision!" stay:5s
+              - ^queue clear
+              }
+            } else if <player.flag[profesion].size> == 3 && <player.flag[profesion].as_list> !contains Alquimista {
+            - ^if <player.jobs[<player.flag[profesion].get[1]>].xp.level> >= 100 && <player.jobs[<player.flag[profesion].get[2]>].xp.level> >= 100 && <player.jobs[<player.flag[profesion].get[3]>].xp.level> >= 100 {
+              - ^title "subtitle:<blue>Eudes: <yellow>Que tal <gold><player.name>"
+              - ^wait
+              - ^title "subtitle:<yellow>Ahora puedes Unirte a los Alquimios"
+              - ^queue clear
+              } else {
+              - ^title "subtitle:<blue>Eudes: <yellow>Aun no <gold><player.name>?"
+              - ^wait
+              - ^title "subtitle:<yellow>Nivel 100 amigo de tus profesiones"
+              - ^wait
+              - ^title "subtitle:<yellow><player.flag[profesion].get[1]>, <player.flag[profesion].get[2]> y <player.flag[profesion].get[3]>"
+              - ^wait
+              - ^title "subtitle:<yellow>Y podras unirte a los Alquimios"
+              - ^queue clear
+              }
+            } else if <player.flag[profesion].size> == 3 && <player.flag[profesion].as_list> contains Alquimista {
+            - ^if <player.has_flag[qprofStatusalquimia].not> {
+              - ^if <player.has_flag[AlquimiaON]> {
+                - ^title "subtitle:<blue>Eudes: <yellow>Aun tienes una mision <gold><player.name>!"
+                - ^flag <player> checkprof:alquimia
+                - ^run 's@profcheckcount'
+                - ^flag <player> checkprof:!
+                - ^queue clear
+                } else {
+                - ^run 's@profquestsrandomeudes'
+                - ^queue clear
+                }
+              } else if <player.has_flag[qprofStatusalquimia]> {
+              - ^title "subtitle:<green>Regresa en <player.flag[qprofStatusalquimia].expiration.in_seconds.asint> segundos por otra mision!" stay:5s
+              - ^queue clear
+              }
+            } else if <player.flag[profesion].size> == 4 && <player.flag[profesion].as_list> contains Alquimista {
+            - ^if <player.has_flag[qprofStatusalquimia].not> {
+              - ^if <player.has_flag[AlquimiaON]> {
+                - ^title "subtitle:<blue>Eudes: <yellow>Trae lo de la mision <gold><player.name>!"
+                - ^flag <player> checkprof:alquimia
+                - ^run 's@profcheckcount'
+                - ^flag <player> checkprof:!
+                - ^queue clear
+                } else {
+                - ^run 's@profquestsrandomeudes'
+                - ^queue clear
+                }
+              } else if <player.has_flag[qprofStatusalquimia]> {
+              - ^title "title:<yellow><player.name>" "subtitle:<green>Regresa en <player.flag[qprofStatusalquimia].expiration.in_seconds.asint> segundos por otra mision!" stay:5s
+              - ^queue clear
+              }
+            }
+      click trigger:
+        Script:
+          - ^if <player.has_flag[profesion].not> {
+            - ^inventory open d:in@inv_eudes
+            - ^queue clear
+            } else if <player.flag[profesion].as_list> !contains Alquimista && <player.has_flag[profesion]> && <player.flag[profesion].size> == 1 {
+            - ^if <player.jobs[<player.flag[profesion].get[1]>].xp.level> >= 25 {
+              - ^inventory open d:in@inv_eudes
+              - ^queue clear
+              }
+            - ^queue clear
+            } else if <player.flag[profesion].as_list> contains Alquimista && <player.has_flag[profesion]> && <player.flag[profesion].size> == 1 {
+            - ^if <player.has_flag[qprofStatusalquimia].not> && <player.has_flag[AlquimiaON].not> {
+              - ^run 's@profquestsrandomeudes'
+              - ^queue clear
+              } else if <player.has_flag[qprofStatusalquimia].not> && <player.has_flag[AlquimiaON]> {
+              - ^run 's@profquestscheckeudes'
+              - ^queue clear
+              } else {
+              - ^title "title:<yellow><player.name>" "subtitle:<green>Regresa en <player.flag[qprofStatusalquimia].expiration.in_seconds.asint> segundos por otra mision!" stay:5s
+              - ^queue clear
+              }
+            } else if <player.flag[profesion].as_list> !contains Alquimista && <player.has_flag[profesion]> && <player.flag[profesion].size> == 2 {
+            - ^if <player.jobs[<player.flag[profesion].get[1]>].xp.level> >= 50 && <player.jobs[<player.flag[profesion].get[2]>].xp.level> >= 50 {
+              - ^inventory open d:in@inv_eudes
+              - ^queue clear
+              }
+            } else if <player.flag[profesion].as_list> contains Alquimista && <player.has_flag[profesion]> && <player.flag[profesion].size> == 2 {
+            - ^if <player.has_flag[qprofStatusalquimia].not> && <player.has_flag[AlquimiaON].not> {
+              - ^run 's@profquestsrandomeudes'
+              - ^queue clear
+              } else if <player.has_flag[qprofStatusalquimia].not> && <player.has_flag[AlquimiaON]> {
+              - ^run 's@profquestscheckeudes'
+              - ^queue clear
+              } else {
+              - ^title "title:<yellow><player.name>" "subtitle:<green>Regresa en <player.flag[qprofStatusalquimia].expiration.in_seconds.asint> segundos por otra mision!" stay:5s
+              - ^queue clear
+              }
+            } else if <player.flag[profesion].as_list> !contains Alquimista && <player.has_flag[profesion]> && <player.flag[profesion].size> == 3 {
+            - ^if <player.jobs[<player.flag[profesion].get[1]>].xp.level> >= 100 && <player.jobs[<player.flag[profesion].get[2]>].xp.level> >= 100 && <player.jobs[<player.flag[profesion].get[3]>].xp.level> >= 100 {
+              - ^inventory open d:in@inv_eudes
+              - ^queue clear
+              }
+            } else if <player.flag[profesion].as_list> contains Alquimista && <player.has_flag[profesion]> && <player.flag[profesion].size> == 3 {
+            - ^if <player.has_flag[qprofStatusalquimia].not> && <player.has_flag[AlquimiaON].not> {
+              - ^run 's@profquestsrandomeudes'
+              - ^queue clear
+              } else if <player.has_flag[qprofStatusalquimia].not> && <player.has_flag[AlquimiaON]> {
+              - ^run 's@profquestscheckeudes'
+              - ^queue clear
+              } else {
+              - ^title "title:<yellow><player.name>" "subtitle:<green>Regresa en <player.flag[qprofStatusalquimia].expiration.in_seconds.asint> segundos por otra mision!" stay:5s
+              - ^queue clear
+              }
+            } else if <player.flag[profesion].as_list> contains Alquimista && <player.has_flag[profesion]> && <player.flag[profesion].size> == 4 {
+            - ^if <player.has_flag[qprofStatusalquimia].not> && <player.has_flag[AlquimiaON].not> {
+              - ^run 's@profquestsrandomeudes'
+              - ^queue clear
+              } else if <player.has_flag[qprofStatusalquimia].not> && <player.has_flag[AlquimiaON]> {
+              - ^run 's@profquestscheckeudes'
+              - ^queue clear
+              } else {
+              - ^title "title:<yellow><player.name>" "subtitle:<green>Regresa en <player.flag[qprofStatusalquimia].expiration.in_seconds.asint> segundos por otra mision!" stay:5s
+              - ^queue clear
+              }
+            }
+Eudesevents:
+  type: world
+  events:
+    on player clicks in inv_eudes:
+    - DETERMINE cancelled
+    on player drags in inv_eudes:
+    - DETERMINE cancelled
+    on player clicks infoquestprof in inv_eudes_ok:
+    - DETERMINE cancelled
+    on player drags infoquestprof in inv_eudes_ok:
+    - DETERMINE cancelled
+    on player clicks in inv_eudes_ok_potion:
+    - ^if <context.slot> == 2 && <context.slot_type> == CONTAINER {
+      - DETERMINE cancelled
+      }
+    on player drags in inv_eudes_ok_potion:
+    - ^if <context.slot> == 2 && <context.slot_type> == CONTAINER {
+      - DETERMINE cancelled
+      }
+    on player clicks in inv_profesioneudescraftalqu:
+    - DETERMINE cancelled
+    on player drags in inv_profesioneudescraftalqu:
+    - DETERMINE cancelled
+    on player clicks in inv_profesioneudessmeltalqu:
+    - DETERMINE cancelled
+    on player drags in inv_profesioneudessmeltalqu:
+    - DETERMINE cancelled
+    on player clicks in inv_profesioneudesplacealqu:
+    - DETERMINE cancelled
+    on player drags in inv_profesioneudesplacealqu:
+    - DETERMINE cancelled
+    on player clicks in inv_profesioneudesbreackalqu:
+    - DETERMINE cancelled
+    on player drags in inv_profesioneudesbreackalqu:
+    - DETERMINE cancelled
+    on player clicks in inv_profesioneudesusealqu:
+    - DETERMINE cancelled
+    on player drags in inv_profesioneudesusealqu:
+    - DETERMINE cancelled
+    on player clicks in inv_profesioneudesbrewalqu:
+    - DETERMINE cancelled
+    on player drags in inv_profesioneudesbrewalqu:
+    - DETERMINE cancelled
+    on player clicks in inv_profesioneudesbrewalqu2:
+    - DETERMINE cancelled
+    on player drags in inv_profesioneudesbrewalqu2:
+    - DETERMINE cancelled
+#
+    on player clicks rechazarprof in inv_eudes:
+    - ^inventory close d:in@inv_eudes
+    on player clicks aceptarprof in inv_eudes:
+    - ^inventory close
+    - ^execute as_op "jobs employ <player.name> Alquimista" silent
+    - ^flag <player> profesion:->:Alquimista
+    - ^if <player.has_flag[especialidad].not> {
+      - ^flag <player> especialidad:ON
+      }
+    - ^run 's@profquestsrandomeudes'
+    - ^queue clear
+
+  ## Siguiente
+    on player clicks Siguiente in inv_profesioneudesbrewalqu:
+    - ^inventory open d:in@inv_profesioneudesbrewalqu2
+  ## Atras
+    on player clicks Atras in inv_profesioneudesbrewalqu2:
+    - ^inventory open d:in@inv_profesioneudesbrewalqu
+  ## Regresar
+    on player clicks Regresar in inv_profesioneudescraftalqu:
+    - ^inventory open d:in@inv_profesioneudes
+
+    on player clicks Regresar in inv_profesioneudesplacealqu:
+    - ^inventory open d:in@inv_profesioneudes
+
+    on player clicks Regresar in inv_profesioneudessmeltalqu:
+    - ^inventory open d:in@inv_profesioneudes
+
+    on player clicks Regresar in inv_profesioneudesbreackalqu:
+    - ^inventory open d:in@inv_profesioneudes
+
+    on player clicks Regresar in inv_profesioneudesusealqu:
+    - ^inventory open d:in@inv_profesioneudes
+
+    on player clicks Regresar in inv_profesioneudesbrewalqu:
+    - ^inventory open d:in@inv_profesioneudes
+
+    on player clicks Regresar in inv_profesioneudesbrewalqu2:
+    - ^inventory open d:in@inv_profesioneudes
+
+# =====================================================================
+    on player clicks rechazarprof in inv_eudes_ok:
+    - ^inventory close d:in@inv_eudes_ok
+    - DETERMINE cancelled
+
+# Entregar Materiales
+    on player clicks Entregar in inv_eudes_ok:
+    - ^flag <player> cursorid:<context.cursor_item.material.id>
+    - ^flag <player> cursordata:<context.cursor_item.material.data>
+    - ^flag <player> cursoridqty:<context.cursor_item.quantity>
+    - ^flag <player> profinv:inv_eudes_ok
+    - ^flag <player> proforigin:alquimia
+    - ^run 's@countprofq'
+    - ^DETERMINE cancelled
+    - ^queue clear
+
+    on player clicks Entregar in inv_eudes_ok_potion:
+    - ^flag <player> potion:<context.cursor_item>
+    - ^flag <player> cursoridqty:<context.cursor_item.quantity>
+    - ^flag <player> profinv:inv_eudes_ok_potion
+    - ^flag <player> proforigin:alquimia
+    - ^run 's@countprofqpotion'
+    - ^DETERMINE cancelled
+    - ^queue clear
+
+molinoend:
+    type: task
+    script:
+    - ^schematic load name:molino
+    - ^schematic paste name:molino location:<cu@molino.min>
+    - ^schematic unload name:molino
+    - ^foreach <server.list_online_players> {
+      - ^title "title:<aqua>Eudes" "subtitle:<yellow>Molino reconstruido" stay:5s targets:%value%
+      }
+    - ^flag <server> tempmeslajho:->:molino
+    - ^if <server.flag[tempmeslajho].as_list.contains[taberna|herreria|armeria|establo|cocina|arcano|fragua|deshuesadero|libreria|aserradero|cantera|molino]> {
+      - ^foreach li@n@1|n@2|n@3|n@5|n@6|n@7|n@8|n@9|n@10|n@35|n@66|n@85|n@91|n@94|n@96|n@99|n@100 {
+        - ^define npctarget %value%
+        - ^teleport <def[npctarget]> <def[npctarget].anchor[construct]>
+        }
+      }
+
+profquestsrandomeudes:
+    type: task
+    script:
+    - ^yaml load:profesiones/data.yml id:<player.name>profalq
+    - ^define questprof <yaml[<player.name>profalq].list_keys[alquimia].filter[is[LESS].than[<player.jobs[Alquimista].xp.level||>]].random[1].formatted>
+    - ^define questidmaterial <yaml[<player.name>profalq].read[alquimia.<def[questprof]>.material]>
+    - ^if <def[questidmaterial]> == 373 {
+      - ^define questidpotion <yaml[<player.name>profalq].read[alquimia.<def[questprof]>.potion]>
+      - ^define questalmakos <math.asint:<player.jobs[Alquimista].xp.level||>*50>
+      - ^define questidexp <math:<yaml[<player.name>profalq].read[alquimia.<def[questprof]>.exp]>*2>
+      - ^define questidalmakos "<math:<def[questidexp]>*8>"
+      - ^define questconteo "<math.asint:<def[questalmakos]>/<def[questidalmakos]>>"
+      - ^if <def[questconteo]> <= 0 {
+        - ^define questprofcant 1
+        } else {
+        - ^define questprofcant <def[questconteo]>
+        }
+      - ^yaml load:personal/<player.name>.yml id:<player.name>
+      - ^yaml id:<player.name> set alquimia.misionprof.cant:<def[questprofcant]>
+      - ^yaml id:<player.name> set alquimia.misionprof.reward:<math.asint:<def[questprofcant]>*<def[questidalmakos]>>
+      - ^yaml id:<player.name> set alquimia.misionprof.xpreward:<math.asint:<def[questprofcant]>*<def[questidexp]>>
+      - ^yaml id:<player.name> set alquimia.misionprof.xpid:<def[questidexp]>
+      - ^yaml id:<player.name> set alquimia.misionprof.obj:<def[questidpotion]>
+      - ^flag <player> questprofcant:<yaml[<player.name>].read[alquimia.misionprof.cant]>
+      - ^define lore "|&ss6Cantidad &sse<yaml[<player.name>].read[alquimia.misionprof.cant]>||&ss2Recompensas|&sse<yaml[<player.name>].read[alquimia.misionprof.reward]> &ss5Almakos|&sse<yaml[<player.name>].read[alquimia.misionprof.xpreward]> &ss5Experiencia"
+      - ^flag <player> lorepotion:<def[lore]>
+      - ^flag <player> questproftarjet:<yaml[<player.name>].read[alquimia.misionprof.obj]>
+      - ^flag <player> questproftarjetpotion:<yaml[<player.name>].read[alquimia.misionprof.potion]>
+      - ^flag <player> profreward:<yaml[<player.name>].read[alquimia.misionprof.reward]>
+      - ^flag <player> profrewardxp:<yaml[<player.name>].read[alquimia.misionprof.xpreward]>
+      - ^flag <player> AlquimiaON:ok
+      - ^inventory open d:in@inv_eudes_ok_potion
+      - ^flag <player> questprofcant:!
+      - ^flag <player> lorepotion:!
+      - ^flag <player> questproftarjet:!
+      - ^flag <player> questproftarjetpotion:!
+      - ^flag <player> profreward:!
+      - ^flag <player> profrewardxp:!
+      - ^yaml savefile:personal/<player.name>.yml id:<player.name>
+      - ^yaml unload id:<player.name>
+      - ^yaml unload id:<player.name>profalq
+      } else {
+      - ^define questalmakos <math.asint:<player.jobs[Alquimista].xp.level||>*50>
+      - ^define questidname <yaml[<player.name>profalq].read[alquimia.<def[questprof]>.name]>
+      - ^define questidexp <math:<yaml[<player.name>profalq].read[alquimia.<def[questprof]>.exp]>*2>
+      - ^define questidalmakos "<math:<def[questidexp]>*8>"
+      - ^define questconteo "<math.asint:<def[questalmakos]>/<def[questidalmakos]>>"
+      - ^if <def[questconteo]> <= 0 {
+        - ^define questprofcant 1
+        } else {
+        - ^define questprofcant <def[questconteo]>
+        }
+      - ^yaml load:personal/<player.name>.yml id:<player.name>
+      - ^yaml id:<player.name> set alquimia.misionprof.cant:<def[questprofcant]>
+      - ^yaml id:<player.name> set alquimia.misionprof.reward:<math.asint:<def[questprofcant]>*<def[questidalmakos]>>
+      - ^yaml id:<player.name> set alquimia.misionprof.xpreward:<math.asint:<def[questprofcant]>*<def[questidexp]>>
+      - ^yaml id:<player.name> set alquimia.misionprof.xpid:<def[questidexp]>
+      - ^yaml id:<player.name> set alquimia.misionprof.obj:<def[questidmaterial]>
+      - ^yaml id:<player.name> set alquimia.misionprof.name:<def[questidname]>
+      - ^yaml id:<player.name> set alquimia.misionprof.data:<yaml[<player.name>profalq].read[alquimia.<def[questprof]>.data]>
+      - ^flag <player> questprofcant:<yaml[<player.name>].read[alquimia.misionprof.cant]>
+      - ^flag <player> questproftarjet:<yaml[<player.name>].read[alquimia.misionprof.obj]>
+      - ^flag <player> questprofname:<yaml[<player.name>].read[alquimia.misionprof.name]>
+      - ^flag <player> questprofdata:<yaml[<player.name>].read[alquimia.misionprof.data]>
+      - ^flag <player> profreward:<yaml[<player.name>].read[alquimia.misionprof.reward]>
+      - ^flag <player> profrewardxp:<yaml[<player.name>].read[alquimia.misionprof.xpreward]>
+      - ^flag <player> AlquimiaON:ok
+      - ^inventory open d:in@inv_eudes_ok
+      - ^flag <player> questprofcant:!
+      - ^flag <player> questproftarjet:!
+      - ^flag <player> questprofname:!
+      - ^flag <player> questprofdata:!
+      - ^flag <player> profreward:!
+      - ^flag <player> profrewardxp:!
+      - ^yaml savefile:personal/<player.name>.yml id:<player.name>
+      - ^yaml unload id:<player.name>
+      - ^yaml unload id:<player.name>profalq
+      }
+    - ^queue clear
+
+profquestscheckeudes:
+    type: task
+    script:
+    - ^yaml load:personal/<player.name>.yml id:<player.name>
+    - ^if <yaml[<player.name>].read[alquimia.misionprof.obj]> contains potion {
+      - ^flag <player> questprofcant:<yaml[<player.name>].read[alquimia.misionprof.cant]>
+      - ^flag <player> questproftarjet:<yaml[<player.name>].read[alquimia.misionprof.obj]>
+      - ^flag <player> profreward:<yaml[<player.name>].read[alquimia.misionprof.reward]>
+      - ^flag <player> profrewardxp:<yaml[<player.name>].read[alquimia.misionprof.xpreward]>
+      - ^define lore "|&ss6Cantidad &sse<yaml[<player.name>].read[alquimia.misionprof.cant]>||&ss2Recompensas|&sse<yaml[<player.name>].read[alquimia.misionprof.reward]> &ss5Almakos|&sse<yaml[<player.name>].read[alquimia.misionprof.xpreward]> &ss5Experiencia"
+      - ^flag <player> lorepotion:<def[lore]>
+      - ^inventory open d:in@inv_eudes_ok_potion
+      - ^flag <player> questprofcant:!
+      - ^flag <player> questproftarjet:!
+      - ^flag <player> questprofname:!
+      - ^flag <player> questprofdata:!
+      - ^flag <player> objID:!
+      - ^flag <player> objdatapro:!
+      - ^flag <player> profreward:!
+      - ^flag <player> profrewardxp:!
+      - ^yaml unload id:<player.name>
+      - ^queue clear
+      } else {
+      - ^flag <player> questprofcant:<yaml[<player.name>].read[alquimia.misionprof.cant]>
+      - ^flag <player> questproftarjet:<yaml[<player.name>].read[alquimia.misionprof.obj]>
+      - ^flag <player> questprofname:<yaml[<player.name>].read[alquimia.misionprof.name]>
+      - ^flag <player> questprofdata:<yaml[<player.name>].read[alquimia.misionprof.data]>
+      - ^flag <player> objID:<yaml[<player.name>].read[alquimia.misionprof.obj]>
+      - ^flag <player> objdatapro:<yaml[<player.name>].read[alquimia.misionprof.data]>
+      - ^flag <player> profreward:<yaml[<player.name>].read[alquimia.misionprof.reward]>
+      - ^flag <player> profrewardxp:<yaml[<player.name>].read[alquimia.misionprof.xpreward]>
+      - ^define lore "|&ss6Cantidad &sse<yaml[<player.name>].read[alquimia.misionprof.cant]>||&ss2Recompensas|&sse<yaml[<player.name>].read[alquimia.misionprof.reward]> &ss5Almakos|&sse<yaml[<player.name>].read[alquimia.misionprof.xpreward]> &ss5Experiencia"
+      - ^flag <player> lorepotion:<def[lore]>
+      - inventory open d:in@inv_eudes_ok
+      - ^flag <player> questprofcant:!
+      - ^flag <player> questproftarjet:!
+      - ^flag <player> questprofname:!
+      - ^flag <player> questprofdata:!
+      - ^flag <player> objID:!
+      - ^flag <player> objdatapro:!
+      - ^flag <player> profreward:!
+      - ^flag <player> profrewardxp:!
+      - ^yaml unload id:<player.name>
+      - ^queue clear
+      }
+
+# = INVENTARIOS
+inv_eudes:
+  type: inventory
+  inventory: dispenser
+  title: <gold>Alquimia
+  size: 9
+  slots:
+  - "[i@cancelslot] [i@Eudesinfo1] [i@cancelslot]"
+  - "[i@cancelslot] [i@cancelslot] [i@cancelslot]"
+  - "[i@aceptarprof] [i@cancelslot] [i@rechazarprof]"
+inv_eudes_ok:
+  type: inventory
+  inventory: dispenser
+  title: <gold>Depositar
+  size: 9
+  slots:
+  - "[i@cancelslot] [i@infoquestprof] [i@cancelslot]"
+  - "[i@cancelslot] [i@Entregar] [i@cancelslot]"
+  - "[i@cancelslot] [i@cancelslot] [i@cancelslot]"
+inv_eudes_ok_potion:
+  type: inventory
+  inventory: dispenser
+  title: <gold>Depositar
+  size: 9
+  slots:
+  - "[i@cancelslot] [<player.flag[questproftarjet]>;lore=<player.flag[lorepotion]>]] [i@cancelslot]"
+  - "[i@cancelslot] [i@Entregar] [i@cancelslot]"
+  - "[i@cancelslot] [i@cancelslot] [i@cancelslot]"
+
+
+## Craft Eudes
+inv_profesioneudescraftalqu:
+  type: inventory
+  title: '<gold>Crafteos'
+  size: 54
+  slots:
+  - "[i@ALQSM001] [i@ALQSM002] [i@ALQSM003] [i@ALQSM004] [i@ALQSM005] [i@ALQSM006] [i@ALQSM007] [i@ALQSM008] [i@ALQSM009]"
+  - "[i@ALQSM010] [i@ALQSM011] [i@ALQSM012] [i@ALQSM013] [i@ALQSM014] [i@ALQSM015] [i@ALQSM016] [i@ALQSM017] [i@ALQSM018]"
+  - "[i@ALQSM019] [i@ALQSM020] [i@ALQSM021] [i@ALQSM022] [i@ALQSM023] [i@ALQSM024] [i@ALQSM025] [i@ALQSM026] [i@ALQSM027]"
+  - "[i@ALQSM028] [i@ALQSM029] [i@ALQSM030] [i@ALQSM031] [i@ALQSM032] [i@ALQSM033] [i@ALQSM034] [i@ALQSM035] [i@ALQSM036]"
+  - "[i@ALQSM037] [i@ALQSM038] [i@ALQSM039] [i@ALQSM040] [i@ALQSM041] [i@ALQSM042] [i@cancelslot] [i@cancelslot] [i@cancelslot]"
+  - "[i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@Regresar] [i@cancelslot] [i@cancelslot] [i@cancelslot]"
+
+## Place Eudes
+inv_profesioneudesplacealqu:
+  type: inventory
+  title: '<gold>Colocaciones'
+  size: 54
+  slots:
+  - "[i@ALQPL001] [i@ALQPL002] [i@ALQPL003] [i@ALQPL004] [i@ALQPL005] [i@ALQPL006] [i@ALQPL007] [i@ALQPL008] [i@ALQPL009]"
+  - "[i@ALQPL010] [i@ALQPL011] [i@ALQPL012] [i@ALQPL013] [i@ALQPL014] [i@ALQPL015] [i@ALQPL016] [i@ALQPL017] [i@ALQPL018]"
+  - "[i@ALQPL019] [i@ALQPL020] [i@ALQPL021] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot]"
+  - "[i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot]"
+  - "[i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot]"
+  - "[i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@Regresar] [i@cancelslot] [i@cancelslot] [i@cancelslot]"
+
+## Smelt Eudes
+inv_profesioneudessmeltalqu:
+  type: inventory
+  title: '<gold>Fundiciones'
+  size: 54
+  slots:
+  - "[i@ALQSM001] [i@ALQSM002] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot]"
+  - "[i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot]"
+  - "[i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot]"
+  - "[i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot]"
+  - "[i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot]"
+  - "[i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@Regresar] [i@cancelslot] [i@cancelslot] [i@cancelslot]"
+## Breack Eudes
+inv_profesioneudesbreackalqu:
+  type: inventory
+  title: '<gold>Romper'
+  size: 54
+  slots:
+  - "[i@ALQBK001] [i@ALQBK002] [i@ALQBK002] [i@ALQBK004] [i@ALQBK005] [i@ALQBK006] [i@ALQBK007] [i@ALQBK008] [i@ALQBK009]"
+  - "[i@ALQBK010] [i@ALQBK011] [i@ALQBK012] [i@ALQBK013] [i@ALQBK014] [i@ALQBK015] [i@ALQBK016] [i@ALQBK017] [i@ALQBK018]"
+  - "[i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot]"
+  - "[i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot]"
+  - "[i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot]"
+  - "[i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@Regresar] [i@cancelslot] [i@cancelslot] [i@cancelslot]"
+## Brewing Eudes
+inv_profesioneudesbrewalqu:
+  type: inventory
+  title: '<gold>Alquimia 1/2'
+  size: 54
+  slots:
+  - "[i@ALQBW001] [i@ALQBW002] [i@ALQBW003] [i@ALQBW004] [i@ALQBW005] [i@ALQBW006] [i@ALQBW007] [i@ALQBW008] [i@ALQBW009]"
+  - "[i@ALQBW010] [i@ALQBW011] [i@ALQBW012] [i@ALQBW013] [i@ALQBW014] [i@ALQBW015] [i@ALQBW016] [i@ALQBW017] [i@ALQBW018]"
+  - "[i@ALQBW019] [i@ALQBW020] [i@ALQBW021] [i@ALQBW022] [i@ALQBW023] [i@ALQBW024] [i@ALQBW025] [i@ALQBW026] [i@ALQBW027]"
+  - "[i@ALQBW028] [i@ALQBW029] [i@ALQBW030] [i@ALQBW031] [i@ALQBW032] [i@ALQBW033] [i@ALQBW034] [i@ALQBW035] [i@ALQBW036]"
+  - "[i@ALQBW037] [i@ALQBW038] [i@ALQBW039] [i@ALQBW040] [i@ALQBW041] [i@ALQBW042] [i@ALQBW043] [i@ALQBW044] [i@ALQBW045]"
+  - "[i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@Regresar] [i@cancelslot] [i@cancelslot] [i@Siguiente]"
+inv_profesioneudesbrewalqu2:
+  type: inventory
+  title: '<gold>Alquimia 2/2'
+  size: 54
+  slots:
+  - "[i@ALQBW046] [i@ALQBW047] [i@ALQBW048] [i@ALQBW049] [i@ALQBW050] [i@ALQBW051] [i@ALQBW052] [i@ALQBW053] [i@ALQBW054]"
+  - "[i@ALQBW055] [i@ALQBW056] [i@ALQBW057] [i@ALQBW058] [i@ALQBW059] [i@ALQBW060] [i@ALQBW061] [i@ALQBW062] [i@ALQBW063]"
+  - "[i@ALQBW064] [i@ALQBW065] [i@ALQBW066] [i@ALQBW067] [i@ALQBW068] [i@ALQBW069] [i@ALQBW070] [i@ALQBW071] [i@cancelslot]"
+  - "[i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot]"
+  - "[i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot]"
+  - "[i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@Regresar] [i@cancelslot] [i@Atras] [i@cancelslot]"
+
+## Use Eudes
+inv_profesioneudesusealqu:
+  type: inventory
+  title: '<gold>Usos'
+  size: 54
+  slots:
+  - "[i@ALQUS001] [i@ALQUS002] [i@ALQUS003] [i@ALQUS004] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot]"
+  - "[i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot]"
+  - "[i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot]"
+  - "[i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot]"
+  - "[i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot]"
+  - "[i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@Regresar] [i@cancelslot] [i@cancelslot] [i@cancelslot]"
+
+########### - Eudes - #########
+Eudesinfo1:
+  type: item
+  material: paper
+  display name: '<blue>Alquimia'
+  lore:
+  - ''
+  - '<gray>Los <yellow>Alquimistas <gray>buscan minerales valiosos'
+  - '<gray>para extraerlos con sus picos'
+  - '<gray>usan sus materiales para crear cosas'
+  - '<gray>y tambien pueden fundir los minerales'
+  - '<gray>para creaciones mas valiosas.'
+
+#        == Alquimista CRAFT ==
+
+ALQSM001:
+  type: item
+  material: 291
+  lore:
+  - '<dark_green>Nivel para craftear <gold>2'
+  - '<green>Exp <white>- <gold>1.2'
+ALQSM002:
+  type: item
+  material: 351,1
+  lore:
+  - '<dark_green>Nivel para craftear <gold>4'
+  - '<green>Exp <white>- <gold>1.3'
+ALQSM003:
+  type: item
+  material: 351,5
+  lore:
+  - '<dark_green>Nivel para craftear <gold>4'
+  - '<green>Exp <white>- <gold>3.1'
+ALQSM004:
+  type: item
+  material: 351,6
+  lore:
+  - '<dark_green>Nivel para craftear <gold>4'
+  - '<green>Exp <white>- <gold>3.1'
+ALQSM005:
+  type: item
+  material: 351,7
+  lore:
+  - '<dark_green>Nivel para craftear <gold>4'
+  - '<green>Exp <white>- <gold>7.3'
+ALQSM006:
+  type: item
+  material: 351,8
+  lore:
+  - '<dark_green>Nivel para craftear <gold>4'
+  - '<green>Exp <white>- <gold>3.1'
+ALQSM007:
+  type: item
+  material: 351,9
+  lore:
+  - '<dark_green>Nivel para craftear <gold>4'
+  - '<green>Exp <white>- <gold>3.1'
+ALQSM008:
+  type: item
+  material: 351,10
+  lore:
+  - '<dark_green>Nivel para craftear <gold>4'
+  - '<green>Exp <white>- <gold>4.7'
+ALQSM009:
+  type: item
+  material: 351,11
+  lore:
+  - '<dark_green>Nivel para craftear <gold>4'
+  - '<green>Exp <white>- <gold>1.3'
+ALQSM010:
+  type: item
+  material: 351,12
+  lore:
+  - '<dark_green>Nivel para craftear <gold>4'
+  - '<green>Exp <white>- <gold>3.1'
+ALQSM011:
+  type: item
+  material: 351,13
+  lore:
+  - '<dark_green>Nivel para craftear <gold>4'
+  - '<green>Exp <white>- <gold>7.5'
+ALQSM012:
+  type: item
+  material: 351,14
+  lore:
+  - '<dark_green>Nivel para craftear <gold>4'
+  - '<green>Exp <white>- <gold>3.1'
+ALQSM013:
+  type: item
+  material: 351,15
+  lore:
+  - '<dark_green>Nivel para craftear <gold>4'
+  - '<green>Exp <white>- <gold>1.3'
+ALQSM014:
+  type: item
+  material: 379
+  lore:
+  - '<dark_green>Nivel para craftear <gold>8'
+  - '<green>Exp <white>- <gold>2'
+ALQSM015:
+  type: item
+  material: 374
+  lore:
+  - '<dark_green>Nivel para craftear <gold>10'
+  - '<green>Exp <white>- <gold>6.8'
+ALQSM016:
+  type: item
+  material: 377
+  lore:
+  - '<dark_green>Nivel para craftear <gold>12'
+  - '<green>Exp <white>- <gold>1.2'
+ALQSM017:
+  type: item
+  material: 353
+  lore:
+  - '<dark_green>Nivel para craftear <gold>36'
+  - '<green>Exp <white>- <gold>73.4'
+ALQSM018:
+  type: item
+  material: 382
+  lore:
+  - '<dark_green>Nivel para craftear <gold>38'
+  - '<green>Exp <white>- <gold>25.5'
+ALQSM019:
+  type: item
+  material: 216
+  lore:
+  - '<dark_green>Nivel para craftear <gold>53'
+  - '<green>Exp <white>- <gold>7.0'
+ALQSM020:
+  type: item
+  material: 376
+  lore:
+  - '<dark_green>Nivel para craftear <gold>89'
+  - '<green>Exp <white>- <gold>83.5'
+ALQSM021:
+  type: item
+  material: 398
+  lore:
+  - '<dark_green>Nivel para craftear <gold>104'
+  - '<green>Exp <white>- <gold>75.5'
+ALQSM022:
+  type: item
+  material: 292
+  lore:
+  - '<dark_green>Nivel para craftear <gold>152'
+  - '<green>Exp <white>- <gold>274.5'
+ALQSM023:
+  type: item
+  material: 390
+  lore:
+  - '<dark_green>Nivel para craftear <gold>154'
+  - '<green>Exp <white>- <gold>4.7'
+ALQSM024:
+  type: item
+  material: 357
+  lore:
+  - '<dark_green>Nivel para craftear <gold>156'
+  - '<green>Exp <white>- <gold>25.9'
+ALQSM025:
+  type: item
+  material: 297
+  lore:
+  - '<dark_green>Nivel para craftear <gold>158'
+  - '<green>Exp <white>- <gold>308.1'
+ALQSM026:
+  type: item
+  material: 170
+  lore:
+  - '<dark_green>Nivel para craftear <gold>160'
+  - '<green>Exp <white>- <gold>426.1'
+ALQSM027:
+  type: item
+  material: 354
+  lore:
+  - '<dark_green>Nivel para craftear <gold>162'
+  - '<green>Exp <white>- <gold>244.6'
+ALQSM028:
+  type: item
+  material: 294
+  lore:
+  - '<dark_green>Nivel para craftear <gold>202'
+  - '<green>Exp <white>- <gold>1097.3'
+ALQSM029:
+  type: item
+  material: 322
+  lore:
+  - '<dark_green>Nivel para craftear <gold>204'
+  - '<green>Exp <white>- <gold>15.1'
+ALQSM030:
+  type: item
+  material: 396
+  lore:
+  - '<dark_green>Nivel para craftear <gold>206'
+  - '<green>Exp <white>- <gold>87.8'
+ALQSM031:
+  type: item
+  material: 322,1
+  lore:
+  - '<dark_green>Nivel para craftear <gold>208'
+  - '<green>Exp <white>- <gold>23699.0'
+ALQSM032:
+  type: item
+  material: 436
+  lore:
+  - '<dark_green>Nivel para craftear <gold>210'
+  - '<green>Exp <white>- <gold>793.3'
+ALQSM033:
+  type: item
+  material: 378
+  lore:
+  - '<dark_green>Nivel para craftear <gold>212'
+  - '<green>Exp <white>- <gold>1.7'
+ALQSM034:
+  type: item
+  material: 213
+  lore:
+  - '<dark_green>Nivel para craftear <gold>214'
+  - '<green>Exp <white>- <gold>8.0'
+ALQSM035:
+  type: item
+  material: 91
+  lore:
+  - '<dark_green>Nivel para craftear <gold>240'
+  - '<green>Exp <white>- <gold>81.0'
+ALQSM036:
+  type: item
+  material: 413
+  lore:
+  - '<dark_green>Nivel para craftear <gold>242'
+  - '<green>Exp <white>- <gold>331.9'
+ALQSM037:
+  type: item
+  material: 293
+  lore:
+  - '<dark_green>Nivel para craftear <gold>252'
+  - '<green>Exp <white>- <gold>548.7'
+ALQSM038:
+  type: item
+  material: 400
+  lore:
+  - '<dark_green>Nivel para craftear <gold>254'
+  - '<green>Exp <white>- <gold>254.7'
+ALQSM039:
+  type: item
+  material: 282
+  lore:
+  - '<dark_green>Nivel para craftear <gold>256'
+  - '<green>Exp <white>- <gold>323.2'
+ALQSM040:
+  type: item
+  material: 381
+  lore:
+  - '<dark_green>Nivel para craftear <gold>258'
+  - '<green>Exp <white>- <gold>6.1'
+ALQSM041:
+  type: item
+  material: 130
+  lore:
+  - '<dark_green>Nivel para craftear <gold>260'
+  - '<green>Exp <white>- <gold>19.4'
+ALQSM042:
+  type: item
+  material: 138
+  lore:
+  - '<dark_green>Nivel para craftear <gold>262'
+  - '<green>Exp <white>- <gold>13.0'
+# =============== PLACE
+ALQPL001:
+  type: item
+  material: 117
+  lore:
+  - '<green>Exp <white>- <gold>2'
+ALQPL002:
+  type: item
+  material: 216
+  lore:
+  - '<green>Exp <white>- <gold>7.0'
+ALQPL003:
+  type: item
+  material: 140
+  lore:
+  - '<green>Exp <white>- <gold>4.7'
+ALQPL004:
+  type: item
+  material: 170
+  lore:
+  - '<green>Exp <white>- <gold>426.1'
+ALQPL005:
+  type: item
+  material: 92
+  lore:
+  - '<green>Exp <white>- <gold>244.6'
+ALQPL006:
+  type: item
+  material: 213
+  lore:
+  - '<green>Exp <white>- <gold>8.0'
+ALQPL007:
+  type: item
+  material: 130
+  lore:
+  - '<green>Exp <white>- <gold>19.4'
+ALQPL008:
+  type: item
+  material: 138
+  lore:
+  - '<green>Exp <white>- <gold>13.0'
+ALQPL009:
+  type: item
+  material: 37
+  lore:
+  - '<green>Exp <white>- <gold>0.6'
+ALQPL010:
+  type: item
+  material: 38
+  lore:
+  - '<green>Exp <white>- <gold>0.6'
+ALQPL011:
+  type: item
+  material: 38,1
+  lore:
+  - '<green>Exp <white>- <gold>0.6'
+ALQPL012:
+  type: item
+  material: 38,2
+  lore:
+  - '<green>Exp <white>- <gold>0.6'
+ALQPL013:
+  type: item
+  material: 38,3
+  lore:
+  - '<green>Exp <white>- <gold>0.6'
+ALQPL014:
+  type: item
+  material: 38,4
+  lore:
+  - '<green>Exp <white>- <gold>0.6'
+ALQPL015:
+  type: item
+  material: 38,5
+  lore:
+  - '<green>Exp <white>- <gold>0.6'
+ALQPL016:
+  type: item
+  material: 38,6
+  lore:
+  - '<green>Exp <white>- <gold>0.6'
+ALQPL017:
+  type: item
+  material: 38,7
+  lore:
+  - '<green>Exp <white>- <gold>0.6'
+ALQPL018:
+  type: item
+  material: 38,8
+  lore:
+  - '<green>Exp <white>- <gold>0.6'
+ALQPL019:
+  type: item
+  material: 39
+  lore:
+  - '<green>Exp <white>- <gold>67.3'
+ALQPL020:
+  type: item
+  material: 40
+  lore:
+  - '<green>Exp <white>- <gold>67.3'
+ALQPL021:
+  type: item
+  material: 91
+  lore:
+  - '<green>Exp <white>- <gold>81.0'
+
+## ======== Smelt
+ALQSM001:
+  type: item
+  material: 351,2
+  lore:
+  - '<dark_green>Nivel para fundir <gold>4'
+  - '<green>Exp <white>- <gold>0.6'
+ALQSM002:
+  type: item
+  material: 392
+  lore:
+  - '<dark_green>Nivel para fundir <gold>6'
+  - '<green>Exp <white>- <gold>6.2'
+## ==== BREACK
+ALQBK001:
+  type: item
+  material: 351,3
+  lore:
+  - '<green>Exp <white>- <gold>1.3'
+ALQBK002:
+  type: item
+  material: 392
+  lore:
+  - '<green>Exp <white>- <gold>6.2'
+ALQBK003:
+  type: item
+  material: 37
+  lore:
+  - '<green>Exp <white>- <gold>0.6'
+ALQBK004:
+  type: item
+  material: 38
+  lore:
+  - '<green>Exp <white>- <gold>0.6'
+ALQBK005:
+  type: item
+  material: 38,1
+  lore:
+  - '<green>Exp <white>- <gold>0.6'
+ALQBK006:
+  type: item
+  material: 38,2
+  lore:
+  - '<green>Exp <white>- <gold>0.6'
+ALQBK007:
+  type: item
+  material: 38,3
+  lore:
+  - '<green>Exp <white>- <gold>0.6'
+ALQBK008:
+  type: item
+  material: 38,4
+  lore:
+  - '<green>Exp <white>- <gold>0.6'
+ALQBK009:
+  type: item
+  material: 38,5
+  lore:
+  - '<green>Exp <white>- <gold>0.6'
+ALQBK010:
+  type: item
+  material: 38,6
+  lore:
+  - '<green>Exp <white>- <gold>0.6'
+ALQBK011:
+  type: item
+  material: 38,7
+  lore:
+  - '<green>Exp <white>- <gold>0.6'
+ALQBK012:
+  type: item
+  material: 38,8
+  lore:
+  - '<green>Exp <white>- <gold>0.6'
+ALQBK013:
+  type: item
+  material: 39
+  lore:
+  - '<green>Exp <white>- <gold>67.3'
+ALQBK014:
+  type: item
+  material: 40
+  lore:
+  - '<green>Exp <white>- <gold>67.3'
+ALQBK015:
+  type: item
+  material: 81
+  lore:
+  - '<green>Exp <white>- <gold>134.6'
+ALQBK016:
+  type: item
+  material: 103
+  lore:
+  - '<green>Exp <white>- <gold>36.8'
+ALQBK017:
+  type: item
+  material: 296
+  lore:
+  - '<green>Exp <white>- <gold>85.6'
+ALQBK018:
+  type: item
+  material: 338
+  lore:
+  - '<green>Exp <white>- <gold>61.2'
+# ==== Alquimia
+ALQBW001:
+  type: item
+  material: 373,64
+  lore:
+  - '<dark_green>Nivel para craftear <gold>14'
+  - '<green>Exp <white>- <gold>2.6'
+ALQBW002:
+  type: item
+  material: 373,32
+  lore:
+  - '<dark_green>Nivel para craftear <gold>16'
+  - '<green>Exp <white>- <gold>3.3'
+ALQBW003:
+  type: item
+  material: 373,16
+  lore:
+  - '<dark_green>Nivel para craftear <gold>18'
+  - '<green>Exp <white>- <gold>8.1'
+ALQBW004:
+  type: item
+  material: 373,8196
+  lore:
+  - '<dark_green>Nivel para craftear <gold>20'
+  - '<green>Exp <white>- <gold>10.5'
+ALQBW005:
+  type: item
+  material: 373,8201
+  lore:
+  - '<dark_green>Nivel para craftear <gold>22'
+  - '<green>Exp <white>- <gold>11.1'
+ALQBW006:
+  type: item
+  material: 373,8195
+  lore:
+  - '<dark_green>Nivel para craftear <gold>24'
+  - '<green>Exp <white>- <gold>11.7'
+ALQBW007:
+  type: item
+  material: 373,8193
+  lore:
+  - '<dark_green>Nivel para craftear <gold>26'
+  - '<green>Exp <white>- <gold>12.1'
+ALQBW008:
+  type: item
+  material: 373,8260
+  lore:
+  - '<dark_green>Nivel para craftear <gold>28'
+  - '<green>Exp <white>- <gold>15.2'
+ALQBW009:
+  type: item
+  material: 373,16388
+  lore:
+  - '<dark_green>Nivel para craftear <gold>30'
+  - '<green>Exp <white>- <gold>15.2'
+ALQBW010:
+  type: item
+  material: 373,8265
+  lore:
+  - '<dark_green>Nivel para craftear <gold>32'
+  - '<green>Exp <white>- <gold>15.9'
+ALQBW011:
+  type: item
+  material: 373,16393
+  lore:
+  - '<dark_green>Nivel para craftear <gold>34'
+  - '<green>Exp <white>- <gold>15.9'
+ALQBW012:
+  type: item
+  material: 373,8233
+  lore:
+  - '<dark_green>Nivel para craftear <gold>56'
+  - '<green>Exp <white>- <gold>16.6'
+ALQBW013:
+  type: item
+  material: 373,8259
+  lore:
+  - '<dark_green>Nivel para craftear <gold>59'
+  - '<green>Exp <white>- <gold>16.6'
+ALQBW014:
+  type: item
+  material: 373,16387
+  lore:
+  - '<dark_green>Nivel para craftear <gold>62'
+  - '<green>Exp <white>- <gold>16.6'
+ALQBW015:
+  type: item
+  material: 373,8257
+  lore:
+  - '<dark_green>Nivel para craftear <gold>65'
+  - '<green>Exp <white>- <gold>17.0'
+ALQBW016:
+  type: item
+  material: 373,16385
+  lore:
+  - '<dark_green>Nivel para craftear <gold>68'
+  - '<green>Exp <white>- <gold>17.0'
+ALQBW017:
+  type: item
+  material: 373,8228
+  lore:
+  - '<dark_green>Nivel para craftear <gold>71'
+  - '<green>Exp <white>- <gold>17.3'
+ALQBW018:
+  type: item
+  material: 373,8225
+  lore:
+  - '<dark_green>Nivel para craftear <gold>74'
+  - '<green>Exp <white>- <gold>17.7'
+ALQBW019:
+  type: item
+  material: 373,16452
+  lore:
+  - '<dark_green>Nivel para craftear <gold>77'
+  - '<green>Exp <white>- <gold>20.8'
+ALQBW020:
+  type: item
+  material: 373,16457
+  lore:
+  - '<dark_green>Nivel para craftear <gold>80'
+  - '<green>Exp <white>- <gold>21.7'
+ALQBW021:
+  type: item
+  material: 373,8297
+  lore:
+  - '<dark_green>Nivel para craftear <gold>83'
+  - '<green>Exp <white>- <gold>22.5'
+ALQBW022:
+  type: item
+  material: 373,16425
+  lore:
+  - '<dark_green>Nivel para craftear <gold>86'
+  - '<green>Exp <white>- <gold>22.5'
+ALQBW023:
+  type: item
+  material: 373,16451
+  lore:
+  - '<dark_green>Nivel para craftear <gold>108'
+  - '<green>Exp <white>- <gold>22.5'
+ALQBW024:
+  type: item
+  material: 373,16449
+  lore:
+  - '<dark_green>Nivel para craftear <gold>112'
+  - '<green>Exp <white>- <gold>23.0'
+ALQBW025:
+  type: item
+  material: 373,8292
+  lore:
+  - '<dark_green>Nivel para craftear <gold>116'
+  - '<green>Exp <white>- <gold>23.4'
+ALQBW026:
+  type: item
+  material: 373,16420
+  lore:
+  - '<dark_green>Nivel para craftear <gold>120'
+  - '<green>Exp <white>- <gold>23.4'
+ALQBW027:
+  type: item
+  material: 373,8289
+  lore:
+  - '<dark_green>Nivel para craftear <gold>124'
+  - '<green>Exp <white>- <gold>23.8'
+ALQBW028:
+  type: item
+  material: 373,16417
+  lore:
+  - '<dark_green>Nivel para craftear <gold>128'
+  - '<green>Exp <white>- <gold>23.8'
+ALQBW029:
+  type: item
+  material: 373,16489
+  lore:
+  - '<dark_green>Nivel para craftear <gold>132'
+  - '<green>Exp <white>- <gold>29.5'
+ALQBW030:
+  type: item
+  material: 373,16484
+  lore:
+  - '<dark_green>Nivel para craftear <gold>136'
+  - '<green>Exp <white>- <gold>30.6'
+ALQBW031:
+  type: item
+  material: 373,16481
+  lore:
+  - '<dark_green>Nivel para craftear <gold>140'
+  - '<green>Exp <white>- <gold>31.1'
+ALQBW032:
+  type: item
+  material: 373,8197
+  lore:
+  - '<dark_green>Nivel para craftear <gold>144'
+  - '<green>Exp <white>- <gold>40.2'
+ALQBW033:
+  type: item
+  material: 373,16389
+  lore:
+  - '<dark_green>Nivel para craftear <gold>148'
+  - '<green>Exp <white>- <gold>50.8'
+ALQBW034:
+  type: item
+  material: 373,8229
+  lore:
+  - '<dark_green>Nivel para craftear <gold>164'
+  - '<green>Exp <white>- <gold>51.5'
+ALQBW035:
+  type: item
+  material: 373,8205
+  lore:
+  - '<dark_green>Nivel para craftear <gold>166'
+  - '<green>Exp <white>- <gold>53.8'
+ALQBW036:
+  type: item
+  material: 373,16421
+  lore:
+  - '<dark_green>Nivel para craftear <gold>168'
+  - '<green>Exp <white>- <gold>64.4'
+ALQBW037:
+  type: item
+  material: 373,8269
+  lore:
+  - '<dark_green>Nivel para craftear <gold>170'
+  - '<green>Exp <white>- <gold>67.1'
+ALQBW038:
+  type: item
+  material: 373,16397
+  lore:
+  - '<dark_green>Nivel para craftear <gold>172'
+  - '<green>Exp <white>- <gold>67.1'
+ALQBW039:
+  type: item
+  material: 373,8267
+  lore:
+  - '<dark_green>Nivel para craftear <gold>174'
+  - '<green>Exp <white>- <gold>75.8'
+ALQBW040:
+  type: item
+  material: 373,16461
+  lore:
+  - '<dark_green>Nivel para craftear <gold>176'
+  - '<green>Exp <white>- <gold>83.1'
+ALQBW041:
+  type: item
+  material: 373,16459
+  lore:
+  - '<dark_green>Nivel para craftear <gold>178'
+  - '<green>Exp <white>- <gold>93.6'
+ALQBW042:
+  type: item
+  material: 373,8194
+  lore:
+  - '<dark_green>Nivel para craftear <gold>180'
+  - '<green>Exp <white>- <gold>97.8'
+ALQBW043:
+  type: item
+  material: 373,8264
+  lore:
+  - '<dark_green>Nivel para craftear <gold>182'
+  - '<green>Exp <white>- <gold>103.3'
+ALQBW044:
+  type: item
+  material: 373,8200
+  lore:
+  - '<dark_green>Nivel para craftear <gold>184'
+  - '<green>Exp <white>- <gold>109.9'
+ALQBW045:
+  type: item
+  material: 373,8204
+  lore:
+  - '<dark_green>Nivel para craftear <gold>216'
+  - '<green>Exp <white>- <gold>112.7'
+ALQBW046:
+  type: item
+  material: 373,8206
+  lore:
+  - '<dark_green>Nivel para craftear <gold>218'
+  - '<green>Exp <white>- <gold>112.7'
+ALQBW047:
+  type: item
+  material: 373,8202
+  lore:
+  - '<dark_green>Nivel para craftear <gold>220'
+  - '<green>Exp <white>- <gold>114.2'
+ALQBW048:
+  type: item
+  material: 373,8198
+  lore:
+  - '<dark_green>Nivel para craftear <gold>222'
+  - '<green>Exp <white>- <gold>115.1'
+ALQBW049:
+  type: item
+  material: 373,8258
+  lore:
+  - '<dark_green>Nivel para craftear <gold>224'
+  - '<green>Exp <white>- <gold>119.9'
+ALQBW050:
+  type: item
+  material: 373,16386
+  lore:
+  - '<dark_green>Nivel para craftear <gold>226'
+  - '<green>Exp <white>- <gold>119.9'
+ALQBW051:
+  type: item
+  material: 373,8266
+  lore:
+  - '<dark_green>Nivel para craftear <gold>228'
+  - '<green>Exp <white>- <gold>120.1'
+ALQBW052:
+  type: item
+  material: 373,16392
+  lore:
+  - '<dark_green>Nivel para craftear <gold>230'
+  - '<green>Exp <white>- <gold>134.4'
+ALQBW053:
+  type: item
+  material: 373,8226
+  lore:
+  - '<dark_green>Nivel para craftear <gold>232'
+  - '<green>Exp <white>- <gold>120.6'
+ALQBW054:
+  type: item
+  material: 373,16456
+  lore:
+  - '<dark_green>Nivel para craftear <gold>234'
+  - '<green>Exp <white>- <gold>126.5'
+ALQBW055:
+  type: item
+  material: 373,8270
+  lore:
+  - '<dark_green>Nivel para craftear <gold>236'
+  - '<green>Exp <white>- <gold>137.8'
+ALQBW056:
+  type: item
+  material: 373,8236
+  lore:
+  - '<dark_green>Nivel para craftear <gold>238'
+  - '<green>Exp <white>- <gold>138.5'
+ALQBW057:
+  type: item
+  material: 373,16396
+  lore:
+  - '<dark_green>Nivel para craftear <gold>266'
+  - '<green>Exp <white>- <gold>137.8'
+ALQBW058:
+  type: item
+  material: 373,16398
+  lore:
+  - '<dark_green>Nivel para craftear <gold>268'
+  - '<green>Exp <white>- <gold>137.8'
+ALQBW059:
+  type: item
+  material: 373,16394
+  lore:
+  - '<dark_green>Nivel para craftear <gold>270'
+  - '<green>Exp <white>- <gold>139.6'
+ALQBW060:
+  type: item
+  material: 373,8262
+  lore:
+  - '<dark_green>Nivel para craftear <gold>272'
+  - '<green>Exp <white>- <gold>140.6'
+ALQBW061:
+  type: item
+  material: 373,16390
+  lore:
+  - '<dark_green>Nivel para craftear <gold>274'
+  - '<green>Exp <white>- <gold>133.8'
+ALQBW062:
+  type: item
+  material: 373,16450
+  lore:
+  - '<dark_green>Nivel para craftear <gold>276'
+  - '<green>Exp <white>- <gold>166.4'
+ALQBW063:
+  type: item
+  material: 373,16458
+  lore:
+  - '<dark_green>Nivel para craftear <gold>278'
+  - '<green>Exp <white>- <gold>146.7'
+ALQBW064:
+  type: item
+  material: 373,8290
+  lore:
+  - '<dark_green>Nivel para craftear <gold>280'
+  - '<green>Exp <white>- <gold>147.3'
+ALQBW065:
+  type: item
+  material: 373,16418
+  lore:
+  - '<dark_green>Nivel para craftear <gold>282'
+  - '<green>Exp <white>- <gold>147.3'
+ALQBW066:
+  type: item
+  material: 373,8235
+  lore:
+  - '<dark_green>Nivel para craftear <gold>284'
+  - '<green>Exp <white>- <gold>157.1'
+ALQBW067:
+  type: item
+  material: 373,16462
+  lore:
+  - '<dark_green>Nivel para craftear <gold>286'
+  - '<green>Exp <white>- <gold>168.0'
+ALQBW068:
+  type: item
+  material: 373,16428
+  lore:
+  - '<dark_green>Nivel para craftear <gold>288'
+  - '<green>Exp <white>- <gold>179.3'
+ALQBW069:
+  type: item
+  material: 373,16454
+  lore:
+  - '<dark_green>Nivel para craftear <gold>290'
+  - '<green>Exp <white>- <gold>171.3'
+ALQBW070:
+  type: item
+  material: 373,16482
+  lore:
+  - '<dark_green>Nivel para craftear <gold>292'
+  - '<green>Exp <white>- <gold>168.8'
+ALQBW071:
+  type: item
+  material: 373,16427
+  lore:
+  - '<dark_green>Nivel para craftear <gold>294'
+  - '<green>Exp <white>- <gold>191.0'
+#------- Usos
+ALQUS001:
+  type: item
+  material: 291
+  lore:
+  - '<dark_green>Nivel para usar <gold>3'
+ALQUS002:
+  type: item
+  material: 292
+  lore:
+  - '<dark_green>Nivel para usar <gold>184'
+ALQUS003:
+  type: item
+  material: 294
+  lore:
+  - '<dark_green>Nivel para usar <gold>242'
+ALQUS004:
+  type: item
+  material: 293
+  lore:
+  - '<dark_green>Nivel para usar <gold>302'

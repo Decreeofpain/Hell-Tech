@@ -1,0 +1,1193 @@
+"Tielo":
+    type: assignment
+
+    actions:
+      on assignment:
+      - trigger name:CHAT toggle:false
+      - trigger name:click toggle:true
+      - trigger name:proximity toggle:true radius:3
+
+      on Build Complete:
+      - ^run 's@establoend'
+
+    interact scripts:
+    - 16 Tieloscript
+
+'Tieloscript':
+  Type: Interact
+  Requirements:
+    Mode: all
+    List:
+    - valueof <global.flag[capitulos].contains[mesreconstruido]>
+  Steps:
+    '1':
+      proximity trigger:
+        entry:
+          radius: 4
+          Script:
+          - ^if <player.has_flag[profesion].not> {
+            - ^title "subtitle:<blue>Tielo: <yellow>Hey tu, mula! eres <gold><player.name> <yellow>no?"
+            - ^wait
+            - ^title "subtitle:<yellow>Dejan de ser un bueno para nada"
+            - ^wait
+            - ^title "subtitle:<yellow>Se necesitan ganaderos, que esperas!"
+            - ^queue clear
+            } else if <player.flag[profesion].size> == 1 && <player.flag[profesion].as_list> !contains Ganadero {
+            - ^if <player.jobs[<player.flag[profesion].get[1]>].xp.level> >= 25 {
+              - ^title "subtitle:<blue>Tielo: <yellow>Pero si es <gold><player.name>"
+              - ^wait
+              - ^title "subtitle:<yellow>Quieres ser Ganadero o si no Largo!"
+              - ^queue clear
+              } else {
+              - ^title "subtitle:<blue>Tielo: <yellow>Veamos <gold><player.name>..."
+              - ^wait
+              - ^title "subtitle:<yellow>Aun no eres nivel 25 de <player.flag[profesion].get[1]>?"
+              - ^wait
+              - ^title "subtitle:<yellow>largo de aqui maldito manco!"
+              - ^queue clear
+              }
+            } else if <player.flag[profesion].size> == 1 && <player.flag[profesion].as_list> contains Ganadero {
+            - ^if <player.has_flag[qprofStatusganaderia].not> {
+              - ^if <player.has_flag[GanaderiaON]> {
+                - ^title "subtitle:<blue>Tielo: <yellow>Maldita sea aun no?"
+                - ^wait
+                - ^title "subtitle:<yellow>Tienes una mision aun <gold><player.name>"
+                - ^flag <player> checkprof:ganaderia
+                - ^run 's@profcheckcount'
+                - ^flag <player> checkprof:!
+                - ^queue clear
+                } else {
+                - ^run 's@profquestsrandomtielo'
+                - ^queue clear
+                }
+              } else if <player.has_flag[qprofStatusganaderia]> {
+              - ^title "subtitle:<green>Regresa en <player.flag[qprofStatusganaderia].expiration.in_seconds.asint> segundos por otra mision!" stay:5s
+              - ^queue clear
+              }
+            } else if <player.flag[profesion].size> == 2 && <player.flag[profesion].as_list> !contains Ganadero {
+            - ^if <player.jobs[<player.flag[profesion].get[1]>].xp.level> >= 50 && <player.jobs[<player.flag[profesion].get[2]>].xp.level> >= 50 {
+              - ^title "subtitle:<blue>Tielo: <yellow>Otra ves tu <gold><player.name>..."
+              - ^wait
+              - ^title "subtitle:<yellow>ahora si ayudaras aqui en el establo?"
+              - ^wait
+              - ^title "subtitle:<yellow>Necesito quien recoja el estiercol hahaha"
+              - ^queue clear
+              } else {
+              - ^title "subtitle:<blue>Tielo: <yellow>Una mula... a no es <gold><player.name>"
+              - ^wait
+              - ^title "subtitle:<yellow>Debes ser nivel 50 de tus profesiones"
+              - ^wait
+              - ^title "subtitle:<yellow><player.flag[profesion].get[1]> y <player.flag[profesion].get[2]>"
+              - ^wait
+              - ^title "subtitle:<yellow>Ahora largo! asustas a tu familia!"
+              - ^queue clear
+              }
+            } else if <player.flag[profesion].size> == 2 && <player.flag[profesion].as_list> contains Ganadero {
+            - ^if <player.has_flag[qprofStatusganaderia].not> {
+              - ^if <player.has_flag[GanaderiaON]> {
+                - ^title "subtitle:<blue>Tielo: <yellow>Tienes mision maldito!"
+                - ^flag <player> checkprof:ganaderia
+                - ^run 's@profcheckcount'
+                - ^flag <player> checkprof:!
+                - ^queue clear
+                } else {
+                - ^run 's@profquestsrandomtielo'
+                - ^queue clear
+                }
+              } else if <player.has_flag[qprofStatusganaderia]> {
+              - ^title "subtitle:<green>Regresa en <player.flag[qprofStatusganaderia].expiration.in_seconds.asint> segundos por otra mision!" stay:5s
+              - ^queue clear
+              }
+            } else if <player.flag[profesion].size> == 3 && <player.flag[profesion].as_list> !contains Ganadero {
+            - ^if <player.jobs[<player.flag[profesion].get[1]>].xp.level> >= 100 && <player.jobs[<player.flag[profesion].get[2]>].xp.level> >= 100 && <player.jobs[<player.flag[profesion].get[3]>].xp.level> >= 100 {
+              - ^title "subtitle:<blue>Tielo: <yellow>Ahora si verdad maldito <gold><player.name>"
+              - ^wait
+              - ^title "subtitle:<yellow>Algo quieres y no son Almakos..."
+              - ^queue clear
+              } else {
+              - ^title "subtitle:<blue>Tielo: <yellow>Te perdiste <gold><player.name>?"
+              - ^wait
+              - ^title "subtitle:<yellow>Cuando seas Nivel 100 en todo"
+              - ^wait
+              - ^title "subtitle:<yellow><player.flag[profesion].get[1]>, <player.flag[profesion].get[2]> y <player.flag[profesion].get[3]>"
+              - ^wait
+              - ^title "subtitle:<yellow>regresa maldito y quiza me apiade de ti."
+              - ^queue clear
+              }
+            } else if <player.flag[profesion].size> == 3 && <player.flag[profesion].as_list> contains Ganadero {
+            - ^if <player.has_flag[qprofStatusganaderia].not> {
+              - ^if <player.has_flag[GanaderiaON]> {
+                - ^title "subtitle:<blue>Tielo: <yellow>Hey mula tienes misiones!"
+                - ^flag <player> checkprof:ganaderia
+                - ^run 's@profcheckcount'
+                - ^flag <player> checkprof:!
+                - ^queue clear
+                } else {
+                - ^run 's@profquestsrandomtielo'
+                - ^queue clear
+                }
+              } else if <player.has_flag[qprofStatusganaderia]> {
+              - ^title "subtitle:<green>Regresa en <player.flag[qprofStatusganaderia].expiration.in_seconds.asint> segundos por otra mision!" stay:5s
+              - ^queue clear
+              }
+            } else if <player.flag[profesion].size> == 4 && <player.flag[profesion].as_list> contains Ganadero {
+            - ^if <player.has_flag[qprofStatusganaderia].not> {
+              - ^if <player.has_flag[GanaderiaON]> {
+                - ^title "subtitle:<blue>Tielo: <yellow>Trae lo de la mision <gold><player.name>!"
+                - ^flag <player> checkprof:ganaderia
+                - ^run 's@profcheckcount'
+                - ^flag <player> checkprof:!
+                - ^queue clear
+                } else {
+                - ^run 's@profquestsrandomtielo'
+                - ^queue clear
+                }
+              } else if <player.has_flag[qprofStatusganaderia]> {
+              - ^title "title:<yellow><player.name>" "subtitle:<green>Regresa en <player.flag[qprofStatusganaderia].expiration.in_seconds.asint> segundos por otra mision!" stay:5s
+              - ^queue clear
+              }
+            }
+      click trigger:
+        Script:
+          - ^if <player.has_flag[profesion].not> {
+            - ^inventory open d:in@inv_tielo
+            - ^queue clear
+            } else if <player.flag[profesion].as_list> !contains Ganadero && <player.has_flag[profesion]> && <player.flag[profesion].size> == 1 {
+            - ^if <player.jobs[<player.flag[profesion].get[1]>].xp.level> >= 25 {
+              - ^inventory open d:in@inv_tielo
+              - ^queue clear
+              }
+            - ^queue clear
+            } else if <player.flag[profesion].as_list> contains Ganadero && <player.has_flag[profesion]> && <player.flag[profesion].size> == 1 {
+            - ^if <player.has_flag[qprofStatusganaderia].not> && <player.has_flag[MineriaON].not> {
+              - ^run 's@profquestsrandomtielo'
+              - ^queue clear
+              } else if <player.has_flag[qprofStatusganaderia].not> && <player.has_flag[MineriaON]> {
+              - ^run 's@profquestschecktielo'
+              - ^queue clear
+              } else {
+              - ^title "title:<yellow><player.name>" "subtitle:<green>Regresa en <player.flag[qprofStatusganaderia].expiration.in_seconds.asint> segundos por otra mision!" stay:5s
+              - ^queue clear
+              }
+            } else if <player.flag[profesion].as_list> !contains Ganadero && <player.has_flag[profesion]> && <player.flag[profesion].size> == 2 {
+            - ^if <player.jobs[<player.flag[profesion].get[1]>].xp.level> >= 50 && <player.jobs[<player.flag[profesion].get[2]>].xp.level> >= 50 {
+              - ^inventory open d:in@inv_tielo
+              - ^queue clear
+              }
+            } else if <player.flag[profesion].as_list> contains Ganadero && <player.has_flag[profesion]> && <player.flag[profesion].size> == 2 {
+            - ^if <player.has_flag[qprofStatusganaderia].not> && <player.has_flag[MineriaON].not> {
+              - ^run 's@profquestsrandomtielo'
+              - ^queue clear
+              } else if <player.has_flag[qprofStatusganaderia].not> && <player.has_flag[MineriaON]> {
+              - ^run 's@profquestschecktielo'
+              - ^queue clear
+              } else {
+              - ^title "title:<yellow><player.name>" "subtitle:<green>Regresa en <player.flag[qprofStatusganaderia].expiration.in_seconds.asint> segundos por otra mision!" stay:5s
+              - ^queue clear
+              }
+            } else if <player.flag[profesion].as_list> !contains Ganadero && <player.has_flag[profesion]> && <player.flag[profesion].size> == 3 {
+            - ^if <player.jobs[<player.flag[profesion].get[1]>].xp.level> >= 100 && <player.jobs[<player.flag[profesion].get[2]>].xp.level> >= 100 && <player.jobs[<player.flag[profesion].get[3]>].xp.level> >= 100 {
+              - ^inventory open d:in@inv_tielo
+              - ^queue clear
+              }
+            } else if <player.flag[profesion].as_list> contains Ganadero && <player.has_flag[profesion]> && <player.flag[profesion].size> == 3 {
+            - ^if <player.has_flag[qprofStatusganaderia].not> && <player.has_flag[MineriaON].not> {
+              - ^run 's@profquestsrandomtielo'
+              - ^queue clear
+              } else if <player.has_flag[qprofStatusganaderia].not> && <player.has_flag[MineriaON]> {
+              - ^run 's@profquestschecktielo'
+              - ^queue clear
+              } else {
+              - ^title "title:<yellow><player.name>" "subtitle:<green>Regresa en <player.flag[qprofStatusganaderia].expiration.in_seconds.asint> segundos por otra mision!" stay:5s
+              - ^queue clear
+              }
+            } else if <player.flag[profesion].as_list> contains Ganadero && <player.has_flag[profesion]> && <player.flag[profesion].size> == 4 {
+            - ^if <player.has_flag[qprofStatusganaderia].not> && <player.has_flag[MineriaON].not> {
+              - ^run 's@profquestsrandomtielo'
+              - ^queue clear
+              } else if <player.has_flag[qprofStatusganaderia].not> && <player.has_flag[MineriaON]> {
+              - ^run 's@profquestschecktielo'
+              - ^queue clear
+              } else {
+              - ^title "title:<yellow><player.name>" "subtitle:<green>Regresa en <player.flag[qprofStatusganaderia].expiration.in_seconds.asint> segundos por otra mision!" stay:5s
+              - ^queue clear
+              }
+            }
+
+establoend:
+    type: task
+    script:
+    - ^schematic load name:establo
+    - ^schematic paste name:establo location:<cu@establo.min>
+    - ^schematic unload name:establo
+    - ^foreach <server.list_online_players> {
+      - ^title "title:<aqua>Tielo" "subtitle:<yellow>Establo reconstruido" stay:5s targets:%value%
+      }
+    - ^flag <server> tempmeslajho:->:establo
+    - ^if <server.flag[tempmeslajho].as_list.contains[taberna|herreria|armeria|establo|cocina|arcano|fragua|deshuesadero|libreria|aserradero|cantera|molino]> {
+      - if <server.flag[capitulos].as_list> !contains mesreconstruido {
+        - ^flag <server> capitulos:->:mesreconstruido
+        - ^flag <server> capitulosend:->:capitulo1
+        }
+      - ^execute as_server "denizen save"
+      - ^execute as_op "region flag meslajho mobspawning deny"
+      - ^execute as_op "mm m killall"
+      - ^execute as_server "time set 100"
+      - ^execute as_server "weather clear"
+      - ^foreach li@193|85|1|194|91|190|3|192|2 {
+        - ^execute as_server "npc spawn %value%"
+        }
+      - ^foreach li@n@1|n@2|n@3|n@5|n@6|n@7|n@8|n@9|n@10|n@27|n@35|n@66|n@85|n@91|n@94|n@96|n@99|n@100|n@193 {
+        - ^define npctarget %value%
+        - ^teleport <def[npctarget]> <def[npctarget].anchor[construct]>
+        }
+      }
+
+Tieloevents:
+  type: world
+  events:
+    on player clicks in inv_tielo:
+    - DETERMINE cancelled
+    on player drags in inv_tielo:
+    - DETERMINE cancelled
+    on player clicks infoquestprof in inv_tielo_ok:
+    - DETERMINE cancelled
+    on player drags infoquestprof in inv_tielo_ok:
+    - DETERMINE cancelled
+    on player clicks in inv_profesiontielocraftgana:
+    - DETERMINE cancelled
+    on player drags in inv_profesiontielocraftgana:
+    - DETERMINE cancelled
+    on player clicks in inv_profesiontielocraftgana2:
+    - DETERMINE cancelled
+    on player drags in inv_profesiontielocraftgana2:
+    - DETERMINE cancelled
+    on player clicks in inv_profesiontielosmeltgana:
+    - DETERMINE cancelled
+    on player drags in inv_profesiontielosmeltgana:
+    - DETERMINE cancelled
+    on player clicks in inv_profesiontielokillgana:
+    - DETERMINE cancelled
+    on player drags in inv_profesiontielokillgana:
+    - DETERMINE cancelled
+    on player clicks in inv_profesiontieloplacegana:
+    - DETERMINE cancelled
+    on player drags in inv_profesiontieloplacegana:
+    - DETERMINE cancelled
+    on player clicks in inv_profesiontielousegana:
+    - DETERMINE cancelled
+    on player drags in inv_profesiontielousegana:
+    - DETERMINE cancelled
+    on player clicks in inv_profesiontielofishgana:
+    - DETERMINE cancelled
+    on player drags in inv_profesiontielofishgana:
+    - DETERMINE cancelled
+    on player clicks in inv_profesiontielofishgana2:
+    - DETERMINE cancelled
+    on player drags in inv_profesiontielofishgana2:
+    - DETERMINE cancelled
+#
+    on player clicks rechazarprof in inv_tielo:
+    - ^inventory close d:in@inv_tielo
+    on player clicks aceptarprof in inv_tielo:
+    - ^inventory close
+    - ^execute as_op "jobs employ <player.name> Ganadero" silent
+    - ^if <player.has_flag[especialidad].not> {
+      - ^flag <player> especialidad:ON
+      }
+    - ^flag <player> profesion:->:Ganadero
+    - ^run 's@profquestsrandomtielo'
+    - ^queue clear
+
+  ## Siguiente
+    on player clicks Siguiente in inv_profesiontielocraftgana:
+    - ^inventory open d:in@inv_profesiontielocraftgana2
+  ## Atras
+    on player clicks Atras in inv_profesiontielocraftgana2:
+    - ^inventory open d:in@inv_profesiontielocraftgana
+  ## Regresar
+    on player clicks Regresar in inv_profesiontielocraftgana:
+    - ^inventory open d:in@inv_profesiontielo
+    on player clicks Regresar in inv_profesiontielocraftgana2:
+    - ^inventory open d:in@inv_profesiontielo
+
+    on player clicks Regresar in inv_profesiontieloplacegana:
+    - ^inventory open d:in@inv_profesiontielo
+
+    on player clicks Regresar in inv_profesiontielosmeltgana:
+    - ^inventory open d:in@inv_profesiontielo
+
+    on player clicks Regresar in inv_profesiontielokillgana:
+    - ^inventory open d:in@inv_profesiontielo
+
+    on player clicks Regresar in inv_profesiontielousegana:
+    - ^inventory open d:in@inv_profesiontielo
+
+    on player clicks Regresar in inv_profesiontielofishgana:
+    - ^inventory open d:in@inv_profesiontielo
+
+# =====================================================================
+    on player clicks rechazarprof in inv_tielo_ok:
+    - ^inventory close d:in@inv_tielo_ok
+    - DETERMINE cancelled
+
+# Entregar Materiales
+    on player clicks Entregar in inv_tielo_ok:
+    - ^flag <player> cursorid:<context.cursor_item.material.id>
+    - ^flag <player> cursordata:<context.cursor_item.material.data>
+    - ^flag <player> cursoridqty:<context.cursor_item.quantity>
+    - ^flag <player> profinv:inv_tielo_ok
+    - ^flag <player> proforigin:ganaderia
+    - ^run 's@countprofq'
+    - ^DETERMINE cancelled
+    - ^queue clear
+
+
+profquestsrandomtielo:
+    type: task
+    script:
+    - ^yaml load:profesiones/data.yml id:<player.name>profgnr
+    - ^define questalmakos <math.asint:<player.jobs[Ganadero].xp.level||>*50>
+    - ^define questprof <yaml[<player.name>profgnr].list_keys[ganaderia].filter[is[LESS].than[<player.jobs[Ganadero].xp.level||>]].random[1].formatted>
+    - ^define questidmaterial <yaml[<player.name>profgnr].read[ganaderia.<def[questprof]>.material]>
+    - ^define questidname <yaml[<player.name>profgnr].read[ganaderia.<def[questprof]>.name]>
+    - ^define questidexp <math:<yaml[<player.name>profgnr].read[ganaderia.<def[questprof]>.exp]>*2>
+    - ^define questidalmakos "<math:<def[questidexp]>*8>"
+    - ^define questconteo "<math.asint:<def[questalmakos]>/<def[questidalmakos]>>"
+    - ^if <def[questconteo]> <= 0 {
+      - ^define questprofcant 1
+      } else {
+      - ^define questprofcant <def[questconteo]>
+      }
+    - ^yaml load:personal/<player.name>.yml id:<player.name>
+    - ^yaml id:<player.name> set ganaderia.misionprof.cant:<def[questprofcant]>
+    - ^yaml id:<player.name> set ganaderia.misionprof.reward:<math.asint:<def[questprofcant]>*<def[questidalmakos]>>
+    - ^yaml id:<player.name> set ganaderia.misionprof.xpreward:<math.asint:<def[questprofcant]>*<def[questidexp]>>
+    - ^yaml id:<player.name> set ganaderia.misionprof.xpid:<def[questidexp]>
+    - ^yaml id:<player.name> set ganaderia.misionprof.obj:<def[questidmaterial]>
+    - ^yaml id:<player.name> set ganaderia.misionprof.name:<def[questidname]>
+    - ^yaml id:<player.name> set ganaderia.misionprof.data:<yaml[<player.name>profgnr].read[ganaderia.<def[questprof]>.data]>
+    - ^flag <player> questprofcant:<yaml[<player.name>].read[ganaderia.misionprof.cant]>
+    - ^flag <player> questproftarjet:<yaml[<player.name>].read[ganaderia.misionprof.obj]>
+    - ^flag <player> questprofname:<yaml[<player.name>].read[ganaderia.misionprof.name]>
+    - ^flag <player> questprofdata:<yaml[<player.name>].read[ganaderia.misionprof.data]>
+    - ^flag <player> profreward:<yaml[<player.name>].read[ganaderia.misionprof.reward]>
+    - ^flag <player> profrewardxp:<yaml[<player.name>].read[ganaderia.misionprof.xpreward]>
+    - ^flag <player> GanaderiaON:ok
+    - ^inventory open d:in@inv_tielo_ok
+    - ^flag <player> questprofcant:!
+    - ^flag <player> questproftarjet:!
+    - ^flag <player> questprofname:!
+    - ^flag <player> questprofdata:!
+    - ^flag <player> profreward:!
+    - ^flag <player> profrewardxp:!
+    - ^yaml savefile:personal/<player.name>.yml id:<player.name>
+    - ^yaml unload id:<player.name>
+    - ^yaml unload id:<player.name>profgnr
+    - ^queue clear
+
+profquestschecktielo:
+    type: task
+    script:
+    - ^yaml load:personal/<player.name>.yml id:<player.name>
+    - ^flag <player> questprofname:<yaml[<player.name>].read[ganaderia.misionprof.name]>
+    - ^flag <player> questprofcant:<yaml[<player.name>].read[ganaderia.misionprof.cant]>
+    - ^flag <player> questproftarjet:<yaml[<player.name>].read[ganaderia.misionprof.obj]>
+    - ^flag <player> questprofdata:<yaml[<player.name>].read[ganaderia.misionprof.data]>
+    - ^flag <player> objID:<yaml[<player.name>].read[ganaderia.misionprof.obj]>
+    - ^flag <player> objdatapro:<yaml[<player.name>].read[ganaderia.misionprof.data]>
+    - ^flag <player> profreward:<yaml[<player.name>].read[ganaderia.misionprof.reward]>
+    - ^flag <player> profrewardxp:<yaml[<player.name>].read[ganaderia.misionprof.xpreward]>
+    - ^inventory open d:in@inv_tielo_ok
+    - ^flag <player> questprofname:!
+    - ^flag <player> questprofcant:!
+    - ^flag <player> questproftarjet:!
+    - ^flag <player> questprofdata:!
+    - ^flag <player> objID:!
+    - ^flag <player> objdatapro:!
+    - ^flag <player> profreward:!
+    - ^flag <player> profrewardxp:!
+    - ^yaml unload id:<player.name>
+    - ^queue clear
+# = INVENTARIOS
+inv_tielo:
+  type: inventory
+  inventory: dispenser
+  title: <gold>Ganaderia
+  size: 9
+  slots:
+  - "[i@cancelslot] [i@Tieloinfo1] [i@cancelslot]"
+  - "[i@cancelslot] [i@cancelslot] [i@cancelslot]"
+  - "[i@aceptarprof] [i@cancelslot] [i@rechazarprof]"
+inv_tielo_ok:
+  type: inventory
+  inventory: dispenser
+  title: <gold>Depositar
+  size: 9
+  slots:
+  - "[i@cancelslot] [i@infoquestprof] [i@cancelslot]"
+  - "[i@cancelslot] [i@Entregar] [i@cancelslot]"
+  - "[i@cancelslot] [i@cancelslot] [i@cancelslot]"
+
+
+## Craft Tielo
+inv_profesiontielocraftgana:
+  type: inventory
+  title: '<gold>Crafteos 1/2'
+  size: 54
+  slots:
+  - "[i@GNRCF001] [i@GNRCF002] [i@GNRCF003] [i@GNRCF004] [i@GNRCF005] [i@GNRCF006] [i@GNRCF007] [i@GNRCF008] [i@GNRCF009]"
+  - "[i@GNRCF010] [i@GNRCF011] [i@GNRCF012] [i@GNRCF013] [i@GNRCF014] [i@GNRCF015] [i@GNRCF016] [i@GNRCF017] [i@GNRCF018]"
+  - "[i@GNRCF019] [i@GNRCF020] [i@GNRCF021] [i@GNRCF022] [i@GNRCF023] [i@GNRCF024] [i@GNRCF025] [i@GNRCF026] [i@GNRCF027]"
+  - "[i@GNRCF028] [i@GNRCF029] [i@GNRCF030] [i@GNRCF031] [i@GNRCF032] [i@GNRCF033] [i@GNRCF034] [i@GNRCF035] [i@GNRCF036]"
+  - "[i@GNRCF037] [i@GNRCF038] [i@GNRCF039] [i@GNRCF040] [i@GNRCF041] [i@GNRCF042] [i@GNRCF043] [i@GNRCF044] [i@GNRCF045]"
+  - "[i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@Regresar] [i@cancelslot] [i@cancelslot] [i@Siguiente]"
+
+inv_profesiontielocraftgana2:
+  type: inventory
+  title: '<gold>Crafteos 2/2'
+  size: 54
+  slots:
+  - "[i@GNRCF046] [i@GNRCF047] [i@GNRCF048] [i@GNRCF049] [i@GNRCF050] [i@GNRCF051] [i@GNRCF052] [i@GNRCF053] [i@GNRCF054]"
+  - "[i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot]"
+  - "[i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot]"
+  - "[i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot]"
+  - "[i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot]"
+  - "[i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@Regresar] [i@cancelslot] [i@Atras] [i@cancelslot]"
+
+## Place Tielo
+inv_profesiontieloplacegana:
+  type: inventory
+  title: '<gold>Colocaciones'
+  size: 54
+  slots:
+  - "[i@GNRPL001] [i@GNRPL002] [i@GNRPL003] [i@GNRPL004] [i@GNRPL005] [i@GNRPL006] [i@GNRPL007] [i@GNRPL008] [i@GNRPL009]"
+  - "[i@GNRPL010] [i@GNRPL011] [i@GNRPL012] [i@GNRPL013] [i@GNRPL014] [i@GNRPL015] [i@GNRPL016] [i@GNRPL017] [i@GNRPL018]"
+  - "[i@GNRPL019] [i@GNRPL020] [i@GNRPL021] [i@GNRPL022] [i@GNRPL023] [i@GNRPL024] [i@GNRPL025] [i@GNRPL026] [i@GNRPL027]"
+  - "[i@GNRPL028] [i@GNRPL029] [i@GNRPL030] [i@GNRPL031] [i@GNRPL032] [i@GNRPL033] [i@GNRPL034] [i@GNRPL035] [i@GNRPL036]"
+  - "[i@GNRPL037] [i@GNRPL038] [i@GNRPL039] [i@GNRPL040] [i@GNRPL041] [i@GNRPL042] [i@GNRPL043] [i@GNRPL044] [i@GNRPL045]"
+  - "[i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@Regresar] [i@cancelslot] [i@cancelslot] [i@cancelslot]"
+
+## Smelt Tielo
+inv_profesiontielosmeltgana:
+  type: inventory
+  title: '<gold>Hornear'
+  size: 54
+  slots:
+  - "[i@GNRSM001] [i@GNRSM002] [i@GNRSM003] [i@GNRSM004] [i@GNRSM005] [i@GNRSM006] [i@GNRSM007] [i@cancelslot] [i@cancelslot]"
+  - "[i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot]"
+  - "[i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot]"
+  - "[i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot]"
+  - "[i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot]"
+  - "[i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@Regresar] [i@cancelslot] [i@cancelslot] [i@cancelslot]"
+## Breack Tielo
+inv_profesiontielokillgana:
+  type: inventory
+  title: '<gold>Matar'
+  size: 54
+  slots:
+  - "[i@GNRKLL001] [i@GNRKLL002] [i@GNRKLL003] [i@GNRKLL004] [i@GNRKLL005] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot]"
+  - "[i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot]"
+  - "[i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot]"
+  - "[i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot]"
+  - "[i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot]"
+  - "[i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@Regresar] [i@cancelslot] [i@cancelslot] [i@cancelslot]"
+## Brewing Tielo
+inv_profesiontielofishgana:
+  type: inventory
+  title: '<gold>Pescar'
+  size: 54
+  slots:
+  - "[i@GNRFH001] [i@GNRFH002] [i@GNRFH003] [i@GNRFH004] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot]"
+  - "[i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot]"
+  - "[i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot]"
+  - "[i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot]"
+  - "[i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot]"
+  - "[i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@Regresar] [i@cancelslot] [i@cancelslot] [i@cancelslot]"
+
+## Use Tielo
+inv_profesiontielousegana:
+  type: inventory
+  title: '<gold>Usos'
+  size: 54
+  slots:
+  - "[i@GNRUS001] [i@GNRUS002] [i@GNRUS003] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot]"
+  - "[i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot]"
+  - "[i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot]"
+  - "[i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot]"
+  - "[i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot]"
+  - "[i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@Regresar] [i@cancelslot] [i@cancelslot] [i@cancelslot]"
+
+########### - Tielo - #########
+Tieloinfo1:
+  type: item
+  material: paper
+  display name: '<blue>Ganaderia'
+  lore:
+  - ''
+  - '<gray>Los <yellow>Ganaderos <gray>buscan minerales valiosos'
+  - '<gray>para extraerlos con sus picos'
+  - '<gray>usan sus materiales para crear cosas'
+  - '<gray>y tambien pueden fundir los minerales'
+  - '<gray>para creaciones mas valiosas.'
+
+#        == Ganadero CRAFT ==
+
+GNRCF001:
+  type: item
+  material: 389
+  lore:
+  - '<dark_green>Nivel para craftear <gold>50'
+  - '<green>Exp <white>- <gold>317.8'
+GNRCF002:
+  type: item
+  material: 346
+  lore:
+  - '<dark_green>Nivel para craftear <gold>66'
+  - '<green>Exp <white>- <gold>1.8'
+GNRCF003:
+  type: item
+  material: 259
+  lore:
+  - '<dark_green>Nivel para craftear <gold>162'
+  - '<green>Exp <white>- <gold>137.8'
+GNRCF004:
+  type: item
+  material: 359
+  lore:
+  - '<dark_green>Nivel para craftear <gold>174'
+  - '<green>Exp <white>- <gold>274.3'
+GNRCF005:
+  type: item
+  material: 334
+  lore:
+  - '<dark_green>Nivel para craftear <gold>198'
+  - '<green>Exp <white>- <gold>264.4'
+GNRCF006:
+  type: item
+  material: 35
+  lore:
+  - '<dark_green>Nivel para craftear <gold>250'
+  - '<green>Exp <white>- <gold>1.6'
+GNRCF007:
+  type: item
+  material: 35,1
+  lore:
+  - '<dark_green>Nivel para craftear <gold>250'
+  - '<green>Exp <white>- <gold>3.5'
+GNRCF008:
+  type: item
+  material: 35,2
+  lore:
+  - '<dark_green>Nivel para craftear <gold>250'
+  - '<green>Exp <white>- <gold>6.3'
+GNRCF009:
+  type: item
+  material: 35,3
+  lore:
+  - '<dark_green>Nivel para craftear <gold>250'
+  - '<green>Exp <white>- <gold>3.8'
+GNRCF010:
+  type: item
+  material: 35,4
+  lore:
+  - '<dark_green>Nivel para craftear <gold>250'
+  - '<green>Exp <white>- <gold>2.7'
+GNRCF011:
+  type: item
+  material: 35,5
+  lore:
+  - '<dark_green>Nivel para craftear <gold>250'
+  - '<green>Exp <white>- <gold>4.7'
+GNRCF012:
+  type: item
+  material: 35,6
+  lore:
+  - '<dark_green>Nivel para craftear <gold>250'
+  - '<green>Exp <white>- <gold>3.8'
+GNRCF013:
+  type: item
+  material: 35,7
+  lore:
+  - '<dark_green>Nivel para craftear <gold>250'
+  - '<green>Exp <white>- <gold>3.8'
+GNRCF014:
+  type: item
+  material: 35,8
+  lore:
+  - '<dark_green>Nivel para craftear <gold>250'
+  - '<green>Exp <white>- <gold>5.0'
+GNRCF015:
+  type: item
+  material: 35,9
+  lore:
+  - '<dark_green>Nivel para craftear <gold>250'
+  - '<green>Exp <white>- <gold>3.8'
+GNRCF016:
+  type: item
+  material: 35,10
+  lore:
+  - '<dark_green>Nivel para craftear <gold>250'
+  - '<green>Exp <white>- <gold>3.8'
+GNRCF017:
+  type: item
+  material: 35,11
+  lore:
+  - '<dark_green>Nivel para craftear <gold>250'
+  - '<green>Exp <white>- <gold>2.7'
+GNRCF018:
+  type: item
+  material: 35,12
+  lore:
+  - '<dark_green>Nivel para craftear <gold>250'
+  - '<green>Exp <white>- <gold>2.7'
+GNRCF019:
+  type: item
+  material: 35,13
+  lore:
+  - '<dark_green>Nivel para craftear <gold>250'
+  - '<green>Exp <white>- <gold>2.7'
+GNRCF020:
+  type: item
+  material: 35,14
+  lore:
+  - '<dark_green>Nivel para craftear <gold>250'
+  - '<green>Exp <white>- <gold>2.7'
+GNRCF021:
+  type: item
+  material: 35,15
+  lore:
+  - '<dark_green>Nivel para craftear <gold>250'
+  - '<green>Exp <white>- <gold>2.7'
+GNRCF022:
+  type: item
+  material: 171
+  lore:
+  - '<dark_green>Nivel para craftear <gold>274'
+  - '<green>Exp <white>- <gold>3.8'
+GNRCF023:
+  type: item
+  material: 171,1
+  lore:
+  - '<dark_green>Nivel para craftear <gold>274'
+  - '<green>Exp <white>- <gold>8.9'
+GNRCF024:
+  type: item
+  material: 171,2
+  lore:
+  - '<dark_green>Nivel para craftear <gold>274'
+  - '<green>Exp <white>- <gold>15.2'
+GNRCF025:
+  type: item
+  material: 171,3
+  lore:
+  - '<dark_green>Nivel para craftear <gold>274'
+  - '<green>Exp <white>- <gold>8.9'
+GNRCF026:
+  type: item
+  material: 171,4
+  lore:
+  - '<dark_green>Nivel para craftear <gold>274'
+  - '<green>Exp <white>- <gold>6.3'
+GNRCF027:
+  type: item
+  material: 171,4
+  lore:
+  - '<dark_green>Nivel para craftear <gold>274'
+  - '<green>Exp <white>- <gold>11.2'
+GNRCF028:
+  type: item
+  material: 171,6
+  lore:
+  - '<dark_green>Nivel para craftear <gold>274'
+  - '<green>Exp <white>- <gold>8.9'
+GNRCF029:
+  type: item
+  material: 171,7
+  lore:
+  - '<dark_green>Nivel para craftear <gold>274'
+  - '<green>Exp <white>- <gold>8.9'
+GNRCF030:
+  type: item
+  material: 171,8
+  lore:
+  - '<dark_green>Nivel para craftear <gold>274'
+  - '<green>Exp <white>- <gold>12.0'
+GNRCF031:
+  type: item
+  material: 171,9
+  lore:
+  - '<dark_green>Nivel para craftear <gold>274'
+  - '<green>Exp <white>- <gold>8.9'
+GNRCF032:
+  type: item
+  material: 171,10
+  lore:
+  - '<dark_green>Nivel para craftear <gold>274'
+  - '<green>Exp <white>- <gold>8.9'
+GNRCF033:
+  type: item
+  material: 171,11
+  lore:
+  - '<dark_green>Nivel para craftear <gold>274'
+  - '<green>Exp <white>- <gold>6.3'
+GNRCF034:
+  type: item
+  material: 171,12
+  lore:
+  - '<dark_green>Nivel para craftear <gold>274'
+  - '<green>Exp <white>- <gold>6.3'
+GNRCF035:
+  type: item
+  material: 171,13
+  lore:
+  - '<dark_green>Nivel para craftear <gold>274'
+  - '<green>Exp <white>- <gold>6.3'
+GNRCF036:
+  type: item
+  material: 171,14
+  lore:
+  - '<dark_green>Nivel para craftear <gold>274'
+  - '<green>Exp <white>- <gold>6.3'
+GNRCF037:
+  type: item
+  material: 171,15
+  lore:
+  - '<dark_green>Nivel para craftear <gold>274'
+  - '<green>Exp <white>- <gold>6.3'
+GNRCF038:
+  type: item
+  material: 321
+  lore:
+  - '<dark_green>Nivel para craftear <gold>286'
+  - '<green>Exp <white>- <gold>4.2'
+GNRCF039:
+  type: item
+  material: 355,0
+  lore:
+  - '<dark_green>Nivel para craftear <gold>298'
+  - '<green>Exp <white>- <gold>5.9'
+GNRCF040:
+  type: item
+  material: 355,1
+  lore:
+  - '<dark_green>Nivel para craftear <gold>298'
+  - '<green>Exp <white>- <gold>13.7'
+GNRCF041:
+  type: item
+  material: 355,2
+  lore:
+  - '<dark_green>Nivel para craftear <gold>298'
+  - '<green>Exp <white>- <gold>23.0'
+GNRCF042:
+  type: item
+  material: 355,3
+  lore:
+  - '<dark_green>Nivel para craftear <gold>298'
+  - '<green>Exp <white>- <gold>13.7'
+GNRCF043:
+  type: item
+  material: 355,4
+  lore:
+  - '<dark_green>Nivel para craftear <gold>298'
+  - '<green>Exp <white>- <gold>9.8'
+GNRCF044:
+  type: item
+  material: 355,5
+  lore:
+  - '<dark_green>Nivel para craftear <gold>298'
+  - '<green>Exp <white>- <gold>17.0'
+GNRCF045:
+  type: item
+  material: 355,6
+  lore:
+  - '<dark_green>Nivel para craftear <gold>298'
+  - '<green>Exp <white>- <gold>13.7'
+GNRCF046:
+  type: item
+  material: 355,7
+  lore:
+  - '<dark_green>Nivel para craftear <gold>298'
+  - '<green>Exp <white>- <gold>13.7'
+GNRCF047:
+  type: item
+  material: 355,8
+  lore:
+  - '<dark_green>Nivel para craftear <gold>298'
+  - '<green>Exp <white>- <gold>18.4'
+GNRCF048:
+  type: item
+  material: 355,9
+  lore:
+  - '<dark_green>Nivel para craftear <gold>298'
+  - '<green>Exp <white>- <gold>13.7'
+GNRCF049:
+  type: item
+  material: 355,10
+  lore:
+  - '<dark_green>Nivel para craftear <gold>298'
+  - '<green>Exp <white>- <gold>13.7'
+GNRCF050:
+  type: item
+  material: 355,11
+  lore:
+  - '<dark_green>Nivel para craftear <gold>298'
+  - '<green>Exp <white>- <gold>8.9'
+GNRCF051:
+  type: item
+  material: 355,12
+  lore:
+  - '<dark_green>Nivel para craftear <gold>298'
+  - '<green>Exp <white>- <gold>8.9'
+GNRCF052:
+  type: item
+  material: 355,13
+  lore:
+  - '<dark_green>Nivel para craftear <gold>298'
+  - '<green>Exp <white>- <gold>8.9'
+GNRCF053:
+  type: item
+  material: 355,14
+  lore:
+  - '<dark_green>Nivel para craftear <gold>298'
+  - '<green>Exp <white>- <gold>8.9'
+GNRCF054:
+  type: item
+  material: 355,15
+  lore:
+  - '<dark_green>Nivel para craftear <gold>298'
+  - '<green>Exp <white>- <gold>8.9'
+
+# =============== PLACE
+GNRPL001:
+  type: item
+  material: 35,0
+  lore:
+  - '<green>Exp <white>- <gold>1.6'
+GNRPL002:
+  type: item
+  material: 35,1
+  lore:
+  - '<green>Exp <white>- <gold>3.5'
+GNRPL003:
+  type: item
+  material: 35,2
+  lore:
+  - '<green>Exp <white>- <gold>6.3'
+GNRPL004:
+  type: item
+  material: 35,3
+  lore:
+  - '<green>Exp <white>- <gold>3.8'
+GNRPL005:
+  type: item
+  material: 35,4
+  lore:
+  - '<green>Exp <white>- <gold>2.7'
+GNRPL006:
+  type: item
+  material: 35,5
+  lore:
+  - '<green>Exp <white>- <gold>4.7'
+GNRPL007:
+  type: item
+  material: 35,6
+  lore:
+  - '<green>Exp <white>- <gold>3.8'
+GNRPL008:
+  type: item
+  material: 35,7
+  lore:
+  - '<green>Exp <white>- <gold>3.8'
+GNRPL009:
+  type: item
+  material: 35,8
+  lore:
+  - '<green>Exp <white>- <gold>5.0'
+GNRPL010:
+  type: item
+  material: 35,9
+  lore:
+  - '<green>Exp <white>- <gold>3.8'
+GNRPL011:
+  type: item
+  material: 35,10
+  lore:
+  - '<green>Exp <white>- <gold>3.8'
+GNRPL012:
+  type: item
+  material: 35,11
+  lore:
+  - '<green>Exp <white>- <gold>2.7'
+GNRPL013:
+  type: item
+  material: 35,12
+  lore:
+  - '<green>Exp <white>- <gold>2.7'
+GNRPL014:
+  type: item
+  material: 35,13
+  lore:
+  - '<green>Exp <white>- <gold>2.7'
+GNRPL015:
+  type: item
+  material: 35,14
+  lore:
+  - '<green>Exp <white>- <gold>2.7'
+GNRPL016:
+  type: item
+  material: 35,15
+  lore:
+  - '<green>Exp <white>- <gold>2.7'
+GNRPL017:
+  type: item
+  material: 171
+  lore:
+  - '<green>Exp <white>- <gold>3.8'
+GNRPL018:
+  type: item
+  material: 171,1
+  lore:
+  - '<green>Exp <white>- <gold>8.9'
+GNRPL019:
+  type: item
+  material: 171,2
+  lore:
+  - '<green>Exp <white>- <gold>15.2'
+GNRPL020:
+  type: item
+  material: 171,3
+  lore:
+  - '<green>Exp <white>- <gold>8.9'
+GNRPL021:
+  type: item
+  material: 171,4
+  lore:
+  - '<green>Exp <white>- <gold>6.3'
+GNRPL022:
+  type: item
+  material: 171,4
+  lore:
+  - '<green>Exp <white>- <gold>11.2'
+GNRPL023:
+  type: item
+  material: 171,6
+  lore:
+  - '<green>Exp <white>- <gold>8.9'
+GNRPL024:
+  type: item
+  material: 171,7
+  lore:
+  - '<green>Exp <white>- <gold>8.9'
+GNRPL025:
+  type: item
+  material: 171,8
+  lore:
+  - '<green>Exp <white>- <gold>12.0'
+GNRPL026:
+  type: item
+  material: 171,9
+  lore:
+  - '<green>Exp <white>- <gold>8.9'
+GNRPL027:
+  type: item
+  material: 171,10
+  lore:
+  - '<green>Exp <white>- <gold>8.9'
+GNRPL028:
+  type: item
+  material: 171,11
+  lore:
+  - '<green>Exp <white>- <gold>6.3'
+GNRPL029:
+  type: item
+  material: 171,12
+  lore:
+  - '<green>Exp <white>- <gold>6.3'
+GNRPL030:
+  type: item
+  material: 171,13
+  lore:
+  - '<green>Exp <white>- <gold>6.3'
+GNRPL031:
+  type: item
+  material: 171,14
+  lore:
+  - '<green>Exp <white>- <gold>6.3'
+GNRPL032:
+  type: item
+  material: 171,15
+  lore:
+  - '<green>Exp <white>- <gold>6.3'
+GNRPL033:
+  type: item
+  material: 355,0
+  lore:
+  - '<green>Exp <white>- <gold>5.9'
+GNRPL034:
+  type: item
+  material: 355,1
+  lore:
+  - '<green>Exp <white>- <gold>13.7'
+GNRPL035:
+  type: item
+  material: 355,2
+  lore:
+  - '<green>Exp <white>- <gold>23.0'
+GNRPL036:
+  type: item
+  material: 355,3
+  lore:
+  - '<green>Exp <white>- <gold>13.7'
+GNRPL037:
+  type: item
+  material: 355,4
+  lore:
+  - '<green>Exp <white>- <gold>9.8'
+GNRPL038:
+  type: item
+  material: 355,5
+  lore:
+  - '<green>Exp <white>- <gold>17.0'
+GNRPL039:
+  type: item
+  material: 355,6
+  lore:
+  - '<green>Exp <white>- <gold>13.7'
+GNRPL040:
+  type: item
+  material: 355,7
+  lore:
+  - '<green>Exp <white>- <gold>13.7'
+GNRPL041:
+  type: item
+  material: 355,8
+  lore:
+  - '<green>Exp <white>- <gold>18.4'
+GNRPL042:
+  type: item
+  material: 355,9
+  lore:
+  - '<green>Exp <white>- <gold>13.7'
+GNRPL043:
+  type: item
+  material: 355,10
+  lore:
+  - '<green>Exp <white>- <gold>13.7'
+GNRPL044:
+  type: item
+  material: 355,11
+  lore:
+  - '<green>Exp <white>- <gold>8.9'
+GNRPL045:
+  type: item
+  material: 355,12
+  lore:
+  - '<green>Exp <white>- <gold>8.9'
+
+## ======== Smelt
+GNRSM001:
+  type: item
+  material: 366
+  lore:
+  - '<dark_green>Nivel para hornear <gold>25'
+  - '<green>Exp <white>- <gold>6.2'
+GNRSM002:
+  type: item
+  material: 350
+  lore:
+  - '<dark_green>Nivel para hornear <gold>82'
+  - '<green>Exp <white>- <gold>22.1'
+GNRSM003:
+  type: item
+  material: 350,1
+  lore:
+  - '<dark_green>Nivel para hornear <gold>98'
+  - '<green>Exp <white>- <gold>22.1'
+GNRSM004:
+  type: item
+  material: 320
+  lore:
+  - '<dark_green>Nivel para hornear <gold>150'
+  - '<green>Exp <white>- <gold>42.8'
+GNRSM005:
+  type: item
+  material: 364
+  lore:
+  - '<dark_green>Nivel para hornear <gold>189'
+  - '<green>Exp <white>- <gold>30.6'
+GNRSM006:
+  type: item
+  material: 412
+  lore:
+  - '<dark_green>Nivel para hornear <gold>225'
+  - '<green>Exp <white>- <gold>33.1'
+GNRSM007:
+  type: item
+  material: 424
+  lore:
+  - '<dark_green>Nivel para hornear <gold>262'
+  - '<green>Exp <white>- <gold>33.7'
+## ===== Fish
+GNRFH001:
+  type: item
+  material: 349
+  lore:
+  - '<green>Exp <white>- <gold>22.1'
+GNRFH002:
+  type: item
+  material: 349,1
+  lore:
+  - '<green>Exp <white>- <gold>22.1'
+GNRFH003:
+  type: item
+  material: 349,2
+  lore:
+  - '<green>Exp <white>- <gold>22.1'
+GNRFH004:
+  type: item
+  material: 349,3
+  lore:
+  - '<green>Exp <white>- <gold>22.1'
+## ===== Kill
+GNRKLL001:
+  type: item
+  material: 383,93
+  lore:
+  - '<green>Exp <white>- <gold>6.2'
+GNRKLL002:
+  type: item
+  material: 383,90
+  lore:
+  - '<green>Exp <white>- <gold>42.8'
+GNRKLL003:
+  type: item
+  material: 383,92
+  lore:
+  - '<green>Exp <white>- <gold>30.6'
+GNRKLL004:
+  type: item
+  material: 383,101
+  lore:
+  - '<green>Exp <white>- <gold>33.1'
+GNRKLL005:
+  type: item
+  material: 383,91
+  lore:
+  - '<green>Exp <white>- <gold>33.7'
+#=========== Usos
+GNRUS001:
+  type: item
+  material: 346
+  lore:
+  - '<dark_green>Nivel para usar <gold>79'
+GNRUS002:
+  type: item
+  material: 259
+  lore:
+  - '<dark_green>Nivel para usar <gold>194'
+GNRUS003:
+  type: item
+  material: 359
+  lore:
+  - '<dark_green>Nivel para usar <gold>208'

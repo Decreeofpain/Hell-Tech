@@ -1,0 +1,512 @@
+### Dante - Awesome_Dante's crazy attempt at replicating the demon slayer Dante in Minecraft via Mythic Mobs.
+### This code is quite literally my pride and joy. Please do not share.
+### This versions comments are not fully written yet. The support link for this mob is at the bottom of every file this mob uses.
+### Version 'EA-Pre-Alpha V 0.2'
+### File version 'V 1.1' 
+### Comments Version 'V 0.1'
+### Known Compatibility with Spigot 1.11.2 - 1.12.2 
+### Known Compatibility with MythicMobs 2.3+ Recommended 4.3.2+
+### REQUIRES: MythicMobsExtension - https://www.spigotmc.org/resources/mythicmobsextension.51884/
+### REQUIRES: HolographicDisplays - https://dev.bukkit.org/projects/holographic-displays
+
+
+#### Dante mob - Ebony and Ivory Skills file.
+# EAI = Ebony And Ivory
+# AI = Artificial Intelligence
+# AIEAI = Artificial Intelligence Ebony And Ivory
+
+EbonyAndIvoryAbilityPurchaseAIChainSelector:
+  Skills:
+  - randomskill
+      {
+      skills=
+      AIEAIPChain1,
+      AIEAIPChain2,
+      AIEAIPChain3,
+      AIEAIPChain4,
+      AIEAIPChain5
+      }
+      
+AIEAIPChain1:
+  Skills:
+  - modifymobscore{o=EAIPChain;a=SET;v=1}
+AIEAIPChain2:
+  Skills:
+  - modifymobscore{o=EAIPChain;a=SET;v=2}
+AIEAIPChain3:
+  Skills:
+  - modifymobscore{o=EAIPChain;a=SET;v=3}
+AIEAIPChain4:
+  Skills:
+  - modifymobscore{o=EAIPChain;a=SET;v=4}
+AIEAIPChain5:
+  Skills:
+  - modifymobscore{o=EAIPChain;a=SET;v=5}
+  
+### This is the first Ebony and Ivory ability purchase chain. The mob will attempt to buy these abilities for Ebony and Ivory in this order for this chain: 
+
+# Rapid Shot --> Level 2 --> Charge Handguns --> Level 3 --> Rainstorm
+
+## The final "Else" in the last castif is set to BuyEAIRapidShot as it isn't possible to buy that ability if the mob already has it
+# Thus terminating the chain instead of infinite looping. The rest of the chains function similarly with all ability purchasing priorities being different so I will note the chain progression in their comments.
+EAIAIPChain1Execute:
+  Skills:
+  - castif{c="mobscore AIEAIPChain;=1 && mobscore EAIRapidShot;=0";meet=BuyEAIRapidShot;else=BuyEAILevel2}
+  - castif{c="mobscore AIEAIPChain;=1 && mobscore EAIRapidShot;=1 && mobscore EAILevel;=1";meet=BuyEAILevel2;else=BuyEAIChargeShot}
+  - castif{c="mobscore AIEAIPChain;=1 && mobscore EAIRapidShot;=1 && mobscore EAILevel;=2 && mobscore EAIChargeShot;=0";meet=BuyEAIChargeShot;else=BuyEAILevel3}
+  - castif{c="mobscore AIEAIPChain;=1 && mobscore EAIRapidShot;=1 && mobscore EAILevel;=2 && mobscore EAIChargeShot;=1";meet=BuyEAILevel3;else=BuyEAIRainStorm}
+  - castif{c="mobscore AIEAIPChain;=1 && mobscore EAIRapidShot;=1 && mobscore EAILevel;=3 && mobscore EAIChargeShot;=1 && mobscore EAIRainStorm;=0";meet=BuyEAIRainStorm;else=BuyEAIRapidShot}
+  
+
+# Ebony and Ivory ability purchasing priorities: # Charge Handguns --> Level 2 --> Rapid Shot --> Level 3 --> Rainstorm
+AIEAIPChain2Execute:
+  Skills:
+  - castif{c="mobscore AIEAIPChain;=2 && mobscore EAIChargeShot;=0";meet=BuyEAIChargeShot;else=BuyEAILevel2}
+  - castif{c="mobscore AIEAIPChain;=2 && mobscore EAIChargeShot;=1 && mobscore EAILevel;=1";meet=BuyEAILevel2;else=BuyEAIRapidShot}
+  - castif{c="mobscore AIEAIPChain;=2 && mobscore EAIChargeShot;=1 && mobscore EAILevel;=2 && mobscore EAIRapidShot;=0";meet=BuyEAIRapidShot;else=BuyEAILevel3}
+  - castif{c="mobscore AIEAIPChain;=2 && mobscore EAIChargeShot;=1 && mobscore EAILevel;=2 && mobscore EAIRapidShot;=1";meet=BuyEAILevel3;else=BuyEAIRainStorm}
+  - castif{c="mobscore AIEAIPChain;=2 && mobscore EAIChargeShot;=1 && mobscore EAILevel;=3 && mobscore EAIRapidShot;=1 && mobscore EAIRainStorm;=0";meet=BuyEAIRainStorm;else=BuyEAIChargeShot}
+  
+# Ebony and Ivory ability purchasing priorities: # Level 2 --> Rapid Shot --> Charge Handguns --> Level 3 --> Rainstorm
+AIEAIPChain3Execute:
+  Skills:
+  - castif{c="mobscore AIEAIPChain;=3 && mobscore EAILevel;=1";meet=BuyEAILevel2;else=BuyEAIRapidShot}
+  - castif{c="mobscore AIEAIPChain;=3 && mobscore EAILevel;=2 && mobscore EAIRapidShot;=0";meet=BuyEAIRapidShot;else=BuyEAIChargeShot}
+  - castif{c="mobscore AIEAIPChain;=3 && mobscore EAILevel;=2 && mobscore EAIRapidShot;=1 && mobscore EAIChargeShot;=0";meet=BuyEAIChargeShot;else=BuyEAILevel3}
+  - castif{c="mobscore AIEAIPChain;=3 && mobscore EAILevel;=2 && mobscore EAIRapidShot;=1 && mobscore EAIChargeShot;=1";meet=BuyEAILevel3;else=BuyEAIRainStorm}
+  - castif{c="mobscore AIEAIPChain;=3 && mobscore EAILevel;=3 && mobscore EAIRapidShot;=1 && mobscore EAIChargeShot;=1 && mobscore EAIRainStorm;=0";meet=BuyEAIRainStorm;else=BuyEAILevel2}
+  
+# Ebony and Ivory ability purchasing priorities: # Level 2 --> Level 3 --> Rapid Shot --> Charge Handguns --> Rainstorm
+AIEAIPChain4Execute:
+  Skills:
+  - castif{c="mobscore AIEAIPChain;=4 && mobscore EAILevel;=1";meet=BuyEAILevel2;else=BuyEAILevel3}
+  - castif{c="mobscore AIEAIPChain;=4 && mobscore EAILevel;=2";meet=BuyEAILevel3;else=BuyEAIRapidShot}
+  - castif{c="mobscore AIEAIPChain;=4 && mobscore EAILevel;=3 && mobscore EAIRapidShot;=0";meet=BuyEAIRapidShot;else=BuyEAIChargeShot}
+  - castif{c="mobscore AIEAIPChain;=4 && mobscore EAILevel;=3 && mobscore EAIRapidShot;=1 && mobscore EAIChargeShot;=0";meet=BuyEAIChargeShot;else=BuyEAIRainStorm}
+  - castif{c="mobscore AIEAIPChain;=4 && mobscore EAILevel;=3 && mobscore EAIRapidShot;=1 && mobscore EAIChargeShot;=1 && mobscore EAIRainStorm;=0";meet=BuyEAIRainStorm;else=BuyEAILevel2}
+  
+# Ebony and Ivory ability purchasing priorities: # Level 2 --> Level 3 --> Rainstorm --> Rapid Shot --> Charge Handguns
+AIEAIPChain5Execute:
+  Skills:
+  - castif{c="mobscore AIEAIPChain;=5 && mobscore EAILevel;=1";meet=BuyEAILevel2;else=BuyEAILevel3}
+  - castif{c="mobscore AIEAIPChain;=5 && mobscore EAILevel;=2";meet=BuyEAILevel3;else=BuyEAIRainStorm}
+  - castif{c="mobscore AIEAIPChain;=5 && mobscore EAILevel;=3 && mobscore EAIRainStorm;=0";meet=BuyEAIRainStorm;else=BuyEAIRapidShot}
+  - castif{c="mobscore AIEAIPChain;=5 && mobscore EAILevel;=3 && mobscore EAIRainStorm;=1 && mobscore EAIRapidShot;=0";meet=BuyEAIRapidShot;else=BuyEAIChargeShot}
+  - castif{c="mobscore AIEAIPChain;=5 && mobscore EAILevel;=3 && mobscore EAIRainStorm;=1 && mobscore EAIRapidShot;=1 && mobscore EAIChargeShot;=0";meet=BuyEAIChargeShot;else=BuyEAILevel2}
+ 
+
+### Ebony and Ivory Purchase Abilities
+
+BuyEAILevel2:
+  LegacyConditions:
+  - mobscore EAILevel;=1
+  - mobscore RedO;>751
+  Skills:
+#  - sendtitle{title="&cAlert!";subtitle="<mob.name> &eupgraded &cEbony and Ivory (Handguns) &eto &cLevel II";d=60} @PlayersInRadius{r=40}
+  - message{m="&7[&l&cAlert!&r&7] &4<mob.name> &eupgraded &cEbony and Ivory (Handguns) &eto &cLevel II"} @PlayersInRadius{r=40}
+  - speechbubble{id=RedOrb;display="&cRed Orbs &7= &e<mob.score.RedO><nl>&5Devil Star L &7= &e<mob.score.DevL><nl>&5Devil Star S &7= &e<mob.score.DevS>";ll=25;counter=100;sideoffset=-1.5;offset=1.0} @self
+  - modifymobscore{o=RedO;A=SUBTRACT;V=750}
+  - modifymobscore{o=EAILevel;a=SET;v=2}
+
+BuyEAILevel3:
+  LegacyConditions:
+  - mobscore EAILevel;=2
+  - mobscore RedO;>1251
+  Skills:
+#  - sendtitle{title="&cAlert!";subtitle="<mob.name> &eupgraded &cEbony and Ivory (Handguns) &eto &cLevel III";d=60} @PlayersInRadius{r=40}
+  - message{m="&7[&l&cAlert!&r&7] &4<mob.name> &eupgraded &cEbony and Ivory (Handguns) &eto &cLevel III"} @PlayersInRadius{r=40}
+  - speechbubble{id=RedOrb;display="&cRed Orbs &7= &e<mob.score.RedO><nl>&5Devil Star L &7= &e<mob.score.DevL><nl>&5Devil Star S &7= &e<mob.score.DevS>";ll=25;counter=100;sideoffset=-1.5;offset=1.0} @self
+  - modifymobscore{o=RedO;A=SUBTRACT;V=1250}
+  - modifymobscore{o=EAILevel;a=SET;v=3}
+  
+BuyEAIRapidShot:
+  LegacyConditions:
+  - mobscore EAIRapidShot;=0
+  - mobscore RedO;>1001
+  Skills:
+#  - sendtitle{title="&cAlert!";subtitle="<mob.name> &elearned &cRapid Shot (Ebony and Ivory)";d=60} @PlayersInRadius{r=40}
+  - message{m="&7[&l&cAlert!&r&7] &4<mob.name> &elearned &cRapid Shot (Ebony and Ivory)"} @PlayersInRadius{r=40}
+  - speechbubble{id=RedOrb;display="&cRed Orbs &7= &e<mob.score.RedO><nl>&5Devil Star L &7= &e<mob.score.DevL><nl>&5Devil Star S &7= &e<mob.score.DevS>";ll=25;counter=100;sideoffset=-1.5;offset=1.0} @self
+  - modifymobscore{o=RedO;A=SUBTRACT;V=1000}
+  - modifymobscore{o=EAIRapidShot;a=SET;v=1}
+  
+BuyEAIChargeShot:
+  LegacyConditions:
+  ## This condition is in the ChargeHandguns skill and the actual shot. That way the guns wont even charge or fire charged shots unless This skill is purchased.
+  - mobscore EAIChargeShot;=0
+  - mobscore RedO;>1501
+  Skills:
+#  - sendtitle{title="&cAlert!";subtitle="<mob.name> &elearned &cCharge Shot (Ebony and Ivory)";d=60} @PlayersInRadius{r=40}
+  - message{m="&7[&l&cAlert!&r&7] &4<mob.name> &elearned &cCharge Shot (Ebony and Ivory)"} @PlayersInRadius{r=40}
+  - speechbubble{id=RedOrb;display="&cRed Orbs &7= &e<mob.score.RedO><nl>&5Devil Star L &7= &e<mob.score.DevL><nl>&5Devil Star S &7= &e<mob.score.DevS>";ll=25;counter=100;sideoffset=-1.5;offset=1.0} @self
+  - modifymobscore{o=RedO;A=SUBTRACT;V=1500}
+  - modifymobscore{o=EAIChargeShot;a=SET;v=1}
+  
+BuyEAIRainStorm:
+  LegacyConditions:
+  - mobscore EAIRainStorm;=0
+  - mobscore RedO;>2001
+  Skills:
+#  - sendtitle{title="&cAlert!";subtitle="<mob.name> &elearned &cRain Storm (Ebony and Ivory)";d=60} @PlayersInRadius{r=40}
+  - message{m="&7[&l&cAlert!&r&7] &4<mob.name> &elearned &cRain Storm (Ebony and Ivory)"} @PlayersInRadius{r=40}
+  - speechbubble{id=RedOrb;display="&cRed Orbs &7= &e<mob.score.RedO><nl>&5Devil Star L &7= &e<mob.score.DevL><nl>&5Devil Star S &7= &e<mob.score.DevS>";ll=25;counter=100;sideoffset=-1.5;offset=1.0} @self
+  - modifymobscore{o=RedO;A=SUBTRACT;V=2000}
+  - modifymobscore{o=EAIRainStorm;a=SET;v=1}
+
+
+
+############# EBONY AND IVORY GUN SKILL SECTION ##################
+
+
+FireHandguns-Basic:
+  LegacyConditions:
+  - mobscore EHandguns;=1
+  - mobscore OkayFireGuns;=1
+  - targetnotwithin 7
+  CompareConditions:
+  - targetinlineofsight true
+  Skills:
+  - sound{s=entity.zombie.attack_door_wood} @self
+  - skill{s=Handguns-Basic-DamageCalculation}
+  - effect:particles{p=flame;amount=10;hS=0.5;vS=0.5;speed=0;y=1;fo=0.5} @self
+  
+Handguns-Basic-DamageCalculation:
+  Skills:
+  - skill{s=Handguns-Basic-DamageLevel1}
+  - skill{s=Handguns-Basic-DamageLevel2}
+  - skill{s=Handguns-Basic-DamageLevel3}
+  
+Handguns-Basic-DamageLevel1:
+  LegacyConditions:
+  - mobscore EAILevel;=1
+  Skills:
+  - shoot{type=SNOWBALL;velocity=5;damage=10}
+Handguns-Basic-DamageLevel2:
+  LegacyConditions:
+  - mobscore EAILevel;=2
+  Skills:
+  - shoot{type=SNOWBALL;velocity=5;damage=12}
+Handguns-Basic-DamageLevel3:
+  LegacyConditions:
+  - mobscore EAILevel;=3
+  Skills:
+  - shoot{type=SNOWBALL;velocity=5;damage=15}
+  
+FireHandguns-Basic-ChargeFail:
+  LegacyConditions:
+  - mobscore EHandguns;=1
+  - mobscore OkayFireGuns;=1
+  - targetnotwithin 7
+  CompareConditions:
+  - targetinlineofsight true
+  Skills:
+  - message{m="&7[&l&cAlert!&r&7] &4<mob.name> &eFailed to fire charged shots x4"} @PlayersInRadius{r=40}
+  - sound{s=entity.zombie.attack_door_wood} @self
+  - shoot{type=SNOWBALL;velocity=5;damage=10}
+  - effect:particles{p=flame;amount=10;hS=0.5;vS=0.5;speed=0;y=1;fo=0.5} @self
+  - delay 3
+  - sound{s=entity.zombie.attack_door_wood} @self
+  - shoot{type=SNOWBALL;velocity=5;damage=10}
+  - effect:particles{p=flame;amount=10;hS=0.5;vS=0.5;speed=0;y=1;fo=0.5} @self
+  - delay 3
+  - sound{s=entity.zombie.attack_door_wood} @self
+  - shoot{type=SNOWBALL;velocity=5;damage=10}
+  - effect:particles{p=flame;amount=10;hS=0.5;vS=0.5;speed=0;y=1;fo=0.5} @self
+  - delay 3
+  - sound{s=entity.zombie.attack_door_wood} @self
+  - shoot{type=SNOWBALL;velocity=5;damage=10}
+  - effect:particles{p=flame;amount=10;hS=0.5;vS=0.5;speed=0;y=1;fo=0.5} @self
+  
+FireHandguns-RapidShot:
+  Cooldown: 10
+  LegacyConditions:
+  - mobscore EAIRapidShot;=1
+  - mobscore EHandguns;=1
+  - mobscore OkayFireGuns;=1
+  - targetnotwithin 7
+  CompareConditions:
+  - targetinlineofsight true
+  Skills:
+  - sound{s=entity.zombie.attack_door_wood} @self
+  - skill{s=Handguns-RapidShot-DamageCalculation}
+  - effect:particles{p=flame;amount=10;hS=0.5;vS=0.5;speed=0;y=1;fo=0.5} @self
+  - delay 3
+  - sound{s=entity.zombie.attack_door_wood} @self
+  - skill{s=Handguns-RapidShot-DamageCalculation}
+  - effect:particles{p=flame;amount=10;hS=0.5;vS=0.5;speed=0;y=1;fo=0.5} @self
+  - delay 3
+  - sound{s=entity.zombie.attack_door_wood} @self
+  - skill{s=Handguns-RapidShot-DamageCalculation}
+  - effect:particles{p=flame;amount=10;hS=0.5;vS=0.5;speed=0;y=1;fo=0.5} @self
+  - delay 3
+  - sound{s=entity.zombie.attack_door_wood} @self
+  - skill{s=Handguns-RapidShot-DamageCalculation}
+  - effect:particles{p=flame;amount=10;hS=0.5;vS=0.5;speed=0;y=1;fo=0.5} @self
+  - delay 3
+  - sound{s=entity.zombie.attack_door_wood} @self
+  - skill{s=Handguns-RapidShot-DamageCalculation}
+  - effect:particles{p=flame;amount=10;hS=0.5;vS=0.5;speed=0;y=1;fo=0.5} @self
+  - delay 3
+  - sound{s=entity.zombie.attack_door_wood} @self
+  - skill{s=Handguns-RapidShot-DamageCalculation}
+  - effect:particles{p=flame;amount=10;hS=0.5;vS=0.5;speed=0;y=1;fo=0.5} @self
+  - delay 3
+  - sound{s=entity.zombie.attack_door_wood} @self
+  - skill{s=Handguns-RapidShot-DamageCalculation}
+  - effect:particles{p=flame;amount=10;hS=0.5;vS=0.5;speed=0;y=1;fo=0.5} @self
+   - delay 3
+  - sound{s=entity.zombie.attack_door_wood} @self
+  - skill{s=Handguns-RapidShot-DamageCalculation}
+  - effect:particles{p=flame;amount=10;hS=0.5;vS=0.5;speed=0;y=1;fo=0.5} @self
+  - delay 3
+  - sound{s=entity.zombie.attack_door_wood} @self
+  - skill{s=Handguns-RapidShot-DamageCalculation}
+  - effect:particles{p=flame;amount=10;hS=0.5;vS=0.5;speed=0;y=1;fo=0.5} @self
+  - delay 3
+  - sound{s=entity.zombie.attack_door_wood} @self
+  - skill{s=Handguns-RapidShot-DamageCalculation}
+  - effect:particles{p=flame;amount=10;hS=0.5;vS=0.5;speed=0;y=1;fo=0.5} @self
+  
+Handguns-RapidShot-DamageCalculation:
+  Skills:
+  - skill{s=Handguns-RapidShot-DamageLevel1}
+  - skill{s=Handguns-RapidShot-DamageLevel2}
+  - skill{s=Handguns-RapidShot-DamageLevel3}
+  
+Handguns-RapidShot-DamageLevel1:
+  LegacyConditions:
+  - mobscore EAILevel;=1
+  Skills:
+  - shoot{type=SNOWBALL;velocity=5;damage=8}
+Handguns-RapidShot-DamageLevel2:
+  LegacyConditions:
+  - mobscore EAILevel;=2
+  Skills:
+  - shoot{type=SNOWBALL;velocity=5;damage=9}
+Handguns-RapidShot-DamageLevel3:
+  LegacyConditions:
+  - mobscore EAILevel;=3
+  Skills:
+  - shoot{type=SNOWBALL;velocity=5;damage=11}
+  
+  
+FireHandguns-Charged-Attempt:
+  LegacyConditions:
+  - mobscore EAIChargeShot;=1
+  - mobscore EHandguns;=1
+  - mobscore OkayFireGuns;=1
+  - mobscore DTGauge;>8
+  - targetnotwithin 7
+  CompareConditions:
+  - targetinlineofsight true
+  Skills:
+  - message{m="&7[&l&cAlert!&r&7] &4<mob.name> &eIs Attempting to fire charged shots x4"} @PlayersInRadius{r=40}
+  - castif{c="mobscore EHandguns;=1 && mobscore OkayFireGuns;=1 && mobscore mobscore DTGauge;>8 && targetnotwithin{d=7} && mobscore nodamage10s;>9";meet=FireHandguns-Charged;else=FireHandguns-Basic-ChargeFail
+  
+FireHandguns-Charged:
+  LegacyConditions:
+  - mobscore EAIChargeShot;=1
+  - mobscore EHandguns;=1
+  - mobscore OkayFireGuns;=1
+  - mobscore DTGauge;>8
+  - targetnotwithin 7
+  CompareConditions:
+  - targetinlineofsight true
+  Skills:
+  - message{m="&7[&l&cAlert!&r&7] &4<mob.name> &eIs firing charged shots x4"} @PlayersInRadius{r=40}
+  - sound{s=entity.zombie.attack_door_wood} @self
+  - projectile{onTick=HandgunChargedBullet-Tick;onHit=HandgunChargedBullet-Hit;v=18;i=1;hR=1;vR=1} @target
+  - effect:particles{p=reddust;amount=80;hS=1.5;vS=1.5;speed=0;y=1;fo=0.5} @self
+  - effect:particles{p=reddust;color=#FA8072;amount=40;hS=1;vS=1;speed=0;y=1;fo=1} @self
+  - effect:particles{p=reddust;color=#ffffff;amount=20;hS=0.5;vS=0.5;speed=0;y=1;fo=1} @self
+  - modifymobscore{o=DTGauge;a=SUBTRACT;v=2}
+  - skill{s=UpdateDTGauge}
+  - delay 10
+  - sound{s=entity.zombie.attack_door_wood} @self
+  - projectile{onTick=HandgunChargedBullet-Tick;onHit=HandgunChargedBullet-Hit;v=18;i=1;hR=1;vR=1} @target
+  - effect:particles{p=reddust;amount=80;hS=1.5;vS=1.5;speed=0;y=1;fo=0.5} @self
+  - effect:particles{p=reddust;color=#FA8072;amount=40;hS=1;vS=1;speed=0;y=1;fo=1} @self
+  - effect:particles{p=reddust;color=#ffffff;amount=20;hS=0.5;vS=0.5;speed=0;y=1;fo=1} @self
+  - modifymobscore{o=DTGauge;a=SUBTRACT;v=2}
+  - skill{s=UpdateDTGauge}
+  - delay 10
+  - sound{s=entity.zombie.attack_door_wood} @self
+  - projectile{onTick=HandgunChargedBullet-Tick;onHit=HandgunChargedBullet-Hit;v=18;i=1;hR=1;vR=1} @target
+  - effect:particles{p=reddust;amount=80;hS=1.5;vS=1.5;speed=0;y=1;fo=0.5} @self
+  - effect:particles{p=reddust;color=#FA8072;amount=40;hS=1;vS=1;speed=0;y=1;fo=1} @self
+  - effect:particles{p=reddust;color=#ffffff;amount=20;hS=0.5;vS=0.5;speed=0;y=1;fo=1} @self
+  - modifymobscore{o=DTGauge;a=SUBTRACT;v=2}
+  - skill{s=UpdateDTGauge}
+  - delay 10
+  - sound{s=entity.zombie.attack_door_wood} @self
+  - projectile{onTick=HandgunChargedBullet-Tick;onHit=HandgunChargedBullet-Hit;v=18;i=1;hR=1;vR=1} @target
+  - effect:particles{p=reddust;amount=80;hS=1.5;vS=1.5;speed=0;y=1;fo=0.5} @self
+  - effect:particles{p=reddust;color=#FA8072;amount=40;hS=1;vS=1;speed=0;y=1;fo=1} @self
+  - effect:particles{p=reddust;color=#ffffff;amount=20;hS=0.5;vS=0.5;speed=0;y=1;fo=1} @self
+  - modifymobscore{o=DTGauge;a=SUBTRACT;v=2}
+  - skill{s=UpdateDTGauge}
+HandgunChargedBullet-Tick:
+  Skills:
+  - effect:particles{p=reddust;amount=20;hS=0.2;vS=0.2;speed=0;y=1;fo=0.5} @origin
+HandgunChargedBullet-Hit:
+  Skills:
+  - skill{s=Handguns-ChargeShot-DamageCalculation}
+  
+Handguns-ChargeShot-DamageCalculation:
+  Skills:
+  - skill{s=Handguns-ChargeShot-DamageLevel1}
+  - skill{s=Handguns-ChargeShot-DamageLevel2}
+  - skill{s=Handguns-ChargeShot-DamageLevel3}
+  
+Handguns-ChargeShot-DamageLevel1:
+  LegacyConditions:
+  - mobscore EAILevel;=1
+  Skills:
+  - shoot{type=SNOWBALL;velocity=5;damage=20}
+Handguns-ChargeShot-DamageLevel2:
+  LegacyConditions:
+  - mobscore EAILevel;=2
+  Skills:
+  - shoot{type=SNOWBALL;velocity=5;damage=25}
+Handguns-ChargeShot-DamageLevel3:
+  LegacyConditions:
+  - mobscore EAILevel;=3
+  Skills:
+  - shoot{type=SNOWBALL;velocity=5;damage=30}
+  
+  
+ChargeHandguns:
+  LegacyConditions:
+  - mobscore EAIChargeShot;=1
+  Skills:
+  - modifymobscore{o=nodamage10s;a=ADD;v=1}
+  
+HandgunsChargedEffects:
+  LegacyConditions:
+  - mobscore DTGauge;>8
+  - mobscore nodamage10s;>9
+  Skills:
+  - effect:particles{p=reddust;amount=40;hS=0.5;vS=0.5;speed=0;y=1} @self
+  
+  
+ResetChargeDamageCounter:
+  Skills:
+  - modifymobscore{o=nodamage10s;a=SET;v=0}
+  
+ERainStorm:
+  LegacyConditions:
+ # - mobscore EAIRainStorm;=1
+  - targetwithin 4
+  Skills:
+  - summon{t=ERainstormPlacer;a=1;r=0} @self
+  - potion{type=SLOW;duration=1000;level=3} @self
+  - delay 5
+  - jump{v=1.5}
+  - effect:spin{duration=40;velocity=30} @self
+  - delay 10
+  - potion{type=INVISIBILITY;duration=1000;level=1} @self
+  - summon{t=UpsideDownDante;a=1;r=0} @self
+  - skill{s=FireAtRandomRainstormTargeter}
+  - delay 2
+  - skill{s=FireAtRandomRainstormTargeter}
+  - delay 2
+  - skill{s=FireAtRandomRainstormTargeter}
+  - delay 2
+  - skill{s=FireAtRandomRainstormTargeter}
+  - delay 2
+  - skill{s=FireAtRandomRainstormTargeter}
+  - delay 2
+  - skill{s=FireAtRandomRainstormTargeter}
+  - delay 2
+  - skill{s=FireAtRandomRainstormTargeter}
+  - cure{t=SLOW} @self
+  - cure{t=INVISIBILITY} @self
+  - remove @MIR{t=UpsideDownDante;r=50}
+  - leap{v=40} @target
+  - remove @MIR{t=ERainstormPlacer;r=20}
+  - remove @MIR{t=ERainstormTargeter1;r=20}
+  - remove @MIR{t=ERainstormTargeter2;r=20}
+  - remove @MIR{t=ERainstormTargeter3;r=20}
+  - remove @MIR{t=ERainstormTargeter4;r=20}
+
+# Code that distributes targeter armor stands in a tight area around the spot where Dante jumped from. This allows Dante to shoot randomly at the ground by targeting these Armor Stands.  
+ErainStormPlaceTargeters:
+  Skills:
+  - command{c="minecraft:execute <mob.uuid> ~ ~ ~ minecraft:tp <mob.uuid> ~0.5 ~ ~"} @Self
+  - summon{t=ERainstormTargeter1;a=1;r=0} @self
+  - command{c="minecraft:execute <mob.uuid> ~ ~ ~ minecraft:tp <mob.uuid> ~-1 ~ ~"} @Self
+  - summon{t=ERainstormTargeter2;a=1;r=0} @self
+  - command{c="minecraft:execute <mob.uuid> ~ ~ ~ minecraft:tp <mob.uuid> ~0.5 ~ ~"} @Self
+  - command{c="minecraft:execute <mob.uuid> ~ ~ ~ minecraft:tp <mob.uuid> ~ ~ ~0.5"} @Self
+  - summon{t=ERainstormTargeter3;a=1;r=0} @self
+  - command{c="minecraft:execute <mob.uuid> ~ ~ ~ minecraft:tp <mob.uuid> ~ ~ ~-1"} @Self
+  - summon{t=ERainstormTargeter4;a=1;r=0} @self
+  - command{c="minecraft:execute <mob.uuid> ~ ~ ~ minecraft:tp <mob.uuid> ~ ~ ~0.5"} @Self
+  
+FireAtRandomRainstormTargeter:
+  Skills:
+  - randomskill
+      {
+      skills=
+      ERainStormShootPlacer,
+      ERainStormShootTarget1,
+      ERainStormShootTarget2,
+      ERainStormShootTarget3,
+      ERainStormShootTarget4
+      }
+ERainStormShootPlacer:
+  Skills:
+  - sound{s=entity.zombie.attack_door_wood} @self
+  - skill{s=Handguns-ChargeShot-DamageCalculation} @MIR{t=ERainstormPlacer;r=20}
+  - effect:particles{p=flame;amount=10;hS=0.5;vS=0.5;speed=0;y=-0.5;fo=0.5} @self
+ERainStormShootTarget1:
+  Skills:
+  - sound{s=entity.zombie.attack_door_wood} @self
+  - skill{s=Handguns-ChargeShot-DamageCalculation} @MIR{t=ERainstormTargeter1;r=20}
+  - effect:particles{p=flame;amount=10;hS=0.5;vS=0.5;speed=0;y=-0.5;fo=0.5} @self
+ERainStormShootTarget2:
+  Skills:
+  - sound{s=entity.zombie.attack_door_wood} @self
+  - skill{s=Handguns-ChargeShot-DamageCalculation} @MIR{t=ERainstormTargeter2;r=20}
+  - effect:particles{p=flame;amount=10;hS=0.5;vS=0.5;speed=0;y=-0.5;fo=0.5} @self
+ERainStormShootTarget3:
+  Skills:
+  - sound{s=entity.zombie.attack_door_wood} @self
+  - skill{s=Handguns-ChargeShot-DamageCalculation} @MIR{t=ERainstormTargeter3;r=20}
+  - effect:particles{p=flame;amount=10;hS=0.5;vS=0.5;speed=0;y=-0.5;fo=0.5} @self
+ERainStormShootTarget4:
+  Skills:
+  - sound{s=entity.zombie.attack_door_wood} @self
+  - skill{s=Handguns-ChargeShot-DamageCalculation} @MIR{t=ERainstormTargeter4;r=20}
+  - effect:particles{p=flame;amount=10;hS=0.5;vS=0.5;speed=0;y=-0.5;fo=0.5} @self
+  
+Handguns-RainStorm-DamageCalculation:
+  Skills:
+  - skill{s=Handguns-RainStorm-DamageLevel1}
+  - skill{s=Handguns-RainStorm-DamageLevel2}
+  - skill{s=Handguns-RainStorm-DamageLevel3}
+  
+Handguns-RainStorm-DamageLevel1:
+  LegacyConditions:
+  - mobscore EAILevel;=1
+  Skills:
+  - shoot{type=SNOWBALL;velocity=5;damage=14}
+Handguns-RainStorm-DamageLevel2:
+  LegacyConditions:
+  - mobscore EAILevel;=2
+  Skills:
+  - shoot{type=SNOWBALL;velocity=5;damage=15}
+Handguns-RainStorm-DamageLevel3:
+  LegacyConditions:
+  - mobscore EAILevel;=3
+  Skills:
+  - shoot{type=SNOWBALL;velocity=5;damage=16}
+  
+  
+  
+# If their is anything you do not understand about this mob or you need help I sincerely do not blame you.
+# I expect to get swarmed with requests within the first week of this mobs release. 
+# I may reply with a please wait message. I will get to you as soon as possible.
+
+# DIRECT SUPPORT LINK. PLEASE ALLOW 24 HOURS TO GET A REPLY. 
+# http://mythicmobs.net/index.php?conversations/add&to=Awesome_Dante

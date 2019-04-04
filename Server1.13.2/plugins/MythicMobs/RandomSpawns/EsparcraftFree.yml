@@ -1,0 +1,24 @@
+#
+# These example files show you how to inject Mythic Mobs
+# you've created into your world. The name of each block
+# can be whatever you'd like but must be unique.
+Espboost0:
+  Action: REPLACE
+  Type: Aracboss1,Bandit,ZombieLoco,Esqueletociego,Esqueletoguerrero,Jinetesincabeza,Aeon,Geist,Poltergeist,PumpkinFiend,WeepingAngel,VampireBat,DuskWitch
+  Chance: 0.05
+  Priority: 50
+  UseWorldScaling: true
+  Worlds: Esparcraft
+  Conditions:
+    - heightabove 40
+    - distancefromspawn >246
+Espboost2:
+  Action: REPLACE
+  Type: Gigante,SlimeOP
+  Chance: 0.04
+  Priority: 40
+  UseWorldScaling: true
+  Worlds: Esparcraft
+  Conditions:
+    - heightabove 60
+    - distancefromspawn >840

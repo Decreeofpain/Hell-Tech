@@ -1,0 +1,132 @@
+Armaduras: 
+  name: 'Armaduras'
+  type: 'Maestria'
+  max-level: 2
+  skill-req-lvl: 1
+  needs-permission: 'false'
+  attributes: 
+    cost-base: '1'
+    cooldown-scale: '0'
+    cost-scale: '10'
+    level-scale: '0'
+    level-base: '10'
+    mana-base: '0'
+    mana-scale: '0'
+    cooldown-base: '0'
+  msg: '&6{player} &2has cast &6{skill}'
+  icon: 'LEATHER_CHESTPLATE'
+  icon-data: 0
+  icon-lore: 
+  - '&d{name} &7({level}/{max})'
+  - '&2Tipo: &6{type}'
+  - '{req:level}Nivel: {attr:level}'
+  - '{req:cost}Puntos necesarios: {attr:cost}'
+  - ''
+  - '&5Descripcion:'
+  - '&7Permite usar otro tipo de Armaduras'
+  - ''
+  - '&eNivel 1:  Armadura de cota'
+  - '&eNivel 2:  Armadura de hierro'
+  desc:  []
+  components: 
+    Initialize: 
+      type: 'trigger'
+      data: 
+        icon-key: ''
+      children: 
+        Passive-b: 
+          type: 'mechanic'
+          data: 
+            counts: 'True'
+            icon-key: ''
+            seconds-scale: '0'
+            seconds-base: '2'
+          children: 
+            Skill Level-c: 
+              type: 'condition'
+              data: 
+                skill: 'Armaduras'
+                max-level: '2'
+                icon-key: ''
+                min-level: '1'
+              children: 
+                Permission-d: 
+                  type: 'mechanic'
+                  data: 
+                    perm: 'ItemRestrict.bypass.302.0.wear'
+                    counts: 'False'
+                    icon-key: ''
+                    seconds-scale: '0'
+                    seconds-base: '99999999999999'
+                  children:  {}
+                Permission-e: 
+                  type: 'mechanic'
+                  data: 
+                    perm: 'ItemRestrict.bypass.303.0.wear'
+                    counts: 'True'
+                    icon-key: ''
+                    seconds-scale: '0'
+                    seconds-base: '99999999999999'
+                  children:  {}
+                Permission-f: 
+                  type: 'mechanic'
+                  data: 
+                    perm: 'ItemRestrict.bypass.304.0.wear'
+                    counts: 'True'
+                    icon-key: ''
+                    seconds-scale: '0'
+                    seconds-base: '99999999999999'
+                  children:  {}
+                Permission-g: 
+                  type: 'mechanic'
+                  data: 
+                    perm: 'ItemRestrict.bypass.305.0.wear'
+                    counts: 'True'
+                    icon-key: ''
+                    seconds-scale: '0'
+                    seconds-base: '99999999999999'
+                  children:  {}
+            Skill Level-h: 
+              type: 'condition'
+              data: 
+                skill: 'Armaduras'
+                max-level: '2'
+                icon-key: ''
+                min-level: '2'
+              children: 
+                Permission-i: 
+                  type: 'mechanic'
+                  data: 
+                    perm: 'ItemRestrict.bypass.306.0.wear'
+                    counts: 'True'
+                    icon-key: ''
+                    seconds-scale: '0'
+                    seconds-base: '99999999999999'
+                  children:  {}
+                Permission-j: 
+                  type: 'mechanic'
+                  data: 
+                    perm: 'ItemRestrict.bypass.307.0.wear'
+                    counts: 'True'
+                    icon-key: ''
+                    seconds-scale: '0'
+                    seconds-base: '99999999999999'
+                  children:  {}
+                Permission-k: 
+                  type: 'mechanic'
+                  data: 
+                    perm: 'ItemRestrict.bypass.308.0.wear'
+                    counts: 'True'
+                    icon-key: ''
+                    seconds-scale: '0'
+                    seconds-base: '99999999999999'
+                  children:  {}
+                Permission-l: 
+                  type: 'mechanic'
+                  data: 
+                    perm: 'ItemRestrict.bypass.309.0.wear'
+                    counts: 'True'
+                    icon-key: ''
+                    seconds-scale: '0'
+                    seconds-base: '99999999999999'
+                  children:  {}

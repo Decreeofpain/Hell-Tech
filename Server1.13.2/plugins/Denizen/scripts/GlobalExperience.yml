@@ -1,0 +1,258 @@
+GlobalExperience:
+  type: world
+  events:
+# -------------MINERIA-------------------------
+    on player breaks stone:
+    - ^flag <player> mineriaexp:+:1
+    - ^actionbar "<green>+1"
+    - ^run 's@checkmineria'
+    - ^queue clear
+    on player breaks granite:
+    - ^flag <player> mineriaexp:+:1.6
+    - ^actionbar "<green>+1.2"
+    - ^run 's@checkmineria'
+    - ^queue clear
+    on player breaks diorite:
+    - ^flag <player> mineriaexp:+:1.8
+    - ^actionbar "<green>+1.4"
+    - ^run 's@checkmineria'
+    - ^queue clear
+    on player breaks andesite:
+    - ^flag <player> mineriaexp:+:2
+    - ^actionbar "<green>+2"
+    - ^run 's@checkmineria'
+    - ^queue clear
+    on player breaks coal_ore:
+    - ^flag <player> mineriaexp:+:3
+    - ^actionbar "<green>+3"
+    - ^run 's@checkmineria'
+    - ^queue clear
+    on player breaks sand:
+    - ^flag <player> mineriaexp:+:5
+    - ^actionbar "<green>+5"
+    - ^run 's@checkmineria'
+    - ^queue clear
+    on player breaks clay:
+    - ^flag <player> mineriaexp:+:7
+    - ^actionbar "<green>+7"
+    - ^run 's@checkmineria'
+    - ^queue clear
+    on player breaks redstone_ore:
+    - ^flag <player> mineriaexp:+:7
+    - ^actionbar "<green>+7"
+    - ^run 's@checkmineria'
+    - ^queue clear
+    on player breaks red_sand:
+    - ^flag <player> mineriaexp:+:7
+    - ^actionbar "<green>+7"
+    - ^run 's@checkmineria'
+    - ^queue clear
+    on player breaks iron_ore:
+    - ^flag <player> mineriaexp:+:7
+    - ^actionbar "<green>+7"
+    - ^run 's@checkmineria'
+    - ^queue clear
+    on player breaks quartz_ore:
+    - ^flag <player> mineriaexp:+:9
+    - ^actionbar "<green>+9"
+    - ^run 's@checkmineria'
+    - ^queue clear
+    on player breaks glowstone:
+    - ^flag <player> mineriaexp:+:9
+    - ^actionbar "<green>+9"
+    - ^run 's@checkmineria'
+    - ^queue clear
+    on player breaks gold_ore:
+    - ^flag <player> mineriaexp:+:9
+    - ^actionbar "<green>+9"
+    - ^run 's@checkmineria'
+    - ^queue clear
+    on player breaks emerald_ore:
+    - ^flag <player> mineriaexp:+:9
+    - ^actionbar "<green>+9"
+    - ^run 's@checkmineria'
+    - ^queue clear
+    on player breaks netherrack:
+    - ^flag <player> mineriaexp:+:11
+    - ^actionbar "<green>+11"
+    - ^run 's@checkmineria'
+    - ^queue clear
+    on player breaks obsidian:
+    - ^flag <player> mineriaexp:+:11
+    - ^actionbar "<green>+11"
+    - ^run 's@checkmineria'
+    - ^queue clear
+    on player breaks diamond_ore:
+    - ^flag <player> mineriaexp:+:11
+    - ^actionbar "<green>+11"
+    - ^run 's@checkmineria'
+    - ^queue clear
+# -------------CARPINTERIA-------------------------
+    on player breaks oak_log:
+    - ^flag <player> carpinteriaexp:+:1
+    - ^actionbar "<green>+1"
+    - ^run 's@checkcarpinteria'
+    - ^queue clear
+    on player breaks spruce_log:
+    - ^flag <player> carpinteriaexp:+:3
+    - ^actionbar "<green>+3"
+    - ^run 's@checkcarpinteria'
+    - ^queue clear
+    on player breaks birch_log:
+    - ^flag <player> carpinteriaexp:+:5
+    - ^actionbar "<green>+5"
+    - ^run 's@checkcarpinteria'
+    - ^queue clear
+    on player breaks jungle_log:
+    - ^flag <player> carpinteriaexp:+:7
+    - ^actionbar "<green>+7"
+    - ^run 's@checkcarpinteria'
+    - ^queue clear
+    on player breaks acacia_log:
+    - ^flag <player> carpinteriaexp:+:9
+    - ^actionbar "<green>+9"
+    - ^run 's@checkcarpinteria'
+    - ^queue clear
+    on player breaks darkoak_log:
+    - ^flag <player> carpinteriaexp:+:11
+    - ^actionbar "<green>+11"
+    - ^run 's@checkcarpinteria'
+    - ^queue clear
+# -------------ALQUIMIA-------------------------
+    on player breaks potato,7:
+    - ^flag <player> alquimiaexp:+:1
+    - ^actionbar "<green>+1"
+    - ^run 's@checkalquimia'
+    - ^queue clear
+    on player breaks melon_block:
+    - ^flag <player> alquimiaexp:+:3
+    - ^actionbar "<green>+3"
+    - ^run 's@checkalquimia'
+    - ^queue clear
+    on player breaks carrot,7:
+    - ^flag <player> alquimiaexp:+:5
+    - ^actionbar "<green>+5"
+    - ^run 's@checkalquimia'
+    - ^queue clear
+    on player breaks sugar_cane_block:
+    - ^flag <player> alquimiaexp:+:5
+    - ^actionbar "<green>+5"
+    - ^run 's@checkalquimia'
+    - ^queue clear
+    on player breaks crops,7:
+    - ^flag <player> alquimiaexp:+:7
+    - ^actionbar "<green>+7"
+    - ^run 's@checkalquimia'
+    - ^queue clear
+    on player breaks beetroot_block,3:
+    - ^flag <player> alquimiaexp:+:9
+    - ^actionbar "<green>+9"
+    - ^run 's@checkalquimia'
+    - ^queue clear
+    on player breaks pumpkin:
+    - ^flag <player> alquimiaexp:+:11
+    - ^actionbar "<green>+11"
+    - ^run 's@checkalquimia'
+    - ^queue clear
+    on player breaks brown_mushroom:
+    - ^flag <player> alquimiaexp:+:11
+    - ^actionbar "<green>+11"
+    - ^run 's@checkalquimia'
+    - ^queue clear
+    on player breaks red_mushroom:
+    - ^flag <player> alquimiaexp:+:11
+    - ^actionbar "<green>+11"
+    - ^run 's@checkalquimia'
+    - ^queue clear
+# -------------GANADERIA-------------------------
+    # on player breaks block:
+    # - ^actionbar "<green><context.material>"
+    # - ^queue clear
+
+checkmineria:
+    type: task
+    script:
+    - ^if <player.flag[mineriaexp]> >= 20 {
+      - ^flag <player> mineriaexp:-:20
+      - ^flag <player> mineriapoints:+:1
+      - ^run 's@checkmineria'
+      } else {
+      - ^queue clear
+      }
+checkcarpinteria:
+    type: task
+    script:
+    - ^if <player.flag[carpinteriaexp]> >= 20 {
+      - ^flag <player> carpinteriaexp:-:20
+      - ^flag <player> carpinteriapoints:+:1
+      - ^run 's@checkcarpinteria'
+      } else {
+      - ^queue clear
+      }
+checkalquimia:
+    type: task
+    script:
+    - ^if <player.flag[alquimiaexp]> >= 20 {
+      - ^flag <player> alquimiaexp:-:20
+      - ^flag <player> alquimiapoints:+:1
+      - ^run 's@checkalquimia'
+      } else {
+      - ^queue clear
+      }
+
+SQLEsparcraft:
+  type: world
+  events:
+    on skillapi player levels up:
+    - ^yaml load:personal/<player.name>.yml id:<player.name>
+    - ~sql id:LevelSAPI<player.name> connect:esparcraft.net/esparcraft username:drAkeNess password:drakness666
+    - ^define nivel <player.skillapi.class_level[<player.skillapi.main_class>]>
+    - ^sql id:LevelSAPI<player.name> "update:UPDATE phpbb_profile_fields_data SET pf_pb_wow_level='<def[nivel]>' WHERE user_id=<yaml[<player.name>].read[UserID]>;"
+    - sql disconnect id:LevelSAPI<player.name>
+    - ^yaml unload id:<player.name>
+
+testsqlskillapi:
+    type: task
+    script:
+    - ^define jugador <player.name>
+    - ^narrate <def[jugador]>
+    - ^sql disconnect id:GlobalSQL
+    - ~sql id:GlobalSQL connect:esparcraft.net/esparcraft username:drAkeNess password:drakness666
+    - ^sql id:GlobalSQL "query:SELECT username FROM phpbb_users WHERE username='<def[jugador]>';" save:resultado
+    - ^narrate "<entry[resultado].result.parse[replace[/]].formatted>"
+    - ^sql disconnect id:GlobalSQL
+    # - ^yaml load:personal/<player.name>.yml id:<player.name>
+    # - ~sql id:LevelSAPI<player.name> connect:esparcraft.net/esparcraft username:drAkeNess password:drakness666
+    # - ^narrate <player.skillapi.class_level[<player.skillapi.main_class>]>
+    # - ^define nivel <player.skillapi.class_level[<player.skillapi.main_class>]>
+    # - ^sql id:LevelSAPI<player.name> "update:UPDATE phpbb_profile_fields_data SET pf_pb_wow_level='<def[nivel]>' WHERE user_id=<yaml[<player.name>].read[UserID]>;"
+    # - ^sql id:LevelSAPI<player.name> "update:UPDATE phpbb_profile_fields_data SET pf_pb_wow_race='5' WHERE user_id=<yaml[<player.name>].read[UserID]>;"
+    # - ^sql id:LevelSAPI<player.name> "update:UPDATE phpbb_profile_fields_data SET pf_pb_wow_class='5' WHERE user_id=<yaml[<player.name>].read[UserID]>;"
+    # - ^narrate "ID:<yaml[<player.name>].read[UserID]> "
+    # - sql disconnect id:LevelSAPI<player.name>
+    # - ^yaml unload id:<player.name>
+
+#    on player joins:
+#    - ^define jugador <player.name>
+#    - ~sql id:consultas connect:corpmore.com:3306/lmacias_esparcraft username:lmacias_drakness password:drakness666
+#    - sql id:consultas "query:SELECT username FROM phpbb_users WHERE username='<def[jugador]>';" save:resultado
+#    - if <entry[resultado].result.as_cslist> = <def[jugador]>/ {
+#      - narrate "Todo chingon"
+#      } else {
+#      - narrate "Seras botado en 10 segundos"
+#      - wait 10
+#      - execute as_server "kick <player.name>"
+#      }
+#    - sql disconnect id:consultas
+#    on player joins:
+#    - ^define jugador <player.name>
+#    - ~sql id:consultas connect:corpmore.com:3306/lmacias_esparcraft username:lmacias_drakness password:drakness666
+#    - sql id:consultas "query:SELECT username FROM phpbb_users WHERE username='<def[jugador]>';" save:resultado
+#    - if <entry[resultado].result.as_cslist> = <def[jugador]>/ {
+#      - narrate "Todo chingon"
+#      } else {
+#      - narrate "Seras botado en 10 segundos"
+#      - wait 10
+#      - execute as_server "kick <player.name>"
+#      }
+#    - sql disconnect id:consultas

@@ -1,0 +1,403 @@
+#Restricted Items List - v 2.4.0
+
+#----------------------------------------------------------------------------------------------------------------------------------------------------------
+#How to add items to the restricted list? Here is an example:
+#
+# - itemID:DataValue:Description:BannedReason
+# 
+# itemID -> represents the item ID
+# DataValue -> represents the item damage value, to cover all values use *
+# Description -> here you can type anything, it's useful to type the item name so you know what item you banned
+# BannedReson -> (optional) Here you can provide a reason to let your players know why this item is restricted, the reason will be sent to players when they try to get/interact with a banned item.
+# 
+# Example:
+# - 7:*:Bedrock:You can't get this item!
+# - 383:50:CreeperEgg:Used to grief
+#
+#----------------------------------------------------------------------------------------------------------------------------------------------------------
+
+#OWNERSHIP BANS - Block any kind of interaction with these items, like: Getting them from creative menu, item pick up, crafting, usage, placement.
+OwnershipBanned: {}
+#USAGE BANS - Block item or block usage only, also blocks entity damage! You don't need to add here items already added to OwnershipBanned.
+UsageBanned:
+- 274:0:name:Necesitas nivel 8 de Minero
+- 257:0:name:Necesitas nivel 190 de Minero
+- 285:0:name:Necesitas nivel 204 de Minero
+- 278:0:name:Necesitas nivel 244 de Minero
+- 273:0:name:Necesitas nivel 4 de Minero
+- 256:0:name:Necesitas nivel 122 de Minero
+- 277:0:name:Necesitas nivel 271 de Minero
+- 284:0:name:Necesitas nivel 222 de Minero
+- 275:0:name:Necesitas nivel 4 de Carpintero
+- 258:0:name:Necesitas nivel 123 de Carpintero
+- 286:0:name:Necesitas nivel 248 de Carpintero
+- 279:0:name:Necesitas nivel 308 de Carpintero
+- 291:0:name:Necesitas nivel 3 de Alquimista
+- 292:0:name:Necesitas nivel 184 de Alquimista
+- 294:0:name:Necesitas nivel 242 de Alquimista
+- 293:0:name:Necesitas nivel 302 de Alquimista
+- 346:0:name:Necesitas nivel 79 de Ganadero
+- 259:0:name:Necesitas nivel 194 de Ganadero
+- 359:0:name:Necesitas nivel 208 de Ganadero
+
+#CRAFTING BANS - Block crafting without removing the recipe! You don't need to add here items already added to OwnershipBanned.
+CraftingBanned:
+- 273:0:name:Necesitas nivel 3 de Minero
+- 274:0:name:Necesitas nivel 6 de Minero
+- 69:0:name:Necesitas nivel 9 de Minero
+- 61:0:name:Necesitas nivel 12 de Minero
+- 44:3:name:Necesitas nivel 15 de Minero
+- 67:0:name:Necesitas nivel 18 de Minero
+- 139:0:name:Necesitas nivel 21 de Minero
+- 44:0:name:Necesitas nivel 24 de Minero
+- 70:0:name:Necesitas nivel 27 de Minero
+- 77:0:name:Necesitas nivel 30 de Minero
+- 1:1:name:Necesitas nivel 33 de Minero
+- 1:3:name:Necesitas nivel 36 de Minero
+- 1:5:name:Necesitas nivel 39 de Minero
+- 1:2:name:Necesitas nivel 42 de Minero
+- 1:4:name:Necesitas nivel 45 de Minero
+- 1:6:name:Necesitas nivel 48 de Minero
+- 98:0:name:Necesitas nivel 60 de Minero
+- 98:3:name:Necesitas nivel 70 de Minero
+- 44:5:name:Necesitas nivel 90 de Minero
+- 109:0:name:Necesitas nivel 100 de Minero
+- 256:0:name:Necesitas nivel 102 de Minero
+- 20:0:name:Necesitas nivel 104 de Minero
+- 102:0:name:Necesitas nivel 106 de Minero
+- 95:*:name:Necesitas nivel 108 de Minero
+- 160:*:name:Necesitas nivel 110 de Minero
+- 24:0:name:Necesitas nivel 112 de Minero
+- 24:1:name:Necesitas nivel 114 de Minero
+- 24:2:name:Necesitas nivel 116 de Minero
+- 44:1:name:Necesitas nivel 118 de Minero
+- 128:0:name:Necesitas nivel 120 de Minero
+- 252:0:name:Necesitas nivel 122 de Minero
+- 252:1:name:Necesitas nivel 122 de Minero
+- 252:2:name:Necesitas nivel 122 de Minero
+- 252:3:name:Necesitas nivel 122 de Minero
+- 252:4:name:Necesitas nivel 122 de Minero
+- 252:5:name:Necesitas nivel 122 de Minero
+- 252:6:name:Necesitas nivel 122 de Minero
+- 252:7:name:Necesitas nivel 122 de Minero
+- 252:8:name:Necesitas nivel 122 de Minero
+- 252:9:name:Necesitas nivel 122 de Minero
+- 252:10:name:Necesitas nivel 122 de Minero
+- 252:11:name:Necesitas nivel 122 de Minero
+- 252:12:name:Necesitas nivel 122 de Minero
+- 252:13:name:Necesitas nivel 122 de Minero
+- 252:14:name:Necesitas nivel 122 de Minero
+- 252:15:name:Necesitas nivel 122 de Minero
+- 46:0:name:Necesitas nivel 124 de Minero
+- 442:0:name:Necesitas nivel 126 de Minero
+- 179:0:name:Necesitas nivel 128 de Minero
+- 182:0:name:Necesitas nivel 130 de Minero
+- 180:0:name:Necesitas nivel 132 de Minero
+- 179:1:name:Necesitas nivel 134 de Minero
+- 147:0:name:Necesitas nivel 136 de Minero
+- 76:0:name:Necesitas nivel 151 de Minero
+- 356:0:name:Necesitas nivel 152 de Minero
+- 152:0:name:Necesitas nivel 153 de Minero
+- 23:0:name:Necesitas nivel 154 de Minero
+- 89:0:name:Necesitas nivel 155 de Minero
+- 123:0:name:Necesitas nivel 156 de Minero
+- 131:0:name:Necesitas nivel 158 de Minero
+- 257:0:name:Necesitas nivel 159 de Minero
+- 148:0:name:Necesitas nivel 160 de Minero
+- 325:0:name:Necesitas nivel 161 de Minero
+- 167:0:name:Necesitas nivel 162 de Minero
+- 328:0:name:Necesitas nivel 163 de Minero
+- 342:0:name:Necesitas nivel 164 de Minero
+- 343:0:name:Necesitas nivel 165 de Minero
+- 101:0:name:Necesitas nivel 166 de Minero
+- 330:0:name:Necesitas nivel 167 de Minero
+- 380:0:name:Necesitas nivel 168 de Minero
+- 33:0:name:Necesitas nivel 169 de Minero
+- 29:0:name:Necesitas nivel 170 de Minero
+- 154:0:name:Necesitas nivel 171 de Minero
+- 408:0:name:Necesitas nivel 172 de Minero
+- 158:0:name:Necesitas nivel 173 de Minero
+- 66:0:name:Necesitas nivel 174 de Minero
+- 157:0:name:Necesitas nivel 175 de Minero
+- 28:0:name:Necesitas nivel 176 de Minero
+- 27:0:name:Necesitas nivel 177 de Minero
+- 82:0:name:Necesitas nivel 178 de Minero
+- 159:*:name:Necesitas nivel 180 de Minero
+- 45:0:name:Necesitas nivel 182 de Minero
+- 44:4:name:Necesitas nivel 183 de Minero
+- 108:0:name:Necesitas nivel 184 de Minero
+- 284:0:name:Necesitas nivel 185 de Minero
+- 285:0:name:Necesitas nivel 204 de Minero
+- 42:0:name:Necesitas nivel 206 de Minero
+- 145:0:name:Necesitas nivel 208 de Minero
+- 404:0:name:Necesitas nivel 212 de Minero
+- 151:0:name:Necesitas nivel 214 de Minero
+- 155:0:name:Necesitas nivel 216 de Minero
+- 155:1:name:Necesitas nivel 218 de Minero
+- 155:2:name:Necesitas nivel 220 de Minero
+- 44:7:name:Necesitas nivel 222 de Minero
+- 156:0:name:Necesitas nivel 224 de Minero
+- 277:0:name:Necesitas nivel 226 de Minero
+- 168:0:name:Necesitas nivel 228 de Minero
+- 169:0:name:Necesitas nivel 230 de Minero
+- 168:2:name:Necesitas nivel 232 de Minero
+- 168:1:name:Necesitas nivel 234 de Minero
+- 165:0:name:Necesitas nivel 236 de Minero
+- 133:0:name:Necesitas nivel 238 de Minero
+- 278:0:name:Necesitas nivel 254 de Minero
+- 112:0:name:Necesitas nivel 262 de Minero
+- 44:6:name:Necesitas nivel 266 de Minero
+- 114:0:name:Necesitas nivel 270 de Minero
+- 113:0:name:Necesitas nivel 274 de Minero
+- 201:0:name:Necesitas nivel 278 de Minero
+- 198:0:name:Necesitas nivel 282 de Minero
+- 205:0:name:Necesitas nivel 286 de Minero
+- 203:0:name:Necesitas nivel 290 de Minero
+- 202:0:name:Necesitas nivel 294 de Minero
+- 206:0:name:Necesitas nivel 298 de Minero
+- 275:0:name:Necesitas nivel 3 de Carpintero
+- 126:0:name:Necesitas nivel 9 de Carpintero
+- 65:0:name:Necesitas nivel 15 de Carpintero
+- 72:0:name:Necesitas nivel 18 de Carpintero
+- 53:0:name:Necesitas nivel 21 de Carpintero
+- 54:0:name:Necesitas nivel 24 de Carpintero
+- 281:0:name:Necesitas nivel 27 de Carpintero
+- 143:0:name:Necesitas nivel 30 de Carpintero
+- 323:0:name:Necesitas nivel 33 de Carpintero
+- 85:0:name:Necesitas nivel 36 de Carpintero
+- 107:0:name:Necesitas nivel 39 de Carpintero
+- 333:0:name:Necesitas nivel 42 de Carpintero
+- 324:0:name:Necesitas nivel 45 de Carpintero
+- 96:0:name:Necesitas nivel 48 de Carpintero
+- 5:1:name:Necesitas nivel 55 de Carpintero
+- 126:1:name:Necesitas nivel 60 de Carpintero
+- 134:0:name:Necesitas nivel 65 de Carpintero
+- 188:0:name:Necesitas nivel 70 de Carpintero
+- 183:0:name:Necesitas nivel 75 de Carpintero
+- 427:0:name:Necesitas nivel 80 de Carpintero
+- 416:0:name:Necesitas nivel 85 de Carpintero
+- 261:0:name:Necesitas nivel 90 de Carpintero
+- 262:0:name:Necesitas nivel 95 de Carpintero
+- 425:*:name:Necesitas nivel 100 de Carpintero
+- 258:0:name:Necesitas nivel 103 de Carpintero
+- 5:2:name:Necesitas nivel 106 de Carpintero
+- 126:2:name:Necesitas nivel 109 de Carpintero
+- 135:0:name:Necesitas nivel 112 de Carpintero
+- 189:0:name:Necesitas nivel 115 de Carpintero
+- 184:0:name:Necesitas nivel 118 de Carpintero
+- 339:0:name:Necesitas nivel 121 de Carpintero
+- 428:0:name:Necesitas nivel 124 de Carpintero
+- 340:0:name:Necesitas nivel 127 de Carpintero
+- 47:0:name:Necesitas nivel 130 de Carpintero
+- 116:0:name:Necesitas nivel 133 de Carpintero
+- 401:0:name:Necesitas nivel 136 de Carpintero
+- 395:0:name:Necesitas nivel 139 de Carpintero
+- 386:0:name:Necesitas nivel 142 de Carpintero
+- 5:3:name:Necesitas nivel 127 de Carpintero
+- 126:3:name:Necesitas nivel 164 de Carpintero
+- 136:0:name:Necesitas nivel 171 de Carpintero
+- 190:0:name:Necesitas nivel 178 de Carpintero
+- 185:0:name:Necesitas nivel 185 de Carpintero
+- 429:0:name:Necesitas nivel 192 de Carpintero
+- 146:0:name:Necesitas nivel 199 de Carpintero
+- 286:0:name:Necesitas nivel 207 de Carpintero
+- 5:4:name:Necesitas nivel 214 de Carpintero
+- 126:4:name:Necesitas nivel 221 de Carpintero
+- 163:0:name:Necesitas nivel 228 de Carpintero
+- 192:0:name:Necesitas nivel 235 de Carpintero
+- 187:0:name:Necesitas nivel 242 de Carpintero
+- 430:0:name:Necesitas nivel 249 de Carpintero
+- 279:0:name:Necesitas nivel 257 de Carpintero
+- 5:5:name:Necesitas nivel 264 de Carpintero
+- 126:5:name:Necesitas nivel 271 de Carpintero
+- 164:0:name:Necesitas nivel 278 de Carpintero
+- 191:0:name:Necesitas nivel 285 de Carpintero
+- 186:0:name:Necesitas nivel 292 de Carpintero
+- 431:0:name:Necesitas nivel 299 de Carpintero
+- 291:0:name:Necesitas nivel 2 de Alquimista
+- 351:*:name:Necesitas nivel 4 de Alquimista
+- 379:0:name:Necesitas nivel 8 de Alquimista
+- 374:0:name:Necesitas nivel 10 de Alquimista
+- 377:0:name:Necesitas nivel 12 de Alquimista
+- 353:0:name:Necesitas nivel 36 de Alquimista
+- 382:0:name:Necesitas nivel 38 de Alquimista
+- 216:0:name:Necesitas nivel 53 de Alquimista
+- 376:0:name:Necesitas nivel 89 de Alquimista
+- 398:0:name:Necesitas nivel 104 de Alquimista
+- 292:0:name:Necesitas nivel 152 de Alquimista
+- 390:0:name:Necesitas nivel 154 de Alquimista
+- 357:0:name:Necesitas nivel 156 de Alquimista
+- 297:0:name:Necesitas nivel 158 de Alquimista
+- 170:0:name:Necesitas nivel 160 de Alquimista
+- 354:0:name:Necesitas nivel 162 de Alquimista
+- 294:0:name:Necesitas nivel 202 de Alquimista
+- 322:0:name:Necesitas nivel 204 de Alquimista
+- 396:0:name:Necesitas nivel 206 de Alquimista
+- 322:1:name:Necesitas nivel 208 de Alquimista
+- 436:0:name:Necesitas nivel 210 de Alquimista
+- 378:0:name:Necesitas nivel 212 de Alquimista
+- 213:0:name:Necesitas nivel 214 de Alquimista
+- 91:0:name:Necesitas nivel 240 de Alquimista
+- 413:0:name:Necesitas nivel 242 de Alquimista
+- 293:0:name:Necesitas nivel 252 de Alquimista
+- 400:0:name:Necesitas nivel 254 de Alquimista
+- 282:0:name:Necesitas nivel 256 de Alquimista
+- 381:0:name:Necesitas nivel 258 de Alquimista
+- 130:0:name:Necesitas nivel 260 de Alquimista
+- 138:0:name:Necesitas nivel 362 de Alquimista
+- 389:0:name:Necesitas nivel 50 de Ganadero
+- 346:0:name:Necesitas nivel 60 de Ganadero
+- 259:0:name:Necesitas nivel 162 de Ganadero
+- 359:0:name:Necesitas nivel 174 de Ganadero
+- 334:0:name:Necesitas nivel 198 de Ganadero
+- 35:*:name:Necesitas nivel 250 de Ganadero
+- 171:*:name:Necesitas nivel 274 de Ganadero
+- 321:0:name:Necesitas nivel 286 de Ganadero
+- 355:*:name:Necesitas nivel 298 de Ganadero
+
+#CRAFTING DISABLED - The following crafting recipes will be completely removed from the game.
+CraftingDisabled: {}
+
+#SMELTING BANS - Block smelting without removing the recipe! You don't need to add here items already added to OwnershipBanned.
+SmeltingBanned:
+- 98:0:name:Necesitas nivel 70 de Minero
+- 12:*:name:Necesitas nivel 104 de Minero
+- 15:0:name:Necesitas nivel 157 de Minero
+- 82:0:name:Necesitas nivel 178 de Minero
+- 337:0:name:Necesitas nivel 181 de Minero
+- 235:0:name:Necesitas nivel 202 de Minero
+- 236:0:name:Necesitas nivel 202 de Minero
+- 237:0:name:Necesitas nivel 202 de Minero
+- 238:0:name:Necesitas nivel 202 de Minero
+- 239:0:name:Necesitas nivel 202 de Minero
+- 240:0:name:Necesitas nivel 202 de Minero
+- 241:0:name:Necesitas nivel 202 de Minero
+- 242:0:name:Necesitas nivel 202 de Minero
+- 243:0:name:Necesitas nivel 202 de Minero
+- 244:0:name:Necesitas nivel 202 de Minero
+- 245:0:name:Necesitas nivel 202 de Minero
+- 246:0:name:Necesitas nivel 202 de Minero
+- 247:0:name:Necesitas nivel 202 de Minero
+- 248:0:name:Necesitas nivel 202 de Minero
+- 249:0:name:Necesitas nivel 202 de Minero
+- 250:0:name:Necesitas nivel 202 de Minero
+- 14:0:name:Necesitas nivel 204 de Minero
+- 153:0:name:Necesitas nivel 212 de Minero
+- 87:0:name:Necesitas nivel 258 de Minero
+- 392:0:name:Necesitas nivel 6 de Alquimista
+- 81:2:name:Necesitas nivel 4 de Alquimista
+- 365:0:name:Necesitas nivel 25 de Ganadero
+- 349:0:name:Necesitas nivel 70 de Ganadero
+- 349:1:name:Necesitas nivel 80 de Ganadero
+- 319:0:name:Necesitas nivel 150 de Ganadero
+- 363:0:name:Necesitas nivel 189 de Ganadero
+- 413:0:name:Necesitas nivel 225 de Ganadero
+- 423:0:name:Necesitas nivel 262 de Ganadero
+
+#SMELTING DISABLED - Smelting of these items will be disabled for everyone. These smelting recipes will be removed from the game.
+# !!!NOTE!!! - Add here the item resulted after smelting and not the item that will get smelt. Ex. for Iron add iron ingot and not iron ore.
+SmeltingDisabled: {}
+
+#PLACEMENT BANS - Block place only! You don't need to add here items already added to OwnershipBanned.
+PlacementBanned: {}
+
+#Block break BANS - Block break only!
+#(Optional restriction - Default is disabled - check config.yml to enable it)
+BlockBreakBanned: {}
+
+#BREWING POTIONS BANS - Block brewing potions in brewing stand!
+#(Optional restriction - Default is disabled - check config.yml to enable it)
+BrewingBanned:
+- 373:64:name:Necesitas nivel 14 de Alquimista
+- 373:32:name:Necesitas nivel 16 de Alquimista
+- 373:16:name:Necesitas nivel 18 de Alquimista
+- 373:8196:name:Necesitas nivel 20 de Alquimista
+- 373:8201:name:Necesitas nivel 22 de Alquimista
+- 373:8195:name:Necesitas nivel 24 de Alquimista
+- 373:8193:name:Necesitas nivel 26 de Alquimista
+- 373:8260:name:Necesitas nivel 28 de Alquimista
+- 373:16388:name:Necesitas nivel 30 de Alquimista
+- 373:8265:name:Necesitas nivel 32 de Alquimista
+- 373:16393:name:Necesitas nivel 34 de Alquimista
+- 373:16396:name:Necesitas nivel 266 de Alquimista
+- 373:16398:name:Necesitas nivel 268 de Alquimista
+- 373:16394:name:Necesitas nivel 270 de Alquimista
+- 373:8262:name:Necesitas nivel 272 de Alquimista
+- 373:16390:name:Necesitas nivel 274 de Alquimista
+- 373:16450:name:Necesitas nivel 276 de Alquimista
+- 373:16458:name:Necesitas nivel 278 de Alquimista
+- 373:8290:name:Necesitas nivel 280 de Alquimista
+- 373:16418:name:Necesitas nivel 282 de Alquimista
+- 373:8235:name:Necesitas nivel 284 de Alquimista
+- 373:16462:name:Necesitas nivel 286 de Alquimista
+- 373:16428:name:Necesitas nivel 288 de Alquimista
+- 373:16454:name:Necesitas nivel 290 de Alquimista
+- 373:16482:name:Necesitas nivel 292 de Alquimista
+- 373:16427:name:Necesitas nivel 294 de Alquimista
+- 373:8204:name:Necesitas nivel 216 de Alquimista
+- 373:8206:name:Necesitas nivel 218 de Alquimista
+- 373:8202:name:Necesitas nivel 220 de Alquimista
+- 373:8198:name:Necesitas nivel 222 de Alquimista
+- 373:8258:name:Necesitas nivel 224 de Alquimista
+- 373:16386:name:Necesitas nivel 226 de Alquimista
+- 373:8266:name:Necesitas nivel 228 de Alquimista
+- 373:16392:name:Necesitas nivel 230 de Alquimista
+- 373:8226:name:Necesitas nivel 232 de Alquimista
+- 373:16456:name:Necesitas nivel 234 de Alquimista
+- 373:8270:name:Necesitas nivel 236 de Alquimista
+- 373:8236:name:Necesitas nivel 238 de Alquimista
+- 373:8229:name:Necesitas nivel 164 de Alquimista
+- 373:8205:name:Necesitas nivel 166 de Alquimista
+- 373:16421:name:Necesitas nivel 168 de Alquimista
+- 373:8269:name:Necesitas nivel 170 de Alquimista
+- 373:16397:name:Necesitas nivel 172 de Alquimista
+- 373:8267:name:Necesitas nivel 174 de Alquimista
+- 373:16461:name:Necesitas nivel 176 de Alquimista
+- 373:16459:name:Necesitas nivel 178 de Alquimista
+- 373:8194:name:Necesitas nivel 180 de Alquimista
+- 373:8264:name:Necesitas nivel 182 de Alquimista
+- 373:8200:name:Necesitas nivel 184 de Alquimista
+- 373:16451:name:Necesitas nivel 108 de Alquimista
+- 373:16449:name:Necesitas nivel 112 de Alquimista
+- 373:8292:name:Necesitas nivel 116 de Alquimista
+- 373:16420:name:Necesitas nivel 120 de Alquimista
+- 373:8289:name:Necesitas nivel 124 de Alquimista
+- 373:16417:name:Necesitas nivel 128 de Alquimista
+- 373:16489:name:Necesitas nivel 132 de Alquimista
+- 373:16484:name:Necesitas nivel 136 de Alquimista
+- 373:16481:name:Necesitas nivel 140 de Alquimista
+- 373:8197:name:Necesitas nivel 144 de Alquimista
+- 373:16389:name:Necesitas nivel 148 de Alquimista
+- 373:8233:name:Necesitas nivel 56 de Alquimista
+- 373:8259:name:Necesitas nivel 59 de Alquimista
+- 373:16387:name:Necesitas nivel 62 de Alquimista
+- 373:8257:name:Necesitas nivel 65 de Alquimista
+- 373:16385:name:Necesitas nivel 68 de Alquimista
+- 373:8228:name:Necesitas nivel 71 de Alquimista
+- 373:8225:name:Necesitas nivel 74 de Alquimista
+- 373:16452:name:Necesitas nivel 77 de Alquimista
+- 373:16457:name:Necesitas nivel 80 de Alquimista
+- 373:8297:name:Necesitas nivel 83 de Alquimista
+- 373:16425:name:Necesitas nivel 86 de Alquimista
+
+#WEARING ARMOR BANS - Block wearing of certain armors.
+#(Optional restriction - Default is disabled - check config.yml to enable it)
+WearingBanned: {}
+
+
+#CREATIVE MODE BANS - Block using/getting these items with creative mode on only! You don't need to add here items already added to OwnershipBanned.
+#(Optional restriction - Default is disabled - check config.yml)
+CreativeBanned: {}
+
+#PICKUP BANS - Block item pickup. You don't need to add here items already added to OwnershipBanned.
+#(Optional restriction - Default is disabled - check config.yml)
+PickupBanned: {}
+
+#DROP BANS - Block item drop. You don't need to add here items already added to OwnershipBanned.
+#(Optional restriction - Default is disabled - check config.yml)
+DropBanned: {}
+
+#WORLD BANS - The world scanner will remove these from your world.
+#(Optional restriction - Default is disabled - check config.yml)
+WorldBanned: {}
+

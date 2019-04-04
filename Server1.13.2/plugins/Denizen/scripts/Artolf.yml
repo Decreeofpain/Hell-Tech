@@ -1,0 +1,129 @@
+"Artolf":
+    type: assignment
+
+    actions:
+      on assignment:
+      - trigger name:CHAT toggle:false
+      - trigger name:click toggle:true
+      - trigger name:proximity toggle:true radius:3
+
+    interact scripts:
+    - 16 buildkrante
+
+'buildkrante':
+  Type: Interact
+  Requirements:
+    Mode: all
+    List:
+    - valueof <player.flag[misiones].contains[cap1m25ok]>
+    - valueof <player.flag[raza].contains[lobo]>
+    - valueof <global.flag[capitulos].contains[CAPITULO1NATIONLOK]>
+    - -valueof <global.flag[nacionlicprogress].contains[KRANTE3OK]>
+  Steps:
+    '1':
+      proximity trigger:
+        entry:
+          radius: 4
+          Script:
+          - ^run 's@bookfaclicankrante'
+          - ^zap step:2
+    '2':
+      click trigger:
+        Script:
+          - ^engage
+          - ^yaml load:naciones/nacionlicantropica.yml id:nacion<player.name>
+          - ^if <yaml[nacion<player.name>].read[aldeas.krante.stonebrick]> >= 0 && <yaml[nacion<player.name>].read[aldeas.krante.cobblestone]> >= 0 && <yaml[nacion<player.name>].read[aldeas.krante.log]> >= 0 && <yaml[nacion<player.name>].read[aldeas.krante.lightclay]> >= 0 && <yaml[nacion<player.name>].read[aldeas.krante.hardclay]> >= 0 {
+            - ^inventory open d:in@inv_krante
+            }
+          - ^yaml unload id:nacion<player.name>
+          - disengage
+      proximity trigger:
+        entry:
+          radius: 4
+          Script:
+          - ^narrate "<green>Artolf:<dark_gray> Hola <player.name>"
+          - ^wait 1s
+          - ^if <player.inventory.contains[4|98|log|159:5|159:13]> {
+            - ^narrate "<green>Artolf:<dark_green> Traes algunos materiales utiles para la aldea"
+            - ^narrate "<dark_green>te gustaria entregarlos?"
+            - ^narrate "<blue><player.inventory.quantity[i@98]> <red>ladrillos de piedra"
+            - ^narrate "<blue><player.inventory.quantity[i@4]> <red>bloques de cobblestone"
+            - ^narrate "<blue><player.inventory.quantity[i@log]> <red>troncos de madera"
+            - ^narrate "<blue><player.inventory.quantity[i@159:5]> <red>de arcilla verde clara"
+            - ^narrate "<blue><player.inventory.quantity[i@159:13]> <red>de arcilla verde oscura"
+            }
+
+
+# Inventarios
+inv_krante:
+  type: inventory
+  inventory: dispenser
+  slots:
+  - "[i@krantestonebrick] [i@krantecobblestone] [i@krantelog]"
+  - "[i@krantehardclay] [i@kranteinfo] [i@krantelightclay]"
+  - "[i@cancelslot] [i@Entregar] [i@cancelslot]"
+
+#items
+
+kranteinfo:
+  type: item
+  material: 340
+  display name: '<gold>Krante'
+  lore:
+  - ''
+  - '<gray>Estado de la aldea'
+  - '<gray>Actualizaciones: <yellow><yaml[nacion<player.name>].read[aldeas.krante.status].asint>/3'
+krantestonebrick:
+  type: item
+  material: 98
+  display name: '<yellow>Ladrillos de piedra'
+  lore:
+  - ''
+  - '<gray>Se requieren: <yellow><yaml[nacion<player.name>].read[aldeas.krante.stonebrick].asint> <gray>bloques mas'
+krantecobblestone:
+  type: item
+  material: 4
+  display name: '<yellow>Bloques de cobblestone'
+  lore:
+  - ''
+  - '<gray>Se requieren: <yellow><yaml[nacion<player.name>].read[aldeas.krante.cobblestone].asint> <gray>bloques mas'
+krantelog:
+  type: item
+  material: 17
+  display name: '<yellow>Troncos de madera'
+  lore:
+  - ''
+  - '<gray>Se requieren: <yellow><yaml[nacion<player.name>].read[aldeas.krante.log].asint> <gray>bloques mas'
+krantehardclay:
+  type: item
+  material: '159,13'
+  display name: '<yellow>Arcilla verde oscura'
+  lore:
+  - ''
+  - '<gray>Se requieren: <yellow><yaml[nacion<player.name>].read[aldeas.krante.hardclay].asint> <gray>bloques mas'
+krantelightclay:
+  type: item
+  material: '159,5'
+  display name: '<yellow>Arcilla verde clara'
+  lore:
+  - ''
+  - '<gray>Se requieren: <yellow><yaml[nacion<player.name>].read[aldeas.krante.lightclay].asint> <gray>bloques mas'
+# Libros
+bookfaclicankrante:
+    type: task
+    script:
+    - ^adjust <player> item_slot:8
+    - ^define old_item <player.item_in_hand> 
+    - ^take <player.item_in_hand> qty:<player.item_in_hand.qty>
+    - ^give i@librofaclicankrante slot:8
+    - ^adjust <player> open_book
+    - ^take i@librofaclicankrante
+    - ^give %old_item% slot:8
+    - DETERMINE cancelled
+
+librofaclicankrante:
+  type: book 
+  title: Facciones!
+  author: <green>Artolf
+  text: 
+  - '<green>Artolf<black>:<n>Esta es la aldea de <dark_green>Krante<black>.<p>En esta aldea nos dedicamos a crear armas y entrenar mercenarios que podran proteger nuestra nacion.'

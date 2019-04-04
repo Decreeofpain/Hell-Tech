@@ -1,0 +1,205 @@
+#leaders:|:<server.list_players.filter[has_flag[kill_death_ratio]].sort[LeaderBoard_Sort].get[1].to[5]||li@>
+#<player.heroes.level> <player.heroes.primary_class.name>
+#<player.skillapi.class_level[<player.skillapi.main_class>]>
+#<player.jobs[Woodcutter].xp.asint>
+Misiones:
+  type: world
+  events:
+#    on player picks up item in bosquemes:
+#    - ^if <contexecutet.item.display_name> == '<light_purple>Crown of the King' {
+#      - ^narrate "Yes"
+#      } else {
+#      - narrate "NO"
+#      }
+
+    on 11:00 in Esparcraft:
+    - wait 2s
+    - if <server.flag[questdiarias]> == "null" queue clear
+    - foreach <server.flag[questdiarias].as_list> {
+      - if !<%value%.as_player.flag[qdiariaCD]> && <%value%.as_player.is_online> {
+        - ^zap step:1 script:MisionesDiarias player:%value%
+        - ^run 's@ClearListeners' player:%value%
+        - ^flag <server> questdiarias:<-:%value%
+        - ^title "title:<light_purple>Manfredo" "subtitle:<green>Mision diaria reiniciada" stay:10s targets:%value%
+        }
+      }
+
+# SI SE AGREGA UN NUEVO TIPO DE MISION AGREGAR la sentencia if en la seccion
+#--------------TIPO DE LIBROS MISIONES DIARIAS en interfazusuario
+#------------------------------------------------Carpinteria-------------------------------------------------
+FulbertLog:
+    type: task
+    script:
+    - ^if <player.flag[misioncant]> > 1 && <player.flag[qdiariaStatus]> == "activa" && <cu@bosquemes.list_players> contains <player> {
+      - ^flag <player> misioncant:-:1
+      - ^adjust <player> "action_bar:<green>Te faltan <yellow><player.flag[misioncant].asint> <dark_green>Bloques de Madera"
+      } else <player.flag[misioncant]> <= 1 && <player.flag[qdiariaStatus]> == "activa" && <cu@bosquemes.list_players> contains <player> {
+      - ^title "title:<light_purple>Manfredo" "subtitle:<yellow>Mision diaria completada!" stay:5s
+      - ^playsound <player> sound:complete custom
+      - ^flag <player> misioncant:!
+      - ^flag <player> qdiariaStatus:!
+      - ^flag <player> MisionType:!
+      - ^run 's@Recompenzas'
+      - queue stop
+      }
+    - ^listen block type:break block:17 quantity:1 script:FulbertLog id:FulbertLog
+#------------------------------------------------Mineria-------------------------------------------------
+MinaMes:
+    type: task
+    script:
+    - ^if <player.flag[misioncant]> > 1 && <player.flag[qdiariaStatus]> == "activa" && <cu@minameslajho.list_players> contains <player> {
+      - ^flag <player> misioncant:-:1
+      - ^adjust <player> "action_bar:<green>Te faltan <yellow><player.flag[misioncant].asint> <dark_green>Bloques de Piedra"
+      } else if <player.flag[misioncant]> <= 1 && <player.flag[qdiariaStatus]> == "activa" && <cu@minameslajho.list_players> contains <player> {
+      - ^title "title:<light_purple>Manfredo" "subtitle:<yellow>Mision diaria completada!" stay:5s
+      - ^playsound <player> sound:complete custom
+      - ^flag <player> misioncant:!
+      - ^flag <player> qdiariaStatus:!
+      - ^flag <player> MisionType:!
+      - ^run 's@Recompenzas'
+      - queue stop
+      }
+    - ^listen block type:break block:1 quantity:1 script:MinaMes id:MinaMes
+
+
+
+ClearListeners:
+    type: task
+    script:
+    - ^flag <player> qdiariaStatus:!
+    - ^flag <player> MisionType:!
+    - ^flag <player> misioncant:!
+    - ^listen cancel id:FulbertLog
+    - ^listen cancel id:MinaMes
+
+Recompenzas:
+    type: task
+    script:
+    - ^define Reward <util.random.int[1].to[6]>
+    - ^if <player.skillapi.class_level[<player.skillapi.main_class>]> >= 400 {
+      - if <def[Reward]> == 6 {
+        - give money quantity:800
+        - narrate "<light_purple>Manfredo: <yellow>Conseguiste <green>800 Almakos"
+        } else if <def[Reward]> == 5 {
+        - give money quantity:800
+        - narrate "<light_purple>Manfredo: <yellow>Conseguiste <green>800 Almakos"
+        } else if <def[Reward]> == 4 {
+        - execute as_server "hero admin executep <player.name> <player.heroes.primary_class.name> 200"
+        - narrate "<light_purple>Manfredo: <yellow>Conseguiste <green>200 de Eperiencia"
+        } else if <def[Reward]> == 3 {
+        - execute as_server "hero admin executep <player.name> <player.heroes.primary_class.name> 200"
+        - narrate "<light_purple>Manfredo: <yellow>Conseguiste <green>200 de Eperiencia"
+        } else if <def[Reward]> == 2 {
+        - execute as_server "md unidentified <player.name> -a 4"
+        - narrate "<light_purple>Manfredo: <yellow>Conseguiste <green>4 Articulos."
+        } else if <def[Reward]> == 1 {
+        - execute as_server "md tome <player.name> -a 4"
+        - narrate "<light_purple>Manfredo: <yellow>Conseguiste <green>4 Tomos de identificacion."
+        }
+      - queue clear
+      } else if <player.skillapi.class_level[<player.skillapi.main_class>]> >= 300 {
+      - if <def[Reward]> == 6 {
+        - give money quantity:400
+        - narrate "<light_purple>Manfredo: <yellow>Conseguiste <green>400 Almakos"
+        } else if <def[Reward]> == 5 {
+        - give money quantity:400
+        - narrate "<light_purple>Manfredo: <yellow>Conseguiste <green>400 Almakos"
+        } else if <def[Reward]> == 4 {
+        - execute as_server "hero admin executep <player.name> <player.heroes.primary_class.name> 100"
+        - narrate "<light_purple>Manfredo: <yellow>Conseguiste <green>100 de Eperiencia"
+        } else if <def[Reward]> == 3 {
+        - execute as_server "hero admin executep <player.name> <player.heroes.primary_class.name> 100"
+        - narrate "<light_purple>Manfredo: <yellow>Conseguiste <green>100 de Eperiencia"
+        } else if <def[Reward]> == 2 {
+        - execute as_server "md unidentified <player.name> -a 3"
+        - narrate "<light_purple>Manfredo: <yellow>Conseguiste <green>3 Articulos."
+        } else if <def[Reward]> == 1 {
+        - execute as_server "md tome <player.name> -a 3"
+        - narrate "<light_purple>Manfredo: <yellow>Conseguiste <green>3 Tomos de identificacion."
+        }
+      - queue clear
+      } else if <player.skillapi.class_level[<player.skillapi.main_class>]> >= 200 {
+      - if <def[Reward]> == 6 {
+        - give money quantity:200
+        - narrate "<light_purple>Manfredo: <yellow>Conseguiste <green>200 Almakos"
+        } else if <def[Reward]> == 5 {
+        - give money quantity:200
+        - narrate "<light_purple>Manfredo: <yellow>Conseguiste <green>200 Almakos"
+        } else if <def[Reward]> == 4 {
+        - execute as_server "hero admin executep <player.name> <player.heroes.primary_class.name> 50"
+        - narrate "<light_purple>Manfredo: <yellow>Conseguiste <green>50 de Eperiencia"
+        } else if <def[Reward]> == 3 {
+        - execute as_server "hero admin executep <player.name> <player.heroes.primary_class.name> 50"
+        - narrate "<light_purple>Manfredo: <yellow>Conseguiste <green>50 de Eperiencia"
+        } else if <def[Reward]> == 2 {
+        - execute as_server "md unidentified <player.name> -a 2"
+        - narrate "<light_purple>Manfredo: <yellow>Conseguiste <green>2 Articulos."
+        } else if <def[Reward]> == 1 {
+        - execute as_server "md tome <player.name> -a 2"
+        - narrate "<light_purple>Manfredo: <yellow>Conseguiste <green>2 Tomos de identificacion."
+        }
+      - queue clear
+      } else if <player.skillapi.class_level[<player.skillapi.main_class>]> >= 100 {
+      - if <def[Reward]> == 6 {
+        - give money quantity:100
+        - narrate "<light_purple>Manfredo: <yellow>Conseguiste <green>100 Almakos"
+        } else if <def[Reward]> == 5 {
+        - give money quantity:100
+        - narrate "<light_purple>Manfredo: <yellow>Conseguiste <green>100 Almakos"
+        } else if <def[Reward]> == 4 {
+        - execute as_server "hero admin executep <player.name> <player.heroes.primary_class.name> 25"
+        - narrate "<light_purple>Manfredo: <yellow>Conseguiste <green>25 de Eperiencia"
+        } else if <def[Reward]> == 3 {
+        - execute as_server "hero admin executep <player.name> <player.heroes.primary_class.name> 25"
+        - narrate "<light_purple>Manfredo: <yellow>Conseguiste <green>25 de Eperiencia"
+        } else if <def[Reward]> == 2 {
+        - execute as_server "md unidentified <player.name>"
+        - narrate "<light_purple>Manfredo: <yellow>Conseguiste <green>1 Articulo."
+        } else if <def[Reward]> == 1 {
+        - execute as_server "md tome <player.name>"
+        - narrate "<light_purple>Manfredo: <yellow>Conseguiste <green>1 Tomo de identificacion."
+        }
+      - queue clear
+      } else if <player.skillapi.class_level[<player.skillapi.main_class>]> >= 50 {
+      - if <def[Reward]> == 6 {
+        - give money quantity:50
+        - narrate "<light_purple>Manfredo: <yellow>Conseguiste <green>50 Almakos"
+        } else if <def[Reward]> == 5 {
+        - give money quantity:50
+        - narrate "<light_purple>Manfredo: <yellow>Conseguiste <green>50 Almakos"
+        } else if <def[Reward]> == 4 {
+        - execute as_server "hero admin executep <player.name> <player.heroes.primary_class.name> 10"
+        - narrate "<light_purple>Manfredo: <yellow>Conseguiste <green>10 de Eperiencia"
+        } else if <def[Reward]> == 3 {
+        - execute as_server "hero admin executep <player.name> <player.heroes.primary_class.name> 10"
+        - narrate "<light_purple>Manfredo: <yellow>Conseguiste <green>10 de Eperiencia"
+        } else if <def[Reward]> == 2 {
+        - execute as_server "md unidentified <player.name>"
+        - narrate "<light_purple>Manfredo: <yellow>Conseguiste <green>1 Articulo."
+        } else if <def[Reward]> == 1 {
+        - execute as_server "md tome <player.name>"
+        - narrate "<light_purple>Manfredo: <yellow>Conseguiste <green>1 Tomo de identificacion."
+        }
+      - queue clear
+      } else if <player.skillapi.class_level[<player.skillapi.main_class>]> <= 49 {
+      - if <def[Reward]> == 6 {
+        - give money quantity:25
+        - narrate "<light_purple>Manfredo: <yellow>Conseguiste <green>25 Almakos"
+        } else if <def[Reward]> == 5 {
+        - give money quantity:25
+        - narrate "<light_purple>Manfredo: <yellow>Conseguiste <green>25 Almakos"
+        } else if <def[Reward]> == 4 {
+        - execute as_server "hero admin executep <player.name> <player.heroes.primary_class.name> 5"
+        - narrate "<light_purple>Manfredo: <yellow>Conseguiste <green>5 de Eperiencia"
+        } else if <def[Reward]> == 3 {
+        - execute as_server "hero admin executep <player.name> <player.heroes.primary_class.name> 5"
+        - narrate "<light_purple>Manfredo: <yellow>Conseguiste <green>5 de Eperiencia"
+        } else if <def[Reward]> == 2 {
+        - execute as_server "md unidentified <player.name>"
+        - narrate "<light_purple>Manfredo: <yellow>Conseguiste <green>1 Articulo."
+        } else if <def[Reward]> == 1 {
+        - execute as_server "md tome <player.name>"
+        - narrate "<light_purple>Manfredo: <yellow>Conseguiste <green>1 Tomo de identificacion."
+        }
+      - queue clear
+      }

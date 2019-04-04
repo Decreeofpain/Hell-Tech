@@ -1,0 +1,50 @@
+"Odon":
+    type: assignment
+
+    actions:
+      on assignment:
+      - trigger name:CHAT toggle:false
+      - trigger name:click toggle:false
+      - trigger name:proximity toggle:true radius:4
+
+    interact scripts:
+    - 16 Odonscript
+
+'Odonscript':
+  Type: Interact
+  Steps:
+    '1':
+      proximity trigger:
+        entry:
+          radius: 4
+          Script:
+          - ^if <player.flag[misiones].as_list> contains cap1m3ok {
+            - ^narrate "<gray><player.name>: <white>Hola <yellow>Odon <white>que sabes sobre la <light_purple>piedra del alma."
+            - ^playsound <player> sound:complete custom
+            - ^wait 3
+            - ^give i@PiedraOdon
+            - ^run 's@bookCap1part4'
+            - ^bossbar remove obj<player.name>
+            - ^define objetivo "<gold>Objetivo: <green>Informale a <red>Alvar <green>sobre la piedra"
+            - ^flag <player> objetivo:<def[objetivo]>
+            - ^bossbar obj<player.name> players:<player> "title:<player.flag[objetivo]>" color:BLUE
+            - ^compass <npc.location.simple> npc:27
+            - ^zap step:2
+            - ^zap step:5 script:Alvarscript
+          }
+
+    '2':
+      proximity trigger:
+        entry:
+          radius: 4
+          Script:
+          - ^if <player.flag[misiones].as_list> contains cap1m3ok && <player.flag[misiones].as_list> !contains cap1m4ok {
+            - ^narrate "<yellow>Odon: <white>ve con <red>Alvar<white> y cuentale sobre la <light_purple>piedra del alma"
+            }
+
+PiedraOdon:
+  type: item
+  material: nether_star
+  display name: '<dark_red>P<red>iedr<dark_red>a <dark_gray>del <dark_red>A<red>lm<dark_red>a'
+  lore:
+  - '<dark_aqua>Forjada por <dark_red>Claudec'

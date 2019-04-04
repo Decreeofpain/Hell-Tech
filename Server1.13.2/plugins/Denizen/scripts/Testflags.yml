@@ -1,0 +1,64 @@
+"Pro":
+    type: assignment
+    actions:
+      on assignment:
+      - trigger name:CHAT toggle:false
+      - trigger name:click toggle:true
+      - trigger name:proximity toggle:true radius:3
+
+    interact scripts:
+    - 18 Testpro
+
+'Testpro':
+  Type: Interact
+  Steps:
+    '1':
+      proximity trigger:
+        entry:
+          radius: 4
+          Script:
+          - ^narrate "hola <player.name>"
+      click trigger:
+        Script:
+          - if <player.flag[testflag].as_list> !contains zona && <player.flag[testflag].as_list> !contains complatezona {
+            - narrate "<gold>Pro: <white><player.name> tienes que ir a la zona de abajo"
+            - wait 1s
+            - narrate "<white>esta entre las esponjas"
+            } else if <player.flag[testflag].as_list> !contains complatezona {
+            - narrate "Gracias por ir a revisar toma esta espada"
+            - give i@iron_sword
+            - flag player testflag:->:complatezona
+            } else {
+            - narrate "que hay amigo <player.name>"
+            }
+
+Globalcuboids:
+  type: world
+  events:
+    on player enters testflags:
+    - if <player.flag[testflag].as_list> !contains zona {
+      - title "title:<gold>Objetivo" "subtitle:<white>Completado" stay:3s
+      - flag player testflag:->:zona
+      }
+
+schematicstest:
+    type: task
+    script:
+    - schematic create name:tree3 cu@testflags location:<cu@testflags.min>
+    - schematic save name:tree3
+
+schematicstestpaste:
+    type: task
+    script:
+    - ^foreach <cu@testflags.list_players> {
+      - teleport %value% testschematics
+      }
+    - schematic load name:tree1
+    - schematic paste name:tree1 location:<cu@testflags.min>
+    - wait 1.5s
+    - schematic load name:tree2
+    - schematic paste name:tree2 location:<cu@testflags.min>
+    - wait 1.5s
+    - schematic load name:tree3
+    - schematic paste name:tree3 location:<cu@testflags.min>
+    - wait 1.5s

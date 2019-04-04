@@ -1,0 +1,818 @@
+#
+# These example files show you some of the basic attributes and
+# skills MythicMobs can use. Far more is possible!
+ZombieLoco:
+  Type: Zombie
+  Display: '&6Zombie Loco &7lvl &6- &8[&4<mob.level>&8]&f'
+  Health: 60
+  Damage: 5
+  Armor: 1
+  LevelModifiers:
+    Health: 16
+    Power: 1
+  Options:
+    AlwaysShowName: true
+    KnockbackResistance: 0.2
+    MovementSpeed: 0.25
+    ReinforcementsChance: 0.05
+  Modules:
+    ThreatTable: true
+  DropsPerLevel:
+  - skillapi-exp 1 1
+  - money 2 1
+  LevelModifiers:
+    Armor: 1
+    MovementSpeed: .01
+  Skills:
+  - damage{amount=8} @target ~onAttack
+  - setlevel{a=add;l=1} @self ~onPlayerKill
+  - skill{s=SmashAttack} @Target ~onAttack
+  - skill{s=ConsumeBody} @self ~onKillPlayer <90% 0.3
+
+Esqueletociego:
+  Type: Skeleton
+  Display: '&cEsqueleto ciego &6lvl &a- &7[&4<mob.level>&7]&f'
+  Health: 60
+  Damage: 5
+  Armor: 1
+  LevelModifiers:
+    Health: 16
+    Power: 1
+  Options:
+    AttackSpeed: 3
+    KnockbackResistance: 0.1
+    MovementSpeed: 0.25
+    AlwaysShowName: true
+  Modules:
+    ThreatTable: true
+  Skills:
+  - setlevel{a=add;l=1} @self ~onPlayerKill
+  - skill{s=WeakeningArrow} @Target ~onAttack >0 0.25
+  - skill{s=PoisonedArrow} @Target ~onAttack >0 0.25
+  - skill{s=FlamingArrow} @Target ~onAttack >0 0.25
+  - damage{amount=8} @target ~onAttack
+  DropsPerLevel:
+  - skillapi-exp 1 1
+  - money 2 1
+
+Esqueletoguerrero:
+  Type: Skeleton
+  Display: '&6Esqueleto Armado &7lvl &6- &8[&4<mob.level>&8]&f'
+  Health: 60
+  Damage: 5
+  Armor: 1
+  LevelModifiers:
+    Health: 16
+    Power: 1
+  Options:
+    KnockbackResistance: 0.2
+    MovementSpeed: 0.3
+    AlwaysShowName: true
+  Modules:
+    ThreatTable: true
+  Equipment:
+  - iron_axe:0
+  - leather_helmet:4
+  - leather_chestplate:3
+  - leather_leggings:2
+  - leather_boots:1
+  Skills:
+  - setlevel{a=add;l=1} @self ~onPlayerKill
+  - skill{s=SmashAttack} @Target ~onAttack 0.2
+  - damage{amount=8} @target ~onAttack
+  DropsPerLevel:
+  - skillapi-exp 1 1
+  - money 2 1
+
+Nightmare:
+  Type: cow
+  Display: '&cNightmare&r'
+  Health: 60
+  Damage: 0
+  LevelModifiers:
+    Health: 16
+    Power: 0
+  Armor: 2
+  Options:
+    HorseColor: BLACK
+    HorseSaddled: true
+    HorseTamed: true
+    PreventOtherDrops: true
+    Silent: true
+    MovementSpeed: 0.28
+    KnockbackResistance: 0.9
+  Modules:
+    ThreatTable: true
+  AIGoalSelectors:
+  - 0 clear
+  - 1 meleeattack
+  - 2 randomstroll
+  AITargetSelectors:
+  - 0 clear
+  - 1 players
+  DropsPerLevel:
+  - skillapi-exp 1 1
+  - money 2 1
+  Skills:
+  - command{delay=1;cmd="advd <mob.uuid> <mob.l.w> Horse setColor Black"} @self ~onSpawn 1
+
+Jinetesincabeza:
+  Type: Zombie
+  Display: '&6Jinete sin Cabeza &7lvl &6- &8[&4<mob.level>&8]&f'
+  Health: 60
+  Damage: 5
+  Armor: 1
+  LevelModifiers:
+    Health: 16
+    Power: 1
+  Options:
+    AlwaysShowName: true
+    KnockbackResistance: 0.3
+    MovementSpeed: 0.2
+    ReinforcementsChance: 0.1
+    PreventRandomEquipment: true
+  Modules:
+    ThreatTable: true
+  DamageModifiers:
+  - ENTITY_ATTACK 0.75
+  - PROJECTILE 0.5
+  - MAGIC 1.20
+  Equipment:
+  - pumpkin:4
+  - iron_chestplate:3
+  - iron_leggings:2
+  - iron_boots:1
+  - stone_sword:0
+  Skills:
+  - setlevel{a=add;l=1} @self ~onPlayerKill
+  - skill{s=pirosombrico} @Target ~onAttack 0.25
+  - mount{type=Nightmare} @self ~onSpawn
+  - damage{amount=10} @target ~onAttack
+  DropsPerLevel:
+  - skillapi-exp 1 1
+  - money 2 1
+
+Geist:
+  Type: CAVE_SPIDER
+  Display: '&6Geist &7lvl &6- &8[&4<mob.level>&8]&f'
+  Health: 60
+  Damage: 5
+  Armor: 1
+  LevelModifiers:
+    Health: 16
+    Power: 1
+  Disguise:
+    Type: HUSK
+  Options:
+    KnockbackResistance: 0.2
+    MovementSpeed: 0.34
+    Silent: true
+    PreventOtherDrops: true
+    PreventRandomEquipment: true
+  Equipment:
+  - Geist-Head:4
+  - Geist-Legs:2
+  Skills:
+  - effect:sound{s=entity.zombie_horse.hurt;p=2;v=0.4} @self ~onDamaged
+  - effect:sound{s=entity.zombie.hurt;p=2;v=2} @self ~onDamaged
+  - effect:sound{s=entity.zombie_horse.death;p=2;v=0.4} @self ~onDeath
+  - effect:sound{s=entity.zombie.death;p=2;v=2} @self ~onDeath
+  - effect:sound{s=entity.zombie.ambient;p=2;v=2} @self ~onTimer:100
+  - effect:sound{s=entity.zombie_horse.ambient;p=2;v=2} @self ~onTimer:100
+  - potion{type=SLOW;lvl=1;d=60} @target ~onAttack
+  - damage{amount=8} @target ~onAttack
+  DropsPerLevel:
+  - skillapi-exp 1 1
+  - money 2 1
+
+Poltergeist:
+  Type: VEX
+  Display: '&6Duende &7lvl &6- &8[&4<mob.level>&8]&f'
+  Health: 60
+  Damage: 5
+  LevelModifiers:
+    Health: 16
+    Power: 1
+  Disguise:
+    Type: VINDICATOR
+    Invisible: true
+  ThreatTable:
+    Enabled: true
+  Options:
+    KnockbackResistance: 0
+    MovementSpeed: 0.34
+    Silent: true
+    PreventOtherDrops: true
+    PreventRandomEquipment: true
+  Skills:
+  - skill{s=Poltergeist-Effect} @self ~onCombat
+  - skill{s=Poltergeist-Haunting} @target ~onTimer:200
+  - skill{s=Poltergeist-Teleport} @target ~onTimer:300
+  - skill{s=Poltergeist-Teleport} @self ~onDamaged
+  - effect:particles{p=endRod;a=2;hS=0.2;vS=0.3;y=0.6} @self ~onTimer:4
+  - effect:sound{s=entity.wither.ambient;p=0.35;v=0.05} @self ~onTimer:120
+  - effect:sound{s=entity.vex.hurt;p=1.8;v=2} @self ~onDamaged
+  - effect:sound{s=entity.vex.hurt;p=0.2;v=0.2} @self ~onDamaged
+  - effect:sound{s=entity.villager.hurt;p=0.1;v=0.1} @self ~onDamaged
+  - effect:sound{s=entity.villager.death;p=0.1;v=0.5} @self ~onDeath
+  - effect:sound{s=entity.vex.death;p=0.1;v=0.5} @self ~onDeath
+  - potion{type=WITHER;lvl=1;d=100} @target ~onAttack
+  - potion{type=CONFUSION;lvl=1;d=40} @target ~onAttack
+  - potion{type=SLOW;lvl=1;d=40} @target ~onAttack
+  - damage{amount=8} @target ~onAttack
+  DropsPerLevel:
+  - skillapi-exp 1 1
+  - money 2 1
+
+PumpkinFiend:
+  Type: HUSK
+  Display: '&6Calabaza Maldita &7lvl &6- &8[&4<mob.level>&8]&f'
+  Health: 60
+  Damage: 5
+  LevelModifiers:
+    Health: 16
+    Power: 1
+  Disguise:
+    Type: BLOCK
+    Block: PUMPKIN
+  HealthBar:
+    Enabled: TRUE
+    Offset: -0.35
+  ThreatTable:
+    Enabled: TRUE
+  Options:
+    KnockbackResistance: 0
+    MovementSpeed: 0.26
+    Silent: true
+    PreventOtherDrops: true
+  Equipment:
+  - JACK_O_LANTERN:4
+  - JACK_O_LANTERN:3
+  - JACK_O_LANTERN:2
+  - JACK_O_LANTERN:1
+  AITargetSelectors:
+  - clear
+  AIGoalSelectors:
+  - clear
+  Skills:
+  - threat{amount=1} @PIR{r=4} ~onTimer:4
+  - skill{s=PumpkinFiend-Body} ~onEnterCombat
+  - skill{s=PumpkinFiend-Calm} ~onPlayerKill
+  - skill{s=PumpkinFiend-Calm} ~onDropCombat
+  - effect:sound{s=entity.zombie_horse.hurt;p=0.2;v=0.4} @self ~onDamaged
+  - effect:sound{s=entity.vex.hurt;p=0.2;v=2} @self ~onDamaged
+  - effect:sound{s=entity.zombie.hurt;p=0.2;v=2} @self ~onDamaged
+  - effect:sound{s=entity.zombie_horse.death;p=0.1;v=0.4} @self ~onDeath
+  - effect:sound{s=entity.zombie.death;p=0.1;v=2} @self ~onDeath
+  - effect:particles{p=largeSmoke;s=0.2;a=200;hS=0.5;vS=0.5;y=0.5} @self ~onDeath
+  - remove @children ~onDeath
+  - damage{amount=8} @target ~onAttack
+  DropsPerLevel:
+  - skillapi-exp 1 1
+  - money 2 1
+PumpkinFiend-Body:
+  Type: CAVE_SPIDER
+  Display: '&cCalabaza Maldita'
+  Health: 60
+  Damage: 5
+  LevelModifiers:
+    Health: 16
+    Power: 1
+  Disguise:
+    Type: SPIDER
+    Invisible: FALSE
+    Glowing: FALSE
+  ThreatTable:
+    Enabled: TRUE
+  Options:
+    ShowNameOnDamaged: true
+    Silent: true
+    PreventOtherDrops: true
+    PassthroughDamage: true
+  Equipment:
+  - JACK_O_LANTERN:4
+  - JACK_O_LANTERN:3
+  - JACK_O_LANTERN:2
+  - JACK_O_LANTERN:1
+  AITargetSelectors:
+  - clear
+  - players
+  AIGoalSelectors:
+  - clear
+  - meleeattack
+  Skills:
+  - threat{amount=1} @PIR{r=6} ~onTimer:4
+  - effect:sound{s=entity.zombie_horse.hurt;p=0.1;v=2} @self ~onSpawn
+  - effect:sound{s=entity.vex.ambient;p=0.1;v=2} @self ~onSpawn
+  - effect:particles{p=largesmoke;s=0.0;a=10;hS=0.5;vS=0.5;y=0.5} @self ~onTimer:4
+  - damage{amount=8} @target ~onAttack
+  DropsPerLevel:
+  - skillapi-exp 1 1
+  - money 2 1
+
+WeepingAngel:
+  Type: HUSK
+  Display: '&cAngel que llora'
+  Health: 60
+  Damage: 10
+  LevelModifiers:
+    Health: 18
+    Power: 3
+  Disguise:
+    Type: ARMOR_STAND
+    ShowName: false
+  ThreatTable:
+    Enabled: TRUE
+  Options:
+    KnockbackResistance: 1
+    MovementSpeed: 0.3
+    Silent: true
+    PreventOtherDrops: true
+    ShowName: false
+  Equipment:
+  - WeepingAngel-Head:4
+  - IRON_CHESTPLATE:3
+  - IRON_LEGGINGS:2
+  - IRON_BOOTS:1
+  - IRON_SWORD:0
+  AITargetSelectors:
+  - clear
+  - players
+  AIGoalSelectors:
+  - clear
+  Skills:
+  - skill{s=WeepingAngel-Scan} @self ~onTimer:5
+  - effect:sound{s=entity.zombie.attack_door_wood;p=1.6} @self ~onDamaged
+  - effect:sound{s=entity.ghast.hurt;p=1.5;v=2} @target ~onAttack
+  - effect:sound{s=entity.zombie.break_door_wood;p=0.6} @self ~onDeath
+  - damage{amount=16} @target ~onAttack
+  DropsPerLevel:
+  - skillapi-exp 1 1
+  - money 2 1
+
+VampireBat:
+  Type: PARROT
+  Display: '&cMurcielago'
+  Health: 20
+  Damage: 4
+  LevelModifiers:
+    Health: 8
+    Power: 1
+  Disguise:
+    Type: BAT
+    ShowName: false
+  Options:
+    KnockbackResistance: 1
+    MovementSpeed: 0.3
+    Silent: true
+    PreventOtherDrops: true
+    ShowName: false
+  AITargetSelectors:
+  - clear
+  - hurtbytarget
+  - players
+  AIGoalSelectors:
+  - clear
+  - meleeattack
+  - randomfly
+  - randomfly
+  - randomfly
+  - randomfly
+  Skills:
+  - consume{damage=1;heal=2} @trigger ~onAttack
+  - rally{radius=30;types=VampireBat} @trigger ~onAttack
+  - effect:sound{s=entity.bat.loop;p=0.1;v=0.05} @self ~onTimer:40
+  - effect:sound{s=entity.bat.ambient;p=0.1;v=0.02} @self ~onTimer:4 0.1
+  - effect:sound{s=entity.bat.takeoff;p=0.1;v=0.05} @self ~onAttack
+  - effect:sound{s=entity.bat.hurt;p=0.1;v=0.05} @self ~onDamaged
+  - effect:sound{s=entity.bat.death;p=0.1;v=0.05} @self ~onDeath
+  - damage{amount=8} @target ~onAttack
+  DropsPerLevel:
+  - skillapi-exp 1 1
+  - money 2 1
+
+DuskWitch:
+  Type: SKELETON
+  Display: '&cCaldero Crepuscular'
+  Health: 9999
+  Disguise:
+    Type: BLOCK
+    Block: CAULDRON
+  Options:
+    KnockbackResistance: 1
+    MovementSpeed: 0.1
+    Invincible: true
+    Silent: true
+    PreventRandomEquipment: true
+  Skills:
+  - skill{s=DuskWitch-Cauldron} ~onTimer:4
+  - summon{type=DuskWitch-Body;r=2} @self ~onSpawn
+  - potion{type=SLOW;lvl=10;d=999999} @self ~onSpawn
+  - potion{type=SLOW;lvl=2;d=100} @PIR{r=3} ~onTimer:20
+  - potion{type=POISON;lvl=2;d=100} @PIR{r=3} ~onTimer:20
+  - effect:particles{p=happyVillager;a=20;hS=0.2;vS=0.2;y=0.6} @self ~onTimer:4
+  - effect:particles{p=lava;a=1;hS=0.2;vS=0.2;y=0.6} @self ~onTimer:20
+  - skill{s=DuskWitch-OverflowingPoison} @self ~onTimer:200
+  - skill{s=DuskWitch-CauldronMaggots} @self ~onTimer:400
+  - skill{s=DuskWitch-CauldronFamiliar} ~onTimer:400
+
+DuskWitch-Body:
+  Type: HUSK
+  Display: '&cBruja Crepuscular'
+  Health: 100
+  Damage: 5
+  LevelModifiers:
+    Health: 16
+    Power: 1
+  Disguise:
+    Type: WITCH
+  Despawn: true
+  Options:
+    UseThreatTable: true
+    MovementSpeed: 0.16
+    KnockbackResistance: 1
+    MaxCombatDistance: 25
+    FollowRange: 40
+    PreventRandomEquipment: true
+    Silent: true
+  Skills:
+  - effect:sound{s=entity.witch.hurt;p=0.8;v=2} @self ~onDamaged
+  - effect:sound{s=entity.ghast.hurt;p=1.8;v=2} @self ~onDamaged 0.5
+  - effect:sound{s=entity.witch.death;p=0.4;v=1} @self ~onDeath
+  - remove @parent ~onDeath
+  - summon{type=DuskWitch-Cauldron} @self ~onSpawn
+  - setstance{stance=main} @self ~onSpawn
+  - randomskill{s=DuskWitch-CauldronExplosion-1,DuskWitch-CauldronExplosion-2,DuskWitch-CauldronExplosion-3} ~onDamaged =90%
+  - randomskill{s=DuskWitch-CauldronExplosion-1,DuskWitch-CauldronExplosion-2,DuskWitch-CauldronExplosion-3} ~onDamaged =60%
+  - randomskill{s=DuskWitch-CauldronExplosion-1,DuskWitch-CauldronExplosion-2,DuskWitch-CauldronExplosion-3} ~onDamaged =30%
+  - skill{s=DuskWitch-WitchBolt} @RTT ~onTimer:80
+  - skill{s=DuskWitch-ThrowPotion} @RTT ~onTimer:120
+  - skill{s=DuskWitch-PhantasmalShift} ~onTimer:320
+  - skill{s=DuskWitch-PhantasmalShift} ~Damaged 0.05
+  - damage{amount=8} @target ~onAttack
+
+DuskWitch-Bat:
+  Type: BAT
+  Display: '&cMurcielago'
+  Skills:
+  - remove{delay=600} @self
+  - damage{amount=3} @target ~onAttack
+
+DuskWitch-Maggot:
+  Type: CAVE_SPIDER
+  Health: 10
+  LevelModifiers:
+    Health: 16
+    Power: 1
+  Display: '&cGusano'
+  SpawnModifiers:
+    YVelocity: 2
+  Disguise:
+    Type: SILVERFISH
+  Skills:
+  - damage{amount=3} @target ~onAttack
+  - remove{delay=600} @self
+
+DuskWitch-Cat:
+  Type: SPIDER
+  Health: 20
+  Damage: 12
+  LevelModifiers:
+    Health: 16
+    Power: 1
+  Display: '&cFamiliar de Bruja'
+  Disguise:
+    Type: OCELOT
+    CatType: BLACK_CAT
+  SpawnModifiers:
+    YVelocity: 2
+  Skills:
+  - damage{amount=3} @target ~onAttack
+
+DuskWitch-Spider:
+  Type: CAVE_SPIDER
+  Health: 80
+  LevelModifiers:
+    Health: 16
+    Power: 1
+  Display: '&cAracnido Fantasmal'
+  SpawnModifiers:
+    YVelocity: 2
+  Skills:
+  - damage{amount=3} @target ~onAttack
+  - potion{type=INVISIBILITY;d=99999} @self ~onSpawn
+  - potion{type=INVISIBILITY;d=99999} @self ~onTimer:20
+
+DuskWitch-Blaze:
+  Type: BLAZE
+  Health: 80
+  Damage: 12
+  LevelModifiers:
+    Health: 16
+    Power: 1
+  Display: '&cDemonio crepuscular'
+  SpawnModifiers:
+    YVelocity: 2
+  Skills:
+  - damage{amount=3} @target ~onAttack
+
+Aracboss1:
+  MobType: SPIDER
+  Display: '&5Girsha &7lvl &6- &8[&4<mob.level>&8]&f'
+  Health: 60
+  Damage: 5
+  LevelModifiers:
+    Health: 16
+    Power: 1
+  Options:
+    MovementSpeed: 0.3
+    MaxCombatDistance: 25
+  Skills:
+  - setlevel{a=add;l=1} @self ~onPlayerKill
+  - potion{type=SLOW;duration10;level=1} @target ~onAttack >0 0.1
+  - potion{type=BLINDNESS;duration10;level=1} @target ~onAttack >0 0.2
+  - summon{mob=Aracboss1esbirro;amount=1;radius=5} @PIR{r=10} >0 0.25
+  - message{m="<mob.name>&f<&co> &4Mi Veneno te Matara!"} @PlayersInRadius{r=5} ~onAttack >0 0.1
+  - message{m="<mob.name>&f<&co> &4Esto Posiblemente te Duela... mucho..."} @PlayersInRadius{r=5} ~onAttack >0 0.1
+  - damage{amount=8} @target ~onAttack
+  DropsPerLevel:
+  - skillapi-exp 1 1
+  - money 2 1
+
+Aracboss1esbirro:
+  MobType: CAVE_SPIDER
+  Health: 8
+  Damage: 2
+  Skills:
+  - setlevel{a=add;l=1} @self ~onPlayerKill
+  - potion{type=POISON;duration4;level=1} @target ~onAttack >0 0.9
+  - damage{amount=8} @target ~onAttack
+  LevelModifiers:
+    Health: 8
+    Power: 1
+  Display: '&7Cria &7lvl &6- &8[&4<mob.level>&8]&f'
+  Options:
+    MovementSpeed: 0.3
+    MaxCombatDistance: 15
+  DropsPerLevel:
+  - skillapi-exp 1 1
+  - money 1 1
+
+Aeon:
+  Type: WITHER_SKELETON
+  Display: '&8A&7eon &7lvl &6- &8[&4<mob.level>&8]&f'
+  Health: 90
+  Damage: 15
+  Skills:
+  - setlevel{a=add;l=1} @self ~onPlayerKill
+  - message{cooldown=20;m="<mob.name><&co> Nadie puede desafiarme!"} @PlayersInRadius{r=10} ~onCombat >0 0.2
+  - message{m="<mob.name><&co> Ahahahahah! Muere, <trigger.name>!"} @PlayersInRadius{r=30} ~onPlayerKill >0 1
+  - skill{s=SummonSkeletons} @Self 0.25
+  - skill{s=SmashAttack} @Target >0 0.2
+  - damage{amount=8} @target ~onAttack
+  LevelModifiers:
+    Health: 16
+    Power: 1
+  Equipment:
+  - Iron_Sword:0
+  Options:
+    AlwaysShowName: true
+    MovementSpeed: 0.2
+    MaxCombatDistance: 15
+    PreventOtherDrops: true
+  DropsPerLevel:
+  - skillapi-exp 1 1
+  - money 2 1
+
+AeonMinion:
+  Type: SKELETON
+  Display: '&8Esbirro &7lvl &6- &8[&4<mob.level>&8]&f'
+  Health: 160
+  Damage: 3
+  Options:
+    MovementSpeed: 0.1
+    MaxCombatDistance: 25
+    PreventOtherDrops: true
+  LevelModifiers:
+    Health: 8
+    Power: 1
+  DropsPerLevel:
+  - skillapi-exp 1 1
+  - money 1 1
+  Skills:
+  - setlevel{a=add;l=1} @self ~onPlayerKill
+  - damage{amount=4} @target ~onAttack
+
+SlimeOP:
+  Type: SLIME
+  Display: '&aB&2lozz &7lvl &6- &8[&4<mob.level>&8]&f'
+  Health: 80
+  Damage: 2
+  LevelModifiers:
+    Health: 16
+    Power: 1
+  Options:
+    Size: 15
+    MovementSpeed: 0.1
+    PreventOtherDrops: true
+    MaxCombatDistance: 30
+    KnockbackResistance: 2
+  Skills:
+  - setlevel{a=add;l=1} @self ~onPlayerKill
+  - skill{s=AngrySludgePoison} 0.25
+  - damage{amount=8} @target ~onAttack
+
+Gigante:
+  Type: GIANT
+  Display: '&aSuper Geedo &7lvl &6- &8[&4<mob.level>&8]&f'
+  Health: 1650
+  Damage: 6
+  Despawn: false
+  Persistent: false
+  LevelModifiers:
+    Health: 18
+    Power: 1
+  Equipment:
+  - Iron_Sword:0
+  AIGoalSelectors:
+  - 0 clear
+  - 2 meleeattack
+  AITargetSelectors:
+  - 0 clear
+  - 1 players
+  - 2 hurtbytarget
+  Options:
+    PreventOtherDrops: true
+    MaxCombatDistance: 30
+    KnockbackResistance: 2
+  Skills:
+  - setlevel{a=add;l=1} @self ~onPlayerKill
+  - skill{s=SummonEsbirros1} @Self ~onDeath
+  - damage{amount=10} @target ~onAttack
+
+Zombiesbirrogiant1:
+  Type: ZOMBIE
+  Display: '&aGeedo &7lvl &6- &8[&4<mob.level>&8]&f'
+  Health: 60
+  Damage: 4
+  Equipment:
+  - Stone_Sword:0
+  Options:
+    MovementSpeed: 0.3
+    MaxCombatDistance: 25
+    PreventOtherDrops: true
+  Skills:
+  - setlevel{a=add;l=1} @self ~onPlayerKill
+  - skill{s=SummonEsbirros2} @Self ~onDeath
+  - damage{amount=4} @target ~onAttack
+  LevelModifiers:
+    Health: 8
+    Power: 1
+  DropsPerLevel:
+  - skillapi-exp 1 1
+  - money 2 1
+
+Zombiesbirrogiant2:
+  Type: BABY_ZOMBIE
+  Display: '&aGeedito &7lvl &6- &8[&4<mob.level>&8]&f'
+  Health: 160
+  Damage: 2
+  Equipment:
+  - Wood_Sword:0
+  Options:
+    MovementSpeed: 0.4
+    MaxCombatDistance: 25
+    PreventOtherDrops: true
+  LevelModifiers:
+    Health: 4
+    Power: 1
+  DropsPerLevel:
+  - skillapi-exp 1 1
+  - money 2 1
+  Skills:
+  - setlevel{a=add;l=1} @self ~onPlayerKill
+  - damage{amount=2} @target ~onAttack
+
+Bandit:
+  Mobtype: HUSK
+  Display: '&6Bandido Armado'
+  Health: 60
+  Damage: 5
+  LevelModifiers:
+    Health: 16
+    Power: 1
+  Armor: 1
+  Disguise:
+    Type: player
+    Skin: 'Bandits'
+    Player: '&cBandido Armado'
+  Faction: Bandits
+  Equipment:
+  - wood_sword:0
+  Skills:
+  - setlevel{a=add;l=1} @self ~onPlayerKill
+  - message{m="<mob.name> tiene en su motin &2$&a<mob.score.money>"} @target ~onSignal:tellmoney
+  - speechbubble{id=BanditMoney;display="&2$ = &a<mob.score.money>";ll=25;counter=200;offset=2.6} @self ~onSpawn
+  - skill{s=Method-2-IncrementalMugging-20} @target ~onAttack 1
+  - skill{s=Method-2-Payout} @trigger ~onDeath
+  - skill{s=SpawnBandits} @Self ~onSpawn
+  - damage{amount=8} @target ~onAttack
+  Options:
+    AlwaysShowName: true
+    Despawn: true
+    MovementSpeed: 0.3
+    PreventMobKillDrops: true
+  AIGoalSelectors:
+    - 0 clear
+    - 1 meleeattack
+    - 2 randomstroll
+    - 3 FleeSun
+  AITargetSelectors:
+    - 0 clear
+    - 1 players
+  DropsPerLevel:
+  - skillapi-exp 1 1
+  - money 2 1
+
+SwordBandit:
+  Mobtype: HUSK
+  Display: '&6Bandido Armado'
+  Health: 60
+  Damage: 5
+  LevelModifiers:
+    Health: 16
+    Power: 1
+  Armor: 1
+  Disguise:
+    Type: player
+    Skin: 'Bandits'
+    Player: '&6Bandido Armado'
+  Faction: Bandits
+  Equipment:
+  - wood_sword:0
+  Skills:
+  - setlevel{a=add;l=1} @self ~onPlayerKill
+  - message{m="<mob.name> tiene en su motin &2$&a<mob.score.money>"} @target ~onSignal:tellmoney
+  - speechbubble{id=BanditMoney;display="&2$ = &a<mob.score.money>";ll=25;counter=200;offset=2.6} @self ~onSpawn
+  - skill{s=Method-2-IncrementalMugging-20} @target ~onAttack 1
+  - skill{s=Method-2-Payout} @trigger ~onDeath
+  - damage{amount=8} @target ~onAttack
+#  - skill{s=Method-2-IncrementalMugging-20} @target ~onAttack 1
+#  - skill{s=Method-2-IncrementalMugging-50} @target ~onAttack 1
+#  - skill{s=Method-2-IncrementalMugging-100} @target ~onAttack 1
+  Options:
+    AlwaysShowName: true
+    Despawn: true
+    MovementSpeed: 0.3
+    PreventMobKillDrops: true
+  AIGoalSelectors:
+    - 0 clear
+    - 1 meleeattack
+    - 2 randomstroll
+    - 3 FleeSun
+  AITargetSelectors:
+    - 0 clear
+    - 1 players
+  DropsPerLevel:
+  - skillapi-exp 1 1
+  - money 2 1
+
+BowBandit:
+  Mobtype: SKELETON
+  Display: '&6Bandido Arquero'
+  Health: 60
+  Damage: 5
+  LevelModifiers:
+    Health: 16
+    Power: 1
+  Display: '&6Bandido Arquero'
+  Armor: 1
+  Disguise:
+    Type: player
+    Skin: 'Bandits'
+    Player: '&6Bandido Arquero &7lvl &6- &8[&4<mob.level>&8]&f'
+  Faction: Bandits
+  Equipment:
+  - leather_helmet:4
+  - BOW:0
+  Skills:
+  - setlevel{a=add;l=1} @self ~onPlayerKill
+  - message{m="<mob.name> tiene en su motin &2$&a<mob.score.money>"} @target ~onSignal:tellmoney
+  - speechbubble{id=BanditMoney;display="&2$ = &a<mob.score.money>";ll=25;counter=200;offset=2.6} @self ~onSpawn
+  - skill{s=Method-2-IncrementalMugging-20} @target ~onAttack 1
+  - skill{s=Method-2-Payout} @trigger ~onDeath
+#  - skill{s=Method-2-IncrementalMugging-20} @target ~onAttack 1
+#  - skill{s=Method-2-IncrementalMugging-50} @target ~onAttack 1
+#  - skill{s=Method-2-IncrementalMugging-100} @target ~onAttack 1
+  - skill{s=BowDrug} ~onAttack 0.1
+  Options:
+    AlwaysShowName: true
+    Despawn: true
+    MovementSpeed: 0.3
+    PreventMobKillDrops: true
+  AITargetSelectors:
+    - 0 clear
+    - 1 players
+  DropsPerLevel:
+  - skillapi-exp 1 1
+  - money 2 1

@@ -1,0 +1,1491 @@
+#@Piedra5[quantity=5]
+inv_events:
+  type: world
+  events:
+    on player clicks cancelslot in dispenser:
+    - DETERMINE cancelled
+    on player clicks cancelslot:
+    - DETERMINE cancelled
+    on player clicks in inv_esencias:
+    - DETERMINE cancelled
+    on player drags in inv_esencias:
+    - DETERMINE cancelled
+    on player clicks in inv_pieles:
+    - DETERMINE cancelled
+    on player drags in inv_pieles:
+    - DETERMINE cancelled
+    on player clicks in inv_armaduras:
+    - DETERMINE cancelled
+    on player drags in inv_armaduras:
+    - DETERMINE cancelled
+    on player clicks in inv_stats:
+    - DETERMINE cancelled
+    on player drags in inv_stats:
+    - DETERMINE cancelled
+    on player clicks in inv_combate:
+    - DETERMINE cancelled
+    on player drags in inv_combate:
+    - DETERMINE cancelled
+    on player clicks in inv_fernan:
+    - DETERMINE cancelled
+    on player drags in inv_fernan:
+    - DETERMINE cancelled
+    on player clicks in inv_arena:
+    - DETERMINE cancelled
+    on player drags in inv_arena:
+    - DETERMINE cancelled
+    on player clicks in inv_materiales:
+    - DETERMINE cancelled
+    on player drags in inv_materiales:
+    - DETERMINE cancelled
+    on player clicks cancelslot in inv_bogdan:
+    - DETERMINE cancelled
+    on player clicks cancelslot in inv_selfor_interfaz:
+    - DETERMINE cancelled
+    on player clicks in inv_taberna:
+    - DETERMINE cancelled
+    on player drags in inv_taberna:
+    - DETERMINE cancelled
+    on player clicks in inv_blazhdex1:
+    - DETERMINE cancelled
+    on player drags in inv_blazhdex1:
+    - DETERMINE cancelled
+    on player clicks in inv_layredex2:
+    - DETERMINE cancelled
+    on player drags in inv_layredex2:
+    - DETERMINE cancelled
+    on player clicks in inv_mision:
+    - DETERMINE cancelled
+    on player drags in inv_mision:
+    - DETERMINE cancelled
+
+#--------------ESENCIAS------------------------
+    on player clicks esencia1L1 in inv_esencias:
+    - ^inventory close d:in@inv_esencias
+    - ^flag <player> cundulobo:+:3
+    - ^flag <player> cunduhumano:+:2
+    - ^flag <player> cunduvampiro:+:1
+    - ^bossbar remove obj<player.name>
+    - ^define objetivo "<gold>Tutorial: <green>Visitar a <gold>Jurian <green>en la herreria"
+    - ^flag <player> objetivo:<def[objetivo]>
+    - ^bossbar obj<player.name> players:<player> "title:<player.flag[objetivo]>" color:BLUE
+    - ^compass <npc.location.simple> npc:7
+    - ^flag <player> esencia:<i@esencia1L1.display>
+    - ^playsound <player> sound:complete custom
+    - ^run 's@bookq3L'
+    - ^zap step:2 script:M2
+    - ^zap step:3 script:Jurianscript
+    on player clicks esencia1L2 in inv_esencias:
+    - ^inventory close d:in@inv_esencias
+    - ^flag <player> cundulobo:+:3
+    - ^flag <player> cunduhumano:+:2
+    - ^flag <player> cunduvampiro:+:1
+    - ^bossbar remove obj<player.name>
+    - ^define objetivo "<gold>Tutorial: <green>Visitar a <gold>Jurian <green>en la herreria"
+    - ^flag <player> objetivo:<def[objetivo]>
+    - ^bossbar obj<player.name> players:<player> "title:<player.flag[objetivo]>" color:BLUE
+    - ^compass <npc.location.simple> npc:7
+    - ^flag <player> esencia:<i@esencia1L2.display>
+    - ^playsound <player> sound:complete custom
+    - ^run 's@bookq3L'
+    - ^zap step:2 script:M2
+    - ^zap step:3 script:Jurianscript
+#
+    on player clicks esencia2V1 in inv_esencias:
+    - ^inventory close d:in@inv_esencias
+    - ^flag <player> cunduvampiro:+:3
+    - ^flag <player> cundulobo:+:1
+    - ^flag <player> cunduhumano:+:2
+    - ^bossbar remove obj<player.name>
+    - ^define objetivo "<gold>Tutorial: <green>Visitar a <gold>Jurian <green>en la herreria"
+    - ^flag <player> objetivo:<def[objetivo]>
+    - ^bossbar obj<player.name> players:<player> "title:<player.flag[objetivo]>" color:BLUE
+    - ^compass <npc.location.simple> npc:7
+    - ^flag <player> esencia:<i@esencia2V1.display>
+    - ^playsound <player> sound:complete custom
+    - ^run 's@bookq3V'
+    - ^zap step:2 script:M2
+    - ^zap step:3 script:Jurianscript
+    on player clicks esencia2V2 in inv_esencias:
+    - ^inventory close d:in@inv_esencias
+    - ^flag <player> cunduvampiro:+:3
+    - ^flag <player> cundulobo:+:1
+    - ^flag <player> cunduhumano:+:2
+    - ^bossbar remove obj<player.name>
+    - ^define objetivo "<gold>Tutorial: <green>Visitar a <gold>Jurian <green>en la herreria"
+    - ^flag <player> objetivo:<def[objetivo]>
+    - ^bossbar obj<player.name> players:<player> "title:<player.flag[objetivo]>" color:BLUE
+    - ^compass <npc.location.simple> npc:7
+    - ^flag <player> esencia:<i@esencia2V2.display>
+    - ^playsound <player> sound:complete custom
+    - ^run 's@bookq3V'
+    - ^zap step:2 script:M2
+    - ^zap step:3 script:Jurianscript
+#
+    on player clicks esencia3H1 in inv_esencias:
+    - ^inventory close d:in@inv_esencias
+    - ^flag <player> cunduhumano:+:3
+    - ^flag <player> cunduvampiro:+:1
+    - ^flag <player> cundulobo:+:2
+    - ^bossbar remove obj<player.name>
+    - ^define objetivo "<gold>Tutorial: <green>Visitar a <gold>Jurian <green>en la herreria"
+    - ^flag <player> objetivo:<def[objetivo]>
+    - ^bossbar obj<player.name> players:<player> "title:<player.flag[objetivo]>" color:BLUE
+    - ^compass <npc.location.simple> npc:7
+    - ^flag <player> esencia:<i@esencia3H1.display>
+    - ^playsound <player> sound:complete custom
+    - ^run 's@bookq3H'
+    - ^zap step:2 script:M2
+    - ^zap step:3 script:Jurianscript
+    on player clicks esencia3H2 in inv_esencias:
+    - ^inventory close d:in@inv_esencias
+    - ^flag <player> cunduhumano:+:3
+    - ^flag <player> cunduvampiro:+:1
+    - ^flag <player> cundulobo:+:2
+    - ^bossbar remove obj<player.name>
+    - ^define objetivo "<gold>Tutorial: <green>Visitar a <gold>Jurian <green>en la herreria"
+    - ^flag <player> objetivo:<def[objetivo]>
+    - ^bossbar obj<player.name> players:<player> "title:<player.flag[objetivo]>" color:BLUE
+    - ^compass <npc.location.simple> npc:7
+    - ^flag <player> esencia:<i@esencia3H2.display>
+    - ^playsound <player> sound:complete custom
+    - ^run 's@bookq3H'
+    - ^zap step:2 script:M2
+    - ^zap step:3 script:Jurianscript
+#--------------PIELES-------------------------
+    on player clicks piel1L1 in inv_pieles:
+    - ^inventory close d:in@inv_pieles
+    - ^flag <player> cundulobo:+:3
+    - ^flag <player> cunduhumano:+:2
+    - ^flag <player> cunduvampiro:+:1
+    - ^bossbar remove obj<player.name>
+    - ^define objetivo "<gold>Tutorial: <green>Visitar a <gold>Hammon <green>en la herreria"
+    - ^flag <player> objetivo:<def[objetivo]>
+    - ^bossbar obj<player.name> players:<player> "title:<player.flag[objetivo]>" color:BLUE
+    - ^compass <npc.location.simple> npc:10
+    - ^flag <player> piel:<i@piel1L1.display>
+    - ^flag <player> misiones:->:tuto_04
+    - ^playsound <player> sound:complete custom
+    - ^run 's@bookq4'
+    - ^zap step:4 script:Jurianscript
+    on player clicks piel1L2 in inv_pieles:
+    - ^inventory close d:in@inv_pieles
+    - ^flag <player> cundulobo:+:3
+    - ^flag <player> cunduhumano:+:2
+    - ^flag <player> cunduvampiro:+:1
+    - ^bossbar remove obj<player.name>
+    - ^define objetivo "<gold>Tutorial: <green>Visitar a <gold>Hammon <green>en la herreria"
+    - ^flag <player> objetivo:<def[objetivo]>
+    - ^bossbar obj<player.name> players:<player> "title:<player.flag[objetivo]>" color:BLUE
+    - ^compass <npc.location.simple> npc:10
+    - ^flag <player> piel:<i@piel1L2.display>
+    - ^flag <player> misiones:->:tuto_04
+    - ^playsound <player> sound:complete custom
+    - ^run 's@bookq4'
+    - ^zap step:4 script:Jurianscript
+#
+    on player clicks piel2V1 in inv_pieles:
+    - inventory close d:in@inv_pieles
+    - ^flag <player> cunduvampiro:+:3
+    - ^flag <player> cundulobo:+:1
+    - ^flag <player> cunduhumano:+:2
+    - ^bossbar remove obj<player.name>
+    - ^define objetivo "<gold>Tutorial: <green>Visitar a <gold>Hammon <green>en la herreria"
+    - ^flag <player> objetivo:<def[objetivo]>
+    - ^bossbar obj<player.name> players:<player> "title:<player.flag[objetivo]>" color:BLUE
+    - ^compass <npc.location.simple> npc:10
+    - ^flag <player> piel:<i@piel2V1.display>
+    - ^flag <player> misiones:->:tuto_04
+    - ^playsound <player> sound:complete custom
+    - ^run 's@bookq4'
+    - ^zap step:4 script:Jurianscript
+    on player clicks piel2V2 in inv_pieles:
+    - inventory close d:in@inv_pieles
+    - ^flag <player> cunduvampiro:+:3
+    - ^flag <player> cundulobo:+:1
+    - ^flag <player> cunduhumano:+:2
+    - ^bossbar remove obj<player.name>
+    - ^define objetivo "<gold>Tutorial: <green>Visitar a <gold>Hammon <green>en la herreria"
+    - ^flag <player> objetivo:<def[objetivo]>
+    - ^bossbar obj<player.name> players:<player> "title:<player.flag[objetivo]>" color:BLUE
+    - ^compass <npc.location.simple> npc:10
+    - ^flag <player> piel:<i@piel2V2.display>
+    - ^flag <player> misiones:->:tuto_04
+    - ^playsound <player> sound:complete custom
+    - ^run 's@bookq4'
+    - ^zap step:4 script:Jurianscript
+#
+    on player clicks piel3H1 in inv_pieles:
+    - ^inventory close d:in@inv_pieles
+    - ^flag <player> cunduhumano:+:3
+    - ^flag <player> cunduvampiro:+:1
+    - ^flag <player> cundulobo:+:2
+    - ^bossbar remove obj<player.name>
+    - ^define objetivo "<gold>Tutorial: <green>Visitar a <gold>Hammon <green>en la herreria"
+    - ^flag <player> objetivo:<def[objetivo]>
+    - ^bossbar obj<player.name> players:<player> "title:<player.flag[objetivo]>" color:BLUE
+    - ^compass <npc.location.simple> npc:10
+    - ^flag <player> piel:<i@piel3H1.display>
+    - ^flag <player> misiones:->:tuto_04
+    - ^playsound <player> sound:complete custom
+    - ^run 's@bookq4'
+    - ^zap step:4 script:Jurianscript
+    on player clicks piel3H2 in inv_pieles:
+    - ^inventory close d:in@inv_pieles
+    - ^flag <player> cunduhumano:+:3
+    - ^flag <player> cunduvampiro:+:1
+    - ^flag <player> cundulobo:+:2
+    - ^bossbar remove obj<player.name>
+    - ^define objetivo "<gold>Tutorial: <green>Visitar a <gold>Hammon <green>en la herreria"
+    - ^flag <player> objetivo:<def[objetivo]>
+    - ^bossbar obj<player.name> players:<player> "title:<player.flag[objetivo]>" color:BLUE
+    - ^compass <npc.location.simple> npc:10
+    - ^flag <player> piel:<i@piel3H2.display>
+    - ^flag <player> misiones:->:tuto_04
+    - ^playsound <player> sound:complete custom
+    - ^run 's@bookq4'
+    - ^zap step:4 script:Jurianscript
+#--------------ARMADURAS------------------------
+    on player clicks armadura1L in inv_armaduras:
+    - ^inventory close d:in@inv_armaduras
+    - ^flag <player> cundulobo:+:3
+    - ^flag <player> cunduhumano:+:2
+    - ^flag <player> cunduvampiro:+:1
+    - ^bossbar remove obj<player.name>
+    - ^define objetivo "<gold>Tutorial: <green>Visitar a <gold>Hammon <green>en la herreria"
+    - ^flag <player> objetivo:<def[objetivo]>
+    - ^bossbar obj<player.name> players:<player> "title:<player.flag[objetivo]>" color:BLUE
+    - ^compass <npc.location.simple> npc:10
+    - ^flag <player> armadura:<i@armadura1L.display>
+    - ^equip <player> head:i@LH1L
+    - ^equip <player> chest:i@LCH1L
+    - ^equip <player> legs:i@LL1L
+    - ^equip <player> boots:i@LB1L
+    - ^zap step:6 script:Jurianscript
+    - ^zap step:3 Hammonscript
+    - ^playsound <player> sound:complete custom
+    - run 's@bookq6'
+    on player clicks armadura2V in inv_armaduras:
+    - ^inventory close d:in@inv_armadura
+    - ^flag <player> cunduvampiro:+:3
+    - ^flag <player> cundulobo:+:1
+    - ^flag <player> cunduhumano:+:2
+    - ^bossbar remove obj<player.name>
+    - ^define objetivo "<gold>Tutorial: <green>Visitar a <gold>Hammon <green>en la herreria"
+    - ^flag <player> objetivo:<def[objetivo]>
+    - ^bossbar obj<player.name> players:<player> "title:<player.flag[objetivo]>" color:BLUE
+    - ^compass <npc.location.simple> npc:10
+    - ^flag <player> armadura:<i@armadura2V.display>
+    - ^equip <player> head:i@LH2V
+    - ^equip <player> chest:i@LCH2V
+    - ^equip <player> legs:i@LL2V
+    - ^equip <player> boots:i@LB2V
+    - ^zap step:6 script:Jurianscript
+    - ^zap step:3 Hammonscript
+    - ^playsound <player> sound:complete custom
+    - run 's@bookq6'
+    on player clicks armadura3H in inv_armaduras:
+    - ^inventory close d:in@inv_armadura
+    - ^flag <player> cunduhumano:+:3
+    - ^flag <player> cunduvampiro:+:1
+    - ^flag <player> cundulobo:+:2
+    - ^bossbar remove obj<player.name>
+    - ^define objetivo "<gold>Tutorial: <green>Visitar a <gold>Hammon <green>en la herreria"
+    - ^flag <player> objetivo:<def[objetivo]>
+    - ^bossbar obj<player.name> players:<player> "title:<player.flag[objetivo]>" color:BLUE
+    - ^compass <npc.location.simple> npc:10
+    - ^flag <player> armadura:<i@armadura3H.display>
+    - ^equip <player> head:i@LH3H
+    - ^equip <player> chest:i@LCH3H
+    - ^equip <player> legs:i@LL3H
+    - ^equip <player> boots:i@LB3H
+    - ^zap step:6 script:Jurianscript
+    - ^zap step:3 Hammonscript
+    - ^playsound <player> sound:complete custom
+    - run 's@bookq6'
+#--------------COMBATE---------------------
+    on player clicks Combate1L1 in inv_combate:
+    - ^inventory close d:in@inv_combate
+    - ^flag <player> cundulobo:+:3
+    - ^flag <player> cunduhumano:+:2
+    - ^flag <player> cunduvampiro:+:1
+    - ^bossbar remove obj<player.name>
+    - ^define objetivo "<gold>Tutorial: <green>Termina un objetivo en la mision de <gold>telmo"
+    - ^flag <player> objetivo:<def[objetivo]>
+    - ^bossbar obj<player.name> players:<player> "title:<player.flag[objetivo]>" color:BLUE
+    - ^compass <npc.location.simple> npc:33
+    - ^flag <player> dungeoncondu:progress
+    - ^flag <player> combate:<i@Combate1L1.display>
+    - ^playsound <player> sound:complete custom
+    - ^give i@bread qty:10
+    - wait 1s
+    - ^execute as_op "dxl play telmo"
+    - ^wait 3s
+    - ^run 's@bookq9'
+    - ^zap step:2 script:M6
+    on player clicks Combate1L2 in inv_combate:
+    - ^inventory close d:in@inv_combate
+    - ^flag <player> cundulobo:+:3
+    - ^flag <player> cunduhumano:+:2
+    - ^flag <player> cunduvampiro:+:1
+    - ^bossbar remove obj<player.name>
+    - ^define objetivo "<gold>Tutorial: <green>Termina un objetivo en la mision de <gold>telmo"
+    - ^flag <player> objetivo:<def[objetivo]>
+    - ^bossbar obj<player.name> players:<player> "title:<player.flag[objetivo]>" color:BLUE
+    - ^compass <npc.location.simple> npc:33
+    - ^flag <player> dungeoncondu:progress
+    - ^flag <player> combate:<i@Combate1L2.display>
+    - ^playsound <player> sound:complete custom
+    - ^give i@bread qty:10
+    - wait 1s
+    - ^execute as_op "dxl play telmo"
+    - ^wait 3s
+    - ^run 's@bookq9'
+    - ^zap step:2 script:M6
+#
+    on player clicks Combate2V1 in inv_combate:
+    - ^inventory close d:in@inv_combate
+    - ^flag <player> cunduvampiro:+:3
+    - ^flag <player> cundulobo:+:1
+    - ^flag <player> cunduhumano:+:2
+    - ^bossbar remove obj<player.name>
+    - ^define objetivo "<gold>Tutorial: <green>Termina un objetivo en la mision de <gold>telmo"
+    - ^flag <player> objetivo:<def[objetivo]>
+    - ^bossbar obj<player.name> players:<player> "title:<player.flag[objetivo]>" color:BLUE
+    - ^compass <npc.location.simple> npc:33
+    - ^flag <player> dungeoncondu:progress
+    - ^flag <player> combate:<i@Combate2V1.display>
+    - ^playsound <player> sound:complete custom
+    - ^give i@bread qty:10
+    - wait 1s
+    - ^execute as_op "dxl play telmo"
+    - ^wait 3s
+    - ^run 's@bookq9'
+    - ^zap step:2 script:M6
+    on player clicks Combate2V2 in inv_combate:
+    - ^inventory close d:in@inv_combate
+    - ^flag <player> cunduvampiro:+:3
+    - ^flag <player> cundulobo:+:1
+    - ^flag <player> cunduhumano:+:2
+    - ^bossbar remove obj<player.name>
+    - ^define objetivo "<gold>Tutorial: <green>Termina un objetivo en la mision de <gold>telmo"
+    - ^flag <player> objetivo:<def[objetivo]>
+    - ^bossbar obj<player.name> players:<player> "title:<player.flag[objetivo]>" color:BLUE
+    - ^compass <npc.location.simple> npc:33
+    - ^flag <player> dungeoncondu:progress
+    - ^flag <player> combate:<i@Combate2V2.display>
+    - ^playsound <player> sound:complete custom
+    - ^give i@bread qty:10
+    - wait 1s
+    - ^execute as_op "dxl play telmo"
+    - ^wait 3s
+    - ^run 's@bookq9'
+    - ^zap step:2 script:M6
+#
+    on player clicks Combate3H1 in inv_combate:
+    - ^inventory close d:in@inv_combate
+    - ^flag <player> cunduhumano:+:3
+    - ^flag <player> cunduvampiro:+:1
+    - ^flag <player> cundulobo:+:2
+    - ^bossbar remove obj<player.name>
+    - ^define objetivo "<gold>Tutorial: <green>Termina un objetivo en la mision de <gold>telmo"
+    - ^flag <player> objetivo:<def[objetivo]>
+    - ^bossbar obj<player.name> players:<player> "title:<player.flag[objetivo]>" color:BLUE
+    - ^compass <npc.location.simple> npc:33
+    - ^flag <player> dungeoncondu:progress
+    - ^flag <player> combate:<i@Combate3H1.display>
+    - ^playsound <player> sound:complete custom
+    - ^give i@bread qty:10
+    - wait 1s
+    - ^execute as_op "dxl play telmo"
+    - ^wait 3s
+    - ^run 's@bookq9'
+    - ^zap step:2 script:M6
+    on player clicks Combate3H2 in inv_combate:
+    - ^inventory close d:in@inv_combate
+    - ^flag <player> cunduhumano:+:3
+    - ^flag <player> cunduvampiro:+:1
+    - ^flag <player> cundulobo:+:2
+    - ^bossbar remove obj<player.name>
+    - ^define objetivo "<gold>Tutorial: <green>Termina un objetivo en la mision de <gold>telmo"
+    - ^flag <player> objetivo:<def[objetivo]>
+    - ^bossbar obj<player.name> players:<player> "title:<player.flag[objetivo]>" color:BLUE
+    - ^compass <npc.location.simple> npc:33
+    - ^flag <player> dungeoncondu:progress
+    - ^flag <player> combate:<i@Combate3H2.display>
+    - ^playsound <player> sound:complete custom
+    - ^give i@bread qty:10
+    - wait 1s
+    - ^execute as_op "dxl play telmo"
+    - ^wait 3s
+    - ^run 's@bookq9'
+    - ^zap step:2 script:M6
+
+#--------------Arenas---------------------
+    on player clicks Sipregunta in inv_arena:
+    - ^inventory close d:in@inv_arena
+    - ^flag <player> arenas:+:1
+    - ^execute as_player "ma join Horokan"
+    on player clicks Nopregunta in inv_arena:
+    - ^inventory close d:in@inv_arena
+#--------------MaterialesP1---------------------
+    on player clicks Deposit100 in inv_materiales:
+    - ^if <player.money> < 100 {
+      - ^narrate "<dark_aqua>Wylmot: <red>No tienes suficientes almakos"
+      } else if <player.money> >= 100 {
+      - ^yaml load:pueblos/pueblo1.yml id:pueblo<player.name>
+      - ^yaml id:pueblo<player.name> set Economia:-:100
+      - ^yaml savefile:pueblos/pueblo1.yml id:pueblo<player.name>
+      - ^yaml unload id:pueblo<player.name>
+      - ^take money quantity:100
+      - ^narrate "<dark_aqua>Wylmot: <aqua>Depositaste 100 Almakos"
+      - ^animatechest l@3005,99,2849,Esparcraft close
+      - ^run 's@startbuildp1'
+      - ^run 's@bookq1'
+      - ^zap step:2 script:buildpueblo1
+      }
+    on player clicks Deposit1000 in inv_materiales:
+    - ^if <player.money> < 1000 {
+      - ^narrate "<dark_aqua>Wylmot: <red>No tienes suficientes almakos"
+      } else if <player.money> >= 1000 {
+      - ^yaml load:pueblos/pueblo1.yml id:pueblo<player.name>
+      - ^yaml id:pueblo<player.name> set Economia:-:1000
+      - ^yaml savefile:pueblos/pueblo1.yml id:pueblo<player.name>
+      - ^yaml unload id:pueblo<player.name>
+      - ^take money quantity:1000
+      - ^narrate "<dark_aqua>Wylmot: <aqua>Depositaste 1000 Almakos"
+      - ^animatechest l@3005,99,2849,Esparcraft close
+      - ^run 's@startbuildp1'
+      - ^run 's@bookq1'
+      - ^zap step:2 script:buildpueblo1
+      }
+    on player clicks Deposit5000 in inv_materiales:
+    - ^if <player.money> < 5000 {
+      - ^narrate "<dark_aqua>Wylmot: <red>No tienes suficientes almakos"
+      } else if <player.money> >= 5000 {
+      - ^yaml load:pueblos/pueblo1.yml id:pueblo<player.name>
+      - ^yaml id:pueblo<player.name> set Economia:-:5000
+      - ^yaml savefile:pueblos/pueblo1.yml id:pueblo<player.name>
+      - ^yaml unload id:pueblo<player.name>
+      - ^take money quantity:5000
+      - ^narrate "<dark_aqua>Wylmot: <aqua>Depositaste 5000 Almakos"
+      - ^animatechest l@3005,99,2849,Esparcraft close
+      - ^run 's@startbuildp1'
+      - ^run 's@bookq1'
+      - ^zap step:2 script:buildpueblo1
+      }
+#--------------Zane Kilgore Materials---------------------
+    on player clicks LH2V2 in inv_zane:
+    - ^if <player.inventory.quantity[i@367]> < 70 {
+      - ^narrate "<gray>Miserable: <white>No tienes suficiente <gold>carne podrida"
+      } else if <player.inventory.quantity[i@367]> >= 70 {
+      - ^take i@367 quantity:70
+      - give i@LH2V2
+      - ^narrate "<gray>Miserable: <white>Ahi lo tienes"
+      }
+    - DETERMINE cancelled
+    on player clicks LCH2V2 in inv_zane:
+    - ^if <player.inventory.quantity[i@367]> < 100 {
+      - ^narrate "<gray>Miserable: <white>No tienes suficiente <gold>carne podrida"
+      } else if <player.inventory.quantity[i@367]> >= 100 {
+      - ^take i@367 quantity:100
+      - give i@LCH2V2
+      - ^narrate "<gray>Miserable: <white>Ahi lo tienes"
+      }
+    - DETERMINE cancelled
+    on player clicks LL2V2 in inv_zane:
+    - ^if <player.inventory.quantity[i@367]> < 80 {
+      - ^narrate "<gray>Miserable: <white>No tienes suficiente <gold>carne podrida"
+      } else if <player.inventory.quantity[i@367]> >= 80 {
+      - ^take i@367 quantity:80
+      - give i@LL2V2
+      - ^narrate "<gray>Miserable: <white>Ahi lo tienes"
+      }
+    - DETERMINE cancelled
+    on player clicks LB2V2 in inv_zane:
+    - ^if <player.inventory.quantity[i@367]> < 60 {
+      - ^narrate "<gray>Miserable: <white>No tienes suficiente <gold>carne podrida"
+      } else if <player.inventory.quantity[i@367]> >= 60 {
+      - ^take i@367 quantity:60
+      - give i@LB2V2
+      - ^narrate "<gray>Miserable: <white>Ahi lo tienes"
+      }
+    - DETERMINE cancelled
+    on player clicks espada2V2 in inv_zane:
+    - ^if <player.inventory.quantity[i@367]> < 10 {
+      - ^narrate "<gray>Miserable: <white>No tienes suficiente <gold>carne podrida"
+      } else if <player.inventory.quantity[i@367]> >= 10 {
+      - ^take i@367 quantity:10
+      - give i@espada2V3
+      - ^narrate "<gray>Miserable: <white>Ahi la tienes"
+      }
+    - DETERMINE cancelled
+    on player clicks Breadzane in inv_zane:
+    - ^if <player.inventory.quantity[i@367]> < 10 {
+      - ^narrate "<gray>Miserable: <white>No tienes suficiente <gold>carne podrida"
+      } else if <player.inventory.quantity[i@367]> >= 10 {
+      - ^take i@367 quantity:10
+      - give i@Bread
+      - ^narrate "<gray>Miserable: <white>Ahi la tienes"
+      }
+    - DETERMINE cancelled
+    on player clicks Entregar in inv_zane:
+    - ^yaml load:capitulos/capitulo1.yml id:capitulo<player.name>
+    - ^if <context.cursor_item.display.contains[<dark_green>Ojo<black>_<green>Pestilente]||false> {
+      - ^if <yaml[capitulo<player.name>].read[miserable.Ojos]> < 1000 {
+        - ^narrate "<gray>Entregaste: <gold><context.cursor_item.quantity> <dark_green>Ojos de pestilente"
+        - ^adjust <player> item_on_cursor:i@air
+        - ^yaml id:capitulo<player.name> set miserable.Ojos:+:<context.cursor_item.quantity>
+        - ^flag <global> Cap1Ojos:<yaml[capitulo<player.name>].read[miserable.Ojos]>
+        } else if <yaml[capitulo<player.name>].read[miserable.Ojos]> >= 1000 {
+        - ^yaml id:capitulo<player.name> set miserable.Ojos:1000
+        - ^flag <global> Cap1Ojos:1000
+        }
+      - ^yaml savefile:capitulos/capitulo1.yml id:capitulo<player.name>
+      - ^inventory open d:in@inv_zane
+      }
+    - ^if <context.cursor_item.display.contains[<white>Hueso<black>_<dark_gray>Fetido]||false> {
+      - ^if <yaml[capitulo<player.name>].read[miserable.Huesos]> < 1000 {
+        - ^narrate "<gray>Entregaste: <gold><context.cursor_item.quantity> <white>Huesos de fetido"
+        - ^adjust <player> item_on_cursor:i@air
+        - ^yaml id:capitulo<player.name> set miserable.Huesos:+:<context.cursor_item.quantity>
+        - ^flag <global> Cap1Huesos:<yaml[capitulo<player.name>].read[miserable.Huesos]>
+        } else if <yaml[capitulo<player.name>].read[miserable.Huesos]> >= 1000 {
+        - ^yaml id:capitulo<player.name> set miserable.Huesos:1000
+        - ^flag <global> Cap1Huesos:1000
+        }
+      - ^yaml savefile:capitulos/capitulo1.yml id:capitulo<player.name>
+      - ^inventory open d:in@inv_zane
+      }
+    - ^if <yaml[capitulo<player.name>].read[miserable.Huesos]> >= 1000 && <yaml[capitulo<player.name>].read[miserable.Ojos]> >= 1000 {
+      - ^run 's@cinematic1'
+      - ^narrate OK
+      - ^playsound <player> sound:complete custom
+      }
+    - ^yaml unload id:capitulo<player.name>
+    - DETERMINE cancelled
+    on player clicks Zaneinfo1 in inv_zane:
+    - DETERMINE cancelled
+    on player clicks Zombieeye in inv_zane:
+    - DETERMINE cancelled
+    on player clicks Zombiebone in inv_zane:
+    - DETERMINE cancelled
+
+#--------------Freya Posada---------------------
+    on player clicks freyainforenta in inv_taberna:
+    - ^run 's@bookrenta'
+    on player clicks freyainfoextend in inv_taberna:
+    - ^run 's@bookextender'
+    on player clicks freyainfounrent in inv_taberna:
+    - ^run 's@bookunrent'
+    on player clicks freyainfo in inv_taberna:
+    - ^run 's@bookbusqueda'
+    on player clicks tugurio in inv_taberna:
+    - ^execute as_player "as find rent 1000 Vagabundo"
+    on player clicks tabuco in inv_taberna:
+    - ^execute as_player "as find rent 3000 Mendicante"
+    on player clicks cuarto in inv_taberna:
+    - ^execute as_player "as find rent 5000 Asalariado"
+#------------- Selfor interfaz ----------------
+#Ventaselfor
+    on player clicks Venderself in inv_selfor_interfaz:
+    - if <context.cursor_item.lore.get[1].contains[Almakos]> {
+      - ^give money quantity:<context.cursor_item.lore.get[1].replace[regex:Venta|Almakos|:|<&sp>|<green>|<gold>]>
+      - ^narrate "Vendiste <context.cursor_item.display_name><green> por <context.cursor_item.lore.get[1].replace[regex:Venta|Almakos|:|<&sp>|<green>|<gold>]> Almakos"
+      - ^adjust <player> item_on_cursor:i@air
+      - DETERMINE cancelled
+      - ^queue clear
+      } else if <context.cursor_item.lore.get[2].contains[Almakos]> {
+      - ^give money quantity:<context.cursor_item.lore.get[2].replace[regex:Venta|Almakos|:|<&sp>|<green>|<gold>]>
+      - ^narrate "Vendiste <context.cursor_item.display_name><green> por <context.cursor_item.lore.get[2].replace[regex:Venta|Almakos|:|<&sp>|<green>|<gold>]> Almakos"
+      - ^adjust <player> item_on_cursor:i@air
+      - DETERMINE cancelled
+      - ^queue clear
+      } else if <context.cursor_item.lore.get[3].contains[Almakos]> {
+      - ^give money quantity:<context.cursor_item.lore.get[3].replace[regex:Venta|Almakos|:|<&sp>|<green>|<gold>]>
+      - ^narrate "Vendiste <context.cursor_item.display_name><green> por <context.cursor_item.lore.get[3].replace[regex:Venta|Almakos|:|<&sp>|<green>|<gold>]> Almakos"
+      - ^adjust <player> item_on_cursor:i@air
+      - DETERMINE cancelled
+      - ^queue clear
+      } else if <context.cursor_item.lore.get[4].contains[Almakos]> {
+      - ^give money quantity:<context.cursor_item.lore.get[4].replace[regex:Venta|Almakos|:|<&sp>|<green>|<gold>]>
+      - ^narrate "Vendiste <context.cursor_item.display_name><green> por <context.cursor_item.lore.get[4].replace[regex:Venta|Almakos|:|<&sp>|<green>|<gold>]> Almakos"
+      - ^adjust <player> item_on_cursor:i@air
+      - DETERMINE cancelled
+      - ^queue clear
+      } else if <context.cursor_item.lore.get[5].contains[Almakos]> {
+      - ^give money quantity:<context.cursor_item.lore.get[5].replace[regex:Venta|Almakos|:|<&sp>|<green>|<gold>]>
+      - ^narrate "Vendiste <context.cursor_item.display_name><green> por <context.cursor_item.lore.get[5].replace[regex:Venta|Almakos|:|<&sp>|<green>|<gold>]> Almakos"
+      - ^adjust <player> item_on_cursor:i@air
+      - DETERMINE cancelled
+      - ^queue clear
+      } else if <context.cursor_item.lore.get[6].contains[Almakos]> {
+      - ^give money quantity:<context.cursor_item.lore.get[6].replace[regex:Venta|Almakos|:|<&sp>|<green>|<gold>]>
+      - ^narrate "Vendiste <context.cursor_item.display_name><green> por <context.cursor_item.lore.get[6].replace[regex:Venta|Almakos|:|<&sp>|<green>|<gold>]> Almakos"
+      - ^adjust <player> item_on_cursor:i@air
+      - DETERMINE cancelled
+      - ^queue clear
+      } else if <context.cursor_item.lore.get[7].contains[Almakos]> {
+      - ^give money quantity:<context.cursor_item.lore.get[7].replace[regex:Venta|Almakos|:|<&sp>|<green>|<gold>]>
+      - ^narrate "Vendiste <context.cursor_item.display_name><green> por <context.cursor_item.lore.get[7].replace[regex:Venta|Almakos|:|<&sp>|<green>|<gold>]> Almakos"
+      - ^adjust <player> item_on_cursor:i@air
+      - DETERMINE cancelled
+      - ^queue clear
+      } else if <context.cursor_item.lore.get[8].contains[Almakos]> {
+      - ^give money quantity:<context.cursor_item.lore.get[8].replace[regex:Venta|Almakos|:|<&sp>|<green>|<gold>]>
+      - ^narrate "Vendiste <context.cursor_item.display_name><green> por <context.cursor_item.lore.get[8].replace[regex:Venta|Almakos|:|<&sp>|<green>|<gold>]> Almakos"
+      - ^adjust <player> item_on_cursor:i@air
+      - DETERMINE cancelled
+      - ^queue clear
+      } else if <context.cursor_item.lore.get[9].contains[Almakos]> {
+      - ^give money quantity:<context.cursor_item.lore.get[9].replace[regex:Venta|Almakos|:|<&sp>|<green>|<gold>]>
+      - ^narrate "Vendiste <context.cursor_item.display_name><green> por <context.cursor_item.lore.get[9].replace[regex:Venta|Almakos|:|<&sp>|<green>|<gold>]> Almakos"
+      - ^adjust <player> item_on_cursor:i@air
+      - DETERMINE cancelled
+      - ^queue clear
+      } else if <context.cursor_item.lore.get[10].contains[Almakos]> {
+      - ^give money quantity:<context.cursor_item.lore.get[10].replace[regex:Venta|Almakos|:|<&sp>|<green>|<gold>]>
+      - ^narrate "Vendiste <context.cursor_item.display_name><green> por <context.cursor_item.lore.get[10].replace[regex:Venta|Almakos|:|<&sp>|<green>|<gold>]> Almakos"
+      - ^adjust <player> item_on_cursor:i@air
+      - DETERMINE cancelled
+      - ^queue clear
+      } else {
+      - ^narrate "<red>No puedes vender eso"
+      - DETERMINE cancelled
+      }
+#ReciclajeSelfor
+    on player clicks Reciclarself in inv_selfor_interfaz:
+    - if <context.cursor_item.material.id> == 268 {
+      - ^narrate "<green>Reciclaste <context.cursor_item.display_name>"
+      - ^adjust <player> item_on_cursor:i@air
+      - ^give i@wsword quantity:1
+      - DETERMINE cancelled
+      - ^queue clear
+      } else if <context.cursor_item.material.id> == 272 {
+      - ^narrate "<green>Reciclaste <context.cursor_item.display_name>"
+      - ^adjust <player> item_on_cursor:i@air
+      - ^give i@ssword quantity:1
+      - DETERMINE cancelled
+      - ^queue clear
+      } else if <context.cursor_item.material.id> == 267 {
+      - ^narrate "<green>Reciclaste <context.cursor_item.display_name>"
+      - ^adjust <player> item_on_cursor:i@air
+      - ^give i@isword quantity:1
+      - DETERMINE cancelled
+      - ^queue clear
+      } else if <context.cursor_item.material.id> == 283 {
+      - ^narrate "<green>Reciclaste <context.cursor_item.display_name>"
+      - ^adjust <player> item_on_cursor:i@air
+      - ^give i@gsword quantity:1
+      - DETERMINE cancelled
+      - ^queue clear
+      } else if <context.cursor_item.material.id> == 276 {
+      - ^narrate "<green>Reciclaste <context.cursor_item.display_name>"
+      - ^adjust <player> item_on_cursor:i@air
+      - ^give i@dsword quantity:1
+      - DETERMINE cancelled
+      - ^queue clear
+      } else {
+      - ^narrate "<red>No puedes reciclar eso"
+      - DETERMINE cancelled
+      }
+#DestruirSelfor
+    on player clicks Destruirself in inv_selfor_interfaz:
+    - ^define destr <context.cursor_item.display_name>
+    - ^narrate "<red>Destruiste <context.cursor_item.quantity> articulos"
+    - ^adjust <player> item_on_cursor:i@air
+    - DETERMINE cancelled
+    on player clicks Regresar in inv_selfor_interfaz:
+    - ^inventory close d:inv_selfor_interfaz
+    - DETERMINE cancelled
+
+# Fernan Pago
+    on player clicks fernanpago in inv_fernan:
+    - ^if <player.money> < <math.asint:<player.skillapi.class_level[<player.skillapi.main_class>]>*12> {
+      - ^random 2
+      - ^narrate "<aqua>Fernan: <yellow>Eres pobre jajajajajajajajajajajajajajajaja"
+      - ^narrate "<aqua>Fernan: <yellow>Maldito miserable no tienes almakos jajajaja"
+      - ^inventory close d:in@inv_fernan
+      } else if <player.money> >= <math.asint:<player.skillapi.class_level[<player.skillapi.main_class>]>*12> {
+      - ^take money quantity:<math.asint:<player.skillapi.class_level[<player.skillapi.main_class>]>*12>
+      - ^narrate "<aqua>Fernan: <yellow>Tienes 4 segundos maldito correee"
+      - ^inventory close d:in@inv_fernan
+      - ^schematic load name:entradamesopen
+      - ^schematic paste name:entradamesopen location:<cu@entradames.min>
+      - ^schematic unload name:entradamesopen
+      - ^wait 1s
+      - ^title "title:<aqua>Fernan" "subtitle:<red>5" stay:1s
+      - ^wait 1s
+      - ^title "title:<aqua>Fernan" "subtitle:<red>4" stay:1s
+      - ^wait 1s
+      - ^title "title:<aqua>Fernan" "subtitle:<red>3" stay:1s
+      - ^wait 1s
+      - ^title "title:<aqua>Fernan" "subtitle:<red>2" stay:1s
+      - ^wait 1s
+      - ^title "title:<aqua>Fernan" "subtitle:<red>1" stay:1s
+      - ^wait 1s
+      - ^schematic load name:entradamesclose
+      - ^schematic paste name:entradamesclose location:<cu@entradames.min>
+      - ^schematic unload name:entradamesclose
+      - wait 10t
+#      - sign type:wall_sign "<dark_red>CERRADO|<blue>Para entrar|usa <dark_green>/spawn|Att: <aqua>Fernan" location:2964,108,3175,Esparcraft direction:w
+      }
+
+# Recontruccion de Meslajho Cap1
+# Bogdan Escaleras
+    on player clicks Entregar in inv_bogdan:
+    - ^yaml load:capitulos/capitulo1.yml id:capitulo<player.name>
+    - ^if <context.cursor_item.material.id> == 17 {
+      - ^if <yaml[capitulo<player.name>].read[meslajho.materiales.escalerasmdr]> < 500 {
+        - ^narrate "<gray>Entregaste: <gold><context.cursor_item.quantity> <dark_green>Troncos de madera"
+        - ^if <context.cursor_item.material.id> >= 63 {
+          - ^give wood_axe qty:3
+          - ^give i@bread qty:5
+          - ^narrate "<green>Bogdan:<dark_gray> Gracias <player.name> <gray>toma estas hachas de madera y pan"
+          }
+        - ^if <yaml[capitulo<player.name>].read[meslajho.constructores.escaleras].as_list> !contains <player.name> {
+          - ^yaml id:capitulo<player.name> set meslajho.constructores.escaleras:->:<player.name>
+          }
+        - ^adjust <player> item_on_cursor:i@air
+        - ^yaml id:capitulo<player.name> set meslajho.materiales.escalerasmdr:+:<context.cursor_item.quantity>
+        } else if <yaml[capitulo<player.name>].read[meslajho.materiales.escalerasmdr]> >= 500 {
+        - ^yaml id:capitulo<player.name> set meslajho.materiales.escalerasmdr:500
+        }
+      - ^yaml savefile:capitulos/capitulo1.yml id:capitulo<player.name>
+      - ^inventory open d:in@inv_bogdan
+      }
+    - ^if <yaml[capitulo<player.name>].read[meslajho.materiales.escalerasmdr]> >= 500 {
+      - ^schematic load name:escalerasoks
+      - ^schematic paste name:escalerasoks location:<cu@escaleras.min>
+      - ^schematic unload name:escalerasoks
+      - ^foreach <yaml[capitulo<player.name>].read[npc.vendedores].as_list> {
+        - ^execute as_server "npc spawn %value%"
+        }
+      - ^foreach <server.list_online_players> {
+        - ^bossbar remove obj<player.name>
+        - ^define objetivo "<gold>Objetivo: <yellow>Ayuda a reconstruir todo el pueblo."
+        - ^flag <player> objetivo:<def[objetivo]>
+        - ^bossbar obj<player.name> players:%value% "title:<player.flag[objetivo]>" color:BLUE
+        }
+      - ^playsound <player> sound:complete custom
+      - ^if <global.flag[capitulos].as_list> !contains CAPITULO1ESCALERASOK {
+        - ^flag <global> capitulos:->:CAPITULO1ESCALERASOK
+        }
+      - ^title "title:<green>Bogdan" "subtitle:<yellow>Las escaleras de la mina se restauraron" stay:20s targets:<server.list_online_players>
+      }
+    - ^yaml unload id:capitulo<player.name>
+    - DETERMINE cancelled
+    on player clicks Bogdaninfo1 in inv_bogdan:
+    - DETERMINE cancelled
+    on player clicks Logescaleras in inv_bogdan:
+    - DETERMINE cancelled
+# Bogdan Aserradero
+    on player clicks Entregar in inv_bogdan2:
+    - ^yaml load:capitulos/capitulo1.yml id:capitulo<player.name>
+#Madera
+    - ^if <context.cursor_item.material.id> == 17 {
+      - ^if <yaml[capitulo<player.name>].read[meslajho.materiales.aserraderomdr]> < 800 {
+        - ^narrate "<gray>Entregaste: <gold><context.cursor_item.quantity> <dark_green>Troncos de madera"
+        - ^if <context.cursor_item.quantity> >= 63 {
+          - ^give wood_axe qty:3
+          - ^give i@bread qty:5
+          - ^narrate "<green>Bogdan:<dark_gray> Gracias <player.name> <gray>toma estas hachas de madera y pan"
+          }
+        - ^if <yaml[capitulo<player.name>].read[meslajho.constructores.aserradero].as_list> !contains <player.name> {
+          - ^yaml id:capitulo<player.name> set meslajho.constructores.aserradero:->:<player.name>
+          }
+        - ^adjust <player> item_on_cursor:i@air
+        - ^yaml id:capitulo<player.name> set meslajho.materiales.aserraderomdr:+:<context.cursor_item.quantity>
+        } else if <yaml[capitulo<player.name>].read[meslajho.materiales.aserraderomdr]> >= 800 {
+        - ^yaml id:capitulo<player.name> set meslajho.materiales.aserraderomdr:800
+        }
+      - ^yaml savefile:capitulos/capitulo1.yml id:capitulo<player.name>
+      - ^inventory open d:in@inv_bogdan2
+      }
+#Piedra
+    - ^if <context.cursor_item.material.id> == 4 {
+      - ^if <yaml[capitulo<player.name>].read[meslajho.materiales.aserraderostn]> < 800 {
+        - ^narrate "<gray>Entregaste: <gold><context.cursor_item.quantity> <dark_green>Bloques de cobblestone"
+        - ^if <context.cursor_item.quantity> >= 63 {
+          - ^give wood_pickaxe qty:3
+          - ^give i@bread qty:5
+          - ^narrate "<green>Bogdan:<context.cursor_item.quantity><dark_gray> Gracias <player.name> <gray>toma estos picos de madera y pan"
+          }
+        - ^if <yaml[capitulo<player.name>].read[meslajho.constructores.aserradero].as_list> !contains <player.name> {
+          - ^yaml id:capitulo<player.name> set meslajho.constructores.aserradero:->:<player.name>
+          }
+        - ^adjust <player> item_on_cursor:i@air
+        - ^yaml id:capitulo<player.name> set meslajho.materiales.aserraderostn:+:<context.cursor_item.quantity>
+        } else if <yaml[capitulo<player.name>].read[meslajho.materiales.aserraderostn]> >= 800 {
+        - ^yaml id:capitulo<player.name> set meslajho.materiales.aserraderostn:800
+        }
+      - ^yaml savefile:capitulos/capitulo1.yml id:capitulo<player.name>
+      - ^inventory open d:in@inv_bogdan2
+      }
+    - ^if <yaml[capitulo<player.name>].read[meslajho.materiales.aserraderostn]> >= 800 && <yaml[capitulo<player.name>].read[meslajho.materiales.aserraderomdr]> >= 800 {
+      - ^schematic load name:aserraderooks
+      - ^schematic paste name:aserraderooks location:<cu@aserradero.min>
+      - ^schematic unload name:aserraderooks
+      - ^teleport <cu@aserradero.list_players> location:3006.5,107,3211.5,Esparcraft
+      - ^execute as_server "npc spawn 100"
+      - ^playsound <player> sound:complete custom
+      - ^if <global.flag[capitulos].as_list> !contains CAPITULO1ASERRADEROOK {
+        - ^flag <global> capitulos:->:CAPITULO1ASERRADEROOK
+        }
+      - ^run 's@checkmeslajhobuild'
+      - ^title "title:<green>Bogdan" "subtitle:<yellow>El Aserradero se reconstruyo" stay:15s targets:<server.list_online_players>
+      }
+    - ^yaml unload id:capitulo<player.name>
+    - DETERMINE cancelled
+    on player clicks infomes in inv_bogdan2:
+    - DETERMINE cancelled
+    on player clicks logaserradero in inv_bogdan2:
+    - DETERMINE cancelled
+    on player clicks stnaserradero in inv_bogdan2:
+    - DETERMINE cancelled
+# Wymond Mineria
+    on player clicks Entregar in inv_wymond:
+    - ^yaml load:capitulos/capitulo1.yml id:capitulo<player.name>
+#Madera
+    - ^if <context.cursor_item.material.id> == 17 {
+      - ^if <yaml[capitulo<player.name>].read[meslajho.materiales.mineriamdr]> < 800 {
+        - ^narrate "<gray>Entregaste: <gold><context.cursor_item.quantity> <dark_green>Troncos de madera"
+        - ^if <context.cursor_item.quantity> >= 63 {
+          - ^give wood_axe qty:3
+          - ^give i@bread qty:5
+          - ^narrate "<green>Wymond:<dark_gray> Gracias <player.name> <gray>toma estas hachas de madera y pan"
+          }
+        - ^if <yaml[capitulo<player.name>].read[meslajho.constructores.mineria].as_list> !contains <player.name> {
+          - ^yaml id:capitulo<player.name> set meslajho.constructores.mineria:->:<player.name>
+          }
+        - ^adjust <player> item_on_cursor:i@air
+        - ^yaml id:capitulo<player.name> set meslajho.materiales.mineriamdr:+:<context.cursor_item.quantity>
+        } else if <yaml[capitulo<player.name>].read[meslajho.materiales.mineriamdr]> >= 800 {
+        - ^yaml id:capitulo<player.name> set meslajho.materiales.mineriamdr:800
+        }
+      - ^yaml savefile:capitulos/capitulo1.yml id:capitulo<player.name>
+      - ^inventory open d:in@inv_wymond
+      }
+#Piedra
+    - ^if <context.cursor_item.material.id> == 4 {
+      - ^if <yaml[capitulo<player.name>].read[meslajho.materiales.mineriastn]> < 800 {
+        - ^narrate "<gray>Entregaste: <gold><context.cursor_item.quantity> <dark_green>Bloques de cobblestone"
+        - ^if <context.cursor_item.quantity> >= 63 {
+          - ^give wood_pickaxe qty:3
+          - ^give i@bread qty:5
+          - ^narrate "<green>Wymond:<context.cursor_item.quantity><dark_gray> Gracias <player.name> <gray>toma estos picos de madera y pan"
+          }
+        - ^if <yaml[capitulo<player.name>].read[meslajho.constructores.mineria].as_list> !contains <player.name> {
+          - ^yaml id:capitulo<player.name> set meslajho.constructores.mineria:->:<player.name>
+          }
+        - ^adjust <player> item_on_cursor:i@air
+        - ^yaml id:capitulo<player.name> set meslajho.materiales.mineriastn:+:<context.cursor_item.quantity>
+        } else if <yaml[capitulo<player.name>].read[meslajho.materiales.mineriastn]> >= 800 {
+        - ^yaml id:capitulo<player.name> set meslajho.materiales.mineriastn:800
+        }
+      - ^yaml savefile:capitulos/capitulo1.yml id:capitulo<player.name>
+      - ^inventory open d:in@inv_wymond
+      }
+    - ^if <yaml[capitulo<player.name>].read[meslajho.materiales.mineriastn]> >= 800 && <yaml[capitulo<player.name>].read[meslajho.materiales.mineriamdr]> >= 800 {
+      - ^schematic load name:mineriaoks
+      - ^schematic paste name:mineriaoks location:<cu@mineria.min>
+      - ^schematic unload name:mineriaoks
+      - ^teleport <cu@mineria.list_players> location:3069.5,107,3163.5,Esparcraft
+      - ^execute as_server "npc spawn 96"
+      - ^playsound <player> sound:complete custom
+      - ^if <global.flag[capitulos].as_list> !contains CAPITULO1MINERIAOK {
+        - ^flag <global> capitulos:->:CAPITULO1MINERIAOK
+        }
+      - ^run 's@checkmeslajhobuild'
+      - ^title "title:<green>Wymond" "subtitle:<yellow>El Taller de mineria se reconstruyo" stay:15s targets:<server.list_online_players>
+      }
+    - ^yaml unload id:capitulo<player.name>
+    - DETERMINE cancelled
+    on player clicks infomes in inv_wymond:
+    - DETERMINE cancelled
+    on player clicks logmineria in inv_wymond:
+    - DETERMINE cancelled
+    on player clicks stnmineria in inv_wymond:
+    - DETERMINE cancelled
+# Piers  Molino
+    on player clicks Entregar in inv_piers:
+    - ^yaml load:capitulos/capitulo1.yml id:capitulo<player.name>
+#Madera
+    - ^if <context.cursor_item.material.id> == 17 {
+      - ^if <yaml[capitulo<player.name>].read[meslajho.materiales.molinomdr]> < 800 {
+        - ^narrate "<gray>Entregaste: <gold><context.cursor_item.quantity> <dark_green>Troncos de madera"
+        - ^if <context.cursor_item.quantity> >= 63 {
+          - ^give wood_axe qty:3
+          - ^give i@bread qty:5
+          - ^narrate "<green>Piers:<dark_gray> Gracias <player.name> <gray>toma estas hachas de madera y pan"
+          }
+        - ^if <yaml[capitulo<player.name>].read[meslajho.constructores.molino].as_list> !contains <player.name> {
+          - ^yaml id:capitulo<player.name> set meslajho.constructores.molino:->:<player.name>
+          }
+        - ^adjust <player> item_on_cursor:i@air
+        - ^yaml id:capitulo<player.name> set meslajho.materiales.molinomdr:+:<context.cursor_item.quantity>
+        } else if <yaml[capitulo<player.name>].read[meslajho.materiales.molinomdr]> >= 800 {
+        - ^yaml id:capitulo<player.name> set meslajho.materiales.molinomdr:800
+        }
+      - ^yaml savefile:capitulos/capitulo1.yml id:capitulo<player.name>
+      - ^inventory open d:in@inv_piers
+      }
+#Piedra
+    - ^if <context.cursor_item.material.id> == 4 {
+      - ^if <yaml[capitulo<player.name>].read[meslajho.materiales.molinostn]> < 800 {
+        - ^narrate "<gray>Entregaste: <gold><context.cursor_item.quantity> <dark_green>Bloques de cobblestone"
+        - ^if <context.cursor_item.quantity> >= 63 {
+          - ^give wood_pickaxe qty:3
+          - ^give i@bread qty:5
+          - ^narrate "<green>Piers:<context.cursor_item.quantity><dark_gray> Gracias <player.name> <gray>toma estos picos de madera y pan"
+          }
+        - ^if <yaml[capitulo<player.name>].read[meslajho.constructores.molino].as_list> !contains <player.name> {
+          - ^yaml id:capitulo<player.name> set meslajho.constructores.molino:->:<player.name>
+          }
+        - ^adjust <player> item_on_cursor:i@air
+        - ^yaml id:capitulo<player.name> set meslajho.materiales.molinostn:+:<context.cursor_item.quantity>
+        } else if <yaml[capitulo<player.name>].read[meslajho.materiales.molinostn]> >= 800 {
+        - ^yaml id:capitulo<player.name> set meslajho.materiales.molinostn:800
+        }
+      - ^yaml savefile:capitulos/capitulo1.yml id:capitulo<player.name>
+      - ^inventory open d:in@inv_piers
+      }
+    - ^if <yaml[capitulo<player.name>].read[meslajho.materiales.molinostn]> >= 800 && <yaml[capitulo<player.name>].read[meslajho.materiales.molinomdr]> >= 800 {
+      - ^schematic load name:molinooks
+      - ^schematic paste name:molinooks location:<cu@molino.min>
+      - ^schematic unload name:molinooks
+      - ^teleport <cu@molino.list_players> location:2983.5,107,3140.5,Esparcraft
+      - ^execute as_server "npc spawn 98"
+      - ^playsound <player> sound:complete custom
+      - ^if <global.flag[capitulos].as_list> !contains CAPITULO1MOLINOOK {
+        - ^flag <global> capitulos:->:CAPITULO1MOLINOOK
+        }
+      - ^run 's@checkmeslajhobuild'
+      - ^title "title:<green>Piers" "subtitle:<yellow>El Molino se reconstruyo" stay:15s targets:<server.list_online_players>
+      }
+    - ^yaml unload id:capitulo<player.name>
+    - DETERMINE cancelled
+    on player clicks infomes in inv_piers:
+    - DETERMINE cancelled
+    on player clicks logmolino in inv_piers:
+    - DETERMINE cancelled
+    on player clicks stnmolino in inv_piers:
+    - DETERMINE cancelled
+# Elric  Cocina
+    on player clicks Entregar in inv_elric:
+    - ^yaml load:capitulos/capitulo1.yml id:capitulo<player.name>
+#Madera
+    - ^if <context.cursor_item.material.id> == 17 {
+      - ^if <yaml[capitulo<player.name>].read[meslajho.materiales.cocinamdr]> < 800 {
+        - ^narrate "<gray>Entregaste: <gold><context.cursor_item.quantity> <dark_green>Troncos de madera"
+        - ^if <context.cursor_item.quantity> >= 63 {
+          - ^give wood_axe qty:3
+          - ^give i@bread qty:5
+          - ^narrate "<green>Elric:<dark_gray> Gracias <player.name> <gray>toma estas hachas de madera y pan"
+          }
+        - ^if <yaml[capitulo<player.name>].read[meslajho.constructores.cocina].as_list> !contains <player.name> {
+          - ^yaml id:capitulo<player.name> set meslajho.constructores.cocina:->:<player.name>
+          }
+        - ^adjust <player> item_on_cursor:i@air
+        - ^yaml id:capitulo<player.name> set meslajho.materiales.cocinamdr:+:<context.cursor_item.quantity>
+        } else if <yaml[capitulo<player.name>].read[meslajho.materiales.cocinamdr]> >= 800 {
+        - ^yaml id:capitulo<player.name> set meslajho.materiales.cocinamdr:800
+        }
+      - ^yaml savefile:capitulos/capitulo1.yml id:capitulo<player.name>
+      - ^inventory open d:in@inv_elric
+      }
+#Piedra
+    - ^if <context.cursor_item.material.id> == 4 {
+      - ^if <yaml[capitulo<player.name>].read[meslajho.materiales.cocinastn]> < 800 {
+        - ^narrate "<gray>Entregaste: <gold><context.cursor_item.quantity> <dark_green>Bloques de cobblestone"
+        - ^if <context.cursor_item.quantity> >= 63 {
+          - ^give wood_pickaxe qty:3
+          - ^give i@bread qty:5
+          - ^narrate "<green>Elric:<context.cursor_item.quantity><dark_gray> Gracias <player.name> <gray>toma estos picos de madera y pan"
+          }
+        - ^if <yaml[capitulo<player.name>].read[meslajho.constructores.cocina].as_list> !contains <player.name> {
+          - ^yaml id:capitulo<player.name> set meslajho.constructores.cocina:->:<player.name>
+          }
+        - ^adjust <player> item_on_cursor:i@air
+        - ^yaml id:capitulo<player.name> set meslajho.materiales.cocinastn:+:<context.cursor_item.quantity>
+        } else if <yaml[capitulo<player.name>].read[meslajho.materiales.cocinastn]> >= 800 {
+        - ^yaml id:capitulo<player.name> set meslajho.materiales.cocinastn:800
+        }
+      - ^yaml savefile:capitulos/capitulo1.yml id:capitulo<player.name>
+      - ^inventory open d:in@inv_elric
+      }
+    - ^if <yaml[capitulo<player.name>].read[meslajho.materiales.cocinastn]> >= 800 && <yaml[capitulo<player.name>].read[meslajho.materiales.cocinamdr]> >= 800 {
+      - ^schematic load name:cocinaoks
+      - ^schematic paste name:cocinaoks location:<cu@cocina.min>
+      - ^schematic unload name:cocinaoks
+      - ^teleport <cu@cocina.list_players> location:2992.5,107,3124.5,Esparcraft
+      - ^execute as_server "npc spawn 94"
+      - ^playsound <player> sound:complete custom
+      - ^if <global.flag[capitulos].as_list> !contains CAPITULO1COCINAOK {
+        - ^flag <global> capitulos:->:CAPITULO1COCINAOK
+        }
+      - ^run 's@checkmeslajhobuild'
+      - ^title "title:<green>Elric" "subtitle:<yellow>La cocina se reconstruyo" stay:15s targets:<server.list_online_players>
+      }
+    - ^yaml unload id:capitulo<player.name>
+    - DETERMINE cancelled
+    on player clicks infomes in inv_elric:
+    - DETERMINE cancelled
+    on player clicks logcocina in inv_elric:
+    - DETERMINE cancelled
+    on player clicks stncocina in inv_elric:
+    - DETERMINE cancelled
+# Aloys  Libreria
+    on player clicks Entregar in inv_aloys:
+    - ^yaml load:capitulos/capitulo1.yml id:capitulo<player.name>
+#Madera
+    - ^if <context.cursor_item.material.id> == 17 {
+      - ^if <yaml[capitulo<player.name>].read[meslajho.materiales.libreriamdr]> < 800 {
+        - ^narrate "<gray>Entregaste: <gold><context.cursor_item.quantity> <dark_green>Troncos de madera"
+        - ^if <context.cursor_item.quantity> >= 63 {
+          - ^give wood_axe qty:3
+          - ^give i@bread qty:5
+          - ^narrate "<green>Aloys:<dark_gray> Gracias <player.name> <gray>toma estas hachas de madera y pan"
+          }
+        - ^if <yaml[capitulo<player.name>].read[meslajho.constructores.libreria].as_list> !contains <player.name> {
+          - ^yaml id:capitulo<player.name> set meslajho.constructores.libreria:->:<player.name>
+          }
+        - ^adjust <player> item_on_cursor:i@air
+        - ^yaml id:capitulo<player.name> set meslajho.materiales.libreriamdr:+:<context.cursor_item.quantity>
+        } else if <yaml[capitulo<player.name>].read[meslajho.materiales.libreriamdr]> >= 800 {
+        - ^yaml id:capitulo<player.name> set meslajho.materiales.libreriamdr:800
+        }
+      - ^yaml savefile:capitulos/capitulo1.yml id:capitulo<player.name>
+      - ^inventory open d:in@inv_aloys
+      }
+#Piedra
+    - ^if <context.cursor_item.material.id> == 4 {
+      - ^if <yaml[capitulo<player.name>].read[meslajho.materiales.libreriastn]> < 800 {
+        - ^narrate "<gray>Entregaste: <gold><context.cursor_item.quantity> <dark_green>Bloques de cobblestone"
+        - ^if <context.cursor_item.quantity> >= 63 {
+          - ^give wood_pickaxe qty:3
+          - ^give i@bread qty:5
+          - ^narrate "<green>Aloys:<context.cursor_item.quantity><dark_gray> Gracias <player.name> <gray>toma estos picos de madera y pan"
+          }
+        - ^if <yaml[capitulo<player.name>].read[meslajho.constructores.libreria].as_list> !contains <player.name> {
+          - ^yaml id:capitulo<player.name> set meslajho.constructores.libreria:->:<player.name>
+          }
+        - ^adjust <player> item_on_cursor:i@air
+        - ^yaml id:capitulo<player.name> set meslajho.materiales.libreriastn:+:<context.cursor_item.quantity>
+        } else if <yaml[capitulo<player.name>].read[meslajho.materiales.libreriastn]> >= 800 {
+        - ^yaml id:capitulo<player.name> set meslajho.materiales.libreriastn:800
+        }
+      - ^yaml savefile:capitulos/capitulo1.yml id:capitulo<player.name>
+      - ^inventory open d:in@inv_aloys
+      }
+    - ^if <yaml[capitulo<player.name>].read[meslajho.materiales.libreriastn]> >= 800 && <yaml[capitulo<player.name>].read[meslajho.materiales.libreriamdr]> >= 800 {
+      - ^schematic load name:libreriaoks
+      - ^schematic paste name:libreriaoks location:<cu@libreria.min>
+      - ^schematic unload name:libreriaoks
+      - ^teleport <cu@libreria.list_players> location:3048.5,107,3200.5,Esparcraft
+      - ^execute as_server "npc spawn 99"
+      - ^playsound <player> sound:complete custom
+      - ^if <global.flag[capitulos].as_list> !contains CAPITULO1LIBRERIAOK {
+        - ^flag <global> capitulos:->:CAPITULO1LIBRERIAOK
+        }
+      - ^run 's@checkmeslajhobuild'
+      - ^title "title:<green>Aloys" "subtitle:<yellow>La libreria se reconstruyo" stay:15s targets:<server.list_online_players>
+      }
+    - ^yaml unload id:capitulo<player.name>
+    - DETERMINE cancelled
+    on player clicks infomes in inv_aloys:
+    - DETERMINE cancelled
+    on player clicks loglibreria in inv_aloys:
+    - DETERMINE cancelled
+    on player clicks stnlibreria in inv_aloys:
+    - DETERMINE cancelled
+# Bozhidarx  Arcano
+    on player clicks Entregar in inv_bozhidar2:
+    - ^yaml load:capitulos/capitulo1.yml id:capitulo<player.name>
+#Madera
+    - ^if <context.cursor_item.material.id> == 17 {
+      - ^if <yaml[capitulo<player.name>].read[meslajho.materiales.arcanomdr]> < 800 {
+        - ^narrate "<gray>Entregaste: <gold><context.cursor_item.quantity> <dark_green>Troncos de madera"
+        - ^if <context.cursor_item.quantity> >= 63 {
+          - ^give wood_axe qty:3
+          - ^give i@bread qty:5
+          - ^narrate "<green>Bozhidarx:<dark_gray> Gracias <player.name> <gray>toma estas hachas de madera y pan"
+          }
+        - ^if <yaml[capitulo<player.name>].read[meslajho.constructores.arcano].as_list> !contains <player.name> {
+          - ^yaml id:capitulo<player.name> set meslajho.constructores.arcano:->:<player.name>
+          }
+        - ^adjust <player> item_on_cursor:i@air
+        - ^yaml id:capitulo<player.name> set meslajho.materiales.arcanomdr:+:<context.cursor_item.quantity>
+        } else if <yaml[capitulo<player.name>].read[meslajho.materiales.arcanomdr]> >= 800 {
+        - ^yaml id:capitulo<player.name> set meslajho.materiales.arcanomdr:800
+        }
+      - ^yaml savefile:capitulos/capitulo1.yml id:capitulo<player.name>
+      - ^inventory open d:in@inv_bozhidar2
+      }
+#Piedra
+    - ^if <context.cursor_item.material.id> == 4 {
+      - ^if <yaml[capitulo<player.name>].read[meslajho.materiales.arcanostn]> < 800 {
+        - ^narrate "<gray>Entregaste: <gold><context.cursor_item.quantity> <dark_green>Bloques de cobblestone"
+        - ^if <context.cursor_item.quantity> >= 63 {
+          - ^give wood_pickaxe qty:3
+          - ^give i@bread qty:5
+          - ^narrate "<green>Bozhidarx:<context.cursor_item.quantity><dark_gray> Gracias <player.name> <gray>toma estos picos de madera y pan"
+          }
+        - ^if <yaml[capitulo<player.name>].read[meslajho.constructores.arcano].as_list> !contains <player.name> {
+          - ^yaml id:capitulo<player.name> set meslajho.constructores.arcano:->:<player.name>
+          }
+        - ^adjust <player> item_on_cursor:i@air
+        - ^yaml id:capitulo<player.name> set meslajho.materiales.arcanostn:+:<context.cursor_item.quantity>
+        } else if <yaml[capitulo<player.name>].read[meslajho.materiales.arcanostn]> >= 800 {
+        - ^yaml id:capitulo<player.name> set meslajho.materiales.arcanostn:800
+        }
+      - ^yaml savefile:capitulos/capitulo1.yml id:capitulo<player.name>
+      - ^inventory open d:in@inv_bozhidar2
+      }
+    - ^if <yaml[capitulo<player.name>].read[meslajho.materiales.arcanostn]> >= 800 && <yaml[capitulo<player.name>].read[meslajho.materiales.arcanomdr]> >= 800 {
+      - ^schematic load name:arcanooks
+      - ^schematic paste name:arcanooks location:<cu@arcano.min>
+      - ^schematic unload name:arcanooks
+      - ^teleport <cu@arcano.list_players> location:3030.5,104,3156.5,Esparcraft
+#      - ^execute as_server "npc spawn 99"
+      - ^playsound <player> sound:complete custom
+      - ^if <global.flag[capitulos].as_list> !contains CAPITULO1ARCANOOK {
+        - ^flag <global> capitulos:->:CAPITULO1ARCANOOK
+        }
+      - ^run 's@checkmeslajhobuild'
+      - ^title "title:<green>Bozhidarx" "subtitle:<yellow>El campamento arcano se reconstruyo" stay:15s targets:<server.list_online_players>
+      }
+    - ^yaml unload id:capitulo<player.name>
+    - DETERMINE cancelled
+    on player clicks infomes in inv_bozhidar2:
+    - DETERMINE cancelled
+    on player clicks logarcano in inv_bozhidar2:
+    - DETERMINE cancelled
+    on player clicks stnarcano in inv_bozhidar2:
+    - DETERMINE cancelled
+# Hammon Herreria
+    on player clicks Entregar in inv_hammon:
+    - ^yaml load:capitulos/capitulo1.yml id:capitulo<player.name>
+#Madera
+    - ^if <context.cursor_item.material.id> == 17 {
+      - ^if <yaml[capitulo<player.name>].read[meslajho.materiales.herreriamdr]> < 800 {
+        - ^narrate "<gray>Entregaste: <gold><context.cursor_item.quantity> <dark_green>Troncos de madera"
+        - ^if <context.cursor_item.quantity> >= 63 {
+          - ^give wood_axe qty:3
+          - ^give i@bread qty:5
+          - ^narrate "<green>Hammon:<dark_gray> Gracias <player.name> <gray>toma estas hachas de madera y pan"
+          }
+        - ^if <yaml[capitulo<player.name>].read[meslajho.constructores.herreria].as_list> !contains <player.name> {
+          - ^yaml id:capitulo<player.name> set meslajho.constructores.herreria:->:<player.name>
+          }
+        - ^adjust <player> item_on_cursor:i@air
+        - ^yaml id:capitulo<player.name> set meslajho.materiales.herreriamdr:+:<context.cursor_item.quantity>
+        } else if <yaml[capitulo<player.name>].read[meslajho.materiales.herreriamdr]> >= 800 {
+        - ^yaml id:capitulo<player.name> set meslajho.materiales.herreriamdr:800
+        }
+      - ^yaml savefile:capitulos/capitulo1.yml id:capitulo<player.name>
+      - ^inventory open d:in@inv_hammon
+      }
+#Piedra
+    - ^if <context.cursor_item.material.id> == 4 {
+      - ^if <yaml[capitulo<player.name>].read[meslajho.materiales.herreriastn]> < 800 {
+        - ^narrate "<gray>Entregaste: <gold><context.cursor_item.quantity> <dark_green>Bloques de cobblestone"
+        - ^if <context.cursor_item.quantity> >= 63 {
+          - ^give wood_pickaxe qty:3
+          - ^give i@bread qty:5
+          - ^narrate "<green>Hammon:<context.cursor_item.quantity><dark_gray> Gracias <player.name> <gray>toma estos picos de madera y pan"
+          }
+        - ^if <yaml[capitulo<player.name>].read[meslajho.constructores.herreria].as_list> !contains <player.name> {
+          - ^yaml id:capitulo<player.name> set meslajho.constructores.herreria:->:<player.name>
+          }
+        - ^adjust <player> item_on_cursor:i@air
+        - ^yaml id:capitulo<player.name> set meslajho.materiales.herreriastn:+:<context.cursor_item.quantity>
+        } else if <yaml[capitulo<player.name>].read[meslajho.materiales.herreriastn]> >= 800 {
+        - ^yaml id:capitulo<player.name> set meslajho.materiales.herreriastn:800
+        }
+      - ^yaml savefile:capitulos/capitulo1.yml id:capitulo<player.name>
+      - ^inventory open d:in@inv_hammon
+      }
+    - ^if <yaml[capitulo<player.name>].read[meslajho.materiales.herreriastn]> >= 800 && <yaml[capitulo<player.name>].read[meslajho.materiales.herreriamdr]> >= 800 {
+      - ^schematic load name:herreriaoks
+      - ^schematic paste name:herreriaoks location:<cu@herreria.min>
+      - ^schematic unload name:herreriaoks
+      - ^teleport <cu@herreria.list_players> location:3022.5,107,3132.5,Esparcraft
+      - ^execute as_server "npc spawn 95"
+      - ^playsound <player> sound:complete custom
+      - ^if <global.flag[capitulos].as_list> !contains CAPITULO1HERRERIAOK {
+        - ^flag <global> capitulos:->:CAPITULO1HERRERIAOK
+        }
+      - ^run 's@checkmeslajhobuild'
+      - ^title "title:<green>Hammon" "subtitle:<yellow>La herreria se reconstruyo" stay:15s targets:<server.list_online_players>
+      }
+    - ^yaml unload id:capitulo<player.name>
+    - DETERMINE cancelled
+    on player clicks infomes in inv_hammon:
+    - DETERMINE cancelled
+    on player clicks logherreria in inv_hammon:
+    - DETERMINE cancelled
+    on player clicks stnherreria in inv_hammon:
+    - DETERMINE cancelled
+
+# Mack Armeria
+    on player clicks Entregar in inv_mack:
+    - ^yaml load:capitulos/capitulo1.yml id:capitulo<player.name>
+#Madera
+    - ^if <context.cursor_item.material.id> == 17 {
+      - ^if <yaml[capitulo<player.name>].read[meslajho.materiales.armeriamdr]> < 800 {
+        - ^narrate "<gray>Entregaste: <gold><context.cursor_item.quantity> <dark_green>Troncos de madera"
+        - ^if <context.cursor_item.quantity> >= 63 {
+          - ^give wood_axe qty:3
+          - ^give i@bread qty:5
+          - ^narrate "<green>Mack:<dark_gray> Gracias <player.name> <gray>toma estas hachas de madera y pan"
+          }
+        - ^if <yaml[capitulo<player.name>].read[meslajho.constructores.armeria].as_list> !contains <player.name> {
+          - ^yaml id:capitulo<player.name> set meslajho.constructores.armeria:->:<player.name>
+          }
+        - ^adjust <player> item_on_cursor:i@air
+        - ^yaml id:capitulo<player.name> set meslajho.materiales.armeriamdr:+:<context.cursor_item.quantity>
+        } else if <yaml[capitulo<player.name>].read[meslajho.materiales.armeriamdr]> >= 800 {
+        - ^yaml id:capitulo<player.name> set meslajho.materiales.armeriamdr:800
+        }
+      - ^yaml savefile:capitulos/capitulo1.yml id:capitulo<player.name>
+      - ^inventory open d:in@inv_mack
+      }
+#Piedra
+    - ^if <context.cursor_item.material.id> == 4 {
+      - ^if <yaml[capitulo<player.name>].read[meslajho.materiales.armeriastn]> < 800 {
+        - ^narrate "<gray>Entregaste: <gold><context.cursor_item.quantity> <dark_green>Bloques de cobblestone"
+        - ^if <context.cursor_item.quantity> >= 63 {
+          - ^give wood_pickaxe qty:3
+          - ^give i@bread qty:5
+          - ^narrate "<green>Mack:<context.cursor_item.quantity><dark_gray> Gracias <player.name> <gray>toma estos picos de madera y pan"
+          }
+        - ^if <yaml[capitulo<player.name>].read[meslajho.constructores.armeria].as_list> !contains <player.name> {
+          - ^yaml id:capitulo<player.name> set meslajho.constructores.armeria:->:<player.name>
+          }
+        - ^adjust <player> item_on_cursor:i@air
+        - ^yaml id:capitulo<player.name> set meslajho.materiales.armeriastn:+:<context.cursor_item.quantity>
+        } else if <yaml[capitulo<player.name>].read[meslajho.materiales.armeriastn]> >= 800 {
+        - ^yaml id:capitulo<player.name> set meslajho.materiales.armeriastn:800
+        }
+      - ^yaml savefile:capitulos/capitulo1.yml id:capitulo<player.name>
+      - ^inventory open d:in@inv_mack
+      }
+    - ^if <yaml[capitulo<player.name>].read[meslajho.materiales.armeriastn]> >= 800 && <yaml[capitulo<player.name>].read[meslajho.materiales.armeriamdr]> >= 800 {
+      - ^schematic load name:armeriaoks
+      - ^schematic paste name:armeriaoks location:<cu@armeria.min>
+      - ^schematic unload name:armeriaoks
+      - ^teleport <cu@armeria.list_players> location:3008.5,107,3151.5,Esparcraft
+      - ^execute as_server "npc spawn 102"
+      - ^playsound <player> sound:complete custom
+      - ^if <global.flag[capitulos].as_list> !contains CAPITULO1ARMERIAOK {
+        - ^flag <global> capitulos:->:CAPITULO1ARMERIAOK
+        }
+      - ^run 's@checkmeslajhobuild'
+      - ^title "title:<green>Mack" "subtitle:<yellow>La armeria se reconstruyo" stay:15s targets:<server.list_online_players>
+      }
+    - ^yaml unload id:capitulo<player.name>
+    - DETERMINE cancelled
+    on player clicks infomes in inv_mack:
+    - DETERMINE cancelled
+    on player clicks logarmeria in inv_mack:
+    - DETERMINE cancelled
+    on player clicks stnarmeria in inv_mack:
+    - DETERMINE cancelled
+# Alvar Taberna
+    on player clicks Entregar in inv_alvar:
+    - ^yaml load:capitulos/capitulo1.yml id:capitulo<player.name>
+#Madera
+    - ^if <context.cursor_item.material.id> == 17 {
+      - ^if <yaml[capitulo<player.name>].read[meslajho.materiales.tabernamdr]> < 800 {
+        - ^narrate "<gray>Entregaste: <gold><context.cursor_item.quantity> <dark_green>Troncos de madera"
+        - ^if <context.cursor_item.quantity> >= 63 {
+          - ^give wood_axe qty:3
+          - ^give i@bread qty:5
+          - ^narrate "<green>Mack:<dark_gray> Gracias <player.name> <gray>toma estas hachas de madera y pan"
+          }
+        - ^if <yaml[capitulo<player.name>].read[meslajho.constructores.taberna].as_list> !contains <player.name> {
+          - ^yaml id:capitulo<player.name> set meslajho.constructores.taberna:->:<player.name>
+          }
+        - ^adjust <player> item_on_cursor:i@air
+        - ^yaml id:capitulo<player.name> set meslajho.materiales.tabernamdr:+:<context.cursor_item.quantity>
+        } else if <yaml[capitulo<player.name>].read[meslajho.materiales.tabernamdr]> >= 800 {
+        - ^yaml id:capitulo<player.name> set meslajho.materiales.tabernamdr:800
+        }
+      - ^yaml savefile:capitulos/capitulo1.yml id:capitulo<player.name>
+      - ^inventory open d:in@inv_alvar
+      }
+#Piedra
+    - ^if <context.cursor_item.material.id> == 4 {
+      - ^if <yaml[capitulo<player.name>].read[meslajho.materiales.tabernastn]> < 800 {
+        - ^narrate "<gray>Entregaste: <gold><context.cursor_item.quantity> <dark_green>Bloques de cobblestone"
+        - ^if <context.cursor_item.quantity> >= 63 {
+          - ^give wood_pickaxe qty:3
+          - ^give i@bread qty:5
+          - ^narrate "<green>Mack:<context.cursor_item.quantity><dark_gray> Gracias <player.name> <gray>toma estos picos de madera y pan"
+          }
+        - ^if <yaml[capitulo<player.name>].read[meslajho.constructores.taberna].as_list> !contains <player.name> {
+          - ^yaml id:capitulo<player.name> set meslajho.constructores.taberna:->:<player.name>
+          }
+        - ^adjust <player> item_on_cursor:i@air
+        - ^yaml id:capitulo<player.name> set meslajho.materiales.tabernastn:+:<context.cursor_item.quantity>
+        } else if <yaml[capitulo<player.name>].read[meslajho.materiales.tabernastn]> >= 800 {
+        - ^yaml id:capitulo<player.name> set meslajho.materiales.tabernastn:800
+        }
+      - ^yaml savefile:capitulos/capitulo1.yml id:capitulo<player.name>
+      - ^inventory open d:in@inv_alvar
+      }
+    - ^if <yaml[capitulo<player.name>].read[meslajho.materiales.tabernastn]> >= 800 && <yaml[capitulo<player.name>].read[meslajho.materiales.tabernamdr]> >= 800 {
+      - ^schematic load name:tabernaoks
+      - ^schematic paste name:tabernaoks location:<cu@taberna.min>
+      - ^schematic unload name:tabernaoks
+      - ^teleport <cu@taberna.list_players> location:3032.5,107,3131.5,Esparcraft
+      - ^teleport n@27 location:3038.5,107,3131.5,Esparcraft
+      - ^playsound <player> sound:complete custom
+      - ^if <global.flag[capitulos].as_list> !contains CAPITULO1TABERNAOK {
+        - ^flag <global> capitulos:->:CAPITULO1TABERNAOK
+        }
+      - ^run 's@checkmeslajhobuild'
+      - ^title "title:<red>Alvar" "subtitle:<yellow>La taberna se reconstruyo" stay:15s targets:<server.list_online_players>
+      }
+    - ^yaml unload id:capitulo<player.name>
+    - DETERMINE cancelled
+    on player clicks infomes in inv_alvar:
+    - DETERMINE cancelled
+    on player clicks logtaberna in inv_alvar:
+    - DETERMINE cancelled
+    on player clicks stntaberna in inv_alvar:
+    - DETERMINE cancelled
+# Freya Posada
+    on player clicks Entregar in inv_freya:
+    - ^yaml load:capitulos/capitulo1.yml id:capitulo<player.name>
+#Madera
+    - ^if <context.cursor_item.material.id> == 17 {
+      - ^if <yaml[capitulo<player.name>].read[meslajho.materiales.posadamdr]> < 800 {
+        - ^narrate "<gray>Entregaste: <gold><context.cursor_item.quantity> <dark_green>Troncos de madera"
+        - ^if <context.cursor_item.quantity> >= 63 {
+          - ^give wood_axe qty:3
+          - ^give i@bread qty:5
+          - ^narrate "<green>Freya:<dark_gray> Gracias <player.name> <gray>toma estas hachas de madera y pan"
+          }
+        - ^if <yaml[capitulo<player.name>].read[meslajho.constructores.posada].as_list> !contains <player.name> {
+          - ^yaml id:capitulo<player.name> set meslajho.constructores.posada:->:<player.name>
+          }
+        - ^adjust <player> item_on_cursor:i@air
+        - ^yaml id:capitulo<player.name> set meslajho.materiales.posadamdr:+:<context.cursor_item.quantity>
+        } else if <yaml[capitulo<player.name>].read[meslajho.materiales.posadamdr]> >= 800 {
+        - ^yaml id:capitulo<player.name> set meslajho.materiales.posadamdr:800
+        }
+      - ^yaml savefile:capitulos/capitulo1.yml id:capitulo<player.name>
+      - ^inventory open d:in@inv_freya
+      }
+#Piedra
+    - ^if <context.cursor_item.material.id> == 4 {
+      - ^if <yaml[capitulo<player.name>].read[meslajho.materiales.posadastn]> < 800 {
+        - ^narrate "<gray>Entregaste: <gold><context.cursor_item.quantity> <dark_green>Bloques de cobblestone"
+        - ^if <context.cursor_item.quantity> >= 63 {
+          - ^give wood_pickaxe qty:3
+          - ^give i@bread qty:5
+          - ^narrate "<green>Freya:<context.cursor_item.quantity><dark_gray> Gracias <player.name> <gray>toma estos picos de madera y pan"
+          }
+        - ^if <yaml[capitulo<player.name>].read[meslajho.constructores.posada].as_list> !contains <player.name> {
+          - ^yaml id:capitulo<player.name> set meslajho.constructores.posada:->:<player.name>
+          }
+        - ^adjust <player> item_on_cursor:i@air
+        - ^yaml id:capitulo<player.name> set meslajho.materiales.posadastn:+:<context.cursor_item.quantity>
+        } else if <yaml[capitulo<player.name>].read[meslajho.materiales.posadastn]> >= 800 {
+        - ^yaml id:capitulo<player.name> set meslajho.materiales.posadastn:800
+        }
+      - ^yaml savefile:capitulos/capitulo1.yml id:capitulo<player.name>
+      - ^inventory open d:in@inv_freya
+      }
+    - ^if <yaml[capitulo<player.name>].read[meslajho.materiales.posadastn]> >= 800 && <yaml[capitulo<player.name>].read[meslajho.materiales.posadamdr]> >= 800 {
+      - ^schematic load name:posadaoks
+      - ^schematic paste name:posadaoks location:<cu@posada.min>
+      - ^schematic unload name:posadaoks
+      - ^teleport <cu@posada.list_players> location:3032.5,107,3131.5,Esparcraft
+      - ^playsound <player> sound:complete custom
+      - ^if <global.flag[capitulos].as_list> !contains CAPITULO1POSADAOK {
+        - ^flag <global> capitulos:->:CAPITULO1POSADAOK
+        }
+      - ^run 's@checkmeslajhobuild'
+      - ^title "title:<red>Freya" "subtitle:<yellow>La posada se reconstruyo" stay:15s targets:<server.list_online_players>
+      }
+    - ^yaml unload id:capitulo<player.name>
+    - DETERMINE cancelled
+    on player clicks infomes in inv_freya:
+    - DETERMINE cancelled
+    on player clicks logposada in inv_freya:
+    - DETERMINE cancelled
+    on player clicks stnposada in inv_freya:
+    - DETERMINE cancelled
+
+inv_esencias:
+  type: inventory
+  title: <gold>Esencias
+  size: 9
+  slots:
+  - "[i@human_skull[display_name=&ssaMack;lore=&ss7Otro que viene por caridad...||&ss7Tengo &ss63 &sseEsencias &ss5<player.name>|&ss7Elige solo una;skull_skin=spitfire45]] [i@cancelslot] [i@cancelslot] [i@esencia1L2] [i@esencia2V2] [i@esencia3H1] [i@esencia1L1] [i@esencia3H2] [i@esencia2V1]"
+
+inv_pieles:
+  type: inventory
+  title: <gold>Pieles
+  size: 9
+  slots:
+  - "[i@human_skull[display_name=&ssaJurian;lore=&ss7Bien ahora elige.||&ss7Tengo &ss63 &ssePieles|&ss7Elige solo una;skull_skin=dagn]] [i@cancelslot] [i@cancelslot] [i@piel3H2] [i@piel1L1] [i@piel2V2] [i@piel2V1] [i@piel1L2] [i@piel3H1]"
+
+inv_armaduras:
+  type: inventory
+  title: <gold>Armaduras
+  size: 9
+  slots:
+  - "[i@human_skull[display_name=&ssaJurian;lore=&ss7Bien <player.name>.||&ss7Salieron &ss63 &sseArmaduras|&ss7Con los materiales elige una;skull_skin=dagn]] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@armadura1L] [i@armadura3H] [i@armadura2V]"
+
+inv_espadas:
+  type: inventory
+  title: <gold>Espadas
+  size: 9
+  slots:
+  - "[i@human_skull[display_name=&sseHammon;lore=&ss7Encontre &ss63 &ss7Palillos|&ss7Perdon espadas jajaja|&ss7Elige una.;skull_skin=timbo]] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@espada3L] [i@espada2V] [i@espada1H]"
+
+
+inv_combate:
+  type: inventory
+  title: <gold>Combate
+  size: 9
+  slots:
+  - "[i@human_skull[display_name=&ss4Telmo;lore=&ss7Hey antes de cualquier cosa|&ss7que clase de combate prefieres?;skull_skin=donsavage]] [i@cancelslot] [i@cancelslot] [i@Combate3H2] [i@Combate1L2] [i@Combate2V2] [i@Combate1L1] [i@Combate3H1] [i@Combate2V1]"
+
+
+inv_fernan:
+  type: inventory
+  inventory: dispenser
+  title: <gold>Salida
+  size: 9
+  slots:
+  - "[i@cancelslot] [i@infofernan] [i@cancelslot]"
+  - "[i@cancelslot] [i@fernanpago] [i@cancelslot]"
+  - "[i@cancelslot] [i@cancelslot] [i@cancelslot]"
+inv_arena:
+  type: inventory
+  title: <gold>Arena
+  size: 9
+  slots:
+  - "[i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@Sipregunta] [i@Nopregunta]"
+
+inv_materiales:
+  type: inventory
+  inventory: dispenser
+  title: <gold>Depositar
+  size: 9
+  slots:
+  - "[i@cancelslot] [i@Requisitosp1] [i@cancelslot]"
+  - "[i@Deposit100] [i@Deposit1000] [i@Deposit5000]"
+  - "[i@cancelslot] [i@cancelslot] [i@cancelslot]"
+
+inv_taberna:
+  type: inventory
+  title: <dark_purple>Freya
+  size: 9
+  slots:
+  - "[i@freyainforenta] [i@freyainfoextend] [i@freyainfounrent] [i@cancelslot] [i@freyainfo] [i@cancelslot] [i@tugurio] [i@tabuco] [i@cuarto]"

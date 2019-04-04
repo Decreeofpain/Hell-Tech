@@ -1,0 +1,312 @@
+Objetivos:
+  type: world
+  events:
+
+    on objetivo command:
+    - NARRATE format:formatobj "Revisando ultimo objetivo..."
+    - run 's@ObjCheck'
+    - DETERMINE cancelled
+
+ObjCheck:
+  Type: Task
+  Script:
+    - ^if <player.flag[objetivo]> = ob1 run obj1
+      else if <player.flag[objetivo]> = ob2 run obj2
+      else if <player.flag[objetivo]> = ob3 run obj3
+      else if <player.flag[objetivo]> = ob4 run obj4
+      else if <player.flag[objetivo]> = ob5 run obj5
+      else if <player.flag[objetivo]> = ob6 run obj6
+      else if <player.flag[objetivo]> = ob7 run obj7
+      else if <player.flag[objetivo]> = ob8 run obj8
+      else if <player.flag[objetivo]> = ob9 run obj9
+      else if <player.flag[objetivo]> = ob10 run obj10
+      else if <player.flag[objetivo]> = ob11 run obj11
+      else if <player.flag[objetivo]> = ob12 run obj12
+      else if <player.flag[objetivo]> = ob13 run obj13
+      else if <player.flag[objetivo]> = ob14 run obj14
+      else if <player.flag[objetivo]> = ob15 run obj15
+      else if <player.flag[objetivo]> = ob16 run obj16
+      else if <player.flag[objetivo]> = ob17 run obj17
+      else if <player.flag[objetivo]> = ob18 run obj18
+      else if <player.flag[objetivo]> = ob19 run obj19
+      else if <player.flag[objetivo]> = ob20 run obj20
+      else if <player.flag[objetivo]> = ob21 run obj21
+      else if <player.flag[objetivo]> = ob22 run obj22
+      else if <player.flag[objetivo]> = ob23 run obj23
+      else if <player.flag[objetivo]> = ob24 run obj24
+      else if <player.flag[objetivo]> = ob25 run obj25
+      else if <player.flag[objetivo]> = ob26 run obj26
+      else if <player.flag[objetivo]> = ob27 run obj27
+      else if <player.flag[objetivo]> = ob28 run obj28
+      else if <player.flag[objetivo]> = ob29 run obj29
+      else if <player.flag[objetivo]> = ob30 run obj30
+      else if <player.flag[objetivo]> = ob31 run obj31
+      else if <player.flag[objetivo]> = ob32 run obj32
+      else if <player.flag[objetivo]> = ob33 run obj33
+      else if <player.flag[objetivo]> = ob34 run obj34
+      else if <player.flag[objetivo]> = ob35 run obj35
+      else if <player.flag[objetivo]> = ob36 run obj36
+      else if <player.flag[objetivo]> = ob37 run obj37
+      else if <player.flag[objetivo]> = ob38 run obj38
+      else if <player.flag[objetivo]> = ob39 run obj39
+      else if <player.flag[objetivo]> = ob40 run obj40
+      else if <player.flag[objetivo]> = ob41 run obj41
+      else if <player.flag[objetivo]> = ob42 run obj42
+      else if <player.flag[objetivo]> = ob43 run obj43
+      else if <player.flag[objetivo]> = ob44 run obj44
+      else if <player.flag[objetivo]> = ob45 run obj45
+      else if <player.flag[objetivo]> = ob46 run obj46
+      else if <player.flag[objetivo]> = ob47 run obj47
+      else if <player.flag[objetivo]> = ob48v run obj48v
+      else if <player.flag[objetivo]> = ob49 run obj49
+      else if <player.flag[objetivo]> = ob50 run obj50
+      else if <player.flag[objetivo]> = ob51 run obj51
+      else if <player.flag[objetivo]> = ob52 run obj52
+      else if <player.flag[objetivo]> = obdead run objdead
+      else run NoObj
+#- ^flag <player> objetivo:ob1
+NoObj:
+  Type: Task
+  Script:
+    - ^title "title:<green>[<gray>Objetivo<green>]" "subtitle:<red>[<dark_red>No tienes objetivos<red>]" stay:6s
+objdead:
+  Type: Task
+  Script:
+    - ^title "title:<green>[<gray>Objetivo<green>]" "subtitle:<green>[<yellow>Visita a <gold>Alvar<green>]" stay:6s
+
+obj1:
+  Type: Task
+  Script:
+    - ^title "title:<green>[<gray>Objetivo<green>]" "subtitle:<green>[<dark_green>Revisa el cementerio<green>]" stay:6s
+obj2:
+  Type: Task
+  Script:
+    - ^title "title:<green>[<gray>Objetivo<green>]" "subtitle:<green>[<dark_green>Informale a <red>Alvar<green>]" stay:6s
+    - ^adjust <player> "action_bar:<green>En la taberna del pueblo" stay:6
+obj3:
+  Type: Task
+  Script:
+    - ^title "title:<green>[<gray>Objetivo<green>]" "subtitle:<green>[<dark_green>Vigila al <gray>miserable<green>]" stay:6s
+    - ^adjust <player> "action_bar:<green>En el cementerio del pueblo" stay:6
+obj4:
+  Type: Task
+  Script:
+    - ^title "title:<green>[<gray>Objetivo<green>]" "subtitle:<green>[<dark_green>Busca a <yellow>Odon<green>]" stay:6s
+    - ^adjust <player> "action_bar:<green>Encuentralo dentro de la Posada" stay:6
+obj5:
+  Type: Task
+  Script:
+    - ^title "title:<green>[<gray>Objetivo<green>]" "subtitle:<green>[<dark_green>Regresa con <red>Alvar<green>]" stay:6s
+    - ^adjust <player> "action_bar:<green>Comentale sobre lo que te dijo <yellow>Odon"
+obj6:
+  Type: Task
+  Script:
+    - ^title "title:<green>[<gray>Objetivo<green>]" "subtitle:<green>[<dark_green>Entregale la piedra al <gray>miserable<green>]" stay:6s
+    - ^adjust <player> "action_bar:<green>En el cementerio del pueblo" stay:6
+obj7:
+  Type: Task
+  Script:
+    - ^title "title:<green>[<gray>Objetivo<green>]" "subtitle:<green>[<dark_green>Ayuda al <gray>Miserable<green>]" stay:6s
+    - ^adjust <player> "action_bar:<green>Buscalos los articulos en la catacumba bajo el cementerio" stay:6
+obj8:
+  Type: Task
+  Script:
+    - ^title "title:<green>[<gray>Objetivo<green>]" "subtitle:<green>[<dark_green>Investiga que paso<green>]" stay:6s
+obj9:
+  Type: Task
+  Script:
+    - ^title "title:<green>[<gray>Objetivo<green>]" "subtitle:<green>[<dark_green>Busca sobrevivientes<green>]" stay:6s
+obj10:
+  Type: Task
+  Script:
+    - ^title "title:<green>[<gray>Objetivo<green>]" "subtitle:<green>[<dark_green>Repara la puerta de <gold>Meslajho<green>]" stay:6s
+obj11:
+  Type: Task
+  Script:
+    - ^title "title:<green>[<gray>Objetivo<green>]" "subtitle:<green>[<dark_green>Regresa con <green>Bogdan<green>]" stay:6s
+    - ^adjust <player> "action_bar:<green>En el aserradero del pueblo" stay:6
+obj12:
+  Type: Task
+  Script:
+    - ^title "title:<green>[<gray>Objetivo<green>]" "subtitle:<green>[<dark_green>Ayuda a <green>Bogdan<green>]" stay:6s
+    - ^adjust <player> "action_bar:<green>Consigue con tus amigos <gold>500 <green>bloques de madera" stay:6
+obj13:
+  Type: Task
+  Script:
+    - ^title "title:<green>[<gray>Objetivo<green>]" "subtitle:<green>[<dark_green>Busca a <green>Wymond<green>]" stay:6s
+    - ^adjust <player> "action_bar:<green>En el taller de construccion" stay:6
+obj14:
+  Type: Task
+  Script:
+    - ^title "title:<green>[<gray>Objetivo<green>]" "subtitle:<green>[<dark_green>Ayuda a <green>Wymond<green>]" stay:6s
+    - ^adjust <player> "action_bar:<green>Consigue con tus amigos <gold>300 <green>bloques de madera" stay:6
+obj15:
+  Type: Task
+  Script:
+    - ^title "title:<green>[<gray>Objetivo<green>]" "subtitle:<green>[<dark_green>Ayuda a <green>Wymond<green>]" stay:6s
+    - ^adjust <player> "action_bar:<green>Consigue con tus amigos <gold>500 <green>bloques de madera y piedra" stay:6
+obj16:
+  Type: Task
+  Script:
+    - ^title "title:<green>[<gray>Objetivo<green>]" "subtitle:<green>[<dark_green>Busca a <green>Elric<green>]" stay:6s
+    - ^adjust <player> "action_bar:<green>En la panaderia del pueblo" stay:6
+obj17:
+  Type: Task
+  Script:
+    - ^title "title:<green>[<gray>Objetivo<green>]" "subtitle:<green>[<dark_green>Ayuda a <green>Elric<green>]" stay:6s
+    - ^adjust <player> "action_bar:<green>Consigue con tus amigos <gold>500 <green>bloques de madera y piedra" stay:6
+obj18:
+  Type: Task
+  Script:
+    - ^title "title:<green>[<gray>Objetivo<green>]" "subtitle:<green>[<dark_green>Busca a <yellow>Hammon<green>]" stay:6s
+    - ^adjust <player> "action_bar:<green>En la herreria del pueblo" stay:6
+obj19:
+  Type: Task
+  Script:
+    - ^title "title:<green>[<gray>Objetivo<green>]" "subtitle:<green>[<dark_green>Ayuda a <yellow>Hammon<green>]" stay:6s
+    - ^adjust <player> "action_bar:<green>Consigue con tus amigos <gold>500 <green>bloques de madera y piedra" stay:6
+obj20:
+  Type: Task
+  Script:
+    - ^title "title:<green>[<gray>Objetivo<green>]" "subtitle:<green>[<dark_green>Busca a <green>Jurian<green>]" stay:6s
+    - ^adjust <player> "action_bar:<green>En la herreira del pueblo" stay:6
+obj21:
+  Type: Task
+  Script:
+    - ^title "title:<green>[<gray>Objetivo<green>]" "subtitle:<green>[<dark_green>Ayuda a <green>Jurian<green>]" stay:6s
+    - ^adjust <player> "action_bar:<green>Consigue con tus amigos <gold>500 <green>bloques de madera y piedra" stay:6
+obj22:
+  Type: Task
+  Script:
+    - ^title "title:<green>[<gray>Objetivo<green>]" "subtitle:<green>[<dark_green>Busca a <green>Bozhidar<green>]" stay:6s
+    - ^adjust <player> "action_bar:<green>En campamento arcano del pueblo" stay:6
+obj23:
+  Type: Task
+  Script:
+    - ^title "title:<green>[<gray>Objetivo<green>]" "subtitle:<green>[<dark_green>Ayuda a <green>Bozhidar<green>]" stay:6s
+    - ^adjust <player> "action_bar:<green>Consigue con tus amigos <gold>500 <green>bloques de madera y piedra" stay:6
+obj24:
+  Type: Task
+  Script:
+    - ^title "title:<green>[<gray>Objetivo<green>]" "subtitle:<green>[<dark_green>Busca a <green>Selfor<green>]" stay:6s
+    - ^adjust <player> "action_bar:<green>En el taller de reciclaje del pueblo" stay:6
+obj25:
+  Type: Task
+  Script:
+    - ^title "title:<green>[<gray>Objetivo<green>]" "subtitle:<green>[<dark_green>Ayuda a <green>Selfor<green>]" stay:6s
+    - ^adjust <player> "action_bar:<green>Consigue con tus amigos <gold>500 <green>bloques de madera y piedra" stay:6
+obj26:
+  Type: Task
+  Script:
+    - ^title "title:<green>[<gray>Objetivo<green>]" "subtitle:<green>[<dark_green>Regresa con <red>Alvar<green>]" stay:6s
+    - ^adjust <player> "action_bar:<green>En la taberna del pueblo" stay:6
+obj27:
+  Type: Task
+  Script:
+    - ^title "title:<green>[<gray>Objetivo<green>]" "subtitle:<green>[<dark_green>Ayuda a <red>Alvar<green>]" stay:6s
+    - ^adjust <player> "action_bar:<green>Consigue con tus amigos <gold>500 <green>bloques de madera y piedra" stay:6
+obj28:
+  Type: Task
+  Script:
+    - ^title "title:<green>[<gray>Objetivo<green>]" "subtitle:<green>[<dark_green>Ayuda a <red>Alvar<green>]" stay:6s
+    - ^adjust <player> "action_bar:<green>Consigue <gold>400 <green>palos de madera y <gold>100 <green>de carbon" stay:6
+obj29:
+  Type: Task
+  Script:
+    - ^title "title:<green>[<gray>Objetivo<green>]" "subtitle:<green>[<dark_green>Visita a <dark_green>Jurian<green>]" stay:6s
+    - ^adjust <player> "action_bar:<green>En la herreria del pueblo" stay:6
+obj30:
+  Type: Task
+  Script:
+    - ^title "title:<green>[<gray>Objetivo<green>]" "subtitle:<green>[<dark_green>Elige una <dark_purple>esencia<green> con <dark_green>Mack<green>]" stay:6s
+    - ^adjust <player> "action_bar:<green>En dentro de la armeria" stay:6
+obj31:
+  Type: Task
+  Script:
+    - ^title "title:<green>[<gray>Objetivo<green>]" "subtitle:<green>[<dark_green>Elige una <gold>piel<green> con <dark_green>Jurian<green>]" stay:6s
+    - ^adjust <player> "action_bar:<green>En la herreria del pueblo" stay:6
+obj32:
+  Type: Task
+  Script:
+    - ^title "title:<green>[<gray>Objetivo<green>]" "subtitle:<green>[<dark_green>Visita a <yellow>Hammon<green>]" stay:6s
+    - ^adjust <player> "action_bar:<green>En la herreria del pueblo" stay:6
+obj33:
+  Type: Task
+  Script:
+    - ^title "title:<green>[<gray>Objetivo<green>]" "subtitle:<green>[<dark_green>Visita a <dark_green>Jurian<green>]" stay:6s
+    - ^adjust <player> "action_bar:<green>En la armeria del pueblo" stay:6
+obj34:
+  Type: Task
+  Script:
+    - ^title "title:<green>[<gray>Objetivo<green>]" "subtitle:<green>[<dark_green>Visita a <yellow>Hammon<green>]" stay:6s
+    - ^adjust <player> "action_bar:<green>En la herreria del pueblo" stay:6
+obj35:
+  Type: Task
+  Script:
+    - ^title "title:<green>[<gray>Objetivo<green>]" "subtitle:<green>[<dark_green>Visita a <red>Telmo<green>]" stay:6s
+    - ^adjust <player> "action_bar:<green>Lo encuentras en la estatua de <dark_purple>Azhnar" stay:6
+obj36:
+  Type: Task
+  Script:
+    - ^title "title:<green>[<gray>Objetivo<green>]" "subtitle:<green>[<dark_green>Termina la <yellow>Mision de telmo<green>]" stay:6s
+obj37:
+  Type: Task
+  Script:
+    - ^title "title:<green>[<gray>Objetivo<green>]" "subtitle:<green>[<dark_green>Visita a <red>Telmo<green>]" stay:6s
+    - ^adjust <player> "action_bar:<green>Lo encuentras en la estatua de <dark_purple>Azhnar" stay:6
+obj38:
+  Type: Task
+  Script:
+    - ^title "title:<green>[<gray>Objetivo<green>]" "subtitle:<green>[<dark_green>Visita a <dark_red>Claudec<green>]" stay:6s
+    - ^adjust <player> "action_bar:<green>En el incinerador del pueblo" stay:6
+obj39:
+  Type: Task
+  Script:
+    - ^title "title:<green>[<gray>Objetivo<green>]" "subtitle:<green>[<dark_green>Visita a <light_purple>Manfredo<green>]" stay:6s
+    - ^adjust <player> "action_bar:<green>En la taberna del pueblo" stay:6
+obj40:
+  Type: Task
+  Script:
+    - ^title "title:<green>[<gray>Objetivo<green>]" "subtitle:<green>[<dark_green>Visita a <dark_purple>Freya<green>]" stay:6s
+    - ^adjust <player> "action_bar:<green>En la posada al fondo del pueblo" stay:6
+obj41:
+  Type: Task
+  Script:
+    - ^title "title:<green>[<gray>Objetivo<green>]" "subtitle:<green>[<dark_green>Visita a <red>Alvar<green>]" stay:6s
+    - ^adjust <player> "action_bar:<green>En la taberna del pueblo" stay:6
+obj42:
+  Type: Task
+  Script:
+    - ^title "title:<green>[<gray>Objetivo<green>]" "subtitle:<green>[<dark_green>Consigue una <green>profesion<green>]" stay:6s
+    - ^adjust <player> "action_bar:<green>habla con los ciudadanos con el nombre de color <blue>azul" stay:6
+obj43:
+  Type: Task
+  Script:
+    - ^if <player.skillapi.class_level[<player.skillapi.main_class>]> <= 4 {
+      - ^title "title:<green>[<gray>Objetivo<green>]" "subtitle:<green>[<dark_green>Sube a nivel <gold>5 <dark_green>tu personaje]" stay:6s
+      - ^adjust <player> "action_bar:<green>Busca las catacumbas en el cementerio" stay:6
+      } else {
+      - ^title "title:<green>[<gray>Objetivo<green>]" "subtitle:<green>[<dark_green>Regresa con <red>Alvar" stay:6s
+      - ^adjust <player> "action_bar:<green>Esta en la taberna" stay:6
+      }
+obj44:
+  Type: Task
+  Script:
+    - ^title "title:<green>[<gray>Objetivo<green>]" "subtitle:<green>[<dark_green>Dirijete a la nacion <player.flag[nacion]><green>]" stay:6s
+    - ^adjust <player> "action_bar:<green>Al <yellow><player.flag[hubicacion]> <green> de <yellow>Meslajho <green>y busca a <gold><player.flag[representante]>" stay:6
+obj45:
+  Type: Task
+  Script:
+    - ^title "title:<green>[<gray>Objetivo<green>]" "subtitle:<green>[<dark_green>Ayuda a <gold><player.flag[representante]><green>]" stay:6s
+    - ^adjust <player> "action_bar:<green>Consigue con tus amigos lo necesario para la nacion" stay:6
+obj46:
+  Type: Task
+  Script:
+    - ^title "title:<green>[<gray>Objetivo<green>]" "subtitle:<green>[<dark_green>Revisa que tu nacion se reconstruya" stay:6s
+    - ^adjust <player> "action_bar:<yellow>Visita constantemente tu nacion para ver los avances" stay:6
+obj47:
+  Type: Task
+  Script:
+    - ^title "title:<green>[<gray>Objetivo<green>]" "subtitle:<green>[<dark_green>Ayuda a contrsuir las facciones<green>]" stay:6s
+    - ^adjust <player> "action_bar:<yellow>Explora tu nacion y habla con sus ciudadanos" stay:6
+

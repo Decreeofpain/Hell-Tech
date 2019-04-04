@@ -1,0 +1,130 @@
+"Blade":
+    type: assignment
+
+    actions:
+      on assignment:
+      - trigger name:CHAT toggle:false
+      - trigger name:click toggle:true
+      - trigger name:proximity toggle:true radius:3
+      on Build Complete:
+      - ^run 's@nationvend'
+
+    interact scripts:
+    - 16 buildnuxfel
+
+'buildnuxfel':
+  Type: Interact
+  Requirements:
+    Mode: all
+    List:
+    - valueof <player.flag[misiones].contains[cap1m25ok]>
+    - valueof <player.flag[raza].contains[vampiro]>
+    - valueof <global.flag[capitulos].contains[CAPITULO1NATIONVOK]>
+    - -valueof <global.flag[nacionvamprogress].contains[NUXFEL3OK]>
+  Steps:
+    '1':
+      proximity trigger:
+        entry:
+          radius: 4
+          Script:
+          - ^run 's@bookfaclicannuxfel'
+          - ^zap step:2
+    '2':
+      click trigger:
+        Script:
+          - ^engage
+          - ^yaml load:naciones/nacionvampirica.yml id:nacion<player.name>
+          - ^if <yaml[nacion<player.name>].read[aldeas.nuxfel.stonebrick]> >= 0 && <yaml[nacion<player.name>].read[aldeas.nuxfel.cobblestone]> >= 0 && <yaml[nacion<player.name>].read[aldeas.nuxfel.log]> >= 0 && <yaml[nacion<player.name>].read[aldeas.nuxfel.lightclay]> >= 0 && <yaml[nacion<player.name>].read[aldeas.nuxfel.hardclay]> >= 0 {
+            - ^inventory open d:in@inv_nuxfel
+            }
+          - ^yaml unload id:nacion<player.name>
+          - disengage
+      proximity trigger:
+        entry:
+          radius: 4
+          Script:
+          - ^narrate "<green>Blade:<dark_gray> Hola <player.name>"
+          - ^wait 1s
+          - ^if <player.inventory.contains[4|98|log|159:14|159:15]> {
+            - ^narrate "<green>Blade:<dark_green> Traes algunos materiales utiles para la secta"
+            - ^narrate "<dark_green>te gustaria entregarlos?"
+            - ^narrate "<blue><player.inventory.quantity[i@98]> <red>ladrillos de piedra"
+            - ^narrate "<blue><player.inventory.quantity[i@4]> <red>bloques de cobblestone"
+            - ^narrate "<blue><player.inventory.quantity[i@log]> <red>troncos de madera"
+            - ^narrate "<blue><player.inventory.quantity[i@159:14]> <red>de arcilla roja"
+            - ^narrate "<blue><player.inventory.quantity[i@159:15]> <red>de arcilla negra"
+            }
+
+
+# Inventarios
+inv_nuxfel:
+  type: inventory
+  inventory: dispenser
+  slots:
+  - "[i@nuxfelstonebrick] [i@nuxfelcobblestone] [i@nuxfellog]"
+  - "[i@nuxfelhardclay] [i@nuxfelinfo] [i@nuxfellightclay]"
+  - "[i@cancelslot] [i@Entregar] [i@cancelslot]"
+
+#items
+nuxfelinfo:
+  type: item
+  material: 340
+  display name: '<gold>nuxfel'
+  lore:
+  - ''
+  - '<gray>Estado de la secta'
+  - '<gray>Actualizaciones: <yellow><yaml[nacion<player.name>].read[aldeas.nuxfel.status].asint>/3'
+nuxfelstonebrick:
+  type: item
+  material: 98
+  display name: '<yellow>Ladrillos de piedra'
+  lore:
+  - ''
+  - '<gray>Se requieren: <yellow><yaml[nacion<player.name>].read[aldeas.nuxfel.stonebrick].asint> <gray>bloques mas'
+nuxfelcobblestone:
+  type: item
+  material: 4
+  display name: '<yellow>Bloques de cobblestone'
+  lore:
+  - ''
+  - '<gray>Se requieren: <yellow><yaml[nacion<player.name>].read[aldeas.nuxfel.cobblestone].asint> <gray>bloques mas'
+nuxfellog:
+  type: item
+  material: 17
+  display name: '<yellow>Troncos de madera'
+  lore:
+  - ''
+  - '<gray>Se requieren: <yellow><yaml[nacion<player.name>].read[aldeas.nuxfel.log].asint> <gray>bloques mas'
+nuxfelhardclay:
+  type: item
+  material: '159,15'
+  display name: '<yellow>Arcilla negra'
+  lore:
+  - ''
+  - '<gray>Se requieren: <yellow><yaml[nacion<player.name>].read[aldeas.nuxfel.hardclay].asint> <gray>bloques mas'
+nuxfellightclay:
+  type: item
+  material: '159,14'
+  display name: '<yellow>Arcilla roja'
+  lore:
+  - ''
+  - '<gray>Se requieren: <yellow><yaml[nacion<player.name>].read[aldeas.nuxfel.lightclay].asint> <gray>bloques mas'
+# Libros
+bookfaclicannuxfel:
+    type: task
+    script:
+    - ^adjust <player> item_slot:8
+    - ^define old_item <player.item_in_hand> 
+    - ^take <player.item_in_hand> qty:<player.item_in_hand.qty>
+    - ^give i@librofaclicannuxfel slot:8
+    - ^adjust <player> open_book
+    - ^take i@librofaclicannuxfel
+    - ^give %old_item% slot:8
+    - DETERMINE cancelled
+
+librofaclicannuxfel:
+  type: book 
+  title: Facciones!
+  author: <green>Blade
+  text: 
+  - '<green>Blade<black>:<n>Esta es la secta de <dark_green>Nuxfel<black>.<p>En esta secta nos dedicamos a la magia de la nacion asi como resguardar y crear las reliquias de la nacion.'

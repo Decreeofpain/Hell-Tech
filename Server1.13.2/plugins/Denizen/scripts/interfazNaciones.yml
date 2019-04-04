@@ -1,0 +1,1700 @@
+#@Piedra5[quantity=5]
+inv_nations:
+  type: world
+  events:
+#·············································································Nacion Human
+#-------------Galthalas Iniciacion ----------------
+    on player clicks Sipregunta in inv_galthalas2:
+    - ^inventory close d:in@inv_galthalas2
+    - ^title "title:<green>[<gold>Galthalas<green>]" "subtitle:<dark_aqua>[<aqua>Resiste en la torre.<dark_aqua>]" stay:6s
+    - wait 2s
+    - execute as_op "dxl play resistencia"
+    on player clicks Nopregunta in inv_galthalas2:
+    - ^inventory close d:in@inv_galthalas2
+    - ^title "title:<green>[<gold>Galthalas<green>]" "subtitle:<dark_aqua>[<aqua>Quiza despues <player.name>.<dark_aqua>]" stay:6s
+    on player clicks in inv_galthalas2:
+    - DETERMINE cancelled
+    on player drags in inv_galthalas2:
+    - DETERMINE cancelled
+#-------------------------------------------------
+    on player clicks SBHuman in inv_galthalas:
+    - DETERMINE cancelled
+    on player clicks CBBLHuman in inv_galthalas:
+    - DETERMINE cancelled
+    on player clicks LOGHuman in inv_galthalas:
+    - DETERMINE cancelled
+    on player clicks LCLAYHuman in inv_galthalas:
+    - DETERMINE cancelled
+    on player clicks Galthalasinfo1 in inv_galthalas:
+    - DETERMINE cancelled
+    on player clicks HCLAYHuman in inv_galthalas:
+    - DETERMINE cancelled
+
+    on player clicks ebonthstonebrick in inv_ebonth:
+    - DETERMINE cancelled
+    on player clicks ebonthcobblestone in inv_ebonth:
+    - DETERMINE cancelled
+    on player clicks ebonthlog in inv_ebonth:
+    - DETERMINE cancelled
+    on player clicks ebonthhardclay in inv_ebonth:
+    - DETERMINE cancelled
+    on player clicks ebonthlightclay in inv_ebonth:
+    - DETERMINE cancelled
+    on player clicks ebonthhardclay in inv_ebonth:
+    - DETERMINE cancelled
+    on player clicks ebonthinfo in inv_ebonth:
+    - DETERMINE cancelled
+
+    on player clicks corleanstonebrick in inv_corlean:
+    - DETERMINE cancelled
+    on player clicks corleancobblestone in inv_corlean:
+    - DETERMINE cancelled
+    on player clicks corleanlog in inv_corlean:
+    - DETERMINE cancelled
+    on player clicks corleanhardclay in inv_corlean:
+    - DETERMINE cancelled
+    on player clicks corleanlightclay in inv_corlean:
+    - DETERMINE cancelled
+    on player clicks corleanhardclay in inv_corlean:
+    - DETERMINE cancelled
+    on player clicks corleaninfo in inv_corlean:
+    - DETERMINE cancelled
+
+    on player clicks thanonstonebrick in inv_thanon:
+    - DETERMINE cancelled
+    on player clicks thanoncobblestone in inv_thanon:
+    - DETERMINE cancelled
+    on player clicks thanonlog in inv_thanon:
+    - DETERMINE cancelled
+    on player clicks thanonhardclay in inv_thanon:
+    - DETERMINE cancelled
+    on player clicks thanonlightclay in inv_thanon:
+    - DETERMINE cancelled
+    on player clicks thanonhardclay in inv_thanon:
+    - DETERMINE cancelled
+    on player clicks thanoninfo in inv_thanon:
+    - DETERMINE cancelled
+
+###########################################   NACION HUMAN
+    on player clicks Entregar in inv_galthalas:
+    - ^if <context.cursor_item.material.id> == 98 {
+      - ^yaml load:naciones/nacionhumana.yml id:nacion<player.name>
+      - ^if <yaml[nacion<player.name>].read[nacion.stonebrick]> > 0 {
+        - ^narrate "<gray>Entregaste: <gold><context.cursor_item.quantity> <dark_green>Ladrillos de piedra"
+        - ^yaml id:nacion<player.name> set nacion.stonebrick:-:<context.cursor_item.quantity>
+        - ^adjust <player> item_on_cursor:i@air
+        - ^if <yaml[nacion<player.name>].read[nacion.stonebrick]> < 0 {
+          - ^yaml id:nacion<player.name> set nacion.stonebrick:0
+          }
+        - ^if <yaml[nacion<player.name>].read[nacion.rec]> !contains <player.name> {
+          - ^yaml id:nacion<player.name> set nacion.rec:->:<player.name>
+          }
+        }
+      - ^inventory open d:in@inv_galthalas
+      - ^yaml savefile:naciones/nacionhumana.yml id:nacion<player.name>
+      }
+
+    - ^if <context.cursor_item.material.id> == 4 {
+      - ^yaml load:naciones/nacionhumana.yml id:nacion<player.name>
+      - ^if <yaml[nacion<player.name>].read[nacion.cobblestone]> > 0 {
+        - ^narrate "<gray>Entregaste: <gold><context.cursor_item.quantity> <dark_green>Bloques de cobblestone"
+        - ^yaml id:nacion<player.name> set nacion.cobblestone:-:<context.cursor_item.quantity>
+        - ^adjust <player> item_on_cursor:i@air
+        - ^if <yaml[nacion<player.name>].read[nacion.cobblestone]> < 0 {
+          - ^yaml id:nacion<player.name> set nacion.cobblestone:0
+          }
+        - ^if <yaml[nacion<player.name>].read[nacion.rec]> !contains <player.name> {
+          - ^yaml id:nacion<player.name> set nacion.rec:->:<player.name>
+          }
+        }
+      - ^inventory open d:in@inv_galthalas 
+      - ^yaml savefile:naciones/nacionhumana.yml id:nacion<player.name>
+      }
+
+    - ^if <context.cursor_item.material.id> == 17 {
+      - ^yaml load:naciones/nacionhumana.yml id:nacion<player.name>
+      - ^if <yaml[nacion<player.name>].read[nacion.log]> > 0 {
+        - ^narrate "<gray>Entregaste: <gold><context.cursor_item.quantity> <dark_green>Troncos de madera"
+        - ^yaml id:nacion<player.name> set nacion.log:-:<context.cursor_item.quantity>
+        - ^adjust <player> item_on_cursor:i@air
+        - ^if <yaml[nacion<player.name>].read[nacion.log]> < 0 {
+          - ^yaml id:nacion<player.name> set nacion.log:0
+          }
+        - ^if <yaml[nacion<player.name>].read[nacion.rec]> !contains <player.name> {
+          - ^yaml id:nacion<player.name> set nacion.rec:->:<player.name>
+          }
+        }
+      - ^inventory open d:in@inv_galthalas 
+      - ^yaml savefile:naciones/nacionhumana.yml id:nacion<player.name>
+      }
+
+    - ^if <context.cursor_item.material.id> == 159 && <context.cursor_item.material.data> == 3 {
+      - ^yaml load:naciones/nacionhumana.yml id:nacion<player.name>
+      - ^if <yaml[nacion<player.name>].read[nacion.lightclay]> > 0 {
+        - ^narrate "<gray>Entregaste: <gold><context.cursor_item.quantity> <dark_green>Arcilla azul clara"
+        - ^yaml id:nacion<player.name> set nacion.lightclay:-:<context.cursor_item.quantity>
+        - ^adjust <player> item_on_cursor:i@air
+        - ^if <yaml[nacion<player.name>].read[nacion.lightclay]> < 0 {
+          - ^yaml id:nacion<player.name> set nacion.lightclay:0
+          }
+        - ^if <yaml[nacion<player.name>].read[nacion.rec]> !contains <player.name> {
+          - ^yaml id:nacion<player.name> set nacion.rec:->:<player.name>
+          }
+        }
+      - ^inventory open d:in@inv_galthalas 
+      - ^yaml savefile:naciones/nacionhumana.yml id:nacion<player.name>
+      }
+
+    - ^if <context.cursor_item.material.id> == 159 && <context.cursor_item.material.data> == 11 {
+      - ^yaml load:naciones/nacionhumana.yml id:nacion<player.name>
+      - ^if <yaml[nacion<player.name>].read[nacion.hardclay]> > 0 {
+        - ^narrate "<gray>Entregaste: <gold><context.cursor_item.quantity> <dark_green>Arcilla azul oscura"
+        - ^yaml id:nacion<player.name> set nacion.hardclay:-:<context.cursor_item.quantity>
+        - ^adjust <player> item_on_cursor:i@air
+        - ^if <yaml[nacion<player.name>].read[nacion.hardclay]> < 0 {
+          - ^yaml id:nacion<player.name> set nacion.hardclay:0
+          }
+        - ^if <yaml[nacion<player.name>].read[nacion.rec]> !contains <player.name> {
+          - ^yaml id:nacion<player.name> set nacion.rec:->:<player.name>
+          }
+        }
+      - ^inventory open d:in@inv_galthalas 
+      - ^yaml savefile:naciones/nacionhumana.yml id:nacion<player.name>
+      }
+
+# Agregar los materiales al IF
+    - ^if <yaml[nacion<player.name>].read[nacion.log]> <= 0 && <yaml[nacion<player.name>].read[nacion.stonebrick]> <= 0 && <yaml[nacion<player.name>].read[nacion.cobblestone]> <= 0 && <yaml[nacion<player.name>].read[nacion.lightclay]> <= 0 && <yaml[nacion<player.name>].read[nacion.hardclay]> <= 0 {
+      - ^if <global.flag[nacionhumprogress].as_list> !contains NACIONINI {
+        - ^playsound <player> sound:complete custom
+        - ^execute as_npc "builder 105 build groupall layers:20" npc:105
+        - ^flag <global> nacionhumprogress:NACIONINI
+        - ^yaml savefile:naciones/nacionhumana.yml id:nacion<player.name>
+        }
+      }
+    - ^yaml unload id:nacion<player.name>
+    - DETERMINE cancelled
+
+################################################################################################# ebonth
+    on player clicks Entregar in inv_ebonth:
+    - ^if <context.cursor_item.material.id> == 98 {
+      - ^yaml load:naciones/nacionhumana.yml id:nacion<player.name>
+      - ^if <yaml[nacion<player.name>].read[aldeas.ebonth.stonebrick]> > 0 {
+        - ^narrate "<gray>Entregaste: <gold><context.cursor_item.quantity> <dark_green>Ladrillos de piedra"
+        - ^yaml id:nacion<player.name> set aldeas.ebonth.stonebrick:-:<context.cursor_item.quantity>
+        - ^adjust <player> item_on_cursor:i@air
+        - ^if <yaml[nacion<player.name>].read[aldeas.ebonth.stonebrick]> < 0 {
+          - ^yaml id:nacion<player.name> set aldeas.ebonth.stonebrick:0
+          }
+        - ^if <yaml[nacion<player.name>].read[aldeas.ebonth.rec]> !contains <player.name> {
+          - ^yaml id:nacion<player.name> set aldeas.ebonth.rec:->:<player.name>
+          }
+        }
+      - ^inventory open d:in@inv_ebonth
+      - ^yaml savefile:naciones/nacionhumana.yml id:nacion<player.name>
+      }
+
+    - ^if <context.cursor_item.material.id> == 4 {
+      - ^yaml load:naciones/nacionhumana.yml id:nacion<player.name>
+      - ^if <yaml[nacion<player.name>].read[aldeas.ebonth.cobblestone]> > 0 {
+        - ^narrate "<gray>Entregaste: <gold><context.cursor_item.quantity> <dark_green>Bloques de cobblestone"
+        - ^yaml id:nacion<player.name> set aldeas.ebonth.cobblestone:-:<context.cursor_item.quantity>
+        - ^adjust <player> item_on_cursor:i@air
+        - ^if <yaml[nacion<player.name>].read[aldeas.ebonth.cobblestone]> < 0 {
+          - ^yaml id:nacion<player.name> set aldeas.ebonth.cobblestone:0
+          }
+        - ^if <yaml[nacion<player.name>].read[aldeas.ebonth.rec]> !contains <player.name> {
+          - ^yaml id:nacion<player.name> set aldeas.ebonth.rec:->:<player.name>
+          }
+        }
+      - ^inventory open d:in@inv_ebonth 
+      - ^yaml savefile:naciones/nacionhumana.yml id:nacion<player.name>
+      }
+
+    - ^if <context.cursor_item.material.id> == 17 {
+      - ^yaml load:naciones/nacionhumana.yml id:nacion<player.name>
+      - ^if <yaml[nacion<player.name>].read[aldeas.ebonth.log]> > 0 {
+        - ^narrate "<gray>Entregaste: <gold><context.cursor_item.quantity> <dark_green>Troncos de madera"
+        - ^yaml id:nacion<player.name> set aldeas.ebonth.log:-:<context.cursor_item.quantity>
+        - ^adjust <player> item_on_cursor:i@air
+        - ^if <yaml[nacion<player.name>].read[aldeas.ebonth.log]> < 0 {
+          - ^yaml id:nacion<player.name> set aldeas.ebonth.log:0
+          }
+        - ^if <yaml[nacion<player.name>].read[aldeas.ebonth.rec]> !contains <player.name> {
+          - ^yaml id:nacion<player.name> set aldeas.ebonth.rec:->:<player.name>
+          }
+        }
+      - ^inventory open d:in@inv_ebonth 
+      - ^yaml savefile:naciones/nacionhumana.yml id:nacion<player.name>
+      }
+
+    - ^if <context.cursor_item.material.id> == 159 && <context.cursor_item.material.data> == 3 {
+      - ^yaml load:naciones/nacionhumana.yml id:nacion<player.name>
+      - ^if <yaml[nacion<player.name>].read[aldeas.ebonth.lightclay]> > 0 {
+        - ^narrate "<gray>Entregaste: <gold><context.cursor_item.quantity> <dark_green>Arcilla azul clara"
+        - ^yaml id:nacion<player.name> set aldeas.ebonth.lightclay:-:<context.cursor_item.quantity>
+        - ^adjust <player> item_on_cursor:i@air
+        - ^if <yaml[nacion<player.name>].read[aldeas.ebonth.lightclay]> < 0 {
+          - ^yaml id:nacion<player.name> set aldeas.ebonth.lightclay:0
+          }
+        - ^if <yaml[nacion<player.name>].read[aldeas.ebonth.rec]> !contains <player.name> {
+          - ^yaml id:nacion<player.name> set aldeas.ebonth.rec:->:<player.name>
+          }
+        }
+      - ^inventory open d:in@inv_ebonth 
+      - ^yaml savefile:naciones/nacionhumana.yml id:nacion<player.name>
+      }
+
+    - ^if <context.cursor_item.material.id> == 159 && <context.cursor_item.material.data> == 11 {
+      - ^yaml load:naciones/nacionhumana.yml id:nacion<player.name>
+      - ^if <yaml[nacion<player.name>].read[aldeas.ebonth.hardclay]> > 0 {
+        - ^narrate "<gray>Entregaste: <gold><context.cursor_item.quantity> <dark_green>Arcilla azul oscura"
+        - ^yaml id:nacion<player.name> set aldeas.ebonth.hardclay:-:<context.cursor_item.quantity>
+        - ^adjust <player> item_on_cursor:i@air
+        - ^if <yaml[nacion<player.name>].read[aldeas.ebonth.hardclay]> < 0 {
+          - ^yaml id:nacion<player.name> set aldeas.ebonth.hardclay:0
+          }
+        - ^if <yaml[nacion<player.name>].read[aldeas.ebonth.rec]> !contains <player.name> {
+          - ^yaml id:nacion<player.name> set aldeas.ebonth.rec:->:<player.name>
+          }
+        }
+      - ^inventory open d:in@inv_ebonth 
+      - ^yaml savefile:naciones/nacionhumana.yml id:nacion<player.name>
+      }
+
+# Agregar los materiales al IF
+    - ^if <yaml[nacion<player.name>].read[aldeas.ebonth.log]> <= 0 && <yaml[nacion<player.name>].read[aldeas.ebonth.stonebrick]> <= 0 && <yaml[nacion<player.name>].read[aldeas.ebonth.cobblestone]> <= 0 && <yaml[nacion<player.name>].read[aldeas.ebonth.lightclay]> <= 0 && <yaml[nacion<player.name>].read[aldeas.ebonth.hardclay]> <= 0 {
+      - ^if <global.flag[nacionhumprogress].as_list> !contains EBONTH1OK {
+        - ^playsound <player> sound:complete custom
+        - ^yaml id:nacion<player.name> set aldeas.ebonth.stonebrick:487
+        - ^yaml id:nacion<player.name> set aldeas.ebonth.cobblestone:487
+        - ^yaml id:nacion<player.name> set aldeas.ebonth.log:147
+        - ^yaml id:nacion<player.name> set aldeas.ebonth.lightclay:73
+        - ^yaml id:nacion<player.name> set aldeas.ebonth.hardclay:73
+        - ^yaml id:nacion<player.name> set aldeas.ebonth.status:1
+        - ^schematic load name:ebonthup1
+        - ^schematic paste name:ebonthup1 location:<cu@ebonthup1.min>
+        - ^schematic unload name:ebonthup1
+        - ^flag <global> nacionhumprogress:->:EBONTH1OK
+        - ^yaml savefile:naciones/nacionhumana.yml id:nacion<player.name>
+        } else if <global.flag[nacionhumprogress].as_list> !contains EBONTH2OK && <global.flag[nacionhumprogress].as_list> contains EBONTH1OK {
+        - ^playsound <player> sound:complete custom
+        - ^yaml id:nacion<player.name> set aldeas.ebonth.stonebrick:650
+        - ^yaml id:nacion<player.name> set aldeas.ebonth.cobblestone:650
+        - ^yaml id:nacion<player.name> set aldeas.ebonth.log:196
+        - ^yaml id:nacion<player.name> set aldeas.ebonth.lightclay:98
+        - ^yaml id:nacion<player.name> set aldeas.ebonth.hardclay:98
+        - ^yaml id:nacion<player.name> set aldeas.ebonth.status:2
+        - ^schematic load name:ebonthup2
+        - ^schematic paste name:ebonthup2 location:<cu@ebonthup2.min> noair
+        - ^schematic unload name:ebonthup2
+        - ^flag <global> nacionhumprogress:->:EBONTH2OK
+        - ^yaml savefile:naciones/nacionhumana.yml id:nacion<player.name>
+        } else if <global.flag[nacionhumprogress].as_list> !contains EBONTH3OK && <global.flag[nacionhumprogress].as_list> contains EBONTH2OK {
+        - ^playsound <player> sound:complete custom
+        - ^schematic load name:ebonthup3
+        - ^schematic paste name:ebonthup3 location:<cu@ebonthup3.min> noair
+        - ^schematic unload name:ebonthup3
+        - ^flag <global> nacionhumprogress:->:EBONTH3OK
+        - ^teleport n@105 location:2431.5,63,2737.5,Esparcraft
+        - ^teleport n@153 location:2478.5,63,2729.5,Esparcraft
+        - ^teleport n@154 location:2441.5,63,2683.5,Esparcraft
+        - ^yaml savefile:naciones/nacionhumana.yml id:nacion<player.name>
+        }
+      }
+    - ^yaml unload id:nacion<player.name>
+    - DETERMINE cancelled
+
+################################################################################################# corlean
+    on player clicks Entregar in inv_corlean:
+    - ^if <context.cursor_item.material.id> == 98 {
+      - ^yaml load:naciones/nacionhumana.yml id:nacion<player.name>
+      - ^if <yaml[nacion<player.name>].read[aldeas.corlean.stonebrick]> > 0 {
+        - ^narrate "<gray>Entregaste: <gold><context.cursor_item.quantity> <dark_green>Ladrillos de piedra"
+        - ^yaml id:nacion<player.name> set aldeas.corlean.stonebrick:-:<context.cursor_item.quantity>
+        - ^adjust <player> item_on_cursor:i@air
+        - ^if <yaml[nacion<player.name>].read[aldeas.corlean.stonebrick]> < 0 {
+          - ^yaml id:nacion<player.name> set aldeas.corlean.stonebrick:0
+          }
+        - ^if <yaml[nacion<player.name>].read[aldeas.corlean.rec]> !contains <player.name> {
+          - ^yaml id:nacion<player.name> set aldeas.corlean.rec:->:<player.name>
+          }
+        }
+      - ^inventory open d:in@inv_corlean
+      - ^yaml savefile:naciones/nacionhumana.yml id:nacion<player.name>
+      }
+
+    - ^if <context.cursor_item.material.id> == 4 {
+      - ^yaml load:naciones/nacionhumana.yml id:nacion<player.name>
+      - ^if <yaml[nacion<player.name>].read[aldeas.corlean.cobblestone]> > 0 {
+        - ^narrate "<gray>Entregaste: <gold><context.cursor_item.quantity> <dark_green>Bloques de cobblestone"
+        - ^yaml id:nacion<player.name> set aldeas.corlean.cobblestone:-:<context.cursor_item.quantity>
+        - ^adjust <player> item_on_cursor:i@air
+        - ^if <yaml[nacion<player.name>].read[aldeas.corlean.cobblestone]> < 0 {
+          - ^yaml id:nacion<player.name> set aldeas.corlean.cobblestone:0
+          }
+        - ^if <yaml[nacion<player.name>].read[aldeas.corlean.rec]> !contains <player.name> {
+          - ^yaml id:nacion<player.name> set aldeas.corlean.rec:->:<player.name>
+          }
+        }
+      - ^inventory open d:in@inv_corlean 
+      - ^yaml savefile:naciones/nacionhumana.yml id:nacion<player.name>
+      }
+
+    - ^if <context.cursor_item.material.id> == 17 {
+      - ^yaml load:naciones/nacionhumana.yml id:nacion<player.name>
+      - ^if <yaml[nacion<player.name>].read[aldeas.corlean.log]> > 0 {
+        - ^narrate "<gray>Entregaste: <gold><context.cursor_item.quantity> <dark_green>Troncos de madera"
+        - ^yaml id:nacion<player.name> set aldeas.corlean.log:-:<context.cursor_item.quantity>
+        - ^adjust <player> item_on_cursor:i@air
+        - ^if <yaml[nacion<player.name>].read[aldeas.corlean.log]> < 0 {
+          - ^yaml id:nacion<player.name> set aldeas.corlean.log:0
+          }
+        - ^if <yaml[nacion<player.name>].read[aldeas.corlean.rec]> !contains <player.name> {
+          - ^yaml id:nacion<player.name> set aldeas.corlean.rec:->:<player.name>
+          }
+        }
+      - ^inventory open d:in@inv_corlean 
+      - ^yaml savefile:naciones/nacionhumana.yml id:nacion<player.name>
+      }
+
+    - ^if <context.cursor_item.material.id> == 159 && <context.cursor_item.material.data> == 3 {
+      - ^yaml load:naciones/nacionhumana.yml id:nacion<player.name>
+      - ^if <yaml[nacion<player.name>].read[aldeas.corlean.lightclay]> > 0 {
+        - ^narrate "<gray>Entregaste: <gold><context.cursor_item.quantity> <dark_green>Arcilla azul clara"
+        - ^yaml id:nacion<player.name> set aldeas.corlean.lightclay:-:<context.cursor_item.quantity>
+        - ^adjust <player> item_on_cursor:i@air
+        - ^if <yaml[nacion<player.name>].read[aldeas.corlean.lightclay]> < 0 {
+          - ^yaml id:nacion<player.name> set aldeas.corlean.lightclay:0
+          }
+        - ^if <yaml[nacion<player.name>].read[aldeas.corlean.rec]> !contains <player.name> {
+          - ^yaml id:nacion<player.name> set aldeas.corlean.rec:->:<player.name>
+          }
+        }
+      - ^inventory open d:in@inv_corlean 
+      - ^yaml savefile:naciones/nacionhumana.yml id:nacion<player.name>
+      }
+
+    - ^if <context.cursor_item.material.id> == 159 && <context.cursor_item.material.data> == 11 {
+      - ^yaml load:naciones/nacionhumana.yml id:nacion<player.name>
+      - ^if <yaml[nacion<player.name>].read[aldeas.corlean.hardclay]> > 0 {
+        - ^narrate "<gray>Entregaste: <gold><context.cursor_item.quantity> <dark_green>Arcilla azul oscura"
+        - ^yaml id:nacion<player.name> set aldeas.corlean.hardclay:-:<context.cursor_item.quantity>
+        - ^adjust <player> item_on_cursor:i@air
+        - ^if <yaml[nacion<player.name>].read[aldeas.corlean.hardclay]> < 0 {
+          - ^yaml id:nacion<player.name> set aldeas.corlean.hardclay:0
+          }
+        - ^if <yaml[nacion<player.name>].read[aldeas.corlean.rec]> !contains <player.name> {
+          - ^yaml id:nacion<player.name> set aldeas.corlean.rec:->:<player.name>
+          }
+        }
+      - ^inventory open d:in@inv_corlean 
+      - ^yaml savefile:naciones/nacionhumana.yml id:nacion<player.name>
+      }
+
+# Agregar los materiales al IF
+    - ^if <yaml[nacion<player.name>].read[aldeas.corlean.log]> <= 0 && <yaml[nacion<player.name>].read[aldeas.corlean.stonebrick]> <= 0 && <yaml[nacion<player.name>].read[aldeas.corlean.cobblestone]> <= 0 && <yaml[nacion<player.name>].read[aldeas.corlean.lightclay]> <= 0 && <yaml[nacion<player.name>].read[aldeas.corlean.hardclay]> <= 0 {
+      - ^if <global.flag[nacionhumprogress].as_list> !contains CORLEAN1OK {
+        - ^playsound <player> sound:complete custom
+        - ^yaml id:nacion<player.name> set aldeas.corlean.stonebrick:487
+        - ^yaml id:nacion<player.name> set aldeas.corlean.cobblestone:487
+        - ^yaml id:nacion<player.name> set aldeas.corlean.log:147
+        - ^yaml id:nacion<player.name> set aldeas.corlean.lightclay:73
+        - ^yaml id:nacion<player.name> set aldeas.corlean.hardclay:73
+        - ^yaml id:nacion<player.name> set aldeas.corlean.status:1
+        - ^schematic load name:corleanup1
+        - ^schematic paste name:corleanup1 location:<cu@corleanup1.min>
+        - ^schematic unload name:corleanup1
+        - ^flag <global> nacionhumprogress:->:CORLEAN1OK
+        - ^yaml savefile:naciones/nacionhumana.yml id:nacion<player.name>
+        } else if <global.flag[nacionhumprogress].as_list> !contains CORLEAN2OK && <global.flag[nacionhumprogress].as_list> contains CORLEAN1OK {
+        - ^playsound <player> sound:complete custom
+        - ^yaml id:nacion<player.name> set aldeas.corlean.stonebrick:650
+        - ^yaml id:nacion<player.name> set aldeas.corlean.cobblestone:650
+        - ^yaml id:nacion<player.name> set aldeas.corlean.log:196
+        - ^yaml id:nacion<player.name> set aldeas.corlean.lightclay:98
+        - ^yaml id:nacion<player.name> set aldeas.corlean.hardclay:98
+        - ^yaml id:nacion<player.name> set aldeas.corlean.status:2
+        - ^schematic load name:corleanup2
+        - ^schematic paste name:corleanup2 location:<cu@corleanup2.min> noair
+        - ^schematic unload name:corleanup2
+        - ^flag <global> nacionhumprogress:->:CORLEAN2OK
+        - ^yaml savefile:naciones/nacionhumana.yml id:nacion<player.name>
+        } else if <global.flag[nacionhumprogress].as_list> !contains CORLEAN3OK && <global.flag[nacionhumprogress].as_list> contains CORLEAN2OK {
+        - ^playsound <player> sound:complete custom
+        - ^schematic load name:corleanup3
+        - ^schematic paste name:corleanup3 location:<cu@corleanup3.min> noair
+        - ^schematic unload name:corleanup3
+        - ^flag <global> nacionhumprogress:->:CORLEAN3OK
+        - ^teleport n@150 location:2577.5,63,2737.5,Esparcraft
+        - ^teleport n@155 location:2569.5,63,2691.5,Esparcraft
+        - ^teleport n@156 location:2523.5,63,2727.5,Esparcraft
+        - ^yaml savefile:naciones/nacionhumana.yml id:nacion<player.name>
+        }
+      }
+    - ^yaml unload id:nacion<player.name>
+    - DETERMINE cancelled
+
+################################################################################################# thanon
+    on player clicks Entregar in inv_thanon:
+    - ^if <context.cursor_item.material.id> == 98 {
+      - ^yaml load:naciones/nacionhumana.yml id:nacion<player.name>
+      - ^if <yaml[nacion<player.name>].read[aldeas.thanon.stonebrick]> > 0 {
+        - ^narrate "<gray>Entregaste: <gold><context.cursor_item.quantity> <dark_green>Ladrillos de piedra"
+        - ^yaml id:nacion<player.name> set aldeas.thanon.stonebrick:-:<context.cursor_item.quantity>
+        - ^adjust <player> item_on_cursor:i@air
+        - ^if <yaml[nacion<player.name>].read[aldeas.thanon.stonebrick]> < 0 {
+          - ^yaml id:nacion<player.name> set aldeas.thanon.stonebrick:0
+          }
+        - ^if <yaml[nacion<player.name>].read[aldeas.thanon.rec]> !contains <player.name> {
+          - ^yaml id:nacion<player.name> set aldeas.thanon.rec:->:<player.name>
+          }
+        }
+      - ^inventory open d:in@inv_thanon
+      - ^yaml savefile:naciones/nacionhumana.yml id:nacion<player.name>
+      }
+
+    - ^if <context.cursor_item.material.id> == 4 {
+      - ^yaml load:naciones/nacionhumana.yml id:nacion<player.name>
+      - ^if <yaml[nacion<player.name>].read[aldeas.thanon.cobblestone]> > 0 {
+        - ^narrate "<gray>Entregaste: <gold><context.cursor_item.quantity> <dark_green>Bloques de cobblestone"
+        - ^yaml id:nacion<player.name> set aldeas.thanon.cobblestone:-:<context.cursor_item.quantity>
+        - ^adjust <player> item_on_cursor:i@air
+        - ^if <yaml[nacion<player.name>].read[aldeas.thanon.cobblestone]> < 0 {
+          - ^yaml id:nacion<player.name> set aldeas.thanon.cobblestone:0
+          }
+        - ^if <yaml[nacion<player.name>].read[aldeas.thanon.rec]> !contains <player.name> {
+          - ^yaml id:nacion<player.name> set aldeas.thanon.rec:->:<player.name>
+          }
+        }
+      - ^inventory open d:in@inv_thanon 
+      - ^yaml savefile:naciones/nacionhumana.yml id:nacion<player.name>
+      }
+
+    - ^if <context.cursor_item.material.id> == 17 {
+      - ^yaml load:naciones/nacionhumana.yml id:nacion<player.name>
+      - ^if <yaml[nacion<player.name>].read[aldeas.thanon.log]> > 0 {
+        - ^narrate "<gray>Entregaste: <gold><context.cursor_item.quantity> <dark_green>Troncos de madera"
+        - ^yaml id:nacion<player.name> set aldeas.thanon.log:-:<context.cursor_item.quantity>
+        - ^adjust <player> item_on_cursor:i@air
+        - ^if <yaml[nacion<player.name>].read[aldeas.thanon.log]> < 0 {
+          - ^yaml id:nacion<player.name> set aldeas.thanon.log:0
+          }
+        - ^if <yaml[nacion<player.name>].read[aldeas.thanon.rec]> !contains <player.name> {
+          - ^yaml id:nacion<player.name> set aldeas.thanon.rec:->:<player.name>
+          }
+        }
+      - ^inventory open d:in@inv_thanon 
+      - ^yaml savefile:naciones/nacionhumana.yml id:nacion<player.name>
+      }
+
+    - ^if <context.cursor_item.material.id> == 159 && <context.cursor_item.material.data> == 3 {
+      - ^yaml load:naciones/nacionhumana.yml id:nacion<player.name>
+      - ^if <yaml[nacion<player.name>].read[aldeas.thanon.lightclay]> > 0 {
+        - ^narrate "<gray>Entregaste: <gold><context.cursor_item.quantity> <dark_green>Arcilla azul clara"
+        - ^yaml id:nacion<player.name> set aldeas.thanon.lightclay:-:<context.cursor_item.quantity>
+        - ^adjust <player> item_on_cursor:i@air
+        - ^if <yaml[nacion<player.name>].read[aldeas.thanon.lightclay]> < 0 {
+          - ^yaml id:nacion<player.name> set aldeas.thanon.lightclay:0
+          }
+        - ^if <yaml[nacion<player.name>].read[aldeas.thanon.rec]> !contains <player.name> {
+          - ^yaml id:nacion<player.name> set aldeas.thanon.rec:->:<player.name>
+          }
+        }
+      - ^inventory open d:in@inv_thanon 
+      - ^yaml savefile:naciones/nacionhumana.yml id:nacion<player.name>
+      }
+
+    - ^if <context.cursor_item.material.id> == 159 && <context.cursor_item.material.data> == 11 {
+      - ^yaml load:naciones/nacionhumana.yml id:nacion<player.name>
+      - ^if <yaml[nacion<player.name>].read[aldeas.thanon.hardclay]> > 0 {
+        - ^narrate "<gray>Entregaste: <gold><context.cursor_item.quantity> <dark_green>Arcilla azul oscura"
+        - ^yaml id:nacion<player.name> set aldeas.thanon.hardclay:-:<context.cursor_item.quantity>
+        - ^adjust <player> item_on_cursor:i@air
+        - ^if <yaml[nacion<player.name>].read[aldeas.thanon.hardclay]> < 0 {
+          - ^yaml id:nacion<player.name> set aldeas.thanon.hardclay:0
+          }
+        - ^if <yaml[nacion<player.name>].read[aldeas.thanon.rec]> !contains <player.name> {
+          - ^yaml id:nacion<player.name> set aldeas.thanon.rec:->:<player.name>
+          }
+        }
+      - ^inventory open d:in@inv_thanon 
+      - ^yaml savefile:naciones/nacionhumana.yml id:nacion<player.name>
+      }
+
+# Agregar los materiales al IF
+    - ^if <yaml[nacion<player.name>].read[aldeas.thanon.log]> <= 0 && <yaml[nacion<player.name>].read[aldeas.thanon.stonebrick]> <= 0 && <yaml[nacion<player.name>].read[aldeas.thanon.cobblestone]> <= 0 && <yaml[nacion<player.name>].read[aldeas.thanon.lightclay]> <= 0 && <yaml[nacion<player.name>].read[aldeas.thanon.hardclay]> <= 0 {
+      - ^if <global.flag[nacionhumprogress].as_list> !contains THANON1OK {
+        - ^playsound <player> sound:complete custom
+        - ^yaml id:nacion<player.name> set aldeas.thanon.stonebrick:487
+        - ^yaml id:nacion<player.name> set aldeas.thanon.cobblestone:487
+        - ^yaml id:nacion<player.name> set aldeas.thanon.log:147
+        - ^yaml id:nacion<player.name> set aldeas.thanon.lightclay:73
+        - ^yaml id:nacion<player.name> set aldeas.thanon.hardclay:73
+        - ^yaml id:nacion<player.name> set aldeas.thanon.status:1
+        - ^schematic load name:thanonup1
+        - ^schematic paste name:thanonup1 location:<cu@thanonup1.min>
+        - ^schematic unload name:thanonup1
+        - ^flag <global> nacionhumprogress:->:THANON1OK
+        - ^yaml savefile:naciones/nacionhumana.yml id:nacion<player.name>
+        } else if <global.flag[nacionhumprogress].as_list> !contains THANON2OK && <global.flag[nacionhumprogress].as_list> contains THANON1OK {
+        - ^playsound <player> sound:complete custom
+        - ^yaml id:nacion<player.name> set aldeas.thanon.stonebrick:650
+        - ^yaml id:nacion<player.name> set aldeas.thanon.cobblestone:650
+        - ^yaml id:nacion<player.name> set aldeas.thanon.log:196
+        - ^yaml id:nacion<player.name> set aldeas.thanon.lightclay:98
+        - ^yaml id:nacion<player.name> set aldeas.thanon.hardclay:98
+        - ^yaml id:nacion<player.name> set aldeas.thanon.status:2
+        - ^schematic load name:thanonup2
+        - ^schematic paste name:thanonup2 location:<cu@thanonup2.min>
+        - ^schematic unload name:thanonup2
+        - ^flag <global> nacionhumprogress:->:THANON2OK
+        - ^yaml savefile:naciones/nacionhumana.yml id:nacion<player.name>
+        } else if <global.flag[nacionhumprogress].as_list> !contains THANON3OK && <global.flag[nacionhumprogress].as_list> contains THANON2OK {
+        - ^playsound <player> sound:complete custom
+        - ^schematic load name:thanonup3
+        - ^schematic paste name:thanonup3 location:<cu@thanonup3.min> noair
+        - ^schematic unload name:thanonup3
+        - ^flag <global> nacionhumprogress:->:THANON3OK
+        - ^teleport n@152 location:2431.5,63,2591.5,Esparcraft
+        - ^teleport n@157 location:2439.5,63,2639.5,Esparcraft
+        - ^teleport n@158 location:2485.5,63,2601.5,Esparcraft
+        - ^yaml savefile:naciones/nacionhumana.yml id:nacion<player.name>
+        }
+      }
+    - ^yaml unload id:nacion<player.name>
+    - DETERMINE cancelled
+#·············································································Nacion Lican
+#-------------Athelwulf Iniciacion ----------------
+    on player clicks Sipregunta in inv_athelwulf2:
+    - ^inventory close d:in@inv_athelwulf2
+    - ^title "title:<green>[<dark_green>Athelwulf<green>]" "subtitle:<dark_green>[<green>Rescata al lobo legendario.<dark_green>]" stay:6s
+    - wait 2s
+    - execute as_op "dxl play rescate"
+    on player clicks Nopregunta in inv_athelwulf2:
+    - ^inventory close d:in@inv_athelwulf2
+    - ^title "title:<green>[<dark_green>Athelwulf<green>]" "subtitle:<dark_green>[<green>Regresa cuando estes listo.<dark_green>]" stay:6s
+    on player clicks in inv_athelwulf2:
+    - DETERMINE cancelled
+    on player drags in inv_athelwulf2:
+    - DETERMINE cancelled
+#-------------------------------------------------
+    on player clicks SBLican in inv_athelwulf:
+    - DETERMINE cancelled
+    on player clicks CBBLLican in inv_athelwulf:
+    - DETERMINE cancelled
+    on player clicks LOGLican in inv_athelwulf:
+    - DETERMINE cancelled
+    on player clicks LCLAYLican in inv_athelwulf:
+    - DETERMINE cancelled
+    on player clicks Athelwulfinfo1 in inv_athelwulf:
+    - DETERMINE cancelled
+    on player clicks HCLAYLican in inv_athelwulf:
+    - DETERMINE cancelled
+
+    on player clicks garkarstonebrick in inv_garkar:
+    - DETERMINE cancelled
+    on player clicks garkarcobblestone in inv_garkar:
+    - DETERMINE cancelled
+    on player clicks garkarlog in inv_garkar:
+    - DETERMINE cancelled
+    on player clicks garkarhardclay in inv_garkar:
+    - DETERMINE cancelled
+    on player clicks garkarlightclay in inv_garkar:
+    - DETERMINE cancelled
+    on player clicks garkarhardclay in inv_garkar:
+    - DETERMINE cancelled
+    on player clicks garkarinfo in inv_garkar:
+    - DETERMINE cancelled
+
+    on player clicks rakdotstonebrick in inv_rakdot:
+    - DETERMINE cancelled
+    on player clicks rakdotcobblestone in inv_rakdot:
+    - DETERMINE cancelled
+    on player clicks rakdotlog in inv_rakdot:
+    - DETERMINE cancelled
+    on player clicks rakdothardclay in inv_rakdot:
+    - DETERMINE cancelled
+    on player clicks rakdotlightclay in inv_rakdot:
+    - DETERMINE cancelled
+    on player clicks rakdothardclay in inv_rakdot:
+    - DETERMINE cancelled
+    on player clicks rakdotinfo in inv_rakdot:
+    - DETERMINE cancelled
+
+    on player clicks krantestonebrick in inv_krante:
+    - DETERMINE cancelled
+    on player clicks krantecobblestone in inv_krante:
+    - DETERMINE cancelled
+    on player clicks krantelog in inv_krante:
+    - DETERMINE cancelled
+    on player clicks krantehardclay in inv_krante:
+    - DETERMINE cancelled
+    on player clicks krantelightclay in inv_krante:
+    - DETERMINE cancelled
+    on player clicks krantehardclay in inv_krante:
+    - DETERMINE cancelled
+    on player clicks kranteinfo in inv_krante:
+    - DETERMINE cancelled
+
+###########################################   NACION LICAN
+    on player clicks Entregar in inv_athelwulf:
+    - ^if <context.cursor_item.material.id> == 98 {
+      - ^yaml load:naciones/nacionlicantropica.yml id:nacion<player.name>
+      - ^if <yaml[nacion<player.name>].read[nacion.stonebrick]> > 0 {
+        - ^narrate "<gray>Entregaste: <gold><context.cursor_item.quantity> <dark_green>Ladrillos de piedra"
+        - ^yaml id:nacion<player.name> set nacion.stonebrick:-:<context.cursor_item.quantity>
+        - ^adjust <player> item_on_cursor:i@air
+        - ^if <yaml[nacion<player.name>].read[nacion.stonebrick]> < 0 {
+          - ^yaml id:nacion<player.name> set nacion.stonebrick:0
+          }
+        - ^if <yaml[nacion<player.name>].read[nacion.rec]> !contains <player.name> {
+          - ^yaml id:nacion<player.name> set nacion.rec:->:<player.name>
+          }
+        }
+      - ^inventory open d:in@inv_athelwulf
+      - ^yaml savefile:naciones/nacionlicantropica.yml id:nacion<player.name>
+      }
+
+    - ^if <context.cursor_item.material.id> == 4 {
+      - ^yaml load:naciones/nacionlicantropica.yml id:nacion<player.name>
+      - ^if <yaml[nacion<player.name>].read[nacion.cobblestone]> > 0 {
+        - ^narrate "<gray>Entregaste: <gold><context.cursor_item.quantity> <dark_green>Bloques de cobblestone"
+        - ^yaml id:nacion<player.name> set nacion.cobblestone:-:<context.cursor_item.quantity>
+        - ^adjust <player> item_on_cursor:i@air
+        - ^if <yaml[nacion<player.name>].read[nacion.cobblestone]> < 0 {
+          - ^yaml id:nacion<player.name> set nacion.cobblestone:0
+          }
+        - ^if <yaml[nacion<player.name>].read[nacion.rec]> !contains <player.name> {
+          - ^yaml id:nacion<player.name> set nacion.rec:->:<player.name>
+          }
+        }
+      - ^inventory open d:in@inv_athelwulf 
+      - ^yaml savefile:naciones/nacionlicantropica.yml id:nacion<player.name>
+      }
+
+    - ^if <context.cursor_item.material.id> == 17 {
+      - ^yaml load:naciones/nacionlicantropica.yml id:nacion<player.name>
+      - ^if <yaml[nacion<player.name>].read[nacion.log]> > 0 {
+        - ^narrate "<gray>Entregaste: <gold><context.cursor_item.quantity> <dark_green>Troncos de madera"
+        - ^yaml id:nacion<player.name> set nacion.log:-:<context.cursor_item.quantity>
+        - ^adjust <player> item_on_cursor:i@air
+        - ^if <yaml[nacion<player.name>].read[nacion.log]> < 0 {
+          - ^yaml id:nacion<player.name> set nacion.log:0
+          }
+        - ^if <yaml[nacion<player.name>].read[nacion.rec]> !contains <player.name> {
+          - ^yaml id:nacion<player.name> set nacion.rec:->:<player.name>
+          }
+        }
+      - ^inventory open d:in@inv_athelwulf 
+      - ^yaml savefile:naciones/nacionlicantropica.yml id:nacion<player.name>
+      }
+
+    - ^if <context.cursor_item.material.id> == 159 && <context.cursor_item.material.data> == 5 {
+      - ^yaml load:naciones/nacionlicantropica.yml id:nacion<player.name>
+      - ^if <yaml[nacion<player.name>].read[nacion.lightclay]> > 0 {
+        - ^narrate "<gray>Entregaste: <gold><context.cursor_item.quantity> <dark_green>Arcilla verde clara"
+        - ^yaml id:nacion<player.name> set nacion.lightclay:-:<context.cursor_item.quantity>
+        - ^adjust <player> item_on_cursor:i@air
+        - ^if <yaml[nacion<player.name>].read[nacion.lightclay]> < 0 {
+          - ^yaml id:nacion<player.name> set nacion.lightclay:0
+          }
+        - ^if <yaml[nacion<player.name>].read[nacion.rec]> !contains <player.name> {
+          - ^yaml id:nacion<player.name> set nacion.rec:->:<player.name>
+          }
+        }
+      - ^inventory open d:in@inv_athelwulf 
+      - ^yaml savefile:naciones/nacionlicantropica.yml id:nacion<player.name>
+      }
+
+    - ^if <context.cursor_item.material.id> == 159 && <context.cursor_item.material.data> == 13 {
+      - ^yaml load:naciones/nacionlicantropica.yml id:nacion<player.name>
+      - ^if <yaml[nacion<player.name>].read[nacion.hardclay]> > 0 {
+        - ^narrate "<gray>Entregaste: <gold><context.cursor_item.quantity> <dark_green>Arcilla verde oscura"
+        - ^yaml id:nacion<player.name> set nacion.hardclay:-:<context.cursor_item.quantity>
+        - ^adjust <player> item_on_cursor:i@air
+        - ^if <yaml[nacion<player.name>].read[nacion.hardclay]> < 0 {
+          - ^yaml id:nacion<player.name> set nacion.hardclay:0
+          }
+        - ^if <yaml[nacion<player.name>].read[nacion.rec]> !contains <player.name> {
+          - ^yaml id:nacion<player.name> set nacion.rec:->:<player.name>
+          }
+        }
+      - ^inventory open d:in@inv_athelwulf 
+      - ^yaml savefile:naciones/nacionlicantropica.yml id:nacion<player.name>
+      }
+
+# Agregar los materiales al IF
+    - ^if <yaml[nacion<player.name>].read[nacion.log]> <= 0 && <yaml[nacion<player.name>].read[nacion.stonebrick]> <= 0 && <yaml[nacion<player.name>].read[nacion.cobblestone]> <= 0 && <yaml[nacion<player.name>].read[nacion.lightclay]> <= 0 && <yaml[nacion<player.name>].read[nacion.hardclay]> <= 0 {
+      - ^if <global.flag[nacionlicprogress].as_list> !contains NACIONINI {
+        - ^playsound <player> sound:complete custom
+        - ^execute as_npc "builder 104 build groupall layers:20" npc:104
+        - ^flag <global> nacionlicprogress:NACIONINI
+        - ^yaml savefile:naciones/nacionlicantropica.yml id:nacion<player.name>
+        }
+      }
+    - ^yaml unload id:nacion<player.name>
+    - DETERMINE cancelled
+
+################################################################################################# GARKAR
+    on player clicks Entregar in inv_garkar:
+    - ^if <context.cursor_item.material.id> == 98 {
+      - ^yaml load:naciones/nacionlicantropica.yml id:nacion<player.name>
+      - ^if <yaml[nacion<player.name>].read[aldeas.garkar.stonebrick]> > 0 {
+        - ^narrate "<gray>Entregaste: <gold><context.cursor_item.quantity> <dark_green>Ladrillos de piedra"
+        - ^yaml id:nacion<player.name> set aldeas.garkar.stonebrick:-:<context.cursor_item.quantity>
+        - ^adjust <player> item_on_cursor:i@air
+        - ^if <yaml[nacion<player.name>].read[aldeas.garkar.stonebrick]> < 0 {
+          - ^yaml id:nacion<player.name> set aldeas.garkar.stonebrick:0
+          }
+        - ^if <yaml[nacion<player.name>].read[aldeas.garkar.rec]> !contains <player.name> {
+          - ^yaml id:nacion<player.name> set aldeas.garkar.rec:->:<player.name>
+          }
+        }
+      - ^inventory open d:in@inv_garkar
+      - ^yaml savefile:naciones/nacionlicantropica.yml id:nacion<player.name>
+      }
+
+    - ^if <context.cursor_item.material.id> == 4 {
+      - ^yaml load:naciones/nacionlicantropica.yml id:nacion<player.name>
+      - ^if <yaml[nacion<player.name>].read[aldeas.garkar.cobblestone]> > 0 {
+        - ^narrate "<gray>Entregaste: <gold><context.cursor_item.quantity> <dark_green>Bloques de cobblestone"
+        - ^yaml id:nacion<player.name> set aldeas.garkar.cobblestone:-:<context.cursor_item.quantity>
+        - ^adjust <player> item_on_cursor:i@air
+        - ^if <yaml[nacion<player.name>].read[aldeas.garkar.cobblestone]> < 0 {
+          - ^yaml id:nacion<player.name> set aldeas.garkar.cobblestone:0
+          }
+        - ^if <yaml[nacion<player.name>].read[aldeas.garkar.rec]> !contains <player.name> {
+          - ^yaml id:nacion<player.name> set aldeas.garkar.rec:->:<player.name>
+          }
+        }
+      - ^inventory open d:in@inv_garkar 
+      - ^yaml savefile:naciones/nacionlicantropica.yml id:nacion<player.name>
+      }
+
+    - ^if <context.cursor_item.material.id> == 17 {
+      - ^yaml load:naciones/nacionlicantropica.yml id:nacion<player.name>
+      - ^if <yaml[nacion<player.name>].read[aldeas.garkar.log]> > 0 {
+        - ^narrate "<gray>Entregaste: <gold><context.cursor_item.quantity> <dark_green>Troncos de madera"
+        - ^yaml id:nacion<player.name> set aldeas.garkar.log:-:<context.cursor_item.quantity>
+        - ^adjust <player> item_on_cursor:i@air
+        - ^if <yaml[nacion<player.name>].read[aldeas.garkar.log]> < 0 {
+          - ^yaml id:nacion<player.name> set aldeas.garkar.log:0
+          }
+        - ^if <yaml[nacion<player.name>].read[aldeas.garkar.rec]> !contains <player.name> {
+          - ^yaml id:nacion<player.name> set aldeas.garkar.rec:->:<player.name>
+          }
+        }
+      - ^inventory open d:in@inv_garkar 
+      - ^yaml savefile:naciones/nacionlicantropica.yml id:nacion<player.name>
+      }
+
+    - ^if <context.cursor_item.material.id> == 159 && <context.cursor_item.material.data> == 5 {
+      - ^yaml load:naciones/nacionlicantropica.yml id:nacion<player.name>
+      - ^if <yaml[nacion<player.name>].read[aldeas.garkar.lightclay]> > 0 {
+        - ^narrate "<gray>Entregaste: <gold><context.cursor_item.quantity> <dark_green>Arcilla verde clara"
+        - ^yaml id:nacion<player.name> set aldeas.garkar.lightclay:-:<context.cursor_item.quantity>
+        - ^adjust <player> item_on_cursor:i@air
+        - ^if <yaml[nacion<player.name>].read[aldeas.garkar.lightclay]> < 0 {
+          - ^yaml id:nacion<player.name> set aldeas.garkar.lightclay:0
+          }
+        - ^if <yaml[nacion<player.name>].read[aldeas.garkar.rec]> !contains <player.name> {
+          - ^yaml id:nacion<player.name> set aldeas.garkar.rec:->:<player.name>
+          }
+        }
+      - ^inventory open d:in@inv_garkar 
+      - ^yaml savefile:naciones/nacionlicantropica.yml id:nacion<player.name>
+      }
+
+    - ^if <context.cursor_item.material.id> == 159 && <context.cursor_item.material.data> == 13 {
+      - ^yaml load:naciones/nacionlicantropica.yml id:nacion<player.name>
+      - ^if <yaml[nacion<player.name>].read[aldeas.garkar.hardclay]> > 0 {
+        - ^narrate "<gray>Entregaste: <gold><context.cursor_item.quantity> <dark_green>Arcilla verde oscura"
+        - ^yaml id:nacion<player.name> set aldeas.garkar.hardclay:-:<context.cursor_item.quantity>
+        - ^adjust <player> item_on_cursor:i@air
+        - ^if <yaml[nacion<player.name>].read[aldeas.garkar.hardclay]> < 0 {
+          - ^yaml id:nacion<player.name> set aldeas.garkar.hardclay:0
+          }
+        - ^if <yaml[nacion<player.name>].read[aldeas.garkar.rec]> !contains <player.name> {
+          - ^yaml id:nacion<player.name> set aldeas.garkar.rec:->:<player.name>
+          }
+        }
+      - ^inventory open d:in@inv_garkar 
+      - ^yaml savefile:naciones/nacionlicantropica.yml id:nacion<player.name>
+      }
+
+# Agregar los materiales al IF
+    - ^if <yaml[nacion<player.name>].read[aldeas.garkar.log]> <= 0 && <yaml[nacion<player.name>].read[aldeas.garkar.stonebrick]> <= 0 && <yaml[nacion<player.name>].read[aldeas.garkar.cobblestone]> <= 0 && <yaml[nacion<player.name>].read[aldeas.garkar.lightclay]> <= 0 && <yaml[nacion<player.name>].read[aldeas.garkar.hardclay]> <= 0 {
+      - ^if <global.flag[nacionlicprogress].as_list> !contains GARKAR1OK {
+        - ^playsound <player> sound:complete custom
+        - ^yaml id:nacion<player.name> set aldeas.garkar.stonebrick:487
+        - ^yaml id:nacion<player.name> set aldeas.garkar.cobblestone:487
+        - ^yaml id:nacion<player.name> set aldeas.garkar.log:147
+        - ^yaml id:nacion<player.name> set aldeas.garkar.lightclay:73
+        - ^yaml id:nacion<player.name> set aldeas.garkar.hardclay:73
+        - ^yaml id:nacion<player.name> set aldeas.garkar.status:1
+        - ^schematic load name:garkarup1
+        - ^schematic paste name:garkarup1 location:<cu@garkarup1.min>
+        - ^schematic unload name:garkarup1
+        - ^flag <global> nacionlicprogress:->:GARKAR1OK
+        - ^yaml savefile:naciones/nacionlicantropica.yml id:nacion<player.name>
+        } else if <global.flag[nacionlicprogress].as_list> !contains GARKAR2OK && <global.flag[nacionlicprogress].as_list> contains GARKAR1OK {
+        - ^playsound <player> sound:complete custom
+        - ^yaml id:nacion<player.name> set aldeas.garkar.stonebrick:650
+        - ^yaml id:nacion<player.name> set aldeas.garkar.cobblestone:650
+        - ^yaml id:nacion<player.name> set aldeas.garkar.log:196
+        - ^yaml id:nacion<player.name> set aldeas.garkar.lightclay:98
+        - ^yaml id:nacion<player.name> set aldeas.garkar.hardclay:98
+        - ^yaml id:nacion<player.name> set aldeas.garkar.status:2
+        - ^schematic load name:garkarup2
+        - ^schematic paste name:garkarup2 location:<cu@garkarup2.min>
+        - ^schematic unload name:garkarup2
+        - ^flag <global> nacionlicprogress:->:GARKAR2OK
+        - ^yaml savefile:naciones/nacionlicantropica.yml id:nacion<player.name>
+        } else if <global.flag[nacionlicprogress].as_list> !contains GARKAR3OK && <global.flag[nacionlicprogress].as_list> contains GARKAR2OK {
+        - ^playsound <player> sound:complete custom
+        - ^schematic load name:garkarup3
+        - ^schematic paste name:garkarup3 location:<cu@garkarup3.min>
+        - ^schematic unload name:garkarup3
+        - ^wait 5s
+        - ^schematic load name:garkarup3ex
+        - ^schematic paste name:garkarup3ex location:<cu@garkarup3ex.min> noair
+        - ^schematic unload name:garkarup3ex
+        - ^flag <global> nacionlicprogress:->:GARKAR3OK
+        - ^teleport n@145 location:3155.5,96,3821.5,Esparcraft
+        - ^teleport n@144 location:3154.5,106,3852.5,Esparcraft
+        - ^teleport n@104 location:3148.5,63,3830.5,Esparcraft
+        - ^yaml savefile:naciones/nacionlicantropica.yml id:nacion<player.name>
+        }
+      }
+    - ^yaml unload id:nacion<player.name>
+    - DETERMINE cancelled
+
+################################################################################################# RAKDOT
+    on player clicks Entregar in inv_rakdot:
+    - ^if <context.cursor_item.material.id> == 98 {
+      - ^yaml load:naciones/nacionlicantropica.yml id:nacion<player.name>
+      - ^if <yaml[nacion<player.name>].read[aldeas.rakdot.stonebrick]> > 0 {
+        - ^narrate "<gray>Entregaste: <gold><context.cursor_item.quantity> <dark_green>Ladrillos de piedra"
+        - ^yaml id:nacion<player.name> set aldeas.rakdot.stonebrick:-:<context.cursor_item.quantity>
+        - ^adjust <player> item_on_cursor:i@air
+        - ^if <yaml[nacion<player.name>].read[aldeas.rakdot.stonebrick]> < 0 {
+          - ^yaml id:nacion<player.name> set aldeas.rakdot.stonebrick:0
+          }
+        - ^if <yaml[nacion<player.name>].read[aldeas.rakdot.rec]> !contains <player.name> {
+          - ^yaml id:nacion<player.name> set aldeas.rakdot.rec:->:<player.name>
+          }
+        }
+      - ^inventory open d:in@inv_rakdot
+      - ^yaml savefile:naciones/nacionlicantropica.yml id:nacion<player.name>
+      }
+
+    - ^if <context.cursor_item.material.id> == 4 {
+      - ^yaml load:naciones/nacionlicantropica.yml id:nacion<player.name>
+      - ^if <yaml[nacion<player.name>].read[aldeas.rakdot.cobblestone]> > 0 {
+        - ^narrate "<gray>Entregaste: <gold><context.cursor_item.quantity> <dark_green>Bloques de cobblestone"
+        - ^yaml id:nacion<player.name> set aldeas.rakdot.cobblestone:-:<context.cursor_item.quantity>
+        - ^adjust <player> item_on_cursor:i@air
+        - ^if <yaml[nacion<player.name>].read[aldeas.rakdot.cobblestone]> < 0 {
+          - ^yaml id:nacion<player.name> set aldeas.rakdot.cobblestone:0
+          }
+        - ^if <yaml[nacion<player.name>].read[aldeas.rakdot.rec]> !contains <player.name> {
+          - ^yaml id:nacion<player.name> set aldeas.rakdot.rec:->:<player.name>
+          }
+        }
+      - ^inventory open d:in@inv_rakdot 
+      - ^yaml savefile:naciones/nacionlicantropica.yml id:nacion<player.name>
+      }
+
+    - ^if <context.cursor_item.material.id> == 17 {
+      - ^yaml load:naciones/nacionlicantropica.yml id:nacion<player.name>
+      - ^if <yaml[nacion<player.name>].read[aldeas.rakdot.log]> > 0 {
+        - ^narrate "<gray>Entregaste: <gold><context.cursor_item.quantity> <dark_green>Troncos de madera"
+        - ^yaml id:nacion<player.name> set aldeas.rakdot.log:-:<context.cursor_item.quantity>
+        - ^adjust <player> item_on_cursor:i@air
+        - ^if <yaml[nacion<player.name>].read[aldeas.rakdot.log]> < 0 {
+          - ^yaml id:nacion<player.name> set aldeas.rakdot.log:0
+          }
+        - ^if <yaml[nacion<player.name>].read[aldeas.rakdot.rec]> !contains <player.name> {
+          - ^yaml id:nacion<player.name> set aldeas.rakdot.rec:->:<player.name>
+          }
+        }
+      - ^inventory open d:in@inv_rakdot 
+      - ^yaml savefile:naciones/nacionlicantropica.yml id:nacion<player.name>
+      }
+
+    - ^if <context.cursor_item.material.id> == 159 && <context.cursor_item.material.data> == 5 {
+      - ^yaml load:naciones/nacionlicantropica.yml id:nacion<player.name>
+      - ^if <yaml[nacion<player.name>].read[aldeas.rakdot.lightclay]> > 0 {
+        - ^narrate "<gray>Entregaste: <gold><context.cursor_item.quantity> <dark_green>Arcilla verde clara"
+        - ^yaml id:nacion<player.name> set aldeas.rakdot.lightclay:-:<context.cursor_item.quantity>
+        - ^adjust <player> item_on_cursor:i@air
+        - ^if <yaml[nacion<player.name>].read[aldeas.rakdot.lightclay]> < 0 {
+          - ^yaml id:nacion<player.name> set aldeas.rakdot.lightclay:0
+          }
+        - ^if <yaml[nacion<player.name>].read[aldeas.rakdot.rec]> !contains <player.name> {
+          - ^yaml id:nacion<player.name> set aldeas.rakdot.rec:->:<player.name>
+          }
+        }
+      - ^inventory open d:in@inv_rakdot 
+      - ^yaml savefile:naciones/nacionlicantropica.yml id:nacion<player.name>
+      }
+
+    - ^if <context.cursor_item.material.id> == 159 && <context.cursor_item.material.data> == 13 {
+      - ^yaml load:naciones/nacionlicantropica.yml id:nacion<player.name>
+      - ^if <yaml[nacion<player.name>].read[aldeas.rakdot.hardclay]> > 0 {
+        - ^narrate "<gray>Entregaste: <gold><context.cursor_item.quantity> <dark_green>Arcilla verde oscura"
+        - ^yaml id:nacion<player.name> set aldeas.rakdot.hardclay:-:<context.cursor_item.quantity>
+        - ^adjust <player> item_on_cursor:i@air
+        - ^if <yaml[nacion<player.name>].read[aldeas.rakdot.hardclay]> < 0 {
+          - ^yaml id:nacion<player.name> set aldeas.rakdot.hardclay:0
+          }
+        - ^if <yaml[nacion<player.name>].read[aldeas.rakdot.rec]> !contains <player.name> {
+          - ^yaml id:nacion<player.name> set aldeas.rakdot.rec:->:<player.name>
+          }
+        }
+      - ^inventory open d:in@inv_rakdot 
+      - ^yaml savefile:naciones/nacionlicantropica.yml id:nacion<player.name>
+      }
+
+# Agregar los materiales al IF
+    - ^if <yaml[nacion<player.name>].read[aldeas.rakdot.log]> <= 0 && <yaml[nacion<player.name>].read[aldeas.rakdot.stonebrick]> <= 0 && <yaml[nacion<player.name>].read[aldeas.rakdot.cobblestone]> <= 0 && <yaml[nacion<player.name>].read[aldeas.rakdot.lightclay]> <= 0 && <yaml[nacion<player.name>].read[aldeas.rakdot.hardclay]> <= 0 {
+      - ^if <global.flag[nacionlicprogress].as_list> !contains RAKDOT1OK {
+        - ^playsound <player> sound:complete custom
+        - ^yaml id:nacion<player.name> set aldeas.rakdot.stonebrick:487
+        - ^yaml id:nacion<player.name> set aldeas.rakdot.cobblestone:487
+        - ^yaml id:nacion<player.name> set aldeas.rakdot.log:147
+        - ^yaml id:nacion<player.name> set aldeas.rakdot.lightclay:73
+        - ^yaml id:nacion<player.name> set aldeas.rakdot.hardclay:73
+        - ^yaml id:nacion<player.name> set aldeas.rakdot.status:1
+        - ^schematic load name:rakdotup1
+        - ^schematic paste name:rakdotup1 location:<cu@rakdotup1.min>
+        - ^schematic unload name:rakdotup1
+        - ^flag <global> nacionlicprogress:->:RAKDOT1OK
+        - ^yaml savefile:naciones/nacionlicantropica.yml id:nacion<player.name>
+        } else if <global.flag[nacionlicprogress].as_list> !contains RAKDOT2OK && <global.flag[nacionlicprogress].as_list> contains RAKDOT1OK {
+        - ^playsound <player> sound:complete custom
+        - ^yaml id:nacion<player.name> set aldeas.rakdot.stonebrick:650
+        - ^yaml id:nacion<player.name> set aldeas.rakdot.cobblestone:650
+        - ^yaml id:nacion<player.name> set aldeas.rakdot.log:196
+        - ^yaml id:nacion<player.name> set aldeas.rakdot.lightclay:98
+        - ^yaml id:nacion<player.name> set aldeas.rakdot.hardclay:98
+        - ^yaml id:nacion<player.name> set aldeas.rakdot.status:2
+        - ^schematic load name:rakdotup2
+        - ^schematic paste name:rakdotup2 location:<cu@rakdotup2.min>
+        - ^schematic unload name:rakdotup2
+        - ^flag <global> nacionlicprogress:->:RAKDOT2OK
+        - ^yaml savefile:naciones/nacionlicantropica.yml id:nacion<player.name>
+        } else if <global.flag[nacionlicprogress].as_list> !contains RAKDOT3OK && <global.flag[nacionlicprogress].as_list> contains RAKDOT2OK {
+        - ^playsound <player> sound:complete custom
+        - ^schematic load name:rakdotup3
+        - ^schematic paste name:rakdotup3 location:<cu@rakdotup3.min>
+        - ^schematic unload name:rakdotup3
+        - ^wait 5s
+        - ^schematic load name:rakdotup3ex
+        - ^schematic paste name:rakdotup3ex location:<cu@rakdotup3ex.min> noair
+        - ^schematic unload name:rakdotup3ex
+        - ^flag <global> nacionlicprogress:->:RAKDOT3OK
+        - ^teleport n@140 location:3045.5,63,3827.5,Esparcraft
+        - ^teleport n@147 location:3035.5,96,3820.5,Esparcraft
+        - ^teleport n@146 location:3067.5,106,3820.5,Esparcraft
+        - ^yaml savefile:naciones/nacionlicantropica.yml id:nacion<player.name>
+        }
+      }
+    - ^yaml unload id:nacion<player.name>
+    - DETERMINE cancelled
+
+################################################################################################# KRANTE
+    on player clicks Entregar in inv_krante:
+    - ^if <context.cursor_item.material.id> == 98 {
+      - ^yaml load:naciones/nacionlicantropica.yml id:nacion<player.name>
+      - ^if <yaml[nacion<player.name>].read[aldeas.krante.stonebrick]> > 0 {
+        - ^narrate "<gray>Entregaste: <gold><context.cursor_item.quantity> <dark_green>Ladrillos de piedra"
+        - ^yaml id:nacion<player.name> set aldeas.krante.stonebrick:-:<context.cursor_item.quantity>
+        - ^adjust <player> item_on_cursor:i@air
+        - ^if <yaml[nacion<player.name>].read[aldeas.krante.stonebrick]> < 0 {
+          - ^yaml id:nacion<player.name> set aldeas.krante.stonebrick:0
+          }
+        - ^if <yaml[nacion<player.name>].read[aldeas.krante.rec]> !contains <player.name> {
+          - ^yaml id:nacion<player.name> set aldeas.krante.rec:->:<player.name>
+          }
+        }
+      - ^inventory open d:in@inv_krante
+      - ^yaml savefile:naciones/nacionlicantropica.yml id:nacion<player.name>
+      }
+
+    - ^if <context.cursor_item.material.id> == 4 {
+      - ^yaml load:naciones/nacionlicantropica.yml id:nacion<player.name>
+      - ^if <yaml[nacion<player.name>].read[aldeas.krante.cobblestone]> > 0 {
+        - ^narrate "<gray>Entregaste: <gold><context.cursor_item.quantity> <dark_green>Bloques de cobblestone"
+        - ^yaml id:nacion<player.name> set aldeas.krante.cobblestone:-:<context.cursor_item.quantity>
+        - ^adjust <player> item_on_cursor:i@air
+        - ^if <yaml[nacion<player.name>].read[aldeas.krante.cobblestone]> < 0 {
+          - ^yaml id:nacion<player.name> set aldeas.krante.cobblestone:0
+          }
+        - ^if <yaml[nacion<player.name>].read[aldeas.krante.rec]> !contains <player.name> {
+          - ^yaml id:nacion<player.name> set aldeas.krante.rec:->:<player.name>
+          }
+        }
+      - ^inventory open d:in@inv_krante 
+      - ^yaml savefile:naciones/nacionlicantropica.yml id:nacion<player.name>
+      }
+
+    - ^if <context.cursor_item.material.id> == 17 {
+      - ^yaml load:naciones/nacionlicantropica.yml id:nacion<player.name>
+      - ^if <yaml[nacion<player.name>].read[aldeas.krante.log]> > 0 {
+        - ^narrate "<gray>Entregaste: <gold><context.cursor_item.quantity> <dark_green>Troncos de madera"
+        - ^yaml id:nacion<player.name> set aldeas.krante.log:-:<context.cursor_item.quantity>
+        - ^adjust <player> item_on_cursor:i@air
+        - ^if <yaml[nacion<player.name>].read[aldeas.krante.log]> < 0 {
+          - ^yaml id:nacion<player.name> set aldeas.krante.log:0
+          }
+        - ^if <yaml[nacion<player.name>].read[aldeas.krante.rec]> !contains <player.name> {
+          - ^yaml id:nacion<player.name> set aldeas.krante.rec:->:<player.name>
+          }
+        }
+      - ^inventory open d:in@inv_krante 
+      - ^yaml savefile:naciones/nacionlicantropica.yml id:nacion<player.name>
+      }
+
+    - ^if <context.cursor_item.material.id> == 159 && <context.cursor_item.material.data> == 5 {
+      - ^yaml load:naciones/nacionlicantropica.yml id:nacion<player.name>
+      - ^if <yaml[nacion<player.name>].read[aldeas.krante.lightclay]> > 0 {
+        - ^narrate "<gray>Entregaste: <gold><context.cursor_item.quantity> <dark_green>Arcilla verde clara"
+        - ^yaml id:nacion<player.name> set aldeas.krante.lightclay:-:<context.cursor_item.quantity>
+        - ^adjust <player> item_on_cursor:i@air
+        - ^if <yaml[nacion<player.name>].read[aldeas.krante.lightclay]> < 0 {
+          - ^yaml id:nacion<player.name> set aldeas.krante.lightclay:0
+          }
+        - ^if <yaml[nacion<player.name>].read[aldeas.krante.rec]> !contains <player.name> {
+          - ^yaml id:nacion<player.name> set aldeas.krante.rec:->:<player.name>
+          }
+        }
+      - ^inventory open d:in@inv_krante 
+      - ^yaml savefile:naciones/nacionlicantropica.yml id:nacion<player.name>
+      }
+
+    - ^if <context.cursor_item.material.id> == 159 && <context.cursor_item.material.data> == 13 {
+      - ^yaml load:naciones/nacionlicantropica.yml id:nacion<player.name>
+      - ^if <yaml[nacion<player.name>].read[aldeas.krante.hardclay]> > 0 {
+        - ^narrate "<gray>Entregaste: <gold><context.cursor_item.quantity> <dark_green>Arcilla verde oscura"
+        - ^yaml id:nacion<player.name> set aldeas.krante.hardclay:-:<context.cursor_item.quantity>
+        - ^adjust <player> item_on_cursor:i@air
+        - ^if <yaml[nacion<player.name>].read[aldeas.krante.hardclay]> < 0 {
+          - ^yaml id:nacion<player.name> set aldeas.krante.hardclay:0
+          }
+        - ^if <yaml[nacion<player.name>].read[aldeas.krante.rec]> !contains <player.name> {
+          - ^yaml id:nacion<player.name> set aldeas.krante.rec:->:<player.name>
+          }
+        }
+      - ^inventory open d:in@inv_krante 
+      - ^yaml savefile:naciones/nacionlicantropica.yml id:nacion<player.name>
+      }
+
+# Agregar los materiales al IF
+    - ^if <yaml[nacion<player.name>].read[aldeas.krante.log]> <= 0 && <yaml[nacion<player.name>].read[aldeas.krante.stonebrick]> <= 0 && <yaml[nacion<player.name>].read[aldeas.krante.cobblestone]> <= 0 && <yaml[nacion<player.name>].read[aldeas.krante.lightclay]> <= 0 && <yaml[nacion<player.name>].read[aldeas.krante.hardclay]> <= 0 {
+      - ^if <global.flag[nacionlicprogress].as_list> !contains KRANTE1OK {
+        - ^playsound <player> sound:complete custom
+        - ^yaml id:nacion<player.name> set aldeas.krante.stonebrick:487
+        - ^yaml id:nacion<player.name> set aldeas.krante.cobblestone:487
+        - ^yaml id:nacion<player.name> set aldeas.krante.log:147
+        - ^yaml id:nacion<player.name> set aldeas.krante.lightclay:73
+        - ^yaml id:nacion<player.name> set aldeas.krante.hardclay:73
+        - ^yaml id:nacion<player.name> set aldeas.krante.status:1
+        - ^schematic load name:kranteup1
+        - ^schematic paste name:kranteup1 location:<cu@kranteup1.min>
+        - ^schematic unload name:kranteup1
+        - ^flag <global> nacionlicprogress:->:KRANTE1OK
+        - ^yaml savefile:naciones/nacionlicantropica.yml id:nacion<player.name>
+        } else if <global.flag[nacionlicprogress].as_list> !contains KRANTE2OK && <global.flag[nacionlicprogress].as_list> contains KRANTE1OK {
+        - ^playsound <player> sound:complete custom
+        - ^yaml id:nacion<player.name> set aldeas.krante.stonebrick:650
+        - ^yaml id:nacion<player.name> set aldeas.krante.cobblestone:650
+        - ^yaml id:nacion<player.name> set aldeas.krante.log:196
+        - ^yaml id:nacion<player.name> set aldeas.krante.lightclay:98
+        - ^yaml id:nacion<player.name> set aldeas.krante.hardclay:98
+        - ^yaml id:nacion<player.name> set aldeas.krante.status:2
+        - ^schematic load name:kranteup2
+        - ^schematic paste name:kranteup2 location:<cu@kranteup2.min>
+        - ^schematic unload name:kranteup2
+        - ^flag <global> nacionlicprogress:->:KRANTE2OK
+        - ^yaml savefile:naciones/nacionlicantropica.yml id:nacion<player.name>
+        } else if <global.flag[nacionlicprogress].as_list> !contains KRANTE3OK && <global.flag[nacionlicprogress].as_list> contains KRANTE2OK {
+        - ^playsound <player> sound:complete custom
+        - ^schematic load name:kranteup3
+        - ^schematic paste name:kranteup3 location:<cu@kranteup3.min>
+        - ^schematic unload name:kranteup3
+        - ^wait 5s
+        - ^schematic load name:kranteup3ex
+        - ^schematic paste name:kranteup3ex location:<cu@kranteup3ex.min> noair
+        - ^schematic unload name:kranteup3ex
+        - ^flag <global> nacionlicprogress:->:KRANTE3OK
+        - ^teleport n@142 location:3145.5,63,3933.5,Esparcraft
+        - ^teleport n@148 location:3155.5,96,3940.5,Esparcraft
+        - ^teleport n@149 location:3124.5,106,3939.5,Esparcraft
+        - ^yaml savefile:naciones/nacionlicantropica.yml id:nacion<player.name>
+        }
+      }
+    - ^yaml unload id:nacion<player.name>
+    - DETERMINE cancelled
+#·············································································Nacion Vampire
+#-------------Zane Kilgore Sabbath ----------------
+    on player clicks Sipregunta in inv_zane4:
+    - ^inventory close d:in@inv_zane4
+    - ^title "title:<red>[<dark_red>Zane Kilgore<red>]" "subtitle:<dark_red>[<red>JAJajajja veamos que traes.<dark_red>]" stay:6s
+    - wait 2s
+    - execute as_op "dxl play secuestro"
+
+    on player clicks Nopregunta in inv_zane4:
+    - ^inventory close d:in@inv_zane4
+    - ^title "title:<red>[<dark_red>Zane Kilgore<red>]" "subtitle:<dark_red>[<red>Jajajaja mugre humano cobarde...<dark_red>]" stay:6s
+    on player clicks in inv_zane4:
+    - DETERMINE cancelled
+    on player drags in inv_zane4:
+    - DETERMINE cancelled
+#---------------------------------------------------
+    on player clicks SBVampire in inv_zane3:
+    - DETERMINE cancelled
+    on player clicks CBBLVampire in inv_zane3:
+    - DETERMINE cancelled
+    on player clicks LOGVampire in inv_zane3:
+    - DETERMINE cancelled
+    on player clicks LCLAYVampire in inv_zane3:
+    - DETERMINE cancelled
+    on player clicks Zaneinfo2 in inv_zane3:
+    - DETERMINE cancelled
+    on player clicks HCLAYVampire in inv_zane3:
+    - DETERMINE cancelled
+
+    on player clicks nuxfelstonebrick in inv_nuxfel:
+    - DETERMINE cancelled
+    on player clicks nuxfelcobblestone in inv_nuxfel:
+    - DETERMINE cancelled
+    on player clicks nuxfellog in inv_nuxfel:
+    - DETERMINE cancelled
+    on player clicks nuxfelhardclay in inv_nuxfel:
+    - DETERMINE cancelled
+    on player clicks nuxfellightclay in inv_nuxfel:
+    - DETERMINE cancelled
+    on player clicks nuxfelhardclay in inv_nuxfel:
+    - DETERMINE cancelled
+    on player clicks nuxfelinfo in inv_nuxfel:
+    - DETERMINE cancelled
+
+    on player clicks valironstonebrick in inv_valiron:
+    - DETERMINE cancelled
+    on player clicks valironcobblestone in inv_valiron:
+    - DETERMINE cancelled
+    on player clicks valironlog in inv_valiron:
+    - DETERMINE cancelled
+    on player clicks valironhardclay in inv_valiron:
+    - DETERMINE cancelled
+    on player clicks valironlightclay in inv_valiron:
+    - DETERMINE cancelled
+    on player clicks valironhardclay in inv_valiron:
+    - DETERMINE cancelled
+    on player clicks valironinfo in inv_valiron:
+    - DETERMINE cancelled
+
+    on player clicks dexarostonebrick in inv_dexaro:
+    - DETERMINE cancelled
+    on player clicks dexarocobblestone in inv_dexaro:
+    - DETERMINE cancelled
+    on player clicks dexarolog in inv_dexaro:
+    - DETERMINE cancelled
+    on player clicks dexarohardclay in inv_dexaro:
+    - DETERMINE cancelled
+    on player clicks dexarolightclay in inv_dexaro:
+    - DETERMINE cancelled
+    on player clicks dexarohardclay in inv_dexaro:
+    - DETERMINE cancelled
+    on player clicks dexaroinfo in inv_dexaro:
+    - DETERMINE cancelled
+
+###########################################   NACION VAMPIRE
+    on player clicks Entregar in inv_zane3:
+    - ^if <context.cursor_item.material.id> == 98 {
+      - ^yaml load:naciones/nacionvampirica.yml id:nacion<player.name>
+      - ^if <yaml[nacion<player.name>].read[nacion.stonebrick]> > 0 {
+        - ^narrate "<gray>Entregaste: <gold><context.cursor_item.quantity> <dark_green>Ladrillos de piedra"
+        - ^yaml id:nacion<player.name> set nacion.stonebrick:-:<context.cursor_item.quantity>
+        - ^adjust <player> item_on_cursor:i@air
+        - ^if <yaml[nacion<player.name>].read[nacion.stonebrick]> < 0 {
+          - ^yaml id:nacion<player.name> set nacion.stonebrick:0
+          }
+        - ^if <yaml[nacion<player.name>].read[nacion.rec]> !contains <player.name> {
+          - ^yaml id:nacion<player.name> set nacion.rec:->:<player.name>
+          }
+        }
+      - ^inventory open d:in@inv_zane3
+      - ^yaml savefile:naciones/nacionvampirica.yml id:nacion<player.name>
+      }
+
+    - ^if <context.cursor_item.material.id> == 4 {
+      - ^yaml load:naciones/nacionvampirica.yml id:nacion<player.name>
+      - ^if <yaml[nacion<player.name>].read[nacion.cobblestone]> > 0 {
+        - ^narrate "<gray>Entregaste: <gold><context.cursor_item.quantity> <dark_green>Bloques de cobblestone"
+        - ^yaml id:nacion<player.name> set nacion.cobblestone:-:<context.cursor_item.quantity>
+        - ^adjust <player> item_on_cursor:i@air
+        - ^if <yaml[nacion<player.name>].read[nacion.cobblestone]> < 0 {
+          - ^yaml id:nacion<player.name> set nacion.cobblestone:0
+          }
+        - ^if <yaml[nacion<player.name>].read[nacion.rec]> !contains <player.name> {
+          - ^yaml id:nacion<player.name> set nacion.rec:->:<player.name>
+          }
+        }
+      - ^inventory open d:in@inv_zane3 
+      - ^yaml savefile:naciones/nacionvampirica.yml id:nacion<player.name>
+      }
+
+    - ^if <context.cursor_item.material.id> == 17 {
+      - ^yaml load:naciones/nacionvampirica.yml id:nacion<player.name>
+      - ^if <yaml[nacion<player.name>].read[nacion.log]> > 0 {
+        - ^narrate "<gray>Entregaste: <gold><context.cursor_item.quantity> <dark_green>Troncos de madera"
+        - ^yaml id:nacion<player.name> set nacion.log:-:<context.cursor_item.quantity>
+        - ^adjust <player> item_on_cursor:i@air
+        - ^if <yaml[nacion<player.name>].read[nacion.log]> < 0 {
+          - ^yaml id:nacion<player.name> set nacion.log:0
+          }
+        - ^if <yaml[nacion<player.name>].read[nacion.rec]> !contains <player.name> {
+          - ^yaml id:nacion<player.name> set nacion.rec:->:<player.name>
+          }
+        }
+      - ^inventory open d:in@inv_zane3 
+      - ^yaml savefile:naciones/nacionvampirica.yml id:nacion<player.name>
+      }
+
+    - ^if <context.cursor_item.material.id> == 159 && <context.cursor_item.material.data> == 14 {
+      - ^yaml load:naciones/nacionvampirica.yml id:nacion<player.name>
+      - ^if <yaml[nacion<player.name>].read[nacion.lightclay]> > 0 {
+        - ^narrate "<gray>Entregaste: <gold><context.cursor_item.quantity> <dark_green>Arcilla roja"
+        - ^yaml id:nacion<player.name> set nacion.lightclay:-:<context.cursor_item.quantity>
+        - ^adjust <player> item_on_cursor:i@air
+        - ^if <yaml[nacion<player.name>].read[nacion.lightclay]> < 0 {
+          - ^yaml id:nacion<player.name> set nacion.lightclay:0
+          }
+        - ^if <yaml[nacion<player.name>].read[nacion.rec]> !contains <player.name> {
+          - ^yaml id:nacion<player.name> set nacion.rec:->:<player.name>
+          }
+        }
+      - ^inventory open d:in@inv_zane3 
+      - ^yaml savefile:naciones/nacionvampirica.yml id:nacion<player.name>
+      }
+
+    - ^if <context.cursor_item.material.id> == 159 && <context.cursor_item.material.data> == 15 {
+      - ^yaml load:naciones/nacionvampirica.yml id:nacion<player.name>
+      - ^if <yaml[nacion<player.name>].read[nacion.hardclay]> > 0 {
+        - ^narrate "<gray>Entregaste: <gold><context.cursor_item.quantity> <dark_green>Arcilla negra"
+        - ^yaml id:nacion<player.name> set nacion.hardclay:-:<context.cursor_item.quantity>
+        - ^adjust <player> item_on_cursor:i@air
+        - ^if <yaml[nacion<player.name>].read[nacion.hardclay]> < 0 {
+          - ^yaml id:nacion<player.name> set nacion.hardclay:0
+          }
+        - ^if <yaml[nacion<player.name>].read[nacion.rec]> !contains <player.name> {
+          - ^yaml id:nacion<player.name> set nacion.rec:->:<player.name>
+          }
+        }
+      - ^inventory open d:in@inv_zane3 
+      - ^yaml savefile:naciones/nacionvampirica.yml id:nacion<player.name>
+      }
+
+# Agregar los materiales al IF
+    - ^if <yaml[nacion<player.name>].read[nacion.log]> <= 0 && <yaml[nacion<player.name>].read[nacion.stonebrick]> <= 0 && <yaml[nacion<player.name>].read[nacion.cobblestone]> <= 0 && <yaml[nacion<player.name>].read[nacion.lightclay]> <= 0 && <yaml[nacion<player.name>].read[nacion.hardclay]> <= 0 {
+      - ^if <global.flag[nacionvamprogress].as_list> !contains NACIONINI {
+        - ^playsound <player> sound:complete custom
+        - ^execute as_npc "builder 61 build groupall layers:20" npc:61
+        - ^flag <global> nacionvamprogress:NACIONINI
+        - ^yaml savefile:naciones/nacionvampirica.yml id:nacion<player.name>
+        }
+      }
+    - ^yaml unload id:nacion<player.name>
+    - DETERMINE cancelled
+
+################################################################################################# nuxfel
+    on player clicks Entregar in inv_nuxfel:
+    - ^if <context.cursor_item.material.id> == 98 {
+      - ^yaml load:naciones/nacionvampirica.yml id:nacion<player.name>
+      - ^if <yaml[nacion<player.name>].read[aldeas.nuxfel.stonebrick]> > 0 {
+        - ^narrate "<gray>Entregaste: <gold><context.cursor_item.quantity> <dark_green>Ladrillos de piedra"
+        - ^yaml id:nacion<player.name> set aldeas.nuxfel.stonebrick:-:<context.cursor_item.quantity>
+        - ^adjust <player> item_on_cursor:i@air
+        - ^if <yaml[nacion<player.name>].read[aldeas.nuxfel.stonebrick]> < 0 {
+          - ^yaml id:nacion<player.name> set aldeas.nuxfel.stonebrick:0
+          }
+        - ^if <yaml[nacion<player.name>].read[aldeas.nuxfel.rec]> !contains <player.name> {
+          - ^yaml id:nacion<player.name> set aldeas.nuxfel.rec:->:<player.name>
+          }
+        }
+      - ^inventory open d:in@inv_nuxfel
+      - ^yaml savefile:naciones/nacionvampirica.yml id:nacion<player.name>
+      }
+
+    - ^if <context.cursor_item.material.id> == 4 {
+      - ^yaml load:naciones/nacionvampirica.yml id:nacion<player.name>
+      - ^if <yaml[nacion<player.name>].read[aldeas.nuxfel.cobblestone]> > 0 {
+        - ^narrate "<gray>Entregaste: <gold><context.cursor_item.quantity> <dark_green>Bloques de cobblestone"
+        - ^yaml id:nacion<player.name> set aldeas.nuxfel.cobblestone:-:<context.cursor_item.quantity>
+        - ^adjust <player> item_on_cursor:i@air
+        - ^if <yaml[nacion<player.name>].read[aldeas.nuxfel.cobblestone]> < 0 {
+          - ^yaml id:nacion<player.name> set aldeas.nuxfel.cobblestone:0
+          }
+        - ^if <yaml[nacion<player.name>].read[aldeas.nuxfel.rec]> !contains <player.name> {
+          - ^yaml id:nacion<player.name> set aldeas.nuxfel.rec:->:<player.name>
+          }
+        }
+      - ^inventory open d:in@inv_nuxfel 
+      - ^yaml savefile:naciones/nacionvampirica.yml id:nacion<player.name>
+      }
+
+    - ^if <context.cursor_item.material.id> == 17 {
+      - ^yaml load:naciones/nacionvampirica.yml id:nacion<player.name>
+      - ^if <yaml[nacion<player.name>].read[aldeas.nuxfel.log]> > 0 {
+        - ^narrate "<gray>Entregaste: <gold><context.cursor_item.quantity> <dark_green>Troncos de madera"
+        - ^yaml id:nacion<player.name> set aldeas.nuxfel.log:-:<context.cursor_item.quantity>
+        - ^adjust <player> item_on_cursor:i@air
+        - ^if <yaml[nacion<player.name>].read[aldeas.nuxfel.log]> < 0 {
+          - ^yaml id:nacion<player.name> set aldeas.nuxfel.log:0
+          }
+        - ^if <yaml[nacion<player.name>].read[aldeas.nuxfel.rec]> !contains <player.name> {
+          - ^yaml id:nacion<player.name> set aldeas.nuxfel.rec:->:<player.name>
+          }
+        }
+      - ^inventory open d:in@inv_nuxfel 
+      - ^yaml savefile:naciones/nacionvampirica.yml id:nacion<player.name>
+      }
+
+    - ^if <context.cursor_item.material.id> == 159 && <context.cursor_item.material.data> == 14 {
+      - ^yaml load:naciones/nacionvampirica.yml id:nacion<player.name>
+      - ^if <yaml[nacion<player.name>].read[aldeas.nuxfel.lightclay]> > 0 {
+        - ^narrate "<gray>Entregaste: <gold><context.cursor_item.quantity> <dark_green>Arcilla roja"
+        - ^yaml id:nacion<player.name> set aldeas.nuxfel.lightclay:-:<context.cursor_item.quantity>
+        - ^adjust <player> item_on_cursor:i@air
+        - ^if <yaml[nacion<player.name>].read[aldeas.nuxfel.lightclay]> < 0 {
+          - ^yaml id:nacion<player.name> set aldeas.nuxfel.lightclay:0
+          }
+        - ^if <yaml[nacion<player.name>].read[aldeas.nuxfel.rec]> !contains <player.name> {
+          - ^yaml id:nacion<player.name> set aldeas.nuxfel.rec:->:<player.name>
+          }
+        }
+      - ^inventory open d:in@inv_nuxfel 
+      - ^yaml savefile:naciones/nacionvampirica.yml id:nacion<player.name>
+      }
+
+    - ^if <context.cursor_item.material.id> == 159 && <context.cursor_item.material.data> == 15 {
+      - ^yaml load:naciones/nacionvampirica.yml id:nacion<player.name>
+      - ^if <yaml[nacion<player.name>].read[aldeas.nuxfel.hardclay]> > 0 {
+        - ^narrate "<gray>Entregaste: <gold><context.cursor_item.quantity> <dark_green>Arcilla negra"
+        - ^yaml id:nacion<player.name> set aldeas.nuxfel.hardclay:-:<context.cursor_item.quantity>
+        - ^adjust <player> item_on_cursor:i@air
+        - ^if <yaml[nacion<player.name>].read[aldeas.nuxfel.hardclay]> < 0 {
+          - ^yaml id:nacion<player.name> set aldeas.nuxfel.hardclay:0
+          }
+        - ^if <yaml[nacion<player.name>].read[aldeas.nuxfel.rec]> !contains <player.name> {
+          - ^yaml id:nacion<player.name> set aldeas.nuxfel.rec:->:<player.name>
+          }
+        }
+      - ^inventory open d:in@inv_nuxfel 
+      - ^yaml savefile:naciones/nacionvampirica.yml id:nacion<player.name>
+      }
+
+# Agregar los materiales al IF
+    - ^if <yaml[nacion<player.name>].read[aldeas.nuxfel.log]> <= 0 && <yaml[nacion<player.name>].read[aldeas.nuxfel.stonebrick]> <= 0 && <yaml[nacion<player.name>].read[aldeas.nuxfel.cobblestone]> <= 0 && <yaml[nacion<player.name>].read[aldeas.nuxfel.lightclay]> <= 0 && <yaml[nacion<player.name>].read[aldeas.nuxfel.hardclay]> <= 0 {
+      - ^if <global.flag[nacionvamprogress].as_list> !contains NUXFEL1OK {
+        - ^playsound <player> sound:complete custom
+        - ^yaml id:nacion<player.name> set aldeas.nuxfel.stonebrick:487
+        - ^yaml id:nacion<player.name> set aldeas.nuxfel.cobblestone:487
+        - ^yaml id:nacion<player.name> set aldeas.nuxfel.log:147
+        - ^yaml id:nacion<player.name> set aldeas.nuxfel.lightclay:73
+        - ^yaml id:nacion<player.name> set aldeas.nuxfel.hardclay:73
+        - ^yaml id:nacion<player.name> set aldeas.nuxfel.status:1
+        - ^schematic load name:nuxfelup1
+        - ^schematic paste name:nuxfelup1 location:<cu@nuxfelup1.min>
+        - ^schematic unload name:nuxfelup1
+        - ^flag <global> nacionvamprogress:->:NUXFEL1OK
+        - ^yaml savefile:naciones/nacionvampirica.yml id:nacion<player.name>
+        } else if <global.flag[nacionvamprogress].as_list> !contains NUXFEL2OK && <global.flag[nacionvamprogress].as_list> contains NUXFEL1OK {
+        - ^playsound <player> sound:complete custom
+        - ^yaml id:nacion<player.name> set aldeas.nuxfel.stonebrick:650
+        - ^yaml id:nacion<player.name> set aldeas.nuxfel.cobblestone:650
+        - ^yaml id:nacion<player.name> set aldeas.nuxfel.log:196
+        - ^yaml id:nacion<player.name> set aldeas.nuxfel.lightclay:98
+        - ^yaml id:nacion<player.name> set aldeas.nuxfel.hardclay:98
+        - ^yaml id:nacion<player.name> set aldeas.nuxfel.status:2
+        - ^schematic load name:nuxfelup2
+        - ^schematic paste name:nuxfelup2 location:<cu@nuxfelup2.min>
+        - ^schematic unload name:nuxfelup2
+        - ^flag <global> nacionvamprogress:->:NUXFEL2OK
+        - ^yaml savefile:naciones/nacionvampirica.yml id:nacion<player.name>
+        } else if <global.flag[nacionvamprogress].as_list> !contains NUXFEL3OK && <global.flag[nacionvamprogress].as_list> contains NUXFEL2OK {
+        - ^playsound <player> sound:complete custom
+        - ^schematic load name:nuxfelup3
+        - ^schematic paste name:nuxfelup3 location:<cu@nuxfelup3.min>
+        - ^schematic unload name:nuxfelup3
+        - ^flag <global> nacionvamprogress:->:NUXFEL3OK
+        - ^teleport n@61 location:3631.5,64,2610.5,Esparcraft
+        - ^teleport n@168 location:3626.5,63,2638.5,Esparcraft
+        - ^teleport n@167 location:3662.5,63,2602.5,Esparcraft
+        - ^yaml savefile:naciones/nacionvampirica.yml id:nacion<player.name>
+        }
+      }
+    - ^yaml unload id:nacion<player.name>
+    - DETERMINE cancelled
+
+################################################################################################# valiron
+    on player clicks Entregar in inv_valiron:
+    - ^if <context.cursor_item.material.id> == 98 {
+      - ^yaml load:naciones/nacionvampirica.yml id:nacion<player.name>
+      - ^if <yaml[nacion<player.name>].read[aldeas.valiron.stonebrick]> > 0 {
+        - ^narrate "<gray>Entregaste: <gold><context.cursor_item.quantity> <dark_green>Ladrillos de piedra"
+        - ^yaml id:nacion<player.name> set aldeas.valiron.stonebrick:-:<context.cursor_item.quantity>
+        - ^adjust <player> item_on_cursor:i@air
+        - ^if <yaml[nacion<player.name>].read[aldeas.valiron.stonebrick]> < 0 {
+          - ^yaml id:nacion<player.name> set aldeas.valiron.stonebrick:0
+          }
+        - ^if <yaml[nacion<player.name>].read[aldeas.valiron.rec]> !contains <player.name> {
+          - ^yaml id:nacion<player.name> set aldeas.valiron.rec:->:<player.name>
+          }
+        }
+      - ^inventory open d:in@inv_valiron
+      - ^yaml savefile:naciones/nacionvampirica.yml id:nacion<player.name>
+      }
+
+    - ^if <context.cursor_item.material.id> == 4 {
+      - ^yaml load:naciones/nacionvampirica.yml id:nacion<player.name>
+      - ^if <yaml[nacion<player.name>].read[aldeas.valiron.cobblestone]> > 0 {
+        - ^narrate "<gray>Entregaste: <gold><context.cursor_item.quantity> <dark_green>Bloques de cobblestone"
+        - ^yaml id:nacion<player.name> set aldeas.valiron.cobblestone:-:<context.cursor_item.quantity>
+        - ^adjust <player> item_on_cursor:i@air
+        - ^if <yaml[nacion<player.name>].read[aldeas.valiron.cobblestone]> < 0 {
+          - ^yaml id:nacion<player.name> set aldeas.valiron.cobblestone:0
+          }
+        - ^if <yaml[nacion<player.name>].read[aldeas.valiron.rec]> !contains <player.name> {
+          - ^yaml id:nacion<player.name> set aldeas.valiron.rec:->:<player.name>
+          }
+        }
+      - ^inventory open d:in@inv_valiron 
+      - ^yaml savefile:naciones/nacionvampirica.yml id:nacion<player.name>
+      }
+
+    - ^if <context.cursor_item.material.id> == 17 {
+      - ^yaml load:naciones/nacionvampirica.yml id:nacion<player.name>
+      - ^if <yaml[nacion<player.name>].read[aldeas.valiron.log]> > 0 {
+        - ^narrate "<gray>Entregaste: <gold><context.cursor_item.quantity> <dark_green>Troncos de madera"
+        - ^yaml id:nacion<player.name> set aldeas.valiron.log:-:<context.cursor_item.quantity>
+        - ^adjust <player> item_on_cursor:i@air
+        - ^if <yaml[nacion<player.name>].read[aldeas.valiron.log]> < 0 {
+          - ^yaml id:nacion<player.name> set aldeas.valiron.log:0
+          }
+        - ^if <yaml[nacion<player.name>].read[aldeas.valiron.rec]> !contains <player.name> {
+          - ^yaml id:nacion<player.name> set aldeas.valiron.rec:->:<player.name>
+          }
+        }
+      - ^inventory open d:in@inv_valiron 
+      - ^yaml savefile:naciones/nacionvampirica.yml id:nacion<player.name>
+      }
+
+    - ^if <context.cursor_item.material.id> == 159 && <context.cursor_item.material.data> == 14 {
+      - ^yaml load:naciones/nacionvampirica.yml id:nacion<player.name>
+      - ^if <yaml[nacion<player.name>].read[aldeas.valiron.lightclay]> > 0 {
+        - ^narrate "<gray>Entregaste: <gold><context.cursor_item.quantity> <dark_green>Arcilla roja"
+        - ^yaml id:nacion<player.name> set aldeas.valiron.lightclay:-:<context.cursor_item.quantity>
+        - ^adjust <player> item_on_cursor:i@air
+        - ^if <yaml[nacion<player.name>].read[aldeas.valiron.lightclay]> < 0 {
+          - ^yaml id:nacion<player.name> set aldeas.valiron.lightclay:0
+          }
+        - ^if <yaml[nacion<player.name>].read[aldeas.valiron.rec]> !contains <player.name> {
+          - ^yaml id:nacion<player.name> set aldeas.valiron.rec:->:<player.name>
+          }
+        }
+      - ^inventory open d:in@inv_valiron 
+      - ^yaml savefile:naciones/nacionvampirica.yml id:nacion<player.name>
+      }
+
+    - ^if <context.cursor_item.material.id> == 159 && <context.cursor_item.material.data> == 15 {
+      - ^yaml load:naciones/nacionvampirica.yml id:nacion<player.name>
+      - ^if <yaml[nacion<player.name>].read[aldeas.valiron.hardclay]> > 0 {
+        - ^narrate "<gray>Entregaste: <gold><context.cursor_item.quantity> <dark_green>Arcilla negra"
+        - ^yaml id:nacion<player.name> set aldeas.valiron.hardclay:-:<context.cursor_item.quantity>
+        - ^adjust <player> item_on_cursor:i@air
+        - ^if <yaml[nacion<player.name>].read[aldeas.valiron.hardclay]> < 0 {
+          - ^yaml id:nacion<player.name> set aldeas.valiron.hardclay:0
+          }
+        - ^if <yaml[nacion<player.name>].read[aldeas.valiron.rec]> !contains <player.name> {
+          - ^yaml id:nacion<player.name> set aldeas.valiron.rec:->:<player.name>
+          }
+        }
+      - ^inventory open d:in@inv_valiron 
+      - ^yaml savefile:naciones/nacionvampirica.yml id:nacion<player.name>
+      }
+
+# Agregar los materiales al IF
+    - ^if <yaml[nacion<player.name>].read[aldeas.valiron.log]> <= 0 && <yaml[nacion<player.name>].read[aldeas.valiron.stonebrick]> <= 0 && <yaml[nacion<player.name>].read[aldeas.valiron.cobblestone]> <= 0 && <yaml[nacion<player.name>].read[aldeas.valiron.lightclay]> <= 0 && <yaml[nacion<player.name>].read[aldeas.valiron.hardclay]> <= 0 {
+      - ^if <global.flag[nacionvamprogress].as_list> !contains VALIRON1OK {
+        - ^playsound <player> sound:complete custom
+        - ^yaml id:nacion<player.name> set aldeas.valiron.stonebrick:487
+        - ^yaml id:nacion<player.name> set aldeas.valiron.cobblestone:487
+        - ^yaml id:nacion<player.name> set aldeas.valiron.log:147
+        - ^yaml id:nacion<player.name> set aldeas.valiron.lightclay:73
+        - ^yaml id:nacion<player.name> set aldeas.valiron.hardclay:73
+        - ^yaml id:nacion<player.name> set aldeas.valiron.status:1
+        - ^schematic load name:valironup1
+        - ^schematic paste name:valironup1 location:<cu@valironup1.min>
+        - ^schematic unload name:valironup1
+        - ^flag <global> nacionvamprogress:->:VALIRON1OK
+        - ^yaml savefile:naciones/nacionvampirica.yml id:nacion<player.name>
+        } else if <global.flag[nacionvamprogress].as_list> !contains VALIRON2OK && <global.flag[nacionvamprogress].as_list> contains VALIRON1OK {
+        - ^playsound <player> sound:complete custom
+        - ^yaml id:nacion<player.name> set aldeas.valiron.stonebrick:650
+        - ^yaml id:nacion<player.name> set aldeas.valiron.cobblestone:650
+        - ^yaml id:nacion<player.name> set aldeas.valiron.log:196
+        - ^yaml id:nacion<player.name> set aldeas.valiron.lightclay:98
+        - ^yaml id:nacion<player.name> set aldeas.valiron.hardclay:98
+        - ^yaml id:nacion<player.name> set aldeas.valiron.status:2
+        - ^schematic load name:valironup2
+        - ^schematic paste name:valironup2 location:<cu@valironup2.min>
+        - ^schematic unload name:valironup2
+        - ^flag <global> nacionvamprogress:->:VALIRON2OK
+        - ^yaml savefile:naciones/nacionvampirica.yml id:nacion<player.name>
+        } else if <global.flag[nacionvamprogress].as_list> !contains VALIRON3OK && <global.flag[nacionvamprogress].as_list> contains VALIRON2OK {
+        - ^playsound <player> sound:complete custom
+        - ^schematic load name:valironup3
+        - ^schematic paste name:valironup3 location:<cu@valironup3.min>
+        - ^schematic unload name:valironup3
+        - ^flag <global> nacionvamprogress:->:VALIRON3OK
+        - ^teleport n@160 location:3634.5,64,2719.5,Esparcraft
+        - ^teleport n@170 location:3662.5,63,2724.5,Esparcraft
+        - ^teleport n@169 location:3626.5,63,2688.5,Esparcraft
+        - ^yaml savefile:naciones/nacionvampirica.yml id:nacion<player.name>
+        }
+      }
+    - ^yaml unload id:nacion<player.name>
+    - DETERMINE cancelled
+
+################################################################################################# dexaro
+    on player clicks Entregar in inv_dexaro:
+    - ^if <context.cursor_item.material.id> == 98 {
+      - ^yaml load:naciones/nacionvampirica.yml id:nacion<player.name>
+      - ^if <yaml[nacion<player.name>].read[aldeas.dexaro.stonebrick]> > 0 {
+        - ^narrate "<gray>Entregaste: <gold><context.cursor_item.quantity> <dark_green>Ladrillos de piedra"
+        - ^yaml id:nacion<player.name> set aldeas.dexaro.stonebrick:-:<context.cursor_item.quantity>
+        - ^adjust <player> item_on_cursor:i@air
+        - ^if <yaml[nacion<player.name>].read[aldeas.dexaro.stonebrick]> < 0 {
+          - ^yaml id:nacion<player.name> set aldeas.dexaro.stonebrick:0
+          }
+        - ^if <yaml[nacion<player.name>].read[aldeas.dexaro.rec]> !contains <player.name> {
+          - ^yaml id:nacion<player.name> set aldeas.dexaro.rec:->:<player.name>
+          }
+        }
+      - ^inventory open d:in@inv_dexaro
+      - ^yaml savefile:naciones/nacionvampirica.yml id:nacion<player.name>
+      }
+
+    - ^if <context.cursor_item.material.id> == 4 {
+      - ^yaml load:naciones/nacionvampirica.yml id:nacion<player.name>
+      - ^if <yaml[nacion<player.name>].read[aldeas.dexaro.cobblestone]> > 0 {
+        - ^narrate "<gray>Entregaste: <gold><context.cursor_item.quantity> <dark_green>Bloques de cobblestone"
+        - ^yaml id:nacion<player.name> set aldeas.dexaro.cobblestone:-:<context.cursor_item.quantity>
+        - ^adjust <player> item_on_cursor:i@air
+        - ^if <yaml[nacion<player.name>].read[aldeas.dexaro.cobblestone]> < 0 {
+          - ^yaml id:nacion<player.name> set aldeas.dexaro.cobblestone:0
+          }
+        - ^if <yaml[nacion<player.name>].read[aldeas.dexaro.rec]> !contains <player.name> {
+          - ^yaml id:nacion<player.name> set aldeas.dexaro.rec:->:<player.name>
+          }
+        }
+      - ^inventory open d:in@inv_dexaro 
+      - ^yaml savefile:naciones/nacionvampirica.yml id:nacion<player.name>
+      }
+
+    - ^if <context.cursor_item.material.id> == 17 {
+      - ^yaml load:naciones/nacionvampirica.yml id:nacion<player.name>
+      - ^if <yaml[nacion<player.name>].read[aldeas.dexaro.log]> > 0 {
+        - ^narrate "<gray>Entregaste: <gold><context.cursor_item.quantity> <dark_green>Troncos de madera"
+        - ^yaml id:nacion<player.name> set aldeas.dexaro.log:-:<context.cursor_item.quantity>
+        - ^adjust <player> item_on_cursor:i@air
+        - ^if <yaml[nacion<player.name>].read[aldeas.dexaro.log]> < 0 {
+          - ^yaml id:nacion<player.name> set aldeas.dexaro.log:0
+          }
+        - ^if <yaml[nacion<player.name>].read[aldeas.dexaro.rec]> !contains <player.name> {
+          - ^yaml id:nacion<player.name> set aldeas.dexaro.rec:->:<player.name>
+          }
+        }
+      - ^inventory open d:in@inv_dexaro 
+      - ^yaml savefile:naciones/nacionvampirica.yml id:nacion<player.name>
+      }
+
+    - ^if <context.cursor_item.material.id> == 159 && <context.cursor_item.material.data> == 14 {
+      - ^yaml load:naciones/nacionvampirica.yml id:nacion<player.name>
+      - ^if <yaml[nacion<player.name>].read[aldeas.dexaro.lightclay]> > 0 {
+        - ^narrate "<gray>Entregaste: <gold><context.cursor_item.quantity> <dark_green>Arcilla roja"
+        - ^yaml id:nacion<player.name> set aldeas.dexaro.lightclay:-:<context.cursor_item.quantity>
+        - ^adjust <player> item_on_cursor:i@air
+        - ^if <yaml[nacion<player.name>].read[aldeas.dexaro.lightclay]> < 0 {
+          - ^yaml id:nacion<player.name> set aldeas.dexaro.lightclay:0
+          }
+        - ^if <yaml[nacion<player.name>].read[aldeas.dexaro.rec]> !contains <player.name> {
+          - ^yaml id:nacion<player.name> set aldeas.dexaro.rec:->:<player.name>
+          }
+        }
+      - ^inventory open d:in@inv_dexaro 
+      - ^yaml savefile:naciones/nacionvampirica.yml id:nacion<player.name>
+      }
+
+    - ^if <context.cursor_item.material.id> == 159 && <context.cursor_item.material.data> == 15 {
+      - ^yaml load:naciones/nacionvampirica.yml id:nacion<player.name>
+      - ^if <yaml[nacion<player.name>].read[aldeas.dexaro.hardclay]> > 0 {
+        - ^narrate "<gray>Entregaste: <gold><context.cursor_item.quantity> <dark_green>Arcilla negra"
+        - ^yaml id:nacion<player.name> set aldeas.dexaro.hardclay:-:<context.cursor_item.quantity>
+        - ^adjust <player> item_on_cursor:i@air
+        - ^if <yaml[nacion<player.name>].read[aldeas.dexaro.hardclay]> < 0 {
+          - ^yaml id:nacion<player.name> set aldeas.dexaro.hardclay:0
+          }
+        - ^if <yaml[nacion<player.name>].read[aldeas.dexaro.rec]> !contains <player.name> {
+          - ^yaml id:nacion<player.name> set aldeas.dexaro.rec:->:<player.name>
+          }
+        }
+      - ^inventory open d:in@inv_dexaro 
+      - ^yaml savefile:naciones/nacionvampirica.yml id:nacion<player.name>
+      }
+
+# Agregar los materiales al IF
+    - ^if <yaml[nacion<player.name>].read[aldeas.dexaro.log]> <= 0 && <yaml[nacion<player.name>].read[aldeas.dexaro.stonebrick]> <= 0 && <yaml[nacion<player.name>].read[aldeas.dexaro.cobblestone]> <= 0 && <yaml[nacion<player.name>].read[aldeas.dexaro.lightclay]> <= 0 && <yaml[nacion<player.name>].read[aldeas.dexaro.hardclay]> <= 0 {
+      - ^if <global.flag[nacionvamprogress].as_list> !contains DEXARO1OK {
+        - ^playsound <player> sound:complete custom
+        - ^yaml id:nacion<player.name> set aldeas.dexaro.stonebrick:487
+        - ^yaml id:nacion<player.name> set aldeas.dexaro.cobblestone:487
+        - ^yaml id:nacion<player.name> set aldeas.dexaro.log:147
+        - ^yaml id:nacion<player.name> set aldeas.dexaro.lightclay:73
+        - ^yaml id:nacion<player.name> set aldeas.dexaro.hardclay:73
+        - ^yaml id:nacion<player.name> set aldeas.dexaro.status:1
+        - ^schematic load name:dexaroup1
+        - ^schematic paste name:dexaroup1 location:<cu@dexaroup1.min>
+        - ^schematic unload name:dexaroup1
+        - ^flag <global> nacionvamprogress:->:DEXARO1OK
+        - ^yaml savefile:naciones/nacionvampirica.yml id:nacion<player.name>
+        } else if <global.flag[nacionvamprogress].as_list> !contains DEXARO2OK && <global.flag[nacionvamprogress].as_list> contains DEXARO1OK {
+        - ^playsound <player> sound:complete custom
+        - ^yaml id:nacion<player.name> set aldeas.dexaro.stonebrick:650
+        - ^yaml id:nacion<player.name> set aldeas.dexaro.cobblestone:650
+        - ^yaml id:nacion<player.name> set aldeas.dexaro.log:196
+        - ^yaml id:nacion<player.name> set aldeas.dexaro.lightclay:98
+        - ^yaml id:nacion<player.name> set aldeas.dexaro.hardclay:98
+        - ^yaml id:nacion<player.name> set aldeas.dexaro.status:2
+        - ^schematic load name:dexaroup2
+        - ^schematic paste name:dexaroup2 location:<cu@dexaroup2.min>
+        - ^schematic unload name:dexaroup2
+        - ^flag <global> nacionvamprogress:->:DEXARO2OK
+        - ^yaml savefile:naciones/nacionvampirica.yml id:nacion<player.name>
+        } else if <global.flag[nacionvamprogress].as_list> !contains DEXARO3OK && <global.flag[nacionvamprogress].as_list> contains DEXARO2OK {
+        - ^playsound <player> sound:complete custom
+        - ^schematic load name:dexaroup3
+        - ^schematic paste name:dexaroup3 location:<cu@dexaroup3.min>
+        - ^schematic unload name:dexaroup3
+        - ^flag <global> nacionvamprogress:->:DEXARO3OK
+        - ^teleport n@159 location:3740.5,64,2607.5,Esparcraft
+        - ^teleport n@173 location:3712.5,63,2602.5,Esparcraft
+        - ^teleport n@172 location:3748.5,63,2638.5,Esparcraft
+        - ^yaml savefile:naciones/nacionvampirica.yml id:nacion<player.name>
+        }
+      }
+    - ^yaml unload id:nacion<player.name>
+    - DETERMINE cancelled

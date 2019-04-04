@@ -1,0 +1,166 @@
+Salto: 
+  name: 'Salto'
+  type: 'Activo'
+  max-level: 5
+  skill-req: 'Porrazo'
+  skill-req-lvl: 5
+  needs-permission: 'false'
+  attributes: 
+    cost-base: '1'
+    cooldown-scale: '0'
+    cost-scale: '0'
+    level-scale: '0'
+    level-base: '1'
+    mana-base: '25'
+    mana-scale: '0'
+    cooldown-base: '65'
+  msg: '&6{player} &2uso &6{skill}'
+  icon: 'COMPASS'
+  icon-data: 0
+  icon-lore: 
+  - '&d{name} &7({level}/{max})'
+  - '&2Tipo: &6{type}'
+  - '&2Requiere: &6Porrazo lvl 5'
+  - '{req:cost}Puntos necesarios: {attr:cost}'
+  - ''
+  - '&8Descripcion: &7 Saltas sobre'
+  - '&7un enemigo causando daño'
+  - '&7al caerle encima. '
+  - ''
+  - '&2Mana: {attr:mana}'
+  - '&2Cooldown: {attr:cooldown}'
+  - '&2Rango de salto: {attr:saltosts.range}'
+  - '&2Rango de caida: {attr:saltorng.radius}'
+  - '&2Daño: {attr:saltodmg.value}'
+  desc:  []
+  components: 
+    Cast: 
+      type: 'trigger'
+      data: 
+        icon-key: ''
+      children: 
+        Single-b: 
+          type: 'target'
+          data: 
+            range-scale: '2'
+            range-base: '6'
+            tolerance-scale: '0'
+            tolerance-base: '4'
+            icon-key: 'saltosts'
+            wall: 'False'
+            group: 'Enemy'
+          children: 
+            Warp Target-c: 
+              type: 'mechanic'
+              data: 
+                counts: 'True'
+                icon-key: ''
+                type: 'Caster to Target'
+              children:  {}
+            Damage-d: 
+              type: 'mechanic'
+              data: 
+                counts: 'True'
+                value-scale: '2'
+                true: 'False'
+                icon-key: 'saltodmg'
+                type: 'Damage'
+                value-base: '4'
+              children:  {}
+            Area-e: 
+              type: 'target'
+              data: 
+                caster: 'False'
+                max-base: '99'
+                radius-scale: '1'
+                icon-key: 'saltorng'
+                radius-base: '2'
+                wall: 'False'
+                group: 'Enemy'
+                max-scale: '0'
+              children: 
+                Skill Level-f: 
+                  type: 'condition'
+                  data: 
+                    skill: 'Aturdir'
+                    max-level: '1'
+                    icon-key: ''
+                    min-level: '1'
+                  children: 
+                    Status-g: 
+                      type: 'mechanic'
+                      data: 
+                        duration-base: '1'
+                        counts: 'True'
+                        icon-key: ''
+                        duration-scale: '0'
+                        status: 'Stun'
+                      children:  {}
+                Skill Level-h: 
+                  type: 'condition'
+                  data: 
+                    skill: 'Aturdir'
+                    max-level: '2'
+                    icon-key: ''
+                    min-level: '2'
+                  children: 
+                    Status-i: 
+                      type: 'mechanic'
+                      data: 
+                        duration-base: '2'
+                        counts: 'True'
+                        icon-key: ''
+                        duration-scale: '0'
+                        status: 'Stun'
+                      children:  {}
+                Skill Level-j: 
+                  type: 'condition'
+                  data: 
+                    skill: 'Aturdir'
+                    max-level: '3'
+                    icon-key: ''
+                    min-level: '3'
+                  children: 
+                    Status-k: 
+                      type: 'mechanic'
+                      data: 
+                        duration-base: '3'
+                        counts: 'True'
+                        icon-key: ''
+                        duration-scale: '0'
+                        status: 'Stun'
+                      children:  {}
+                Skill Level-l: 
+                  type: 'condition'
+                  data: 
+                    skill: 'Aturdir'
+                    max-level: '4'
+                    icon-key: ''
+                    min-level: '4'
+                  children: 
+                    Status-m: 
+                      type: 'mechanic'
+                      data: 
+                        duration-base: '4'
+                        counts: 'True'
+                        icon-key: ''
+                        duration-scale: '0'
+                        status: 'Stun'
+                      children:  {}
+                Skill Level-n: 
+                  type: 'condition'
+                  data: 
+                    skill: 'Aturdir'
+                    max-level: '5'
+                    icon-key: ''
+                    min-level: '5'
+                  children: 
+                    Status-o: 
+                      type: 'mechanic'
+                      data: 
+                        duration-base: '5'
+                        counts: 'True'
+                        icon-key: ''
+                        duration-scale: '0'
+                        status: 'Stun'
+                      children:  {}
