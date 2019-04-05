@@ -18,6 +18,15 @@ GlobalBlocks:
       }
     - ^yaml unload id:esparcraftblocks<player.name>
     - ^queue clear
+    on player breaks spruce_log in circulo1a:
+    - ^narrate "<context.location>"
+    # - ^yaml load:pueblos/blockupdate.yml id:esparcraftblocks<player.name>
+    # - ^if <yaml[esparcraftblocks<player.name>].read[material.coal.locations].as_list> !contains <context.location> {
+    #   - ^yaml id:esparcraftblocks<player.name> set material.coal.locations:->:<context.location>
+    #   - ^yaml savefile:pueblos/blockupdate.yml id:esparcraftblocks<player.name>
+    #   }
+    # - ^yaml unload id:esparcraftblocks<player.name>
+    # - ^queue clear
 
 testblocks:
     type: task
