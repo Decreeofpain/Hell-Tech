@@ -60,15 +60,15 @@ regions:
         - {x: 2179, z: 1703}
         - {x: 2195, z: 1702}
     bosquespruce:
-        min: {x: 2074, y: 0, z: 1538}
-        max: {x: 2394, y: 49, z: 1732}
+        min: {x: 2452, y: 17, z: 1841}
+        max: {x: 2643, y: 71, z: 2043}
         members: {}
         flags:
             allow-block-break: [COAL_ORE]
             block-break: deny
-            block-place: deny
             allow-block-place: [TORCH]
             mob-spawning: allow
+            block-place: deny
         owners: {}
         type: cuboid
         priority: 0
@@ -78,9 +78,9 @@ regions:
         members: {}
         flags:
             block-break: allow
-            block-place: deny
             allow-block-place: [TORCH]
             mob-spawning: allow
+            block-place: deny
         owners: {}
         type: cuboid
         priority: 1
@@ -101,9 +101,9 @@ regions:
         flags:
             allow-block-break: [ACACIA_LEAVES, OAK_LOG]
             block-break: deny
-            block-place: deny
             allow-block-place: [TORCH]
             mob-spawning: allow
+            block-place: deny
         owners: {}
         type: cuboid
         priority: 1
@@ -378,8 +378,8 @@ regions:
             interact: deny
             entry-group: ALL
             ride: deny
-            block-place: deny
             allow-block-place: [POTATO]
+            block-place: deny
             allow-block-break: [POTATO]
             allow-block-place-group: MEMBERS
             ride-group: NON_MEMBERS
@@ -421,8 +421,8 @@ regions:
             interact: deny
             entry-group: ALL
             ride: deny
-            block-place: deny
             allow-block-place: [POTATO]
+            block-place: deny
             allow-block-break: [POTATO]
             allow-block-place-group: MEMBERS
             ride-group: NON_MEMBERS
@@ -464,8 +464,8 @@ regions:
             interact: deny
             entry-group: ALL
             ride: deny
-            block-place: deny
             allow-block-place: [WHEAT]
+            block-place: deny
             allow-block-break: [WHEAT]
             allow-block-place-group: MEMBERS
             ride-group: NON_MEMBERS
@@ -517,8 +517,8 @@ regions:
             interact: deny
             entry-group: ALL
             ride: deny
-            block-place: deny
             allow-block-place: [POTATO]
+            block-place: deny
             allow-block-break: [POTATO]
             allow-block-place-group: MEMBERS
             ride-group: NON_MEMBERS
@@ -646,9 +646,9 @@ regions:
         flags:
             allow-block-break: [SAND]
             block-break: deny
-            block-place: deny
             allow-block-place: [TORCH]
             mob-spawning: allow
+            block-place: deny
         owners: {}
         type: cuboid
         priority: 0
@@ -659,9 +659,9 @@ regions:
         flags:
             allow-block-break: [CARROT, SUGAR_CANE]
             block-break: deny
-            block-place: deny
             allow-block-place: [CARROT, SUGAR_CANE]
             mob-spawning: allow
+            block-place: deny
         owners: {}
         type: cuboid
         priority: 0
@@ -792,9 +792,9 @@ regions:
         flags:
             allow-block-break: [OAK_LEAVES, OAK_LOG]
             block-break: deny
-            block-place: deny
             allow-block-place: [TORCH]
             mob-spawning: allow
+            block-place: deny
         owners: {}
         type: cuboid
         priority: 0
@@ -824,22 +824,22 @@ regions:
         members: {}
         flags:
             block-break: allow
-            block-place: deny
             allow-block-place: [TORCH]
             mob-spawning: allow
+            block-place: deny
         owners: {}
         type: cuboid
         priority: 0
     farmmelon:
         members: {}
         flags:
-            allow-block-break: [MELON, MELON_STEM]
+            allow-block-break: [MELON_STEM, MELON]
             use: allow
             block-break: deny
             interact: allow
-            block-place: deny
-            allow-block-place: [MELON, MELON_STEM]
             mob-spawning: allow
+            allow-block-place: [MELON_STEM, MELON]
+            block-place: deny
         owners: {}
         type: poly2d
         priority: 0
@@ -881,7 +881,7 @@ regions:
         - {x: 2205, z: 1972}
     meslajho:
         members: {}
-        flags: {snow-fall: deny, snow-melt: deny, pvp: deny, lava-flow: allow, mob-spawning: deny}
+        flags: {snow-fall: deny, snow-melt: deny, lava-flow: allow, pvp: deny, mob-spawning: deny}
         owners: {}
         type: poly2d
         priority: 0
