@@ -1,0 +1,510 @@
+Guadaña Sangrienta: 
+  name: 'Guadaña Sangrienta'
+  type: 'Principal'
+  max-level: 1
+  skill-req-lvl: 1
+  needs-permission: 'false'
+  attributes: 
+    level-base: '1'
+    level-scale: '0'
+    cost-base: '1'
+    cost-scale: '0'
+    cooldown-base: '0'
+    cooldown-scale: '0'
+    mana-base: '0'
+    mana-scale: '0'
+    points-spent-req-base: '0'
+    points-spent-req-scale: '0'
+    incompatible: 
+    - 'Esquirla'
+  msg: '&6{player} &2has cast &6{skill}'
+  icon: 'IRON_AXE'
+  icon-durability: 0
+  icon-data: 0
+  icon-lore: 
+  - '&d{name} &7({level}/{max})'
+  - '&2Tipo: &6{type}'
+  - ''
+  - '&7 Crea un corte macabro en el aire'
+  - '&7 que impacta en area frente a ti'
+  - '&7 causando 150% de tu poder de arma.'
+  - '&2Cooldown: {attr:cooldown}'
+  desc:  []
+  components: 
+    Kill: 
+      type: 'trigger'
+      indicator: '3D'
+      data: 
+        icon-key: ''
+        mana: 'False'
+        cooldown: 'True'
+        indicator: '2D'
+      children: 
+        Value Set-b: 
+          type: 'mechanic'
+          indicator: '3D'
+          data: 
+            icon-key: ''
+            counts: 'True'
+            key: 'LifetoKill'
+            value-base: '0'
+            value-scale: '0'
+            indicator: '2D'
+          children:  {}
+        Item-c: 
+          type: 'condition'
+          indicator: '3D'
+          data: 
+            icon-key: ''
+            check-mat: 'False'
+            check-data: 'False'
+            check-lore: 'True'
+            lore: 'Vida por muerte:'
+            check-name: 'False'
+            regex: 'False'
+            indicator: '2D'
+          children: 
+            Value Lore-d: 
+              type: 'mechanic'
+              indicator: '3D'
+              data: 
+                icon-key: ''
+                counts: 'True'
+                key: 'LifetoKillAdd'
+                hand: 'Main'
+                regex: 'Vida por muerte: {value}'
+                multiplier-base: '1'
+                multiplier-scale: '0'
+                indicator: '2D'
+              children:  {}
+            Value Add-e: 
+              type: 'mechanic'
+              indicator: '3D'
+              data: 
+                icon-key: ''
+                counts: 'True'
+                key: 'LifetoKill'
+                amount-base: 'LifetoKillAdd'
+                amount-scale: '0'
+                indicator: '2D'
+              children:  {}
+        Heal-r: 
+          type: 'mechanic'
+          indicator: '3D'
+          data: 
+            icon-key: ''
+            counts: 'True'
+            type: 'Percent'
+            value-base: 'LifetoKill'
+            value-scale: '1'
+            indicator: '2D'
+          children:  {}
+    Physical Damage: 
+      type: 'trigger'
+      indicator: '3D'
+      data: 
+        icon-key: ''
+        mana: 'False'
+        cooldown: 'True'
+        target: 'True'
+        type: 'Melee'
+        dmg-min: '0'
+        dmg-max: '999'
+        indicator: '2D'
+      children: 
+        Tool-t: 
+          type: 'condition'
+          indicator: '3D'
+          data: 
+            icon-key: ''
+            material: 'Any'
+            tool: 'Sword'
+            indicator: '2D'
+          children: 
+            Value Attribute-u: 
+              type: 'mechanic'
+              indicator: '3D'
+              data: 
+                icon-key: ''
+                counts: 'True'
+                key: 'Poderarma'
+                attribute: 'Agilidad'
+                indicator: '2D'
+              children:  {}
+            Item-v: 
+              type: 'condition'
+              indicator: '3D'
+              data: 
+                icon-key: ''
+                check-mat: 'False'
+                check-data: 'False'
+                check-lore: 'True'
+                lore: 'Poder de Arma:'
+                check-name: 'False'
+                regex: 'False'
+                indicator: '2D'
+              children: 
+                Value Lore-w: 
+                  type: 'mechanic'
+                  indicator: '3D'
+                  data: 
+                    icon-key: ''
+                    counts: 'True'
+                    key: 'PoderarmaAdd'
+                    hand: 'Main'
+                    regex: 'Poder de Arma: {value}'
+                    multiplier-base: '1'
+                    multiplier-scale: '0'
+                    indicator: '2D'
+                  children:  {}
+                Value Add-x: 
+                  type: 'mechanic'
+                  indicator: '3D'
+                  data: 
+                    icon-key: ''
+                    counts: 'True'
+                    key: 'Poderarma'
+                    amount-base: 'PoderarmaAdd'
+                    amount-scale: '0'
+                    indicator: '2D'
+                  children:  {}
+            Value Set-y: 
+              type: 'mechanic'
+              indicator: '3D'
+              data: 
+                icon-key: ''
+                counts: 'True'
+                key: 'AOELores'
+                value-base: '1'
+                value-scale: '0'
+                indicator: '2D'
+              children:  {}
+            Item-z: 
+              type: 'condition'
+              indicator: '3D'
+              data: 
+                icon-key: ''
+                check-mat: 'False'
+                check-data: 'False'
+                check-lore: 'True'
+                lore: 'Alcanse en area:'
+                check-name: 'False'
+                regex: 'False'
+                indicator: '2D'
+              children: 
+                Value Lore-ab: 
+                  type: 'mechanic'
+                  indicator: '3D'
+                  data: 
+                    icon-key: ''
+                    counts: 'True'
+                    key: 'AOELoresAdd'
+                    hand: 'Main'
+                    regex: 'Alcanse en area: {value}'
+                    multiplier-base: '1'
+                    multiplier-scale: '0'
+                    indicator: '2D'
+                  children:  {}
+                Value Add-bb: 
+                  type: 'mechanic'
+                  indicator: '3D'
+                  data: 
+                    icon-key: ''
+                    counts: 'True'
+                    key: 'AOELores'
+                    amount-base: 'AOELoresAdd'
+                    amount-scale: '0'
+                    indicator: '2D'
+                  children:  {}
+            Value Set-ob: 
+              type: 'mechanic'
+              indicator: '3D'
+              data: 
+                icon-key: ''
+                counts: 'True'
+                key: 'ProbcritLore'
+                value-base: '0'
+                value-scale: '0'
+                indicator: '2D'
+              children:  {}
+            Item-pb: 
+              type: 'condition'
+              indicator: '3D'
+              data: 
+                icon-key: ''
+                check-mat: 'False'
+                check-data: 'False'
+                check-lore: 'True'
+                lore: 'Probabilidad de critico:'
+                check-name: 'False'
+                regex: 'False'
+                indicator: '2D'
+              children: 
+                Value Lore-qb: 
+                  type: 'mechanic'
+                  indicator: '3D'
+                  data: 
+                    icon-key: ''
+                    counts: 'True'
+                    key: 'ProbcritLoreAdd'
+                    hand: 'Main'
+                    regex: 'Probabilidad de critico: {value}'
+                    multiplier-base: '1'
+                    multiplier-scale: '0'
+                    indicator: '2D'
+                  children:  {}
+                Value Add-rb: 
+                  type: 'mechanic'
+                  indicator: '3D'
+                  data: 
+                    icon-key: ''
+                    counts: 'True'
+                    key: 'ProbcritLore'
+                    amount-base: 'ProbcritLoreAdd'
+                    amount-scale: '0'
+                    indicator: '2D'
+                  children:  {}
+            Value Set-ec: 
+              type: 'mechanic'
+              indicator: '3D'
+              data: 
+                icon-key: ''
+                counts: 'True'
+                key: 'critLore'
+                value-base: '1'
+                value-scale: '0'
+                indicator: '2D'
+              children:  {}
+            Item-fc: 
+              type: 'condition'
+              indicator: '3D'
+              data: 
+                icon-key: ''
+                check-mat: 'False'
+                check-data: 'False'
+                check-lore: 'True'
+                lore: 'Daño por critico:'
+                check-name: 'False'
+                regex: 'False'
+                indicator: '2D'
+              children: 
+                Value Lore-gc: 
+                  type: 'mechanic'
+                  indicator: '3D'
+                  data: 
+                    icon-key: ''
+                    counts: 'True'
+                    key: 'critLoreAdd'
+                    hand: 'Main'
+                    regex: 'Daño por critico: {value}'
+                    multiplier-base: '1'
+                    multiplier-scale: '0'
+                    indicator: '2D'
+                  children:  {}
+                Value Add-hc: 
+                  type: 'mechanic'
+                  indicator: '3D'
+                  data: 
+                    icon-key: ''
+                    counts: 'True'
+                    key: 'critLore'
+                    amount-base: 'critLoreAdd'
+                    amount-scale: '0'
+                    indicator: '2D'
+                  children:  {}
+            Value Multiply-uc: 
+              type: 'mechanic'
+              indicator: '3D'
+              data: 
+                icon-key: ''
+                counts: 'True'
+                key: 'Poderarma'
+                multiplier-base: '1.2'
+                multiplier-scale: '0'
+                indicator: '2D'
+              children:  {}
+            Value Multiply-vc: 
+              type: 'mechanic'
+              indicator: '3D'
+              data: 
+                icon-key: ''
+                counts: 'True'
+                key: 'critLore'
+                multiplier-base: '0.01'
+                multiplier-scale: '0'
+                indicator: '2D'
+              children:  {}
+            Value Add-wc: 
+              type: 'mechanic'
+              indicator: '3D'
+              data: 
+                icon-key: ''
+                counts: 'True'
+                key: 'critLore'
+                amount-base: '1'
+                amount-scale: '0'
+                indicator: '2D'
+              children:  {}
+            Chance-xc: 
+              type: 'condition'
+              indicator: '3D'
+              data: 
+                icon-key: ''
+                chance-base: 'ProbcritLore'
+                chance-scale: '0'
+                indicator: '2D'
+              children: 
+                Value Multiply-yc: 
+                  type: 'mechanic'
+                  indicator: '3D'
+                  data: 
+                    icon-key: ''
+                    counts: 'True'
+                    key: 'Poderarma'
+                    multiplier-base: 'critLore'
+                    multiplier-scale: '0'
+                    indicator: '2D'
+                  children:  {}
+                Command-zc: 
+                  type: 'mechanic'
+                  indicator: '3D'
+                  data: 
+                    icon-key: ''
+                    counts: 'True'
+                    command: 'ex title "title:<red>Critico" stay:0.1s fade_in:0.1s fade_out:0.1s'
+                    type: 'OP'
+                    indicator: '2D'
+                  children:  {}
+            Cone-ad: 
+              type: 'target'
+              indicator: '3D'
+              data: 
+                icon-key: ''
+                range-base: 'AOELores'
+                range-scale: '0'
+                angle-base: '60'
+                angle-scale: '0'
+                group: 'Enemy'
+                wall: 'False'
+                caster: 'False'
+                max-base: '99'
+                max-scale: '0'
+                indicator: '2D'
+              children: 
+                Damage-bd: 
+                  type: 'mechanic'
+                  indicator: '3D'
+                  data: 
+                    icon-key: ''
+                    counts: 'True'
+                    type: 'Damage'
+                    value-base: 'Poderarma'
+                    value-scale: '1'
+                    true: 'False'
+                    classifier: 'default'
+                    indicator: '2D'
+                  children:  {}
+            Value Multiply-cd: 
+              type: 'mechanic'
+              indicator: '3D'
+              data: 
+                icon-key: ''
+                counts: 'True'
+                key: 'Poderarma'
+                multiplier-base: '0.01'
+                multiplier-scale: '0'
+                indicator: '2D'
+              children:  {}
+            Heal-dd: 
+              type: 'mechanic'
+              indicator: '3D'
+              data: 
+                icon-key: ''
+                counts: 'True'
+                type: 'Health'
+                value-base: 'Poderarma'
+                value-scale: '1'
+                indicator: '2D'
+              children:  {}
+            Value Attribute-ed: 
+              type: 'mechanic'
+              indicator: '3D'
+              data: 
+                icon-key: ''
+                counts: 'True'
+                key: 'Poderarma'
+                attribute: 'Agilidad'
+                indicator: '2D'
+              children:  {}
+            Value Lore-fd: 
+              type: 'mechanic'
+              indicator: '3D'
+              data: 
+                icon-key: ''
+                counts: 'True'
+                key: 'PoderarmaAdd'
+                hand: 'Main'
+                regex: 'Poder de Arma: {value}'
+                multiplier-base: '1'
+                multiplier-scale: '0'
+                indicator: '2D'
+              children:  {}
+            Value Add-gd: 
+              type: 'mechanic'
+              indicator: '3D'
+              data: 
+                icon-key: ''
+                counts: 'True'
+                key: 'Poderarma'
+                amount-base: 'PoderarmaAdd'
+                amount-scale: '0'
+                indicator: '2D'
+              children:  {}
+            Particle Animation-hd: 
+              type: 'mechanic'
+              indicator: '3D'
+              data: 
+                icon-key: ''
+                counts: 'True'
+                steps: '5'
+                frequency: '0.05'
+                angle: '-180'
+                start: '90'
+                duration-base: '0.4'
+                duration-scale: '0'
+                h-translation-base: 'AOELores'
+                h-translation-scale: '0'
+                v-translation-base: '2'
+                v-translation-scale: '0'
+                h-cycles: '2'
+                v-cycles: '2'
+                particle: 'Instant Spell'
+                arrangement: 'Circle'
+                radius-base: '0.2'
+                radius-scale: '0'
+                particles-base: '5'
+                particles-scale: '0'
+                direction: 'XY'
+                visible-radius: '20'
+                dx: '0'
+                dy: '0'
+                dz: '0'
+                speed: '0'
+                amount: '1'
+                forward: '3'
+                upward: '0'
+                right: '0'
+                indicator: '2D'
+              children:  {}
+            Cooldown-id: 
+              type: 'mechanic'
+              indicator: '3D'
+              data: 
+                icon-key: ''
+                counts: 'True'
+                skill: 'Guadaña Doble'
+                type: 'Seconds'
+                value-base: 'cdbasico'
+                value-scale: '0'
+                indicator: '2D'
+              children:  {}

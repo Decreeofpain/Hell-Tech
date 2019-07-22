@@ -1,0 +1,154 @@
+#expcheck:
+#  Type: Task
+#  Script:
+#    - ^if <player.xp.is[MORE].than[50]> run mayor50
+#      else run menor50
+#
+#menor50:
+#  Type: Task
+#  Script:
+#    - NARRATE format:formatdemo "Menor"
+#    - <flag.p:guerrero> = NO50
+#
+#mayor50:
+#  Type: Task
+#  Script:
+#    - NARRATE format:formatdemo "Mayor"
+#
+#
+#				0	=> Neutral
+#				1	=> Humano
+#				2	=> Vampiro
+#				3	=> Licantropo
+
+inivampok:
+  Type: Task
+  Script:
+    - ^title "title:<red>[<dark_red>Zane Kilgore<red>]" "subtitle:<dark_red>[<red>Felicitaciones <player.name>.<dark_red>]" stay:6s
+    - ^if <player.flag[misiones].as_list> !contains cap1m26ok {
+      - ^flag <player> misiones:->:cap1m26ok
+#      - ^execute as_server "v set i <player.name> 0.1"
+      - ^flag <player> objetivo:ob48v
+      - ^flag <player> iniciado:ok
+      }
+
+inilctok:
+  Type: Task
+  Script:
+    - ^title "title:<green>[<dark_green>Athelwulf<green>]" "subtitle:<dark_green>[<green>Felicitaciones <player.name>.<dark_green>]" stay:6s
+    - ^if <player.flag[misiones].as_list> !contains cap1m26ok {
+      - ^flag <player> misiones:->:cap1m26ok
+      - ^execute as_server "ww infect <player.name>"
+      - ^flag <player> objetivo:ob48l
+      - ^flag <player> iniciado:ok
+      }
+
+inihumok:
+  Type: Task
+  Script:
+    - ^title "title:<yellow>[<gold>Galthalas<yellow>]" "subtitle:<dark_green>[<green>felicitaciones <player.name>.<dark_green>]" stay:6s
+    - ^if <player.flag[misiones].as_list> !contains cap1m26ok {
+      - ^flag <player> misiones:->:cap1m26ok
+      - ^execute as_server "ww infect <player.name>"
+      - ^flag <player> objetivo:ob48l
+      - ^flag <player> iniciado:ok
+      }
+inihumoff:
+  Type: Task
+  Script:
+    - ^title "title:<yellow>[<gold>Galthalas<yellow>]" "subtitle:<dark_green>[<green>Fallaste... <player.name>.<dark_green>]" stay:6s
+
+
+
+ClassCheck:
+  Type: Task
+  Script:
+    - ^if <flag.p:raza> = humano run ClassHumano
+      else if <flag.p:raza> = vampiro run ClassVampiro
+      else if <flag.p:raza> = lobo run ClassLobo
+      else run NoClass
+
+
+NoClass:
+  Type: Task
+  Script:
+    - NARRATE format:formatdemo "Elije de nuevo tu clase"
+    - WAIT 1
+    - NARRATE format:formatdemo "Elije la misma que tenias"
+    - WAIT 1
+    - NARRATE format:formatdemo "O podria bugearse tu progreso"
+    - WAIT 2
+    - ^execute as_player "os 85"
+
+ClassVampiro:
+  Type: Task
+  Script:
+    - ^execute as_op "class profess Recluta"
+#    - ^execute as_server "pex user <player.name> group set vampiro"
+    - ^flag <player> nacion:Hexer
+    - ^flag <player> hubicacion:Noreste
+    - ^flag <player> representante:ZaneKilgore
+    - ^if <server.has_file[personal/<player.name>.yml]> {
+      - ^yaml load:personal/<player.name>.yml id:<player.name>
+      - 'Ahora soy nivel <dark_red><player.skillapi.class_level[<player.skillapi.main_class>]><black> ya fui llamado en la nacion de <dark_aqua>Glendara.<p>Tengo que reunirme con <dark_aqua>Galthalas.<p>No se que quiera conmigo pero estoy impaciente por averiguarlo y asi me dirijo a la nacion.'
+      - ^yaml id:<player.name> set LibroPersonal:->:%page%
+      - ^yaml id:<player.name> set raza:vampiro
+      - ^yaml savefile:personal/<player.name>.yml id:<player.name>
+      - ^yaml unload id:<player.name>
+      } else {
+      - ^yaml create id:<player.name>
+      - 'Ahora soy nivel <dark_red><player.skillapi.class_level[<player.skillapi.main_class>]><black> ya fui llamado en la nacion de <dark_aqua>Glendara.<p>Tengo que reunirme con <dark_aqua>Galthalas.<p>No se que quiera conmigo pero estoy impaciente por averiguarlo y asi me dirijo a la nacion.'
+      - ^yaml id:<player.name> set LibroPersonal:->:%page%
+      - ^yaml id:<player.name> set raza:vampiro
+      - ^yaml savefile:personal/<player.name>.yml id:<player.name>
+      - ^yaml unload id:<player.name>
+      }
+
+ClassHumano:
+  Type: Task
+  Script:
+    - ^execute as_op "class profess Recluta"
+#    - ^execute as_server "pex user <player.name> group set humano"
+    - ^flag <player> nacion:Glendara
+    - ^flag <player> hubicacion:Noroeste
+    - ^flag <player> representante:Galthalas
+    - ^if <server.has_file[personal/<player.name>.yml]> {
+      - ^yaml load:personal/<player.name>.yml id:<player.name>
+      - ^define page 'Ahora soy nivel <dark_red><player.skillapi.class_level[<player.skillapi.main_class>]><black> ya fui reconocido en la nacion de <dark_aqua>Glendara.<p>Tengo que reunirme con <dark_aqua>Galthalas.<p>No se que quiera conmigo pero estoy impaciente por averiguarlo y asi me dirijo a la nacion.'
+      - ^yaml id:<player.name> set LibroPersonal:->:%page%
+      - ^yaml id:<player.name> set raza:humano
+      - ^yaml savefile:personal/<player.name>.yml id:<player.name>
+      - ^yaml unload id:<player.name>
+      } else {
+      - ^yaml create id:<player.name>
+      - ^define page 'Ahora soy nivel <dark_red><player.skillapi.class_level[<player.skillapi.main_class>]><black> ya fui reconocido en la nacion de <dark_aqua>Glendara.<p>Tengo que reunirme con <dark_aqua>Galthalas.<p>No se que quiera conmigo pero estoy impaciente por averiguarlo y asi me dirijo a la nacion.'
+      - ^yaml id:<player.name> set LibroPersonal:->:%page%
+      - ^yaml id:<player.name> set raza:humano
+      - ^yaml savefile:personal/<player.name>.yml id:<player.name>
+      - ^yaml unload id:<player.name>
+      }
+
+ClassLobo:
+  Type: Task
+  Script:
+    - ^execute as_op "class profess Recluta"
+#    - ^execute as_server "pex user <player.name> group set lobo"
+#    - ^execute as_server "werewolf infect <player.name>"
+    - ^flag <player> nacion:Cannesh
+    - ^flag <player> hubicacion:Sur
+    - ^flag <player> representante:Athelwulf
+    - ^if <server.has_file[personal/<player.name>.yml]> {
+      - ^yaml load:personal/<player.name>.yml id:<player.name>
+      - ^define page 'Ahora soy nivel <dark_red><player.skillapi.class_level[<player.skillapi.main_class>]><black> ya fui reconocido en la nacion de <dark_green>Cannesh.<p>Fui llamado por <dark_green>Athelwulf<black>.<p>No se que quiera conmigo pero estoy impaciente por averiguarlo y asi me dirijo a la nacion de los que llaman los amantes de la luna.'
+      - ^yaml id:<player.name> set LibroPersonal:->:%page%
+      - ^yaml id:<player.name> set raza:lobo
+      - ^yaml savefile:personal/<player.name>.yml id:<player.name>
+      - ^yaml unload id:<player.name>
+      } else {
+      - ^yaml create id:<player.name>
+      - ^define page 'Ahora soy nivel <dark_red><player.skillapi.class_level[<player.skillapi.main_class>]><black> ya fui reconocido en la nacion de <dark_green>Cannesh.<p>Fui llamado por <dark_green>Athelwulf<black>.<p>No se que quiera conmigo pero estoy impaciente por averiguarlo y asi me dirijo a la nacion de los que llaman los amantes de la luna.'
+      - ^yaml id:<player.name> set LibroPersonal:->:%page%
+      - ^yaml id:<player.name> set raza:lobo
+      - ^yaml savefile:personal/<player.name>.yml id:<player.name>
+      - ^yaml unload id:<player.name>
+      }

@@ -1,0 +1,71 @@
+"Walter":
+    type: assignment
+
+    actions:
+      on assignment:
+      - trigger name:CHAT toggle:true
+      - trigger name:click toggle:false
+      - trigger name:proximity toggle:true radius:3
+
+    interact scripts:
+    - 10 Bienvenido
+
+'Bienvenido':
+  Type: Interact
+  Requirements:
+    Mode: all
+    List:
+    - -Flagged 'NoSpam:spamoso'
+    - -Flagged 'Bienvenido:enproceso'
+    - -PERMISSION 'esparcraft.m1ok'
+  Steps:
+    '1':
+      Chat Trigger:
+        '1':
+          Trigger: /Regex:Hola Walter|holawalter|hola walter/
+          Script:
+          - NARRATE "<green>Hola <player.name>"
+          - execute as_player "playeffect http://esparcraft.corpmore.com/sonidos/voces/walter6.ogg"
+          - flag <player> NoSpam:spamoso "duration:2"
+          - WAIT 1
+          - execute as_player "os 5"
+          - ZAP 2
+
+      proximity trigger:
+        entry:
+          radius: 4
+          Script:
+          - engage now
+          - NARRATE "<yellow><player.name><green> [Nueva mision disponible]"
+          - NARRATE "<green>Escribe, <blue>Hola <npc.name> <green>en el Chat!"
+          - disengage
+          - ZAP 1
+    '2':
+      Chat Trigger:
+        '1':
+          Trigger: /Empezar/
+          Script:
+          - flag <player> NoSpam:spamoso "duration:2"
+          - execute as_player "infoguide Amanecer"
+          - execute as_player "playeffect http://esparcraft.corpmore.com/sonidos/voces/walter5.ogg"
+          - ZAP 2
+        '2':
+          Trigger: /Regex:Listo|listo/
+          Script:
+          - engage now
+          - flag <player> Bienvenido:enproceso "duration:10"
+          - execute as_op "quest admingive <player.name> bienvenido"
+          - WAIT 8
+          - execute as_server "npcskin 2 https://dl.dropboxusercontent.com/s/5j9u3utih1at1ka/sharam.png"
+          - execute as_player "infoguide Iglesia"
+          - disengage
+          - ZAP 1
+      proximity trigger:
+        entry:
+          radius: 4
+          Script:
+          - engage now
+          - NARRATE "<yellow><player.name><green> [para continuar escribe]"
+          - NARRATE "<blue>Listo <green>en el Chat!"
+          - disengage
+          - ZAP 2

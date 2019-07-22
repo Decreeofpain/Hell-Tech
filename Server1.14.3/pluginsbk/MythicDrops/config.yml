@@ -1,0 +1,41 @@
+version: 4.0.6
+options:
+  debug: false
+  hooking:
+    mcmmo: false
+  give-mobs-names: false
+  give-all-mobs-names: false
+  display-mob-equipment: true
+  can-mobs-pick-up-equipment: false
+  blank-mob-spawn:
+    enabled: true
+    skeletons-spawn-without-bow: false
+  allow-items-to-be-repaired-by-anvil: false
+  allow-equipping-items-via-right-click: false
+  randomize-leather-colors: true
+multiworld:
+  enabled-worlds:
+  - Esparcraft
+drops:
+  item-chance: 0.0
+  custom-item-chance: 0.0
+  socket-gem-chance: 0.0
+  unidentified-item-chance: 0.0
+  identity-tome-chance: 0.0
+components:
+  creature-spawning-enabled: false
+  repairing-enabled: false
+  socketting-enabled: true
+  identifying-enabled: true
+  distance-zones-enabled: false
+display:
+  item-display-name-format: '%materialprefix% %tierprefix% %tiersuffix%'
+  tooltip-format:
+  - '&3&oArte: %tiercolor%&o%tiername%'
+  - '%baselore%'
+  - '%itemtypelore%'
+  - '%bonuslore%'
+  - '%generallore%'
+  - '&8_________________________'
+  - '%socketlore%'
+  - '%relationlore%'

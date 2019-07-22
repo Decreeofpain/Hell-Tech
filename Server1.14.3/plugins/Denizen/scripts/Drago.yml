@@ -1,0 +1,50 @@
+"Drago":
+    type: assignment
+    actions:
+      on assignment:
+      - trigger name:CHAT toggle:false
+      - trigger name:click toggle:true
+      - trigger name:proximity toggle:true radius:6
+      - if <global.flag[npcsleep]> !contains <npc> {
+        - ^flag <global> npcsleep:->:<npc>
+        }
+      on remove:
+      - if <global.flag[npcsleep]> contains <npc> {
+        - ^flag <global> npcsleep:<-:<npc>
+        }
+    interact scripts:
+    - 18 SleepDrago
+
+
+'SleepDrago':
+  type: interact
+  Requirements:
+    Mode: all
+    List:
+    - valueof <global.flag[capitulos].contains[CAPITULO1P2OK]>
+  Steps:
+    '1':
+      proximity trigger:
+        entry:
+          radius: 5
+          Script:
+          - ^if <w@Esparcraft.time> < 24000 && <w@Esparcraft.time> > 13000 {
+            - ^narrate '<yellow>Drago:<green> Regresa en el dia <player.name>'
+            - ^teleport location:<anchor:entrada>
+            - ^pause waypoints
+            } else {
+            - ^random 4
+            - ^narrate '<yellow>Drago:<green> Quieres subastar algo <player.name>?'
+            - ^narrate '<yellow>Drago:<green> Animate a subastar <player.name>'
+            - ^narrate '<yellow>Drago:<green> Aqui puedes subastar tus articulos <player.name>'
+            - ^narrate '<yellow>Drago:<green> Hola <player.name>'
+            }
+        exit:
+          radius: 5
+          Script:
+          - ^if <w@Esparcraft.time> <= 13000 {
+            - resume waypoints
+            }
+      click trigger:
+        Script:
+          - ^run 's@booksubastas

@@ -1,0 +1,224 @@
+# barColor支持的颜色有
+#PINK   粉色
+#BLUE   蓝色
+#RED    红色
+#GREEN  绿色
+#YELLOW 黄色
+#PURPLE 紫色
+#WHITE  白色
+
+# barStyle支持的类型有
+#SOLID         平滑，无分段
+#SEGMENTED_6   分成6段
+#SEGMENTED_10  分成10段
+#SEGMENTED_12  分成12段
+#SEGMENTED_20  分成20段
+setting:
+  #=============================================================
+  # 血条显示配置
+  # 血条的格式
+  title: '%name%&f&l: %health% / %maxHealth%'
+  # 显示持续时间，单位为tick
+  duration: 100
+  # 血条刷新间隔，单位为tick，设置为-1关闭刷新功能
+  reflashRate: 10
+  # 默认颜色
+  barColor: 'RED'
+  # 默认分段
+  barStyle: 'SEGMENTED_20'
+  #=============================================================
+  # 血量改变全息显示配置
+  # 生命改变检测频率，单位为tick，设置为-1关闭血量改变显示功能
+  checkInterval: 5
+  # 全息文字存在时间，单位为tick
+  HDduration: 20
+  # 生命改变格式
+  format:
+    add: '&a&l+ %amount%HP'
+    def: '&c&l- %amount%HP'
+  #=============================================================
+# 以下类型的怪物的血条使用独立风格
+mobs:  
+  ELDER_GUARDIAN:
+    # 此类型怪物没有自定义名字的话将会显示这个名字
+    name: '远古守卫者'
+    # 颜色
+    barColor: 'RED'
+    # 分段
+    barStyle: 'SEGMENTED_20'
+  WITHER_SKELETON:
+    name: '凋零骷髅'
+    barColor: 'RED'
+    barStyle: 'SEGMENTED_20'
+  STRAY:
+    name: '流浪者'
+    barColor: 'RED'
+    barStyle: 'SEGMENTED_20'
+  HUSK:
+    name: '尸壳'
+    barColor: 'RED'
+    barStyle: 'SEGMENTED_20'
+  ZOMBIE_VILLAGER:
+    name: '僵尸村民'
+    barColor: 'RED'
+    barStyle: 'SEGMENTED_20'
+  SKELETON_HORSE:
+    name: '骷髅马'
+    barColor: 'RED'
+    barStyle: 'SEGMENTED_20'
+  ZOMBIE_HORSE:
+    name: '僵尸马'
+    barColor: 'RED'
+    barStyle: 'SEGMENTED_20'
+  DONKEY:
+    name: '驴子'
+    barColor: 'RED'
+    barStyle: 'SEGMENTED_20'
+  MULE:
+    name: '骡子'
+    barColor: 'RED'
+    barStyle: 'SEGMENTED_20'
+  VEX:
+    name: '小鬼'
+    barColor: 'RED'
+    barStyle: 'SEGMENTED_20'
+  CREEPER:
+    name: '爬行者'
+    barColor: 'RED'
+    barStyle: 'SEGMENTED_20'
+  SKELETON:
+    name: '骷髅'
+    barColor: 'RED'
+    barStyle: 'SEGMENTED_20'
+  SPIDER:
+    name: '蜘蛛'
+    barColor: 'RED'
+    barStyle: 'SEGMENTED_20'
+  GIANT:
+    name: '巨人'
+    barColor: 'RED'
+    barStyle: 'SEGMENTED_20'
+  ZOMBIE:
+    name: '僵尸'
+    barColor: 'RED'
+    barStyle: 'SEGMENTED_20'
+  SLIME:
+    name: '史莱姆'
+    barColor: 'RED'
+    barStyle: 'SEGMENTED_20'
+  GHAST:
+    name: '恶魂'
+    barColor: 'RED'
+    barStyle: 'SEGMENTED_20'
+  PIG_ZOMBIE:
+    name: '僵尸猪人'
+    barColor: 'RED'
+    barStyle: 'SEGMENTED_20'
+  ENDERMAN:
+    name: '末影人'
+    barColor: 'RED'
+    barStyle: 'SEGMENTED_20'
+  CAVE_SPIDER:
+    name: '洞穴蜘蛛'
+    barColor: 'RED'
+    barStyle: 'SEGMENTED_20'
+  SILVERFISH:
+    name: '蠹虫'
+    barColor: 'RED'
+    barStyle: 'SEGMENTED_20'
+  BLAZE:
+    name: '烈焰人'
+    barColor: 'RED'
+    barStyle: 'SEGMENTED_20'
+  MAGMA_CUBE:
+    name: '岩浆怪'
+    barColor: 'RED'
+    barStyle: 'SEGMENTED_20'
+  ENDER_DRAGON:
+    name: '末影龙'
+    barColor: 'RED'
+    barStyle: 'SEGMENTED_20'
+  WITHER:
+    name: '凋零'
+    barColor: 'RED'
+    barStyle: 'SEGMENTED_20'
+  BAT:
+    name: '蝙蝠'
+    barColor: 'RED'
+    barStyle: 'SEGMENTED_20'
+  WITCH:
+    name: '女巫'
+    barColor: 'RED'
+    barStyle: 'SEGMENTED_20'
+  ENDERMITE:
+    name: '末影螨'
+    barColor: 'RED'
+    barStyle: 'SEGMENTED_20'
+  GUARDIAN:
+    name: '守护者'
+    barColor: 'RED'
+    barStyle: 'SEGMENTED_20'
+  SHULKER:
+    name: '潜影贝'
+    barColor: 'RED'
+    barStyle: 'SEGMENTED_20'
+  PIG:
+    name: '猪'
+    barColor: 'RED'
+    barStyle: 'SEGMENTED_20'
+  SHEEP:
+    name: '羊'
+    barColor: 'RED'
+    barStyle: 'SEGMENTED_20'
+  COW:
+    name: '牛'
+    barColor: 'RED'
+    barStyle: 'SEGMENTED_20'
+  CHICKEN:
+    name: '鸡'
+    barColor: 'RED'
+    barStyle: 'SEGMENTED_20'
+  SQUID:
+    name: '鱿鱼'
+    barColor: 'RED'
+    barStyle: 'SEGMENTED_20'
+  WOLF:
+    name: '狼'
+    barColor: 'RED'
+    barStyle: 'SEGMENTED_20'
+  MUSHROOM_COW:
+    name: '哞菇'
+    barColor: 'RED'
+    barStyle: 'SEGMENTED_20'
+  SNOWMAN:
+    name: '雪傀儡'
+    barColor: 'RED'
+    barStyle: 'SEGMENTED_20'
+  OCELOT:
+    name: '豹猫'
+    barColor: 'RED'
+    barStyle: 'SEGMENTED_20'
+  IRON_GOLEM:
+    name: '铁傀儡'
+    barColor: 'RED'
+    barStyle: 'SEGMENTED_20'
+  HORSE:
+    name: '马'
+    barColor: 'RED'
+    barStyle: 'SEGMENTED_20'
+  RABBIT:
+    name: '兔子'
+    barColor: 'RED'
+    barStyle: 'SEGMENTED_20'
+  POLAR_BEAR:
+    name: '北极熊'
+    barColor: 'RED'
+    barStyle: 'SEGMENTED_20'
+  LLAMA:
+    name: '羊驼'
+    barColor: 'RED'
+    barStyle: 'SEGMENTED_20'
+  VILLAGER:
+    name: '村民'
+    barColor: 'RED'
+    barStyle: 'SEGMENTED_20'

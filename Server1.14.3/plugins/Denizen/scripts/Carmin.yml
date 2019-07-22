@@ -1,0 +1,130 @@
+"Carmin":
+    type: assignment
+
+    actions:
+      on assignment:
+      - trigger name:CHAT toggle:false
+      - trigger name:click toggle:true
+      - trigger name:proximity toggle:true radius:3
+      on Build Complete:
+      - ^run 's@nationhend'
+    interact scripts:
+    - 16 buildebonth
+
+'buildebonth':
+  Type: Interact
+  Requirements:
+    Mode: all
+    List:
+    - valueof <player.flag[progreso].contains[tutorial_ok]>
+    - valueof <player.flag[raza].contains[humano]>
+    - valueof <global.flag[capitulos].contains[CAPITULO1NATIONHOK]>
+    - -valueof <global.flag[nacionhumprogress].contains[EBONTH3OK]>
+  Steps:
+    '1':
+      proximity trigger:
+        entry:
+          radius: 4
+          Script:
+          - ^run 's@bookfachumanebonth'
+          - ^zap step:2
+    '2':
+      click trigger:
+        Script:
+          - ^engage
+          - ^yaml load:naciones/nacionhumana.yml id:nacion<player.name>
+          - ^if <yaml[nacion<player.name>].read[aldeas.ebonth.stonebrick]> >= 0 && <yaml[nacion<player.name>].read[aldeas.ebonth.cobblestone]> >= 0 && <yaml[nacion<player.name>].read[aldeas.ebonth.log]> >= 0 && <yaml[nacion<player.name>].read[aldeas.ebonth.lightclay]> >= 0 && <yaml[nacion<player.name>].read[aldeas.ebonth.hardclay]> >= 0 {
+            - ^inventory open d:in@inv_ebonth
+            }
+          - ^yaml unload id:nacion<player.name>
+          - disengage
+      proximity trigger:
+        entry:
+          radius: 4
+          Script:
+          - ^narrate "<aqua>Carmin:<dark_gray> Hola <player.name>"
+          - ^wait 1s
+          - ^if <player.inventory.contains[4|98|log|159:3|159:11]> {
+            - ^narrate "<aqua>Carmin:<dark_aqua> Traes algunos materiales utiles para el clan"
+            - ^narrate "<dark_aqua>te gustaria entregarlos?"
+            - ^narrate "<blue><player.inventory.quantity[i@98]> <red>ladrillos de piedra"
+            - ^narrate "<blue><player.inventory.quantity[i@4]> <red>bloques de cobblestone"
+            - ^narrate "<blue><player.inventory.quantity[i@log]> <red>troncos de madera"
+            - ^narrate "<blue><player.inventory.quantity[i@159:3]> <red>de arcilla azul clara"
+            - ^narrate "<blue><player.inventory.quantity[i@159:11]> <red>de arcilla azul oscura"
+            }
+
+
+# Inventarios
+inv_ebonth:
+  type: inventory
+  inventory: dispenser
+  slots:
+  - "[i@ebonthstonebrick] [i@ebonthcobblestone] [i@ebonthlog]"
+  - "[i@ebonthhardclay] [i@ebonthinfo] [i@ebonthlightclay]"
+  - "[i@cancelslot] [i@Entregar] [i@cancelslot]"
+
+#items
+
+ebonthinfo:
+  type: item
+  material: 340
+  display name: '<gold>Ebonth'
+  lore:
+  - ''
+  - '<gray>Estado del clan'
+  - '<gray>Actualizaciones: <yellow><yaml[nacion<player.name>].read[aldeas.ebonth.status].asint>/3'
+ebonthstonebrick:
+  type: item
+  material: 98
+  display name: '<yellow>Ladrillos de piedra'
+  lore:
+  - ''
+  - '<gray>Se requieren: <yellow><yaml[nacion<player.name>].read[aldeas.ebonth.stonebrick].asint> <gray>bloques mas'
+ebonthcobblestone:
+  type: item
+  material: 4
+  display name: '<yellow>Bloques de cobblestone'
+  lore:
+  - ''
+  - '<gray>Se requieren: <yellow><yaml[nacion<player.name>].read[aldeas.ebonth.cobblestone].asint> <gray>bloques mas'
+ebonthlog:
+  type: item
+  material: 17
+  display name: '<yellow>Troncos de madera'
+  lore:
+  - ''
+  - '<gray>Se requieren: <yellow><yaml[nacion<player.name>].read[aldeas.ebonth.log].asint> <gray>bloques mas'
+ebonthhardclay:
+  type: item
+  material: '159,11'
+  display name: '<yellow>Arcilla azul oscura'
+  lore:
+  - ''
+  - '<gray>Se requieren: <yellow><yaml[nacion<player.name>].read[aldeas.ebonth.hardclay].asint> <gray>bloques mas'
+ebonthlightclay:
+  type: item
+  material: '159,3'
+  display name: '<yellow>Arcilla azul clara'
+  lore:
+  - ''
+  - '<gray>Se requieren: <yellow><yaml[nacion<player.name>].read[aldeas.ebonth.lightclay].asint> <gray>bloques mas'
+# Libros
+bookfachumanebonth:
+    type: task
+    script:
+    - ^adjust <player> item_slot:8
+    - ^define old_item <player.item_in_hand> 
+    - ^take <player.item_in_hand> qty:<player.item_in_hand.qty>
+    - ^give i@librofachumanebonth slot:8
+    - ^adjust <player> open_book
+    - ^take i@librofachumanebonth
+    - ^give %old_item% slot:8
+    - DETERMINE cancelled
+
+librofachumanebonth:
+  type: book 
+  title: Clanes!
+  author: <dark_aqua>Carmin
+  text: 
+  - '<dark_aqua>Carmin<black>:<n>Este es el clan de <dark_aqua>Ebonth<black>.<p>En este clan nos dedicamos a la magia de la nacion asi como resguardar y crear las reliquias de la nacion.'

@@ -1,0 +1,850 @@
+"Telmo":
+    type: assignment
+
+    actions:
+      on assignment:
+      - trigger name:CHAT toggle:true
+      - trigger name:click toggle:true
+      - trigger name:proximity toggle:true radius:3
+
+    interact scripts:
+    - 16 M6
+
+'M6':
+  Type: Interact
+  Requirements:
+    Mode: all
+    List:
+    - -valueof <player.flag[progreso].contains[conducta_ok]>
+  Steps:
+    '1':
+      proximity trigger:
+        entry:
+          radius: 3
+          Script:
+          - ^if <player.flag[misiones].as_list> contains condu_01_pre && <player.flag[misiones].as_list> !contains condu_01 {
+            - ^playsound <player> sound:complete custom
+            - ^inventory open d:in@inv_telmo_1
+            } else if <player.flag[misiones].as_list> contains condu_01 && <player.flag[misiones].as_list> !contains condu_02 {
+            - ^inventory open d:in@inv_telmo_2
+            } else if <player.flag[misiones].as_list> contains condu_02 && <player.flag[misiones].as_list> !contains condu_03 {
+            - ^if <player.inventory.contains.lore[Espacio]> {
+              - ^narrate "<dark_red>Telmo: <yellow>Aun no puedes usar la gema? hahahaha"
+              } else {
+              - ^inventory open d:in@inv_telmo_3
+              }
+            } else if <player.flag[misiones].as_list> contains condu_03 && <player.flag[misiones].as_list> !contains condu_04 {
+            - ^inventory open d:in@inv_telmo_4
+            } else if <player.flag[misiones].as_list> contains condu_04 && <player.flag[misiones].as_list> !contains condu_05 {
+            - ^if <player.inventory.contains.lore[Espacio]> {
+              - ^run 's@bookq3'
+              } else {
+              - ^run 's@bookq4'
+              - ^bossbar remove obj<player.name>
+              - ^define objetivo "<gold>Objetivo: <green>Visitar a <dark_red>Drumke <green>en la mina del pueblo."
+              - ^flag <player> objetivo:<def[objetivo]>
+              - ^bossbar obj<player.name> players:<player> "title:<player.flag[objetivo]>" color:BLUE
+              - ^compass <npc.location.simple> npc:177
+              - ^define objloc "<npc.location.simple>" npc:177
+              - ^flag <player> objloc:%objloc%
+              - ^flag <player> misiones:->:condu_05
+              }
+            }
+      click trigger:
+        Script:
+          - ^if <player.flag[misiones].as_list> !contains condu_01 {
+            - ^playsound <player> sound:complete custom
+            - ^inventory open d:in@inv_telmo_1
+            } else if <player.flag[misiones].as_list> contains condu_01 && <player.flag[misiones].as_list> !contains condu_02 {
+            - ^inventory open d:in@inv_telmo_2
+            } else if <player.flag[misiones].as_list> contains condu_02 && <player.flag[misiones].as_list> !contains condu_03 {
+            - ^if <player.inventory.contains.lore[Espacio]> {
+              - ^narrate "<dark_red>Telmo: <yellow>Aun no puedes usar la gema? hahahaha"
+              } else {
+              - ^inventory open d:in@inv_telmo_3
+              }
+            } else if <player.flag[misiones].as_list> contains condu_03 && <player.flag[misiones].as_list> !contains condu_04 {
+            - ^inventory open d:in@inv_telmo_4
+            } else if <player.flag[misiones].as_list> contains condu_04 && <player.flag[misiones].as_list> !contains condu_05 {
+            - ^if <player.inventory.contains.lore[Espacio]> {
+              - ^run 's@bookq3'
+              } else {
+              - ^run 's@bookq4'
+              - ^bossbar remove obj<player.name>
+              - ^define objetivo "<gold>Objetivo: <green>Visitar a <dark_red>Drumke <green>en la mina del pueblo."
+              - ^flag <player> objetivo:<def[objetivo]>
+              - ^bossbar obj<player.name> players:<player> "title:<player.flag[objetivo]>" color:BLUE
+              - ^compass <npc.location.simple> npc:177
+              - ^define objloc "<npc.location.simple>" npc:177
+              - ^flag <player> objloc:%objloc%
+              - ^flag <player> misiones:->:condu_05
+              }
+            }
+    '2':
+      proximity trigger:
+        entry:
+          radius: 3
+          Script:
+          - ^if <player.flag[misiones].as_list> contains tuto_05 && <player.flag[dungeoncondu]> == progress {
+            - ^inventory open d:in@inv_mision
+            }
+
+    '3':
+      proximity trigger:
+        entry:
+          radius: 3
+          Script:
+          - ^if <player.flag[misiones].as_list> contains tuto_06 && <player.flag[dungeoncondu]> == ok {
+            - ^run 's@bookq11'
+            - ^bossbar remove obj<player.name>
+            - ^define objetivo "<gold>Tutorial: <green>Visitar a <red>Claudec <green>en el incinerador"
+            - ^flag <player> objetivo:<def[objetivo]>
+            - ^bossbar obj<player.name> players:<player> "title:<player.flag[objetivo]>" color:BLUE
+            - ^compass <npc.location.simple> npc:66
+            - ^flag <player> dungeoncondu:end
+            - ^playsound <player> sound:complete custom
+            }
+          - ^if <flag.p:dungeoncondu> = end && <player.flag[misiones].as_list> !contains tuto_07 {
+            - ^NARRATE "<dark_red>Telmo<yellow>: Joder aun sigues aqui? Busca a <dark_red>Claudec"
+            - ^compass <npc.location.simple> npc:66
+            }
+          - ^if <flag.p:dungeoncondu> = end && <player.flag[misiones].as_list> contains tuto_07 {
+            - ^NARRATE "<dark_red>Telmo<yellow>: Todo esta controlado aqui <player.name>"
+            }
+
+telmo_events:
+  type: world
+  events:
+    on player clicks in inv_telmo_1:
+    - DETERMINE cancelled
+    on player drags in inv_telmo_1:
+    - DETERMINE cancelled
+    on player clicks in inv_telmo_2:
+    - DETERMINE cancelled
+    on player drags in inv_telmo_2:
+    - DETERMINE cancelled
+    on player clicks in inv_telmo_3:
+    - DETERMINE cancelled
+    on player drags in inv_telmo_3:
+    - DETERMINE cancelled
+    on player clicks in inv_telmo_4:
+    - DETERMINE cancelled
+    on player drags in inv_telmo_4:
+    - DETERMINE cancelled
+#--------------ESPADAS-----------------------
+    on player clicks espada3L in inv_telmo_1:
+    - ^inventory close d:in@inv_telmo_1
+    - ^flag <player> cundulobo:+:5
+    - ^flag <player> cunduhumano:+:3
+    - ^flag <player> cunduvampiro:+:1
+    - ^flag <player> espada:<i@espada3L.display>
+    - ^flag <player> misiones:->:condu_01
+    - ^playsound <player> sound:complete custom
+    - ^give i@espada3L
+    - ^inventory open d:in@inv_telmo_2
+    on player clicks espada2V in inv_telmo_1:
+    - ^inventory close d:in@inv_telmo_1
+    - ^flag <player> cunduvampiro:+:5
+    - ^flag <player> cundulobo:+:1
+    - ^flag <player> cunduhumano:+:3
+    - ^flag <player> espada:<i@espada2V.display>
+    - ^flag <player> misiones:->:condu_01
+    - ^playsound <player> sound:complete custom
+    - ^give i@espada2V
+    - ^inventory open d:in@inv_telmo_2
+    on player clicks espada1H in inv_telmo_1:
+    - ^inventory close d:in@inv_telmo_1
+    - ^flag <player> cunduhumano:+:5
+    - ^flag <player> cunduvampiro:+:1
+    - ^flag <player> cundulobo:+:3
+    - ^flag <player> espada:<i@espada1H.display>
+    - ^flag <player> misiones:->:condu_01
+    - ^playsound <player> sound:complete custom
+    - ^give i@espada1H
+    - ^inventory open d:in@inv_telmo_2
+#--------------Gemas 1-----------------------
+    on player clicks gem1L1 in inv_telmo_2:
+    - ^inventory close d:in@inv_telmo_2
+    - ^flag <player> cundulobo:+:5
+    - ^flag <player> cunduhumano:+:3
+    - ^flag <player> cunduvampiro:+:1
+    - ^flag <player> gem:<i@gem1L1.display>
+    - ^flag <player> misiones:->:condu_02
+    - ^playsound <player> sound:complete custom
+    - ^execute as_server "md gem <player.name> -g Tyr"
+    - ^run 's@bookq2'
+    on player clicks gem1L2 in inv_telmo_2:
+    - ^inventory close d:in@inv_telmo_2
+    - ^flag <player> cundulobo:+:5
+    - ^flag <player> cunduhumano:+:3
+    - ^flag <player> cunduvampiro:+:1
+    - ^flag <player> gem:<i@gem1L2.display>
+    - ^flag <player> misiones:->:condu_02
+    - ^playsound <player> sound:complete custom
+    - ^execute as_server "md gem <player.name> -g Fehu"
+    - ^run 's@bookq2'
+#
+    on player clicks gem1V1 in inv_telmo_2:
+    - ^inventory close d:in@inv_telmo_2
+    - ^flag <player> cunduvampiro:+:5
+    - ^flag <player> cundulobo:+:1
+    - ^flag <player> cunduhumano:+:3
+    - ^flag <player> gem:<i@gem1V1.display>
+    - ^flag <player> misiones:->:condu_02
+    - ^playsound <player> sound:complete custom
+    - ^execute as_server "md gem <player.name> -g Zolh"
+    - ^run 's@bookq2'
+    on player clicks gem1V2 in inv_telmo_2:
+    - ^inventory close d:in@inv_telmo_2
+    - ^flag <player> cunduvampiro:+:5
+    - ^flag <player> cundulobo:+:1
+    - ^flag <player> cunduhumano:+:3
+    - ^flag <player> gem:<i@gem1V2.display>
+    - ^flag <player> misiones:->:condu_02
+    - ^playsound <player> sound:complete custom
+    - ^execute as_server "md gem <player.name> -g Uruz"
+    - ^run 's@bookq2'
+#
+    on player clicks gem1H1 in inv_telmo_2:
+    - ^inventory close d:in@inv_telmo_2
+    - ^flag <player> cunduhumano:+:5
+    - ^flag <player> cunduvampiro:+:1
+    - ^flag <player> cundulobo:+:3
+    - ^flag <player> gem:<i@gem1H1.display>
+    - ^flag <player> misiones:->:condu_02
+    - ^playsound <player> sound:complete custom
+    - ^execute as_server "md gem <player.name> -g Nig"
+    - ^run 's@bookq2'
+    on player clicks gem1H2 in inv_telmo_2:
+    - ^inventory close d:in@inv_telmo_2
+    - ^flag <player> cunduhumano:+:5
+    - ^flag <player> cunduvampiro:+:1
+    - ^flag <player> cundulobo:+:3
+    - ^flag <player> gem:<i@gem1H2.display>
+    - ^flag <player> misiones:->:condu_02
+    - ^playsound <player> sound:complete custom
+    - ^execute as_server "md gem <player.name> -g Sigel"
+    - ^run 's@bookq2'
+#--------------ARMADURAS----------------------------------------------
+    on player clicks piel1L1 in inv_telmo_3:
+    - ^inventory close d:in@inv_telmo_3
+    - ^flag <player> cundulobo:+:5
+    - ^flag <player> cunduhumano:+:3
+    - ^flag <player> cunduvampiro:+:1
+    - ^flag <player> piel:<i@piel1L1.display>
+    - ^flag <player> misiones:->:condu_03
+    - ^playsound <player> sound:complete custom
+    - ^equip <player> head:i@LH1L
+    - ^equip <player> chest:i@LCH1L
+    - ^equip <player> legs:i@LL1L
+    - ^equip <player> boots:i@LB1L
+    - ^inventory open d:in@inv_telmo_4
+    on player clicks piel1L2 in inv_telmo_3:
+    - ^inventory close d:in@inv_telmo_3
+    - ^flag <player> cundulobo:+:5
+    - ^flag <player> cunduhumano:+:3
+    - ^flag <player> cunduvampiro:+:1
+    - ^flag <player> piel:<i@piel1L2.display>
+    - ^flag <player> misiones:->:condu_03
+    - ^playsound <player> sound:complete custom
+    - ^equip <player> head:i@LH2L
+    - ^equip <player> chest:i@LCH2L
+    - ^equip <player> legs:i@LL2L
+    - ^equip <player> boots:i@LB2L
+    - ^inventory open d:in@inv_telmo_4
+#
+    on player clicks piel2V1 in inv_telmo_3:
+    - inventory close d:in@inv_telmo_3
+    - ^flag <player> cunduvampiro:+:5
+    - ^flag <player> cundulobo:+:1
+    - ^flag <player> cunduhumano:+:3
+    - ^flag <player> piel:<i@piel2V1.display>
+    - ^flag <player> misiones:->:condu_03
+    - ^playsound <player> sound:complete custom
+    - ^equip <player> head:i@LH1V
+    - ^equip <player> chest:i@LCH1V
+    - ^equip <player> legs:i@LL1V
+    - ^equip <player> boots:i@LB1V
+    - ^inventory open d:in@inv_telmo_4
+    on player clicks piel2V2 in inv_telmo_3:
+    - inventory close d:in@inv_telmo_3
+    - ^flag <player> cunduvampiro:+:5
+    - ^flag <player> cundulobo:+:1
+    - ^flag <player> cunduhumano:+:3
+    - ^flag <player> piel:<i@piel2V2.display>
+    - ^flag <player> misiones:->:condu_03
+    - ^playsound <player> sound:complete custom
+    - ^equip <player> head:i@LH2V
+    - ^equip <player> chest:i@LCH2V
+    - ^equip <player> legs:i@LL2V
+    - ^equip <player> boots:i@LB2V
+    - ^inventory open d:in@inv_telmo_4
+#
+    on player clicks piel3H1 in inv_telmo_3:
+    - ^inventory close d:in@inv_telmo_3
+    - ^flag <player> cunduhumano:+:5
+    - ^flag <player> cunduvampiro:+:1
+    - ^flag <player> cundulobo:+:3
+    - ^flag <player> piel:<i@piel3H1.display>
+    - ^flag <player> misiones:->:condu_03
+    - ^playsound <player> sound:complete custom
+    - ^equip <player> head:i@LH1H
+    - ^equip <player> chest:i@LCH1H
+    - ^equip <player> legs:i@LL1H
+    - ^equip <player> boots:i@LB1H
+    - ^inventory open d:in@inv_telmo_4
+    on player clicks piel3H2 in inv_telmo_3:
+    - ^inventory close d:in@inv_telmo_3
+    - ^flag <player> cunduhumano:+:5
+    - ^flag <player> cunduvampiro:+:1
+    - ^flag <player> cundulobo:+:3
+    - ^flag <player> piel:<i@piel3H2.display>
+    - ^flag <player> misiones:->:condu_03
+    - ^playsound <player> sound:complete custom
+    - ^equip <player> head:i@LH2H
+    - ^equip <player> chest:i@LCH2H
+    - ^equip <player> legs:i@LL2H
+    - ^equip <player> boots:i@LB2H
+    - ^inventory open d:in@inv_telmo_4
+#--------------Gemas 2-----------------------
+    on player clicks gem2L1 in inv_telmo_4:
+    - ^inventory close d:in@inv_telmo_4
+    - ^flag <player> cundulobo:+:5
+    - ^flag <player> cunduhumano:+:3
+    - ^flag <player> cunduvampiro:+:1
+    - ^flag <player> gem2:<i@gem2L1.display>
+    - ^flag <player> misiones:->:condu_04
+    - ^playsound <player> sound:complete custom
+    - ^execute as_server "md gem <player.name> -g Ansuz -a 4"
+    - ^run 's@bookq3'
+    on player clicks gem2L2 in inv_telmo_4:
+    - ^inventory close d:in@inv_telmo_4
+    - ^flag <player> cundulobo:+:5
+    - ^flag <player> cunduhumano:+:3
+    - ^flag <player> cunduvampiro:+:1
+    - ^flag <player> gem2:<i@gem2L2.display>
+    - ^flag <player> misiones:->:condu_04
+    - ^playsound <player> sound:complete custom
+    - ^execute as_server "md gem <player.name> -g Eiwas -a 4"
+    - ^run 's@bookq3'
+#
+    on player clicks gem2V1 in inv_telmo_4:
+    - ^inventory close d:in@inv_telmo_4
+    - ^flag <player> cunduvampiro:+:5
+    - ^flag <player> cundulobo:+:1
+    - ^flag <player> cunduhumano:+:3
+    - ^flag <player> gem2:<i@gem2V1.display>
+    - ^flag <player> misiones:->:condu_04
+    - ^playsound <player> sound:complete custom
+    - ^execute as_server "md gem <player.name> -g Kano -a 4"
+    - ^run 's@bookq3'
+    on player clicks gem2V2 in inv_telmo_4:
+    - ^inventory close d:in@inv_telmo_4
+    - ^flag <player> cunduvampiro:+:5
+    - ^flag <player> cundulobo:+:1
+    - ^flag <player> cunduhumano:+:3
+    - ^flag <player> gem2:<i@gem2V2.display>
+    - ^flag <player> misiones:->:condu_04
+    - ^playsound <player> sound:complete custom
+    - ^execute as_server "md gem <player.name> -g Gera -a 4"
+    - ^run 's@bookq3'
+#
+    on player clicks gem2H1 in inv_telmo_4:
+    - ^inventory close d:in@inv_telmo_4
+    - ^flag <player> cunduhumano:+:5
+    - ^flag <player> cunduvampiro:+:1
+    - ^flag <player> cundulobo:+:3
+    - ^flag <player> gem2:<i@gem2H1.display>
+    - ^flag <player> misiones:->:condu_04
+    - ^playsound <player> sound:complete custom
+    - ^execute as_server "md gem <player.name> -g Berkana -a 4"
+    - ^run 's@bookq3'
+    on player clicks gem2H2 in inv_telmo_4:
+    - ^inventory close d:in@inv_telmo_4
+    - ^flag <player> cunduhumano:+:5
+    - ^flag <player> cunduvampiro:+:1
+    - ^flag <player> cundulobo:+:3
+    - ^flag <player> gem2:<i@gem2H2.display>
+    - ^flag <player> misiones:->:condu_04
+    - ^playsound <player> sound:complete custom
+    - ^execute as_server "md gem <player.name> -g Lagaz -a 4"
+    - ^run 's@bookq3'
+    
+# ========== INVENTARIOS ================
+inv_telmo_1:
+  type: inventory
+  title: <gold>Revision 1 / 5
+  size: 9
+  slots:
+  - "[i@human_skull[display_name=&ss4Telmo;lore=&ss7Genial otro maldito cadaver...|&ss7si te hablo a ti mal nacido|&ss7pero si tienes tanta prisa por morir.|&ss7|&ss7Terminemos tu tormento|&ss7Elige una palito... perdon espada hahahaha;skull_skin=donsavage]] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@espada3L] [i@espada2V] [i@espada1H]"
+
+inv_telmo_2:
+  type: inventory
+  title: <gold>Revision 2 / 5
+  size: 9
+  slots:
+  - "[i@human_skull[display_name=&ss4Telmo;lore=&ss7Magnifica eleccion...hahahaha|&ss7bueno ahora elige una gema|&ss7que la espada esta como tu|&ss7da pena ajena mi amigo...|&ss7|&ss7y le pondremos algo de estadisticas|&ss7para que no se vea tan miserable.;skull_skin=donsavage]] [i@cancelslot] [i@cancelslot] [i@gem1H1] [i@gem1L2] [i@gem1V2] [i@gem1L1] [i@gem1H2] [i@gem1V1]"
+
+inv_telmo_3:
+  type: inventory
+  title: <gold>Revision 3 / 5
+  size: 9
+  slots:
+  - "[i@human_skull[display_name=&ss4Telmo;lore=&ss7Pero si no eres tan torpe <player.name>... hahaha|&ss7bueno ahora elige un set de Armaduras|&ss7Que asi como estas incluso una mosca te mata...|&ss7|&ss7mira bien las armaduras...|&ss7bueno los trapos hahaha.;skull_skin=donsavage]] [i@cancelslot] [i@cancelslot] [i@piel3H2] [i@piel1L1] [i@piel2V2] [i@piel2V1] [i@piel1L2] [i@piel3H1]"
+
+inv_telmo_4:
+  type: inventory
+  title: <gold>Revision 4 / 5
+  size: 9
+  slots:
+  - "[i@human_skull[display_name=&ss4Telmo;lore=&ss7De acuerdo ahora a ponerles sus gemas|&ss7ya sabes elige una que consideres buena|&ss7y despues equipa las gemas a tu nueva armadura.|&ss7|&ss7Y date prisa que no tenemos todo el dia.;skull_skin=donsavage]] [i@cancelslot] [i@cancelslot] [i@gem2H1] [i@gem2L2] [i@gem2V2] [i@gem2L1] [i@gem2H2] [i@gem2V1]"
+
+# ========== Espadas
+espada1H:
+  type: item
+  material: wood_sword
+  display name: '<dark_gray>Daga Bendita'
+  lore:
+  - '<blue>(Espacio)'
+  enchantments:
+  - DURABILITY:10
+  - DAMAGE_ARTHROPODS:3
+espada2V:
+  type: item
+  material: wood_sword
+  display name: '<dark_gray>Daga Sombria'
+  lore:
+  - '<blue>(Espacio)'
+  enchantments:
+  - DURABILITY:10
+  - DAMAGE_ALL:3
+espada3L:
+  type: item
+  material: wood_sword
+  display name: '<dark_gray>Daga Lunar'
+  lore:
+  - '<blue>(Espacio)'
+  enchantments:
+  - DURABILITY:10
+  - KNOCKBACK:3
+# ==============Gemas 1
+gem1L1:
+  type: item
+  material: nether_star
+  display name: '<dark_red>Tyr'
+  lore:
+  - '<green>4 puntos de Vida'
+  - '<gray>incrementa tus puntos de vida'
+gem1L2:
+  type: item
+  material: nether_star
+  display name: '<dark_red>Fehu'
+  lore:
+  - '<green>4 puntos de Fuerza'
+  - '<gray>incrementa la fuerza'
+  - '<gray>para cargar equipo mas pesado'
+
+gem1V1:
+  type: item
+  material: nether_star
+  display name: '<dark_red>Zolh'
+  lore:
+  - '<green>4 puntos de Agilidad'
+  - '<gray>incrementa la velocidad de movimiento'
+gem1V2:
+  type: item
+  material: nether_star
+  display name: '<dark_red>Uruz'
+  lore:
+  - '<green>4 puntos de Diciplina'
+  - '<gray>incrementa el ataque fisico'
+
+gem1H1:
+  type: item
+  material: nether_star
+  display name: '<dark_red>Nig'
+  lore:
+  - '<green>4 puntos de Espiritu'
+  - '<fray>Incrementa la regeneracion de energia'
+gem1H2:
+  type: item
+  material: nether_star
+  display name: '<dark_red>Sigel'
+  lore:
+  - '<green>4 puntos de Concentracion'
+  - '<gray>incrementa el ataque magico'
+# ==============Gemas 2
+gem2L1:
+  type: item
+  material: nether_star
+  display name: '<dark_red>Ansuz'
+  lore:
+  - '<aqua>Congela mientras eres atacado'
+  - '<dark_aqua>duracion 0.5 seg.'
+gem2L2:
+  type: item
+  material: nether_star
+  display name: '<dark_red>Eiwas'
+  lore:
+  - '<green>2 puntos de Fuerza'
+  - '<gray>incrementa la fuerza'
+  - '<gray>para cargar equipo mas pesado'
+
+gem2V1:
+  type: item
+  material: nether_star
+  display name: '<dark_red>Kano'
+  lore:
+  - '<dark_green>Envenena mientras eres atacado'
+  - '<green>duracion 0.5 seg.'
+gem2V2:
+  type: item
+  material: nether_star
+  display name: '<dark_red>Gera'
+  lore:
+  - '<green>2 puntos de Diciplina'
+  - '<gray>incrementa el ataque fisico'
+
+gem2H1:
+  type: item
+  material: nether_star
+  display name: '<dark_red>Berkana'
+  lore:
+  - '<dark_green>Obtienes un escudo que absorbe el ataque'
+  - '<green>duracion 0.3 seg.'
+gem2H2:
+  type: item
+  material: nether_star
+  display name: '<dark_red>Lagaz'
+  lore:
+  - '<green>4 puntos de Concentracion'
+  - '<gray>incrementa el ataque magico'
+# ==============Armaduras
+piel1L1:
+  type: item
+  material: leather
+  display name: '<yellow>Piel escarificada'
+  lore:
+  - '<red>Grabada con hierro volcanico'
+piel1L2:
+  type: item
+  material: leather
+  display name: '<dark_purple>Piel sigilosa'
+  lore:
+  - '<dark_green>Indispensable para camuflaje en el bosque'
+
+piel2V1:
+  type: item
+  material: leather
+  display name: '<dark_purple>Piel escarcelada'
+  lore:
+  - '<white>Grabada con colmillos lunares'
+piel2V2:
+  type: item
+  material: leather
+  display name: '<gold>Piel brocada'
+  lore:
+  - '<blue>Contiene simbolos antiguos'
+
+piel3H1:
+  type: item
+  material: leather
+  display name: '<gray>Piel osea'
+  lore:
+  - '<yellow>Contiene huesos de lobo'
+piel3H2:
+  type: item
+  material: leather
+  display name: '<aqua>Piel dentada'
+  lore:
+  - '<yellow>Curtida con colmillos de murcielago'
+
+LH1L:
+  type: item
+  material: leather_helmet
+  display name: '<yellow>Casco escarificado'
+  enchantments:
+  - PROTECTION_PROJECTILE:1
+  - DURABILITY:10
+  lore:
+  - '<blue>(Espacio)'
+LH2L:
+  type: item
+  material: leather_helmet
+  display name: '<dark_purple>Casco sigiloso'
+  enchantments:
+  - PROTECTION_PROJECTILE:1
+  - DURABILITY:10
+  lore:
+  - '<blue>(Espacio)'
+#
+LH1V:
+  type: item
+  material: leather_helmet
+  display name: '<dark_purple>Casco escarcelado'
+  enchantments:
+  - PROTECTION_FIRE:1
+  - DURABILITY:10
+  lore:
+  - '<blue>(Espacio)'
+LH2V:
+  type: item
+  material: leather_helmet
+  display name: '<gold>Casco brocado'
+  enchantments:
+  - PROTECTION_FIRE:1
+  - DURABILITY:10
+  lore:
+  - '<blue>(Espacio)'
+#
+LH1H:
+  type: item
+  material: leather_helmet
+  display name: '<gray>Casco oseo'
+  enchantments:
+  - PROTECTION_EXPLOSIONS:1
+  - DURABILITY:10
+  lore:
+  - '<blue>(Espacio)'
+LH2H:
+  type: item
+  material: leather_helmet
+  display name: '<gold>Casco dentado'
+  enchantments:
+  - PROTECTION_EXPLOSIONS:1
+  - DURABILITY:10
+  lore:
+  - '<blue>(Espacio)'
+
+
+LCH1L:
+  type: item
+  material: leather_chestplate
+  display name: '<yellow>Coraza escarificada'
+  enchantments:
+  - PROTECTION_PROJECTILE:1
+  - DURABILITY:10
+  lore:
+  - '<blue>(Espacio)'
+LCH2L:
+  type: item
+  material: leather_chestplate
+  display name: '<dark_purple>Coraza sigilosa'
+  enchantments:
+  - PROTECTION_PROJECTILE:1
+  - DURABILITY:10
+  lore:
+  - '<blue>(Espacio)'
+#
+LCH1V:
+  type: item
+  material: leather_chestplate
+  display name: '<dark_purple>Coraza escarcelada'
+  enchantments:
+  - PROTECTION_FIRE:1
+  - DURABILITY:10
+  lore:
+  - '<blue>(Espacio)'
+LCH2V:
+  type: item
+  material: leather_chestplate
+  display name: '<gold>Coraza brocada'
+  enchantments:
+  - PROTECTION_FIRE:1
+  - DURABILITY:10
+  lore:
+  - '<blue>(Espacio)'
+#
+LCH1H:
+  type: item
+  material: leather_chestplate
+  display name: '<gray>Coraza osea'
+  enchantments:
+  - PROTECTION_EXPLOSIONS:1
+  - DURABILITY:10
+  lore:
+  - '<blue>(Espacio)'
+LCH2H:
+  type: item
+  material: leather_chestplate
+  display name: '<gold>Coraza dentada'
+  enchantments:
+  - PROTECTION_EXPLOSIONS:1
+  - DURABILITY:10
+  lore:
+  - '<blue>(Espacio)'
+
+LL1L:
+  type: item
+  material: leather_leggings
+  display name: '<yellow>pantalon escarificado'
+  enchantments:
+  - PROTECTION_PROJECTILE:1
+  - DURABILITY:10
+  lore:
+  - '<blue>(Espacio)'
+LL2L:
+  type: item
+  material: leather_leggings
+  display name: '<dark_purple>pantalon sigiloso'
+  enchantments:
+  - PROTECTION_PROJECTILE:1
+  - DURABILITY:10
+  lore:
+  - '<blue>(Espacio)'
+#
+LL1V:
+  type: item
+  material: leather_leggings
+  display name: '<dark_purple>pantalon escarcelado'
+  enchantments:
+  - PROTECTION_FIRE:1
+  - DURABILITY:10
+  lore:
+  - '<blue>(Espacio)'
+LL2V:
+  type: item
+  material: leather_leggings
+  display name: '<gold>pantalon brocado'
+  enchantments:
+  - PROTECTION_FIRE:1
+  - DURABILITY:10
+  lore:
+  - '<blue>(Espacio)'
+#
+LL1H:
+  type: item
+  material: leather_leggings
+  display name: '<gray>pantalon oseo'
+  enchantments:
+  - PROTECTION_EXPLOSIONS:1
+  - DURABILITY:10
+  lore:
+  - '<blue>(Espacio)'
+LL2H:
+  type: item
+  material: leather_leggings
+  display name: '<gold>pantalon dentado'
+  enchantments:
+  - PROTECTION_EXPLOSIONS:1
+  - DURABILITY:10
+  lore:
+  - '<blue>(Espacio)'
+
+LB1L:
+  type: item
+  material: leather_boots
+  display name: '<yellow>Botas escarificadas'
+  enchantments:
+  - PROTECTION_PROJECTILE:1
+  - DURABILITY:10
+  lore:
+  - '<blue>(Espacio)'
+LB2L:
+  type: item
+  material: leather_boots
+  display name: '<dark_purple>Botas sigilosas'
+  enchantments:
+  - PROTECTION_PROJECTILE:1
+  - DURABILITY:10
+  lore:
+  - '<blue>(Espacio)'
+#
+LB1V:
+  type: item
+  material: leather_boots
+  display name: '<dark_purple>Botas escarceladas'
+  enchantments:
+  - PROTECTION_FIRE:1
+  - DURABILITY:10
+  lore:
+  - '<blue>(Espacio)'
+LB2V:
+  type: item
+  material: leather_boots
+  display name: '<gold>Botas brocadas'
+  enchantments:
+  - PROTECTION_FIRE:1
+  - DURABILITY:10
+  lore:
+  - '<blue>(Espacio)'
+#
+LB1H:
+  type: item
+  material: leather_boots
+  display name: '<gray>Botas oseas'
+  enchantments:
+  - PROTECTION_EXPLOSIONS:1
+  - DURABILITY:10
+  lore:
+  - '<blue>(Espacio)'
+LB2H:
+  type: item
+  material: leather_boots
+  display name: '<gold>Botas dentadas'
+  enchantments:
+  - PROTECTION_EXPLOSIONS:1
+  - DURABILITY:10
+  lore:
+  - '<blue>(Espacio)'
+
+
+
+
+bookq2:
+    type: task
+    script:
+    - ^adjust <player> item_slot:8
+    - ^define old_item <player.item_in_hand> 
+    - ^take <player.item_in_hand> qty:<player.item_in_hand.qty>
+    - ^give i@libroq2 slot:8
+    - ^adjust <player> open_book
+    - ^take i@libroq2
+    - ^give %old_item% slot:8
+    - DETERMINE cancelled
+
+libroq2: 
+  type: book 
+  title: Quests!
+  author: Telmo
+  text: 
+  - 'Ok... veamos si almenos puedes aprender como usar las malditas gemas.<p>Solo abre los ojos y lee lo que esta escrito en ella, por favor no molestes a los creadores con esto o podrian incinerarte por tu incompetencia hahaha.'
+  - 'Una ves que le pongas la gema a la espada regresa conmigo para darte unos arapos con los que puedas protegerte de los mosquitos...<p>Porque con esa pinta que traes eres todo un debilucho hahaha'
+
+bookq3:
+    type: task
+    script:
+    - ^adjust <player> item_slot:8
+    - ^define old_item <player.item_in_hand> 
+    - ^take <player.item_in_hand> qty:<player.item_in_hand.qty>
+    - ^give i@libroq3 slot:8
+    - ^adjust <player> open_book
+    - ^take i@libroq3
+    - ^give %old_item% slot:8
+    - DETERMINE cancelled
+
+libroq3: 
+  type: book 
+  title: Quests!
+  author: Telmo
+  text: 
+  - '<dark_red>Telmo:<n><black>Que... aun sigues aqui <player.name>?<p>¿Te sientes solo?<n>¿Quieres un abrazo?<p>Ponle las malditas gemas a tu armadura caray...<p>Y deja de verme con esa cara de perrito.'
+
+bookq4:
+    type: task
+    script:
+    - ^adjust <player> item_slot:8
+    - ^define old_item <player.item_in_hand> 
+    - ^take <player.item_in_hand> qty:<player.item_in_hand.qty>
+    - ^give i@libroq4 slot:8
+    - ^adjust <player> open_book
+    - ^take i@libroq4
+    - ^give %old_item% slot:8
+    - DETERMINE cancelled
+
+libroq4: 
+  type: book 
+  title: Quests!
+  author: Telmo
+  text: 
+  - '<dark_red>Telmo:<n><black>Bueno pues ahora quedaste... como un cadaver decente hahaha.<p>Busca a <dark_red>Drumke <black>se encuentra bajando las escaleras que te lleban a la mina de este pueblo.<p>Intenta no morir por favor...'

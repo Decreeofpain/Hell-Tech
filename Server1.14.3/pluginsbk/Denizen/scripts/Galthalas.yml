@@ -1,0 +1,304 @@
+"Galthalas":
+    type: assignment
+
+    actions:
+      on assignment:
+      - trigger name:CHAT toggle:false
+      - trigger name:click toggle:true
+      - trigger name:proximity toggle:true radius:3
+
+    interact scripts:
+    - 16 buildnationhuman
+    - 14 humanfactions
+
+'buildnationhuman':
+  Type: Interact
+  Requirements:
+    Mode: all
+    List:
+    - valueof <player.flag[progreso].contains[tutorial_ok]>
+    - valueof <player.flag[raza].contains[humano]>
+    - -valueof <global.flag[capitulos].contains[CAPITULO1NATIONHOK]>
+  Steps:
+    '1':
+      proximity trigger:
+        entry:
+          radius: 4
+          Script:
+          - ^if <global.flag[nacionhuman].as_list> !contains START {
+            - ^flag <global> nacionhuman:START
+            - ^yaml load:naciones/nacionhumana.yml id:nacion<player.name>
+            - ^yaml id:nacion<player.name> set nacion.stonebrick:6400
+            - ^yaml id:nacion<player.name> set nacion.cobblestone:6400
+            - ^yaml id:nacion<player.name> set nacion.log:2560
+            - ^yaml id:nacion<player.name> set nacion.lightclay:1280
+            - ^yaml id:nacion<player.name> set nacion.hardclay:1280
+            - ^yaml savefile:naciones/nacionhumana.yml id:nacion<player.name>
+            - ^yaml unload id:nacion<player.name>
+            }
+          - ^run 's@bookCap1part26h'
+          - ^bossbar remove obj<player.name>
+          - ^define objetivo "<gold>Nacion: <green>Consigue lo necesario para recontruir tu nacion"
+          - ^flag <player> objetivo:<def[objetivo]>
+          - ^bossbar obj<player.name> players:<player> "title:<player.flag[objetivo]>" color:BLUE
+          - ^compass <npc.location.simple> npc:89
+          - ^flag <player> cunduhumano:!
+          - ^flag <player> cunduhuman:!
+          - ^flag <player> cunduvampiro:!
+          - ^flag <player> esencia:!
+          - ^flag <player> piel:!
+          - ^flag <player> armadura:!
+          - ^flag <player> espada:!
+          - ^flag <player> orb:!
+          - ^flag <player> combate:!
+          - ^flag <player> mazmorra:!
+          - ^zap step:2
+
+    '2':
+      click trigger:
+        Script:
+          - ^engage
+          - ^yaml load:naciones/nacionhumana.yml id:nacion<player.name>
+          - ^if <yaml[nacion<player.name>].read[nacion.stonebrick]> <= 0 && <yaml[nacion<player.name>].read[nacion.cobblestone]> <= 0 && <yaml[nacion<player.name>].read[nacion.log]> <= 0 && <yaml[nacion<player.name>].read[nacion.lightclay]> <= 0 && <yaml[nacion<player.name>].read[nacion.hardclay]> <= 0 {
+            - narrate "<aqua>Galthalas: <gray>La nacion esta siendo reconstruida <player.name>"
+            - ^if <global.flag[nacionhumprogress].as_list> !contains NACIONINI {
+              - ^playsound <player> sound:complete custom
+              - ^execute as_npc "builder 105 build groupall layers:20" npc:105
+              - ^flag <global> nacionhumprogress:NACIONINI
+              }
+            } else {
+            - ^inventory open d:in@inv_galthalas
+            }
+          - ^yaml unload id:nacion<player.name>
+          - disengage
+      proximity trigger:
+        entry:
+          radius: 4
+          Script:
+          - ^if <global.flag[nacionhumprogress].as_list> !contains NACIONINI {
+            - ^narrate "<aqua>Galthalas:<dark_gray> Tenemos que reconstruir la nacion <player.name>"
+            - ^wait 1s
+            - ^if <player.inventory.contains[4|98|log|159:3|159:11]> {
+              - ^narrate "<aqua>Galthalas:<dark_aqua> Traes algunos materiales utiles"
+              - ^narrate "<dark_aqua>te gustaria entregarlos?"
+              - ^narrate "<blue><player.inventory.quantity[i@98]> <red>ladrillos de piedra"
+              - ^narrate "<blue><player.inventory.quantity[i@4]> <red>bloques de cobblestone"
+              - ^narrate "<blue><player.inventory.quantity[i@log]> <red>troncos de madera"
+              - ^narrate "<blue><player.inventory.quantity[i@159:3]> <red>de arcilla azul clara"
+              - ^narrate "<blue><player.inventory.quantity[i@159:11]> <red>de arcilla azul oscura"
+              }
+            }
+'humanfactions':
+  Type: Interact
+  Requirements:
+    Mode: all
+    List:
+    - valueof <player.flag[progreso].contains[tutorial_ok]>
+    - valueof <player.flag[raza].contains[humano]>
+    - valueof <global.flag[capitulos].contains[CAPITULO1NATIONHOK]>
+  Steps:
+    '1':
+      proximity trigger:
+        entry:
+          radius: 4
+          Script:
+          - ^if <global.flag[nacionhumprogress].as_list> contains THANON3OK && <global.flag[nacionhumprogress].as_list> contains EBONTH3OK && <global.flag[nacionhumprogress].as_list> contains CORLEAN3OK {
+            - ^if <player.flag[misiones].as_list> !contains cap1m24ok {
+              - ^run 's@bookq15h'
+              }
+            } else {
+            - ^run 's@bookfachuman'
+            - ^bossbar remove obj<player.name>
+            - ^define objetivo "<gold>Nacion: <green>Ayuda a reconstruir las Aldeas"
+            - ^flag <player> objetivo:<def[objetivo]>
+            - ^bossbar obj<player.name> players:<player> "title:<player.flag[objetivo]>" color:BLUE
+            - ^compass <npc.location.simple> npc:89
+            }
+      click trigger:
+        Script:
+          - ^if <global.flag[nacionhumprogress].as_list> contains THANON3OK && <global.flag[nacionhumprogress].as_list> contains EBONTH3OK && <global.flag[nacionhumprogress].as_list> contains CORLEAN3OK {
+            - ^if <player.flag[misiones].as_list> !contains cap1m24ok {
+              - ^inventory open d:in@inv_galthalas2
+              }
+            } 
+
+
+#           - ^run 's@bookq15l'
+# libro de iniciacion de humantropos 
+inv_galthalas:
+  type: inventory
+  inventory: dispenser
+  slots:
+  - "[i@SBhuman] [i@CBBLhuman] [i@LOGhuman]"
+  - "[i@LCLAYhuman] [i@Galthalasinfo1] [i@HCLAYhuman]"
+  - "[i@cancelslot] [i@Entregar] [i@cancelslot]"
+
+inv_galthalas2:
+  type: inventory
+  inventory: dispenser
+  slots:
+  - "[i@cancelslot] [i@Galthalasini] [i@cancelslot]"
+  - "[i@Sipregunta] [i@cancelslot] [i@Nopregunta]"
+  - "[i@cancelslot] [i@cancelslot] [i@cancelslot]"
+
+Galthalasinfo1:
+  type: item
+  material: paper
+  display name: '<yellow>Informacion'
+  lore:
+  - '<gold>Ayuda con lo siguente:'
+  - '<yellow>6400 <aqua>Ladrillos de piedra'
+  - '<yellow>6400 <aqua>Bloques de cobblestone'
+  - '<yellow>2560 <aqua>Troncos de madera'
+  - '<yellow>1280 <aqua>Bloques de arcilla azul'
+  - '<yellow>1280 <aqua>Bloques de arcilla azul claro'
+  - ''
+  - '<dark_aqua>Tip'
+  - '<dark_aqua>Puedes comprarlos'
+  - '<dark_aqua>con los vendedores de Meslajho'
+  - '<dark_aqua>o buscar minas y conseguirlos'
+
+SBhuman:
+  type: item
+  material: 98
+  display name: '<yellow>Ladrillos de piedra'
+  lore:
+  - ''
+  - '<gray>Se requieren: <yellow><yaml[nacion<player.name>].read[nacion.stonebrick].asint> <gray>bloques mas'
+CBBLhuman:
+  type: item
+  material: 4
+  display name: '<yellow>Bloques de cobblestone'
+  lore:
+  - ''
+  - '<gray>Se requieren: <yellow><yaml[nacion<player.name>].read[nacion.cobblestone].asint> <gray>bloques mas'
+LOGhuman:
+  type: item
+  material: 17
+  display name: '<yellow>Troncos de madera'
+  lore:
+  - ''
+  - '<gray>Se requieren: <yellow><yaml[nacion<player.name>].read[nacion.log].asint> <gray>bloques mas'
+LCLAYhuman:
+  type: item
+  material: '159,3'
+  display name: '<yellow>Arcilla azul claro'
+  lore:
+  - ''
+  - '<gray>Se requieren: <yellow><yaml[nacion<player.name>].read[nacion.lightclay].asint> <gray>bloques mas'
+HCLAYhuman:
+  type: item
+  material: '159,11'
+  display name: '<yellow>Arcilla azul'
+  lore:
+  - ''
+  - '<gray>Se requieren: <yellow><yaml[nacion<player.name>].read[nacion.hardclay].asint> <gray>bloques mas'
+Galthalasini:
+  type: item
+  material: paper
+  display name: '<yellow>Rescate'
+  lore:
+  - '<gold>Iniciacion de humanos:'
+  - ''
+  - '<aqua>Si quieres inicarte como humano'
+  - '<aqua>debes resistir el ataque'
+  - '<aqua>en la torre de vigilancia.'
+
+nationhend:
+    type: task
+    script:
+    - ^flag <global> nacionhuman:!
+    - ^teleport n@60 location:3097.5,67,3882.5,Esparcraft
+    - ^teleport n@105 location:2459.5,64,2709.5,Esparcraft
+    - ^teleport n@150 location:2549.5,64,2710.5,Esparcraft
+    - ^teleport n@151 location:2548.5,64,2620.5,Esparcraft
+    - ^teleport n@152 location:2459.5,64,2619.5,Esparcraft
+    - ^flag <global> nacionhumprogress:START
+    - ^if <global.flag[capitulos].as_list> !contains CAPITULO1NATIONHOK {
+      - ^flag <global> capitulos:->:CAPITULO1NATIONHOK
+      }
+    - ^foreach <server.list_online_players> {
+      - ^if <player.flag[raza]> == humano {
+        - ^title "title:<gold>Galthalas" "subtitle:<aqua>La nacion humana fue reconstruida" stay:20s
+        }
+      }
+    - ^yaml load:naciones/nacionhumana.yml id:nacion<player.name>
+    - ^yaml id:nacion<player.name> set aldeas.thanon.stonebrick:325
+    - ^yaml id:nacion<player.name> set aldeas.thanon.cobblestone:325
+    - ^yaml id:nacion<player.name> set aldeas.thanon.log:98
+    - ^yaml id:nacion<player.name> set aldeas.thanon.lightclay:49
+    - ^yaml id:nacion<player.name> set aldeas.thanon.hardclay:49
+    - ^yaml id:nacion<player.name> set aldeas.thanon.status:0
+    - ^yaml id:nacion<player.name> set aldeas.ebonth.stonebrick:325
+    - ^yaml id:nacion<player.name> set aldeas.ebonth.cobblestone:325
+    - ^yaml id:nacion<player.name> set aldeas.ebonth.log:98
+    - ^yaml id:nacion<player.name> set aldeas.ebonth.lightclay:49
+    - ^yaml id:nacion<player.name> set aldeas.ebonth.hardclay:49
+    - ^yaml id:nacion<player.name> set aldeas.ebonth.status:0
+    - ^yaml id:nacion<player.name> set aldeas.corlean.stonebrick:325
+    - ^yaml id:nacion<player.name> set aldeas.corlean.cobblestone:325
+    - ^yaml id:nacion<player.name> set aldeas.corlean.log:98
+    - ^yaml id:nacion<player.name> set aldeas.corlean.lightclay:49
+    - ^yaml id:nacion<player.name> set aldeas.corlean.hardclay:49
+    - ^yaml id:nacion<player.name> set aldeas.corlean.status:0
+    - ^yaml savefile:naciones/nacionhumana.yml id:nacion<player.name>
+    - ^yaml unload id:nacion<player.name>
+    - ^foreach <server.flag[NPCDESPAWNNATIONHUM].as_list> {
+      - ^execute as_server "npc despawn %value%"
+      }
+# Libros
+bookfachuman:
+    type: task
+    script:
+    - ^adjust <player> item_slot:8
+    - ^define old_item <player.item_in_hand> 
+    - ^take <player.item_in_hand> qty:<player.item_in_hand.qty>
+    - ^give i@librofachuman slot:8
+    - ^adjust <player> open_book
+    - ^take i@librofachuman
+    - ^give %old_item% slot:8
+    - DETERMINE cancelled
+
+librofachuman:
+  type: book 
+  title: Facciones!
+  author: <gold>Galthalas
+  text: 
+  - '<dark_aqua>Galthalas<black>:<n>Bien logramos construir la nacion de los <dark_aqua>humanos<black>.<p>Ahora debemos crear los clanes de nuestra nacion.<p>para combatir la maldad que existe en <dark_red>Esparcraft.'
+
+bookq15h:
+    type: task
+    script:
+    - ^adjust <player> item_slot:8
+    - ^define old_item <player.item_in_hand> 
+    - ^take <player.item_in_hand> qty:<player.item_in_hand.qty>
+    - ^give i@libroq15h slot:8
+    - ^adjust <player> open_book
+    - ^take i@libroq15h
+    - ^give %old_item% slot:8
+    - DETERMINE cancelled
+
+libroq15h:
+  type: book 
+  title: Quests!
+  author: <aqua>Galthalas
+  text: 
+  - '<dark_aqua>Galthalas<black>:<p>No cualquiera tiene las habilidades de luchar contra la maldad en Esparcraft.<p>Si quieres demostrar tu valentia deten las ordas de monstruos que te aguardan en la torre de vigilancia.'
+bookCap1part26h:
+    type: task
+    script:
+    - ^adjust <player> item_slot:8
+    - ^define old_item <player.item_in_hand>
+    - ^take <player.item_in_hand> qty:<player.item_in_hand.qty>
+    - ^give i@librocap1part26h slot:8
+    - ^adjust <player> open_book
+    - ^take i@librocap1part26h
+    - ^give %old_item% slot:8
+    - DETERMINE cancelled
+
+librocap1part26h: 
+  type: book 
+  title: Quests!
+  author: Blade
+  text:
+  - '<dark_aqua>Galthalas:<n><black>Debemos construir la nacion de <dark_aqua>Glendara.<p><black>Esta es la nacion de los <dark_aqua>Humanos.<p>debemos sobrevivir a la maldad que esta en los alrededores.<p>Trae los materiales con los demas humanos.'

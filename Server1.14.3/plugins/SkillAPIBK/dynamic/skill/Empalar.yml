@@ -1,0 +1,81 @@
+Empalar: 
+  name: 'Empalar'
+  type: 'Proyectil'
+  max-level: 5
+  skill-req-lvl: 1
+  needs-permission: 'false'
+  attributes: 
+    cost-base: '1'
+    cooldown-scale: '0'
+    cost-scale: '0'
+    level-scale: '0'
+    level-base: '1'
+    mana-base: '0'
+    mana-scale: '0'
+    cooldown-base: '0'
+  msg: '&6{player} &2has cast &6{skill}'
+  icon: 'JACK_O_LANTERN'
+  icon-data: 0
+  icon-lore: 
+  - '&d{name} &7({level}/{max})'
+  - '&2Type: &6{type}'
+  - ''
+  - '{req:level}Level: {attr:level}'
+  - '{req:cost}Cost: {attr:cost}'
+  - ''
+  - '&2Mana: {attr:mana}'
+  - '&2Cooldown: {attr:cooldown}'
+  desc:  []
+  components: 
+    Cast: 
+      type: 'trigger'
+      data: 
+        icon-key: ''
+      children: 
+        Item Projectile-b: 
+          type: 'mechanic'
+          data: 
+            item: 'Iron Sword'
+            counts: 'True'
+            amount-base: '1'
+            spread: 'Horizontal Cone'
+            angle-scale: '0'
+            velocity-base: '2'
+            icon-key: 'daga'
+            amount-scale: '0'
+            position: '1'
+            item-data: '0'
+            angle-base: '2'
+            velocity-scale: '0'
+            group: 'Enemy'
+          children: 
+            Damage-c: 
+              type: 'mechanic'
+              data: 
+                counts: 'True'
+                value-scale: '1'
+                true: 'False'
+                icon-key: 'dmgdaga'
+                type: 'Damage'
+                value-base: '3'
+              children:  {}
+            Single-d: 
+              type: 'target'
+              data: 
+                range-scale: '0'
+                range-base: '2'
+                tolerance-scale: '0'
+                tolerance-base: '4'
+                icon-key: 'dagastun'
+                wall: 'False'
+                group: 'Enemy'
+              children: 
+                Status-e: 
+                  type: 'mechanic'
+                  data: 
+                    duration-base: '6'
+                    counts: 'True'
+                    icon-key: 'dagastuntime'
+                    duration-scale: '1'
+                    status: 'Root'
+                  children:  {}

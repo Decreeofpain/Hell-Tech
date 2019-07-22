@@ -1,0 +1,194 @@
+bookq1personal:
+    type: task
+    script:
+    - ^if <player.skillapi.class_level[<player.skillapi.main_class>]> >= 400 {
+      - ^adjust <player> item_slot:8
+      - ^define old_item <player.item_in_hand> 
+      - ^take <player.item_in_hand> qty:<player.item_in_hand.qty>
+      - ^flag <player> misioncant:480
+      - ^give i@libroq1personal slot:8
+      - ^adjust <player> open_book
+      - ^take i@libroq1personal
+      - ^give %old_item% slot:8
+      - ^flag <player> MisionType:FulbertLog
+      - ^listen block type:break block:17 quantity:1 script:FulbertLog id:FulbertLog
+      - queue clear
+      } else if <player.skillapi.class_level[<player.skillapi.main_class>]> >= 300 {
+      - ^adjust <player> item_slot:8
+      - ^define old_item <player.item_in_hand> 
+      - ^take <player.item_in_hand> qty:<player.item_in_hand.qty>
+      - ^flag <player> misioncant:240
+      - ^give i@libroq1personal slot:8
+      - ^adjust <player> open_book
+      - ^take i@libroq1personal
+      - ^give %old_item% slot:8
+      - ^flag <player> MisionType:FulbertLog
+      - ^listen block type:break block:17 quantity:1 script:FulbertLog id:FulbertLog
+      - queue clear
+      } else if <player.skillapi.class_level[<player.skillapi.main_class>]> >= 200 {
+      - ^adjust <player> item_slot:8
+      - ^define old_item <player.item_in_hand> 
+      - ^take <player.item_in_hand> qty:<player.item_in_hand.qty>
+      - ^flag <player> misioncant:120
+      - ^give i@libroq1personal slot:8
+      - ^adjust <player> open_book
+      - ^take i@libroq1personal
+      - ^give %old_item% slot:8
+      - ^flag <player> MisionType:FulbertLog
+      - ^listen block type:break block:17 quantity:1 script:FulbertLog id:FulbertLog
+      - queue clear
+      } else if <player.skillapi.class_level[<player.skillapi.main_class>]> >= 100 {
+      - ^adjust <player> item_slot:8
+      - ^define old_item <player.item_in_hand> 
+      - ^take <player.item_in_hand> qty:<player.item_in_hand.qty>
+      - ^flag <player> misioncant:60
+      - ^give i@libroq1personal slot:8
+      - ^adjust <player> open_book
+      - ^take i@libroq1personal
+      - ^give %old_item% slot:8
+      - ^flag <player> MisionType:FulbertLog
+      - ^listen block type:break block:17 quantity:1 script:FulbertLog id:FulbertLog
+      - queue clear
+      } else if <player.skillapi.class_level[<player.skillapi.main_class>]> >= 50 {
+      - ^adjust <player> item_slot:8
+      - ^define old_item <player.item_in_hand> 
+      - ^take <player.item_in_hand> qty:<player.item_in_hand.qty>
+      - ^flag <player> misioncant:30
+      - ^give i@libroq1personal slot:8
+      - ^adjust <player> open_book
+      - ^take i@libroq1personal
+      - ^give %old_item% slot:8
+      - ^flag <player> MisionType:FulbertLog
+      - ^listen block type:break block:17 quantity:1 script:FulbertLog id:FulbertLog
+      - queue clear
+      } else if <player.skillapi.class_level[<player.skillapi.main_class>]> >= 1 {
+      - ^adjust <player> item_slot:8
+      - ^define old_item <player.item_in_hand> 
+      - ^take <player.item_in_hand> qty:<player.item_in_hand.qty>
+      - ^flag <player> misioncant:15
+      - ^give i@libroq1personal slot:8
+      - ^adjust <player> open_book
+      - ^take i@libroq1personal
+      - ^give %old_item% slot:8
+      - ^flag <player> MisionType:FulbertLog
+      - ^listen block type:break block:17 quantity:1 script:FulbertLog id:FulbertLog
+      - queue clear
+      }
+
+    - DETERMINE cancelled
+
+bookq1personalcheck:
+    type: task
+    script:
+    - ^adjust <player> item_slot:8
+    - ^define old_item <player.item_in_hand> 
+    - ^take <player.item_in_hand> qty:<player.item_in_hand.qty>
+    - ^give i@libroq2personal slot:8
+    - ^adjust <player> open_book
+    - ^take slot:8
+    - ^give %old_item% slot:8
+    - DETERMINE cancelled
+
+libroq1personal: 
+  type: book 
+  title: Mision Diaria
+  author: Manfredo
+  text: 
+  - '<dark_red>=======<red>Mision<dark_red>=======<n><dark_blue>Tipo: <green>Carpinteria<n><dark_green>Descripcion:<n><black>El pueblo de meslajho necesita madera para hacer unos arreglos menores por las averias que causan los monstruos en las puertas.<n><dark_red>Objetivo:<n><dark_aqua>- <player.flag[misioncant]> troncos de madera<n><dark_purple>Ubicacion:<n><dark_green>Bosque Rulbert<n>'
+
+bookq2personal:
+    type: task
+    script:
+    - ^if <player.skillapi.class_level[<player.skillapi.main_class>]> >= 400 {
+      - ^adjust <player> item_slot:8
+      - ^define old_item <player.item_in_hand> 
+      - ^take <player.item_in_hand> qty:<player.item_in_hand.qty>
+      - ^flag <player> misioncant:480
+      - ^give i@libroq2personal slot:8
+      - ^adjust <player> open_book
+      - ^take i@libroq2personal
+      - ^give %old_item% slot:8
+      - ^flag <player> MisionType:MinaMes
+      - ^listen block type:break block:1 quantity:1 script:MinaMes id:MinaMes
+      - queue clear
+      } else if <player.skillapi.class_level[<player.skillapi.main_class>]> >= 300 {
+      - ^adjust <player> item_slot:8
+      - ^define old_item <player.item_in_hand> 
+      - ^take <player.item_in_hand> qty:<player.item_in_hand.qty>
+      - ^flag <player> misioncant:240
+      - ^give i@libroq2personal slot:8
+      - ^adjust <player> open_book
+      - ^take i@libroq2personal
+      - ^give %old_item% slot:8
+      - ^flag <player> MisionType:MinaMes
+      - ^listen block type:break block:1 quantity:1 script:MinaMes id:MinaMes
+      - queue clear
+      } else if <player.skillapi.class_level[<player.skillapi.main_class>]> >= 200 {
+      - ^adjust <player> item_slot:8
+      - ^define old_item <player.item_in_hand> 
+      - ^take <player.item_in_hand> qty:<player.item_in_hand.qty>
+      - ^flag <player> misioncant:120
+      - ^give i@libroq2personal slot:8
+      - ^adjust <player> open_book
+      - ^take i@libroq2personal
+      - ^give %old_item% slot:8
+      - ^flag <player> MisionType:MinaMes
+      - ^listen block type:break block:1 quantity:1 script:MinaMes id:MinaMes
+      - queue clear
+      } else if <player.skillapi.class_level[<player.skillapi.main_class>]> >= 100 {
+      - ^adjust <player> item_slot:8
+      - ^define old_item <player.item_in_hand> 
+      - ^take <player.item_in_hand> qty:<player.item_in_hand.qty>
+      - ^flag <player> misioncant:60
+      - ^give i@libroq2personal slot:8
+      - ^adjust <player> open_book
+      - ^take i@libroq2personal
+      - ^give %old_item% slot:8
+      - ^flag <player> MisionType:MinaMes
+      - ^listen block type:break block:1 quantity:1 script:MinaMes id:MinaMes
+      - queue clear
+      } else if <player.skillapi.class_level[<player.skillapi.main_class>]> >= 50 {
+      - ^adjust <player> item_slot:8
+      - ^define old_item <player.item_in_hand> 
+      - ^take <player.item_in_hand> qty:<player.item_in_hand.qty>
+      - ^flag <player> misioncant:30
+      - ^give i@libroq2personal slot:8
+      - ^adjust <player> open_book
+      - ^take i@libroq2personal
+      - ^give %old_item% slot:8
+      - ^flag <player> MisionType:MinaMes
+      - ^listen block type:break block:1 quantity:1 script:MinaMes id:MinaMes
+      - queue clear
+      } else if <player.skillapi.class_level[<player.skillapi.main_class>]> >= 1 {
+      - ^adjust <player> item_slot:8
+      - ^define old_item <player.item_in_hand> 
+      - ^take <player.item_in_hand> qty:<player.item_in_hand.qty>
+      - ^flag <player> misioncant:15
+      - ^give i@libroq2personal slot:8
+      - ^adjust <player> open_book
+      - ^take i@libroq2personal
+      - ^give %old_item% slot:8
+      - ^flag <player> MisionType:MinaMes
+      - ^listen block type:break block:1 quantity:1 script:MinaMes id:MinaMes
+      - queue clear
+      }
+    - DETERMINE cancelled
+
+bookq2personalcheck:
+    type: task
+    script:
+    - ^adjust <player> item_slot:8
+    - ^define old_item <player.item_in_hand> 
+    - ^take <player.item_in_hand> qty:<player.item_in_hand.qty>
+    - ^give i@libroq2personal slot:8
+    - ^adjust <player> open_book
+    - ^take slot:8
+    - ^give %old_item% slot:8
+    - DETERMINE cancelled
+
+libroq2personal: 
+  type: book 
+  title: Mision Diaria
+  author: Manfredo
+  text: 
+  - '<dark_red>=======<red>Mision<dark_red>=======<n><dark_blue>Tipo: <green>Mineria<n><dark_green>Descripcion:<n><black>El pueblo de meslajho necesita un poco de piedra para mejorar las construcciones ya que tienen muchos desperfectos.<n><dark_red>Objetivo:<n><dark_aqua>- <player.flag[misioncant]> Bloques de piedra<n><dark_purple>Ubicacion:<n><dark_green>Mina Meslajho<n>'

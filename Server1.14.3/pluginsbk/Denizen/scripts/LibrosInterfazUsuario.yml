@@ -1,0 +1,170 @@
+#/ex narrate <player.first_played.time>
+bookMPersonal:
+    type: task
+    script:
+    - ^adjust <player> item_slot:9
+    - ^yaml load:personal/<player.name>.yml id:diario<player.name>
+    - ^take <player.item_in_hand> qty:<player.item_in_hand.qty>
+    - ^give i@LibrosDiario slot:9
+    - ^adjust <player> open_book
+    - ^take slot:9
+    - ^give i@panelgui slot:9
+    - ^wait 1
+    - ^yaml unload id:diario<player.name>
+    - queue clear
+
+LibrosDiario: 
+  type: book 
+  title: <dark_red>Misiones Personales
+  author: <player.name>
+  text:
+  - '<yaml[diario<player.name>].read[Libros.Diario].get[1]||>'
+  - '<yaml[diario<player.name>].read[Libros.Diario].get[2]||>'
+  - '<yaml[diario<player.name>].read[Libros.Diario].get[3]||>'
+  - '<yaml[diario<player.name>].read[Libros.Diario].get[4]||>'
+  - '<yaml[diario<player.name>].read[Libros.Diario].get[5]||>'
+
+booktemplate:
+    type: task
+    script:
+    - ^adjust <player> item_slot:8
+    - ^define old_item <player.item_in_hand>
+    - ^yaml load:personal/<player.name>.yml id:<player.name>
+    - ^take <player.item_in_hand> qty:<player.item_in_hand.qty>
+    - ^give i@LibrosDiariotemplate slot:8
+    - ^adjust <player> open_book
+    - ^take slot:8
+    - ^give %old_item% slot:8
+    - DETERMINE cancelled
+
+LibrosDiariotemplate: 
+  type: book 
+  title: <dark_red>Misiones Personales
+  author: <gold><player.name> 
+  text:
+  #Capitulo 1 Global
+  - '<dark_aqua>Hann:<black>Con un demonio a duras penas se logro recolectar la piedra.<p>Dirijete con <dark_aqua>Yorick<black> es el encargado del aserradero, el tiene una nueva tarea.<p>Debemos restaurar el pueblo cuanto antes. Buscalo y ayuda que el pueblo no puede estar mas asi!!'
+  - '<dark_aqua>Yorick:<black>Al fin despues de tanto estos mugrosos logaron recoectar la madera.<p>Ahora solo fata reconstruir el pueblo y salir de esta maldita calamidad.<p>Ahora a esperar...'
+  - '<black>Soy <dark_red><player.name><n><red>==================<n><black>Entre por primera ves en Esparcraft el dia<n><blue><player.first_played.time><p>Llegue al pueblo en busca de aventuras y creo este es el lugar perfecto.<p>La codicia se respira por todos lados.'
+  #Inicio en la taberna
+  - '<black>Cuando llegue habia una tormenta que te helaba hasta los huesos.<p>Pero debo resistir esto solo es una prueba de mi valor y mis habilidades.<p>Nadie podra detenerme para alcanzar la gloria.'
+  #Zanekilgore Maldicion liberada
+  - 'Entre todos los que estabamos el el pueblo ayudamos al mendigo con lo que nos pedia.<p>Y al terminar nos mostro su verdadera cara al liberar una maldicion que mato a todos en el pueblo.<p>Fue lo mas espantoso que habia visto hasta el momento claro esta'
+  - 'El pueblo de Meslajho estaba destruido algo terrible se habia liberado pero no teniamos tiempo de investigar que paso.<p>Y aunque no era mi pueblo natal me sentia con la una gran necesidad de ayudar al ver tanta miseria en un solo sitio.'
+  - 'Al parecer un hombre llamado <dark_red>Zane Kilgore<p>Habia desatado algun tipo de maldicion que habia destruido el pueblo pero todo habia regresado a la normalidad.<p>Ahora me tocaba sobrevivir y ver que habia pasado en este pueblo olvidado.'
+# Libros conducta V - L - H
+  - 'Ahora soy nivel <dark_red><player.skillapi.class_level[<player.skillapi.main_class>]><black> ya fui llamado en la nacion de <dark_red>Hexer.<p>Fui llamado por <dark_red>Zane Kilgore <black>el que tuvo que ver con la destruccion del pueblo de <blue>Meslajho<black>.<p>No se que quiera conmigo pero estoy impaciente por averiguarlo.'
+  - 'Ahora soy nivel <dark_red><player.skillapi.class_level[<player.skillapi.main_class>]><black> ya fui llamado en la nacion de <dark_green>Cannesh.<p>Fui llamado por <dark_green>Athelwulf<black>.<p>No se que quiera conmigo pero estoy impaciente por averiguarlo y asi me dirijo a la nacion de los que llaman los amantes de la luna.'
+  - 'Ahora soy nivel <dark_red><player.skillapi.class_level[<player.skillapi.main_class>]><black> ya fui llamado en la nacion de <dark_aqua>Glendara.<p>Tengo que reunirme con <dark_aqua>Galthalas.<p>No se que quiera conmigo pero estoy impaciente por averiguarlo y asi me dirijo a la nacion.'
+
+bookGCapitulaje:
+    type: task
+    script:
+    - ^yaml load:capitulos/global.yml id:lglobal<player.name>
+    - ^define old_slot <player.item_in_hand.slot>
+    - ^adjust <player> item_slot:9
+    - ^take <player.item_in_hand> qty:<player.item_in_hand.qty>
+    - ^give i@libroCapitulaje slot:9
+    - ^flag <player> obcapitulo:<yaml[lglobal<player.name>].read[libros.global]>
+    - ^adjust <player> open_book
+    - ^take slot:9
+    - ^give i@panelgui slot:9
+    - ^adjust <player> item_slot:%old_slot%
+    - ^yaml unload id:lglobal<player.name>
+    - ^queue clear
+
+libroCapitulaje: 
+  type: book 
+  title: <dark_red>Capitulo actual
+  author: <player.name>
+  text: 
+  - '<yaml[lglobal<player.name>].read[libros.global]>'
+
+bookvendedores:
+    type: task
+    script:
+    - ^adjust <player> item_slot:8
+    - ^define old_item <player.item_in_hand>
+    - ^yaml load:capitulos/global.yml id:<player.name>
+    - ^take <player.item_in_hand> qty:<player.item_in_hand.qty>
+    - ^give i@libroVendedores slot:8
+    - ^adjust <player> open_book
+    - ^take slot:8
+    - ^give %old_item% slot:8
+    - DETERMINE cancelled
+
+libroVendedores: 
+  type: book 
+  title: <dark_red>Vendedores
+  author: <player.name>
+  text: 
+  - 'Los vendedores te pueden proporcionar todo lo que necesites y compran objetos ya crafteados.<p>Cada vendedor tiene cosas unicas y puedes navegar entre sus inventarios para saber que puedes comprar y vender con el.'
+  - '<dark_green>Como comprar.<n><black>da click en el vendedor y podras ver lo que vende.<p>Pasa el puntero sobre los articulos y te mostrara el precio.<n><gold>- <dark_green>150<gold>$ Almakos<p>Si te parece bien da click en el articulo y te lo dara.'
+  - '<dark_green>Como vender.<n><black>da click en el para ver su inventario y despues da click en la lana rosa para ver lo que compra.<p>Pasa el puntero sobre los articulos y te mostrara el precio.<n><gold>- <dark_green>150<gold>$ Almakos<n><black>Ahora click en tu inventario en lo que gustes vender.'
+
+bookalmakos:
+    type: task
+    script:
+    - ^adjust <player> item_slot:8
+    - ^define old_item <player.item_in_hand>
+    - ^yaml load:capitulos/global.yml id:<player.name>
+    - ^take <player.item_in_hand> qty:<player.item_in_hand.qty>
+    - ^give i@libroAlmakos slot:8
+    - ^adjust <player> open_book
+    - ^take slot:8
+    - ^give %old_item% slot:8
+    - DETERMINE cancelled
+
+libroAlmakos: 
+  type: book 
+  title: <dark_red>Almakos
+  author: <player.name>
+  text: 
+  - '<dark_red>Almakos<n><black>Los almakos son fracmentos del alma de un monstruo o jugador y te seran de utilidad para comerciar.<p>Aqui se comercia con almas y entre mas tengas mas cosas podras conseguir asi que no te quedes atras.'
+  - '<dark_red>Monstruos<n><black>Esta es la manera mas practica de conseguir almakos ya que entre mas nivel tenga el monstruo mas almakos obtendas.<p>Si eres diestro en el combate esta es sin duda tu mejor opcion.'
+  - '<dark_red>Comercio<n><black>Puedes vender algunos articulos con los vendedores del pueblo.<p>Los reconoces al tener el nombre de color <dark_green>verde.<p>Ideal si te gusta craftear y subir de nivel tu profesion.'
+  - '<dark_red>Drops<n><black>Los monstruos pueden dejar caer un na espada o armadura de ves en cuando.<p>Estos articulos tienen un valor de venta.<p>Busca a Selfor en el taller de reciclaje y vendelos con el.'
+  
+bookrecursos:
+    type: task
+    script:
+    - ^adjust <player> item_slot:8
+    - ^define old_item <player.item_in_hand>
+    - ^yaml load:capitulos/global.yml id:<player.name>
+    - ^take <player.item_in_hand> qty:<player.item_in_hand.qty>
+    - ^give i@librorecursos slot:8
+    - ^adjust <player> open_book
+    - ^take slot:8
+    - ^give %old_item% slot:8
+    - DETERMINE cancelled
+
+librorecursos: 
+  type: book 
+  title: <dark_red>recursos
+  author: <player.name>
+  text: 
+  - '<dark_purple>Zonas de recursos<n><black>En esparcraft podras encontrar minas y bosques donde puedes extraer materia prima para craftear lo que necesites.<p>Entre mas valioso sea el material mas deberas caminar para encontrar la mina o bosque que te de esa materia prima.'
+  - '<dark_purple>Bosques<n><black>Aqui podras extraer madera y puedes tambien recolectar flores o cultivar algunas plantas.<p>Pero debes recordar que estas zonas son publicas asi que cualquiera podria recolectar los frutos.'
+  - '<dark_purple>Minas<n><black>Hay distintos tipos de mina, tanto de minerales como de arcilla o similares.<p>Entre mas costoso sea el mineral mas lejos estara del pueblo de Meslajho.<p>Asi que adentrate a la aventura y descubre todas.'
+
+
+booksubastas:
+    type: task
+    script:
+    - ^adjust <player> item_slot:8
+    - ^define old_item <player.item_in_hand>
+    - ^yaml load:capitulos/global.yml id:<player.name>
+    - ^take <player.item_in_hand> qty:<player.item_in_hand.qty>
+    - ^give i@librosubastas slot:8
+    - ^adjust <player> open_book
+    - ^take slot:8
+    - ^give %old_item% slot:8
+    - DETERMINE cancelled
+
+librosubastas: 
+  type: book 
+  title: <dark_red>Subastas
+  author: <player.name>
+  text: 
+  - '<dark_purple>Drago:<n><black>hey <dark_green><player.name>.<n><black>Si quieres subastar algo, puedes ponerlo dentro de los cofres.<p>para colocarlo abre un cofre y despues pulsa <dark_red>Shift+Click <black>en lo que quieras subastar.<p>luego escribe en el chat el precio al que lo quieres subastar.'
+  - 'Para <dark_purple>cancelar<black> una subasta ya creada solo da click en la subasta que creaste derecho en ella y se cancelara.<p>Solo podras crear <dark_purple>5 Subastas<black> al mismo tiempo.'

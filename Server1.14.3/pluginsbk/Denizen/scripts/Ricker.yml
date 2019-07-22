@@ -1,0 +1,210 @@
+"Ricker":
+    type: assignment
+    actions:
+      on assignment:
+      - trigger name:CHAT toggle:false
+      - trigger name:click toggle:true
+      - trigger name:proximity toggle:true radius:2
+
+    interact scripts:
+    - 18 Rickerherboristero
+    - 16 rickerscript
+
+'Rickerherboristero':
+  Type: Interact
+  # Requirements:
+  #   Mode: all
+  #   List:
+  #   - valueof <global.flag[capitulos].contains[destroy]>
+  #   - valueof <player.flag[misiones].contains[destroy]>
+  #   - -valueof <global.flag[capitulos].contains[mesreconstruido]>
+  Steps:
+    '1':
+      proximity trigger:
+        entry:
+          radius: 4
+          Script:
+          - ^if <player.flag[especialidad].contains[Orfebrero].not> && <player.flag[profesion].contains[Alquimista].not> {
+            - ^title "subtitle:<green>Ricker: <yellow>Largo MALDITO!!!"
+            - ^queue clear
+            } else if <player.has_flag[especialidad].not> && <player.has_flag[profesion].not> {
+              - ^title "subtitle:<green>Ricker: <yellow>Hey largo de aqui malnacido!"
+              - ^queue clear
+            } else if <player.flag[especialidad].contains[Orfebrero].not> && <player.flag[especialidad].contains[Herboristero].not> && <player.flag[profesion].contains[Alquimista]> {
+            - ^if <player.jobs[Alquimista].xp.level> >= 50 {
+              - ^title "subtitle:<green>Ricker: <yellow>Hey <player.name> Bienvenido!"
+              - ^wait 1s
+              - ^title "subtitle:<yellow>Tienes talento para ser Herboristero"
+              - ^wait 1s
+              - ^title "subtitle:<yellow>No te arrepentiras"
+              - ^queue clear
+              } else {
+              - ^title "subtitle:<green>Ricker: <gold><player.name> <yellow>aun no?"
+              - ^wait 1s
+              - ^title "subtitle:<yellow>Necesitas ser nivel 50 de Alquimista"
+              - ^wait 1s
+              - ^title "subtitle:<yellow>Para poder tener este oficio..."
+              - ^queue clear
+              }
+            } else if <player.flag[especialidad].contains[Orfebrero]> && <player.flag[especialidad].contains[Herboristero].not> {
+            - ^if <player.jobs[Orfebrero].xp.level> >= 100 {
+              - ^title "subtitle:<green>Ricker: <gold><player.name> <yellow>que hay amigo!"
+              - ^wait 1s
+              - ^title "subtitle:<yellow>Ya estas listo para tu nuevo oficio?"
+              - ^wait 1s
+              - ^title "subtitle:<yellow>Ahora puede ser Herboristero"
+              - ^queue clear
+              } else {
+              - ^title "subtitle:<green>Ricker: <gold><player.name> <yellow>que te pasa?"
+              - ^wait 1s
+              - ^title "subtitle:<yellow>Necesitas ser nivel 100 de Orfebrero"
+              - ^wait 1s
+              - ^title "subtitle:<yellow>Cuando lo seas regresa..."
+              - ^queue clear
+              }
+            } else if <player.flag[especialidad].contains[Orfebrero]> && <player.flag[especialidad].contains[Herboristero]> {
+            - ^title "subtitle:<green>Ricker: <gold><player.name> <yellow>Bienvenido!"
+            - ^queue clear
+            } else if <player.flag[especialidad].contains[Orfebrero].not> && <player.flag[especialidad].contains[Herboristero]> {
+            - ^title "subtitle:<green>Ricker: <gold><player.name> <yellow>Bienvenido!"
+            - ^queue clear
+            }
+      click trigger:
+        Script:
+          - ^if <player.flag[especialidad].contains[Orfebrero].not> && <player.flag[profesion].contains[Alquimista]> {
+            - ^if <player.flag[especialidad].contains[Herboristero].not> && <player.jobs[Alquimista].xp.level> >= 50 {
+              - ^inventory open d:in@inv_ricker
+              - ^queue clear
+              } else if <player.flag[especialidad].contains[Herboristero]> {
+              - ^inventory open d:in@inv_ricker_ok
+              - ^queue clear
+              }
+            } else if <player.flag[especialidad].contains[Orfebrero]> && <player.flag[especialidad].contains[Herboristero].not> {
+            - ^if <player.jobs[Orfebrero].xp.level> >= 100 {
+              - ^inventory open d:in@inv_ricker
+              - ^queue clear
+              }
+            } else if <player.flag[especialidad].contains[Herboristero]> {
+            - ^inventory open d:in@inv_ricker_ok
+            - ^queue clear
+            }
+ricker_craft1task:
+    type: task
+    script:
+    - ^foreach li@i@yellow_flower|i@oak_log {
+      - ^flag <player> <def[value].replace[regex:i@]>:<player.inventory.quantity[%value%]> duration:1s
+      }
+    - ^queue clear
+rickerevents:
+  type: world
+  events:
+    on player clicks in inv_ricker:
+    - DETERMINE cancelled
+    on player drags in inv_ricker:
+    - DETERMINE cancelled
+    on player clicks in inv_ricker_ok:
+    - DETERMINE cancelled
+    on player drags in inv_ricker_ok:
+    - DETERMINE cancelled
+    on player clicks in inv_ricker_craft1:
+    - DETERMINE cancelled
+    on player drags in inv_ricker_craft1:
+    - DETERMINE cancelled
+#
+    on player clicks rechazarprof in inv_ricker:
+    - ^inventory close d:in@inv_ricker
+    on player clicks aceptarprof in inv_ricker:
+    - ^inventory close d:in@inv_ricker
+    - ^execute as_op "jobs employ <player.name> Herboristero" silent
+    - ^flag <player> especialidad:->:Herboristero
+    - ^title "subtitle:<green>Ricker: <yellow>Ahora eres <gold>Herboristero!"
+    - ^queue clear
+#  Listas de Crafteo
+    on player clicks emplastoslist in inv_ricker_ok:
+    - ^run 's@ricker_craft1task'
+    - ^inventory open d:in@inv_ricker_craft1
+    - ^queue clear
+#  Crafteo de Items
+#  -- Cueros
+    on player right clicks empmadericoinfo in inv_ricker_craft1:
+    - ^if <player.inventory.quantity[i@oak_log]> >= 32 && <player.inventory.quantity[i@yellow_flower]> >= 16 {
+      - ^inventory close d:in@inv_ricker_craft1
+      - ^title "subtitle:<green>Ricker: <yellow>Creando... <player.name>"
+      - ^wait 2
+      - ^title "subtitle:<green>Ricker: <yellow>Ya casi!"
+      - ^wait 1
+      - ^give i@emplastomaderico quantity:1
+      - ^take i@oak_log quantity:32
+      - ^take i@yellow_flower quantity:16
+      - ^run 's@ricker_craft1task'
+      - ^inventory open d:in@inv_ricker_craft1
+      - ^execute as_server "jobs grantxp <player.name> Orfebrero 10" silent
+      }
+    - ^queue clear
+
+  ## Atras
+    on player clicks Atras in inv_ricker_craft1:
+    - ^inventory open d:in@inv_ricker_ok
+# =====================================================================
+    on player clicks rechazarprof in inv_ricker_ok:
+    - ^inventory close d:in@inv_ricker_ok
+    - ^DETERMINE cancelled
+
+
+# = INVENTARIOS
+inv_ricker:
+  type: inventory
+  inventory: dispenser
+  title: <gold>Herboristeria
+  size: 9
+  slots:
+  - "[i@cancelslot] [i@rickerinfo1] [i@cancelslot]"
+  - "[i@cancelslot] [i@cancelslot] [i@cancelslot]"
+  - "[i@aceptarprof] [i@cancelslot] [i@rechazarprof]"
+inv_ricker_ok:
+  type: inventory
+  title: '<dark_purple><magic>0<reset><gold>Herboristeria<dark_purple><magic>0'
+  size: 9
+  slots:
+  - "[i@emplastoslist] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot]"
+inv_ricker_craft1:
+  type: inventory
+  title: '<dark_purple><magic>0<reset><gold>Emplastos<dark_purple><magic>0'
+  size: 9
+  slots:
+  - "[i@empmadericoinfo] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@Atras]"
+
+
+########### - ricker - #########
+rickerinfo1:
+  type: item
+  material: paper
+  display name: '<blue>Orfebrero'
+  lore:
+  - ''
+  - '<gray>Los <yellow>Orfebreros <gray>recolectan plantas'
+  - '<gray>para crear menjurges'
+  - '<gray>muy poderosos.'
+#---------------------------------------------ITEMS----------------------------------------------------
+#----Emplastos
+emplastoslist:
+  type: item
+  material: 31,1
+  display name: '<gold>Lista de Emplastos'
+#
+#
+empmadericoinfo:
+  type: item
+  material: 31,1
+  display name: '<dark_green>Emplasto Maderico'
+  lore:
+  - '<yellow>Requiere:'
+  - '<gray>Nivel para craftear: <yellow>1'
+  - '<gray>Troncos de roble: <yellow>32'
+  - '<gray>Dientes de leon: <yellow>16'
+  - ''
+  - '<gold>Materiales actuales:'
+  - '<yellow><player.flag[oak_log].asint><&pipe>32<gray> Troncos de roble'
+  - '<yellow><player.flag[yellow_flower].asint><&pipe>16<gray> Dientes de leon'
+  - ''
+  - '<green>Click <dark_green>derecho<green> para crear'

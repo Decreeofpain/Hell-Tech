@@ -1,0 +1,78 @@
+"Milan":
+    type: assignment
+
+    actions:
+      on assignment:
+      - trigger name:CHAT toggle:false
+      - trigger name:click toggle:true
+      - trigger name:proximity toggle:true radius:3
+
+    interact scripts:
+    - 16 Milanscript
+
+'Milanscript':
+  Type: Interact
+  Requirements:
+    Mode: all
+    List:
+    - valueof <player.flag[progreso].contains[profesiones_ok]>
+    - valueof <global.flag[capitulos].contains[CAPITULO1P2OK]>
+  Steps:
+    '1':
+      proximity trigger:
+        entry:
+          radius: 4
+          Script:
+          - ^if <player.has_flag[profesion].not> {
+            - ^narrate "<blue>Milan: <yellow>Te interesa crear Amuletos y conjuros <gold><player.name>?"
+            - ^queue clear
+            } else if <player.jobs[Curandero].xp.level||> >= 100 && <player.flag[profesion].as_list> !contains Brujo {
+            - ^narrate "<blue>Milan: <yellow>Estas listo para ser Brujo <gold><player.name>"
+            - ^queue clear
+            } else if <player.jobs[Novicio].xp.level||> >= 50 && <player.flag[profesion].as_list> !contains Curandero {
+            - ^narrate "<blue>Milan: <yellow>Estas listo para ser Curandero <gold><player.name>"
+            - ^queue clear
+            } else if <player.flag[profesion].as_list> !contains Novicio && <player.has_flag[profesion]> {
+            - ^narrate "<blue>Milan: <yellow>Te gustaria aprender a crear Infusiones y pieles <gold><player.name>?"
+            - ^queue clear
+#Mencion de profesiones
+            } else if <player.flag[profesion].as_list> contains Novicio && <player.flag[qprofStatus]> != oncd {
+            - ^narrate "<blue>Milan: <yellow>Tienes una mision <gold><player.name>"
+            - ^run 's@profcheckcount'
+            - ^queue clear
+            } else if <player.flag[profesion].as_list> contains Novicio && <player.flag[qprofStatus]> == oncd {
+            - ^narrate "<blue>Milan: <yellow>Bienvenido al Molino <gold><player.name>"
+            - ^queue clear
+            }
+      click trigger:
+        Script:
+          - ^if <player.has_flag[profesion].not> {
+            - ^inventory open d:in@inv_milan
+            - ^queue clear
+            } else if <player.jobs[Curandero].xp.level||> >= 100 && <player.flag[profesion].as_list> !contains Brujo {
+            - ^inventory open d:in@inv_milan_up2
+            - ^queue clear
+            } else if <player.jobs[Novicio].xp.level||> >= 50 && <player.flag[profesion].as_list> !contains Curandero {
+            - ^inventory open d:in@inv_milan_up2
+            - ^queue clear
+            } else if <player.flag[profesion].as_list> !contains Novicio && <player.has_flag[profesion]> {
+            - ^inventory open d:in@inv_milan
+            - ^queue clear
+            } else if <player.flag[profesion].as_list> contains Novicio {
+            - ^if <player.has_flag[qprofStatus].not> {
+              - ^run 's@profquestsrandommilan'
+              - ^queue clear
+              } else if <player.flag[qprofStatus]> != oncd {
+              - ^yaml load:personal/<player.name>.yml id:<player.name>
+              - ^flag <player> questprofcant:<yaml[<player.name>].read[misionprofcant]>
+              - ^flag <player> questproftarjet:<yaml[<player.name>].read[misionproftarjet]>
+              - ^inventory open d:in@inv_milan_ok
+              - ^flag <player> questprofcant:!
+              - ^flag <player> questproftarjet:!
+              - ^yaml unload id:<player.name>
+              - ^queue clear
+              } else if <player.flag[qprofStatus]> == oncd {
+              - ^title "title:<yellow><player.name>" "subtitle:<green>Regresa en <player.flag[qprofStatus].expiration.in_seconds.asint> segundos por otra mision!" stay:5s
+              - ^queue clear
+              }
+            }

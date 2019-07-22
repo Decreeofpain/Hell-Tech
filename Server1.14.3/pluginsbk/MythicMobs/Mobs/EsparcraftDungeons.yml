@@ -1,0 +1,340 @@
+#
+# These example files show you some of the basic attributes and
+# skills MythicMobs can use. Far more is possible!
+######### Catacumbas meslajho ################
+Pestilente:
+  MobType: ZOMBIE
+  Display: '&aPestilente &6lvl &a- &7[&4<mob.level>&7]&f'
+  Health: 8
+  Damage: 2
+  Options:
+    MovementSpeed: 0.15
+  LevelModifiers:
+    Health: 8
+    Power: 1
+  Drops:
+  - Zombieeye 0.8 1
+  DropsPerLevel:
+  - skillapi-exp 1 1
+  - money 0.25 1
+  Skills:
+  - damage{amount=3} @target ~onAttack
+Fetido:
+  MobType: ZOMBIE
+  Display: '&aFetido &6lvl &a- &7[&4<mob.level>&7]&f'
+  Health: 8
+  Damage: 2
+  Options:
+    MovementSpeed: 0.15
+  LevelModifiers:
+    Health: 8
+    Power: 1
+  Drops:
+  - Zombiebone 0.8 1
+  DropsPerLevel:
+  - skillapi-exp 1 1
+  - money 0.25 1
+  Skills:
+  - damage{amount=3} @target ~onAttack
+
+########### Monte X
+Zombiemaz2:
+  MobType: ZOMBIE
+  Health: 30
+  Damage: 3
+  Display: '&2Hediondo'
+  LevelModifiers:
+    Health: 2
+    Power: 1
+  Options:
+    Age: -1
+    MovementSpeed: 0.2
+  Drops:
+  - skillapi-exp 1 1
+  - money 0.25 1
+  Skills:
+  - skill{s=ShootAttacker2} @NearestPlayer ~onSignal:ATTACK
+  - damage{amount=0.25} @target ~onAttack
+
+Zombiemaz2boss:
+  MobType: ZOMBIE
+  Display: '&2Fermentado'
+  Health: 50
+  Damage: 4
+  LevelModifiers:
+    Health: 2
+    Power: 1
+  Equipment:
+  - head:4
+  Options:
+    Age: -1
+    MovementSpeed: 0.3
+  Drops:
+  - skillapi-exp 1 1
+  - money 0.25 1
+  Skills:
+  - message{m="<mob.name><&co> Envenenar al maldito!!"} @PlayersInRadius{r=10} ~onDamaged
+  - signal{s=ATTACK} @MobsInRadius{r=15;t=Zombiemaz2} ~onDamaged
+  - potion{type=POISON;duration200;level=2} @target ~onAttack <40% 0.5
+  - damage{amount=0.25} @target ~onAttack
+########### Monte katum
+
+Zombiemaz1:
+  MobType: BABY_ZOMBIE
+  Display: '&cDiablillo &6lvl &a- &7[&4<mob.level>&7]&f'
+  Health: 6
+  Damage: 1
+  Options:
+    MovementSpeed: 0.14
+  LevelModifiers:
+    Health: 2
+    Power: 1
+  DamageModifiers:
+  - FIRE 0
+  - FIRE_TICK 0
+  - LAVA 0
+  DropsPerLevel:
+  - skillapi-exp 1.2 1
+  - money 0.25 1
+  Skills:
+  - ignite{ticks=40} @target ~onAttack
+  - damage{amount=0.25} @target ~onAttack
+
+Uglankul:
+  MobType: ZOMBIE
+  Display: '&4U&cglan Kul &6lvl &a- &7[&4<mob.level>&7]&f'
+  Health: 40
+  Damage: 2
+  Equipment:
+  - cabeza:4
+  Options:
+    MovementSpeed: 0.22
+    Persistent: true
+  LevelModifiers:
+    Health: 2
+    Power: 1
+  AIGoalSelectors:
+  - 0 clear
+  - 1 fleeplayers
+  - 2 meleeattack
+  AITargetSelectors:
+  - 0 clear
+  - 1 players
+  - 2 hurtbytarget
+  DamageModifiers:
+  - FIRE 0
+  - FIRE_TICK 0
+  - LAVA 0
+  Drops:
+  - magico
+  DropsPerLevel:
+  - skillapi-exp 1.5 1
+  - money 0.25 1
+  Skills:
+  - skill{s=Firewind} @PlayersInRadius{r=10} ~onTimer:200
+  - damage{amount=0.25} @target ~onAttack
+
+Grosmalkin:
+  MobType: ZOMBIE
+  Display: '&5G&8ros &4M&calkin &6lvl &a- &7[&4<mob.level>&7]&f'
+  Health: 60
+  Damage: 4
+  Equipment:
+  - cabeza:4
+  - wood_sword:0
+  Options:
+    MovementSpeed: 0.4
+    Persistent: true
+  LevelModifiers:
+    Health: 2
+    Power: 1
+  DamageModifiers:
+  - FIRE 0
+  - FIRE_TICK 0
+  - LAVA 0
+  Drops:
+  - magico
+  DropsPerLevel:
+  - skillapi-exp 1 1
+  - money 0.25 1
+  Skills:
+  - skill{s=pirosombrico} @target ~onAttack
+  - damage{amount=0.25} @target ~onAttack
+
+Kredkakatum:
+  MobType: ZOMBIE
+  Display: '&5K&8red &5K&8akatum &6lvl &a- &7[&4<mob.level>&7]&f'
+  Health: 80
+  Damage: 6
+  Equipment:
+  - cabeza:4
+  - stone_sword:0
+  - stone_sword:5
+
+  Options:
+    MovementSpeed: 0.4
+    Persistent: true
+  LevelModifiers:
+    Health: 2
+    Power: 1
+  DamageModifiers:
+  - FIRE 0
+  - FIRE_TICK 0
+  - LAVA 0
+  Drops:
+  - magico
+  DropsPerLevel:
+  - skillapi-exp 1 1
+  - money 0.25 1
+  Skills:
+  - skill{s=soulaoe} @PlayersInRadius{r=10} ~onTimer:180
+  - skill{s=pirosombrico} @target ~onAttack
+  - damage{amount=0.25} @target ~onAttack
+
+######### Nacaruh Tower ICE ################
+Motur:
+  MobType: ZOMBIE
+  Display: '&bM&3otur &6lvl &a- &7[&4<mob.level>&7]&f'
+  Health: 80
+  Damage: 10
+  BossBar:
+    Enabled: true
+    Title: 'Motur'
+    Range: 10
+    Color: YELLOW
+    Style: SEGMENTED_6
+  Disguise:
+    Type: player
+    Skin: 'lolpie24'
+    Player: '&bM&3otur'
+  Options:
+    AlwaysShowName: true
+    MovementSpeed: 0.15
+    MaxCombatDistance: 15
+    PreventOtherDrops: true
+    Persistent: true
+  Equipment:
+  - cabeza:4
+  Drops:
+  - raro
+  DropsPerLevel:
+  - skillapi-exp 1 1
+  - money 0.25 1
+  LevelModifiers:
+    Health: 2
+    Power: 0.0
+  AIGoalSelectors:
+  - 0 clear
+  - 1 fleeplayers
+  - 2 meleeattack
+  AITargetSelectors:
+  - 0 clear
+  - 1 players
+  - 2 hurtbytarget
+  Skills:
+  - skill{s=Iceprision} @PlayersInRadius{r=18} ~onTimer:220
+  - skill{s=IceBolt} @target ~onTimer:25
+  - disguise{d=player:&bM&3otur:lolpie24} ~onTimer:150
+
+Glaciem:
+  MobType: ZOMBIE
+  Display: '&bM&3otur &6lvl &a- &7[&4<mob.level>&7]&f'
+  Health: 200
+  Damage: 4
+  BossBar:
+    Enabled: true
+    Title: 'Glaciem'
+    Range: 10
+    Color: BLUE
+    Style: SEGMENTED_6
+  Disguise:
+    Type: player
+    Skin: 'Mordar'
+    Player: '&bG&3laciem'
+  Options:
+    AlwaysShowName: true
+    MovementSpeed: 0.3
+    MaxCombatDistance: 15
+    PreventOtherDrops: true
+    Persistent: true
+  LevelModifiers:
+    Health: 2
+    Power: 0.0
+  Equipment:
+  - wood_sword:0
+  Drops:
+  - magico
+  DropsPerLevel:
+  - skillapi-exp 1 1
+  - money 0.25 1
+  DamageModifiers:
+  - FIRE 0
+  - FIRE_TICK 0
+  - POISON 0
+  Skills:
+  - skill{s=Icewind} @PlayersInRadius{r=18} ~onDamaged
+  - skill{s=Iceblade} ~onAttack
+  - disguise{d=player:&bG&3laciem:Mordar} ~onTimer:150
+
+Nacaruhnucleo:
+  MobType: ENDERMITE
+  Display: '&bN&3ucleo gelido'
+  Health: 220
+  Damage: 1
+  BossBar:
+    Enabled: true
+    Title: 'Nucleo Gelido'
+    Range: 10
+    Color: YELLOW
+    Style: SEGMENTED_6
+  Disguise:
+    Type: ender_crystal
+    AlwaysShowName: true
+  Options:
+    KnockbackResistance: 1
+    MovementSpeed: 0.00001
+    MaxCombatDistance: 15
+    PreventOtherDrops: true
+    Persistent: true
+  LevelModifiers:
+    Health: 6
+    Power: 0.0
+  Drops:
+  - legendario
+  DropsPerLevel:
+  - skillapi-exp 1 1
+  - money 0.25 1
+  DamageModifiers:
+  - FIRE 0
+  - FIRE_TICK 0
+  - POISON 0
+  Skills:
+  - setstance{stance=armado} ~onSpawn @self
+  - skill{s=deathcold} @PlayersInRadius{r=10} ~onDamaged
+  - skill{s=vulnerable} ~onTimer:620
+  - skill{s=huracan} ~onTimer:4800
+
+NacEsbirro:
+  MobType: Zombie
+  Health: 25
+  Damage: 4
+  Options:
+    MovementSpeed: 0.3
+    MaxCombatDistance: 15
+    PreventOtherDrops: true
+  LevelModifiers:
+    Health: 2
+    Power: 0.0
+  Display: '&3Cadaver aventurero &6lvl &a- &7[&4<mob.level>&7]&f'
+  Equipment:
+  - wood_sword:0
+  - leather_helmet:4
+  AITargetSelectors:
+  - 0 clear
+  - 1 players
+  DropsPerLevel:
+  - skillapi-exp 1 1
+  - money 0.25 1
+  DamageModifiers:
+  - FIRE 0
+  - FIRE_TICK 0

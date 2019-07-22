@@ -1,0 +1,171 @@
+### Dante - Awesome_Dante's crazy attempt at replicating the demon slayer Dante in Minecraft via Mythic Mobs.
+### This code is quite literally my pride and joy. Please do not share.
+### This versions comments are not fully written yet. The support link for this mob is at the bottom of every file this mob uses.
+### Version 'EA-Pre-Alpha V 0.2'
+### File version 'V 0.1' 
+### Comments Version 'V 0.1'
+### Known Compatibility with Spigot 1.11.2 - 1.12.2 
+### Known Compatibility with MythicMobs 2.3+ Recommended 4.3.2+
+### REQUIRES: MythicMobsExtension - https://www.spigotmc.org/resources/mythicmobsextension.51884/
+### REQUIRES: HolographicDisplays - https://dev.bukkit.org/projects/holographic-displays
+
+
+#### Ebony And Ivory Rainstorm skill designator. Should spawn on the ground below Dante. This is so he can target below himself.
+ERainstormPlacer:
+  Type: Armor_Stand
+  Options:
+    Invincible: true
+    Invisible: true
+  Skills:
+  - skill{s=ErainStormPlaceTargeters} ~onSpawn
+ERainstormTargeter1:
+  Type: Armor_Stand
+  Options:
+    Invincible: true
+    Invisible: true
+ERainstormTargeter2:
+  Type: Armor_Stand
+  Options:
+    Invincible: true
+    Invisible: true
+ERainstormTargeter3:
+  Type: Armor_Stand
+  Options:
+    Invincible: true
+    Invisible: true
+ERainstormTargeter4:
+  Type: Armor_Stand
+  Options:
+    Invincible: true
+    Invisible: true
+    
+ShotgunTargeter:
+  Type: Armor_Stand
+  Options:
+    Invincible: true
+    Invisible: true 
+    Marker: true
+ 
+### Invisible Hologram projectors that shows which skills Dante has. Useful to place near boss fight area to show players which abilities Dante has unlocked. 
+
+
+### Upside down Dante for the Rainstorm skill
+
+UpsideDownDante:
+  Type: Husk
+  Display: '&4&lDante'
+  Health: 500
+  Damage: 5
+  Disguise:
+    Type: player
+    Player: 'Dinnerbone'
+    Skin: 'Awesome_Dante'
+  Faction: Boss
+  Equipment:
+  - EbonyAndIvory:0
+  - EbonyAndIvory:5
+  AIGoalSelectors:
+  - 0 clear
+  - 1 meleeattack
+  - 2 lookatplayers
+  - 3 randomstroll
+  AITargetSelectors:
+  - 0 clear
+  - 1 OtherFaction
+ # - 2 players
+  Options:
+    AlwaysShowName: false
+    MovementSpeed: 0.4
+    MaxCombatDistance: 64
+    PreventOtherDrops: true
+    FollowRange: 64
+    Despawn: true
+    KnockbackResistance: 1
+    PreventMobKillDrops: true
+    Silent: true
+    RepeatAllSkills: true
+  Skills:
+  - effect:spin{duration=40;velocity=30} @self ~onSpawn
+  - stun{d=30} @self ~onSpawn
+
+
+
+  
+#### Test dummy  Dante. Great for testing skills one at a time.
+TestDante:
+  Type: Husk
+  Display: '&4&lDante'
+  Health: 500
+  Damage: 5
+  Disguise:
+    Type: player
+    Player: '&4&l'
+    Skin: 'Awesome_Dante'
+  Faction: Boss
+  Equipment:
+  - EbonyAndIvory:0
+  - EbonyAndIvory:5
+  AIGoalSelectors:
+  - 0 clear
+  - 1 meleeattack
+  - 2 lookatplayers
+  - 3 randomstroll
+  AITargetSelectors:
+  - 0 clear
+  - 1 OtherFaction
+ # - 2 players
+  Options:
+    AlwaysShowName: false
+    MovementSpeed: 0.01
+    MaxCombatDistance: 64
+    PreventOtherDrops: true
+    FollowRange: 64
+    Despawn: true
+    KnockbackResistance: 1
+    PreventMobKillDrops: true
+    Silent: true
+    RepeatAllSkills: true
+  Skills:
+  - skill{s=FireShotgun-Basic} ~onTimer:10 
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+
+###### THIS CODE IS IN DEVELOPMENT. THIS IS THE ABILITY TRACKER THAT LETS PLAYERS KNOW WHICH ABILITIES DANTE CURRENTLY HAS.
+### I have included this here for your viewing pleasure.
+ 
+Dante-Rebellion-Ability-Tracker:
+  Type: Armor_Stand
+  Options:
+    Marker: true
+    Invisible: true
+  Skills:
+#    - remove @self ~onTimer:200
+  - speechbubble{id=DanteAbilityRebellionTrack;display="&e&l-- &c&lR&7&lebellion &c&lAbilities &e&l--<nl>";ll=45;usecounter=false;sideoffset=0;offset=4.0} @self ~onSpawn
+  - speechbubble{id=DanteAbilityStinger;display="&cStinger";ll=25;usecounter=false;sideoffset=0;offset=3.7} @self ~onSpawn ~onSpawn
+  - speechbubble{id=DanteAbilityHighTime;display="&cHigh Time";ll=25;usecounter=false;sideoffset=0;offset=3.4} @self ~onSpawn ~onSpawn
+  - speechbubble{id=DanteAbility3HitCombo;display="&c3 Hit Combo";ll=25;usecounter=false;sideoffset=0;offset=3.1} @self ~onSpawn ~onSpawn
+  - speechbubble{id=DanteAbility4HitCombo;display="&c4 Hit Combo";ll=25;usecounter=false;sideoffset=0;offset=2.8} @self ~onSpawn ~onSpawn
+  - speechbubble{id=DanteAbility5HitCombo;display="&c5 Hit Combo";ll=25;usecounter=false;sideoffset=0;offset=2.5} @self ~onSpawn ~onSpawn
+  - speechbubble{id=DanteAbility6HitCombo;display="&c6 Hit Combo";ll=25;usecounter=false;sideoffset=0;offset=2.2} @self ~onSpawn ~onSpawn
+  - speechbubble{id=DanteAbilityHelmBreaker;display="&cHelm Breaker";ll=25;usecounter=false;sideoffset=0;offset=1.9} @self ~onSpawn ~onSpawn
+  - speechbubble{id=DanteAbilityAerialCombo;display="&cAerial Combo";ll=25;usecounter=false;sideoffset=0;offset=1.6} @self ~onSpawn ~onSpawn
+  - speechbubble{id=DanteAbilityDrive;display="&cDrive";ll=25;usecounter=false;sideoffset=0;offset=1.3} @self ~onSpawn ~onSpawn
+  - speechbubble{id=DanteAbilityDTAirRaid;display="&cDT Air Raid";ll=25;usecounter=false;sideoffset=0;offset=1.0} @self ~onSpawn ~onSpawn
+  - speechbubble{id=DanteAbilityDTMillionStab;display="&cDT Million Stab";ll=25;usecounter=false;sideoffset=0;offset=0.7} @self ~onSpawn ~onSpawn
+  - speechbubble{id=DanteAbilityDTAirRaidRT;display="&cDT-Air Raid Round Trip";ll=25;usecounter=false;sideoffset=0;offset=0.4} @self ~onSpawn ~onSpawn
+    
+# If their is anything you do not understand about this mob or you need help I sincerely do not blame you.
+# I expect to get swarmed with requests within the first week of this mobs release. 
+# I may reply with a please wait message. I will get to you as soon as possible.
+
+# DIRECT SUPPORT LINK. PLEASE ALLOW 24 HOURS TO GET A REPLY. 
+# http://mythicmobs.net/index.php?conversations/add&to=Awesome_Dante

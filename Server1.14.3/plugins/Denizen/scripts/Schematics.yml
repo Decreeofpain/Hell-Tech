@@ -1,0 +1,113 @@
+#/ex note cu@0,0,0,world|5,5,5,world as:REMARKABLECUBOID101
+#    - ^schematic create name:rulbertfrst cu@bosqueoak location:129,96,-412,Esparcraft
+#/ex narrate <global.flag[NPCDESPAWN1].expiration.formatted>
+Schematics:
+  type: world
+  events:
+    on player enters minacobblestone:
+    - ^title "title:<green>Mina" "subtitle:<gold>Aqui puedes extraer piedra."
+    on player enters minacoal:
+    - ^title "title:<green>Mina Abandonada" "subtitle:<gold>Aqui puedes extraer carbon."
+    on player enters minasand:
+    - ^title "title:<green>Mina Abandonada" "subtitle:<gold>Aqui puedes extraer arena."
+    on player enters bosqueoak:
+    - ^title "title:<green>Bosque de Meslajho" "subtitle:<gold>Aqui puedes extraer madera."
+    on player enters bosquespruce:
+    - ^title "title:<green>Bosque de coniferas" "subtitle:<gold>Aqui puedes extraer madera de pino."
+    on player enters bosquebirch:
+    - ^title "title:<green>Bosque de Blanco" "subtitle:<gold>Aqui puedes extraer madera de abedul."
+    on player enters farmmelon:
+    - ^title "title:<green>Molino de viento" "subtitle:<gold>Aqui puedes plantar melones."
+    on player enters farmcarrot:
+    - ^title "title:<green>Molino de viento" "subtitle:<gold>Aqui puedes plantar Zanahorias y C. de azucar"
+    on player enters arena1:
+    - ^title "title:<green>Arena" "subtitle:<gold>Aqui puedes demostrar tu destreza."
+    - ^flag <player> inarena:true
+    on player exits arena1:
+    - ^flag <player> inarena:!
+    on player enters entradames:
+    - ^title "title:<gold>Meslajho" "subtitle:<white>Un pueblo neutral."
+    on player enters minaungoloz:
+    - ^title "title:<green>Mina Ungoloz" "subtitle:<gold>Aqui puedes extraer oro."
+    on player enters minavisener:
+    - ^title "title:<green>Mina Visener" "subtitle:<gold>Aqui puedes extraer oro."
+
+
+    on 8:00 in Esparcraft:
+    # - ^if <cu@minacobblestone.get_blocks[stone].size> < 40000 {
+    #   - ^schematic load name:minacobblestone
+    #   - ^schematic paste name:minacobblestone location:<cu@minacobblestone.min>
+    #   - ^schematic unload name:minacobblestone
+    #   - ^foreach <cu@minacobblestone.list_players> {
+    #     - ^title "title:<green>Restableciendo" "subtitle:<gold>La mina de piedra!" stay:10s
+    #     }
+    #   - ^teleport <cu@minacobblestone.list_players> dminacobblestone
+    #   }
+    # - wait 2
+    # - ^if <cu@minacoal.get_blocks[stone].size> < 5600 {
+    #   - ^schematic load name:minacoal
+    #   - ^schematic paste name:minacoal location:<cu@minacoal.min>
+    #   - ^schematic unload name:minacoal
+    #   - ^foreach <cu@minacoal.list_players> {
+    #     - ^title "title:<green>Restableciendo" "subtitle:<gold>La mina de carbon" stay:10s
+    #     }
+    #   - ^teleport <cu@minacoal.list_players> dminacoal
+    #   }
+    # - wait 2
+    # - ^if <cu@minasand.get_blocks[12].size> < 10000 {
+    #   - ^schematic load name:minasand
+    #   - ^schematic paste name:minasand location:<cu@minasand.min>
+    #   - ^schematic unload name:minasand
+    #   - ^foreach <cu@minasand.list_players> {
+    #     - ^title "title:<green>Restableciendo" "subtitle:<gold>La cantera de arena" stay:10s
+    #     }
+    #   - ^teleport <cu@minasand.list_players> dminasand
+    #   }
+    # - queue clear
+    #
+    on 7:00 in Esparcraft:
+    # - if <cu@bosqueoak.get_blocks[log].size> < 330 {
+    #   - ^schematic load name:bosqueoak
+    #   - ^schematic paste name:bosqueoak location:<cu@bosqueoak.min>
+    #   - ^schematic unload name:bosqueoak
+    #   - ^foreach <cu@bosqueoak.list_players> {
+    #     - ^title "title:<green>Restableciendo" "subtitle:<gold>El bosque de meslajho" stay:10s
+    #     }
+    #   - ^teleport <cu@bosqueoak.list_players> dbosqueoak
+    #   }
+    # - wait 2
+    # - if <cu@bosquespruce.get_blocks[log].size> < 1000 {
+    #   - ^schematic load name:bosquespruce
+    #   - ^schematic paste name:bosquespruce location:<cu@bosquespruce.min>
+    #   - ^schematic unload name:bosquespruce
+    #   - ^foreach <cu@bosquespruce.list_players> {
+    #     - ^title "title:<green>Restableciendo" "subtitle:<gold>El bosque de Coniferas" stay:10s
+    #     }
+    #   - ^teleport <cu@bosquespruce.list_players> dbosquespruce
+    #   }
+    # - wait 2
+    # - if <cu@bosquebirch.get_blocks[log].size> < 4000 {
+    #   - ^schematic load name:bosquebirch
+    #   - ^schematic paste name:bosquebirch location:<cu@bosquebirch.min>
+    #   - ^schematic unload name:bosquebirch
+    #   - ^foreach <cu@bosquebirch.list_players> {
+    #     - ^title "title:<green>Restableciendo" "subtitle:<gold>El bosque de Blanco" stay:10s
+    #     }
+    #   - ^teleport <cu@bosquebirch.list_players> dbosquespruce
+    #   }
+    # - queue clear
+    #
+    #
+    # on 9:00 in Esparcraft:
+    # - ^if <cu@farmmelon.get_blocks[60].size> < 420 {
+    #   - ^schematic load name:farmmelon
+    #   - ^schematic paste name:farmmelon location:<cu@farmmelon.min>
+    #   - ^schematic unload name:farmmelon
+    #   - ^foreach <cu@bosquespruce.list_players> {
+    #     - ^title "title:<green>restableciendo" "subtitle:<gold>El molino de viento" stay:10s
+    #     }
+    #   - ^teleport <cu@farmmelon.list_players> dfarmmelon
+    #   }
+    # - queue clear
+
+#----------------------------------Mina Meslajho--------------------------------------------

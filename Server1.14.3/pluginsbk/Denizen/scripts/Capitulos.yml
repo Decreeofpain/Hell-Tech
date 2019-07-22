@@ -1,0 +1,66 @@
+CheckObjetives:
+  type: world
+  events:
+    on player joins:
+    - ^if <player.has_flag[muerto]> {
+      - ^yaml load:personal/<player.name>.yml id:personal<player.name>
+      - ^inventory set d:<player.inventory> o:<yaml[personal<player.name>].read[inv_outsoul]>
+      - ^equip <player> head:<yaml[personal<player.name>].read[inv_outsoul_helmet]>
+      - ^equip <player> chest:<yaml[personal<player.name>].read[inv_outsoul_chestplate]>
+      - ^equip <player> legs:<yaml[personal<player.name>].read[inv_outsoul_leggings]>
+      - ^equip <player> boots:<yaml[personal<player.name>].read[inv_outsoul_boots]>
+      - ^yaml unload id:personal<player.name>
+      }
+#    - ^flag <player> safe:tictac duration:5s
+    - ^flag <player> muerto:!
+    - ^run 's@Checkusercap'
+# Update ID database
+    - ^yaml load:personal/<player.name>.yml id:<player.name>
+    - ^define jugador <player.name>
+    - wait 10t
+    - if <yaml[<player.name>].read[UserID]> == "entry[resultado].result.parse[replace[/]].formatted" {
+      - ~sql id:LevelSAPIUPDT<player.name> connect:esparcraft.net/esparcraft username:drAkNess password:drakness666
+      - ^sql id:LevelSAPIUPDT<player.name> "query:SELECT user_id FROM phpbb_users WHERE username='<def[jugador]>';" save:resultado
+      - ^yaml id:<player.name> set UserID:<entry[resultado].result.parse[replace[/]].formatted>
+      - narrate <yaml[<player.name>].read[UserID]>
+      - ^yaml savefile:personal/<player.name>.yml id:<player.name>
+#
+      - if <player.flag[raza]> == vampiro {
+        - sql id:LevelSAPIUPDT<player.name> "update:UPDATE phpbb_profile_fields_data SET pf_pb_wow_race='2' WHERE user_id=<yaml[<player.name>].read[UserID]>;"
+        } else if <player.flag[raza]> == lobo {
+        - sql id:LevelSAPIUPDT<player.name> "update:UPDATE phpbb_profile_fields_data SET pf_pb_wow_race='3' WHERE user_id=<yaml[<player.name>].read[UserID]>;"
+        } else if <player.flag[raza]> == humano {
+        - sql id:LevelSAPIUPDT<player.name> "update:UPDATE phpbb_profile_fields_data SET pf_pb_wow_race='1' WHERE user_id=<yaml[<player.name>].read[UserID]>;"
+        }
+      - define level <player.skillapi.class_level[<player.skillapi.main_class>]>
+      - sql id:LevelSAPIUPDT<player.name> "update:UPDATE phpbb_profile_fields_data SET pf_pb_wow_class='0' WHERE user_id=<yaml[<player.name>].read[UserID]>;"
+      - sql id:LevelSAPIUPDT<player.name> "update:UPDATE phpbb_profile_fields_data SET pf_pb_wow_level='<def[level]>' WHERE user_id=<yaml[<player.name>].read[UserID]>;"
+      - sql id:LevelSAPIUPDT<player.name> "update:UPDATE phpbb_profile_fields_data SET pf_pb_wow_guild='' WHERE user_id=<yaml[<player.name>].read[UserID]>;"
+#
+      - ^yaml unload id:<player.name>
+      - ^sql disconnect id:LevelSAPIUPDT<player.name>
+      } else {
+      - ^yaml unload id:<player.name>
+      }
+
+
+
+# Checkusercap:
+    # type: task
+    # script:
+    # - wait 2s
+######################## Avance al capitulo 1 Parte 2
+    # - ^if <global.flag[capituloactivo]> == CAPITULO1P2 && <player.flag[misiones].as_list> !contains cap1m5ok {
+      # - ^flag <player> misiones:->:cap1m5ok
+      # - ^flag <player> objetivo:ob8
+      # }
+######################## Avance al capitulo 1 Parte 3
+    # - ^if <player.flag[misiones].as_list> !contains tuto_01 && <player.flag[progreso].as_list> !contains tutorial_terminado && <player.flag[misiones].as_list> !contains cap1m23ok {
+      # - ^flag <player> misiones:tuto_01
+      # } else if <player.flag[misiones].as_list> !contains tuto_01 && <player.flag[progreso].as_list> !contains tutorial_ok && <player.flag[misiones].as_list> contains cap1m23ok {
+      # - ^flag <player> progreso:tutorial_ok
+      # }
+    # - ^if <player.flag[progreso].as_list> contains tutorial_ok && <player.flag[progreso].as_list> !contains profesiones_ok {
+      # - ^flag <player> progreso:->:profesiones_ok
+      # }
+

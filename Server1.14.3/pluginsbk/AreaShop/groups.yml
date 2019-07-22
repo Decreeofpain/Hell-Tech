@@ -1,0 +1,166 @@
+granjas:
+  name: granjas
+  priority: 1
+  general:
+    flagProfile:
+      forrent:
+        priority: 5
+        greeting: '[green]Renta[darkgreen] la [yellow]%region% [darkgreen]por [gold]%price% [darkgreen]durante [green]%duration%.'
+        entry: 'allow g:all'
+        use: 'deny g:all'
+        block-break: 'deny g:all'
+        block-place: 'deny g:all'
+        interact: 'deny g:all'
+        members: ''
+      rented:
+        priority: 5
+        greeting: '[darkgreen]La [green]%region% [darkgreen]se rento por [yellow]%player%[darkgreen], termina: [darkpurple]%untilshort%'
+        members: '%uuid%, %friendsuuid%'
+        use: 'deny g:non_members'
+        ride: 'deny g:non_members'
+        interact: 'deny g:non_members'
+        entry: 'deny g:non_members'
+        allow-block-break: 'potato g:members'
+        allow-block-place: 'potato g:members'
+  rent:
+    price: 500
+    duration: 1 dia
+  regions:
+  - granja1
+  - granja2
+  - granja3
+  - granja4
+  - granja5
+  - granja6
+  - granja7
+vagabundo:
+  name: vagabundo
+  priority: 1
+  general:
+    flagProfile:
+      forrent:
+        priority: 5
+        greeting: '[green]Renta[darkgreen] la [yellow]%region% [darkgreen]por [gold]%price% [darkgreen]durante [green]%duration%.'
+        entry: 'allow g:all'
+        use: 'deny g:all'
+        block-break: 'deny g:all'
+        block-place: 'deny g:all'
+        interact: 'deny g:all'
+        members: ''
+      rented:
+        priority: 5
+        greeting: '[darkgreen]La [green]%region% [darkgreen]se rento por [yellow]%player%[darkgreen], termina: [darkpurple]%untilshort%'
+        members: '%uuid%, %friendsuuid%'
+        use: 'deny g:non_members'
+        ride: 'deny g:non_members'
+        interact: 'deny g:non_members'
+        entry: 'deny g:non_members'
+  rent:
+    price: 1500
+    duration: 7 dias
+  regions:
+  - tugurio1
+  - tugurio2
+  - tugurio3
+  - tugurio4
+  - tugurio5
+  - tugurio6
+  - tugurio7
+  - tugurio8
+  - tugurio9
+  - tugurio10
+  - tugurio11
+  - tugurio12
+  - tugurio13
+  - tugurio14
+  - tugurio15
+  - tugurio16
+  - tugurio17
+  - tugurio18
+  - tugurio19
+  - tugurio20
+  - tugurio21
+  - tugurio22
+  - tugurio23
+mendicante:
+  name: mendicante
+  priority: 1
+  general:
+    flagProfile:
+      forrent:
+        priority: 5
+        greeting: '[green]Renta[darkgreen] la [yellow]%region% [darkgreen]por [gold]%price% [darkgreen]durante [green]%duration%.'
+        entry: 'allow g:all'
+        use: 'deny g:all'
+        block-break: 'deny g:all'
+        block-place: 'deny g:all'
+        interact: 'deny g:all'
+        members: ''
+      rented:
+        priority: 5
+        greeting: '[darkgreen]La [green]%region% [darkgreen]se rento por [yellow]%player%[darkgreen], termina: [darkpurple]%untilshort%'
+        members: '%uuid%, %friendsuuid%'
+        use: 'deny g:non_members'
+        ride: 'deny g:non_members'
+        interact: 'deny g:non_members'
+        entry: 'deny g:non_members'
+  rent:
+    price: 5000
+    duration: 7 dias
+  regions:
+    - tabuco1
+    - tabuco2
+    - tabuco3
+    - tabuco4
+    - tabuco5
+    - tabuco6
+    - tabuco7
+    - tabuco8
+    - tabuco9
+    - tabuco10
+    - tabuco11
+    - tabuco12
+    - tabuco13
+    - tabuco14
+    - tabuco15
+    - tabuco16
+    - tabuco17
+    - tabuco18
+    - tabuco19
+    - tabuco20
+    - tabuco21
+    - tabuco22
+asalariado:
+  name: asalariado
+  priority: 1
+  general:
+    flagProfile:
+      forrent:
+        priority: 5
+        greeting: '[green]Renta[darkgreen] la [yellow]%region% [darkgreen]por [gold]%price% [darkgreen]durante [green]%duration%.'
+        entry: 'allow g:all'
+        use: 'deny g:all'
+        block-break: 'deny g:all'
+        block-place: 'deny g:all'
+        interact: 'deny g:all'
+        members: ''
+      rented:
+        priority: 5
+        greeting: '[darkgreen]La [green]%region% [darkgreen]se rento por [yellow]%player%[darkgreen], termina: [darkpurple]%untilshort%'
+        members: '%uuid%, %friendsuuid%'
+        use: 'deny g:non_members'
+        ride: 'deny g:non_members'
+        interact: 'deny g:non_members'
+        entry: 'deny g:non_members'
+  rent:
+    price: 9000
+    duration: 7 dias
+  regions:
+    - cuarto1
+    - cuarto2
+    - cuarto3
+    - cuarto4
+    - cuarto5
+    - cuarto6
+    - cuarto7
+    - cuarto8

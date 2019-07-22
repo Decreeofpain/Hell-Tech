@@ -1,0 +1,72 @@
+"Piers":
+    type: assignment
+
+    actions:
+      on assignment:
+      - trigger name:CHAT toggle:false
+      - trigger name:click toggle:false
+      - trigger name:proximity toggle:true radius:2
+
+    interact scripts:
+    - 18 Piersscript
+
+'Piersscript':
+  Type: Interact
+  Requirements:
+    Mode: all
+    List:
+    - valueof <global.flag[capitulos].contains[CAPITULO1ESCALERASOK]>
+    - -valueof <global.flag[capitulos].contains[CAPITULO1MOLINOOK]>
+    - -valueof <global.flag[capitulos].contains[CAPITULO1P2OK]>
+  Steps:
+    '1':
+      proximity trigger:
+        entry:
+          radius: 4
+          Script:
+          - ^if <global.flag[capituloactivo]> == CAPITULO1P2 {
+            - ^run 's@bookCap1part12'
+            - ^if <player.flag[objetivo]> !contains reconstruir {
+              - ^bossbar remove obj<player.name>
+              - ^define objetivo "<gold>Objetivo: <yellow>Ayuda a reconstruir todo el pueblo."
+              - ^flag <player> objetivo:<def[objetivo]>
+              - ^bossbar obj<player.name> players:<player> "title:<player.flag[objetivo]>" color:BLUE
+              }
+            - ^if <player.flag[misiones].as_list> !contains cap1m6ok {
+              - ^flag <player> misiones:->:cap1m6ok
+              }
+            - ^zap step:2
+            }
+    '2':
+      proximity trigger:
+        entry:
+          radius: 4
+          Script:
+          - ^yaml load:capitulos/capitulo1.yml id:capitulo<player.name>
+          - ^inventory open d:in@inv_piers
+          - ^yaml unload id:capitulo<player.name>
+
+inv_piers:
+  type: inventory
+  inventory: dispenser
+  slots:
+  - "[i@cancelslot] [i@infomes] [i@cancelslot]"
+  - "[i@logmolino] [i@Entregar] [i@stnmolino]"
+  - "[i@cancelslot] [i@cancelslot] [i@cancelslot]"
+
+logmolino:
+  type: item
+  material: 17
+  display name: '<yellow>Troncos de Madera'
+  lore:
+  - ''
+  - '<dark_aqua>Necesarios: <gold>800'
+  - '<gray>Se han recolectado: <yellow><yaml[capitulo<player.name>].read[meslajho.materiales.molinomdr].asint>'
+stnmolino:
+  type: item
+  material: 4
+  display name: '<yellow>Bloques de cobblestone'
+  lore:
+  - ''
+  - '<dark_aqua>Necesarios: <gold>800'
+  - '<gray>Se han recolectado: <yellow><yaml[capitulo<player.name>].read[meslajho.materiales.molinostn].asint>'

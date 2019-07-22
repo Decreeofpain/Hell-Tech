@@ -1,0 +1,10 @@
+Drops_extra_esp:
+  type: world
+  events:
+    ############################## [Mythic MythicMobs]
+    ############################## [Custom drops]
+    ############################## [Items en "itemsEsparcraft"]
+    on mythicmob PolloMeslajho dies:
+    - ^if <player.flag[profesion].as_list> contains Ganadero {
+      - drop i@cadaberdepollo <context.mob.entity.location>
+      }

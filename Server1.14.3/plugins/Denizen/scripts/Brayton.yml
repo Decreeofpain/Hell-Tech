@@ -1,0 +1,211 @@
+"Brayton":
+    type: assignment
+    actions:
+      on assignment:
+      - trigger name:CHAT toggle:false
+      - trigger name:click toggle:true
+      - trigger name:proximity toggle:true radius:3
+
+    interact scripts:
+    - 18 Braytoncarnicero
+    - 16 braytonscript
+
+'Braytoncarnicero':
+  Type: Interact
+  # Requirements:
+  #   Mode: all
+  #   List:
+  #   - valueof <global.flag[capitulos].contains[destroy]>
+  #   - valueof <player.flag[misiones].contains[destroy]>
+  #   - -valueof <global.flag[capitulos].contains[mesreconstruido]>
+  Steps:
+    '1':
+      proximity trigger:
+        entry:
+          radius: 4
+          Script:
+          - ^if <player.flag[especialidad].contains[Peletero].not> && <player.flag[profesion].contains[Ganadero].not> {
+            - ^title "subtitle:<green>Brayton: <yellow>Que miras maldito!"
+            - wait 1s
+            - ^title "subtitle:<yellow>Te quieres morir?"
+            - ^queue clear
+            } else if <player.has_flag[especialidad].not> && <player.has_flag[profesion].not> {
+              - ^title "subtitle:<green>Brayton: <yellow>Te hubieras muerto de chiquito!"
+              - ^queue clear
+            } else if <player.flag[especialidad].contains[Peletero].not> && <player.flag[especialidad].contains[Carnicero].not> && <player.flag[profesion].contains[Ganadero]> {
+            - ^if <player.jobs[Ganadero].xp.level> >= 50 {
+              - ^title "subtitle:<green>Brayton: <yellow>Valla <player.name>!"
+              - ^wait 1s
+              - ^title "subtitle:<yellow>Pense que habias muerto..."
+              - ^wait 1s
+              - ^title "subtitle:<yellow>Listo para ser Carnicero?"
+              - ^queue clear
+              } else {
+              - ^title "subtitle:<green>Brayton: <gold><player.name> <yellow>no jodas!"
+              - ^wait 1s
+              - ^title "subtitle:<yellow>Necesitas nivel 50 de Ganadero"
+              - ^wait 1s
+              - ^title "subtitle:<yellow>Para poder ser Carnicero"
+              - ^queue clear
+              }
+            } else if <player.flag[especialidad].contains[Peletero]> && <player.flag[especialidad].contains[Carnicero].not> {
+            - ^if <player.jobs[Peletero].xp.level> >= 100 {
+              - ^title "subtitle:<green>Brayton: <gold><player.name>! <yellow>ven aca maldito"
+              - ^wait 1s
+              - ^title "subtitle:<yellow>Y se un Carnicero descente"
+              - ^queue clear
+              } else {
+              - ^title "subtitle:<green>Brayton: <yellow>MANCO! <yellow>hahahha"
+              - ^wait 1s
+              - ^title "subtitle:<yellow>Necesitas ser nivel 100 de Peletero"
+              - ^wait 1s
+              - ^title "subtitle:<yellow>Ahora pierdete."
+              - ^queue clear
+              }
+            } else if <player.flag[especialidad].contains[Peletero]> && <player.flag[especialidad].contains[Carnicero]> {
+            - ^title "subtitle:<green>Brayton: <gold><player.name> <yellow>Bienvenido!"
+            - ^queue clear
+            } else if <player.flag[especialidad].contains[Peletero].not> && <player.flag[especialidad].contains[Carnicero]> {
+            - ^title "subtitle:<green>Brayton: <gold><player.name> <yellow>Bienvenido!"
+            - ^queue clear
+            }
+      click trigger:
+        Script:
+          - ^if <player.flag[especialidad].contains[Peletero].not> && <player.flag[profesion].contains[Ganadero]> {
+            - ^if <player.flag[especialidad].contains[Carnicero].not> && <player.jobs[Ganadero].xp.level> >= 50 {
+              - ^inventory open d:in@inv_brayton
+              - ^queue clear
+              } else if <player.flag[especialidad].contains[Carnicero]> {
+              - ^inventory open d:in@inv_brayton_ok
+              - ^queue clear
+              }
+            } else if <player.flag[especialidad].contains[Peletero]> && <player.flag[especialidad].contains[Carnicero].not> {
+            - ^if <player.jobs[Peletero].xp.level> >= 100 {
+              - ^inventory open d:in@inv_brayton
+              - ^queue clear
+              }
+            } else if <player.flag[especialidad].contains[Carnicero]> {
+            - ^inventory open d:in@inv_brayton_ok
+            - ^queue clear
+            }
+
+brayton_craft1task:
+    type: task
+    script:
+    - ^foreach li@i@bone|i@stick {
+      - ^flag <player> <def[value].replace[regex:i@]>:<player.inventory.quantity[%value%]> duration:1s
+      }
+    - ^queue clear
+braytonevents:
+  type: world
+  events:
+    on player clicks in inv_brayton:
+    - DETERMINE cancelled
+    on player drags in inv_brayton:
+    - DETERMINE cancelled
+    on player clicks in inv_brayton_ok:
+    - DETERMINE cancelled
+    on player drags in inv_brayton_ok:
+    - DETERMINE cancelled
+    on player clicks in inv_brayton_craft1:
+    - DETERMINE cancelled
+    on player drags in inv_brayton_craft1:
+    - DETERMINE cancelled
+#
+    on player clicks rechazarprof in inv_brayton:
+    - ^inventory close d:in@inv_brayton
+    on player clicks aceptarprof in inv_brayton:
+    - ^inventory close d:in@inv_brayton
+    - ^execute as_op "jobs employ <player.name> Carnicero" silent
+    - ^flag <player> especialidad:->:Carnicero
+    - ^title "subtitle:<green>Brayton: <yellow>Ahora eres <gold>Carnicero!"
+    - ^queue clear
+#  Listas de Crafteo
+    on player clicks navajaslist in inv_brayton_ok:
+    - ^run 's@brayton_craft1task'
+    - ^inventory open d:in@inv_brayton_craft1
+    - ^queue clear
+#  Crafteo de Items
+#  -- Navajas
+    on player right clicks navajahuesoinfo in inv_brayton_craft1:
+    - ^if <player.inventory.quantity[i@bone]> >= 38 && <player.inventory.quantity[i@stick]> >= 64 {
+      - ^inventory close d:in@inv_brayton_craft1
+      - ^actionbar "<green>Brayton: <yellow>Creando... <player.name>"
+      - ^wait 2
+      - ^actionbar "<green>Brayton: <yellow>Ya casi!"
+      - ^wait 1
+      - ^give i@navajahueso quantity:1
+      - ^take i@bone quantity:38
+      - ^take i@stick quantity:64
+      - ^run 's@brayton_craft1task'
+      - ^inventory open d:in@inv_brayton_craft1
+      - ^execute as_server "jobs grantxp <player.name> Carnicero 10" silent
+      }
+    - ^queue clear
+
+  ## Atras
+    on player clicks Atras in inv_brayton_craft1:
+    - ^inventory open d:in@inv_brayton_ok
+# =====================================================================
+    on player clicks rechazarprof in inv_brayton_ok:
+    - ^inventory close d:in@inv_brayton_ok
+    - ^DETERMINE cancelled
+
+
+# = INVENTARIOS
+inv_brayton:
+  type: inventory
+  inventory: dispenser
+  title: <gold>Carniceria
+  size: 9
+  slots:
+  - "[i@cancelslot] [i@braytoninfo1] [i@cancelslot]"
+  - "[i@cancelslot] [i@cancelslot] [i@cancelslot]"
+  - "[i@aceptarprof] [i@cancelslot] [i@rechazarprof]"
+inv_brayton_ok:
+  type: inventory
+  title: '<dark_purple><magic>0<reset><gold>Carniceria<dark_purple><magic>0'
+  size: 9
+  slots:
+  - "[i@navajaslist] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot]"
+inv_brayton_craft1:
+  type: inventory
+  title: '<dark_purple><magic>0<reset><gold>Cueros<dark_purple><magic>0'
+  size: 9
+  slots:
+  - "[i@navajahuesoinfo] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@Atras]"
+
+
+########### - brayton - #########
+braytoninfo1:
+  type: item
+  material: paper
+  display name: '<blue>Carnicero'
+  lore:
+  - ''
+  - '<gray>Los <yellow>Carniceros <gray>matan animales'
+  - '<gray>para procesar su carne'
+  - '<gray>y crear compuestos eficaces.'
+#---------------------------------------------ITEMS----------------------------------------------------
+#----Piezas de animales
+navajaslist:
+  type: item
+  material: 268
+  display name: '<gold>Lista de navajas'
+#
+#
+navajahuesoinfo:
+  type: item
+  material: 268
+  display name: '<dark_green>Navaja de Hueso'
+  lore:
+  - '<yellow>Requiere:'
+  - '<gray>Nivel para craftear: <yellow>1'
+  - '<gray>Huesos: <yellow>38'
+  - '<gray>Palos: <yellow>64'
+  - ''
+  - '<gold>Materiales actuales:'
+  - '<yellow><player.flag[bone].asint><&pipe>38<gray> Huesos'
+  - '<yellow><player.flag[stick].asint><&pipe>64<gray> Palos'
+  - ''
+  - '<green>Click <dark_green>derecho<green> para crear'

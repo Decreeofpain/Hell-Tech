@@ -1,0 +1,210 @@
+"Ladislao":
+    type: assignment
+    actions:
+      on assignment:
+      - trigger name:CHAT toggle:false
+      - trigger name:click toggle:true
+      - trigger name:proximity toggle:true radius:3
+
+    interact scripts:
+    - 18 Ladislaoescriba
+    - 16 ladislaoscript
+
+'Ladislaoescriba':
+  Type: Interact
+  # Requirements:
+  #   Mode: all
+  #   List:
+  #   - valueof <global.flag[capitulos].contains[destroy]>
+  #   - valueof <player.flag[misiones].contains[destroy]>
+  #   - -valueof <global.flag[capitulos].contains[mesreconstruido]>
+  Steps:
+    '1':
+      proximity trigger:
+        entry:
+          radius: 4
+          Script:
+          - ^if <player.flag[especialidad].contains[Artesano].not> && <player.flag[profesion].contains[Carpintero].not> {
+            - ^title "subtitle:<green>Ladislao: <yellow>Sal de aqui inculto!"
+            - ^queue clear
+            } else if <player.has_flag[especialidad].not> && <player.has_flag[profesion].not> {
+              - ^title "subtitle:<green>Ladislao: <yellow>Fuera ensucias los pergaminos!"
+              - ^queue clear
+            } else if <player.flag[especialidad].contains[Artesano].not> && <player.flag[especialidad].contains[Escriba].not> && <player.flag[profesion].contains[Carpintero]> {
+            - ^if <player.jobs[Carpintero].xp.level> >= 50 {
+              - ^title "subtitle:<green>Ladislao: <yellow>Bien <player.name> Bienvenido!"
+              - ^wait 1s
+              - ^title "subtitle:<yellow>Puedes iniciarte como escriba"
+              - ^wait 1s
+              - ^title "subtitle:<yellow>Hay mucho que aprenderas"
+              - ^queue clear
+              } else {
+              - ^title "subtitle:<green>Ladislao: <gold><player.name> <yellow> no juegues conmigo"
+              - ^wait 1s
+              - ^title "subtitle:<yellow>Necesitas ser nivel 50 de Carpintero"
+              - ^wait 1s
+              - ^title "subtitle:<yellow>Para poder aprender este arte..."
+              - ^queue clear
+              }
+            } else if <player.flag[especialidad].contains[Artesano]> && <player.flag[especialidad].contains[Escriba].not> {
+            - ^if <player.jobs[Artesano].xp.level> >= 100 {
+              - ^title "subtitle:<green>Ladislao: <gold><player.name> <yellow> muy bien!"
+              - ^wait 1s
+              - ^title "subtitle:<yellow>Ya puedes iniciarte en el camino"
+              - ^wait 1s
+              - ^title "subtitle:<yellow>Aprende las artes oscuras"
+              - ^queue clear
+              } else {
+              - ^title "subtitle:<green>Ladislao: <gold><player.name> <yellow>No!"
+              - ^wait 1s
+              - ^title "subtitle:<yellow>Necesitas ser nivel 100 de Artesano"
+              - ^wait 1s
+              - ^title "subtitle:<yellow>Aprende mas del mundo y regresa despues..."
+              - ^queue clear
+              }
+            } else if <player.flag[especialidad].contains[Artesano]> && <player.flag[especialidad].contains[Escriba]> {
+            - ^title "subtitle:<green>Ladislao: <gold><player.name> <yellow>Bienvenido!"
+            - ^queue clear
+            } else if <player.flag[especialidad].contains[Artesano].not> && <player.flag[especialidad].contains[Escriba]> {
+            - ^title "subtitle:<green>Ladislao: <gold><player.name> <yellow>Bienvenido!"
+            - ^queue clear
+            }
+      click trigger:
+        Script:
+          - ^if <player.flag[especialidad].contains[Artesano].not> && <player.flag[profesion].contains[Carpintero]> {
+            - ^if <player.flag[especialidad].contains[Escriba].not> && <player.jobs[Carpintero].xp.level> >= 50 {
+              - ^inventory open d:in@inv_ladislao
+              - ^queue clear
+              } else if <player.flag[especialidad].contains[Escriba]> {
+              - ^inventory open d:in@inv_ladislao_ok
+              - ^queue clear
+              }
+            } else if <player.flag[especialidad].contains[Artesano]> && <player.flag[especialidad].contains[Escriba].not> {
+            - ^if <player.jobs[Artesano].xp.level> >= 100 {
+              - ^inventory open d:in@inv_ladislao
+              - ^queue clear
+              }
+            } else if <player.flag[especialidad].contains[Escriba]> {
+            - ^inventory open d:in@inv_ladislao_ok
+            - ^queue clear
+            }
+ladislao_craft1task:
+    type: task
+    script:
+    - ^foreach li@i@oak_log|i@cortezaroble {
+      - ^flag <player> <def[value].replace[regex:i@]>:<player.inventory.quantity[%value%]> duration:1s
+      }
+    - ^queue clear
+ladislaoevents:
+  type: world
+  events:
+    on player clicks in inv_ladislao:
+    - DETERMINE cancelled
+    on player drags in inv_ladislao:
+    - DETERMINE cancelled
+    on player clicks in inv_ladislao_ok:
+    - DETERMINE cancelled
+    on player drags in inv_ladislao_ok:
+    - DETERMINE cancelled
+    on player clicks in inv_ladislao_craft1:
+    - DETERMINE cancelled
+    on player drags in inv_ladislao_craft1:
+    - DETERMINE cancelled
+#
+    on player clicks rechazarprof in inv_ladislao:
+    - ^inventory close d:in@inv_ladislao
+    on player clicks aceptarprof in inv_ladislao:
+    - ^inventory close d:in@inv_ladislao
+    - ^execute as_op "jobs employ <player.name> Escriba" silent
+    - ^flag <player> especialidad:->:Escriba
+    - ^title "subtitle:<green>Aloys: <yellow>Ahora eres <gold>Escriba!"
+    - ^queue clear
+#  Listas de Crafteo
+    on player clicks papeleslist in inv_ladislao_ok:
+    - ^run 's@ladislao_craft1task'
+    - ^inventory open d:in@inv_ladislao_craft1
+    - ^queue clear
+#  Crafteo de Items
+#  -- Papeles
+    on player right clicks papelastilladoinfo in inv_ladislao_craft1:
+    - ^if <player.inventory.quantity[i@oak_log]> >= 64 && <player.inventory.quantity[i@cortezaroble]> >= 1 {
+      - ^inventory close d:in@inv_ladislao_craft1
+      - ^actionbar "<gold>Ladislao: <yellow>Creando... <player.name>"
+      - ^wait 2
+      - ^actionbar "<gold>Ladislao: <yellow>Ya casi!"
+      - ^wait 1
+      - ^give i@papelastillado quantity:1
+      - ^take i@cortezaroble quantity:1
+      - ^take i@oak_log quantity:64
+      - ^run 's@ladislao_craft1task'
+      - ^inventory open d:in@inv_ladislao_craft1
+      - ^execute as_server "jobs grantxp <player.name> Escriba 10" silent
+      }
+    - ^queue clear
+
+  ## Atras
+    on player clicks Atras in inv_ladislao_craft1:
+    - ^inventory open d:in@inv_ladislao_ok
+# =====================================================================
+    on player clicks rechazarprof in inv_ladislao_ok:
+    - ^inventory close d:in@inv_ladislao_ok
+    - ^DETERMINE cancelled
+
+
+# = INVENTARIOS
+inv_ladislao:
+  type: inventory
+  inventory: dispenser
+  title: <gold>Imprenta
+  size: 9
+  slots:
+  - "[i@cancelslot] [i@ladislaoinfo1] [i@cancelslot]"
+  - "[i@cancelslot] [i@cancelslot] [i@cancelslot]"
+  - "[i@aceptarprof] [i@cancelslot] [i@rechazarprof]"
+inv_ladislao_ok:
+  type: inventory
+  title: '<dark_purple><magic>0<reset><gold>Imprenta<dark_purple><magic>0'
+  size: 9
+  slots:
+  - "[i@papeleslist] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot]"
+inv_ladislao_craft1:
+  type: inventory
+  title: '<dark_purple><magic>0<reset><gold>Papeles<dark_purple><magic>0'
+  size: 9
+  slots:
+  - "[i@papelastilladoinfo] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@Atras]"
+
+
+########### - ladislao - #########
+ladislaoinfo1:
+  type: item
+  material: paper
+  display name: '<blue>Escriba'
+  lore:
+  - ''
+  - '<gray>Los <yellow>Escribas <gray>crean tomos magicos '
+  - '<gray>y revelan magia para incripciones'
+  - '<gray>muy poderosas.'
+#---------------------------------------------ITEMS----------------------------------------------------
+#----Papeles
+papeleslist:
+  type: item
+  material: 339
+  display name: '<gold>Lista de Papeles'
+#
+#
+papelastilladoinfo:
+  type: item
+  material: 339
+  display name: '<dark_green>Papel Astillado'
+  lore:
+  - '<yellow>Requiere:'
+  - '<gray>Nivel para craftear: <yellow>1'
+  - '<gray>Troncos de roble: <yellow>64'
+  - '<gray>Corteza de roble: <yellow>1'
+  - ''
+  - '<gold>Materiales actuales:'
+  - '<yellow><player.flag[oak_log].asint><&pipe>64<gray> Troncos de roble'
+  - '<yellow><player.flag[cortezaroble].asint><&pipe>1<gray> Corteza de roble'
+  - ''
+  - '<green>Click <dark_green>derecho<green> para crear'

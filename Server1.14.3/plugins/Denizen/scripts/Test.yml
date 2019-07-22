@@ -1,0 +1,27 @@
+"Testnpc":
+    type: assignment
+
+    actions:
+      on assignment:
+      - trigger name:CHAT toggle:true
+      - trigger name:click toggle:true
+      - trigger name:proximity toggle:true radius:4
+
+    interact scripts:
+    - 18 Testscripts
+
+'Testscripts':
+  Type: Interact
+  Steps:
+    '1':
+      Chat Trigger:
+        '1':
+          Trigger: /Regex:noob|Noob/
+          Script:
+          - permission add dtl.trader.tiers.noob
+          - narrate "<green>agregado"
+        '2':
+          Trigger: /Regex:remove|Remove/
+          Script:
+          - permission add dtl.trader.tiers.noob
+          - narrate "<red>Removido"

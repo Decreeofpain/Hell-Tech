@@ -1,0 +1,123 @@
+Absorber sangre: 
+  name: 'Absorber sangre'
+  type: 'Principal'
+  max-level: 1
+  skill-req-lvl: 1
+  needs-permission: 'false'
+  combo: 'L R L'
+  attributes: 
+    level-base: '1'
+    level-scale: '0'
+    cost-base: '1'
+    cost-scale: '0'
+    cooldown-base: '0'
+    cooldown-scale: '0'
+    mana-base: '0'
+    mana-scale: '0'
+    points-spent-req-base: '0'
+    points-spent-req-scale: '0'
+    incompatible: 
+    - ''
+  msg: '&6{player} &2has cast &6{skill}'
+  icon: 'REDSTONE'
+  icon-data: 0
+  icon-lore: 
+  - '&d{name} &7({level}/{max})'
+  - '&2Type: &6{type}'
+  - ''
+  - '{req:level}Level: {attr:level}'
+  - '{req:cost}Cost: {attr:cost}'
+  - ''
+  - '&2Mana: {attr:mana}'
+  - '&2Cooldown: {attr:cooldown}'
+  desc:  []
+  components: 
+    Physical Damage: 
+      type: 'trigger'
+      indicator: '3D'
+      data: 
+        icon-key: ''
+        mana: 'False'
+        cooldown: 'False'
+        target: 'True'
+        type: 'Melee'
+        dmg-min: '0'
+        dmg-max: '9999999'
+        indicator: '2D'
+      children:  {}
+    Cast: 
+      type: 'trigger'
+      indicator: '3D'
+      data: 
+        icon-key: ''
+        indicator: '2D'
+      children: 
+        Value Lore-c: 
+          type: 'mechanic'
+          indicator: '3D'
+          data: 
+            icon-key: ''
+            counts: 'True'
+            key: 'Poder'
+            hand: 'Main'
+            regex: 'Poder de Arma: {value}'
+            multiplier-base: '1'
+            multiplier-scale: '0'
+            indicator: '2D'
+          children:  {}
+        Value Multiply-d: 
+          type: 'mechanic'
+          indicator: '3D'
+          data: 
+            icon-key: ''
+            counts: 'True'
+            key: 'Poder'
+            multiplier-base: '3.35'
+            multiplier-scale: '0'
+            indicator: '2D'
+          children:  {}
+        Item Projectile-e: 
+          type: 'mechanic'
+          indicator: '3D'
+          data: 
+            icon-key: ''
+            counts: 'True'
+            item: 'Iron Axe'
+            item-data: '0'
+            group: 'Enemy'
+            spread: 'Cone'
+            amount-base: '3'
+            amount-scale: '0'
+            velocity-base: '3'
+            velocity-scale: '0'
+            angle-base: '30'
+            angle-scale: '0'
+            position: '5'
+            forward-base: '0'
+            forward-scale: '0'
+            upward-base: '0'
+            upward-scale: '0'
+            right-base: '0'
+            right-scale: '0'
+            use-effect: 'False'
+            indicator: '2D'
+          children: 
+            Particle-f: 
+              type: 'mechanic'
+              indicator: '3D'
+              data: 
+                icon-key: ''
+                counts: 'True'
+                particle: 'Smoke'
+                arrangement: 'Circle'
+                radius-base: '4'
+                radius-scale: '0'
+                particles-base: '20'
+                particles-scale: '0'
+                direction: 'XZ'
+                data: '0'
+                forward: '0'
+                upward: '0'
+                right: '0'
+                indicator: '2D'
+              children:  {}

@@ -1,0 +1,162 @@
+#
+# SIMPLE DEATH MESSAGES CONFIG
+#
+
+# By R3dThunderr
+# Check out my unique custom coded PVP server, 'play.fortresswars.org'
+
+#########################################################################################################
+
+# Entities can have death messages
+# Whether either of these are set to true or false, players will have death messages
+EntityMessage:
+  # All entities, named or not will have death messages
+  enabled-always: false
+  # Only named entities will have death messages
+  enabled-when-named: true
+
+# Automatic Respawn (Player will not have to press the respawn button)
+AutoRespawn:
+  # Disable this if you have other plugins which deal with automatic respawning
+  enabled: true
+  # Delay is represented in ticks. [Ticks = Seconds * 20]
+  # Delay must be a Whole Number: 0, 1, 2, 3, 4, 5, etc. --> (NO DECIMALS)
+  delay: 0
+  
+# Combat Tagging: how long after being damaged should the entity be considered "in combat"
+# When combat tagged, when the entity dies, the 'inflicted' death message will be shown instead of 'other'
+# Time is in seconds
+CombatTime: 12
+
+Log:
+  # If console is true, console will log deaths
+  console: true
+  # If all-worlds is true, all online players will recieve the message
+  # If all-worlds is false, only players in the same world will recieve the message
+  all-worlds: true
+
+#########################################################################################################
+
+# When you kill something, you have an additional chance of getting some of the following...
+KillReward:
+  enabled-entity: false
+  enabled-player: false
+  items:
+    # You can add as many items as you like, just copy and paste one of these and use it as a template
+    # This can be slightly complicated, if you have any trouble using this, feel free to contact R3dThunderr on the spigot forums
+    test-item:
+      # Chance is the % chance this will drop, use 0 for no chance, and 1 for 100% of the time
+      chance: 0.5
+      data:
+          ==: org.bukkit.inventory.ItemStack
+          # Types of items can be found at: https://hub.spigotmc.org/javadocs/spigot/org/bukkit/Material.html
+          # Please only use items that are listed there
+          type: GOLD_INGOT
+          amount: 3
+          meta:
+            ==: ItemMeta
+            # do not change meta-name
+            meta-type: UNSPECIFIC
+            display-name: "Test Item"
+            lore:
+            - "This is a test item."
+            - "Line 2"
+            # You can find a list of valid enchantments here: https://hub.spigotmc.org/javadocs/spigot/org/bukkit/enchantments/Enchantment.html
+            enchants:
+              DIG_SPEED: 5
+              DURABILITY: 10
+    notch-apple:
+      chance: 0.1
+      data:
+          ==: org.bukkit.inventory.ItemStack
+          # Types of items can be found at: https://hub.spigotmc.org/javadocs/spigot/org/bukkit/Material.html
+          # Please only use items that are listed there
+          type: GOLDEN_APPLE
+          amount: 1
+          # DAMAGE:
+          # For Tools: This represents the durability left, 0 = 100% Durability
+          # For Blocks/Other: This represents the secondary ID of the item. For a complete list, see: https://minecraft.gamepedia.com/Data_values
+          damage: 1
+  xp:
+    # Set to 0 to disable, set to 1 to enable
+    chance: 0
+    # Experience orbs dropped on the ground
+    orbs: 20
+
+##############################################################################
+# {dead}: will change to the dead player/entity                              #
+# {killer}: will change to the killer (player, entity, potion, cactus, etc.) #
+##############################################################################
+Format:
+  fall:
+    inflicted: "{dead} fell to their death while fighting {killer}"
+    other: "{dead} fell to their death"
+  explosion:
+    inflicted: "{dead} exploded while fighting {killer}"
+    other: "{dead} exploded into a million pieces"
+  cactus:
+    inflicted: "{dead} was pricked to death while fighting {killer}"
+    other: "{dead} was pricked to death"
+  drown:
+    inflicted: "{dead} drowned while fighting {killer}"
+    other: "{dead} forgot their scuba tank"
+  fire:
+    inflicted: "{dead} burnt to a crisp while fighting {killer}"
+    other: "{dead} went up in flames"
+  lava:
+    inflicted: "{dead} fell into a pool of lava while fighting {killer}"
+    other: "{dead} fell into a pool of lava"
+  lightning:
+    inflicted: "{dead} was struck by lightning while fighting {killer}"
+    other: "{dead} was struck by lightning"
+  melting:
+    inflicted: "{dead} melted while fighting {killer}"
+    other: "{dead} melted"
+  projectile:
+    inflicted: "{dead} was shot by {killer}"
+    other: "{dead} was shot"
+  starvation:
+    inflicted: "{dead} starved to death while fighting {killer}"
+    other: "{dead} starved to death"
+  suffocation:
+    inflicted: "{dead} got pushed into a wall while fighting {killer}"
+    other: "{dead} fell into a wall and suffocated"
+  suicide:
+    inflicted: "{dead} committed suicide while fighting {killer}"
+    other: "{dead} committed suicide"
+  thorns:
+    inflicted: "{dead} was pricked to death by {killer}"
+    other: "{dead} was pricked to death"
+  void:
+    inflicted: "{dead} fell into the great abyss while fighting {killer}"
+    other: "{dead} fell into the great abyss"
+  wither:
+    inflicted: "{dead} withered away while fighting {killer}"
+    other: "{dead} withered away"
+  potion:
+    inflicted: "{dead} was killed by {killer} using a potion"
+    other: "{dead} died from a potion"
+  entity-attack:
+    inflicted: "{dead} was killed by {killer}"
+    other: "{dead} died"
+  player-attack:
+    inflicted: "{dead} was murdered by {killer}"
+    other: "{dead} died"
+  other: "{dead} died"
+    
+  # 1.8 DEATH TYPES ^
+  # NEWER DEATH TYPES v
+  
+  # The following are only applicable if you're running versions after 1.8
+  cramming:
+    inflicted: "{dead} found themselves in a small space with {killer}"
+    other: "{dead} fell into a small space"
+  fly-into-wall:
+    inflicted: "{dead} flew into a wall while fighting {killer}"
+    other: "{dead} flew into a wall"
+  hot-floor:
+    inflicted: "{dead} stepped on magma and burnt themselves while fighting {killer}"
+    other: "{dead} stepped on magma and burnt themselves"
+  dragon-breath:
+    inflicted: "{dead} inhaled dragon breath while fighting {killer}"
+    other: "{dead} inhaled dragon breath"

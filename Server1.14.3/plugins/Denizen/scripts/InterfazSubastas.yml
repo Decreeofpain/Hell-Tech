@@ -1,0 +1,48 @@
+SubastasSistem:
+  type: world
+  events:
+    on player drags in inv_subastas:
+    - DETERMINE cancelled
+    on player clicks Entregar in inv_subastas:
+    - ^yaml load:subastas/data.yml id:<player.name>subasta
+    - ^define lastkey <util.random.decimal>
+    - ^yaml id:<player.name>subasta set subastas.activas.<def[lastkey]>:->:<context.cursor_item>
+    - ^yaml id:<player.name>subasta set subastas.activas.<def[lastkey]>:->:i@book[display_name=&sseVendedor&co&ssf<player.name>;lore=&ss6Precio&co&ssa123]
+    # - ^narrate "<gold><yaml[<player.name>subasta].read[subastas.activas]>"
+    # - ^narrate "<red><yaml[<player.name>subasta].list_keys[subastas.activas.0]>"
+    - ^yaml savefile:subastas/data.yml id:<player.name>subasta
+    - ^yaml unload id:<player.name>subasta
+    - inventory open d:in@inv_subastas
+    - ^DETERMINE cancelled
+    - ^queue clear
+
+inv_subastas:
+  type: inventory
+  title: '<gold>Subastas'
+  size: 54
+  procedural items:
+    - ^define list li@
+    - ^define id <util.random.decimal[<1>].to[<3>]>
+    - ^yaml load:subastas/data.yml id:<def[id]>
+    - foreach <yaml[<def[id]>].list_keys[subastas.activas.0]> {
+      - define key <def[value]>
+      - foreach <yaml[<def[id]>].read[subastas.activas.0.<def[key]>].as_list> {
+        - define list <def[list].include[<def[value]>]>
+        }
+      }
+    - ^yaml unload id:<def[id]>
+    - determine <def[list]>
+  slots:
+    - "[] [] [i@cancelslot] [] [] [i@cancelslot] [] [] [i@cancelslot]"
+    - "[] [] [i@cancelslot] [] [] [i@cancelslot] [] [] [i@cancelslot]"
+    - "[] [] [i@cancelslot] [] [] [i@cancelslot] [] [] [i@cancelslot]"
+    - "[] [] [i@cancelslot] [] [] [i@cancelslot] [] [] [i@cancelslot]"
+    - "[] [] [i@cancelslot] [] [] [i@cancelslot] [] [] [i@cancelslot]"
+    - "[] [] [i@cancelslot] [] [] [i@cancelslot] [] [] [Entregar]"
+
+repo:
+  type: item
+  material: 340
+  display name: '<yellow>Vendedor:<white><player.name>'
+  lore:
+  - '<gold>Precio:<green>123'

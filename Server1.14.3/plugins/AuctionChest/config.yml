@@ -1,0 +1,46 @@
+#Supports color codes (&4, &l, &r, etc..)       http://minecraft.gamepedia.com/Formatting_codes
+
+#the amount taken out/bought when right clicking on auction
+RightClick: 8
+#the maximum price of each (don't go above millions)
+MaxPrice: 1000000
+#the maximum default auction slots player gets
+MaxSlots: 5
+
+#  --Command Strings--
+Count: "&bThere are currently %count AuctionChest."
+Reload: "&bAuctionChest config reloaded."
+CleanOn: "&bAction clean feature: &fON"
+CleanOff: "&bAction clean feature: &cOFF"
+SilentOn: "&bSilence auctions: &fON"
+SilentOff: "&bSilence auctions: &cOFF"
+
+#  --No Permission--
+Denied: "&cNo tienes permisos en las subastas!"
+
+#  --On auctionchest place--
+Placed: "&bSubasta colocada."
+Broken: "&bSubasta removida."
+
+#  --Auctioned item lore--
+Auctioned: "&2Subasta:"
+#  --IMPORTANT-- %eachcost must be in lore and has to be before other numbers (only floats for advanced users).
+Lore: "&a$&f%eachcost&7 Almakos cada uno. Total &a$&f%totalcost"
+# %eachcost  %totalcost  %amount  %type
+
+#  --Messages--
+Help: " &e&l---- &f&lHelp: &e&l---- "
+EnterPrice: "&bPor cuanto quieres subastar eso? "
+#Possible variables: %eachcost %totalcost %amount %type. 
+AuctionSuccessful: "&bSubasta creada por %totalcost$ &f%slots/%maxslots subastas personales"
+AuctionFail: "&cSubasta cancelada, intentalo de nuevo."
+AuctionCancel: "&8Subasta cancelada. &f%slots/%maxslots subastas personales"
+AuctionBought: "&8Subastas %type agotadas. &f%slots/%maxslots subastas personales"
+NotEnough: "&cNo tienes Almakos"
+FullInventory: "&cNo tienes espacio en tu inventario!"
+Bought: "&f%player &2compro &f%amount %type &2por &f%cost&a$ &2de tu subasta"
+UseShift: "&cUsa shift-click para subastar"
+MaxAuctions: "&cAlcansaste el maximo de subastas! &4%slots/%maxslots subastas personales"
+Stats: "&e&l ---- &f&lSubastas personales: &e&l----"
+Slots: "&6&l- &f%slots/%maxslots &bsubastas usadas."
+Silent: "&6&l- "

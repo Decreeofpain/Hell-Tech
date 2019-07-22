@@ -1,0 +1,1027 @@
+Atackspeed: 
+  name: 'Atackspeed'
+  type: 'Pasiva'
+  max-level: 1
+  skill-req: 'None'
+  skill-req-lvl: 0
+  needs-permission: 'false'
+  attributes: 
+    level-base: '1'
+    level-scale: '0'
+    cost-base: '0'
+    cost-scale: '0'
+    cooldown-base: '0'
+    cooldown-scale: '0'
+    mana-base: '0'
+    mana-scale: '0'
+    points-spent-req-base: '0'
+    points-spent-req-scale: '0'
+    incompatible: 
+    - ''
+  msg: '&6{player} &2has cast &6{skill}'
+  icon: 'ACACIA_DOOR'
+  icon-durability: 0
+  icon-data: 0
+  icon-lore: 
+  - '&d{name} &7({level}/{max})'
+  - '&2Type: &6{type}'
+  - ''
+  - '{req:level}Level: {attr:level}'
+  - '{req:cost}Cost: {attr:cost}'
+  - ''
+  - '&2Mana: {attr:mana}'
+  - '&2Cooldown: {attr:cooldown}'
+  desc:  []
+  components: 
+    Initialize: 
+      type: 'trigger'
+      indicator: '3D'
+      data: 
+        icon-key: ''
+        indicator: '2D'
+      children: 
+        Passive-b: 
+          type: 'mechanic'
+          indicator: '3D'
+          data: 
+            icon-key: ''
+            counts: 'True'
+            seconds-base: '0.1'
+            seconds-scale: '0'
+            indicator: '2D'
+          children: 
+            Item-c: 
+              type: 'condition'
+              indicator: '3D'
+              data: 
+                icon-key: ''
+                check-mat: 'True'
+                material: 'Wood Sword'
+                check-data: 'False'
+                check-lore: 'True'
+                lore: 'Arte: Comun'
+                check-name: 'False'
+                regex: 'False'
+                indicator: '2D'
+              children: 
+                Potion-d: 
+                  type: 'mechanic'
+                  indicator: '3D'
+                  data: 
+                    icon-key: ''
+                    counts: 'True'
+                    potion: 'Slow Digging'
+                    ambient: 'False'
+                    tier-base: '9'
+                    tier-scale: '0'
+                    seconds-base: '1.1'
+                    seconds-scale: '0'
+                    indicator: '2D'
+                  children:  {}
+                Value Set-e: 
+                  type: 'mechanic'
+                  indicator: '3D'
+                  data: 
+                    icon-key: ''
+                    counts: 'True'
+                    key: 'cdbasico'
+                    value-base: '-1.5'
+                    value-scale: '0'
+                    indicator: '2D'
+                  children:  {}
+            Item-f: 
+              type: 'condition'
+              indicator: '3D'
+              data: 
+                icon-key: ''
+                check-mat: 'True'
+                material: 'Wood Sword'
+                check-data: 'False'
+                check-lore: 'True'
+                lore: 'Arte: Magico'
+                check-name: 'False'
+                regex: 'False'
+                indicator: '2D'
+              children: 
+                Potion-g: 
+                  type: 'mechanic'
+                  indicator: '3D'
+                  data: 
+                    icon-key: ''
+                    counts: 'True'
+                    potion: 'Slow Digging'
+                    ambient: 'False'
+                    tier-base: '8'
+                    tier-scale: '0'
+                    seconds-base: '1.1'
+                    seconds-scale: '0'
+                    indicator: '2D'
+                  children:  {}
+                Value Set-h: 
+                  type: 'mechanic'
+                  indicator: '3D'
+                  data: 
+                    icon-key: ''
+                    counts: 'True'
+                    key: 'cdbasico'
+                    value-base: '-1.375'
+                    value-scale: '0'
+                    indicator: '2D'
+                  children:  {}
+            Item-i: 
+              type: 'condition'
+              indicator: '3D'
+              data: 
+                icon-key: ''
+                check-mat: 'True'
+                material: 'Wood Sword'
+                check-data: 'False'
+                check-lore: 'True'
+                lore: 'Arte: Raro'
+                check-name: 'False'
+                regex: 'False'
+                indicator: '2D'
+              children: 
+                Potion-j: 
+                  type: 'mechanic'
+                  indicator: '3D'
+                  data: 
+                    icon-key: ''
+                    counts: 'True'
+                    potion: 'Slow Digging'
+                    ambient: 'False'
+                    tier-base: '6'
+                    tier-scale: '0'
+                    seconds-base: '1.1'
+                    seconds-scale: '0'
+                    indicator: '2D'
+                  children:  {}
+                Value Set-k: 
+                  type: 'mechanic'
+                  indicator: '3D'
+                  data: 
+                    icon-key: ''
+                    counts: 'True'
+                    key: 'cdbasico'
+                    value-base: '-1.125'
+                    value-scale: '0'
+                    indicator: '2D'
+                  children:  {}
+            Item-l: 
+              type: 'condition'
+              indicator: '3D'
+              data: 
+                icon-key: ''
+                check-mat: 'True'
+                material: 'Wood Sword'
+                check-data: 'False'
+                check-lore: 'True'
+                lore: 'Arte: Legendario'
+                check-name: 'False'
+                regex: 'False'
+                indicator: '2D'
+              children: 
+                Potion-m: 
+                  type: 'mechanic'
+                  indicator: '3D'
+                  data: 
+                    icon-key: ''
+                    counts: 'True'
+                    potion: 'Slow Digging'
+                    ambient: 'False'
+                    tier-base: '4'
+                    tier-scale: '0'
+                    seconds-base: '1.1'
+                    seconds-scale: '0'
+                    indicator: '2D'
+                  children:  {}
+                Value Set-n: 
+                  type: 'mechanic'
+                  indicator: '3D'
+                  data: 
+                    icon-key: ''
+                    counts: 'True'
+                    key: 'cdbasico'
+                    value-base: '-0.875'
+                    value-scale: '0'
+                    indicator: '2D'
+                  children:  {}
+            Item-o: 
+              type: 'condition'
+              indicator: '3D'
+              data: 
+                icon-key: ''
+                check-mat: 'True'
+                material: 'Wood Sword'
+                check-data: 'False'
+                check-lore: 'True'
+                lore: 'Arte: Ancestral'
+                check-name: 'False'
+                regex: 'False'
+                indicator: '2D'
+              children: 
+                Potion-p: 
+                  type: 'mechanic'
+                  indicator: '3D'
+                  data: 
+                    icon-key: ''
+                    counts: 'True'
+                    potion: 'Slow Digging'
+                    ambient: 'False'
+                    tier-base: '2'
+                    tier-scale: '0'
+                    seconds-base: '1.1'
+                    seconds-scale: '0'
+                    indicator: '2D'
+                  children:  {}
+                Value Set-q: 
+                  type: 'mechanic'
+                  indicator: '3D'
+                  data: 
+                    icon-key: ''
+                    counts: 'True'
+                    key: 'cdbasico'
+                    value-base: '-0.625'
+                    value-scale: '0'
+                    indicator: '2D'
+                  children:  {}
+            Item-r: 
+              type: 'condition'
+              indicator: '3D'
+              data: 
+                icon-key: ''
+                check-mat: 'True'
+                material: 'Stone Sword'
+                check-data: 'False'
+                check-lore: 'True'
+                lore: 'Arte: Comun'
+                check-name: 'False'
+                regex: 'False'
+                indicator: '2D'
+              children: 
+                Potion-s: 
+                  type: 'mechanic'
+                  indicator: '3D'
+                  data: 
+                    icon-key: ''
+                    counts: 'True'
+                    potion: 'Slow Digging'
+                    ambient: 'False'
+                    tier-base: '8'
+                    tier-scale: '0'
+                    seconds-base: '1.1'
+                    seconds-scale: '0'
+                    indicator: '2D'
+                  children:  {}
+                Value Set-t: 
+                  type: 'mechanic'
+                  indicator: '3D'
+                  data: 
+                    icon-key: ''
+                    counts: 'True'
+                    key: 'cdbasico'
+                    value-base: '-1.375'
+                    value-scale: '0'
+                    indicator: '2D'
+                  children:  {}
+            Item-u: 
+              type: 'condition'
+              indicator: '3D'
+              data: 
+                icon-key: ''
+                check-mat: 'True'
+                material: 'Stone Sword'
+                check-data: 'False'
+                check-lore: 'True'
+                lore: 'Arte: Magico'
+                check-name: 'False'
+                regex: 'False'
+                indicator: '2D'
+              children: 
+                Potion-v: 
+                  type: 'mechanic'
+                  indicator: '3D'
+                  data: 
+                    icon-key: ''
+                    counts: 'True'
+                    potion: 'Slow Digging'
+                    ambient: 'False'
+                    tier-base: '7'
+                    tier-scale: '0'
+                    seconds-base: '1.1'
+                    seconds-scale: '0'
+                    indicator: '2D'
+                  children:  {}
+                Value Set-w: 
+                  type: 'mechanic'
+                  indicator: '3D'
+                  data: 
+                    icon-key: ''
+                    counts: 'True'
+                    key: 'cdbasico'
+                    value-base: '-1.25'
+                    value-scale: '0'
+                    indicator: '2D'
+                  children:  {}
+            Item-x: 
+              type: 'condition'
+              indicator: '3D'
+              data: 
+                icon-key: ''
+                check-mat: 'True'
+                material: 'Stone Sword'
+                check-data: 'False'
+                check-lore: 'True'
+                lore: 'Arte: Raro'
+                check-name: 'False'
+                regex: 'False'
+                indicator: '2D'
+              children: 
+                Potion-y: 
+                  type: 'mechanic'
+                  indicator: '3D'
+                  data: 
+                    icon-key: ''
+                    counts: 'True'
+                    potion: 'Slow Digging'
+                    ambient: 'False'
+                    tier-base: '5'
+                    tier-scale: '0'
+                    seconds-base: '1.1'
+                    seconds-scale: '0'
+                    indicator: '2D'
+                  children:  {}
+                Value Set-z: 
+                  type: 'mechanic'
+                  indicator: '3D'
+                  data: 
+                    icon-key: ''
+                    counts: 'True'
+                    key: 'cdbasico'
+                    value-base: '-1'
+                    value-scale: '0'
+                    indicator: '2D'
+                  children:  {}
+            Item-ab: 
+              type: 'condition'
+              indicator: '3D'
+              data: 
+                icon-key: ''
+                check-mat: 'True'
+                material: 'Stone Sword'
+                check-data: 'False'
+                check-lore: 'True'
+                lore: 'Arte: Legendario'
+                check-name: 'False'
+                regex: 'False'
+                indicator: '2D'
+              children: 
+                Potion-bb: 
+                  type: 'mechanic'
+                  indicator: '3D'
+                  data: 
+                    icon-key: ''
+                    counts: 'True'
+                    potion: 'Slow Digging'
+                    ambient: 'False'
+                    tier-base: '3'
+                    tier-scale: '0'
+                    seconds-base: '1.1'
+                    seconds-scale: '0'
+                    indicator: '2D'
+                  children:  {}
+                Value Set-cb: 
+                  type: 'mechanic'
+                  indicator: '3D'
+                  data: 
+                    icon-key: ''
+                    counts: 'True'
+                    key: 'cdbasico'
+                    value-base: '-0.75'
+                    value-scale: '0'
+                    indicator: '2D'
+                  children:  {}
+            Item-db: 
+              type: 'condition'
+              indicator: '3D'
+              data: 
+                icon-key: ''
+                check-mat: 'True'
+                material: 'Stone Sword'
+                check-data: 'False'
+                check-lore: 'True'
+                lore: 'Arte: Ancestral'
+                check-name: 'False'
+                regex: 'False'
+                indicator: '2D'
+              children: 
+                Potion-eb: 
+                  type: 'mechanic'
+                  indicator: '3D'
+                  data: 
+                    icon-key: ''
+                    counts: 'True'
+                    potion: 'Slow Digging'
+                    ambient: 'False'
+                    tier-base: '1'
+                    tier-scale: '0'
+                    seconds-base: '1.1'
+                    seconds-scale: '0'
+                    indicator: '2D'
+                  children:  {}
+                Value Set-fb: 
+                  type: 'mechanic'
+                  indicator: '3D'
+                  data: 
+                    icon-key: ''
+                    counts: 'True'
+                    key: 'cdbasico'
+                    value-base: '-0.5'
+                    value-scale: '0'
+                    indicator: '2D'
+                  children:  {}
+            Item-gb: 
+              type: 'condition'
+              indicator: '3D'
+              data: 
+                icon-key: ''
+                check-mat: 'True'
+                material: 'Iron Sword'
+                check-data: 'False'
+                check-lore: 'True'
+                lore: 'Arte: Comun'
+                check-name: 'False'
+                regex: 'False'
+                indicator: '2D'
+              children: 
+                Potion-hb: 
+                  type: 'mechanic'
+                  indicator: '3D'
+                  data: 
+                    icon-key: ''
+                    counts: 'True'
+                    potion: 'Slow Digging'
+                    ambient: 'False'
+                    tier-base: '7'
+                    tier-scale: '0'
+                    seconds-base: '1.1'
+                    seconds-scale: '0'
+                    indicator: '2D'
+                  children:  {}
+                Value Set-ib: 
+                  type: 'mechanic'
+                  indicator: '3D'
+                  data: 
+                    icon-key: ''
+                    counts: 'True'
+                    key: 'cdbasico'
+                    value-base: '-1.25'
+                    value-scale: '0'
+                    indicator: '2D'
+                  children:  {}
+            Item-jb: 
+              type: 'condition'
+              indicator: '3D'
+              data: 
+                icon-key: ''
+                check-mat: 'True'
+                material: 'Iron Sword'
+                check-data: 'False'
+                check-lore: 'True'
+                lore: 'Arte: Magico'
+                check-name: 'False'
+                regex: 'False'
+                indicator: '2D'
+              children: 
+                Potion-kb: 
+                  type: 'mechanic'
+                  indicator: '3D'
+                  data: 
+                    icon-key: ''
+                    counts: 'True'
+                    potion: 'Slow Digging'
+                    ambient: 'False'
+                    tier-base: '6'
+                    tier-scale: '0'
+                    seconds-base: '1.1'
+                    seconds-scale: '0'
+                    indicator: '2D'
+                  children:  {}
+                Value Set-lb: 
+                  type: 'mechanic'
+                  indicator: '3D'
+                  data: 
+                    icon-key: ''
+                    counts: 'True'
+                    key: 'cdbasico'
+                    value-base: '-1.125'
+                    value-scale: '0'
+                    indicator: '2D'
+                  children:  {}
+            Item-mb: 
+              type: 'condition'
+              indicator: '3D'
+              data: 
+                icon-key: ''
+                check-mat: 'True'
+                material: 'Iron Sword'
+                check-data: 'False'
+                check-lore: 'True'
+                lore: 'Arte: Raro'
+                check-name: 'False'
+                regex: 'False'
+                indicator: '2D'
+              children: 
+                Potion-nb: 
+                  type: 'mechanic'
+                  indicator: '3D'
+                  data: 
+                    icon-key: ''
+                    counts: 'True'
+                    potion: 'Slow Digging'
+                    ambient: 'False'
+                    tier-base: '4'
+                    tier-scale: '0'
+                    seconds-base: '1.1'
+                    seconds-scale: '0'
+                    indicator: '2D'
+                  children:  {}
+                Value Set-ob: 
+                  type: 'mechanic'
+                  indicator: '3D'
+                  data: 
+                    icon-key: ''
+                    counts: 'True'
+                    key: 'cdbasico'
+                    value-base: '-0.875'
+                    value-scale: '0'
+                    indicator: '2D'
+                  children:  {}
+            Item-pb: 
+              type: 'condition'
+              indicator: '3D'
+              data: 
+                icon-key: ''
+                check-mat: 'True'
+                material: 'Iron Sword'
+                check-data: 'False'
+                check-lore: 'True'
+                lore: 'Arte: Legendario'
+                check-name: 'False'
+                regex: 'False'
+                indicator: '2D'
+              children: 
+                Potion-qb: 
+                  type: 'mechanic'
+                  indicator: '3D'
+                  data: 
+                    icon-key: ''
+                    counts: 'True'
+                    potion: 'Slow Digging'
+                    ambient: 'False'
+                    tier-base: '2'
+                    tier-scale: '0'
+                    seconds-base: '1.1'
+                    seconds-scale: '0'
+                    indicator: '2D'
+                  children:  {}
+                Value Set-rb: 
+                  type: 'mechanic'
+                  indicator: '3D'
+                  data: 
+                    icon-key: ''
+                    counts: 'True'
+                    key: 'cdbasico'
+                    value-base: '-0.625'
+                    value-scale: '0'
+                    indicator: '2D'
+                  children:  {}
+            Item-sb: 
+              type: 'condition'
+              indicator: '3D'
+              data: 
+                icon-key: ''
+                check-mat: 'True'
+                material: 'Iron Sword'
+                check-data: 'False'
+                check-lore: 'True'
+                lore: 'Arte: Ancestral'
+                check-name: 'False'
+                regex: 'False'
+                indicator: '2D'
+              children: 
+                Potion-tb: 
+                  type: 'mechanic'
+                  indicator: '3D'
+                  data: 
+                    icon-key: ''
+                    counts: 'True'
+                    potion: 'Slow Digging'
+                    ambient: 'False'
+                    tier-base: '0'
+                    tier-scale: '0'
+                    seconds-base: '1.1'
+                    seconds-scale: '0'
+                    indicator: '2D'
+                  children:  {}
+                Value Set-ub: 
+                  type: 'mechanic'
+                  indicator: '3D'
+                  data: 
+                    icon-key: ''
+                    counts: 'True'
+                    key: 'cdbasico'
+                    value-base: '-0.375'
+                    value-scale: '0'
+                    indicator: '2D'
+                  children:  {}
+            Item-vb: 
+              type: 'condition'
+              indicator: '3D'
+              data: 
+                icon-key: ''
+                check-mat: 'True'
+                material: 'Gold Sword'
+                check-data: 'False'
+                check-lore: 'True'
+                lore: 'Arte: Comun'
+                check-name: 'False'
+                regex: 'False'
+                indicator: '2D'
+              children: 
+                Potion-wb: 
+                  type: 'mechanic'
+                  indicator: '3D'
+                  data: 
+                    icon-key: ''
+                    counts: 'True'
+                    potion: 'Slow Digging'
+                    ambient: 'False'
+                    tier-base: '6'
+                    tier-scale: '0'
+                    seconds-base: '1.1'
+                    seconds-scale: '0'
+                    indicator: '2D'
+                  children:  {}
+                Value Set-xb: 
+                  type: 'mechanic'
+                  indicator: '3D'
+                  data: 
+                    icon-key: ''
+                    counts: 'True'
+                    key: 'cdbasico'
+                    value-base: '-1.125'
+                    value-scale: '0'
+                    indicator: '2D'
+                  children:  {}
+            Item-yb: 
+              type: 'condition'
+              indicator: '3D'
+              data: 
+                icon-key: ''
+                check-mat: 'True'
+                material: 'Gold Sword'
+                check-data: 'False'
+                check-lore: 'True'
+                lore: 'Arte: Magico'
+                check-name: 'False'
+                regex: 'False'
+                indicator: '2D'
+              children: 
+                Potion-zb: 
+                  type: 'mechanic'
+                  indicator: '3D'
+                  data: 
+                    icon-key: ''
+                    counts: 'True'
+                    potion: 'Slow Digging'
+                    ambient: 'False'
+                    tier-base: '5'
+                    tier-scale: '0'
+                    seconds-base: '1.1'
+                    seconds-scale: '0'
+                    indicator: '2D'
+                  children:  {}
+                Value Set-ac: 
+                  type: 'mechanic'
+                  indicator: '3D'
+                  data: 
+                    icon-key: ''
+                    counts: 'True'
+                    key: 'cdbasico'
+                    value-base: '-1'
+                    value-scale: '0'
+                    indicator: '2D'
+                  children:  {}
+            Item-bc: 
+              type: 'condition'
+              indicator: '3D'
+              data: 
+                icon-key: ''
+                check-mat: 'True'
+                material: 'Gold Sword'
+                check-data: 'False'
+                check-lore: 'True'
+                lore: 'Arte: Raro'
+                check-name: 'False'
+                regex: 'False'
+                indicator: '2D'
+              children: 
+                Potion-cc: 
+                  type: 'mechanic'
+                  indicator: '3D'
+                  data: 
+                    icon-key: ''
+                    counts: 'True'
+                    potion: 'Slow Digging'
+                    ambient: 'False'
+                    tier-base: '3'
+                    tier-scale: '0'
+                    seconds-base: '1.1'
+                    seconds-scale: '0'
+                    indicator: '2D'
+                  children:  {}
+                Value Set-dc: 
+                  type: 'mechanic'
+                  indicator: '3D'
+                  data: 
+                    icon-key: ''
+                    counts: 'True'
+                    key: 'cdbasico'
+                    value-base: '-0.75'
+                    value-scale: '0'
+                    indicator: '2D'
+                  children:  {}
+            Item-ec: 
+              type: 'condition'
+              indicator: '3D'
+              data: 
+                icon-key: ''
+                check-mat: 'True'
+                material: 'Gold Sword'
+                check-data: 'False'
+                check-lore: 'True'
+                lore: 'Arte: Legendario'
+                check-name: 'False'
+                regex: 'False'
+                indicator: '2D'
+              children: 
+                Potion-fc: 
+                  type: 'mechanic'
+                  indicator: '3D'
+                  data: 
+                    icon-key: ''
+                    counts: 'True'
+                    potion: 'Slow Digging'
+                    ambient: 'False'
+                    tier-base: '1'
+                    tier-scale: '0'
+                    seconds-base: '1.1'
+                    seconds-scale: '0'
+                    indicator: '2D'
+                  children:  {}
+                Value Set-gc: 
+                  type: 'mechanic'
+                  indicator: '3D'
+                  data: 
+                    icon-key: ''
+                    counts: 'True'
+                    key: 'cdbasico'
+                    value-base: '-0.5'
+                    value-scale: '0'
+                    indicator: '2D'
+                  children:  {}
+            Item-hc: 
+              type: 'condition'
+              indicator: '3D'
+              data: 
+                icon-key: ''
+                check-mat: 'True'
+                material: 'Gold Sword'
+                check-data: 'False'
+                check-lore: 'True'
+                lore: 'Arte: Ancestral'
+                check-name: 'False'
+                regex: 'False'
+                indicator: '2D'
+              children: 
+                Potion-ic: 
+                  type: 'mechanic'
+                  indicator: '3D'
+                  data: 
+                    icon-key: ''
+                    counts: 'True'
+                    potion: 'Slow Digging'
+                    ambient: 'False'
+                    tier-base: '-1'
+                    tier-scale: '0'
+                    seconds-base: '1.1'
+                    seconds-scale: '0'
+                    indicator: '2D'
+                  children:  {}
+                Value Set-jc: 
+                  type: 'mechanic'
+                  indicator: '3D'
+                  data: 
+                    icon-key: ''
+                    counts: 'True'
+                    key: 'cdbasico'
+                    value-base: '-0.25'
+                    value-scale: '0'
+                    indicator: '2D'
+                  children:  {}
+            Item-kc: 
+              type: 'condition'
+              indicator: '3D'
+              data: 
+                icon-key: ''
+                check-mat: 'True'
+                material: 'Diamond Sword'
+                check-data: 'False'
+                check-lore: 'True'
+                lore: 'Arte: Comun'
+                check-name: 'False'
+                regex: 'False'
+                indicator: '2D'
+              children: 
+                Potion-lc: 
+                  type: 'mechanic'
+                  indicator: '3D'
+                  data: 
+                    icon-key: ''
+                    counts: 'True'
+                    potion: 'Slow Digging'
+                    ambient: 'False'
+                    tier-base: '5'
+                    tier-scale: '0'
+                    seconds-base: '1.1'
+                    seconds-scale: '0'
+                    indicator: '2D'
+                  children:  {}
+                Value Set-mc: 
+                  type: 'mechanic'
+                  indicator: '3D'
+                  data: 
+                    icon-key: ''
+                    counts: 'True'
+                    key: 'cdbasico'
+                    value-base: '-1'
+                    value-scale: '0'
+                    indicator: '2D'
+                  children:  {}
+            Item-nc: 
+              type: 'condition'
+              indicator: '3D'
+              data: 
+                icon-key: ''
+                check-mat: 'True'
+                material: 'Diamond Sword'
+                check-data: 'False'
+                check-lore: 'True'
+                lore: 'Arte: Magico'
+                check-name: 'False'
+                regex: 'False'
+                indicator: '2D'
+              children: 
+                Potion-oc: 
+                  type: 'mechanic'
+                  indicator: '3D'
+                  data: 
+                    icon-key: ''
+                    counts: 'True'
+                    potion: 'Slow Digging'
+                    ambient: 'False'
+                    tier-base: '4'
+                    tier-scale: '0'
+                    seconds-base: '1.1'
+                    seconds-scale: '0'
+                    indicator: '2D'
+                  children:  {}
+                Value Set-pc: 
+                  type: 'mechanic'
+                  indicator: '3D'
+                  data: 
+                    icon-key: ''
+                    counts: 'True'
+                    key: 'cdbasico'
+                    value-base: '-0.875'
+                    value-scale: '0'
+                    indicator: '2D'
+                  children:  {}
+            Item-qc: 
+              type: 'condition'
+              indicator: '3D'
+              data: 
+                icon-key: ''
+                check-mat: 'True'
+                material: 'Diamond Sword'
+                check-data: 'False'
+                check-lore: 'True'
+                lore: 'Arte: Raro'
+                check-name: 'False'
+                regex: 'False'
+                indicator: '2D'
+              children: 
+                Potion-rc: 
+                  type: 'mechanic'
+                  indicator: '3D'
+                  data: 
+                    icon-key: ''
+                    counts: 'True'
+                    potion: 'Slow Digging'
+                    ambient: 'False'
+                    tier-base: '2'
+                    tier-scale: '0'
+                    seconds-base: '1.1'
+                    seconds-scale: '0'
+                    indicator: '2D'
+                  children:  {}
+                Value Set-sc: 
+                  type: 'mechanic'
+                  indicator: '3D'
+                  data: 
+                    icon-key: ''
+                    counts: 'True'
+                    key: 'cdbasico'
+                    value-base: '-0.625'
+                    value-scale: '0'
+                    indicator: '2D'
+                  children:  {}
+            Item-tc: 
+              type: 'condition'
+              indicator: '3D'
+              data: 
+                icon-key: ''
+                check-mat: 'True'
+                material: 'Diamond Sword'
+                check-data: 'False'
+                check-lore: 'True'
+                lore: 'Arte: Legendario'
+                check-name: 'False'
+                regex: 'False'
+                indicator: '2D'
+              children: 
+                Potion-uc: 
+                  type: 'mechanic'
+                  indicator: '3D'
+                  data: 
+                    icon-key: ''
+                    counts: 'True'
+                    potion: 'Slow Digging'
+                    ambient: 'False'
+                    tier-base: '0'
+                    tier-scale: '0'
+                    seconds-base: '1.1'
+                    seconds-scale: '0'
+                    indicator: '2D'
+                  children:  {}
+                Value Set-vc: 
+                  type: 'mechanic'
+                  indicator: '3D'
+                  data: 
+                    icon-key: ''
+                    counts: 'True'
+                    key: 'cdbasico'
+                    value-base: '-0.375'
+                    value-scale: '0'
+                    indicator: '2D'
+                  children:  {}
+            Item-wc: 
+              type: 'condition'
+              indicator: '3D'
+              data: 
+                icon-key: ''
+                check-mat: 'True'
+                material: 'Diamond Sword'
+                check-data: 'False'
+                check-lore: 'True'
+                lore: 'Arte: Ancestral'
+                check-name: 'False'
+                regex: 'False'
+                indicator: '2D'
+              children: 
+                Potion-xc: 
+                  type: 'mechanic'
+                  indicator: '3D'
+                  data: 
+                    icon-key: ''
+                    counts: 'True'
+                    potion: 'Slow Digging'
+                    ambient: 'False'
+                    tier-base: '-2'
+                    tier-scale: '0'
+                    seconds-base: '1.1'
+                    seconds-scale: '0'
+                    indicator: '2D'
+                  children:  {}
+                Value Set-yc: 
+                  type: 'mechanic'
+                  indicator: '3D'
+                  data: 
+                    icon-key: ''
+                    counts: 'True'
+                    key: 'cdbasico'
+                    value-base: '-0.125'
+                    value-scale: '0'
+                    indicator: '2D'
+                  children:  {}

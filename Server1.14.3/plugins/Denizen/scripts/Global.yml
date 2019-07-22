@@ -1,0 +1,131 @@
+Global:
+  type: world
+  events:
+    # on time changes in Esparcraft:
+    # - ^if <w@Esparcraft.entities.filter[is_mob].size> >= 550 {
+      # - ^execute as_server "mm mobs killall"
+      # }
+#    - ^if {
+#      NARRATE format:formatesparcraftanouncer "Puedes dar click en la brujula para abrir tu inventario"
+#      }
+    on login command:
+#    - wait 1s
+#    - ^run 's@bookqjoin'
+#Inventario Anvil
+    on player opens anvil:
+    - if <player.is_op.not> && <player.is_player> {
+      - determine cancelled
+      }
+#Sistema de comandos
+    on ? command:
+    - if <player.is_op.not> && <player.is_player> {
+      - ^NARRATE format:formatesparcraft "Muerte a los curiosos..."
+      - ^playsound <player> sound:error custom
+      - DETERMINE cancelled
+      }
+    on pl command:
+    - if <player.is_op.not> && <player.is_player> {
+      - ^NARRATE format:formatesparcraft "Muerte a los curiosos..."
+      - ^playsound <player> sound:error custom
+      - DETERMINE cancelled
+      }
+    on plugins command:
+    - if <player.is_op.not> && <player.is_player> {
+      - ^NARRATE format:formatesparcraft "Muerte a los curiosos..."
+      - ^playsound <player> sound:error custom
+      - DETERMINE cancelled
+      }
+    on skills command:
+    - if <player.is_op.not> && <player.is_player> {
+      - ^NARRATE format:formatesparcraft "Ese comando no esta permitido!"
+      - ^playsound <player> sound:error custom
+      - DETERMINE cancelled
+      }
+    on party command:
+    - if <player.is_op.not> && <player.is_player> {
+      - ^NARRATE format:formatesparcraft "Ese comando no esta permitido!"
+      - ^playsound <player> sound:error custom
+      - DETERMINE cancelled
+      }
+    on help command:
+    - if <player.is_op.not> && <player.is_player> {
+      - ^NARRATE format:formatesparcraft "Ese comando no esta permitido!"
+      - ^playsound <player> sound:error custom
+      - DETERMINE cancelled
+      }
+    on jobs command:
+    - if <player.is_op.not> && <player.is_player> {
+      - ^NARRATE format:formatesparcraft "Ese comando no esta permitido!"
+      - ^playsound <player> sound:error custom
+      - DETERMINE cancelled
+      }
+
+formatdemo:
+  type: format
+  format: "<&a>[<&8>Objetivo<&e> - <&2><text><&a>]"
+
+formatobj:
+  type: format
+  format: "<&b>[<&8>Tabernero<&b> - <&c><text><&b>]"
+
+formatesparcraft:
+  type: format
+  format: "<&c>[<&8>Esparcraft<&c> - <&4><text><&c>]"
+formatesparcraftanouncer:
+  type: format
+  format: "<&c>[<&8>Esparcraft<&c> - <&4><text><&c>]"
+
+
+monitortsk:
+    type: task
+    script:
+    - ^if <player.has_flag[monitor].not> {
+      - ^queue clear
+      } else {
+      - ^adjust <player> "action_bar:<green><w@Esparcraft.entities.filter[is_mob].size>" stay:6
+      - ^wait 10s
+      - ^run 's@monitortsk'
+      }
+
+restartserver:
+    type: task
+    script:
+    - ^wait 110m
+    - ^title "title:<gold>Esparcraft" "subtitle:<red>El servidor se reiniciara en 10 minutos" stay:20s targets:<server.list_online_players>
+    - ^wait 5m
+    - ^title "title:<gold>Esparcraft" "subtitle:<red>El servidor se reiniciara en 5 minutos" stay:20s targets:<server.list_online_players>
+    - ^wait 4m
+    - ^title "title:<gold>Esparcraft" "subtitle:<red>El servidor se reiniciara en 1 minuto" stay:20s targets:<server.list_online_players>
+    - ^wait 50s
+    - ^title "title:<gold>Esparcraft" "subtitle:<red>El servidor se reiniciara en 10 segundos" stay:20s targets:<server.list_online_players>
+    - ^wait 1s
+    - ^title "title:<gold>Esparcraft" "subtitle:<red>El servidor se reiniciara en 9 segundos" stay:20s targets:<server.list_online_players>
+    - ^wait 1s
+    - ^title "title:<gold>Esparcraft" "subtitle:<red>El servidor se reiniciara en 8 segundos" stay:20s targets:<server.list_online_players>
+    - ^wait 1s
+    - ^title "title:<gold>Esparcraft" "subtitle:<red>El servidor se reiniciara en 7 segundos" stay:20s targets:<server.list_online_players>
+    - ^wait 1s
+    - ^title "title:<gold>Esparcraft" "subtitle:<red>El servidor se reiniciara en 6 segundos" stay:20s targets:<server.list_online_players>
+    - ^wait 1s
+    - ^title "title:<gold>Esparcraft" "subtitle:<red>El servidor se reiniciara en 5 segundos" stay:20s targets:<server.list_online_players>
+    - ^wait 1s
+    - ^title "title:<gold>Esparcraft" "subtitle:<red>El servidor se reiniciara en 4 segundos" stay:20s targets:<server.list_online_players>
+    - ^wait 1s
+    - ^title "title:<gold>Esparcraft" "subtitle:<red>El servidor se reiniciara en 3 segundos" stay:20s targets:<server.list_online_players>
+    - ^wait 1s
+    - ^title "title:<gold>Esparcraft" "subtitle:<red>El servidor se reiniciara en 2 segundos" stay:20s targets:<server.list_online_players>
+    - ^wait 1s
+    - ^title "title:<gold>Esparcraft" "subtitle:<red>El servidor se reiniciara en 1 segundos" stay:20s targets:<server.list_online_players>
+
+Workschema:
+    type: task
+    script:
+    - ^if <global.flag[capitulos].as_list> contains CAPITULO1P2OK {
+      - modifyblock location:3067,107,3185,Esparcraft 0
+      }
+NoWorkschema:
+    type: task
+    script:
+    - ^if <global.flag[capitulos].as_list> contains CAPITULO1P2OK {
+      - modifyblock location:3067,107,3185,Esparcraft 0
+      }

@@ -1,0 +1,76 @@
+puntolobo:
+    type: task
+    script:
+    - ^if <player.flag[misiones].as_list> !contains condu_07 {
+      - ^define mazmorra "Cegador"
+       - ^title "title:<green>[Completado]" "subtitle:<dark_purple>Mataste al Cegador" stay:10s
+       - ^flag <player> misiones:->:condu_07
+       - ^flag <player> cunduhumano:+:3
+       - ^flag <player> cunduvampiro:+:1
+       - ^flag <player> cundulobo:+:5
+       - ^bossbar remove obj<player.name>
+       - ^define objetivo "<gold>Objetivo: <green>Regresa con <dark_red>Drumke"
+       - ^flag <player> objetivo:<def[objetivo]>
+       - ^bossbar obj<player.name> players:<player> "title:<player.flag[objetivo]>" color:BLUE
+       - ^flag <player> mazmorra:<def[mazmorra]>
+       - ^playsound <player> sound:complete custom
+       - ^run 's@puntoscheck'
+       }
+puntovampiro:
+    type: task
+    script:
+    - ^if <player.flag[misiones].as_list> !contains condu_07 {
+      - ^define mazmorra "Infernal"
+      - ^title "title:<green>[Completado]" "subtitle:<dark_red>Mataste al Infernal" stay:10s
+      - ^flag <player> misiones:->:condu_07
+      - ^flag <player> cunduhumano:+:3
+      - ^flag <player> cunduvampiro:+:5
+      - ^flag <player> cundulobo:+:1
+      - ^bossbar remove obj<player.name>
+      - ^define objetivo "<gold>Objetivo: <green>Regresa con <dark_red>Drumke"
+      - ^flag <player> objetivo:<def[objetivo]>
+      - ^bossbar obj<player.name> players:<player> "title:<player.flag[objetivo]>" color:BLUE
+      - ^flag <player> mazmorra:<def[mazmorra]>
+      - ^playsound <player> sound:complete custom
+      - ^run 's@puntoscheck'
+      }
+puntohumano:
+    type: task
+    script:
+    - ^if <player.flag[misiones].as_list> !contains condu_07 {
+      - ^define mazmorra "Toxico"
+      - ^title "title:<green>[Completado]" "subtitle:<dark_green>Mataste al Toxico" stay:10s
+      - ^flag <player> misiones:->:condu_07
+      - ^flag <player> cunduhumano:+:5
+      - ^flag <player> cunduvampiro:+:1
+      - ^flag <player> cundulobo:+:3
+      - ^bossbar remove obj<player.name>
+      - ^define objetivo "<gold>Objetivo: <green>Regresa con <dark_red>Drumke"
+      - ^flag <player> objetivo:<def[objetivo]>
+      - ^bossbar obj<player.name> players:<player> "title:<player.flag[objetivo]>" color:BLUE
+      - ^flag <player> mazmorra:<def[mazmorra]>
+      - ^playsound <player> sound:complete custom
+      - ^run 's@puntoscheck'
+      }
+puntoscheck:
+    type: task
+    script:
+    - ^if <player.flag[cundulobo].asint> >= <player.flag[cunduvampiro].asint> && <player.flag[cundulobo].asint> >= <player.flag[cunduhumano].asint> {
+      - ^flag <player> raza:lobo
+      - ^flag <player> cunduhumano:!
+      - ^flag <player> cunduvampiro:!
+      - ^flag <player> cundulobo:!
+      - queue stop
+      } else if <player.flag[cunduvampiro].asint> >= <player.flag[cunduhumano].asint> && <player.flag[cunduvampiro].asint> >= <player.flag[cundulobo].asint> {
+      - ^flag <player> raza:vampiro
+      - ^flag <player> cunduhumano:!
+      - ^flag <player> cunduvampiro:!
+      - ^flag <player> cundulobo:!
+      - queue stop
+      } else if <player.flag[cunduhumano].asint> >= <player.flag[cunduvampiro].asint> && <player.flag[cunduhumano].asint> >= <player.flag[cundulobo].asint> {
+      - ^flag <player> raza:humano
+      - ^flag <player> cunduhumano:!
+      - ^flag <player> cunduvampiro:!
+      - ^flag <player> cundulobo:!
+      - queue stop
+      }

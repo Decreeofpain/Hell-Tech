@@ -1,0 +1,56 @@
+Pelaje: 
+  name: 'Pelaje'
+  type: 'Mejora'
+  max-level: 3
+  skill-req: 'Camarada'
+  skill-req-lvl: 1
+  needs-permission: 'false'
+  attributes: 
+    cost-base: '11'
+    cooldown-scale: '0'
+    cost-scale: '5'
+    level-scale: '0'
+    level-base: '1'
+    mana-base: '0'
+    mana-scale: '0'
+    cooldown-base: '0'
+  msg: '&6{player} &2has cast &6{skill}'
+  icon: 'LEATHER'
+  icon-data: 0
+  icon-lore: 
+  - '&d{name} &7({level}/{max})'
+  - '&2Tipo: &6{type}'
+  - '&2Requiere: &6Camarada lvl 5'
+  - '{req:cost}Puntos necesarios: {attr:cost}'
+  - ''
+  - '&8Descripcion:'
+  - '&7mejoras la vida de tu camarada'
+  - ''
+  - '&2Vida incrementada: {attr:pelaje.repetitions}'
+  desc:  []
+  components: 
+    Initialize: 
+      type: 'trigger'
+      data: 
+        icon-key: ''
+      children: 
+        Value-b: 
+          type: 'condition'
+          data: 
+            min-value-scale: '0'
+            max-value-scale: '0'
+            icon-key: ''
+            max-value-base: '999'
+            key: 'value3'
+            min-value-base: '1'
+          children: 
+            Repeat-c: 
+              type: 'mechanic'
+              data: 
+                period: '1'
+                delay: '0'
+                repetitions-base: '10'
+                counts: 'True'
+                icon-key: 'pelaje'
+                repetitions-scale: '10'
+              children:  {}

@@ -1,0 +1,130 @@
+"Sanwolf":
+    type: assignment
+
+    actions:
+      on assignment:
+      - trigger name:CHAT toggle:false
+      - trigger name:click toggle:true
+      - trigger name:proximity toggle:true radius:3
+      on Build Complete:
+      - ^run 's@nationlend'
+    interact scripts:
+    - 16 buildgarkar
+
+'buildgarkar':
+  Type: Interact
+  Requirements:
+    Mode: all
+    List:
+    - valueof <player.flag[misiones].contains[cap1m25ok]>
+    - valueof <player.flag[raza].contains[lobo]>
+    - valueof <global.flag[capitulos].contains[CAPITULO1NATIONLOK]>
+    - -valueof <global.flag[nacionlicprogress].contains[GARKAR3OK]>
+  Steps:
+    '1':
+      proximity trigger:
+        entry:
+          radius: 4
+          Script:
+          - ^run 's@bookfaclicangarkar'
+          - ^zap step:2
+    '2':
+      click trigger:
+        Script:
+          - ^engage
+          - ^yaml load:naciones/nacionlicantropica.yml id:nacion<player.name>
+          - ^if <yaml[nacion<player.name>].read[aldeas.garkar.stonebrick]> >= 0 && <yaml[nacion<player.name>].read[aldeas.garkar.cobblestone]> >= 0 && <yaml[nacion<player.name>].read[aldeas.garkar.log]> >= 0 && <yaml[nacion<player.name>].read[aldeas.garkar.lightclay]> >= 0 && <yaml[nacion<player.name>].read[aldeas.garkar.hardclay]> >= 0 {
+            - ^inventory open d:in@inv_garkar
+            }
+          - ^yaml unload id:nacion<player.name>
+          - disengage
+      proximity trigger:
+        entry:
+          radius: 4
+          Script:
+          - ^narrate "<green>Sanwolf:<dark_gray> Hola <player.name>"
+          - ^wait 1s
+          - ^if <player.inventory.contains[4|98|log|159:5|159:13]> {
+            - ^narrate "<green>Sanwolf:<dark_green> Traes algunos materiales utiles para la aldea"
+            - ^narrate "<dark_green>te gustaria entregarlos?"
+            - ^narrate "<blue><player.inventory.quantity[i@98]> <red>ladrillos de piedra"
+            - ^narrate "<blue><player.inventory.quantity[i@4]> <red>bloques de cobblestone"
+            - ^narrate "<blue><player.inventory.quantity[i@log]> <red>troncos de madera"
+            - ^narrate "<blue><player.inventory.quantity[i@159:5]> <red>de arcilla verde clara"
+            - ^narrate "<blue><player.inventory.quantity[i@159:13]> <red>de arcilla verde oscura"
+            }
+
+
+# Inventarios
+inv_garkar:
+  type: inventory
+  inventory: dispenser
+  slots:
+  - "[i@garkarstonebrick] [i@garkarcobblestone] [i@garkarlog]"
+  - "[i@garkarhardclay] [i@garkarinfo] [i@garkarlightclay]"
+  - "[i@cancelslot] [i@Entregar] [i@cancelslot]"
+
+#items
+
+garkarinfo:
+  type: item
+  material: 340
+  display name: '<gold>Garkar'
+  lore:
+  - ''
+  - '<gray>Estado de la aldea'
+  - '<gray>Actualizaciones: <yellow><yaml[nacion<player.name>].read[aldeas.garkar.status].asint>/3'
+garkarstonebrick:
+  type: item
+  material: 98
+  display name: '<yellow>Ladrillos de piedra'
+  lore:
+  - ''
+  - '<gray>Se requieren: <yellow><yaml[nacion<player.name>].read[aldeas.garkar.stonebrick].asint> <gray>bloques mas'
+garkarcobblestone:
+  type: item
+  material: 4
+  display name: '<yellow>Bloques de cobblestone'
+  lore:
+  - ''
+  - '<gray>Se requieren: <yellow><yaml[nacion<player.name>].read[aldeas.garkar.cobblestone].asint> <gray>bloques mas'
+garkarlog:
+  type: item
+  material: 17
+  display name: '<yellow>Troncos de madera'
+  lore:
+  - ''
+  - '<gray>Se requieren: <yellow><yaml[nacion<player.name>].read[aldeas.garkar.log].asint> <gray>bloques mas'
+garkarhardclay:
+  type: item
+  material: '159,13'
+  display name: '<yellow>Arcilla verde oscura'
+  lore:
+  - ''
+  - '<gray>Se requieren: <yellow><yaml[nacion<player.name>].read[aldeas.garkar.hardclay].asint> <gray>bloques mas'
+garkarlightclay:
+  type: item
+  material: '159,5'
+  display name: '<yellow>Arcilla verde clara'
+  lore:
+  - ''
+  - '<gray>Se requieren: <yellow><yaml[nacion<player.name>].read[aldeas.garkar.lightclay].asint> <gray>bloques mas'
+# Libros
+bookfaclicangarkar:
+    type: task
+    script:
+    - ^adjust <player> item_slot:8
+    - ^define old_item <player.item_in_hand> 
+    - ^take <player.item_in_hand> qty:<player.item_in_hand.qty>
+    - ^give i@librofaclicangarkar slot:8
+    - ^adjust <player> open_book
+    - ^take i@librofaclicangarkar
+    - ^give %old_item% slot:8
+    - DETERMINE cancelled
+
+librofaclicangarkar:
+  type: book 
+  title: Facciones!
+  author: <green>Sanwolf
+  text: 
+  - '<green>Sanwolf<black>:<n>Esta es la aldea de <dark_green>Garkar<black>.<p>En esta aldea nos dedicamos a la magia de la nacion asi como resguardar y crear las reliquias de la nacion.'

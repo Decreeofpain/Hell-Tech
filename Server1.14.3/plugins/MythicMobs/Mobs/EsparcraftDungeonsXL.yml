@@ -1,0 +1,171 @@
+#Conducta ------------------------------
+vampboss:
+  MobType: zombie
+  Health: 40
+  Damage: 2
+  Despawn: false
+  Display: '&4I&cnfernal'
+  Options:
+    AlwaysShowName: true
+    MovementSpeed: 0.19
+    MaxCombatDistance: 15
+    PreventOtherDrops: true
+    Persistent: true
+  LevelModifiers:
+    Health: 0.0
+    Damage: 0.0
+    Power: 0.0
+  AIGoalSelectors:
+  - 0 clear
+  - 1 fleeplayers
+  - 2 meleeattack
+  AITargetSelectors:
+  - 0 clear
+  - 1 players
+  - 2 hurtbytarget
+  Skills:
+  - skill{s=FireBolt} @target ~onTimer:25
+licboss:
+  MobType: zombie
+  Health: 40
+  Damage: 2
+  Despawn: false
+  Display: '&5C&8egador'
+  Options:
+    AlwaysShowName: true
+    MovementSpeed: 0.19
+    MaxCombatDistance: 15
+    PreventOtherDrops: true
+    Persistent: true
+  LevelModifiers:
+    Health: 0.0
+    Damage: 0.0
+    Power: 0.0
+  AIGoalSelectors:
+  - 0 clear
+  - 1 fleeplayers
+  - 2 meleeattack
+  AITargetSelectors:
+  - 0 clear
+  - 1 players
+  - 2 hurtbytarget
+  Skills:
+  - skill{s=BlindBolt} @target ~onTimer:25
+humboss:
+  MobType: zombie
+  Health: 40
+  Damage: 2
+  Despawn: false
+  Display: '&2T&aoxico'
+  Options:
+    AlwaysShowName: true
+    MovementSpeed: 0.19
+    MaxCombatDistance: 15
+    PreventOtherDrops: true
+    Persistent: true
+  LevelModifiers:
+    Health: 0.0
+    Damage: 0.0
+    Power: 0.0
+  AIGoalSelectors:
+  - 0 clear
+  - 1 fleeplayers
+  - 2 meleeattack
+  AITargetSelectors:
+  - 0 clear
+  - 1 players
+  - 2 hurtbytarget
+  Skills:
+  - skill{s=PoisonBolt} @target ~onTimer:25
+
+Lobol:
+  MobType: wolf
+  Health: 300
+  Damage: 4
+  Display: '&aLobo &6Legendario'
+  Despawn: false
+  Persistent: true
+  LevelModifiers:
+    Health: 0.0
+    Damage: 0.0
+Loboorda:
+  MobType: wolf
+  Health: 300
+  Damage: 2
+  Display: '&aLobo guardian'
+  Despawn: false
+  Persistent: true
+  Skills:
+  - potion{type=BLINDNESS;duration=400;level=1} @target ~onAttack
+  - potion{type=SLOW;duration300;level=4} @target ~onAttack
+  Options:
+    MovementSpeed: 0.4
+  AITargetSelectors:
+  - 0 clear
+  - 1 players
+  - 2 hurtbytarget
+  LevelModifiers:
+    Health: 0.0
+    Damage: 0.0
+
+Zombieorda:
+  Mobtype: zombie
+  Display: '&aPutrefacto'
+  Health: 5
+  Damage: 1
+  Faction: Orcs
+  AIGoalSelectors:
+  - 0 clear
+  - 1 opendoors
+  - 2 meleeattack
+  AITargetSelectors:
+  - 0 clear
+  - 1 hurtbytarget
+  - 2 specificfactionmonsters Goblin
+  - 3 players
+  LevelModifiers:
+    Health: 0.0
+    Damage: 0.0
+  Options:
+    Despawn: false
+    Persistent: true
+    FollowRange: 20
+    AlwaysShowName: false
+    MovementSpeed: 0.1
+    PreventOtherDrops: true
+    PreventItemPickup: true
+    PreventMobKillDrops: true
+    
+Lobosup:
+  Mobtype: zombie
+  Display: '&bGuardia'
+  Health: 2500
+  Damage: 5
+  Faction: Goblin
+  AIGoalSelectors:
+  - 0 clear
+  - 1 opendoors
+  - 2 meleeattack
+  AITargetSelectors:
+  - 0 clear
+  - 1 hurtbytarget
+  - 2 specificfactionmonsters Orcs
+  LevelModifiers:
+    Health: 0.0
+    Damage: 0.0
+  Options:
+    Despawn: false
+    Persistent: true
+    FollowRange: 20
+    AlwaysShowName: false
+    MovementSpeed: 0.0001
+    PreventOtherDrops: true
+    PreventItemPickup: true
+    KnockbackResistance: 50.0    
+    PreventMobKillDrops: true
+  Disguise:
+    Type: player
+    Skin: 'DolphinTuna'
+    Player: '&bGuardia'
+  Skills:
+  - disguise{d=player:&bGuardia:DolphinTuna} ~onTimer:500

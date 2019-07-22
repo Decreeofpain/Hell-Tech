@@ -120,11 +120,11 @@
             - ^if <player.flag[misiones].as_list> !contains cap1m24ok {
               - ^inventory open d:in@inv_athelwulf2
               }
-            } 
+            }
 
 
 #           - ^run 's@bookq15l'
-# libro de iniciacion de licantropos 
+# libro de iniciacion de licantropos
 inv_athelwulf:
   type: inventory
   inventory: dispenser
@@ -135,10 +135,10 @@ inv_athelwulf:
 
 inv_athelwulf2:
   type: inventory
-  inventory: dispenser
+  inventory: inventory
   slots:
-  - "[i@cancelslot] [i@Athelwulfini] [i@cancelslot]"
-  - "[i@Sipregunta] [i@cancelslot] [i@Nopregunta]"
+  - "[i@cancelslot] [i@cancelslot] [i@cancelslot]"
+  - "[i@cancelslot] [i@cancelslot] [i@cancelslot]"
   - "[i@cancelslot] [i@cancelslot] [i@cancelslot]"
 
 Athelwulfinfo1:
@@ -251,7 +251,7 @@ bookfaclican:
     type: task
     script:
     - ^adjust <player> item_slot:8
-    - ^define old_item <player.item_in_hand> 
+    - ^define old_item <player.item_in_hand>
     - ^take <player.item_in_hand> qty:<player.item_in_hand.qty>
     - ^give i@librofaclican slot:8
     - ^adjust <player> open_book
@@ -260,17 +260,17 @@ bookfaclican:
     - DETERMINE cancelled
 
 librofaclican:
-  type: book 
+  type: book
   title: Facciones!
   author: <green>Athelwulf
-  text: 
+  text:
   - '<green>Athelwulf<black>:<n>Con gran esfuerzo se logro recontruir la honorable nacion de los <dark_green>licantropos<black>.<p>Ahora debemos crear las aldeas de nuestro honorable pueblo y recuperar la gloria que nos pertenece.<p>platica con los demas lobos en la nacion.'
 
 bookq15l:
     type: task
     script:
     - ^adjust <player> item_slot:8
-    - ^define old_item <player.item_in_hand> 
+    - ^define old_item <player.item_in_hand>
     - ^take <player.item_in_hand> qty:<player.item_in_hand.qty>
     - ^give i@libroq15l slot:8
     - ^adjust <player> open_book
@@ -279,10 +279,10 @@ bookq15l:
     - DETERMINE cancelled
 
 libroq15l:
-  type: book 
+  type: book
   title: Quests!
   author: <green>Athelwulf
-  text: 
+  text:
   - '<green>Athelwulf<black>:<n>El <dark_green>Lobo legendario<black> fue capturado y debemos rescatarlo de las manos de los <dark_aqua>humanos.<p>Se encuentra en un viejo laboratorio donde posiblemente hagan experimentos con el.<p>Debes traerlo contigo'
   - 'Si lo logras podremos reconocerte como un <dark_green>licantropo<black> completo y renaceras con todos tus poderes.<p>Antes de ti mandamos un espia para investigar pero ya no regreso y me temo lo peor.<p><dark_green>(Click en Athelwoulf para continuar)'
 
@@ -298,8 +298,8 @@ bookCap1part26w:
     - ^give %old_item% slot:8
     - DETERMINE cancelled
 
-librocap1part26w: 
-  type: book 
+librocap1part26w:
+  type: book
   title: Quests!
   author: Blade
   text:

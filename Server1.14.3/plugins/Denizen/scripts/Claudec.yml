@@ -1,0 +1,214 @@
+"Claudec":
+    type: assignment
+
+    actions:
+      on assignment:
+      - trigger name:CHAT toggle:false
+      - trigger name:click toggle:true
+      - trigger name:proximity toggle:true radius:4
+
+    interact scripts:
+    - 12 Claudscriptsouls
+
+'Claudscriptsouls':
+  Type: Interact
+  Requirements:
+    Mode: all
+    List:
+    # - valueof <global.flag[capitulos].contains[CAPITULO1P2OK]>
+    # - valueof <player.flag[progreso].contains[tutorial_ok]>
+  Steps:
+    '1':
+      click trigger:
+        Script:
+          - ^inventory open d:in@inv_claudec
+      proximity trigger:
+        entry:
+          radius: 4
+          Script:
+          - ^playsound <player> sound:complete custom
+          - ^random 5
+          - ^title "subtitle:<gold>C<dark_red>laudec: <gold><player.name> <dark_purple>Que te trae a mi <dark_red>P<gold>uesto <dark_red>D<gold>emoniaco?"
+          - ^title "subtitle:<gold>C<dark_red>laudec: <gold><player.name> <dark_purple>Quieres investigar tecnologias?"
+          - ^title "subtitle:<gold>C<dark_red>laudec: <dark_purple>Hola <gold><player.name>!"
+          - ^title "subtitle:<gold>C<dark_red>laudec: <gold><player.name> <dark_purple>Quieres piedras del Alma?"
+          - ^title "subtitle:<gold>C<dark_red>laudec: <dark_purple>Si quieres puedes morir de ves en cuando <gold><player.name>!"
+
+#- adjust <server> delete_file:personal/<player.name>.yml
+ClaudecSistem:
+  type: world
+  events:
+    on player clicks in inv_claudec:
+    - DETERMINE cancelled
+    on player drags in inv_claudec:
+    - DETERMINE cancelled
+    on player clicks Tecnologias in inv_claudec:
+    - ^inventory open d:in@inv_claudec_tecnologias
+    on player clicks claudec_tec_mineria in inv_claudec_tecnologias:
+    - ^inventory open d:in@inv_tecnology_mineria_meslajho
+#--------------Piedras del Alma---------------------
+    on player clicks Piedra in inv_claudec:
+    - ^if <player.money> < <math.asint:<player.skillapi.class_level[<player.skillapi.main_class>]>*200> {
+      - ^narrate "<dark_red>Claudec: <red>No tienes suficientes <dark_purple>Almakos"
+      } else if <player.money> >= <math.asint:<player.skillapi.class_level[<player.skillapi.main_class>]>*200> {
+      - ^if <player.skillapi.class_level[<player.skillapi.main_class>]> < 50 && <player.flag[piedrasdelalma].asint> < 15 {
+        - ^flag <player> piedrasdelalma:+:1
+        - ^take money quantity:<math.asint:<player.skillapi.class_level[<player.skillapi.main_class>]>*200>
+        - ^narrate "<dark_red>Claudec: <red>Conseguiste una piedra del Alma"
+        - ^narrate "<red>Ahora tienes <aqua><player.flag[piedrasdelalma].asint> <dark_aqua>piedras del Alma"
+        - ^queue clear
+        } else if <player.skillapi.class_level[<player.skillapi.main_class>]> < 300 && <player.flag[piedrasdelalma].asint> < 10 {
+        - ^flag <player> piedrasdelalma:+:1
+        - ^take money quantity:<math.asint:<player.skillapi.class_level[<player.skillapi.main_class>]>*200>
+        - ^narrate "<dark_red>Claudec: <red>Conseguiste una piedra del Alma"
+        - ^narrate "<red>Ahora tienes <aqua><player.flag[piedrasdelalma].asint> <dark_aqua>piedras del Alma"
+        - ^queue clear
+        } else if <player.skillapi.class_level[<player.skillapi.main_class>]> < 601 && <player.flag[piedrasdelalma].asint> < 5 {
+        - ^flag <player> piedrasdelalma:+:1
+        - ^take money quantity:<math.asint:<player.skillapi.class_level[<player.skillapi.main_class>]>*200>
+        - ^narrate "<dark_red>Claudec: <red>Conseguiste una piedra del Alma"
+        - ^narrate "<red>Ahora tienes <aqua><player.flag[piedrasdelalma].asint> <dark_aqua>piedras del Alma"
+        - ^queue clear
+        } else {
+        - ^narrate "<dark_red>Claudec: <red>Ya tienes el maximo de <dark_purple>Piedras del alma"
+        - ^queue clear
+        }
+      }
+    on player death:
+    - ^flag <player> muerto:si
+    - ^modifyblock location:2990,105,3224,Esparcraft 96,1
+    - ^modifyblock location:2991,105,3224,Esparcraft 96,1
+    - ^sign type:automatic "<dark_red><player.name>|<red>Murio|<blue><util.date.replace[<&sp>]>" location:2992,106,3224,Esparcraft direction:W
+    - ^define inventorydead <player.inventory.list_contents>
+    - ^define inventoryhelmet <player.equipment.helmet>
+    - ^define inventorychest <player.equipment.chestplate>
+    - ^define inventoryleggins <player.equipment.leggings>
+    - ^define inventoryboots <player.equipment.boots>
+    - wait 10t
+    - ^if <player.has_flag[safe].not> {
+      - ^yaml load:personal/<player.name>.yml id:personal<player.name>
+      - ^yaml id:personal<player.name> set inv.dead.all:<def[inventorydead]>
+      - ^yaml id:personal<player.name> set inv.dead.helmet:<def[inventoryhelmet]>
+      - ^yaml id:personal<player.name> set inv.dead.chestplate:<def[inventorychest]>
+      - ^yaml id:personal<player.name> set inv.dead.leggings:<def[inventoryleggins]>
+      - ^yaml id:personal<player.name> set inv.dead.boots:<def[inventoryboots]>
+      - ^yaml savefile:personal/<player.name>.yml id:personal<player.name>
+      - ^yaml unload id:personal<player.name>
+      }
+    - ^if <player.has_flag[inarena].not> && <global.flag[capitulos].as_list> contains CAPITULO1P2OK && <player.flag[progreso].as_list> contains tutorial_ok && <player.has_flag[safe].not> {
+      - ^if <player.flag[piedrasdelalma].asint> <= 1 {
+        - ^if <player.flag[raza]> == lobo && <player.has_flag[iniciado]> {
+          - ^execute as_server "ww toggle <player.name>"
+          }
+        - ^if <player.flag[raza]> == vampiro && <player.has_flag[iniciado]> {
+          - ^execute as_server "v set v <player.name> no"
+          }
+        - ^execute as_server "money set <player.name> 0"
+        - ^yaml create id:personal<player.name>
+        - ^yaml id:personal<player.name> set bk.pj.nivel:<player.skillapi.class_level[<player.skillapi.main_class>]>
+        - ^yaml id:personal<player.name> set bk.pj.class:<player.skillapi.main_class>
+        - ^yaml id:personal<player.name> set bk.pj.obj:<player.flag[objetivo]>
+        - ^yaml id:personal<player.name> set bk.pj.misiones:<player.flag[misiones].as_list>
+        - ^define jugador <player.name>
+        - ^sql id:GlobalSQL "query:SELECT user_id FROM phpbb_users WHERE username='<def[jugador]>';" save:resultado
+        - ^yaml id:<player.name> set UserID:<entry[resultado].result.parse[replace[/]].formatted>
+        - sql id:GlobalSQL "update:UPDATE phpbb_profile_fields_data SET pf_pb_wow_race='1' WHERE user_id=<yaml[<player.name>].read[UserID]>;"
+        - sql id:GlobalSQL "update:UPDATE phpbb_profile_fields_data SET pf_pb_wow_class='1' WHERE user_id=<yaml[<player.name>].read[UserID]>;"
+        - sql id:GlobalSQL "update:UPDATE phpbb_profile_fields_data SET pf_pb_wow_level='1' WHERE user_id=<yaml[<player.name>].read[UserID]>;"
+        - sql id:GlobalSQL "update:UPDATE phpbb_profile_fields_data SET pf_pb_wow_guild='' WHERE user_id=<yaml[<player.name>].read[UserID]>;"
+        - ^yaml savefile:personal/<player.name>.yml id:personal<player.name>
+        - ^reset <player> saves
+        - ^execute as_op "class reset" silent
+        - ^execute as_op "class reset confirm" silent
+        - ^execute as_server "jobs fireall <player.name>"
+        - ^execute as_server "pex user <player.name> group set iniciado"
+        - ^title "title:<dark_red>Claudec" "subtitle:<red>Tu alma me pertenece <aqua><player.name> <dark_red>Buajajaja" stay:15s
+        - ^bossbar remove obj<player.name>
+        - ^define objetivo "<red>Claudec: <green>Perdiste todo jajaja te lo dijeeee jajajajaja"
+        - ^flag <player> objetivo:<def[objetivo]>
+        - ^bossbar obj<player.name> players:<player> "title:<player.flag[objetivo]>" color:BLUE
+        - ^compass <npc.location.simple> npc:27
+        - ^flag <player> resetplayer:si
+        - ^run 's@Checkusercap'
+        } else {
+        - ^flag <player> piedrasdelalma:-:1
+        - ^title "title:<dark_red>Claudec" "subtitle:<gray>Ahora te quedan <gold><player.flag[piedrasdelalma].asint> <dark_purple>piedras del alma" stay:15s
+        }
+      }
+
+    on player respawns:
+    - ^flag <player> muerto:!
+    - ^if <player.has_flag[safe]> {
+      - wait 10t
+      - ^yaml load:personal/<player.name>.yml id:personal<player.name>
+      - inventory set d:<player.inventory> o:<yaml[personal<player.name>].read[inv_outsoul]>
+      - equip <player> head:<yaml[personal<player.name>].read[inv_outsoul_helmet]>
+      - equip <player> chest:<yaml[personal<player.name>].read[inv_outsoul_chestplate]>
+      - equip <player> legs:<yaml[personal<player.name>].read[inv_outsoul_leggings]>
+      - equip <player> boots:<yaml[personal<player.name>].read[inv_outsoul_boots]>
+      - ^yaml unload id:personal<player.name>
+      }
+    - ^if <player.has_flag[resetplayer]> {
+      - ^flag <player> resetplayer:!
+      - ^flag <player> piedrasdelalma:15
+      - ^bossbar remove obj<player.name>
+      - ^define objetivo "<dark_red>Claudec: <red>Perdiste todo jajaja te lo dijeeee hahahaha!"
+      - ^flag <player> objetivo:<def[objetivo]>
+      - ^bossbar obj<player.name> players:<player> "title:<player.flag[objetivo]>" color:BLUE
+      - ^compass <npc.location.simple> npc:27
+      - wait 10t
+      - inventory clear d:<player.inventory>
+      - equip <player> head:i@air
+      - equip <player> chest:i@air
+      - equip <player> legs:i@air
+      - equip <player> boots:i@air
+      - wait 10t
+      - ^give i@panelgui slot:9
+      - ^title "title:<dark_red>Claudec" "subtitle:<red><player.name> Ahora nadie te recuerda" stay:10s
+      }
+
+Piedra:
+  type: item
+  material: nether_star
+  display name: '<dark_red>P<red>iedr<dark_red>a <dark_gray>del <dark_red>A<red>lm<dark_red>a'
+  lore:
+  - '<gold>Tienes <dark_purple><player.flag[piedrasdelalma]> <gold>Quieres mas?'
+  - ''
+  - '<green>El precio es de <gold><math.asint:<player.skillapi.class_level[<player.skillapi.main_class>]>*200> <yellow>Almakos'
+  - ''
+  - '<dark_red>hacemos el trato?'
+
+Tecnologias:
+  type: item
+  material: anvil
+  display name: '<dark_red>T<red>ecnologias'
+  lore:
+  - '<gold>Bienvenido <white><player.skillapi.main_class.name>!'
+  - '<red>Tengo algunas tecnologias para ti'
+  - '<red>por un insignificante costo'
+  - ''
+  - '<dark_red>echales un vistazo<gold>!'
+claudec_tec_mineria:
+  type: item
+  material: stone_pickaxe
+  display name: '<dark_red>M<red>ineria'
+  lore:
+  - '<white>Quieres minar <green><player.name>'
+  - '<red>Aqui puedes revisar investigar'
+  - '<red>esas tecnologias.'
+
+inv_claudec:
+  type: inventory
+  inventory: HOPPER
+  title: '<gold>C<dark_red>laudec'
+  size: 5
+  slots:
+  - "[i@Piedra] [] [] [] [i@Tecnologias]"
+
+inv_claudec_tecnologias:
+  type: inventory
+  inventory: HOPPER
+  title: '<gold>T<dark_red>ecnologias'
+  size: 5
+  slots:
+  - "[i@claudec_tec_mineria] [] [] [] []"
