@@ -22,7 +22,7 @@ Scripts:
 # The below value is how many times automatic updates have been applied
 # since you last cleaned this file.
 # ----------- End Important! -----------
-times_changed: 2
+times_changed: 3
 Packets:
     # Whether to allow Denizen to intercept packets from and to player clients.
     # This enables access to certain ScriptEvents, such as PlayerSteers and PlayerReceivesMessage.
@@ -152,6 +152,9 @@ Debug:
     # Please do not disable this unless it is throwing errors (Please report any errors you receive as well).
     Stats: true
     # Whether debug information about Denizen should appear in the server console
+    # Whether debug information about Denizen should EVER appear in the server console by default
+    # NOTE: You almost ALWAYS want this ON! Leave it at 'true'! To hide debug from scripts, set "debug: false" on the script containers that work fine.
+    # Disabling this can prevent your logs from showing error messages and other important notices!
     Show: false
     # The max length of a line of debug output. Shorten this if your console is hard to read.
     Line length: 128
@@ -165,11 +168,16 @@ Debug:
 Traits:
     Health:
         Animated death:
+            # Whether the NPC should play a death animation by default.
             Enabled: false
         Enabled: false
         Respawn:
+            # Whether the health trait should control respawn by default.
             Enabled: false
+            # How long after death before ethe NPC should respawn by default.
             Delay: 10s
+        # Whether to block drops from NPCs that have the health trait by default.
+        Block drops: false
 # GENERAL SECURITY NOTE: Always run your server on a user with access to nothing but the minecraft folder
 # Otherwise, a bad script or plugin could potentially damage things
 # ALSO: Always read scripts you download for anything suspicious looking, EG the log command, the file_delete mechanism, ...
@@ -181,6 +189,7 @@ Tags:
         # How far away the path finder can search before giving up
         Max distance: 100
     # Settings for tags like cuboid.get_blocks, location.find.blocks, ...
+    # Settings for tags like cuboid.blocks, location.find.blocks, ...
     Block tags:
         # How many blocks can be read, max, before stopping the tag in place
         Max blocks: 1000000

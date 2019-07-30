@@ -1,3 +1,5 @@
+# Citizens Configuration
+
 general:
   authlib:
     profile-url: https://sessionserver.mojang.com/session/minecraft/profile/
@@ -24,15 +26,15 @@ npc:
       with-targets-to-bystanders: '[<npc>] -> [<targets>]: <text>'
   pathfinding:
     default-distance-margin: 2
+    default-path-distance-margin: 1
     update-path-rate: 20
     maximum-new-pathfinder-iterations: 50000
     new-finder-open-doors: false
     attack-range: 3.0625
     use-new-finder: false
-    default-path-distance-margin: 1
   default:
     look-close:
-      enabled: false
+      enabled: true
       range: 5
       random-look-enabled: false
       random-look-delay: 60
@@ -54,7 +56,7 @@ npc:
   tablist:
     disable: true
   chunks:
-    always-keep-loaded: false
+    always-keep-loaded: true
   skins:
     max-retries: -1
     retry-delay: 120
