@@ -4,15 +4,15 @@
 Configuration:
   Version: 4.6
   General:
-    AllowMetrics: true
+    AllowMetrics: false
     CheckForUpdates: true
-    CompatibilityMode: true
+    CompatibilityMode: tre
     DebugLevel: 0
     ErrorLogging: true
     Language: enUS
     UseVolatileFeatures: true
   Clock:
-    ClockInterval: 5
+    ClockInterval: 1
     SaveInterval: 5
     SpawnsInterval: 2
     ScannerInterval: 10
@@ -26,7 +26,7 @@ Configuration:
     EnableTimerSkills: true
     EnableThreatTables: true
     EnablePlayerFactions: true
-    EnableLegacySkills: true
+    EnableLegacySkills: false
     KillMessagePrefix: ''
     PreventOtherDropsByDefault: false
     ShowHealth:
@@ -36,22 +36,25 @@ Configuration:
       Esparcraft:
         Enabled: true
         PerBlocksFromSpawn: 6
+      Meslajho:
+        Enabled: true
+        PerBlocksFromSpawn: 6
     DefaultLevelModifiers:
-      Health: 2
+      Health: 0.1
       Armor: 0
       Damage: 0
       KnockbackResistance: 0
-      Power: 1
+      Power: 0
   RandomSpawning:
-    DisableVanillaSpawns: false
+    DisableVanillaSpawns: true
     GenerateSpawnPoints: false
-    MaxMobsPerChunk: 10
-    SpawnRadiusPerPlayer: 25
+    MaxMobsPerChunk: 2
+    SpawnRadiusPerPlayer: 64
     SpawnRadiusPerPlayerY: 32
     DespawnLazyRandomMobs: true
     MaxGenerationTime: 20
     PointsPerSecond:
-      Land: 10
+      Land: 1
       Air: 0
       Sea: 2
       Lava: 0
@@ -66,8 +69,8 @@ Configuration:
     SkillAPI:
       Enabled: true
       ShowXPMessage: true
-      XPMessageFormat: '&6<drops.xp>&2 de experiencia'
+      XPMessageFormat: You receive <drops.skillapi> experience for slaying <mob.name>
     Vault:
       Enabled: true
       ShowMoneyMessage: true
-      MoneyMessageFormat: '&6Consumiste &5<drops.money> Almakos'
+      MoneyMessageFormat: You receive <drops.money> currency for slaying <mob.name>

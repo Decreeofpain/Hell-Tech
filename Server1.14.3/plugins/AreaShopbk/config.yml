@@ -8,7 +8,7 @@
 # └────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┘
 # Chat prefix used for all messages in the chat, also changes the greeting messages.
 chatPrefix:
-  - '[darkgreen][Freya][reset]'
+  - ''
   - '  hover: AreaShop region management plugin'
   - '  hover: %lang:action|Click to check the available commands|%'
   - '  command: /areashop help'
@@ -23,7 +23,7 @@ signTags:
   # Add a buy region.
   buy: '.b'
   # Add a sign to an existing region.
-  add: 'as'
+  add: '[as]'
 
 
 # ┌────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┐
@@ -59,8 +59,8 @@ minutes: [m, min, mins, minuto, minutos]
 hours: [h, hora, horas]
 days: [d, dia, dias]
 weeks: [s, semana, semanas]
-months: [m,  mes,  meses]
-years: [a, año, años]
+months: [M,  mes,  meses]
+years: [y, year, years]
 
 
 # ┌────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┐
@@ -77,8 +77,6 @@ limitGroups:
     total: 2
     rents: 2
     buys: 1
-
-
 # ┌────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┐
 # │ ADVANCED AND DEBUG: Specific options to tweak the plugin precisely and check if it functions correctly.                    │
 # └────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┘
@@ -87,160 +85,6 @@ limitGroups:
 # Example: Blocking all regions that have a name like 'house_1', 'house_2', etc. would be done with 'house_\d+'.
 # The '\d' represents the numerical digits 0-9, the + symbol represents 1 or more times repeated.
 # This means it would also block 'house_123' and 'house_000456'. It will not block 'ahouse_1' or 'house_'.
-
-flagProfiles:
-  default:
-    forrent:
-      greeting: '%lang:prefix%%lang:greeting-forrent%'
-      priority: 1
-      entry: 'allow g:all'
-      use: 'deny g:non_members'
-      interact: 'deny g:non_members'
-      members: ''
-    rented:
-      members: '%uuid%, %friendsuuid%'
-      greeting: '%lang:prefix%%lang:greeting-rented%'
-      use: 'deny g:non_members'
-      ride: 'deny g:non_members'
-      interact: 'deny g:non_members'
-      entry: 'deny g:non_members'
-      priority: 1
-    forsale:
-      greeting: '%lang:prefix%%lang:greeting-forsale%'
-    sold:
-      members: '%uuid%, %friendsuuid%'
-      greeting: '%lang:prefix%%lang:greeting-bought%'
-    resale:
-      members: '%uuid%, %friendsuuid%'
-      greeting: '%lang:prefix%%lang:greeting-resale%'
-  granjaprofile:
-    forrent:
-      greeting: '%lang:prefix%%lang:greeting-forrent%'
-      priority: 2
-      entry: 'allow g:all'
-      use: 'deny g:all'
-      block-break: 'deny g:all'
-      block-place: 'deny g:all'
-      interact: 'deny g:all'
-      members: ''
-    rented:
-      members: '%uuid%, %friendsuuid%'
-      greeting: '%lang:prefix%%lang:greeting-rented%'
-      use: 'deny g:non_members'
-      ride: 'deny g:non_members'
-      interact: 'deny g:non_members'
-      entry: 'deny g:non_members'
-      allow-block-break: 'crops g:members'
-      allow-block-place: 'crops g:members'
-      priority: 2
-    forsale:
-      greeting: '%lang:prefix%%lang:greeting-forsale%'
-    sold:
-      members: '%uuid%, %friendsuuid%'
-      greeting: '%lang:prefix%%lang:greeting-bought%'
-    resale:
-      members: '%uuid%, %friendsuuid%'
-      greeting: '%lang:prefix%%lang:greeting-resale%'
-
-  testprofile:
-    forrent:
-      greeting: '%lang:prefix%%lang:greeting-forrent%'
-      priority: 2
-      entry: 'allow g:all'
-      use: 'deny g:all'
-      block-break: 'deny g:all'
-      block-place: 'deny g:all'
-      interact: 'deny g:all'
-      members: ''
-    rented:
-      members: '%uuid%, %friendsuuid%'
-      greeting: '%lang:prefix%%lang:greeting-rented%'
-      use: 'deny g:non_members'
-      interact: 'deny g:non_members'
-      entry: 'deny g:non_members'
-      block-break: 'allow g:members'
-      block-place: 'allow g:members'
-      priority: 2
-    forsale:
-      greeting: '%lang:prefix%%lang:greeting-forsale%'
-    sold:
-      members: '%uuid%, %friendsuuid%'
-      greeting: '%lang:prefix%%lang:greeting-bought%'
-    resale:
-      members: '%uuid%, %friendsuuid%'
-      greeting: '%lang:prefix%%lang:greeting-resale%'
-
-## Run commands when an event happens.
-## Commands at a 'before' section will execute before the region details are changed in the AreaShop system
-## and before any other actions occurred (setting the owner, saving/loading schematics, etc.),
-## the 'after' commands will be run when all changes are done.
-## You can add a list of commands to 'before' and 'after'.
-eventCommandProfiles:
-  default:
-    created:
-      before:
-      after:
-    ##  - "say An AreaShop region has been created: %region%"
-    deleted:
-      before:
-      after:
-    rented:
-      before:
-      after:
-    extended:
-      before:
-      after:
-    unrented:
-      before:
-      after:
-    bought:
-      before:
-      after:
-    sold:
-      before:
-      after:
-    resell:
-      before:
-      after:
-
-## For the following events you can specify if you want to restore or save the region to a schematic.
-## After 'save:' or 'restore:' you enter the name of the file to restore from/to.
-## The limit 'maximumBlocks' applies to restoring/saving schematics, be sure your region size is below the limit.
-## More information can be found here: https://github.com/NLthijs48/AreaShop/wiki/Region-blocks-save-restore.
-schematicProfiles:
-  default:
-    created:
-      save: '%type%-%region%'
-      restore: ''
-    deleted:
-      save: ''
-      restore: '%type%-%region%'
-    rented:
-      save: ''
-      restore: ''
-    unrented:
-      save: ''
-      restore: '%type%-%region%'
-    bought:
-      save: ''
-      restore: ''
-    sold:
-      save: ''
-      restore: '%type%-%region%'
-    resell:
-      save: ''
-      restore: ''
-
-## Profiles that specify what happens when their rental region almost runs out.
-## Time identifiers specify how much time before the rent is actually over the player should be notified.
-## When warnPlayer is set to true a message will be send that is specified in the language file.
-## All commands in the list below 'commands:' will execute together with the warning, all normal variables can be used.
-expirationWarningProfiles:
-  default:
-    "1 dia":
-      warnPlayer: true
-      commands:
-
 blacklist:
   - '__global__'
 # Minimum length of the numbers that are suffixed for region names generated by the '/as stack' command.
@@ -254,7 +98,7 @@ sendStats: false
 # If enabled it will check for updates when loading the plugin, it will never download files, it will only notify about it.
 checkForUpdates: true
 # Use colors when sending messages to console and log files.
-useColorsInConsole: false
+useColorsInConsole: true
 # Use tellraw style messages, which can be interacted with by players
 useFancyMessages: true
 # Update all region flags and signs after starting the plugin.

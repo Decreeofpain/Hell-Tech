@@ -1,0 +1,23 @@
+#
+# These example files show you how to inject Mythic Mobs
+# you've created into your world. The name of each block
+# can be whatever you'd like but must be unique.
+MeslajhoT1:
+  Action: REPLACE
+  Type: Bandit
+  Chance: 1
+  Priority: 1
+  UseWorldScaling: true
+  Worlds: Meslajho
+  Conditions:
+    - region{r=circulomeslajho} true
+    - mobsinworld <40
+
+# MeslajhoT1deny:
+#   Action: DENY
+#   Chance: 1
+#   Priority: 100
+#   Worlds: Meslajho
+#   Conditions:
+#     - region{r=circulomeslajho} true
+#     - mobsinworld{10} false

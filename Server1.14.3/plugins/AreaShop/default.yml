@@ -10,11 +10,17 @@ general:
   # The y location within the region to start searching for safe teleport locations (x and z are in the middle of the region).
   # Possible values: 'bottom', 'middle', 'top' or a number indicating an exact y coordinate.
   teleportLocationY: bottom
-  # If true the teleportation algorithm only allows telportation to inside the region, otherwise it will expand
+  # If true the teleportation algorithm only allows teleportation to inside the region, otherwise it will expand
   # a cube from the starting point to check for safe spots (then it could end outside of the region).
   teleportIntoRegion: true
   # Same as above, but then for when you teleport to the sign of a region instead of the region itself.
   teleportToSignIntoRegion: false
+  # Allow teleporting to the region from another world with `/as tp`
+  teleportCrossWorld: true
+  # When teleporting to a sign, the number of blocks the player should get teleported away from the sign
+  teleportSignDistance: 1
+  # Should '/as find' find this region while the player is in another world? (prevents cross-world teleport if turned off)
+  findCrossWorld: true
   # Set where the '/as find' command should teleport the player to, set to true for the first sign of the region and set to
   # false to teleport to the location set by '/as settp' or the default location (if not set).
   findTeleportToSign: true
@@ -24,8 +30,10 @@ general:
   restrictedToRegion: false
   # The UUID of the landlord, this player will receive all money from rents/buys (but not reselling with '/as resell').
   landlord: ''
-  # Name of the landlord, if the landlord UUID setting is not provided then the name will be used instead
+  # Name of the landlord, if the landlord UUID setting is not provided then the name will be used instead.
   landlordName: ''
+  # Disable to prevent counting this region towards limits set by 'limitGroups' in config.yml.
+  countForLimits: true
 
   ##### Set the layout and functions of the signs.
   # The following sections can be added for performing certain commands when the sign is clicked:
@@ -39,22 +47,24 @@ general:
       line3: '&5%duration%'
       line4: '&2%price%'
       rightClickPlayer:
-      - 'areashop rent %region%'
-      #- 'areashop message %clicker% %lang:confirm-rent|%region%|%' # Alternative to first ask for confirmation
+        - 'areashop rent %region%'
+      rightClickConsole:
+      #  - 'areashop message %clicker% %lang:confirm-rent|%region%|%' # Alternative to first ask for confirmation (remove rightClickPlayer section)
       leftClickPlayer:
-      - 'areashop info region %region%'
+        - 'areashop info region %region%'
     rented:
       line1: '&4&l[&cRentado&4]'
       line2: 'Por &2%player%'
       line3: '&1%timeleft%'
       line4: '&5%untilshort%'
       rightClickPlayer:
-      - 'areashop rent %region%'
-      #- 'areashop message %clicker% %lang:confirm-extend|%region%|%' # Alternative to first ask for confirmation
+        - 'areashop rent %region%'
+      rightClickConsole:
+      #  - 'areashop message %clicker% %lang:confirm-extend|%region%|%' # Alternative to first ask for confirmation (remove rightClickPlayer section)
       leftClickPlayer:
-      - 'areashop info region %region%'
-      shiftRightClickPlayer:
-      - 'areashop unrent %region%'
+        - 'areashop info region %region%'
+      shiftRightClickConsole:
+        - 'areashop message %clicker% %lang:confirm-unrent|%region%|%'
     forsale:
       line1: '&2&l[For Sale]'
       line2: '%region%'
@@ -102,6 +112,7 @@ general:
   flagProfile:
     ALL: # Flags that should always be applied
       priority: 10
+      owners: ''
       members: ''
       interact: 'deny g:non_members' # Only allow region members/owners to use things in the region (chests, furnace, animals, etc.)
       build: 'deny g:non_members'
@@ -127,10 +138,9 @@ general:
     sold:
       members: '%uuid%, %friendsuuid%'
       greeting: '%lang:prefix%%lang:greeting-bought%'
-    resale:
+    resell:
       members: '%uuid%, %friendsuuid%'
       greeting: '%lang:prefix%%lang:greeting-resale%'
-
 
   ##### Save and restore schematics to clean up regions.
   # After 'save:' or 'restore:' you enter the name of the file to restore from/to (.schematic is added automatically).
@@ -196,11 +206,14 @@ general:
 # │ RENT: Settings that apply to rent regions.                                                                                 │
 # └────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┘
 rent:
-  # The default price of a rental region.
+  # The default price of a rental region (variables, mathematical expressions and JavaScript can be used).
   price: 1000
   # The default duration of a rental region, you can find all time indicators in config.yml below the RENTING header.
   duration: '7 dias'
-  # The percentage of the rent price you get back if you unrent the region (price of time left will be multiplied by this/100).
+  # Automatically extend the rental when it is running out (if the player meets the criteria)
+  autoExtend: false
+  # The percentage of the rent price you get back if you unrent the region (only the time that is unused is given back).
+  # (variables, mathematical expressions and JavaScript can be used)
   moneyBack: 50
   # Maximum number of extends a player can do (-1 for infinite, 0 for no extending), if they are at this number then
   # they are force to let their rent run out (and can rent it again at that point).
@@ -232,10 +245,14 @@ rent:
 # │ BUY: Settings that apply to buy regions.                                                                                   │
 # └────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┘
 buy:
-  # The default price of a buy region.
+  # The default price of a buy region (variables, mathematical expressions and JavaScript can be used).
   price: 1000
-  # The percentage of the price you get back if you sell the region.
+  # The percentage of the price you get back if you sell the region (variables, mathematical expressions and JavaScript can be used)
   moneyBack: 100
   # Automatically sell the region after the specified number of minutes between the last login time of the buyer and the current time
   # Use times like '1 day' etc, or 'disabled' for never.
   inactiveTimeUntilSell: 'disabled'
+  # Selling is disabled for the region owner (players with areashop.sellown without areashop.sell)
+  sellDisabled: false
+  # Reselling is disabled for the region owner (players with areashop.resell without areashop.resellall)
+  resellDisabled: false

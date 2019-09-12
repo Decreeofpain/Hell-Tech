@@ -1,13 +1,14 @@
-﻿# ╔════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════╗
-# ║ Language file of the AreaShop plugin created by NLThijs48, Github can be found at https://github.com/NLthijs48/AreaShop    ║
-# ║ Language: English, Version: V2.4.0, Percentage translated: 100% (source), author: NLThijs48                                ║
-# ║ This file will be overwritten at each startup/reload of the plugin, if you want to change anything then do the following:  ║
-# ║ 1: Make a copy of this file                                                                                                ║
-# ║ 2: Rename it to <servername>.yml (don't use a language code as filename, could otherwise be overwritten in future updates) ║
-# ║ 3: Change the 'language' setting in config.yml to '<servername>', do not include '.yml'                                    ║
-# ║ 4: Change the strings in the new file to your liking and save the file                                                     ║
-# ║ 5: Use '/as reload' or reload/restart your server to see the changes                                                       ║
-# ╚════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════╝
+﻿# ╔═════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════
+# ║ Language file of the AreaShop plugin created by NLThijs48, Github can be found at https://github.com/NLthijs48/AreaShop
+# ║ English language file, plugin version 2.5.0
+# ║
+# ║ This file will be overwritten at each startup/reload of the plugin, if you want to change anything then do the following:
+# ║   1: Make a copy of this file
+# ║   2: Rename it to `servername.yml`
+# ║   3: Change the `language` setting in config.yml to `servername`, do not include `.yml`
+# ║   4: Change the messages in the new file to your liking
+# ║   5: Use `/as reload`or reload/restart your server to see the changes
+# ╚═════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════
 action: "[gold][bold]<%0%>[/bold]"
 
 button: "[bold]<%0%>[/bold]"
@@ -45,6 +46,8 @@ landlord:
   - "    command: /areashop info player %landlord%"
 
 total-maximum: "You can't rent and buy more than %0% region(s) in total (you already have %1% in group '%2%')."
+
+confirm-yes: " [gray]Click to %lang:command|Confirm|%0%|%[gray], or repeat the command."
 
 general-notReady: "AreaShop has not fully loaded yet, please wait."
 general-noWorld: "You cannot do that, the world of %lang:region% is currently unavailable (world '%world%')."
@@ -98,6 +101,7 @@ help-delFriend: "%lang:helpCommand|/as delfriend|% Delete a friend from a region
 help-linksigns: "%lang:helpCommand|/as linksigns|% Use bulk sign linking mode."
 help-stack: "%lang:helpCommand|/as stack|% Create multiple regions and add them."
 help-setlandlord: "%lang:helpCommand|/as setlandlord|% Set the landlord of a region."
+help-import: "%lang:helpCommand|/as import|% Import region from RegionForSale."
 
 rent-help: "/as rent [region], the region you stand in will be used if not specified."
 rent-noPermission: "You don't have permission to rent a region."
@@ -110,7 +114,7 @@ rent-extendedToMax: "You extended your rent of %lang:region% until %until% (whic
 rent-lowMoneyExtend: "You don't have enough money to extend the rent (you have %0% and you need %price%)."
 rent-lowMoneyRent: "You don't have enough money to rent %lang:region% (you have %0% and you need %price%)."
 rent-someoneElse: "Someone else already rented %lang:region%."
-rent-notRentable: "That region is not available for renting."
+rent-notRentable: "Region '%0%' is not available for renting (not registered in AreaShop or it is a buy region)."
 rent-maxExtends: "You cannot extend this rent anymore (the maximum is %maxextends% times), however after the rent is over you can rent %lang:region% again."
 rent-maxRentTime: "You cannot rent %lang:region% more time in advance, the maximum time is %maxrenttime% and you have currently rented it for %timeleft%."
 rent-restrictedToWorld: "You need to be in the '%world%' world to rent %lang:region% (you are in '%0%')."
@@ -123,7 +127,7 @@ buy-help: "/as buy [region], the region you stand in will be used if not specifi
 buy-noPermission: "You don't have permission to buy a region."
 buy-noPermissionResell: "You don't have permission to buy a region in resell mode."
 buy-noPermissionNoResell: "You don't have permission to buy a region that is not in resell mode."
-buy-notBuyable: "Region %lang:region% is not available for buying."
+buy-notBuyable: "Region '%0%' is not available for buying (not registered in AreaShop or it is a rental region)."
 buy-maximum: "You can't buy more than %0% region(s) (you already have %1% in group '%2%')."
 buy-payError: "Something went wrong with paying, try again later."
 buy-succes: "You successfully bought %lang:region%."
@@ -150,10 +154,11 @@ sell-notBought: "The region can't be sold because it is not someone's property."
 sell-sold: "%lang:region% of %lang:player% has been sold."
 sell-noPermission: "You don't have permission to sell a region."
 sell-noPermissionOther: "You don't have permission to sell another region."
+sell-disabled: "Selling has been disabled for this region."
 
-reload-reloading: "Reloaded all files, now checking rents and updating regions."
-reload-updateStart: "[gray]Updating %0% regions at %1% per second."
-reload-updateComplete: "[gray]Updating regions complete."
+reload-reloading: "Reloaded all configuration and region files."
+reload-updateStart: ""
+reload-updateComplete: ""
 reload-noPermission: "You don't have permission to reload the config files."
 reload-updateCommandChanged: "'/as updaterents' and '/as updatebuys' have been removed, '/as reload' will also update the regions now so use that command instead."
 
@@ -190,14 +195,14 @@ info-pageStatus:
 info-pagePrevious:
   - "    [gold][bold]◄Previous[/bold]    "
   - "    hover: %lang:action|Show previous page|%"
-  - "    command: %0%"
+  - "    command: /areashop %0%"
 info-pageNoPrevious:
   - "    [darkgray][bold]◄Previous[/bold]    "
   - "    hover: This is already the first page"
 info-pageNext:
   - "    [gold][bold]Next►[/bold]"
   - "    hover: %lang:action|Show next page|%"
-  - "    command: %0%"
+  - "    command: /areashop %0%"
 info-pageNoNext:
   - "    [darkgray][bold]Next►[/bold]"
   - "    hover: This is already the last page"
@@ -318,6 +323,7 @@ setduration-successRemoved: "Duration of %lang:region% has been removed, it will
 
 setup-noRegion: "You did not specify a region on the second line."
 setup-alreadyRentSign: "The region you specified is already added to AreaShop as a rent region, add signs with [as] on the first line or '/as addsign'."
+setup-alreadyOtherWorld: "The region you specified is already added to AreaShop in another world, regions from different worlds still need different names."
 setup-alreadyBuySign: "The region you specified is already added to AreaShop as a buy region, add signs with [as] on the first line or '/as addsign'."
 setup-noDuration: "You did not specify how long the region can be rented, do this on the third line."
 setup-wrongDuration: "The time specified is not in the correct format, example: 1 day."
@@ -352,6 +358,7 @@ teleport-noSafe: "No safe position found in %lang:region%, no spots in the regio
 teleport-blocked: "You can't teleport because the position is outside the region, and you are forced to teleport inside."
 teleport-changedToSign: "You only have permission to teleport to the sign and not inside the region, teleporting to sign."
 teleport-changedToNoSign: "No sign available to teleport to, trying to teleport inside the region instead."
+teleport-wrongWorld: "You need to be in world '%world%' to teleport to %lang:region%, but you are in world '%0%'."
 
 setteleport-help: "/as settp [region] [reset], the region you stand in will be used if not specified."
 setteleport-noPermission: "You don't have permission to set the teleport location."
@@ -380,6 +387,7 @@ groupadd-weFailed: "Were already in group %0%: [gray]%1%."
 
 groupdel-help: "/as groupdel <group> [region], if no region specified all regions from your WorldEdit selection are used."
 groupdel-noPermission: "You don't have permission to remove regions from groups."
+groupdel-wrongGroup: "Group %0% not found, check '/as grouplist' for registered groups."
 groupdel-success: "Region %lang:region% has been removed from group '%0%', this group now has %1% member(s)."
 groupdel-failed: "Region %lang:region% is not a member of group '%0%'."
 groupdel-weSuccess: "Removed from group %0%: [gray]%1%."
@@ -404,7 +412,11 @@ add-help: "/as add <rent|buy> [region] [world]."
 add-noPermission: "You don't have permission to add a region to AreaShop."
 add-success: "Added as %0%: [gray]%1%."
 add-failed: "Already registered: [gray]%0%."
+add-failedOtherWorld: "Already registered from another world: [gray]%0%."
 add-blacklisted: "On the blacklist: [gray]%0%."
+add-rentCancelled: "Rent cancelled: [gray]%0%."
+add-buyCancelled: "Buy cancelled: [gray]%0%."
+add-addCancelled: "Add cancelled: [gray]%0%."
 add-specifyWorld: "Specify the world of the region when using from console."
 add-incorrectWorld: "World '%0%' not found, try again (case-sensitive)."
 add-noPermissionRegions: "No permission to add: [gray]%0%."
@@ -413,10 +425,12 @@ add-noPermissionOwnerMember: "[gray]You either are not a member/owner of these r
 del-noPermission: "You don't have permission to remove regions."
 del-success: "Removed regions: [gray]%0%."
 del-failed: "No permission to remove or not registered: [gray]%0%."
+del-cancelled: "Delete cancelled: [gray]%0%."
 
 addsign-help: "/as addsign [region] [profile]."
 addsign-noSign: "You are not looking at a sign."
 addsign-noRegions: "No region found around the sign position."
+addSign-notRegistered: "The specified region is not registered in AreaShop: %0% (it first needs to be added to AreaShop before a sign can be added)."
 addsign-couldNotDetect: "Found multiple regions around the sign, specify region as extra argument (2 of the regions that were found: %lang:tRegion|%0%|% and %lang:tRegion|%1%|%)."
 addsign-couldNotDetectSign: "Found multiple regions around the sign, specify region on the second line (2 of the regions that were found: %lang:tRegion|%0%|% and %lang:tRegion|%1%|%)."
 addsign-wrongProfile: "The specified profile does not exist, use one of the following (check config): [gray]%0%."
@@ -470,6 +484,7 @@ resell-notBought: "You can't resell %lang:region% because it is not sold yet."
 resell-success: "%lang:region% is successfully put into reselling mode for %resellprice%."
 resell-noPermission: "You don't have permission to set your region in reselling mode."
 resell-noPermissionOther: "You don't have permission to set regions in reselling mode."
+resell-disabled: "Reselling has been disabled for this region."
 
 stopresell-help: "/as stopresell [region], the region you stand in will be used if not specified."
 stopresell-notRegistered: "The specified region is not registered: %0%."
@@ -536,6 +551,31 @@ message-help: "/as message <player> <message...>"
 message-noPermission: "You do not have permission to send AreaShop messages."
 message-notOnline: "%0% is not online."
 
+import-help: "/as import RegionForSale"
+import-wrongSource: "Specify from where you want to import data, options: RegionForSale."
+import-noPluginFolder: "Could not find the %0% folder, are you sure you are importing from the correct source?"
+import-noWorldsFolder: "There is no 'plugins/RegionForSale/worlds' folder, therefore nothing could be imported."
+import-confirm: "Are you sure you want to import all regions from RegionForSale?"
+import-start: "Starting import of RegionForSale data:"
+import-doWorld: "[darkgreen][bold]► World %0%:"
+import-noBukkitWorld: "[red]Could not find world in Bukkit."
+import-noRegionManager: "[red]Could not get RegionManager from WorldGuard, are regions enabled in this world?"
+import-noRegions: "[red]No regions.yml file found."
+import-loadRegionsFailed: "[red]Could not load regions.yml at: %0%"
+import-invalidRegionSection: "[red]Invalid section in regions.yml: %0%."
+import-noWorldGuardRegion: "[red]WorldGuard region not found: %0%."
+import-noWorldGuardRegionParent: "[red]WorldGuard region for parent region not found: %0%."
+import-buyAndRent: "[gold]%0% can be bought and rented, only adding as buy in AreaShop (cannot be both)."
+import-noBuyAndNoRent: "[red]%0% cannot be bought and cannot be rented, skipping import."
+import-imported: "[green]%lang:tRegion|%0%|% imported."
+import-loadWorldConfigFailed: "[red]Loading world-specific config.yml failed: %0%."
+import-improperParentRegion: "[red]Parent region %0% does not have readable settings."
+import-alreadyAdded: "[red]Region '%0%' has already been added."
+import-alreadyAddedOtherWorld: "[red]Region '%0%' has already been added in world %1%, regions in different worlds cannot have the same name in AreaShop."
+import-invalidSignLocation: "[red]Failed to import a sign of region '%0%', invalid location: '%1%'."
+import-signAlreadyAdded: "[red]Skipped adding sign at location '%1%' to region '%0%', it is already added to region '%2%'."
+import-moneyBackFailed: "[red]Failed to parse buy price '%0%' and sell price '%1%' to set the money back percentage."
+
 confirm-rent:
   - "%lang:prefix%Are you sure you want to rent %lang:tRegion|%0%|%?[break]"
   - "[darkgreen][bold]►[reset] %lang:button|Click to rent %0%|%"
@@ -575,6 +615,11 @@ greeting-forrent: "%region% can be rented for %price% per %duration%."
 greeting-rented: "%region% is rented by %player% until %until%."
 greeting-forsale: "%region% can be bought for %price%."
 greeting-bought: "%region% is bought by %player%."
-greeting-resale: "%region% can be bought for %resaleprice% from %player%."
+greeting-resale: "%region% can be bought for %resellprice% from %player%."
 
-update-playerNotify: "[darkgreen]Update from AreaShop V%0% to %1% available, get the latest version at https://github.com/NLthijs48/AreaShop/releases."
+update-playerNotify:
+  - "[darkgreen]Update from AreaShop V%0% to AreaShop V%1% available, get the latest version at "
+  - "[bold]Spigot[/bold]"
+  - "    hover: %lang:action|Go to the Spigot AreaShop page|%"
+  - "    link: https://www.spigotmc.org/resources/areashop.2991/"
+  - " (and leave a review)."

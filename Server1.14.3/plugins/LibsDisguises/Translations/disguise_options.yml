@@ -27,6 +27,9 @@
 # Found in the disguise options for Entity and uses a boolean
 "setCustomNameVisible": "setCustomNameVisible"
 
+# Found in the disguise options for Entity and uses a EntityPose
+"setEntityPose": "setEntityPose"
+
 # Found in the disguise options for Entity and uses a boolean
 "setFlyingWithElytra": "setFlyingWithElytra"
 
@@ -111,6 +114,9 @@
 # Found in the disguise options for Living Entity and uses a int
 "setArrowsSticking": "setArrowsSticking"
 
+# Found in the disguise options for Living Entity and uses a BlockPosition
+"setBedPosition": "setBedPosition"
+
 # Found in the disguise options for Living Entity and uses a float
 "setHealth": "setHealth"
 
@@ -125,6 +131,9 @@
 
 # Found in the disguise options for Arrow and uses a boolean
 "setCritical": "setCritical"
+
+# Found in the disguise options for Arrow and uses a int
+"setPierceLevel": "setPierceLevel"
 
 # Found in the disguise options for Insentient and uses a boolean
 "setAI": "setAI"
@@ -153,11 +162,29 @@
 # Found in the disguise options for Boat and uses a boolean
 "setRightPaddling": "setRightPaddling"
 
-# Found in the disguise options for Spider and uses a boolean
-"setClimbing": "setClimbing"
-
 # Found in the disguise options for Ageable and uses a boolean
 "setBaby": "setBaby"
+
+# Found in the disguise options for Cat and uses a DyeColor
+"setCollarColor": "setCollarColor"
+
+# Found in the disguise options for Cat and uses a boolean
+"setLookingUp": "setLookingUp"
+
+# Found in the disguise options for Cat and uses a boolean
+"setLyingDown": "setLyingDown"
+
+# Found in the disguise options for Tameable and uses a boolean
+"setSitting": "setSitting"
+
+# Found in the disguise options for Tameable and uses a boolean
+"setTamed": "setTamed"
+
+# Found in the disguise options for Cat and uses a Type
+"setType": "setType"
+
+# Found in the disguise options for Spider and uses a boolean
+"setClimbing": "setClimbing"
 
 # Found in the disguise options for Creeper and uses a boolean
 "setIgnited": "setIgnited"
@@ -183,12 +210,6 @@
 # Found in the disguise options for Horse and uses a boolean
 "setSaddled": "setSaddled"
 
-# Found in the disguise options for Horse and uses a boolean
-"setTamed": "setTamed"
-
-# Found in the disguise options for Zombie and uses a boolean
-"setAggressive": "setAggressive"
-
 # Found in the disguise options for Zombie and uses a boolean
 "setConverting": "setConverting"
 
@@ -210,20 +231,41 @@
 # Found in the disguise options for EnderDragon and uses a int
 "setPhase": "setPhase"
 
-# Found in the disguise options for Illager and uses a int
-"setSpellTicks": "setSpellTicks"
+# Found in the disguise options for Enderman and uses a boolean
+"setAggressive": "setAggressive"
+
+# Found in the disguise options for Raider and uses a boolean
+"setCastingSpell": "setCastingSpell"
 
 # Found in the disguise options for FallingBlock and uses a ItemStack
 "setBlock": "setBlock"
 
-# Found in the disguise options for Firework and uses a int
-"setAttachedEntity": "setAttachedEntity"
-
 # Found in the disguise options for Firework and uses a ItemStack
 "setFirework": "setFirework"
 
+# Found in the disguise options for Firework and uses a boolean
+"setShotAtAngle": "setShotAtAngle"
+
 # Found in the disguise options for FishingHook and uses a int
 "setHooked": "setHooked"
+
+# Found in the disguise options for Fox and uses a boolean
+"setAngry": "setAngry"
+
+# Found in the disguise options for Fox and uses a boolean
+"setCrouching": "setCrouching"
+
+# Found in the disguise options for Fox and uses a boolean
+"setHeadTilted": "setHeadTilted"
+
+# Found in the disguise options for Fox and uses a boolean
+"setSleeping": "setSleeping"
+
+# Found in the disguise options for Fox and uses a boolean
+"setSpringing": "setSpringing"
+
+# Found in the disguise options for Fox and uses a boolean
+"setTipToeing": "setTipToeing"
 
 # Found in the disguise options for Horse and uses a ItemStack
 "setHorseArmor": "setHorseArmor"
@@ -258,17 +300,35 @@
 # Found in the disguise options for MinecartFurnace and uses a boolean
 "setFueled": "setFueled"
 
-# Found in the disguise options for Tameable and uses a boolean
-"setSitting": "setSitting"
+# Found in the disguise options for MushroomCow and uses a Variant
+"setVariant": "setVariant"
 
-# Found in the disguise options for Ocelot and uses a Type
-"setType": "setType"
+# Found in the disguise options for Ocelot and uses a boolean
+"setTrusting": "setTrusting"
 
 # Found in the disguise options for Painting and uses a Art
 "setArt": "setArt"
 
-# Found in the disguise options for Parrot and uses a Variant
-"setVariant": "setVariant"
+# Found in the disguise options for Panda and uses a int
+"setHeadShaking": "setHeadShaking"
+
+# Found in the disguise options for Panda and uses a Gene
+"setHiddenGene": "setHiddenGene"
+
+# Found in the disguise options for Panda and uses a Gene
+"setMainGene": "setMainGene"
+
+# Found in the disguise options for Panda and uses a boolean
+"setSneeze": "setSneeze"
+
+# Found in the disguise options for Panda and uses a boolean
+"setTumble": "setTumble"
+
+# Found in the disguise options for Panda and uses a boolean
+"setUpsideDown": "setUpsideDown"
+
+# Found in the disguise options for Pillager and uses a boolean
+"setAimimgBow": "setAimimgBow"
 
 # Found in the disguise options for Player and uses a boolean
 "setCapeEnabled": "setCapeEnabled"
@@ -294,11 +354,8 @@
 # Found in the disguise options for Player and uses a boolean
 "setRightSleeveEnabled": "setRightSleeveEnabled"
 
-# Found in the disguise options for Player and uses a String
+# Found in the disguise options for Player and uses a WrappedGameProfile
 "setSkin": "setSkin"
-
-# Found in the disguise options for Player and uses a BlockFace
-"setSleeping": "setSleeping"
 
 # Found in the disguise options for PolarBear and uses a boolean
 "setStanding": "setStanding"
@@ -317,9 +374,6 @@
 
 # Found in the disguise options for Shulker and uses a int
 "setShieldHeight": "setShieldHeight"
-
-# Found in the disguise options for Skeleton and uses a boolean
-"setSwingArms": "setSwingArms"
 
 # Found in the disguise options for Snowman and uses a boolean
 "setDerp": "setDerp"
@@ -342,14 +396,11 @@
 # Found in the disguise options for Turtle and uses a boolean
 "setEgg": "setEgg"
 
-# Found in the disguise options for Vex and uses a boolean
-"setAngry": "setAngry"
+# Found in the disguise options for Villager and uses a int
+"setLevel": "setLevel"
 
 # Found in the disguise options for Villager and uses a Profession
 "setProfession": "setProfession"
-
-# Found in the disguise options for Vindicator and uses a boolean
-"setJohnny": "setJohnny"
 
 # Found in the disguise options for Wither and uses a int
 "setInvulnerability": "setInvulnerability"
@@ -359,9 +410,6 @@
 
 # Found in the disguise options for Wolf and uses a boolean
 "setBegging": "setBegging"
-
-# Found in the disguise options for Wolf and uses a DyeColor
-"setCollarColor": "setCollarColor"
 
 # Found in the disguise options for Wolf and uses a float
 "setDamageTaken": "setDamageTaken"

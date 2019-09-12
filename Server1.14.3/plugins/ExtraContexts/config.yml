@@ -1,0 +1,30 @@
+# ExtraContexts
+# made with <3 by Luck
+
+
+# Set a provider to true to enable it.
+# Contexts are explained in more detail here:
+# https://github.com/lucko/LuckPerms/wiki/Context
+
+
+# Provides the 'wg-region' context.
+# Returns the name of each WorldGuard region the player is currently in.
+#
+# e.g. wg-region=spawn
+worldguard: false
+
+# Provides the 'gamemode' context.
+# Returns the players current gamemode.
+#
+# e.g. gamemode=creative
+gamemode: false
+
+# Provides the 'dimension' context.
+# Returns the type of the players current world.
+#
+# e.g. dimension=nether
+dimension: false
+
+placeholderapi: false
+placeholderapi-placeholders:
+  allowflight: "%player_allow_flight%"

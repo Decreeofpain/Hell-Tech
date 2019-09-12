@@ -2,6 +2,7 @@ Scripts:
     Scripts location:
         Alternative folder path: 'plugins/Denizen'
         Use default script folder: true
+    # Default speed for new queues (via run command usually)
     Queue speed: 0.5s
     # What character encoding to use. 'default' indicates system default, 'utf8' is suggested as a preferred encoding in most cases.
     Encoding: default
@@ -12,6 +13,9 @@ Scripts:
                 Use asynchronous event: true
             On time changes:
                 Frequency of check: 250t
+    Interact:
+        # Default speed for interact script queues
+        Queue speed: 0.5s
 #----------- Important! -----------
 # Your configuration file was outdated.
 # It has been automatically updated.
@@ -22,7 +26,7 @@ Scripts:
 # The below value is how many times automatic updates have been applied
 # since you last cleaned this file.
 # ----------- End Important! -----------
-times_changed: 3
+times_changed: 4
 Packets:
     # Whether to allow Denizen to intercept packets from and to player clients.
     # This enables access to certain ScriptEvents, such as PlayerSteers and PlayerReceivesMessage.
@@ -101,6 +105,10 @@ Commands:
         # Set to 'false' if you're worried about security.
         # Whether the YAML command (or any other file-alteration command) is allowed to save outside the minecraft server folder.
         Allow saving outside folder: false
+        # Optionally: set a limited path, where all edits must be contained to.
+        # A good path to use for extra security is: plugins/Denizen/data/
+        # Leave at "none" to disable this optional protection.
+        Limit path: none
 # Whether triggers are on by default, and their individual settings
 Triggers:
     Proximity:
@@ -163,6 +171,10 @@ Debug:
     Container default: true
     # The max length of debug output. After this length, all further output will be cut off.
     Trim length limit: 1024
+    # How many debug messages can appear within the span of a single tick before they simply get blocked.
+    # This is available as a backup safety feature to prevent debug output from crashing a server.
+    # Set the value lower to better protect this, set the value higher to willfully debug a very very long script.
+    Limit per tick: 5000
 # The default options for new Denizen NPCs
 # Whether to spawn NPCs with given traits, and what settings to have by default
 Traits:

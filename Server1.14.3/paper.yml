@@ -11,7 +11,7 @@
 # Docs: https://paper.readthedocs.org/ 
 
 verbose: false
-config-version: 18
+config-version: 19
 settings:
   player-auto-save-rate: -1
   max-player-auto-save-per-tick: -1
@@ -118,7 +118,7 @@ world-settings:
     max-entity-collisions: 8
     disable-creeper-lingering-effect: false
     anti-xray:
-      enabled: false
+      enabled: true
       engine-mode: 1
       chunk-edge-mode: 2
       max-chunk-section-index: 3
@@ -133,14 +133,14 @@ world-settings:
       - chest
       - diamond_ore
       - redstone_ore
-      - lit_redstone_ore
       - clay
       - emerald_ore
       - ender_chest
       replacement-blocks:
       - stone
-      - planks
+      - oak_planks
     game-mechanics:
+      disable-relative-projectile-velocity: false
       disable-sprint-interruption-on-attack: false
       disable-chest-cat-detection: false
       disable-end-credits: false
@@ -179,3 +179,7 @@ world-settings:
     hopper:
       cooldown-when-full: true
       disable-move-event: false
+    alt-item-despawn-rate:
+      enabled: false
+      items:
+        COBBLESTONE: 300

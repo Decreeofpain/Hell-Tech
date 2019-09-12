@@ -5,7 +5,7 @@
 # ╚════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════╝
 # ┌────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┐
 # │ GENERAL: Settings that apply to all regions.                                                                               │
-# └────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┘  
+# └────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┘
 general:
   # The y location within the region to start searching for safe teleport locations (x and z are in the middle of the region).
   # Possible values: 'bottom', 'middle', 'top' or a number indicating an exact y coordinate.
@@ -34,29 +34,27 @@ general:
   # Sections with 'Player' at the end will be run by the player that clicks the sign and 'Console' ones from the console.
   signProfile:
     forrent:
-      line1: '&2&l[For Rent]'
-      line2: '%region%'
-      line3: '%duration%'
-      line4: '%price%'
+      line1: '&2[&aRentar&2]'
+      line2: '&4%region%'
+      line3: '&5%duration%'
+      line4: '&2%price%'
       rightClickPlayer:
-        - 'areashop rent %region%'
-      rightClickConsole:
-      #  - 'areashop message %clicker% %lang:confirm-rent|%region%|%' # Alternative to first ask for confirmation (remove rightClickPlayer section)
+      - 'areashop rent %region%'
+      #- 'areashop message %clicker% %lang:confirm-rent|%region%|%' # Alternative to first ask for confirmation
       leftClickPlayer:
-        - 'areashop info region %region%'
+      - 'areashop info region %region%'
     rented:
-      line1: '&4&l[Rented]'
-      line2: '%region%'
-      line3: '%player%'
-      line4: '%untilshort%'
+      line1: '&4&l[&cRentado&4]'
+      line2: 'Por &2%player%'
+      line3: '&1%timeleft%'
+      line4: '&5%untilshort%'
       rightClickPlayer:
-        - 'areashop rent %region%'
-      rightClickConsole:
-      #  - 'areashop message %clicker% %lang:confirm-extend|%region%|%' # Alternative to first ask for confirmation (remove rightClickPlayer section)
+      - 'areashop rent %region%'
+      #- 'areashop message %clicker% %lang:confirm-extend|%region%|%' # Alternative to first ask for confirmation
       leftClickPlayer:
-        - 'areashop info region %region%'
-      shiftRightClickConsole:
-        - 'areashop message %clicker% %lang:confirm-unrent|%region%|%'
+      - 'areashop info region %region%'
+      shiftRightClickPlayer:
+      - 'areashop unrent %region%'
     forsale:
       line1: '&2&l[For Sale]'
       line2: '%region%'
@@ -108,10 +106,22 @@ general:
       interact: 'deny g:non_members' # Only allow region members/owners to use things in the region (chests, furnace, animals, etc.)
       build: 'deny g:non_members'
     forrent:
-      greeting: '%lang:prefix%%lang:greeting-forrent%'
+      priority: 5
+      entry: 'allow g:all'
+      use: 'deny g:all'
+      block-break: 'deny g:all'
+      block-place: 'deny g:all'
+      interact: 'deny g:all'
+      members: ''
+      greeting: 'ploxe'
     rented:
+      greeting: 'Nada'
       members: '%uuid%, %friendsuuid%'
-      greeting: '%lang:prefix%%lang:greeting-rented%'
+      use: 'deny g:non_members'
+      ride: 'deny g:non_members'
+      interact: 'deny g:non_members'
+      entry: 'deny g:non_members'
+      priority: 2
     forsale:
       greeting: '%lang:prefix%%lang:greeting-forsale%'
     sold:
@@ -121,10 +131,11 @@ general:
       members: '%uuid%, %friendsuuid%'
       greeting: '%lang:prefix%%lang:greeting-resale%'
 
+
   ##### Save and restore schematics to clean up regions.
   # After 'save:' or 'restore:' you enter the name of the file to restore from/to (.schematic is added automatically).
   # Set to true to enable saving/restoring for regions as specified in the profile below, which is specified in the config.
-  enableRestore: false
+  enableRestore: true
   schematicProfile:
     created:
       save: '%type%-%region%'
@@ -188,9 +199,9 @@ rent:
   # The default price of a rental region.
   price: 1000
   # The default duration of a rental region, you can find all time indicators in config.yml below the RENTING header.
-  duration: '1 day'
+  duration: '7 dias'
   # The percentage of the rent price you get back if you unrent the region (price of time left will be multiplied by this/100).
-  moneyBack: 100
+  moneyBack: 50
   # Maximum number of extends a player can do (-1 for infinite, 0 for no extending), if they are at this number then
   # they are force to let their rent run out (and can rent it again at that point).
   maxExtends: -1
@@ -199,10 +210,10 @@ rent:
   maxRentTime: 'unlimited'
   # Automatically unrent the region after the specified time between the last login time of the renter and the current time.
   # Use times like '1 day' etc, or 'disabled' for never.
-  inactiveTimeUntilUnrent: 'disabled'
+  inactiveTimeUntilUnrent: '1 minuto'
   # If a region of a player has less then this time left when he joins the server he will get a notice about his region.
   # Use '' to disable.
-  warningOnLoginTime: '1 day'
+  warningOnLoginTime: '2 horas'
   # If renting the region would go above 'maxRentTIme', then extend to the maximum instead of cancelling the rent.
   extendToFullWhenAboveMaxRentTime: true
   ##### Run commands a certain time before expiration of a region.

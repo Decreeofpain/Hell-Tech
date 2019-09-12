@@ -8,7 +8,7 @@
 # └────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┘
 # Chat prefix used for all messages in the chat, also changes the greeting messages.
 chatPrefix:
-  - ''
+  - '[darkgreen][AreaShop][reset]'
   - '  hover: AreaShop region management plugin'
   - '  hover: %lang:action|Click to check the available commands|%'
   - '  command: /areashop help'
@@ -33,15 +33,24 @@ signTags:
 moneyCharacter: '$'
 # The characters displayed after a price.
 moneyCharacterAfter: ' Almakos'
-# How many numbers behind the dot should be shown (2 will make numbers like '8.55', '9.01', '5.20').
-fractionalNumbers: 2
-# Set this to true if you want to hide '.0' for a number like '15.0' ('4.50' will still stay '4.50').
-hideEmptyFractionalPart: true
-# Use metric suffixes if the price is above this number (use 1.00M instead of 1000000.00 etc.), use -1 to disable.
-# Indications are used as defined on: http://en.wikipedia.org/wiki/Metric_prefix, implemented from 'k' to 'Y'.
-metricSuffixesAbove: 1000000.0
 # The character(s) to use as decimal mark.
 decimalMark: '.'
+# How many numbers behind the dot should be shown (2 will make numbers like '8.55', '9.01', '5.20').
+fractionalNumbers: 2
+# How many numbers behind the dot should be shown when using a metric symbol suffix.
+fractionalNumbersShort: 3
+# Set this to true if you want to hide '.0' for a number like '15.0' ('4.50' will still stay '4.50').
+hideEmptyFractionalPart: true
+# Use a suffix if the price is above a certain number (use 1.00M instead of 1000000.00 etc.)
+metricSymbols:
+  #1000: "k"
+  1000000: "M"
+  1000000000: "G"
+  1000000000000: "T"
+  1000000000000000: "P"
+  1000000000000000000: "E"
+  1000000000000000000000: "Z"
+  1000000000000000000000000: "Y"
 
 
 # ┌────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┐
@@ -77,6 +86,8 @@ limitGroups:
     total: 2
     rents: 2
     buys: 1
+
+
 # ┌────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┐
 # │ ADVANCED AND DEBUG: Specific options to tweak the plugin precisely and check if it functions correctly.                    │
 # └────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┘
@@ -98,7 +109,7 @@ sendStats: false
 # If enabled it will check for updates when loading the plugin, it will never download files, it will only notify about it.
 checkForUpdates: true
 # Use colors when sending messages to console and log files.
-useColorsInConsole: true
+useColorsInConsole: false
 # Use tellraw style messages, which can be interacted with by players
 useFancyMessages: true
 # Update all region flags and signs after starting the plugin.
@@ -107,7 +118,7 @@ updateRegionsOnStartup: true
 # Enables / disables debug messages in the console, could be useful to figure out where errors come from.
 debug: false
 # Version of the config, do not change!
-version: 2.4.0
+version: 2.6.0
 # Maximum number of blocks to save to or restore from a .schemetic file.
 maximumBlocks: 1000000
 # Maximum number of locations the teleport function should check to find a safe spot.
@@ -123,7 +134,7 @@ maximumTries: 50000
 # %uuid%           The UUID of the player that rents/buys the region.
 # %friends%        The names of friends added to this region separated by ', '.
 # %friendsuuid%    The UUID's of friends added to this region separated by ', '.
-# $landlord$       The name of the landlord.
+# %landlord%       The name of the landlord.
 # %landlorduuid%   The UUID of the landlord.
 # %price%          The price of the region formatted with the configured characters before and after the number.
 # %rawprice%       The price without formatting, like '10.0' or '7.77'.
@@ -134,6 +145,7 @@ maximumTries: 50000
 # %untilshort%     The end time of a rent formatted as configured with 'timeFormatSign'.
 # %width%          The width of the region (number of blocks on the x-axis).
 # %depth%          The depth of the region (number of blocks on the z-axis).
+# %volume%         The number of blocks in a region (accounting for polygon shaped regions).
 # %height%         The height of the region (number of blocks on the y-axis).
 # %timeleft%       The time left on the rent (uses the unit of time that fits best, minutes used from 121 seconds till 120 minutes).
 # %clicker%        The name of the player that clicked the sign (only to be used in the signProfiles section).
@@ -142,6 +154,7 @@ maximumTries: 50000
 # %moneyback%      The amount of money the player will get back when unrenting/selling the region (formatted with currency layout).
 # %rawmoneyback%   The moneyback without formatting.
 # %moneybackpercent% The percentage of the price the player will get back when unrenting the region.
+# %timesExtended%  The number of times the region has been extended (zero when first rented)
 # %maxextends%     The maximum number of extends a player can do on the region.
 # %extendsleft%    The number of extends that are left (maxextends - timesextended).
 # %maxrenttime%    The maximum time you can rent a region in advance (human readable).
