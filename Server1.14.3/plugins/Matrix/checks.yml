@@ -1,0 +1,635 @@
+#### MATRIX CONFIG FILE
+#                         MATRIX ANTI CHEAT
+#             file: checks.yml | Customize each checks here
+#
+# Useful Links:
+#   1. Issue Tracker: https://github.com/jiangdashao/Matrix-Issues/issues
+#   2. SpigotMC Overview Page: https://www.spigotmc.org/resources/64635/
+#   3. bStats: https://bstats.org/plugin/bukkit/Matrix
+#   4. Discord Group: https://discord.gg/pEvY55J
+#
+# Contributors:
+#   Performance#1955: Report a lot of bugs and manage the Github issue tracker
+#   Zak#6435 & Alex#2237: Provide the test server and report some bugs
+#   Kruize#9138 & VariationTime#2942: Report a lot of bugs and test in the production environment
+#
+# Thanks for using Matrix! <3
+
+## KillAura
+# Prevents the player from using the KillAura/AimBot hack
+killaura:
+  # Enable KillAura check?
+  enable: true
+
+  # Canceling system
+  # It can cancel attack damage when the player is considered to be cheating (-1 = never canceling)
+  # Note: Only some modules have canceling system, not all
+  cancel_vl: 3
+
+  # Module Settings
+  modules:
+    # Machine Learning KillAura check
+    # It uses machine learning algorithms to distinguish whether players cheat or not.
+    machine_learning:
+      enable: true
+      vl_weight: 10
+    # AutoClicker check
+    # Detecting player using auto clicker software
+    auto_clicker:
+      # clicks per second(CPS) check
+      cps:
+        enable: true
+        max_cps: 15
+        vl_weight: 4
+      # click delay check
+      delay:
+        enable: true
+        vl_weight: 3
+        # The min click delay differences player should have
+        # higher value = more sensitive, but I suggest you don't set it higher, because it will cause more false flags
+        delay_diff_threshold: 150
+      # packet auto clicker pattern, it can detect some external auto clicker software
+      packet:
+        enable: true
+        vl_weight: 5
+      # long-term-cps difference check
+      cps_long_term:
+        enable: true
+        vl_weight: 5
+    # Attack Accuracy check
+    # Preventing player from attacking other entities wit low miss rates
+    accuracy:
+      enable: true
+      vl_weight: 20
+      max_accuracy: 70
+    # Yaw Pattern
+    # Analysing the yaw movement when player fighting
+    yaw:
+      enable: true
+      vl_weight: 5
+    # Pitch Pattern
+    # Analysing the pitch movement when player fighting
+    pitch:
+      enable: true
+      vl_weight: 5
+    # Derp
+    # Preventing player's pitch value > 90 or pitch<-90
+    derp:
+      enable: true
+      vl_weight: 10
+    # Snap aiming
+    # Preventing player from aiming fast when fighting
+    snap_aim:
+      enable: true
+      vl_weight: 5
+    # Dead entities hitting
+    # Preventing player from attacking their target after he killed the target
+    dead:
+      enable: true
+      vl_weight: 3
+    # No swing
+    # Preventing player from attacking entities without arm swing
+    noswing:
+      enable: true
+      vl_weight: 2
+    # Simple packet pattern
+    # Preventing player from attacking others immediately after sending a flying packet
+    simple:
+      enable: true
+      vl_weight: 1
+    # Critical hit
+    # Preventing player from critical attacking other entities without correct jumping
+    critical:
+      enable: true
+      vl_weight: 4
+      cancel: true
+    # super knock back check
+    superkb:
+      enable: true
+      vl_weight: 5
+    # auto block
+    auto_block:
+      enable: true
+      vl_weight: 4
+    # combat style check
+    style:
+      enable: true
+      vl_weight: 10
+    # aim feature check
+    aim_feature:
+      enable: true
+      vl_weight: 5
+    # fake rotation
+    fake_rotation:
+      enable: true
+      vl_weight: 8
+    # npc check
+    npc:
+      enable: true
+      vl_weight: 4
+      vl_weight_fast_attack: 10
+      async: true
+      real_entity_id: true
+      only_command_trigger: false
+      visible: true
+      check_ticks:
+        base: 100
+        attack_add: 20
+        hit_bot_add: 50
+      movement:
+        distance_base: 3.0
+        distance_random_size: 1.0
+        distance_attack_base: 2.0
+    # Rotation check
+    rotation:
+      enable: true
+      vl_weight: 10
+  # Violation Thresholds
+  # number_of_violations: '<command>'
+  commands:
+    20: 'matrix notify %player% might be using combat hacks (KillAura)'
+    35: 'matrix notify %player% is using combat hacks (KillAura) #2'
+    45: 'matrix kick %player% KillAura'
+
+## HitBox
+# Description: This check prevents players from using HitBox, Angle, Reach hacks.
+hitbox:
+  # Enable HitBox check?
+  enable: true
+
+  # Direction check settings
+  direction:
+    # Violation weight
+    vl_weight: 2
+
+  # Reach check settings
+  reach:
+    # Maximum attack reach distance
+    max_reach: 3.1
+
+    # How much lenient should be when a player is moving
+    # Higher = More lenient for moving players
+    # Suggest Value: 1.0 ~ 1.5
+    # Reach tolerance value = move_dist * lag_tick * move_lenient
+    move_lenient: 1.1
+
+  # Violations needed to cancel illegal hits (-1 = never cancel)
+  cancel_vl: 4
+
+  # Violation Thresholds
+  # number_of_violations: '<command>'
+  commands:
+    10: 'matrix notify %player% tried to reach entity outside max reach distance (HitBox)'
+    15: 'matrix notify %player% tried to reach entity outside max reach distance (HitBox) #2'
+    24: 'matrix kick %player% Reach/HitBox Hacks'
+
+## Movement Speed Check
+# This checks how fast a player moves, and prevents the player from moving too fast.
+speed:
+  # Enable this check?
+  # Warning: Will also disable
+  # flight detection.
+  enable: true
+
+  # Violations needed to cancel illegal movements (-1 = never cancel)
+  cancel_vl: 30
+
+  # Enable sprint direction check?
+  sprint_direction: true
+
+  # Enable strafe check?
+  strafe: true
+
+  # Enable FastClimb/FastLadder check?
+  fastclimb: true
+
+  # NoSlow check setting
+  # It can detect player moving faster when eating/sneaking/shooting bow
+  noslow:
+    enable: true
+    vl_weight: 4
+    cancel_vl: 15
+
+  # Violation Thresholds
+  # number_of_violations: '<command>'
+  commands:
+    55: 'matrix notify %player% tried to move faster than usual (Speed) #1'
+    90: 'matrix notify %player% tried to move faster than usual (Speed) #2'
+    220: 'matrix kick %player% Speed Hacks'
+
+## Fly
+# Prevents the player from using both vanilla and non-vanilla fly hacks.
+fly:
+  # Enable this check?
+  # Warning: Speed check must also be enabled.
+  enable: true
+
+  # Violations needed to cancel illegal movements (-1 = never cancel)
+  cancel_vl: 50
+
+  # Fly ability check
+  # It might be not compatible with some plugins, test it by yourself
+  ability:
+    enable: true
+    vl_weight: 20
+
+  # Strict Glide check
+  strict_glide:
+    # Enable strict glide check?
+    enable: true
+
+    # Falling distance and expectation deserve maximum deviation
+    # If difference lager than this value, the player will be flagged
+    max_diff: 0.5
+
+  # NoFall check
+  nofall:
+    # Force deal damage after setback?
+    damage: true
+
+  # Setback method (back/ground)
+  # back: teleport the player to the last legit location
+  # ground: teleport the player to the ground under the player
+  setback: back
+
+  # Violation Thresholds
+  # number_of_violations: '<command>'
+  commands:
+    50: 'matrix notify %player% tried to fly (Fly) #1'
+    100: 'matrix notify %player% tried to fly (Fly) #2'
+    180: 'matrix kick %player% Fly Related Hacks'
+
+
+## BadPackets
+# Prevents player from sending too many movement packets or sending illegal packets
+badpackets:
+  # Enable this check?
+  enable: true
+
+  # Violations needed to cancel illegal movement packets (-1 = never cancel)
+  cancel_vl: 30
+
+  # packet queue size (seconds)
+  # smaller-> detect timer faster, higher -> more friendly for high latency players
+  cache_size: 30
+
+  # Tick Rate check
+  # It can detect some smooth Timer (1.01~1.05 timer fast)
+  tick_rate:
+    # Enable this check?
+    enable: true
+
+    # Cache size (Seconds)
+    # Bigger: Less false positives for laggy players
+    # Smaller: More strict, detect Timer hack fast
+    cache_size: 5
+
+  # Useless verbose message output (+0 VL messages)
+  # If you don't want to see BadPackets spam in the verbose messages
+  # You can set this to false
+  verbose_useless: true
+
+  # Violation Thresholds
+  # number_of_violations: '<command>'
+  commands:
+    100: 'matrix notify %player% is sending unusual packets to server (BadPackets) #1'
+    150: 'matrix notify %player% is sending unusual packets to server (BadPackets) #2'
+    240: 'matrix kick %player% Sending Unusual Packets'
+
+## FastUse
+# Check prevents player from eating or using an item too quickly.
+fastuse:
+  # Enable this check?
+  enable: true
+
+  # Violations needed to cancel illegal item use (-1 = never cancel)
+  cancel_vl: 5
+
+  # Violation weight
+  vl_weight: 1
+
+  # Violation Thresholds
+  # number_of_violations: '<command>'
+  commands:
+    5: 'matrix notify %player% tried to use an item faster than usual (FastUse)'
+    12: 'matrix kick %player% FastUse Hacks'
+
+## FastBow
+# Check prevents player from shooting a bow too quickly.
+fastbow:
+  # Enable this check?
+  enable: true
+
+  # Violations needed to cancel illegal bow use (-1 = never cancel)
+  cancel_vl: 7
+
+  # Violation Weight
+  vl_weight: 1
+
+  # Violation Thresholds
+  # number_of_violations: '<command>'
+  commands:
+    5: 'matrix notify %player% is trying to shoot a bow too quickly (FastBow)'
+    15: 'matrix kick %player% FastBow Hacks'
+
+## FastHeal
+# Check prevents player from regaining health too quickly.
+fastheal:
+  # Enable this check?
+  enable: true
+
+  # Violation Weight
+  vl_weight: 2
+
+  # Violation Thresholds
+  # number_of_violations: '<command>'
+  commands:
+    10: 'matrix notify %player% tried to regain health too quickly (FastHeal)'
+    20: 'matrix kick %player% FastHeal Hacks'
+
+## Block
+# Check prevents the player from breaking, placing block quickly
+block:
+  # Enable this check?
+  enable: true
+
+  # Violations needed to cancel illegal breaking/placing of blocks (-1 = never cancel)
+  cancel_vl: 5
+
+  # Modules List
+  # You can turn off some modules here
+  modules:
+    # It can detect player breaking block faster
+    fastbreak:
+      enable: true
+      vl_weight: 4
+    # It can detect player placing block faster
+    fastplace:
+      enable: true
+      vl_weight: 1
+    # It can detect player placing block without swing hand
+    noswing:
+      enable: true
+      vl_weight: 1
+    # detect player not send abort breaking packet
+    abort:
+      enable: true
+      vl_weight: 0
+
+  # Violation Thresholds
+  # number_of_violations: '<command>'
+  commands:
+    10: 'matrix notify %player% tried to place/break a block too quickly (FastPlace/FastBreak)'
+    20: 'matrix kick %player% FastPlace/FastBreak Hacks'
+
+## Scaffold check
+# Check prevents player bridging blocks or towering up faster than normal speed
+scaffold:
+  # Enable this check
+  enable: true
+
+  # Cancel VL
+  cancel_vl: 15
+
+  # Modules
+  modules:
+    # It can detect player bridging faster
+    scaffold:
+      enable: true
+      vl_weights:
+        safewalk: 4
+        expand: 3
+        limit: 1
+        head: 5
+        simple: 3
+        direction: 4
+    # It can detect player towering up faster
+    tower:
+      enable: true
+      vl_weight: 2
+
+  # Violation Thresholds
+  # number_of_violations: '<command>'
+  commands:
+    7: 'matrix notify %player% tried to bride blocks quickly (Scaffold)'
+    15: 'matrix notify %player% tried to bride blocks quickly (Scaffold) #2'
+    24: 'matrix kick %player% Scaffold/Tower'
+
+## Jesus
+# Check prevents the player from moving too too quickly in liquids, or walking on liquid.
+jesus:
+  # Enable this check?
+  enable: true
+
+  # Violations needed to cancel illegal movements (-1 = never cancel)
+  cancel_vl: 15
+
+  # Violation Thresholds
+  # number_of_violations: '<command>'
+  commands:
+    15: 'matrix notify %player% tried to move illegally in liquid (Jesus)'
+    25: 'matrix kick %player% Jesus/WaterSpeed/WaterFly Hacks'
+
+## Inventory
+# Check prevents the player from using illegal inventory modifications such as Steal.
+# Also prevents quick inventory movement hacks.
+inventory:
+  # Enable this check?
+  enable: true
+
+  # Violations needed to cancel illegal movements of items (-1 = never cancel)
+  cancel_vl: 10
+
+  # Enable ChestStealer check?
+  # It can detect player taking items out of chest faster
+  chest_stealer: true
+
+  # Disable InventoryMove check
+  # If you don't need InventoryMove check, you can set this to 'true' to disable it
+  # This option ONLY works for 1.12/1.13/+ server
+  disable_invmove: false
+
+  # Violation Thresholds
+  # number_of_violations: '<command>'
+  commands:
+    10: 'matrix notify %player% moved items in inventory too quickly (ChestSteal)'
+    20: 'matrix kick %player% ChestSteal/Inventory Hacks'
+
+## Velocity
+# Check prevents the player from using any type of anti-knockback hacks.
+velocity:
+  # Enable this check?
+  enable: true
+
+  # Modules List
+  # You can turn off some velocity modules here
+  # Set it to false to disable the module
+  modules:
+    vertical:
+      enable: true
+      vl_weight: 4
+    horizon:
+      enable: true
+      vl_weight: 4
+    air:
+      enable: true
+      vl_weight: 2
+    delay:
+      enable: true
+      vl_weight: 3
+    pattern:
+      enable: true
+      vl_weight: 7
+
+  # Violation Thresholds
+  # number_of_violations: '<command>'
+  commands:
+    10: 'matrix notify %player% tried to ignore server velocity (Anti-Knockback)'
+    15: 'matrix notify %player% tried to ignore server velocity (Anti-Knockback) #2'
+    20: 'matrix kick %player% Velocity/Anti-Knockback Hacks'
+
+## Spam
+# Check prevents a player from spamming messages in the servers chat.
+chat:
+  # Enable this check?
+  enable: true
+
+  # Minimum amount of time between messages (Seconds)
+  min_time: 3
+
+  # Violations needed to cancel sent messages (-1 = never cancel)
+  cancel_vl: 3
+
+  # Violation Thresholds
+  # number_of_violations: '<command>'
+  commands:
+    4: 'matrix notify %player% is spamming the chat (ChatSpam)'
+    10: 'matrix kick %player% Stop spamming the chat!'
+
+## Interact
+# Check prevents the player from illegally interacting with entities and blocks.
+interact:
+  # Enable this check?
+  enable: true
+
+  # Modules List
+  modules:
+    # It can detect player breaking blocks through walls
+    break_block:
+      enable: true
+      vl_weight: 1
+    # It can detect player attacking other entities through walls
+    attack:
+      enable: true
+      vl_weight: 1
+    # It can detect player interacting blocks too far away
+    block_reach:
+      enable: true
+      vl_weight: 1
+
+  # Violation Thresholds
+  # number_of_violations: '<command>'
+  commands:
+    10: 'matrix notify %player% tried to illegally interact with Entity/Block (Interact)'
+    15: 'matrix kick %player% Illegally Interacting with Block/Entity'
+
+## AutoFish
+# Check prevents the player from using an Auto-Fishing mod or hack.
+autofish:
+  # Enable this check?
+  enable: true
+
+  # Violation Thresholds
+  # number_of_violations: '<command>'
+  commands:
+    6: 'matrix notify %player% is using auto fish (AutoFish)'
+    15: 'matrix kick %player% No Auto Fishing!'
+
+## Phase
+# Check prevents the player people glitching through blocks.
+phase:
+  # Enable this check?
+  enable: true
+
+  # Which type of block should be exempt from phase checking?
+  # If you find any false positive, you can add that block type into it
+  # For example:
+  # exclude_types:
+  #   - 'AIR'
+  exclude_types: {}
+
+  # Cancel malicious movements
+  setback: true
+
+  # Violation Thresholds
+  # number_of_violations: '<command>'
+  commands:
+    5: 'matrix notify %player% is phase into block (Phase)'
+    10: 'matrix notify %player% is phase into block (Phase) #2'
+
+## AutoBot
+# Check prevents player use some Bot mods like Baritone
+autobot:
+  # Enable this check?
+  enable: true
+
+  # Violation Thresholds
+  # number_of_violations: '<command>'
+  commands:
+    5: 'matrix notify %player% suspected use of automatic robots (AutoBot)'
+    10: 'matrix notify %player% suspected use of automatic robots (AutoBot) #2'
+    15: 'matrix kick %player% Auto-Bot'
+
+## Elytra
+# Checks prevents player using Elytra+, ElytraFlight, etc
+# Only works for 1.9+
+elytra:
+  # Enable this check?
+  enable: true
+
+  # Setback violation level (-1 = never setback)
+  setback_vl: 5
+
+  # unequip elytra VL
+  # If player reached this VL, Matrix will make it out of the gliding state (-1 = disable this feature)
+  unequip_vl: 20
+
+  # Violation Thresholds
+  # number_of_violations: '<command>'
+  commands:
+    10: 'matrix notify %player% suspected using elytra flight (Elytra)'
+    20: 'matrix notify %player% suspected using elytra flight (Elytra) #2'
+    40: 'matrix kick %player% Elytra Flight'
+
+## Vehicle
+# Checks prevents player using VehicleFlight, VehicleSpeed, EntitySpeed..
+# Only works for 1.9+
+vehicle:
+  # Enable this check?
+  enable: true
+
+  # Vehicle Speed/ Entity Speed
+  speed:
+    # Enable this modules?
+    enable: true
+
+    # setback VL (-1 = disable setback)
+    setback_vl: 2
+
+  # Vehicle Flight / Boat Flight
+  flight:
+    # Enable this modules?
+    enable: true
+
+    # setback vl (-1 = never setback)
+    setback_vl: 4
+
+    # leave vehicle vl (-1 = never leave vehicle)
+    leave_vehicle: 10
+
+  # Violation Thresholds
+  # number_of_violations: '<command>'
+  commands:
+    5: 'matrix notify %player% suspected using vehicle cheat (Vehicle)'
+    10: 'matrix notify %player% suspected using vehicle cheat (Vehicle) #2'
+    17: 'matrix kick %player% Suspicious vehicle movement'

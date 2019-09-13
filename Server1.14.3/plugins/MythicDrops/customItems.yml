@@ -1,12 +1,15 @@
-version: 4.0.2
+version: 4.0.3
 socketsword:
-  materialName: WOOD_SWORD
+  materialName: WOODEN_SWORD
   displayName: '&2Socket Sword (Unique)'
   lore:
-  - '&3Poder de Arma: 500'
-  - '&6500 Attack Speed'
+  - '&7This sword has sockets!'
+  - '&2(Socket)'
+  - '&2(Socket)'
+  - '&2(Socket)'
+  - '&7Find a &2Socket Gem&7 to fill a &2(Socket)'
   spawnOnMonsterWeight: 100
   chanceToDropOnMonsterDeath: 1.0
   broadcastOnFind: true
-  minimumDurability: 0.85
-  maximumDurability: 0.9
+  enchantments:
+    DAMAGE_ALL: 5

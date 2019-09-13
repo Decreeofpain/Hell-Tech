@@ -3,6 +3,35 @@ SampleLoot:
   AutoLoot: false
   BreakAndRespawn: false
   Global: false
+  LootConditions:
+  - ==: ExperienceCondition
+    Enabled: false
+    Experience: 0
+    Name: ExperienceCondition
+    Option: above
+  - ==: WeatherCondition
+    Enabled: false
+    Name: WeatherCondition
+    Weather: sunny
+  - ==: RegionCondition
+    Enabled: false
+    Name: RegionCondition
+    Option: inside
+    Region: none
+  - ==: BiomeCondition
+    Biome: PLAINS
+    Enabled: false
+    Name: BiomeCondition
+    Option: inside
+  - ==: TimeCondition
+    Enabled: false
+    Name: TimeCondition
+    Time: day
+  - ==: HealthCondition
+    Enabled: false
+    Health: 0.0
+    Name: HealthCondition
+    Option: above
   LootList:
   - ==: LootCollection
     LootList:
@@ -13,16 +42,8 @@ SampleLoot:
         GenerateName: true
         ItemStack:
           ==: org.bukkit.inventory.ItemStack
-          v: 1631
+          v: 1976
           type: DIAMOND_SWORD
-          meta:
-            ==: ItemMeta
-            meta-type: UNSPECIFIC
-            lore:
-            - <dam>
-            - <holy>
-            - <fire>
-            - <bug>
         Probability: 40.0
         Tiered: true
       - ==: Item
@@ -30,16 +51,8 @@ SampleLoot:
         GenerateName: true
         ItemStack:
           ==: org.bukkit.inventory.ItemStack
-          v: 1631
+          v: 1976
           type: DIAMOND_AXE
-          meta:
-            ==: ItemMeta
-            meta-type: UNSPECIFIC
-            lore:
-            - <dam>
-            - <holy>
-            - <fire>
-            - <bug>
         Probability: 60.0
         Tiered: true
       LowerNumberOfLoots: 1
@@ -53,16 +66,8 @@ SampleLoot:
         GenerateName: true
         ItemStack:
           ==: org.bukkit.inventory.ItemStack
-          v: 1631
+          v: 1976
           type: IRON_SWORD
-          meta:
-            ==: ItemMeta
-            meta-type: UNSPECIFIC
-            lore:
-            - <dam>
-            - <holy>
-            - <fire>
-            - <bug>
         Probability: 40.0
         Tiered: true
       - ==: Item
@@ -70,16 +75,8 @@ SampleLoot:
         GenerateName: true
         ItemStack:
           ==: org.bukkit.inventory.ItemStack
-          v: 1631
+          v: 1976
           type: IRON_AXE
-          meta:
-            ==: ItemMeta
-            meta-type: UNSPECIFIC
-            lore:
-            - <dam>
-            - <holy>
-            - <fire>
-            - <bug>
         Probability: 60.0
         Tiered: true
       LowerNumberOfLoots: 1
@@ -93,16 +90,8 @@ SampleLoot:
         GenerateName: true
         ItemStack:
           ==: org.bukkit.inventory.ItemStack
-          v: 1631
+          v: 1976
           type: GOLDEN_SWORD
-          meta:
-            ==: ItemMeta
-            meta-type: UNSPECIFIC
-            lore:
-            - <dam>
-            - <holy>
-            - <fire>
-            - <bug>
         Probability: 40.0
         Tiered: true
       - ==: Item
@@ -110,16 +99,8 @@ SampleLoot:
         GenerateName: true
         ItemStack:
           ==: org.bukkit.inventory.ItemStack
-          v: 1631
+          v: 1976
           type: GOLDEN_AXE
-          meta:
-            ==: ItemMeta
-            meta-type: UNSPECIFIC
-            lore:
-            - <dam>
-            - <holy>
-            - <fire>
-            - <bug>
         Probability: 60.0
         Tiered: true
       LowerNumberOfLoots: 1
@@ -133,16 +114,8 @@ SampleLoot:
         GenerateName: true
         ItemStack:
           ==: org.bukkit.inventory.ItemStack
-          v: 1631
+          v: 1976
           type: STONE_SWORD
-          meta:
-            ==: ItemMeta
-            meta-type: UNSPECIFIC
-            lore:
-            - <dam>
-            - <holy>
-            - <fire>
-            - <bug>
         Probability: 40.0
         Tiered: true
       - ==: Item
@@ -150,16 +123,8 @@ SampleLoot:
         GenerateName: true
         ItemStack:
           ==: org.bukkit.inventory.ItemStack
-          v: 1631
+          v: 1976
           type: STONE_AXE
-          meta:
-            ==: ItemMeta
-            meta-type: UNSPECIFIC
-            lore:
-            - <dam>
-            - <holy>
-            - <fire>
-            - <bug>
         Probability: 60.0
         Tiered: true
       LowerNumberOfLoots: 1
@@ -173,16 +138,8 @@ SampleLoot:
         GenerateName: true
         ItemStack:
           ==: org.bukkit.inventory.ItemStack
-          v: 1631
+          v: 1976
           type: WOODEN_SWORD
-          meta:
-            ==: ItemMeta
-            meta-type: UNSPECIFIC
-            lore:
-            - <dam>
-            - <holy>
-            - <fire>
-            - <bug>
         Probability: 40.0
         Tiered: true
       - ==: Item
@@ -190,16 +147,8 @@ SampleLoot:
         GenerateName: true
         ItemStack:
           ==: org.bukkit.inventory.ItemStack
-          v: 1631
+          v: 1976
           type: WOODEN_AXE
-          meta:
-            ==: ItemMeta
-            meta-type: UNSPECIFIC
-            lore:
-            - <dam>
-            - <holy>
-            - <fire>
-            - <bug>
         Probability: 60.0
         Tiered: true
       LowerNumberOfLoots: 1
@@ -221,17 +170,8 @@ SampleLoot:
           GenerateName: true
           ItemStack:
             ==: org.bukkit.inventory.ItemStack
-            v: 1631
+            v: 1976
             type: DIAMOND_HELMET
-            meta:
-              ==: ItemMeta
-              meta-type: UNSPECIFIC
-              lore:
-              - <def>
-              - <rangedef>
-              - <firedef>
-              - <blastdef>
-              - <falldef>
           Probability: 100.0
           Tiered: true
         - ==: Item
@@ -239,17 +179,8 @@ SampleLoot:
           GenerateName: true
           ItemStack:
             ==: org.bukkit.inventory.ItemStack
-            v: 1631
+            v: 1976
             type: DIAMOND_CHESTPLATE
-            meta:
-              ==: ItemMeta
-              meta-type: UNSPECIFIC
-              lore:
-              - <def>
-              - <rangedef>
-              - <firedef>
-              - <blastdef>
-              - <falldef>
           Probability: 100.0
           Tiered: true
         - ==: Item
@@ -257,17 +188,8 @@ SampleLoot:
           GenerateName: true
           ItemStack:
             ==: org.bukkit.inventory.ItemStack
-            v: 1631
+            v: 1976
             type: DIAMOND_LEGGINGS
-            meta:
-              ==: ItemMeta
-              meta-type: UNSPECIFIC
-              lore:
-              - <def>
-              - <rangedef>
-              - <firedef>
-              - <blastdef>
-              - <falldef>
           Probability: 100.0
           Tiered: true
         - ==: Item
@@ -275,17 +197,8 @@ SampleLoot:
           GenerateName: true
           ItemStack:
             ==: org.bukkit.inventory.ItemStack
-            v: 1631
+            v: 1976
             type: DIAMOND_BOOTS
-            meta:
-              ==: ItemMeta
-              meta-type: UNSPECIFIC
-              lore:
-              - <def>
-              - <rangedef>
-              - <firedef>
-              - <blastdef>
-              - <falldef>
           Probability: 100.0
           Tiered: true
         LowerNumberOfLoots: 0
@@ -299,17 +212,8 @@ SampleLoot:
           GenerateName: true
           ItemStack:
             ==: org.bukkit.inventory.ItemStack
-            v: 1631
+            v: 1976
             type: IRON_HELMET
-            meta:
-              ==: ItemMeta
-              meta-type: UNSPECIFIC
-              lore:
-              - <def>
-              - <rangedef>
-              - <firedef>
-              - <blastdef>
-              - <falldef>
           Probability: 100.0
           Tiered: true
         - ==: Item
@@ -317,17 +221,8 @@ SampleLoot:
           GenerateName: true
           ItemStack:
             ==: org.bukkit.inventory.ItemStack
-            v: 1631
+            v: 1976
             type: IRON_CHESTPLATE
-            meta:
-              ==: ItemMeta
-              meta-type: UNSPECIFIC
-              lore:
-              - <def>
-              - <rangedef>
-              - <firedef>
-              - <blastdef>
-              - <falldef>
           Probability: 100.0
           Tiered: true
         - ==: Item
@@ -335,17 +230,8 @@ SampleLoot:
           GenerateName: true
           ItemStack:
             ==: org.bukkit.inventory.ItemStack
-            v: 1631
+            v: 1976
             type: IRON_LEGGINGS
-            meta:
-              ==: ItemMeta
-              meta-type: UNSPECIFIC
-              lore:
-              - <def>
-              - <rangedef>
-              - <firedef>
-              - <blastdef>
-              - <falldef>
           Probability: 100.0
           Tiered: true
         - ==: Item
@@ -353,17 +239,8 @@ SampleLoot:
           GenerateName: true
           ItemStack:
             ==: org.bukkit.inventory.ItemStack
-            v: 1631
+            v: 1976
             type: IRON_BOOTS
-            meta:
-              ==: ItemMeta
-              meta-type: UNSPECIFIC
-              lore:
-              - <def>
-              - <rangedef>
-              - <firedef>
-              - <blastdef>
-              - <falldef>
           Probability: 100.0
           Tiered: true
         LowerNumberOfLoots: 0
@@ -377,17 +254,8 @@ SampleLoot:
           GenerateName: true
           ItemStack:
             ==: org.bukkit.inventory.ItemStack
-            v: 1631
+            v: 1976
             type: GOLDEN_HELMET
-            meta:
-              ==: ItemMeta
-              meta-type: UNSPECIFIC
-              lore:
-              - <def>
-              - <rangedef>
-              - <firedef>
-              - <blastdef>
-              - <falldef>
           Probability: 100.0
           Tiered: true
         - ==: Item
@@ -395,17 +263,8 @@ SampleLoot:
           GenerateName: true
           ItemStack:
             ==: org.bukkit.inventory.ItemStack
-            v: 1631
+            v: 1976
             type: GOLDEN_CHESTPLATE
-            meta:
-              ==: ItemMeta
-              meta-type: UNSPECIFIC
-              lore:
-              - <def>
-              - <rangedef>
-              - <firedef>
-              - <blastdef>
-              - <falldef>
           Probability: 100.0
           Tiered: true
         - ==: Item
@@ -413,17 +272,8 @@ SampleLoot:
           GenerateName: true
           ItemStack:
             ==: org.bukkit.inventory.ItemStack
-            v: 1631
+            v: 1976
             type: GOLDEN_LEGGINGS
-            meta:
-              ==: ItemMeta
-              meta-type: UNSPECIFIC
-              lore:
-              - <def>
-              - <rangedef>
-              - <firedef>
-              - <blastdef>
-              - <falldef>
           Probability: 100.0
           Tiered: true
         - ==: Item
@@ -431,17 +281,8 @@ SampleLoot:
           GenerateName: true
           ItemStack:
             ==: org.bukkit.inventory.ItemStack
-            v: 1631
+            v: 1976
             type: GOLDEN_BOOTS
-            meta:
-              ==: ItemMeta
-              meta-type: UNSPECIFIC
-              lore:
-              - <def>
-              - <rangedef>
-              - <firedef>
-              - <blastdef>
-              - <falldef>
           Probability: 100.0
           Tiered: true
         LowerNumberOfLoots: 0
@@ -455,17 +296,8 @@ SampleLoot:
           GenerateName: true
           ItemStack:
             ==: org.bukkit.inventory.ItemStack
-            v: 1631
+            v: 1976
             type: CHAINMAIL_HELMET
-            meta:
-              ==: ItemMeta
-              meta-type: UNSPECIFIC
-              lore:
-              - <def>
-              - <rangedef>
-              - <firedef>
-              - <blastdef>
-              - <falldef>
           Probability: 100.0
           Tiered: true
         - ==: Item
@@ -473,17 +305,8 @@ SampleLoot:
           GenerateName: true
           ItemStack:
             ==: org.bukkit.inventory.ItemStack
-            v: 1631
+            v: 1976
             type: CHAINMAIL_CHESTPLATE
-            meta:
-              ==: ItemMeta
-              meta-type: UNSPECIFIC
-              lore:
-              - <def>
-              - <rangedef>
-              - <firedef>
-              - <blastdef>
-              - <falldef>
           Probability: 100.0
           Tiered: true
         - ==: Item
@@ -491,17 +314,8 @@ SampleLoot:
           GenerateName: true
           ItemStack:
             ==: org.bukkit.inventory.ItemStack
-            v: 1631
+            v: 1976
             type: CHAINMAIL_LEGGINGS
-            meta:
-              ==: ItemMeta
-              meta-type: UNSPECIFIC
-              lore:
-              - <def>
-              - <rangedef>
-              - <firedef>
-              - <blastdef>
-              - <falldef>
           Probability: 100.0
           Tiered: true
         - ==: Item
@@ -509,17 +323,8 @@ SampleLoot:
           GenerateName: true
           ItemStack:
             ==: org.bukkit.inventory.ItemStack
-            v: 1631
+            v: 1976
             type: CHAINMAIL_BOOTS
-            meta:
-              ==: ItemMeta
-              meta-type: UNSPECIFIC
-              lore:
-              - <def>
-              - <rangedef>
-              - <firedef>
-              - <blastdef>
-              - <falldef>
           Probability: 100.0
           Tiered: true
         LowerNumberOfLoots: 0
@@ -533,17 +338,8 @@ SampleLoot:
           GenerateName: true
           ItemStack:
             ==: org.bukkit.inventory.ItemStack
-            v: 1631
+            v: 1976
             type: LEATHER_HELMET
-            meta:
-              ==: ItemMeta
-              meta-type: LEATHER_ARMOR
-              lore:
-              - <def>
-              - <rangedef>
-              - <firedef>
-              - <blastdef>
-              - <falldef>
           Probability: 100.0
           Tiered: true
         - ==: Item
@@ -551,17 +347,8 @@ SampleLoot:
           GenerateName: true
           ItemStack:
             ==: org.bukkit.inventory.ItemStack
-            v: 1631
+            v: 1976
             type: LEATHER_CHESTPLATE
-            meta:
-              ==: ItemMeta
-              meta-type: LEATHER_ARMOR
-              lore:
-              - <def>
-              - <rangedef>
-              - <firedef>
-              - <blastdef>
-              - <falldef>
           Probability: 100.0
           Tiered: true
         - ==: Item
@@ -569,17 +356,8 @@ SampleLoot:
           GenerateName: true
           ItemStack:
             ==: org.bukkit.inventory.ItemStack
-            v: 1631
+            v: 1976
             type: LEATHER_LEGGINGS
-            meta:
-              ==: ItemMeta
-              meta-type: LEATHER_ARMOR
-              lore:
-              - <def>
-              - <rangedef>
-              - <firedef>
-              - <blastdef>
-              - <falldef>
           Probability: 100.0
           Tiered: true
         - ==: Item
@@ -587,17 +365,8 @@ SampleLoot:
           GenerateName: true
           ItemStack:
             ==: org.bukkit.inventory.ItemStack
-            v: 1631
+            v: 1976
             type: LEATHER_BOOTS
-            meta:
-              ==: ItemMeta
-              meta-type: LEATHER_ARMOR
-              lore:
-              - <def>
-              - <rangedef>
-              - <firedef>
-              - <blastdef>
-              - <falldef>
           Probability: 100.0
           Tiered: true
         LowerNumberOfLoots: 0
@@ -617,17 +386,8 @@ SampleLoot:
           GenerateName: true
           ItemStack:
             ==: org.bukkit.inventory.ItemStack
-            v: 1631
+            v: 1976
             type: DIAMOND_HELMET
-            meta:
-              ==: ItemMeta
-              meta-type: UNSPECIFIC
-              lore:
-              - <def>
-              - <rangedef>
-              - <firedef>
-              - <blastdef>
-              - <falldef>
           Probability: 1.0
           Tiered: true
         - ==: Item
@@ -635,17 +395,8 @@ SampleLoot:
           GenerateName: true
           ItemStack:
             ==: org.bukkit.inventory.ItemStack
-            v: 1631
+            v: 1976
             type: IRON_HELMET
-            meta:
-              ==: ItemMeta
-              meta-type: UNSPECIFIC
-              lore:
-              - <def>
-              - <rangedef>
-              - <firedef>
-              - <blastdef>
-              - <falldef>
           Probability: 9.0
           Tiered: true
         - ==: Item
@@ -653,17 +404,8 @@ SampleLoot:
           GenerateName: true
           ItemStack:
             ==: org.bukkit.inventory.ItemStack
-            v: 1631
+            v: 1976
             type: GOLDEN_HELMET
-            meta:
-              ==: ItemMeta
-              meta-type: UNSPECIFIC
-              lore:
-              - <def>
-              - <rangedef>
-              - <firedef>
-              - <blastdef>
-              - <falldef>
           Probability: 15.0
           Tiered: true
         - ==: Item
@@ -671,17 +413,8 @@ SampleLoot:
           GenerateName: true
           ItemStack:
             ==: org.bukkit.inventory.ItemStack
-            v: 1631
+            v: 1976
             type: CHAINMAIL_HELMET
-            meta:
-              ==: ItemMeta
-              meta-type: UNSPECIFIC
-              lore:
-              - <def>
-              - <rangedef>
-              - <firedef>
-              - <blastdef>
-              - <falldef>
           Probability: 25.0
           Tiered: true
         - ==: Item
@@ -689,17 +422,8 @@ SampleLoot:
           GenerateName: true
           ItemStack:
             ==: org.bukkit.inventory.ItemStack
-            v: 1631
+            v: 1976
             type: LEATHER_HELMET
-            meta:
-              ==: ItemMeta
-              meta-type: LEATHER_ARMOR
-              lore:
-              - <def>
-              - <rangedef>
-              - <firedef>
-              - <blastdef>
-              - <falldef>
           Probability: 50.0
           Tiered: true
         LowerNumberOfLoots: 1
@@ -713,17 +437,8 @@ SampleLoot:
           GenerateName: true
           ItemStack:
             ==: org.bukkit.inventory.ItemStack
-            v: 1631
+            v: 1976
             type: DIAMOND_CHESTPLATE
-            meta:
-              ==: ItemMeta
-              meta-type: UNSPECIFIC
-              lore:
-              - <def>
-              - <rangedef>
-              - <firedef>
-              - <blastdef>
-              - <falldef>
           Probability: 1.0
           Tiered: true
         - ==: Item
@@ -731,17 +446,8 @@ SampleLoot:
           GenerateName: true
           ItemStack:
             ==: org.bukkit.inventory.ItemStack
-            v: 1631
+            v: 1976
             type: IRON_CHESTPLATE
-            meta:
-              ==: ItemMeta
-              meta-type: UNSPECIFIC
-              lore:
-              - <def>
-              - <rangedef>
-              - <firedef>
-              - <blastdef>
-              - <falldef>
           Probability: 9.0
           Tiered: true
         - ==: Item
@@ -749,17 +455,8 @@ SampleLoot:
           GenerateName: true
           ItemStack:
             ==: org.bukkit.inventory.ItemStack
-            v: 1631
+            v: 1976
             type: GOLDEN_CHESTPLATE
-            meta:
-              ==: ItemMeta
-              meta-type: UNSPECIFIC
-              lore:
-              - <def>
-              - <rangedef>
-              - <firedef>
-              - <blastdef>
-              - <falldef>
           Probability: 15.0
           Tiered: true
         - ==: Item
@@ -767,17 +464,8 @@ SampleLoot:
           GenerateName: true
           ItemStack:
             ==: org.bukkit.inventory.ItemStack
-            v: 1631
+            v: 1976
             type: CHAINMAIL_CHESTPLATE
-            meta:
-              ==: ItemMeta
-              meta-type: UNSPECIFIC
-              lore:
-              - <def>
-              - <rangedef>
-              - <firedef>
-              - <blastdef>
-              - <falldef>
           Probability: 25.0
           Tiered: true
         - ==: Item
@@ -785,17 +473,8 @@ SampleLoot:
           GenerateName: true
           ItemStack:
             ==: org.bukkit.inventory.ItemStack
-            v: 1631
+            v: 1976
             type: LEATHER_CHESTPLATE
-            meta:
-              ==: ItemMeta
-              meta-type: LEATHER_ARMOR
-              lore:
-              - <def>
-              - <rangedef>
-              - <firedef>
-              - <blastdef>
-              - <falldef>
           Probability: 50.0
           Tiered: true
         LowerNumberOfLoots: 1
@@ -809,17 +488,8 @@ SampleLoot:
           GenerateName: true
           ItemStack:
             ==: org.bukkit.inventory.ItemStack
-            v: 1631
+            v: 1976
             type: DIAMOND_LEGGINGS
-            meta:
-              ==: ItemMeta
-              meta-type: UNSPECIFIC
-              lore:
-              - <def>
-              - <rangedef>
-              - <firedef>
-              - <blastdef>
-              - <falldef>
           Probability: 1.0
           Tiered: true
         - ==: Item
@@ -827,17 +497,8 @@ SampleLoot:
           GenerateName: true
           ItemStack:
             ==: org.bukkit.inventory.ItemStack
-            v: 1631
+            v: 1976
             type: IRON_LEGGINGS
-            meta:
-              ==: ItemMeta
-              meta-type: UNSPECIFIC
-              lore:
-              - <def>
-              - <rangedef>
-              - <firedef>
-              - <blastdef>
-              - <falldef>
           Probability: 9.0
           Tiered: true
         - ==: Item
@@ -845,17 +506,8 @@ SampleLoot:
           GenerateName: true
           ItemStack:
             ==: org.bukkit.inventory.ItemStack
-            v: 1631
+            v: 1976
             type: GOLDEN_LEGGINGS
-            meta:
-              ==: ItemMeta
-              meta-type: UNSPECIFIC
-              lore:
-              - <def>
-              - <rangedef>
-              - <firedef>
-              - <blastdef>
-              - <falldef>
           Probability: 15.0
           Tiered: true
         - ==: Item
@@ -863,17 +515,8 @@ SampleLoot:
           GenerateName: true
           ItemStack:
             ==: org.bukkit.inventory.ItemStack
-            v: 1631
+            v: 1976
             type: CHAINMAIL_LEGGINGS
-            meta:
-              ==: ItemMeta
-              meta-type: UNSPECIFIC
-              lore:
-              - <def>
-              - <rangedef>
-              - <firedef>
-              - <blastdef>
-              - <falldef>
           Probability: 25.0
           Tiered: true
         - ==: Item
@@ -881,17 +524,8 @@ SampleLoot:
           GenerateName: true
           ItemStack:
             ==: org.bukkit.inventory.ItemStack
-            v: 1631
+            v: 1976
             type: LEATHER_LEGGINGS
-            meta:
-              ==: ItemMeta
-              meta-type: LEATHER_ARMOR
-              lore:
-              - <def>
-              - <rangedef>
-              - <firedef>
-              - <blastdef>
-              - <falldef>
           Probability: 50.0
           Tiered: true
         LowerNumberOfLoots: 1
@@ -905,17 +539,8 @@ SampleLoot:
           GenerateName: true
           ItemStack:
             ==: org.bukkit.inventory.ItemStack
-            v: 1631
+            v: 1976
             type: DIAMOND_BOOTS
-            meta:
-              ==: ItemMeta
-              meta-type: UNSPECIFIC
-              lore:
-              - <def>
-              - <rangedef>
-              - <firedef>
-              - <blastdef>
-              - <falldef>
           Probability: 1.0
           Tiered: true
         - ==: Item
@@ -923,17 +548,8 @@ SampleLoot:
           GenerateName: true
           ItemStack:
             ==: org.bukkit.inventory.ItemStack
-            v: 1631
+            v: 1976
             type: IRON_BOOTS
-            meta:
-              ==: ItemMeta
-              meta-type: UNSPECIFIC
-              lore:
-              - <def>
-              - <rangedef>
-              - <firedef>
-              - <blastdef>
-              - <falldef>
           Probability: 9.0
           Tiered: true
         - ==: Item
@@ -941,17 +557,8 @@ SampleLoot:
           GenerateName: true
           ItemStack:
             ==: org.bukkit.inventory.ItemStack
-            v: 1631
+            v: 1976
             type: GOLDEN_BOOTS
-            meta:
-              ==: ItemMeta
-              meta-type: UNSPECIFIC
-              lore:
-              - <def>
-              - <rangedef>
-              - <firedef>
-              - <blastdef>
-              - <falldef>
           Probability: 15.0
           Tiered: true
         - ==: Item
@@ -959,17 +566,8 @@ SampleLoot:
           GenerateName: true
           ItemStack:
             ==: org.bukkit.inventory.ItemStack
-            v: 1631
+            v: 1976
             type: CHAINMAIL_BOOTS
-            meta:
-              ==: ItemMeta
-              meta-type: UNSPECIFIC
-              lore:
-              - <def>
-              - <rangedef>
-              - <firedef>
-              - <blastdef>
-              - <falldef>
           Probability: 25.0
           Tiered: true
         - ==: Item
@@ -977,17 +575,8 @@ SampleLoot:
           GenerateName: true
           ItemStack:
             ==: org.bukkit.inventory.ItemStack
-            v: 1631
+            v: 1976
             type: LEATHER_BOOTS
-            meta:
-              ==: ItemMeta
-              meta-type: LEATHER_ARMOR
-              lore:
-              - <def>
-              - <rangedef>
-              - <firedef>
-              - <blastdef>
-              - <falldef>
           Probability: 50.0
           Tiered: true
         LowerNumberOfLoots: 1

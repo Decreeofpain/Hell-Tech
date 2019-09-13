@@ -77,6 +77,7 @@ inv_nations:
 
 ###########################################   NACION HUMAN
     on player clicks Entregar in inv_galthalas:
+    - ^narrate "<context.cursor_item.material>"
     - ^if <context.cursor_item.material.id> == 98 {
       - ^yaml load:naciones/nacionhumana.yml id:nacion<player.name>
       - ^if <yaml[nacion<player.name>].read[nacion.stonebrick]> > 0 {
@@ -107,7 +108,7 @@ inv_nations:
           - ^yaml id:nacion<player.name> set nacion.rec:->:<player.name>
           }
         }
-      - ^inventory open d:in@inv_galthalas 
+      - ^inventory open d:in@inv_galthalas
       - ^yaml savefile:naciones/nacionhumana.yml id:nacion<player.name>
       }
 
@@ -124,7 +125,7 @@ inv_nations:
           - ^yaml id:nacion<player.name> set nacion.rec:->:<player.name>
           }
         }
-      - ^inventory open d:in@inv_galthalas 
+      - ^inventory open d:in@inv_galthalas
       - ^yaml savefile:naciones/nacionhumana.yml id:nacion<player.name>
       }
 
@@ -141,7 +142,7 @@ inv_nations:
           - ^yaml id:nacion<player.name> set nacion.rec:->:<player.name>
           }
         }
-      - ^inventory open d:in@inv_galthalas 
+      - ^inventory open d:in@inv_galthalas
       - ^yaml savefile:naciones/nacionhumana.yml id:nacion<player.name>
       }
 
@@ -158,7 +159,7 @@ inv_nations:
           - ^yaml id:nacion<player.name> set nacion.rec:->:<player.name>
           }
         }
-      - ^inventory open d:in@inv_galthalas 
+      - ^inventory open d:in@inv_galthalas
       - ^yaml savefile:naciones/nacionhumana.yml id:nacion<player.name>
       }
 
@@ -206,7 +207,7 @@ inv_nations:
           - ^yaml id:nacion<player.name> set aldeas.ebonth.rec:->:<player.name>
           }
         }
-      - ^inventory open d:in@inv_ebonth 
+      - ^inventory open d:in@inv_ebonth
       - ^yaml savefile:naciones/nacionhumana.yml id:nacion<player.name>
       }
 
@@ -223,7 +224,7 @@ inv_nations:
           - ^yaml id:nacion<player.name> set aldeas.ebonth.rec:->:<player.name>
           }
         }
-      - ^inventory open d:in@inv_ebonth 
+      - ^inventory open d:in@inv_ebonth
       - ^yaml savefile:naciones/nacionhumana.yml id:nacion<player.name>
       }
 
@@ -240,7 +241,7 @@ inv_nations:
           - ^yaml id:nacion<player.name> set aldeas.ebonth.rec:->:<player.name>
           }
         }
-      - ^inventory open d:in@inv_ebonth 
+      - ^inventory open d:in@inv_ebonth
       - ^yaml savefile:naciones/nacionhumana.yml id:nacion<player.name>
       }
 
@@ -257,7 +258,7 @@ inv_nations:
           - ^yaml id:nacion<player.name> set aldeas.ebonth.rec:->:<player.name>
           }
         }
-      - ^inventory open d:in@inv_ebonth 
+      - ^inventory open d:in@inv_ebonth
       - ^yaml savefile:naciones/nacionhumana.yml id:nacion<player.name>
       }
 
@@ -336,7 +337,7 @@ inv_nations:
           - ^yaml id:nacion<player.name> set aldeas.corlean.rec:->:<player.name>
           }
         }
-      - ^inventory open d:in@inv_corlean 
+      - ^inventory open d:in@inv_corlean
       - ^yaml savefile:naciones/nacionhumana.yml id:nacion<player.name>
       }
 
@@ -353,7 +354,7 @@ inv_nations:
           - ^yaml id:nacion<player.name> set aldeas.corlean.rec:->:<player.name>
           }
         }
-      - ^inventory open d:in@inv_corlean 
+      - ^inventory open d:in@inv_corlean
       - ^yaml savefile:naciones/nacionhumana.yml id:nacion<player.name>
       }
 
@@ -370,7 +371,7 @@ inv_nations:
           - ^yaml id:nacion<player.name> set aldeas.corlean.rec:->:<player.name>
           }
         }
-      - ^inventory open d:in@inv_corlean 
+      - ^inventory open d:in@inv_corlean
       - ^yaml savefile:naciones/nacionhumana.yml id:nacion<player.name>
       }
 
@@ -387,7 +388,7 @@ inv_nations:
           - ^yaml id:nacion<player.name> set aldeas.corlean.rec:->:<player.name>
           }
         }
-      - ^inventory open d:in@inv_corlean 
+      - ^inventory open d:in@inv_corlean
       - ^yaml savefile:naciones/nacionhumana.yml id:nacion<player.name>
       }
 
@@ -466,7 +467,7 @@ inv_nations:
           - ^yaml id:nacion<player.name> set aldeas.thanon.rec:->:<player.name>
           }
         }
-      - ^inventory open d:in@inv_thanon 
+      - ^inventory open d:in@inv_thanon
       - ^yaml savefile:naciones/nacionhumana.yml id:nacion<player.name>
       }
 
@@ -483,7 +484,7 @@ inv_nations:
           - ^yaml id:nacion<player.name> set aldeas.thanon.rec:->:<player.name>
           }
         }
-      - ^inventory open d:in@inv_thanon 
+      - ^inventory open d:in@inv_thanon
       - ^yaml savefile:naciones/nacionhumana.yml id:nacion<player.name>
       }
 
@@ -500,7 +501,7 @@ inv_nations:
           - ^yaml id:nacion<player.name> set aldeas.thanon.rec:->:<player.name>
           }
         }
-      - ^inventory open d:in@inv_thanon 
+      - ^inventory open d:in@inv_thanon
       - ^yaml savefile:naciones/nacionhumana.yml id:nacion<player.name>
       }
 
@@ -517,7 +518,7 @@ inv_nations:
           - ^yaml id:nacion<player.name> set aldeas.thanon.rec:->:<player.name>
           }
         }
-      - ^inventory open d:in@inv_thanon 
+      - ^inventory open d:in@inv_thanon
       - ^yaml savefile:naciones/nacionhumana.yml id:nacion<player.name>
       }
 
@@ -668,7 +669,7 @@ inv_nations:
           - ^yaml id:nacion<player.name> set nacion.rec:->:<player.name>
           }
         }
-      - ^inventory open d:in@inv_athelwulf 
+      - ^inventory open d:in@inv_athelwulf
       - ^yaml savefile:naciones/nacionlicantropica.yml id:nacion<player.name>
       }
 
@@ -685,7 +686,7 @@ inv_nations:
           - ^yaml id:nacion<player.name> set nacion.rec:->:<player.name>
           }
         }
-      - ^inventory open d:in@inv_athelwulf 
+      - ^inventory open d:in@inv_athelwulf
       - ^yaml savefile:naciones/nacionlicantropica.yml id:nacion<player.name>
       }
 
@@ -702,7 +703,7 @@ inv_nations:
           - ^yaml id:nacion<player.name> set nacion.rec:->:<player.name>
           }
         }
-      - ^inventory open d:in@inv_athelwulf 
+      - ^inventory open d:in@inv_athelwulf
       - ^yaml savefile:naciones/nacionlicantropica.yml id:nacion<player.name>
       }
 
@@ -719,7 +720,7 @@ inv_nations:
           - ^yaml id:nacion<player.name> set nacion.rec:->:<player.name>
           }
         }
-      - ^inventory open d:in@inv_athelwulf 
+      - ^inventory open d:in@inv_athelwulf
       - ^yaml savefile:naciones/nacionlicantropica.yml id:nacion<player.name>
       }
 
@@ -767,7 +768,7 @@ inv_nations:
           - ^yaml id:nacion<player.name> set aldeas.garkar.rec:->:<player.name>
           }
         }
-      - ^inventory open d:in@inv_garkar 
+      - ^inventory open d:in@inv_garkar
       - ^yaml savefile:naciones/nacionlicantropica.yml id:nacion<player.name>
       }
 
@@ -784,7 +785,7 @@ inv_nations:
           - ^yaml id:nacion<player.name> set aldeas.garkar.rec:->:<player.name>
           }
         }
-      - ^inventory open d:in@inv_garkar 
+      - ^inventory open d:in@inv_garkar
       - ^yaml savefile:naciones/nacionlicantropica.yml id:nacion<player.name>
       }
 
@@ -801,7 +802,7 @@ inv_nations:
           - ^yaml id:nacion<player.name> set aldeas.garkar.rec:->:<player.name>
           }
         }
-      - ^inventory open d:in@inv_garkar 
+      - ^inventory open d:in@inv_garkar
       - ^yaml savefile:naciones/nacionlicantropica.yml id:nacion<player.name>
       }
 
@@ -818,7 +819,7 @@ inv_nations:
           - ^yaml id:nacion<player.name> set aldeas.garkar.rec:->:<player.name>
           }
         }
-      - ^inventory open d:in@inv_garkar 
+      - ^inventory open d:in@inv_garkar
       - ^yaml savefile:naciones/nacionlicantropica.yml id:nacion<player.name>
       }
 
@@ -901,7 +902,7 @@ inv_nations:
           - ^yaml id:nacion<player.name> set aldeas.rakdot.rec:->:<player.name>
           }
         }
-      - ^inventory open d:in@inv_rakdot 
+      - ^inventory open d:in@inv_rakdot
       - ^yaml savefile:naciones/nacionlicantropica.yml id:nacion<player.name>
       }
 
@@ -918,7 +919,7 @@ inv_nations:
           - ^yaml id:nacion<player.name> set aldeas.rakdot.rec:->:<player.name>
           }
         }
-      - ^inventory open d:in@inv_rakdot 
+      - ^inventory open d:in@inv_rakdot
       - ^yaml savefile:naciones/nacionlicantropica.yml id:nacion<player.name>
       }
 
@@ -935,7 +936,7 @@ inv_nations:
           - ^yaml id:nacion<player.name> set aldeas.rakdot.rec:->:<player.name>
           }
         }
-      - ^inventory open d:in@inv_rakdot 
+      - ^inventory open d:in@inv_rakdot
       - ^yaml savefile:naciones/nacionlicantropica.yml id:nacion<player.name>
       }
 
@@ -952,7 +953,7 @@ inv_nations:
           - ^yaml id:nacion<player.name> set aldeas.rakdot.rec:->:<player.name>
           }
         }
-      - ^inventory open d:in@inv_rakdot 
+      - ^inventory open d:in@inv_rakdot
       - ^yaml savefile:naciones/nacionlicantropica.yml id:nacion<player.name>
       }
 
@@ -1035,7 +1036,7 @@ inv_nations:
           - ^yaml id:nacion<player.name> set aldeas.krante.rec:->:<player.name>
           }
         }
-      - ^inventory open d:in@inv_krante 
+      - ^inventory open d:in@inv_krante
       - ^yaml savefile:naciones/nacionlicantropica.yml id:nacion<player.name>
       }
 
@@ -1052,7 +1053,7 @@ inv_nations:
           - ^yaml id:nacion<player.name> set aldeas.krante.rec:->:<player.name>
           }
         }
-      - ^inventory open d:in@inv_krante 
+      - ^inventory open d:in@inv_krante
       - ^yaml savefile:naciones/nacionlicantropica.yml id:nacion<player.name>
       }
 
@@ -1069,7 +1070,7 @@ inv_nations:
           - ^yaml id:nacion<player.name> set aldeas.krante.rec:->:<player.name>
           }
         }
-      - ^inventory open d:in@inv_krante 
+      - ^inventory open d:in@inv_krante
       - ^yaml savefile:naciones/nacionlicantropica.yml id:nacion<player.name>
       }
 
@@ -1086,7 +1087,7 @@ inv_nations:
           - ^yaml id:nacion<player.name> set aldeas.krante.rec:->:<player.name>
           }
         }
-      - ^inventory open d:in@inv_krante 
+      - ^inventory open d:in@inv_krante
       - ^yaml savefile:naciones/nacionlicantropica.yml id:nacion<player.name>
       }
 
@@ -1242,7 +1243,7 @@ inv_nations:
           - ^yaml id:nacion<player.name> set nacion.rec:->:<player.name>
           }
         }
-      - ^inventory open d:in@inv_zane3 
+      - ^inventory open d:in@inv_zane3
       - ^yaml savefile:naciones/nacionvampirica.yml id:nacion<player.name>
       }
 
@@ -1259,7 +1260,7 @@ inv_nations:
           - ^yaml id:nacion<player.name> set nacion.rec:->:<player.name>
           }
         }
-      - ^inventory open d:in@inv_zane3 
+      - ^inventory open d:in@inv_zane3
       - ^yaml savefile:naciones/nacionvampirica.yml id:nacion<player.name>
       }
 
@@ -1276,7 +1277,7 @@ inv_nations:
           - ^yaml id:nacion<player.name> set nacion.rec:->:<player.name>
           }
         }
-      - ^inventory open d:in@inv_zane3 
+      - ^inventory open d:in@inv_zane3
       - ^yaml savefile:naciones/nacionvampirica.yml id:nacion<player.name>
       }
 
@@ -1293,7 +1294,7 @@ inv_nations:
           - ^yaml id:nacion<player.name> set nacion.rec:->:<player.name>
           }
         }
-      - ^inventory open d:in@inv_zane3 
+      - ^inventory open d:in@inv_zane3
       - ^yaml savefile:naciones/nacionvampirica.yml id:nacion<player.name>
       }
 
@@ -1341,7 +1342,7 @@ inv_nations:
           - ^yaml id:nacion<player.name> set aldeas.nuxfel.rec:->:<player.name>
           }
         }
-      - ^inventory open d:in@inv_nuxfel 
+      - ^inventory open d:in@inv_nuxfel
       - ^yaml savefile:naciones/nacionvampirica.yml id:nacion<player.name>
       }
 
@@ -1358,7 +1359,7 @@ inv_nations:
           - ^yaml id:nacion<player.name> set aldeas.nuxfel.rec:->:<player.name>
           }
         }
-      - ^inventory open d:in@inv_nuxfel 
+      - ^inventory open d:in@inv_nuxfel
       - ^yaml savefile:naciones/nacionvampirica.yml id:nacion<player.name>
       }
 
@@ -1375,7 +1376,7 @@ inv_nations:
           - ^yaml id:nacion<player.name> set aldeas.nuxfel.rec:->:<player.name>
           }
         }
-      - ^inventory open d:in@inv_nuxfel 
+      - ^inventory open d:in@inv_nuxfel
       - ^yaml savefile:naciones/nacionvampirica.yml id:nacion<player.name>
       }
 
@@ -1392,7 +1393,7 @@ inv_nations:
           - ^yaml id:nacion<player.name> set aldeas.nuxfel.rec:->:<player.name>
           }
         }
-      - ^inventory open d:in@inv_nuxfel 
+      - ^inventory open d:in@inv_nuxfel
       - ^yaml savefile:naciones/nacionvampirica.yml id:nacion<player.name>
       }
 
@@ -1471,7 +1472,7 @@ inv_nations:
           - ^yaml id:nacion<player.name> set aldeas.valiron.rec:->:<player.name>
           }
         }
-      - ^inventory open d:in@inv_valiron 
+      - ^inventory open d:in@inv_valiron
       - ^yaml savefile:naciones/nacionvampirica.yml id:nacion<player.name>
       }
 
@@ -1488,7 +1489,7 @@ inv_nations:
           - ^yaml id:nacion<player.name> set aldeas.valiron.rec:->:<player.name>
           }
         }
-      - ^inventory open d:in@inv_valiron 
+      - ^inventory open d:in@inv_valiron
       - ^yaml savefile:naciones/nacionvampirica.yml id:nacion<player.name>
       }
 
@@ -1505,7 +1506,7 @@ inv_nations:
           - ^yaml id:nacion<player.name> set aldeas.valiron.rec:->:<player.name>
           }
         }
-      - ^inventory open d:in@inv_valiron 
+      - ^inventory open d:in@inv_valiron
       - ^yaml savefile:naciones/nacionvampirica.yml id:nacion<player.name>
       }
 
@@ -1522,7 +1523,7 @@ inv_nations:
           - ^yaml id:nacion<player.name> set aldeas.valiron.rec:->:<player.name>
           }
         }
-      - ^inventory open d:in@inv_valiron 
+      - ^inventory open d:in@inv_valiron
       - ^yaml savefile:naciones/nacionvampirica.yml id:nacion<player.name>
       }
 
@@ -1601,7 +1602,7 @@ inv_nations:
           - ^yaml id:nacion<player.name> set aldeas.dexaro.rec:->:<player.name>
           }
         }
-      - ^inventory open d:in@inv_dexaro 
+      - ^inventory open d:in@inv_dexaro
       - ^yaml savefile:naciones/nacionvampirica.yml id:nacion<player.name>
       }
 
@@ -1618,7 +1619,7 @@ inv_nations:
           - ^yaml id:nacion<player.name> set aldeas.dexaro.rec:->:<player.name>
           }
         }
-      - ^inventory open d:in@inv_dexaro 
+      - ^inventory open d:in@inv_dexaro
       - ^yaml savefile:naciones/nacionvampirica.yml id:nacion<player.name>
       }
 
@@ -1635,7 +1636,7 @@ inv_nations:
           - ^yaml id:nacion<player.name> set aldeas.dexaro.rec:->:<player.name>
           }
         }
-      - ^inventory open d:in@inv_dexaro 
+      - ^inventory open d:in@inv_dexaro
       - ^yaml savefile:naciones/nacionvampirica.yml id:nacion<player.name>
       }
 
@@ -1652,7 +1653,7 @@ inv_nations:
           - ^yaml id:nacion<player.name> set aldeas.dexaro.rec:->:<player.name>
           }
         }
-      - ^inventory open d:in@inv_dexaro 
+      - ^inventory open d:in@inv_dexaro
       - ^yaml savefile:naciones/nacionvampirica.yml id:nacion<player.name>
       }
 

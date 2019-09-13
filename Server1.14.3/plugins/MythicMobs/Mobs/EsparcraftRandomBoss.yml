@@ -695,17 +695,14 @@ Zombiesbirrogiant2:
 
 Bandit:
   Mobtype: HUSK
-  Display: '&6Bandido Armado'
-  Health: 60
+  Display: '&4Bandido'
+  Health: 30
   Damage: 5
-  LevelModifiers:
-    Health: 16
-    Power: 1
-  Armor: 1
+  Armor: 2
   Disguise:
     Type: player
     Skin: 'Bandits'
-    Player: '&cBandido Armado'
+    Player: '&4Bandido'
   Faction: Bandits
   Equipment:
   - wood_sword:0
@@ -736,20 +733,15 @@ Bandit:
 
 SwordBandit:
   Mobtype: HUSK
-  Display: '&6Bandido Armado'
-  Health: 60
+  Display: '&6Bandido'
+  Health: 20
   Damage: 5
-  LevelModifiers:
-    Health: 16
-    Power: 1
   Armor: 1
   Disguise:
     Type: player
     Skin: 'Bandits'
-    Player: '&6Bandido Armado'
+    Player: '&6Bandido'
   Faction: Bandits
-  Equipment:
-  - wood_sword:0
   Skills:
   - setlevel{a=add;l=1} @self ~onPlayerKill
   - message{m="<mob.name> tiene en su motin &2$&a<mob.score.money>"} @target ~onSignal:tellmoney
@@ -779,18 +771,15 @@ SwordBandit:
 
 BowBandit:
   Mobtype: SKELETON
-  Display: '&6Bandido Arquero'
+  Display: '&6Bandido Arquero &7lvl &6- &8[&4<mob.level>&8]&f'
   Health: 60
   Damage: 5
-  LevelModifiers:
-    Health: 16
-    Power: 1
   Display: '&6Bandido Arquero'
   Armor: 1
   Disguise:
     Type: player
     Skin: 'Bandits'
-    Player: '&6Bandido Arquero &7lvl &6- &8[&4<mob.level>&8]&f'
+    Player: '&6Bandido'
   Faction: Bandits
   Equipment:
   - leather_helmet:4
