@@ -2,39 +2,9 @@ GlobalExperience:
   type: world
   events:
 # -------------MINERIA-------------------------
-    on player breaks stone:
-    - ^flag <player> mineriaexp:+:1
-    - ^actionbar "<green>+1"
-    - ^run 's@checkmineria'
-    - ^queue clear
-    on player breaks granite:
-    - ^flag <player> mineriaexp:+:1.6
-    - ^actionbar "<green>+1.2"
-    - ^run 's@checkmineria'
-    - ^queue clear
-    on player breaks diorite:
-    - ^flag <player> mineriaexp:+:1.8
-    - ^actionbar "<green>+1.4"
-    - ^run 's@checkmineria'
-    - ^queue clear
-    on player breaks andesite:
-    - ^flag <player> mineriaexp:+:2
-    - ^actionbar "<green>+2"
-    - ^run 's@checkmineria'
-    - ^queue clear
     on player breaks coal_ore:
     - ^flag <player> mineriaexp:+:3
     - ^actionbar "<green>+3"
-    - ^run 's@checkmineria'
-    - ^queue clear
-    on player breaks sand:
-    - ^flag <player> mineriaexp:+:5
-    - ^actionbar "<green>+5"
-    - ^run 's@checkmineria'
-    - ^queue clear
-    on player breaks clay:
-    - ^flag <player> mineriaexp:+:7
-    - ^actionbar "<green>+7"
     - ^run 's@checkmineria'
     - ^queue clear
     on player breaks redstone_ore:
@@ -42,17 +12,12 @@ GlobalExperience:
     - ^actionbar "<green>+7"
     - ^run 's@checkmineria'
     - ^queue clear
-    on player breaks red_sand:
-    - ^flag <player> mineriaexp:+:7
-    - ^actionbar "<green>+7"
-    - ^run 's@checkmineria'
-    - ^queue clear
     on player breaks iron_ore:
-    - ^flag <player> mineriaexp:+:7
-    - ^actionbar "<green>+7"
+    - ^flag <player> mineriaexp:+:5
+    - ^actionbar "<green>+5"
     - ^run 's@checkmineria'
     - ^queue clear
-    on player breaks quartz_ore:
+    on player breaks nether_quartz_ore:
     - ^flag <player> mineriaexp:+:9
     - ^actionbar "<green>+9"
     - ^run 's@checkmineria'
@@ -87,8 +52,89 @@ GlobalExperience:
     - ^actionbar "<green>+11"
     - ^run 's@checkmineria'
     - ^queue clear
+    on player breaks lapis_ore:
+    - ^flag <player> mineriaexp:+:5
+    - ^actionbar "<green>+5"
+    - ^run 's@checkmineria'
+    - ^queue clear
+# -------------CANTERIA-------------------------
+    on player breaks stone:
+    - ^flag <player> canteriaexp:+:1
+    - ^actionbar "<green>+1"
+    - ^run 's@checkcanteria'
+    - ^queue clear
+    on player breaks granite:
+    - ^flag <player> canteriaexp:+:1.6
+    - ^actionbar "<green>+1.2"
+    - ^run 's@checkcanteria'
+    - ^queue clear
+    on player breaks diorite:
+    - ^flag <player> canteriaexp:+:1.8
+    - ^actionbar "<green>+1.4"
+    - ^run 's@checkcanteria'
+    - ^queue clear
+    on player breaks andesite:
+    - ^flag <player> canteriaexp:+:2
+    - ^actionbar "<green>+2"
+    - ^run 's@checkcanteria'
+    - ^queue clear
+    on player breaks sand:
+    - ^flag <player> canteriaexp:+:5
+    - ^actionbar "<green>+5"
+    - ^run 's@checkcanteria'
+    - ^queue clear
+    on player breaks clay:
+    - ^flag <player> canteriaexp:+:7
+    - ^actionbar "<green>+7"
+    - ^run 's@checkcanteria'
+    - ^queue clear
+    on player breaks red_sand:
+    - ^flag <player> canteriaexp:+:7
+    - ^actionbar "<green>+7"
+    - ^run 's@checkcanteria'
+    - ^queue clear
+    on player breaks end_stone:
+    - ^flag <player> canteriaexp:+:11
+    - ^actionbar "<green>+11"
+    - ^run 's@checkcanteria'
+    - ^queue clear
+    on player breaks gravel:
+    - ^flag <player> canteriaexp:+:1
+    - ^actionbar "<green>+1"
+    - ^run 's@checkcanteria'
+    - ^queue clear
+    on player breaks mycelium:
+    - ^flag <player> canteriaexp:+:11
+    - ^actionbar "<green>+11"
+    - ^run 's@checkcanteria'
+    - ^queue clear
+    on player breaks podzol:
+    - ^flag <player> canteriaexp:+:3
+    - ^actionbar "<green>+3"
+    - ^run 's@checkcanteria'
+    - ^queue clear
+    on player breaks soul_sand:
+    - ^flag <player> canteriaexp:+:11
+    - ^actionbar "<green>+11"
+    - ^run 's@checkcanteria'
+    - ^queue clear
 # -------------CARPINTERIA-------------------------
     on player breaks oak_log:
+    - ^flag <player> carpinteriaexp:+:1
+    - ^actionbar "<green>+1"
+    - ^run 's@checkcarpinteria'
+    - ^queue clear
+    on player breaks oak_wood:
+    - ^flag <player> carpinteriaexp:+:1
+    - ^actionbar "<green>+1"
+    - ^run 's@checkcarpinteria'
+    - ^queue clear
+    on player breaks stripped_oak_log:
+    - ^flag <player> carpinteriaexp:+:1
+    - ^actionbar "<green>+1"
+    - ^run 's@checkcarpinteria'
+    - ^queue clear
+    on player breaks stripped_oak_wood:
     - ^flag <player> carpinteriaexp:+:1
     - ^actionbar "<green>+1"
     - ^run 's@checkcarpinteria'
@@ -98,7 +144,37 @@ GlobalExperience:
     - ^actionbar "<green>+3"
     - ^run 's@checkcarpinteria'
     - ^queue clear
+    on player breaks spruce_wood:
+    - ^flag <player> carpinteriaexp:+:3
+    - ^actionbar "<green>+3"
+    - ^run 's@checkcarpinteria'
+    - ^queue clear
+    on player breaks stripped_spruce_log:
+    - ^flag <player> carpinteriaexp:+:3
+    - ^actionbar "<green>+3"
+    - ^run 's@checkcarpinteria'
+    - ^queue clear
+    on player breaks stripped_spruce_wood:
+    - ^flag <player> carpinteriaexp:+:3
+    - ^actionbar "<green>+3"
+    - ^run 's@checkcarpinteria'
+    - ^queue clear
     on player breaks birch_log:
+    - ^flag <player> carpinteriaexp:+:5
+    - ^actionbar "<green>+5"
+    - ^run 's@checkcarpinteria'
+    - ^queue clear
+    on player breaks birch_wood:
+    - ^flag <player> carpinteriaexp:+:5
+    - ^actionbar "<green>+5"
+    - ^run 's@checkcarpinteria'
+    - ^queue clear
+    on player breaks stripped_birch_log:
+    - ^flag <player> carpinteriaexp:+:5
+    - ^actionbar "<green>+5"
+    - ^run 's@checkcarpinteria'
+    - ^queue clear
+    on player breaks stripped_birch_wood:
     - ^flag <player> carpinteriaexp:+:5
     - ^actionbar "<green>+5"
     - ^run 's@checkcarpinteria'
@@ -108,7 +184,37 @@ GlobalExperience:
     - ^actionbar "<green>+7"
     - ^run 's@checkcarpinteria'
     - ^queue clear
+    on player breaks jungle_wood:
+    - ^flag <player> carpinteriaexp:+:7
+    - ^actionbar "<green>+7"
+    - ^run 's@checkcarpinteria'
+    - ^queue clear
+    on player breaks stripped_jungle_log:
+    - ^flag <player> carpinteriaexp:+:7
+    - ^actionbar "<green>+7"
+    - ^run 's@checkcarpinteria'
+    - ^queue clear
+    on player breaks stripped_jungle_wood:
+    - ^flag <player> carpinteriaexp:+:7
+    - ^actionbar "<green>+7"
+    - ^run 's@checkcarpinteria'
+    - ^queue clear
     on player breaks acacia_log:
+    - ^flag <player> carpinteriaexp:+:9
+    - ^actionbar "<green>+9"
+    - ^run 's@checkcarpinteria'
+    - ^queue clear
+    on player breaks acacia_wood:
+    - ^flag <player> carpinteriaexp:+:9
+    - ^actionbar "<green>+9"
+    - ^run 's@checkcarpinteria'
+    - ^queue clear
+    on player breaks stripped_acacia_log:
+    - ^flag <player> carpinteriaexp:+:9
+    - ^actionbar "<green>+9"
+    - ^run 's@checkcarpinteria'
+    - ^queue clear
+    on player breaks stripped_acacia_wood:
     - ^flag <player> carpinteriaexp:+:9
     - ^actionbar "<green>+9"
     - ^run 's@checkcarpinteria'
@@ -118,57 +224,288 @@ GlobalExperience:
     - ^actionbar "<green>+11"
     - ^run 's@checkcarpinteria'
     - ^queue clear
-# -------------ALQUIMIA-------------------------
+    on player breaks darkoak_wood:
+    - ^flag <player> carpinteriaexp:+:11
+    - ^actionbar "<green>+11"
+    - ^run 's@checkcarpinteria'
+    - ^queue clear
+    on player breaks stripped_darkoak_log:
+    - ^flag <player> carpinteriaexp:+:11
+    - ^actionbar "<green>+11"
+    - ^run 's@checkcarpinteria'
+    - ^queue clear
+    on player breaks stripped_darkoak_wood:
+    - ^flag <player> carpinteriaexp:+:11
+    - ^actionbar "<green>+11"
+    - ^run 's@checkcarpinteria'
+    - ^queue clear
+# -------------Herboristeria-------------------------
     on player breaks potato,7:
-    - ^flag <player> alquimiaexp:+:1
+    - ^flag <player> herboristeriaexp:+:1
     - ^actionbar "<green>+1"
-    - ^run 's@checkalquimia'
+    - ^run 's@checkherboristeria'
     - ^queue clear
     on player breaks melon_block:
-    - ^flag <player> alquimiaexp:+:3
+    - ^flag <player> herboristeriaexp:+:3
     - ^actionbar "<green>+3"
-    - ^run 's@checkalquimia'
+    - ^run 's@checkherboristeria'
     - ^queue clear
     on player breaks carrot,7:
-    - ^flag <player> alquimiaexp:+:5
+    - ^flag <player> herboristeriaexp:+:5
     - ^actionbar "<green>+5"
-    - ^run 's@checkalquimia'
+    - ^run 's@checkherboristeria'
     - ^queue clear
     on player breaks sugar_cane_block:
-    - ^flag <player> alquimiaexp:+:5
+    - ^flag <player> herboristeriaexp:+:5
     - ^actionbar "<green>+5"
-    - ^run 's@checkalquimia'
+    - ^run 's@checkherboristeria'
     - ^queue clear
     on player breaks crops,7:
-    - ^flag <player> alquimiaexp:+:7
+    - ^flag <player> herboristeriaexp:+:7
     - ^actionbar "<green>+7"
-    - ^run 's@checkalquimia'
+    - ^run 's@checkherboristeria'
     - ^queue clear
     on player breaks beetroot_block,3:
-    - ^flag <player> alquimiaexp:+:9
+    - ^flag <player> herboristeriaexp:+:9
     - ^actionbar "<green>+9"
-    - ^run 's@checkalquimia'
+    - ^run 's@checkherboristeria'
     - ^queue clear
     on player breaks pumpkin:
-    - ^flag <player> alquimiaexp:+:11
+    - ^flag <player> herboristeriaexp:+:11
     - ^actionbar "<green>+11"
-    - ^run 's@checkalquimia'
+    - ^run 's@checkherboristeria'
     - ^queue clear
     on player breaks brown_mushroom:
-    - ^flag <player> alquimiaexp:+:11
+    - ^flag <player> herboristeriaexp:+:11
     - ^actionbar "<green>+11"
-    - ^run 's@checkalquimia'
+    - ^run 's@checkherboristeria'
     - ^queue clear
     on player breaks red_mushroom:
-    - ^flag <player> alquimiaexp:+:11
+    - ^flag <player> herboristeriaexp:+:11
     - ^actionbar "<green>+11"
-    - ^run 's@checkalquimia'
+    - ^run 's@checkherboristeria'
     - ^queue clear
-# -------------GANADERIA-------------------------
+    on player breaks allium:
+    - ^flag <player> herboristeriaexp:+:1
+    - ^actionbar "<green>+1"
+    - ^run 's@checkherboristeria'
+    - ^queue clear
+    on player breaks azure_bluet:
+    - ^flag <player> herboristeriaexp:+:1
+    - ^actionbar "<green>+1"
+    - ^run 's@checkherboristeria'
+    - ^queue clear
+    on player breaks blue_orchid:
+    - ^flag <player> herboristeriaexp:+:1
+    - ^actionbar "<green>+1"
+    - ^run 's@checkherboristeria'
+    - ^queue clear
+    on player breaks cactus:
+    - ^flag <player> herboristeriaexp:+:5
+    - ^actionbar "<green>+5"
+    - ^run 's@checkherboristeria'
+    - ^queue clear
+    on player breaks chorus_flower:
+    - ^flag <player> herboristeriaexp:+:11
+    - ^actionbar "<green>+11"
+    - ^run 's@checkherboristeria'
+    - ^queue clear
+    on player breaks chorus_fruit:
+    - ^flag <player> herboristeriaexp:+:11
+    - ^actionbar "<green>+11"
+    - ^run 's@checkherboristeria'
+    - ^queue clear
+    on player breaks chorus_plant:
+    - ^flag <player> herboristeriaexp:+:11
+    - ^actionbar "<green>+11"
+    - ^run 's@checkherboristeria'
+    - ^queue clear
+    on player breaks cocoa:
+    - ^flag <player> herboristeriaexp:+:7
+    - ^actionbar "<green>+7"
+    - ^run 's@checkherboristeria'
+    - ^queue clear
+    on player breaks cornflower:
+    - ^flag <player> herboristeriaexp:+:1
+    - ^actionbar "<green>+1"
+    - ^run 's@checkherboristeria'
+    - ^queue clear
+    on player breaks dandelion:
+    - ^flag <player> herboristeriaexp:+:1
+    - ^actionbar "<green>+1"
+    - ^run 's@checkherboristeria'
+    - ^queue clear
+    on player breaks seagrass:
+    - ^flag <player> herboristeriaexp:+:1
+    - ^actionbar "<green>+1"
+    - ^run 's@checkherboristeria'
+    - ^queue clear
+    on player breaks lilac:
+    - ^flag <player> herboristeriaexp:+:1
+    - ^actionbar "<green>+1"
+    - ^run 's@checkherboristeria'
+    - ^queue clear
+    on player breaks lily_of_the_valley:
+    - ^flag <player> herboristeriaexp:+:2.5
+    - ^actionbar "<green>+2.5"
+    - ^run 's@checkherboristeria'
+    - ^queue clear
+    on player breaks lily_pad:
+    - ^flag <player> herboristeriaexp:+:1
+    - ^actionbar "<green>+1"
+    - ^run 's@checkherboristeria'
+    - ^queue clear
+    on player breaks orange_tulip:
+    - ^flag <player> herboristeriaexp:+:1
+    - ^actionbar "<green>+1"
+    - ^run 's@checkherboristeria'
+    - ^queue clear
+    on player breaks oxeye_daisy:
+    - ^flag <player> herboristeriaexp:+:1
+    - ^actionbar "<green>+1"
+    - ^run 's@checkherboristeria'
+    - ^queue clear
+    on player breaks peony:
+    - ^flag <player> herboristeriaexp:+:1
+    - ^actionbar "<green>+1"
+    - ^run 's@checkherboristeria'
+    - ^queue clear
+    on player breaks pink_tulip:
+    - ^flag <player> herboristeriaexp:+:1
+    - ^actionbar "<green>+1"
+    - ^run 's@checkherboristeria'
+    - ^queue clear
+    on player breaks poppy:
+    - ^flag <player> herboristeriaexp:+:1
+    - ^actionbar "<green>+1"
+    - ^run 's@checkherboristeria'
+    - ^queue clear
+    on player breaks red_tulip:
+    - ^flag <player> herboristeriaexp:+:1
+    - ^actionbar "<green>+1"
+    - ^run 's@checkherboristeria'
+    - ^queue clear
+    on player breaks sea_pickle:
+    - ^flag <player> herboristeriaexp:+:5
+    - ^actionbar "<green>+5"
+    - ^run 's@checkherboristeria'
+    - ^queue clear
+    on player breaks sunflower:
+    - ^flag <player> herboristeriaexp:+:1
+    - ^actionbar "<green>+1"
+    - ^run 's@checkherboristeria'
+    - ^queue clear
+    on player breaks sweet_berries:
+    - ^flag <player> herboristeriaexp:+:3
+    - ^actionbar "<green>+3"
+    - ^run 's@checkherboristeria'
+    - ^queue clear
+    on player breaks white_tulip:
+    - ^flag <player> herboristeriaexp:+:1
+    - ^actionbar "<green>+1"
+    - ^run 's@checkherboristeria'
+    - ^queue clear
+# -------------Pesca-------------------------
+    on player fishes:
+    - ^flag <player> pescaexp:+:11
+    - ^actionbar "<green>+11"
+    - ^run 's@checkpesca'
+    - ^queue clear
+# -------------Pesca-------------------------
+    on blaze dies by player:
+    - ^flag <player> asesinoexp:+:5
+    - ^actionbar "<green>+5"
+    - ^run 's@checkasesino'
+    - ^queue clear
+    on skeleton dies by player:
+    - ^flag <player> asesinoexp:+:3
+    - ^actionbar "<green>+3"
+    - ^run 's@checkasesino'
+    - ^queue clear
+    on creeper dies by player:
+    - ^flag <player> asesinoexp:+:5
+    - ^actionbar "<green>+5"
+    - ^run 's@checkasesino'
+    - ^queue clear
+    on ender_dragon dies by player:
+    - ^flag <player> asesinoexp:+:6
+    - ^actionbar "<green>+6"
+    - ^run 's@checkasesino'
+    - ^queue clear
+    on enderman dies by player:
+    - ^flag <player> asesinoexp:+:9
+    - ^actionbar "<green>+9"
+    - ^run 's@checkasesino'
+    - ^queue clear
+    on cave_spider dies by player:
+    - ^flag <player> asesinoexp:+:9
+    - ^actionbar "<green>+9"
+    - ^run 's@checkasesino'
+    - ^queue clear
+    on spider dies by player:
+    - ^flag <player> asesinoexp:+:9
+    - ^actionbar "<green>+9"
+    - ^run 's@checkasesino'
+    - ^queue clear
+    on ghast dies by player:
+    - ^flag <player> asesinoexp:+:5
+    - ^actionbar "<green>+5"
+    - ^run 's@checkasesino'
+    - ^queue clear
+    on guardian dies by player:
+    - ^flag <player> asesinoexp:+:5
+    - ^actionbar "<green>+5"
+    - ^run 's@checkasesino'
+    - ^queue clear
+    on shulker dies by player:
+    - ^flag <player> asesinoexp:+:9
+    - ^actionbar "<green>+9"
+    - ^run 's@checkasesino'
+    - ^queue clear
+    on slime dies by player:
+    - ^flag <player> asesinoexp:+:7
+    - ^actionbar "<green>+7"
+    - ^run 's@checkasesino'
+    - ^queue clear
+    on wither_skeleton dies by player:
+    - ^flag <player> asesinoexp:+:3
+    - ^actionbar "<green>+3"
+    - ^run 's@checkasesino'
+    - ^queue clear
+# -------------Ganaderia-------------------------
+    on cow dies by player:
+    - ^flag <player> ganaderiaexp:+:3
+    - ^actionbar "<green>+3"
+    - ^run 's@checkganaderia'
+    - ^queue clear
+    on chicken dies by player:
+    - ^flag <player> ganaderiaexp:+:1
+    - ^actionbar "<green>+1"
+    - ^run 's@checkganaderia'
+    - ^queue clear
+    on squid dies by player:
+    - ^flag <player> ganaderiaexp:+:1
+    - ^actionbar "<green>+1"
+    - ^run 's@checkganaderia'
+    - ^queue clear
+    on sheep dies by player:
+    - ^flag <player> ganaderiaexp:+:11
+    - ^actionbar "<green>+11"
+    - ^run 's@checkganaderia'
+    - ^queue clear
+    on pig dies by player:
+    - ^flag <player> ganaderiaexp:+:7
+    - ^actionbar "<green>+7"
+    - ^run 's@checkganaderia'
+    - ^queue clear
+    on rabbit dies by player:
+    - ^flag <player> ganaderiaexp:+:9
+    - ^actionbar "<green>+9"
+    - ^run 's@checkganaderia'
+    - ^queue clear
     # on player breaks block:
     # - ^actionbar "<green><context.material>"
     # - ^queue clear
-
 checkmineria:
     type: task
     script:
@@ -189,13 +526,43 @@ checkcarpinteria:
       } else {
       - ^queue clear
       }
-checkalquimia:
+checkherboristeria:
     type: task
     script:
-    - ^if <player.flag[alquimiaexp]> >= 20 {
-      - ^flag <player> alquimiaexp:-:20
-      - ^flag <player> alquimiapoints:+:1
-      - ^run 's@checkalquimia'
+    - ^if <player.flag[herboristeriaexp]> >= 20 {
+      - ^flag <player> herboristeriaexp:-:20
+      - ^flag <player> herboristeriapoints:+:1
+      - ^run 's@checkherboristeria'
+      } else {
+      - ^queue clear
+      }
+checkpesca:
+    type: task
+    script:
+    - ^if <player.flag[pescaexp]> >= 20 {
+      - ^flag <player> pescaexp:-:20
+      - ^flag <player> pescapoints:+:1
+      - ^run 's@checkpesca'
+      } else {
+      - ^queue clear
+      }
+checkasesino:
+    type: task
+    script:
+    - ^if <player.flag[asesinoexp]> >= 20 {
+      - ^flag <player> asesinoexp:-:20
+      - ^flag <player> pescapoints:+:1
+      - ^run 's@checkasesino'
+      } else {
+      - ^queue clear
+      }
+checkganaderia:
+    type: task
+    script:
+    - ^if <player.flag[ganaderiaexp]> >= 20 {
+      - ^flag <player> ganaderiaexp:-:20
+      - ^flag <player> ganaderiapoints:+:1
+      - ^run 's@checkasesino'
       } else {
       - ^queue clear
       }
