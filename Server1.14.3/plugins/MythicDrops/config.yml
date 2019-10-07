@@ -1,15 +1,5 @@
-version: 5.1.0
+version: 7.0.0
 options:
-## Should the plugin be in debug mode?
-## If you want help with the plugin in the Discord channel,
-## please turn this setting on.
-  debug: false
-  hooking:
-## Should the plugin hook into mcMMO and cancel
-## mcMMO's repair event? This is available
-## as mcMMO will allow players to rename items
-## via repairing.
-    mcmmo: false
 ## Should monsters who receive drops be given
 ## random names? Pulls from the resources/mobnames
 ## folder. general.txt applies to all
@@ -49,10 +39,6 @@ options:
 ## Allow items to be repaired using an Anvil?
 ## This defaults to false as items can be renamed using the Anvil.
   allow-items-to-be-repaired-by-anvil: false
-## Allow items to be equipped from the item bar using right clicks?
-## This defaults to false as there have been associated item
-## dupe bugs associated with this.
-  allow-equipping-items-via-right-click: false
 ## Should leather colors be randomized?
   randomize-leather-colors: true
 ## Default socket gem name color on items. For power users, mostly.
@@ -105,7 +91,7 @@ components:
   repairing-enabled: true
 ## Should MythicDrops spawn items with empty sockets
 ## and socket gems?
-  socketting-enabled: true
+  socketing-enabled: true
 ## Should MythicDrops enable its identifying feature
 ## and spawn unidentified items and identity tomes?
   identifying-enabled: true
@@ -116,7 +102,7 @@ components:
 display:
 ## How should the name of generated items be formatted?
 ## Uses variables contained in variables.txt.
-  item-display-name-format: '%generalprefix% %itemtype%'
+  item-display-name-format: '%generalprefix% %generalsuffix%'
 ## How should the lore of generated items be formatted?
 ## Uses variables contained in variables.txt.
   tooltip-format:
