@@ -1,0 +1,259 @@
+# Full color code support and some variables
+# Keep in mind that variables wont work for some lines, when it will for anothers :)
+# Just keep them where there are now and everything will be ok :)
+
+info:
+  prefix: '&e[&aSV&e] '
+  NoPermission: '&cYou don''t have permission!'
+  Ingame: '&cYou can use this only in game!'
+  FromConsole: '&cYou can use this only from console!'
+  NotOnline: '&cThe player is not online!'
+  NoPlayer: '&cCan''t find player with this name!'
+  UseInteger: '&cPlease use numbers!'
+  UseBoolean: '&cPlease use True or False!'
+  NoLessThan: '&cNumber can''t be less than [amount]!'
+  NoMoreThan: '&cValue can''t be more than [amount]'
+  NoWorld: '&cCan''t find world with this name!'
+  GlobalDisable: '&cVisualizer is disabled. Use &6/sv toggle &cto enable it!'
+  TypeDisable: '&cThis type of visualizer is disabled. Enable it throw GUI!'
+  Enabled: '&2Enabled'
+  Disabled: '&cDisabled'
+  Gui:
+    Title: '&8Pick selection type'
+    Back: '&eBack to main page'
+    Range: '&eRange: &6[current]&7([max]) &eblocks'
+    ShowFor: '&eShow for: &6[current]&7([max]) &esec'
+    interval: '&eUpdate interval: &6[current][baseInterval]&8([min]) &eticks'
+    intervalExtra: '&e(&6[baseInterval]&e)'
+    SkipBy: '&eSkip By: &6[current]'
+    Climbing: '&eClimbing particles: &6[state]'
+    Toggle: '&eClick to toggle'
+    RowSpacing: '&6[type] &erow spacing: &6[current]&8([min])'
+    CollumnSpacing: '&6[type] &ecollumn spacing: &6[current]&8([min])'
+    Cap: '&6[type] &emaximum particles: &6[current]&7([max])'
+    Effect: '&6[type] &eeffect: &6[effect]'
+    Green: '&2Green'
+    Red: '&cRed'
+    Blue: '&9Blue'
+    ColorLore:
+    - '&eColor: &6[number]'
+    - '&eUse left/right mouse buttons to adjust'
+    - '&eUse shift to increese 10x faster'
+modes:
+  WEPaste: World Edit Paste Cuboid
+  WECuboid: World Edit Cuboid
+  WESphere: World Edit Sphere
+  WECylinder: World Edit Cylinder
+  WEPoly: World Edit Poly
+  WEConvex: World Edit Convex
+  CommandBlockCuboid: Command Block
+  CustomPoint: Point
+  CustomChunk: Chunk
+  SpawnerSphere: Spawner
+  Beacon: Beacon
+  CustomGrid: Grid
+  KingdomsArea: Kingdoms
+  FactionsArea: Factions
+  GriefPreventionArea: GriefPrevention
+  WGCuboid: WorldGuard
+  iZoneCuboid: iZone
+  ResCuboid: Residence
+  TownyArea: Towny
+  DiceFurnitureArea: Dice Furniture
+  WorldBorderArea: World Border
+  JobsArea: Jobs
+modePlaces:
+  WEPaste:
+  - Frame
+  - Sides
+  - Teleport location
+  WECuboid:
+  - Frame
+  - Sides
+  WESphere:
+  - Surface
+  WECylinder:
+  - Edges
+  - Surface
+  WEPoly:
+  - Frame
+  - Sides
+  WEConvex:
+  - Connectors
+  - Selection path
+  CommandBlockCuboid:
+  - Frame
+  - Sides
+  - Range
+  CustomPoint:
+  - Line
+  - Block
+  CustomChunk:
+  - Frame
+  - Sides
+  SpawnerSphere:
+  - Range
+  - Spawn range
+  Beacon:
+  - Frame
+  - Sides
+  CustomGrid:
+  - East/West
+  - South/North
+  KingdomsArea:
+  - Own land
+  - Enemy land
+  - Ally land
+  FactionsArea:
+  - Own land
+  - Enemy land
+  - Ally land
+  GriefPreventionArea:
+  - Frame
+  - Sides
+  - Admin Land
+  WGCuboid:
+  - Frame
+  - Sides
+  iZoneCuboid:
+  - Frame
+  - Sides
+  ResCuboid:
+  - Frame
+  - Sides
+  - Subzone
+  TownyArea:
+  - Own land
+  - Enemy land
+  - Resident land
+  DiceFurnitureArea:
+  - Frame
+  - Sides
+  WorldBorderArea:
+  - Frame
+  - Sides
+  JobsArea:
+  - Frame
+  - Sides
+  - Selection
+command:
+  help:
+    output:
+      usage: '&eUsage: &6%usage%'
+      title: '&e-------&e ======= &6SV &e======= &e-------'
+      page: '&e-----&e ====== Page &6[1] &eof &6[2] &e====== &e-----'
+      baseline: '&2[command] &6[args]'
+      infoline: ' &e- [info]'
+      prev: '&e<<<<< Prev page &e|'
+      next: '&e|&e Next Page >>>>'
+  nocmd:
+    help:
+      info: '&eShows all available commands'
+      args: ''
+  gui:
+    help:
+      info: '&eOpens GUI to edit personal settings'
+      args: '[type]'
+    info:
+      notype: '&cNo selection type by this name'
+  grid:
+    help:
+      info: '&eShows chunk grid'
+      args: (fixy)
+  watch:
+    help:
+      info: '&eSee other player selections'
+      args: '[stop/info/playername]'
+    info:
+      Stopped: '&eYou have stopped to watch &6[player] &eselections'
+      NoStop: '&eNothing to stop'
+      Current: '&eYou currently watching &6[player] &eselections'
+      NotWatching: '&eYou currently not watching any players selections'
+      Started: '&eYou have started to watch &6[player] &eselections'
+  chunk:
+    help:
+      info: '&eShows current chunk'
+      args: ''
+  we:
+    help:
+      info: '&eShows WorldEdit selection or copied area'
+      args: (paste) (lock/tp)
+    info:
+      teleported: '&eTeleported to paste location'
+      noTp: '&eThere is no saved teleport locations'
+      return: '&eTo return into paste location use &6/sv we paste tp'
+  wg:
+    help:
+      info: '&eShows WorldGuard regions'
+      args: (regionName)
+    info:
+      notIn: '&eYou are not in WorldGuard region'
+      notFound: '&eCan''t find WorldGuard region by this name'
+  jobs:
+    help:
+      info: '&eShows jobs restricted areas'
+      args: ''
+  spawner:
+    help:
+      info: '&eShows spawner active and spawn range'
+      args: ''
+    info:
+      lookAtSpawner: '&eLook at spawner'
+  beacon:
+    help:
+      info: '&eShows beacon active range'
+      args: ''
+    info:
+      lookAtBeacon: '&eLook at beacon'
+  res:
+    help:
+      info: '&eShows Residence regions'
+      args: (residenceName) (-s) (-a)
+    info:
+      notIn: '&eYou are not in Residence'
+  cb:
+    help:
+      info: '&eShows command block target area'
+      args: ''
+    info:
+      badBlock: '&eTarget block is not command block'
+      badCommand: '&eCommand block doesn''t contain target location set'
+  stop:
+    help:
+      info: '&eStops currently showing particles'
+      args: ''
+    info:
+      Stopped: '&eStopped'
+  toggle:
+    help:
+      info: '&eToggles visualizer'
+      args: ''
+    info:
+      Enabled: '&eVisualizer was &6Enabled'
+      Disabled: '&eVisualizer was &cDisabled'
+  gp:
+    help:
+      info: '&eShows GriefPrevention claims'
+      args: (fixy)
+  fc:
+    help:
+      info: '&eShows Factions claims'
+      args: (fixy)
+  towny:
+    help:
+      info: '&eShows Towny claims'
+      args: (fixy)
+  izone:
+    help:
+      info: '&eShows iZone selection'
+      args: ''
+  k:
+    help:
+      info: '&eShows Kingdoms claims'
+      args: (fixy)
+  reload:
+    help:
+      info: '&eReloads configuration file'
+      args: ''
+    info:
+      feedback: '&eConfig files reloaded!'
