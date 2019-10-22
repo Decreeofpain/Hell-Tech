@@ -5,510 +5,125 @@ inv_blast_furnace:
   size: 9
   slots:
   - "[] [] []"
-inv_tecnology_mineria_meslajho:
+inv_tech_cnt_mes:
   type: inventory
-  title: '<gold>Puntos: <yellow><player.flag[mineriapoints]>'
-  size: 54
+  # title: '<gold>Puntos: <yellow><player.flag[mineriapoints]>'
+  title: '<red>Canteria'
+  size: 9
   slots:
-  - "[i@TECNOLOGY_MNR_TOOLS1] [] [i@TECNOLOGY_MNR_FUNDICIONES1] [] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot]"
-  - "[] [] [] [] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot]"
-  - "[i@TECNOLOGY_MNR_MECANISMOS1] [i@TECNOLOGY_MNR_COBBLESTONE] [i@TECNOLOGY_MNR_STONE] [i@TECNOLOGY_MNR_STONE_PROCESADAS] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot]"
-  - "[] [] [] [] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot]"
-  - "[] [] [] [] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot]"
-  - "[] [] [] [] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot]"
-
-inv_tecnology_mineria_meslajho_tools:
+  - "[i@TECNOLOGY_CNT_COBBLESTONE] [i@TECNOLOGY_CNT_ANDESITE] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot]"
+inv_tech_cnt_mes_cobblestone:
   type: inventory
-  title: '<gold>Estado: <yellow><server.flag[meslajho_tools]><gold>%'
-  size: 54
+  title: 'Puntos: <yellow><player.flag[canteriapoints]>'
+  size: 27
   slots:
-  - "[i@TECNOLOGY_MNR_TOOLS1] [] [i@TECNOLOGY_MNR_FUNDICIONES1] [] [i@cancelslot] [i@TECNOLOGY_MNR_TOOLS1_INFO] [] [] [i@TECNOLOGY_INVESTIGAR]"
-  - "[] [] [] [] [i@cancelslot] [cancelslot] [cancelslot] [cancelslot] [TECNOLOGY_DESBLOQUEOS]"
-  - "[i@TECNOLOGY_MNR_MECANISMOS1] [i@TECNOLOGY_MNR_COBBLESTONE] [i@TECNOLOGY_MNR_STONE] [i@TECNOLOGY_MNR_STONE_PROCESADAS] [i@cancelslot] [i@273] [] [i@274] []"
-  - "[] [] [] [] [i@cancelslot] [i@256] [] [i@257] []"
-  - "[] [] [] [] [i@cancelslot] [] [] [] []"
-  - "[] [] [] [] [i@cancelslot] [] [] [] []"
-
-inv_tecnology_mineria_meslajho_fundiciones:
+  - "[i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@TECNOLOGY_CNT_COBBLESTONE_INFO] [i@cancelslot] [i@cancelslot] [i@btn_investigarcanteria] [i@Regresar]"
+  - "[i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot]"
+  - "[i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cobblestone_stairs] [i@cobblestone_slab] [i@cobblestone_wall] [i@cancelslot] [i@cancelslot] [i@cancelslot]"
+inv_tech_cnt_mes_andesite:
   type: inventory
-  title: '<gold>Estado: <yellow><server.flag[meslajho_fundiciones]><gold>%'
-  size: 54
+  title: 'Puntos: <yellow><player.flag[canteriapoints]>'
+  size: 27
   slots:
-  - "[i@TECNOLOGY_MNR_TOOLS1] [] [i@TECNOLOGY_MNR_FUNDICIONES1] [] [i@cancelslot] [i@TECNOLOGY_MNR_FUNDICIONES1_INFO] [] [] [i@TECNOLOGY_INVESTIGAR]"
-  - "[] [] [] [] [i@cancelslot] [cancelslot] [cancelslot] [cancelslot] [TECNOLOGY_DESBLOQUEOS]"
-  - "[i@TECNOLOGY_MNR_MECANISMOS1] [i@TECNOLOGY_MNR_COBBLESTONE] [i@TECNOLOGY_MNR_STONE] [i@TECNOLOGY_MNR_STONE_PROCESADAS] [i@cancelslot] [i@98] [i@98,3] [i@82] []"
-  - "[] [] [] [] [i@cancelslot] [i@4] [i@336] [i@265] [i@20]"
-  - "[] [] [] [] [i@cancelslot] [i@266] [i@406] [i@405] []"
-  - "[] [] [] [] [i@cancelslot] [] [] [] []"
+  - "[i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@TECNOLOGY_CNT_COBBLESTONE_INFO] [i@cancelslot] [i@cancelslot] [i@btn_investigarcanteria] [i@Regresar]"
+  - "[i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot]"
+  - "[i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cobblestone_stairs] [i@cobblestone_slab] [i@cobblestone_wall] [i@cancelslot] [i@cancelslot] [i@cancelslot]"
 
-inv_tecnology_mineria_meslajho_mecanismos:
-  type: inventory
-  title: '<gold>Estado: <yellow><server.flag[meslajho_mecanismos]><gold>%'
-  size: 54
-  slots:
-  - "[i@TECNOLOGY_MNR_TOOLS1] [] [i@TECNOLOGY_MNR_FUNDICIONES1] [] [i@cancelslot] [i@TECNOLOGY_MNR_MECANISMOS1_INFO] [] [] [i@TECNOLOGY_INVESTIGAR]"
-  - "[] [] [] [] [i@cancelslot] [cancelslot] [cancelslot] [cancelslot] [TECNOLOGY_DESBLOQUEOS]"
-  - "[i@TECNOLOGY_MNR_MECANISMOS1] [i@TECNOLOGY_MNR_COBBLESTONE] [i@TECNOLOGY_MNR_STONE] [i@TECNOLOGY_MNR_STONE_PROCESADAS] [i@cancelslot] [i@69] [i@77] [i@61] [i@70]"
-  - "[] [] [] [] [i@cancelslot] [] [] [] []"
-  - "[] [] [] [] [i@cancelslot] [] [] [] []"
-  - "[] [] [] [] [i@cancelslot] [] [] [] []"
-
-inv_tecnology_mineria_meslajho_cobblestone:
-  type: inventory
-  title: '<gold>Estado: <yellow><server.flag[meslajho_cobblestone]><gold>%'
-  size: 54
-  slots:
-  - "[i@TECNOLOGY_MNR_TOOLS1] [] [i@TECNOLOGY_MNR_FUNDICIONES1] [] [i@cancelslot] [i@TECNOLOGY_MNR_COBBLESTONE_INFO] [] [] [i@TECNOLOGY_INVESTIGAR]"
-  - "[] [] [] [] [i@cancelslot] [cancelslot] [cancelslot] [cancelslot] [TECNOLOGY_DESBLOQUEOS]"
-  - "[i@TECNOLOGY_MNR_MECANISMOS1] [i@TECNOLOGY_MNR_COBBLESTONE] [i@TECNOLOGY_MNR_STONE] [i@TECNOLOGY_MNR_STONE_PROCESADAS] [i@cancelslot] [i@44,3] [i@67] [i@139] []"
-  - "[] [] [] [] [i@cancelslot] [] [] [] []"
-  - "[] [] [] [] [i@cancelslot] [] [] [] []"
-  - "[] [] [] [] [i@cancelslot] [] [] [] []"
-
-inv_tecnology_mineria_meslajho_stone:
-  type: inventory
-  title: '<gold>Estado: <yellow><server.flag[meslajho_stone]><gold>%'
-  size: 54
-  slots:
-  - "[i@TECNOLOGY_MNR_TOOLS1] [] [i@TECNOLOGY_MNR_FUNDICIONES1] [] [i@cancelslot] [i@TECNOLOGY_MNR_STONE_INFO] [] [] [i@TECNOLOGY_INVESTIGAR]"
-  - "[] [] [] [] [i@cancelslot] [cancelslot] [cancelslot] [cancelslot] [TECNOLOGY_DESBLOQUEOS]"
-  - "[i@TECNOLOGY_MNR_MECANISMOS1] [i@TECNOLOGY_MNR_COBBLESTONE] [i@TECNOLOGY_MNR_STONE] [i@TECNOLOGY_MNR_STONE_PROCESADAS] [i@cancelslot] [i@98] [i@98,3] [i@44,5] [i@109]"
-  - "[] [] [] [] [i@cancelslot] [] [] [] []"
-  - "[] [] [] [] [i@cancelslot] [] [] [] []"
-  - "[] [] [] [] [i@cancelslot] [] [] [] []"
-
-inv_tecnology_mineria_meslajho_stoneprocesadas:
-  type: inventory
-  title: '<gold>Estado: <yellow><server.flag[meslajho_stoneprocesadas]><gold>%'
-  size: 54
-  slots:
-  - "[i@TECNOLOGY_MNR_TOOLS1] [] [i@TECNOLOGY_MNR_FUNDICIONES1] [] [i@cancelslot] [i@TECNOLOGY_MNR_STONE_PROCESADAS_INFO] [] [] [i@TECNOLOGY_INVESTIGAR]"
-  - "[] [] [] [] [i@cancelslot] [cancelslot] [cancelslot] [cancelslot] [TECNOLOGY_DESBLOQUEOS]"
-  - "[i@TECNOLOGY_MNR_MECANISMOS1] [i@TECNOLOGY_MNR_COBBLESTONE] [i@TECNOLOGY_MNR_STONE] [i@TECNOLOGY_MNR_STONE_PROCESADAS] [i@cancelslot] [i@1,1] [i@1,2] [i@1,3] [i@1,4]"
-  - "[] [] [] [] [i@cancelslot] [i@1,5] [i@1,6] [] []"
-  - "[] [] [] [] [i@cancelslot] [] [] [] []"
-  - "[] [] [] [] [i@cancelslot] [] [] [] []"
-
-# inv_tecnology_mineria:
-#   type: inventory
-#   title: '<gold>Tecnologias'
-#   size: 54
-#   slots:
-#   - "[i@TECNOLOGY_MNR_TOOLS1] [i@TECNOLOGY_MNR_TOOLS2] [i@TECNOLOGY_MNR_FUNDICIONES1] [i@TECNOLOGY_MNR_FUNDICIONES2] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot]"
-#   - "[i@TECNOLOGY_MNR_MECANISMOS1] [i@TECNOLOGY_MNR_COBBLESTONE] [i@TECNOLOGY_MNR_STONE] [i@TECNOLOGY_MNR_STONE_PROCESADAS] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot]"
-#   - "[i@TECNOLOGY_MNR_MECANISMOS2] [i@TECNOLOGY_MNR_ARENAS] [i@TECNOLOGY_MNR_CONCRETO] [i@TECNOLOGY_MNR_CRISTALES] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot]"
-#   - "[i@TECNOLOGY_MNR_TRENES] [i@TECNOLOGY_MNR_FORJA] [i@TECNOLOGY_MNR_TERRACOTA] [i@TECNOLOGY_MNR_LADRILLOS] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot]"
-#   - "[i@TECNOLOGY_MNR_PRISMARINE] [i@TECNOLOGY_MNR_CUARZO] [i@TECNOLOGY_MNR_NETHER] [i@TECNOLOGY_MNR_PURPUR] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot]"
-#   - "[i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot]"
-#
-
-TECNOLOGY_MNR_TOOLS1:
-  type: item
-  material: 273
-  display name: '<gold>Herramientas basicas'
-  lore:
-  - '<dark_green>Investigacion <yellow><server.flag[meslajho_tools]><gold>%'
-TECNOLOGY_MNR_TOOLS2:
-  type: item
-  material: 284
-  display name: '<gold>Herramientas avanzadas'
-  lore:
-  - '<dark_green>Investigacion <gold>0/100'
-TECNOLOGY_MNR_FUNDICIONES1:
-  type: item
-  material: 61
-  display name: '<gold>Fundiciones basicas'
-  lore:
-  - '<dark_green>Investigacion <yellow><server.flag[meslajho_fundiciones]><gold>%'
-TECNOLOGY_MNR_FUNDICIONES2:
-  type: item
-  material: 61
-  display name: '<gold>Fudiciones avanzadas'
-  lore:
-  - '<dark_green>Investigacion <gold>0/100'
-TECNOLOGY_MNR_MECANISMOS1:
-  type: item
-  material: 69
-  display name: '<gold>Mecanismos basicos'
-  lore:
-  - '<dark_green>Investigacion <yellow><server.flag[meslajho_mecanismos]><gold>%'
-TECNOLOGY_MNR_COBBLESTONE:
-  type: item
-  material: 4
-  display name: '<gold>Roca'
-  lore:
-  - '<dark_green>Investigacion <yellow><server.flag[meslajho_cobblestone]><gold>%'
-TECNOLOGY_MNR_STONE:
-  type: item
-  material: 98
-  display name: '<gold>Piedra'
-  lore:
-  - '<dark_green>Investigacion <yellow><server.flag[meslajho_stone]><gold>%'
-TECNOLOGY_MNR_STONE_PROCESADAS:
-  type: item
-  material: 1,6
-  display name: '<gold>Piedras pocesadas'
-  lore:
-  - '<dark_green>Investigacion <yellow><server.flag[meslajho_stoneprocesadas]><gold>%'
-TECNOLOGY_MNR_CRISTALES:
-  type: item
-  material: 273
-  display name: '<gold>Cristales'
-  lore:
-  - '<dark_green>Investigacion <gold>0/100'
-TECNOLOGY_MNR_ARENAS:
-  type: item
-  material: 273
-  display name: '<gold>Arena procesada'
-  lore:
-  - '<dark_green>Investigacion <gold>0/100'
-TECNOLOGY_MNR_CONCRETO:
-  type: item
-  material: 273
-  display name: '<gold>Concreto'
-  lore:
-  - '<dark_green>Investigacion <gold>0/100'
-TECNOLOGY_MNR_MECANISMOS2:
-  type: item
-  material: 273
-  display name: '<gold>Mecanismos intermedios'
-  lore:
-  - '<dark_green>Investigacion <gold>0/100'
-TECNOLOGY_MNR_TRENES:
-  type: item
-  material: 273
-  display name: '<gold>Trenes'
-  lore:
-  - '<dark_green>Investigacion <gold>0/100'
-TECNOLOGY_MNR_FORJA:
-  type: item
-  material: 273
-  display name: '<gold>Forja'
-  lore:
-  - '<dark_green>Investigacion <gold>0/100'
-TECNOLOGY_MNR_TERRACOTA:
-  type: item
-  material: 273
-  display name: '<gold>Terracota'
-  lore:
-  - '<dark_green>Investigacion <gold>0/100'
-TECNOLOGY_MNR_LADRILLOS:
-  type: item
-  material: 273
-  display name: '<gold>Ladrillos'
-  lore:
-  - '<dark_green>Investigacion <gold>0/100'
-TECNOLOGY_MNR_PRISMARINE:
-  type: item
-  material: 273
-  display name: '<gold>Prismarina'
-  lore:
-  - '<dark_green>Investigacion <gold>0/100'
-TECNOLOGY_MNR_CUARZO:
-  type: item
-  material: 273
-  display name: '<gold>Cuarzo'
-  lore:
-  - '<dark_green>Investigacion <gold>0/100'
-TECNOLOGY_MNR_NETHER:
-  type: item
-  material: 273
-  display name: '<gold>Nether'
-  lore:
-  - '<dark_green>Investigacion <gold>0/100'
-TECNOLOGY_MNR_PURPUR:
-  type: item
-  material: 273
-  display name: '<gold>Purpur'
-  lore:
-  - '<dark_green>Investigacion <gold>0/100'
 # -------------- BOTONES INTERFAZ ----------------
-TECNOLOGY_INVESTIGAR:
+btn_investigarcanteria:
   type: item
   material: 76
   display name: '<gold>Investigar'
   lore:
   - ''
-  - '<white>Requiere Gastar <green>5 puntos'
-  - '<yellow>Para investigar 1%'
+  - '<white>Usa <green>5 puntos'
+  - '<white>Para investigar <green>1%'
   - ''
-  - '<gold>Tienes: <green><player.flag[mineriapoints]> puntos'
-TECNOLOGY_DESBLOQUEOS:
+  - '<gold>Tienes: <green><player.flag[canteriapoints]> <green>puntos'
+
+TECNOLOGY_CNT_COBBLESTONE:
   type: item
-  material: 218
-  display name: '<gold>Desbloqueos'
+  material: cobblestone
+  display name: '<gold>Piedra Labrada'
+  lore:
+  - '<dark_green>Investigacion: <yellow><server.flag[meslajho_cobblestone]><gold>%'
+TECNOLOGY_CNT_ANDESITE:
+  type: item
+  material: andesite
+  display name: '<gold>Andesita'
+  lore:
+  - '<dark_green>Investigacion: <yellow><server.flag[meslajho_andesite]><gold>%'
 # -------------- INFO TECNOLOGIES ----------------
-TECNOLOGY_MNR_TOOLS1_INFO:
+TECNOLOGY_CNT_COBBLESTONE_INFO:
   type: item
-  material: 273
-  display name: '<gold>Herramientas basicas'
+  material: cobblestone
+  display name: '<gold>Piedra Labrada'
   lore:
-  - '<white>Utiles para extraer materiales'
+  - '<white>Tecnologia para labrar piedra'
   - ''
-  - '<yellow>Desarrollo actual: <server.flag[meslajho_tools]><gold>%'
-TECNOLOGY_MNR_FUNDICIONES1_INFO:
+  - '<yellow>Desarrollo actual: <gold><server.flag[meslajho_cobblestone]><yellow>%'
+TECNOLOGY_CNT_ANDESITE_INFO:
   type: item
-  material: 61
-  display name: '<gold>Fundiciones basicas'
+  material: cobblestone
+  display name: '<gold>Andesita'
   lore:
-  - '<white>Util para nuevos materiales'
+  - '<white>Tecnologia para labrar Andesita'
   - ''
-  - '<yellow>Desarrollo actual: <server.flag[meslajho_fundiciones]><gold>%'
-TECNOLOGY_MNR_MECANISMOS1_INFO:
-  type: item
-  material: 69
-  display name: '<gold>Mecanismos basicos'
-  lore:
-  - '<white>Mecanismos elementales'
-  - ''
-  - '<yellow>Desarrollo actual: <server.flag[meslajho_mecanismos]><gold>%'
-TECNOLOGY_MNR_COBBLESTONE_INFO:
-  type: item
-  material: 4
-  display name: '<gold>Roca'
-  lore:
-  - '<white>Creacion de materiales'
-  - '<white>en base a rocas'
-  - ''
-  - '<yellow>Desarrollo actual: <server.flag[meslajho_cobblestone]><gold>%'
-TECNOLOGY_MNR_STONE_INFO:
-  type: item
-  material: 98
-  display name: '<gold>Piedra'
-  lore:
-  - '<white>Creacion de materiales'
-  - '<white>en base a piedras'
-  - '<yellow>Desarrollo actual: <server.flag[meslajho_stone]><gold>%'
-TECNOLOGY_MNR_STONE_PROCESADAS_INFO:
-  type: item
-  material: 1,6
-  display name: '<gold>Piedra procesadas'
-  lore:
-  - '<white>Creacion de materiales'
-  - '<white>en base a rocas raras'
-  - ''
-  - '<yellow>Desarrollo actual: <server.flag[meslajho_stoneprocesadas]><gold>%'
-
-
-MNRCF001:
-  type: item
-  material: 273
-  lore:
-  - '<dark_green>Nivel para craftear <gold>3'
-  - '<green>Exp <white>- <gold>0.5'
+  - '<yellow>Desarrollo actual: <gold><server.flag[meslajho_andesite]><yellow>%'
 
 
 Tecnologievents:
   type: world
   events:
+# ------- Abrir inventarios desde Lactersn
     on player clicks lectern in canterameslajho:
-    - ^inventory open d:in@inv_tecnology_mineria_meslajho
+    - ^inventory open d:in@inv_tech_cnt_mes
     - DETERMINE cancelled
-    on player clicks blast_furnace:
-    - ^inventory open d:in@inv_blast_furnace
+# ------- Cancel Clicks
+    on player clicks in inv_tech_cnt_mes:
     - DETERMINE cancelled
-    on player clicks in inv_tecnology_mineria_meslajho:
+    on player drags in inv_tech_cnt_mes:
     - DETERMINE cancelled
-    on player drags in inv_tecnology_mineria_meslajho:
+    on player clicks in inv_tech_cnt_mes_cobblestone:
     - DETERMINE cancelled
-    on player clicks in inv_tecnology_mineria_meslajho_tools:
+    on player drags in inv_tech_cnt_mes_cobblestone:
     - DETERMINE cancelled
-    on player drags in inv_tecnology_mineria_meslajho_tools:
+    on player clicks in inv_tech_cnt_mes_andesite:
     - DETERMINE cancelled
-    on player clicks in inv_tecnology_mineria_meslajho_fundiciones:
+    on player drags in inv_tech_cnt_mes_andesite:
     - DETERMINE cancelled
-    on player drags in inv_tecnology_mineria_meslajho_fundiciones:
-    - DETERMINE cancelled
-    on player clicks in inv_tecnology_mineria_meslajho_mecanismos:
-    - DETERMINE cancelled
-    on player drags in inv_tecnology_mineria_meslajho_mecanismos:
-    - DETERMINE cancelled
-    on player clicks in inv_tecnology_mineria_meslajho_cobblestone:
-    - DETERMINE cancelled
-    on player drags in inv_tecnology_mineria_meslajho_cobblestone:
-    - DETERMINE cancelled
-    on player clicks in inv_tecnology_mineria_meslajho_stone:
-    - DETERMINE cancelled
-    on player drags in inv_tecnology_mineria_meslajho_stone:
-    - DETERMINE cancelled
-    on player clicks in inv_tecnology_mineria_meslajho_stoneprocesadas:
-    - DETERMINE cancelled
-    on player drags in inv_tecnology_mineria_meslajho_stoneprocesadas:
-    - DETERMINE cancelled
-# ------------------------ Mineria principal ---------------------------------
-    on player clicks TECNOLOGY_MNR_TOOLS1 in inv_tecnology_mineria_meslajho:
-    - ^inventory open d:in@inv_tecnology_mineria_meslajho_tools
-    on player clicks TECNOLOGY_MNR_FUNDICIONES1 in inv_tecnology_mineria_meslajho:
-    - ^inventory open d:in@inv_tecnology_mineria_meslajho_fundiciones
-    on player clicks TECNOLOGY_MNR_MECANISMOS1 in inv_tecnology_mineria_meslajho:
-    - ^inventory open d:in@inv_tecnology_mineria_meslajho_mecanismos
-    on player clicks TECNOLOGY_MNR_COBBLESTONE in inv_tecnology_mineria_meslajho:
-    - ^inventory open d:in@inv_tecnology_mineria_meslajho_cobblestone
-    on player clicks TECNOLOGY_MNR_STONE in inv_tecnology_mineria_meslajho:
-    - ^inventory open d:in@inv_tecnology_mineria_meslajho_stone
-    on player clicks TECNOLOGY_MNR_STONE_PROCESADAS in inv_tecnology_mineria_meslajho:
-    - ^inventory open d:in@inv_tecnology_mineria_meslajho_stoneprocesadas
+# ------------------------ Canteria Principal ---------------------------------
+    on player clicks TECNOLOGY_CNT_COBBLESTONE in inv_tech_cnt_mes:
+    - ^inventory open d:in@inv_tech_cnt_mes_cobblestone
+    on player clicks TECNOLOGY_CNT_ANDESITE in inv_tech_cnt_mes:
+    - ^inventory open d:in@inv_tech_cnt_mes_andesite
 #                            ----- TECNOLOGIES ------
-#                               ** HERRAMIENTAS **
-    on player clicks TECNOLOGY_MNR_TOOLS1 in inv_tecnology_mineria_meslajho_fundiciones:
-    - ^inventory open d:in@inv_tecnology_mineria_meslajho_tools
-    on player clicks TECNOLOGY_MNR_TOOLS1 in inv_tecnology_mineria_meslajho_mecanismos:
-    - ^inventory open d:in@inv_tecnology_mineria_meslajho_tools
-    on player clicks TECNOLOGY_MNR_TOOLS1 in inv_tecnology_mineria_meslajho_cobblestone:
-    - ^inventory open d:in@inv_tecnology_mineria_meslajho_tools
-    on player clicks TECNOLOGY_MNR_TOOLS1 in inv_tecnology_mineria_meslajho_stone:
-    - ^inventory open d:in@inv_tecnology_mineria_meslajho_tools
-    on player clicks TECNOLOGY_MNR_TOOLS1 in inv_tecnology_mineria_meslajho_stoneprocesadas:
-    - ^inventory open d:in@inv_tecnology_mineria_meslajho_tools
-#                               ** FUNDICIONES **
-    on player clicks TECNOLOGY_MNR_FUNDICIONES1 in inv_tecnology_mineria_meslajho_tools:
-    - ^inventory open d:in@inv_tecnology_mineria_meslajho_fundiciones
-    on player clicks TECNOLOGY_MNR_FUNDICIONES1 in inv_tecnology_mineria_meslajho_mecanismos:
-    - ^inventory open d:in@inv_tecnology_mineria_meslajho_fundiciones
-    on player clicks TECNOLOGY_MNR_FUNDICIONES1 in inv_tecnology_mineria_meslajho_cobblestone:
-    - ^inventory open d:in@inv_tecnology_mineria_meslajho_fundiciones
-    on player clicks TECNOLOGY_MNR_FUNDICIONES1 in inv_tecnology_mineria_meslajho_stone:
-    - ^inventory open d:in@inv_tecnology_mineria_meslajho_fundiciones
-    on player clicks TECNOLOGY_MNR_FUNDICIONES1 in inv_tecnology_mineria_meslajho_stoneprocesadas:
-    - ^inventory open d:in@inv_tecnology_mineria_meslajho_fundiciones
-#                               ** MECANISMOS **
-    on player clicks TECNOLOGY_MNR_MECANISMOS1 in inv_tecnology_mineria_meslajho_tools:
-    - ^inventory open d:in@inv_tecnology_mineria_meslajho_mecanismos
-    on player clicks TECNOLOGY_MNR_MECANISMOS1 in inv_tecnology_mineria_meslajho_fundiciones:
-    - ^inventory open d:in@inv_tecnology_mineria_meslajho_mecanismos
-    on player clicks TECNOLOGY_MNR_MECANISMOS1 in inv_tecnology_mineria_meslajho_cobblestone:
-    - ^inventory open d:in@inv_tecnology_mineria_meslajho_mecanismos
-    on player clicks TECNOLOGY_MNR_MECANISMOS1 in inv_tecnology_mineria_meslajho_stone:
-    - ^inventory open d:in@inv_tecnology_mineria_meslajho_mecanismos
-    on player clicks TECNOLOGY_MNR_MECANISMOS1 in inv_tecnology_mineria_meslajho_stoneprocesadas:
-    - ^inventory open d:in@inv_tecnology_mineria_meslajho_mecanismos
-#                               ** COBBLESTONE **
-    on player clicks TECNOLOGY_MNR_COBBLESTONE in inv_tecnology_mineria_meslajho_tools:
-    - ^inventory open d:in@inv_tecnology_mineria_meslajho_cobblestone
-    on player clicks TECNOLOGY_MNR_COBBLESTONE in inv_tecnology_mineria_meslajho_fundiciones:
-    - ^inventory open d:in@inv_tecnology_mineria_meslajho_cobblestone
-    on player clicks TECNOLOGY_MNR_COBBLESTONE in inv_tecnology_mineria_meslajho_mecanismos:
-    - ^inventory open d:in@inv_tecnology_mineria_meslajho_cobblestone
-    on player clicks TECNOLOGY_MNR_COBBLESTONE in inv_tecnology_mineria_meslajho_stone:
-    - ^inventory open d:in@inv_tecnology_mineria_meslajho_cobblestone
-    on player clicks TECNOLOGY_MNR_COBBLESTONE in inv_tecnology_mineria_meslajho_stoneprocesadas:
-    - ^inventory open d:in@inv_tecnology_mineria_meslajho_cobblestone
-#                               ** STONE **
-    on player clicks TECNOLOGY_MNR_STONE in inv_tecnology_mineria_meslajho_tools:
-    - ^inventory open d:in@inv_tecnology_mineria_meslajho_stone
-    on player clicks TECNOLOGY_MNR_STONE in inv_tecnology_mineria_meslajho_fundiciones:
-    - ^inventory open d:in@inv_tecnology_mineria_meslajho_stone
-    on player clicks TECNOLOGY_MNR_STONE in inv_tecnology_mineria_meslajho_mecanismos:
-    - ^inventory open d:in@inv_tecnology_mineria_meslajho_stone
-    on player clicks TECNOLOGY_MNR_STONE in inv_tecnology_mineria_meslajho_cobblestone:
-    - ^inventory open d:in@inv_tecnology_mineria_meslajho_stone
-    on player clicks TECNOLOGY_MNR_STONE in inv_tecnology_mineria_meslajho_stoneprocesadas:
-    - ^inventory open d:in@inv_tecnology_mineria_meslajho_stone
-#                               ** STONEPROCESADA **
-    on player clicks TECNOLOGY_MNR_STONE_PROCESADAS in inv_tecnology_mineria_meslajho_tools:
-    - ^inventory open d:in@inv_tecnology_mineria_meslajho_stoneprocesadas
-    on player clicks TECNOLOGY_MNR_STONE_PROCESADAS in inv_tecnology_mineria_meslajho_fundiciones:
-    - ^inventory open d:in@inv_tecnology_mineria_meslajho_stoneprocesadas
-    on player clicks TECNOLOGY_MNR_STONE_PROCESADAS in inv_tecnology_mineria_meslajho_mecanismos:
-    - ^inventory open d:in@inv_tecnology_mineria_meslajho_stoneprocesadas
-    on player clicks TECNOLOGY_MNR_STONE_PROCESADAS in inv_tecnology_mineria_meslajho_cobblestone:
-    - ^inventory open d:in@inv_tecnology_mineria_meslajho_stoneprocesadas
-    on player clicks TECNOLOGY_MNR_STONE_PROCESADAS in inv_tecnology_mineria_meslajho_stone:
-    - ^inventory open d:in@inv_tecnology_mineria_meslajho_stoneprocesadas
-# ------------------------ Puntos --------------------------------------------
-# <player.has_permission[ItemRestrict.bypass.257.0.use].global>
-    on player clicks TECNOLOGY_INVESTIGAR in inv_tecnology_mineria_meslajho_tools:
-    - ^if <player.flag[mineriapoints]> >= 5 && <server.flag[meslajho_tools]> < 100 {
-      - ^flag <player> mineriapoints:-:5
-      - ^flag <server> meslajho_tools:+:1
-      - ^inventory open d:in@inv_tecnology_mineria_meslajho_tools
-      - ^if <server.flag[meslajho_tools]> >= 100 {
-        - ^permission add ItemRestrict.bypass.273.0.craft group:iniciado
-        - ^permission add ItemRestrict.bypass.274.0.craft group:iniciado
-        - ^permission add ItemRestrict.bypass.256.0.craft group:iniciado
-        - ^permission add ItemRestrict.bypass.257.0.craft group:iniciado
-        - ^permission add ItemRestrict.bypass.273.0.use group:iniciado
-        - ^permission add ItemRestrict.bypass.274.0.use group:iniciado
-        - ^permission add ItemRestrict.bypass.256.0.use group:iniciado
-        - ^permission add ItemRestrict.bypass.257.0.use group:iniciado
-        }
-      }
-    - ^DETERMINE cancelled
-    - ^queue clear
-    on player clicks TECNOLOGY_INVESTIGAR in inv_tecnology_mineria_meslajho_fundiciones:
-    - ^if <player.flag[mineriapoints]> >= 5 && <server.flag[meslajho_fundiciones]> < 100 {
-      - ^flag <player> mineriapoints:-:5
-      - ^flag <server> meslajho_fundiciones:+:1
-      - ^inventory open d:in@inv_tecnology_mineria_meslajho_fundiciones
-      - ^if <server.flag[meslajho_fundiciones]> >= 100 {
-        - ^permission add ItemRestrict.bypass.98.0.smelt group:iniciado
-        permission add ItemRestrict.bypass.4.0.smelt group:iniciado
-        - ^permission add ItemRestrict.bypass.98.3.smelt group:iniciado
-        - ^permission add ItemRestrict.bypass.20.0.smelt group:iniciado
-        - ^permission add ItemRestrict.bypass.82.0.smelt group:iniciado
-        - ^permission add ItemRestrict.bypass.336.0.smelt group:iniciado
-        - ^permission add ItemRestrict.bypass.265.0.smelt group:iniciado
-        - ^permission add ItemRestrict.bypass.266.0.smelt group:iniciado
-        - ^permission add ItemRestrict.bypass.406.0.smelt group:iniciado
-        - ^permission add ItemRestrict.bypass.405.0.smelt group:iniciado
-        }
-      }
-    - ^DETERMINE cancelled
-    - ^queue clear
-    on player clicks TECNOLOGY_INVESTIGAR in inv_tecnology_mineria_meslajho_mecanismos:
-    - ^if <player.flag[mineriapoints]> >= 5 && <server.flag[meslajho_mecanismos]> < 100 {
-      - ^flag <player> mineriapoints:-:5
-      - ^flag <server> meslajho_mecanismos:+:1
-      - ^inventory open d:in@inv_tecnology_mineria_meslajho_mecanismos
-      - ^if <server.flag[meslajho_mecanismos]> >= 100 {
-        - ^permission add ItemRestrict.bypass.69.0.craft group:iniciado
-        - ^permission add ItemRestrict.bypass.77.0.craft group:iniciado
-        - ^permission add ItemRestrict.bypass.61.0.craft group:iniciado
-        - ^permission add ItemRestrict.bypass.70.0.craft group:iniciado
-        }
-      }
-    - ^DETERMINE cancelled
-    - ^queue clear
-    on player clicks TECNOLOGY_INVESTIGAR in inv_tecnology_mineria_meslajho_cobblestone:
-    - ^if <player.flag[mineriapoints]> >= 5 && <server.flag[meslajho_cobblestone]> < 100 {
-      - ^flag <player> mineriapoints:-:5
+# ---------------------------------- Puntos --------------------------------------------
+    on player clicks btn_investigarcanteria in inv_tech_cnt_mes_cobblestone:
+    - ^if <player.flag[canteriapoints]> >= 5 && <server.flag[meslajho_cobblestone]> < 100 {
+      - ^flag <player> canteriapoints:-:5
       - ^flag <server> meslajho_cobblestone:+:1
-      - ^inventory open d:in@inv_tecnology_mineria_meslajho_cobblestone
+      - ^inventory open d:in@inv_tech_cnt_mes_cobblestone
       - ^if <server.flag[meslajho_cobblestone]> >= 100 {
-        - ^permission add ItemRestrict.bypass.44.3.craft group:iniciado
-        - ^permission add ItemRestrict.bypass.67.0.craft group:iniciado
-        - ^permission add ItemRestrict.bypass.139.0.craft group:iniciado
+        - ^flag <player> tecnologysok:+:canteriacobblestone
         }
       }
     - ^DETERMINE cancelled
     - ^queue clear
-    on player clicks TECNOLOGY_INVESTIGAR in inv_tecnology_mineria_meslajho_stone:
-    - ^if <player.flag[mineriapoints]> >= 5 && <server.flag[meslajho_stone]> < 100 {
-      - ^flag <player> mineriapoints:-:5
-      - ^flag <server> meslajho_stone:+:1
-      - ^inventory open d:in@inv_tecnology_mineria_meslajho_stone
-      - ^if <server.flag[meslajho_stone]> >= 100 {
-        - ^permission add ItemRestrict.bypass.98.0.craft group:iniciado
-        - ^permission add ItemRestrict.bypass.98.3.craft group:iniciado
-        - ^permission add ItemRestrict.bypass.44.5.craft group:iniciado
-        - ^permission add ItemRestrict.bypass.109.0.craft group:iniciado
+    on player clicks btn_investigarcanteria in inv_tech_cnt_mes_andesite:
+    - ^if <player.flag[canteriapoints]> >= 5 && <server.flag[meslajho_andesite]> < 100 {
+      - ^flag <player> canteriapoints:-:5
+      - ^flag <server> meslajho_andesite:+:1
+      - ^inventory open d:in@inv_tech_cnt_mes_andesite
+      - ^if <server.flag[meslajho_andesite]> >= 100 {
+        - ^flag <player> tecnologysok:+:canteriaandesite
         }
       }
     - ^DETERMINE cancelled
     - ^queue clear
-    on player clicks TECNOLOGY_INVESTIGAR in inv_tecnology_mineria_meslajho_stoneprocesadas:
-    - ^if <player.flag[mineriapoints]> >= 5 && <server.flag[meslajho_stoneprocesadas]> < 100 {
-      - ^flag <player> mineriapoints:-:5
-      - ^flag <server> meslajho_stoneprocesadas:+:1
-      - ^inventory open d:in@inv_tecnology_mineria_meslajho_stoneprocesadas
-      - ^if <server.flag[meslajho_stoneprocesadas]> >= 100 {
-        - ^permission add ItemRestrict.bypass.1.1.craft group:iniciado
-        - ^permission add ItemRestrict.bypass.1.2.craft group:iniciado
-        - ^permission add ItemRestrict.bypass.1.3.craft group:iniciado
-        - ^permission add ItemRestrict.bypass.1.4.craft group:iniciado
-        - ^permission add ItemRestrict.bypass.1.5.craft group:iniciado
-        - ^permission add ItemRestrict.bypass.1.6.craft group:iniciado
-        }
-      }
-    - ^DETERMINE cancelled
-    - ^queue clear
+
+# ------------------------ Boton regresar ---------------------------------
+    on player clicks Regresar in inv_tech_cnt_mes_cobblestone:
+    - ^inventory open d:in@inv_tech_cnt_mes
+    on player clicks Regresar in inv_tech_cnt_mes_andesite:
+    - ^inventory open d:in@inv_tech_cnt_mes

@@ -516,6 +516,16 @@ checkmineria:
       } else {
       - ^queue clear
       }
+checkcanteria:
+    type: task
+    script:
+    - ^if <player.flag[canteriaexp]> >= 20 {
+      - ^flag <player> canteriaexp:-:20
+      - ^flag <player> canteriapoints:+:1
+      - ^run 's@checkcanteria'
+      } else {
+      - ^queue clear
+      }
 checkcarpinteria:
     type: task
     script:
