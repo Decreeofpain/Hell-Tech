@@ -1,129 +1,208 @@
-inv_blast_furnace:
-  type: inventory
-  inventory: furnace
-  title: <gold>Fragua
-  size: 9
-  slots:
-  - "[] [] []"
-inv_tech_cnt_mes:
+InvMesCNT:
   type: inventory
   # title: '<gold>Puntos: <yellow><player.flag[mineriapoints]>'
   title: '<red>Canteria'
   size: 9
   slots:
-  - "[i@TECNOLOGY_CNT_COBBLESTONE] [i@TECNOLOGY_CNT_ANDESITE] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot]"
-inv_tech_cnt_mes_cobblestone:
+  - "[i@btn_ctn_mescobblestone] [i@cancelslot] [i@btn_ctn_mesandesite] [i@cancelslot] [i@btn_ctn_mesdiorite] [i@cancelslot] [i@btn_ctn_mesgranite] [i@cancelslot] [i@cancelslot]"
+
+InvMesCNT_Cobblestone:
   type: inventory
   title: 'Puntos: <yellow><player.flag[canteriapoints]>'
   size: 27
   slots:
-  - "[i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@TECNOLOGY_CNT_COBBLESTONE_INFO] [i@cancelslot] [i@cancelslot] [i@btn_investigarcanteria] [i@Regresar]"
+  - "[i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@btnup_ctn_cobblestone] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@btn_regresar]"
   - "[i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot]"
   - "[i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cobblestone_stairs] [i@cobblestone_slab] [i@cobblestone_wall] [i@cancelslot] [i@cancelslot] [i@cancelslot]"
-inv_tech_cnt_mes_andesite:
+
+InvMesCNT_Andesite:
   type: inventory
   title: 'Puntos: <yellow><player.flag[canteriapoints]>'
   size: 27
   slots:
-  - "[i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@TECNOLOGY_CNT_COBBLESTONE_INFO] [i@cancelslot] [i@cancelslot] [i@btn_investigarcanteria] [i@Regresar]"
+  - "[i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@btnup_ctn_andesite] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@btn_regresar]"
   - "[i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot]"
-  - "[i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cobblestone_stairs] [i@cobblestone_slab] [i@cobblestone_wall] [i@cancelslot] [i@cancelslot] [i@cancelslot]"
+  - "[i@cancelslot] [i@cancelslot] [i@cancelslot] [i@andesite_stairs] [i@andesite_slab] [i@andesite_wall] [i@cancelslot] [i@cancelslot] [i@cancelslot]"
 
-# -------------- BOTONES INTERFAZ ----------------
-btn_investigarcanteria:
-  type: item
-  material: 76
-  display name: '<gold>Investigar'
-  lore:
-  - ''
-  - '<white>Usa <green>5 puntos'
-  - '<white>Para investigar <green>1%'
-  - ''
-  - '<gold>Tienes: <green><player.flag[canteriapoints]> <green>puntos'
+InvMesCNT_Diorite:
+  type: inventory
+  title: 'Puntos: <yellow><player.flag[canteriapoints]>'
+  size: 27
+  slots:
+  - "[i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@btnup_ctn_diorite] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@btn_regresar]"
+  - "[i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot]"
+  - "[i@cancelslot] [i@cancelslot] [i@cancelslot] [i@diorite_stairs] [i@diorite_slab] [i@diorite_wall] [i@cancelslot] [i@cancelslot] [i@cancelslot]"
 
-TECNOLOGY_CNT_COBBLESTONE:
+InvMesCNT_Granite:
+  type: inventory
+  title: 'Puntos: <yellow><player.flag[canteriapoints]>'
+  size: 27
+  slots:
+  - "[i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@btnup_ctn_granite] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@btn_regresar]"
+  - "[i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot]"
+  - "[i@cancelslot] [i@cancelslot] [i@cancelslot] [i@granite_stairs] [i@granite_slab] [i@granite_wall] [i@cancelslot] [i@cancelslot] [i@cancelslot]"
+
+btn_ctn_mescobblestone:
   type: item
   material: cobblestone
   display name: '<gold>Piedra Labrada'
+  no_id: false
   lore:
   - '<dark_green>Investigacion: <yellow><server.flag[meslajho_cobblestone]><gold>%'
-TECNOLOGY_CNT_ANDESITE:
+
+btn_ctn_mesandesite:
   type: item
   material: andesite
   display name: '<gold>Andesita'
+  no_id: false
   lore:
   - '<dark_green>Investigacion: <yellow><server.flag[meslajho_andesite]><gold>%'
+
+btn_ctn_mesdiorite:
+  type: item
+  material: diorite
+  display name: '<gold>Diorita'
+  no_id: false
+  lore:
+  - '<dark_green>Investigacion: <yellow><server.flag[meslajho_diorite]><gold>%'
+
+btn_ctn_mesgranite:
+  type: item
+  material: granite
+  display name: '<gold>Granito'
+  no_id: false
+  lore:
+  - '<dark_green>Investigacion: <yellow><server.flag[meslajho_granite]><gold>%'
 # -------------- INFO TECNOLOGIES ----------------
-TECNOLOGY_CNT_COBBLESTONE_INFO:
+btnup_ctn_cobblestone:
   type: item
   material: cobblestone
   display name: '<gold>Piedra Labrada'
   lore:
   - '<white>Tecnologia para labrar piedra'
   - ''
-  - '<yellow>Desarrollo actual: <gold><server.flag[meslajho_cobblestone]><yellow>%'
-TECNOLOGY_CNT_ANDESITE_INFO:
+  - '<white>Usa <green>5 puntos <white>de canteria'
+  - '<white>Para investigar <green>1%'
+  - '<dark_green>Investigacion actual: <yellow><server.flag[meslajho_cobblestone]><gold>%'
+  - ''
+  - '<gold>Tienes: <green><player.flag[canteriapoints]> <green>puntos'
+btnup_ctn_andesite:
   type: item
-  material: cobblestone
+  material: andesite
   display name: '<gold>Andesita'
   lore:
-  - '<white>Tecnologia para labrar Andesita'
+  - '<white>Tecnologia para Andesita'
   - ''
-  - '<yellow>Desarrollo actual: <gold><server.flag[meslajho_andesite]><yellow>%'
+  - '<white>Usa <green>5 puntos <white>de canteria'
+  - '<white>Para investigar <green>1%'
+  - '<dark_green>Investigacion actual: <yellow><server.flag[meslajho_andesite]><gold>%'
+  - ''
+  - '<gold>Tienes: <green><player.flag[canteriapoints]> <green>puntos'
+btnup_ctn_diorite:
+  type: item
+  material: diorite
+  display name: '<gold>Diorita'
+  lore:
+  - '<white>Tecnologia para Diorita'
+  - ''
+  - '<white>Usa <green>5 puntos <white>de canteria'
+  - '<white>Para investigar <green>1%'
+  - '<dark_green>Investigacion actual: <yellow><server.flag[meslajho_diorite]><gold>%'
+  - ''
+  - '<gold>Tienes: <green><player.flag[canteriapoints]> <green>puntos'
+btnup_ctn_granite:
+  type: item
+  material: granite
+  display name: '<gold>Granito'
+  lore:
+  - '<white>Tecnologia para Granito'
+  - ''
+  - '<white>Usa <green>5 puntos <white>de canteria'
+  - '<white>Para investigar <green>1%'
+  - '<dark_green>Investigacion actual: <yellow><server.flag[meslajho_granite]><gold>%'
+  - ''
+  - '<gold>Tienes: <green><player.flag[canteriapoints]> <green>puntos'
 
-
-Tecnologievents:
+Tecno_openinterfaz:
   type: world
   events:
 # ------- Abrir inventarios desde Lactersn
     on player clicks lectern in canterameslajho:
-    - ^inventory open d:in@inv_tech_cnt_mes
-    - DETERMINE cancelled
+    - ^inventory open d:in@InvMesCNT
+    - ^determine cancelled
+    - ^queue clear
 # ------- Cancel Clicks
-    on player clicks in inv_tech_cnt_mes:
-    - DETERMINE cancelled
-    on player drags in inv_tech_cnt_mes:
-    - DETERMINE cancelled
-    on player clicks in inv_tech_cnt_mes_cobblestone:
-    - DETERMINE cancelled
-    on player drags in inv_tech_cnt_mes_cobblestone:
-    - DETERMINE cancelled
-    on player clicks in inv_tech_cnt_mes_andesite:
-    - DETERMINE cancelled
-    on player drags in inv_tech_cnt_mes_andesite:
-    - DETERMINE cancelled
+    on player clicks in InvMesCNT:
+    - determine cancelled
+    on player clicks in InvMesCNT_Cobblestone:
+    - determine cancelled
+    on player clicks in InvMesCNT_Andesite:
+    - determine cancelled
+    on player clicks in InvMesCNT_Granite:
+    - determine cancelled
+    on player clicks in InvMesCNT_Diorite:
+    - determine cancelled
+
+Tecnologievents:
+  type: world
+  events:
 # ------------------------ Canteria Principal ---------------------------------
-    on player clicks TECNOLOGY_CNT_COBBLESTONE in inv_tech_cnt_mes:
-    - ^inventory open d:in@inv_tech_cnt_mes_cobblestone
-    on player clicks TECNOLOGY_CNT_ANDESITE in inv_tech_cnt_mes:
-    - ^inventory open d:in@inv_tech_cnt_mes_andesite
+    on player clicks btn_ctn_mescobblestone in InvMesCNT:
+    - ^inventory open d:in@InvMesCNT_Cobblestone
+    on player clicks btn_ctn_mesandesite in InvMesCNT:
+    - ^inventory open d:in@InvMesCNT_Andesite
+    on player clicks btn_ctn_mesdiorite in InvMesCNT:
+    - ^inventory open d:in@InvMesCNT_Diorite
+    on player clicks btn_ctn_mesgranite in InvMesCNT:
+    - ^inventory open d:in@InvMesCNT_Granite
 #                            ----- TECNOLOGIES ------
 # ---------------------------------- Puntos --------------------------------------------
-    on player clicks btn_investigarcanteria in inv_tech_cnt_mes_cobblestone:
+    on player clicks btnup_ctn_cobblestone in InvMesCNT_Cobblestone:
     - ^if <player.flag[canteriapoints]> >= 5 && <server.flag[meslajho_cobblestone]> < 100 {
       - ^flag <player> canteriapoints:-:5
       - ^flag <server> meslajho_cobblestone:+:1
-      - ^inventory open d:in@inv_tech_cnt_mes_cobblestone
       - ^if <server.flag[meslajho_cobblestone]> >= 100 {
         - ^flag <player> tecnologysok:+:canteriacobblestone
         }
       }
-    - ^DETERMINE cancelled
+    - ^inventory open d:in@InvMesCNT_Cobblestone
     - ^queue clear
-    on player clicks btn_investigarcanteria in inv_tech_cnt_mes_andesite:
+    on player clicks btnup_ctn_andesite in InvMesCNT_Andesite:
     - ^if <player.flag[canteriapoints]> >= 5 && <server.flag[meslajho_andesite]> < 100 {
       - ^flag <player> canteriapoints:-:5
       - ^flag <server> meslajho_andesite:+:1
-      - ^inventory open d:in@inv_tech_cnt_mes_andesite
       - ^if <server.flag[meslajho_andesite]> >= 100 {
         - ^flag <player> tecnologysok:+:canteriaandesite
         }
       }
-    - ^DETERMINE cancelled
+    - ^inventory open d:in@InvMesCNT_Andesite
     - ^queue clear
-
-# ------------------------ Boton regresar ---------------------------------
-    on player clicks Regresar in inv_tech_cnt_mes_cobblestone:
-    - ^inventory open d:in@inv_tech_cnt_mes
-    on player clicks Regresar in inv_tech_cnt_mes_andesite:
-    - ^inventory open d:in@inv_tech_cnt_mes
+    on player clicks btnup_ctn_diorite in InvMesCNT_Diorite:
+    - ^if <player.flag[canteriapoints]> >= 5 && <server.flag[meslajho_diorite]> < 100 {
+      - ^flag <player> canteriapoints:-:5
+      - ^flag <server> meslajho_diorite:+:1
+      - ^if <server.flag[meslajho_diorite]> >= 100 {
+        - ^flag <player> tecnologysok:+:canteriadiorite
+        }
+      }
+    - ^inventory open d:in@InvMesCNT_Diorite
+    - ^queue clear
+    on player clicks btnup_ctn_granite in InvMesCNT_Granite:
+    - ^if <player.flag[canteriapoints]> >= 5 && <server.flag[meslajho_granite]> < 100 {
+      - ^flag <player> canteriapoints:-:5
+      - ^flag <server> meslajho_granite:+:1
+      - ^if <server.flag[meslajho_granite]> >= 100 {
+        - ^flag <player> tecnologysok:+:canteriagranite
+        }
+      }
+    - ^inventory open d:in@InvMesCNT_Granite
+    - ^queue clear
+# ------------------------ Boton btn_regresar ---------------------------------
+    on player clicks btn_regresar in InvMesCNT_Andesite:
+    - ^inventory open d:in@InvMesCNT
+    on player clicks btn_regresar in InvMesCNT_Cobblestone:
+    - ^inventory open d:in@InvMesCNT
+    on player clicks btn_regresar in InvMesCNT_Diorite:
+    - ^inventory open d:in@InvMesCNT
+    on player clicks btn_regresar in InvMesCNT_Granite:
+    - ^inventory open d:in@InvMesCNT
