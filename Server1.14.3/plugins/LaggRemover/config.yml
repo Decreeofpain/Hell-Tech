@@ -7,14 +7,14 @@ version: 0.1.7
 autoChunk: true
 
 # Removes spawn chunks for all worlds in your server. (10)
-noSpawnChunks: true
+noSpawnChunks: false
 
 # This determines if the Smart Lag Detection AI is working to keep your server lag free. (10)
 smartlagai: true
 
 # This prevents the LaggRemover AI from repeatedly attempting to reduce lag if the server grows beyond repair. This
 # should rarely happen, but if it does, this will prevent LaggRemover from adding to the problem. Time in minutes.
-smartaicooldown: 3
+smartaicooldown: 5
 
 # Smart lag detection. If a player types "lag" or "lagg" in the chat and your server TPS is less than this number, the servers lag removal AI will become active. (10)
 TPS: 16.00
@@ -37,7 +37,7 @@ nosaveworlds:
 
 # This automatically removes lag after a certain period of time. The time is in minutes.
 auto-lag-removal:
-  run: false
+  run: true
   every: 10
 
 # This prevents mobs from spawning in a chunk that contains more than the amount of entities specified in the "thinAt" value. (10 because it can prevent players from creating lag machines)

@@ -13,7 +13,7 @@ mysql-host: 127.0.0.1
 mysql-port: 3306
 mysql-database: database
 mysql-username: root
-mysql-password: 
+mysql-password:
 
 # If enabled, CoreProtect will check for updates when your server starts up.
 # If an update is available, you'll be notified via your server console.
@@ -31,10 +31,10 @@ default-radius: 10
 max-radius: 100
 
 # If enabled, items taken from containers (etc) will be included in rollbacks.
-rollback-items: true
+rollback-items: false
 
 # If enabled, entities, such as killed animals, will be included in rollbacks.
-rollback-entities: true
+rollback-entities: false
 
 # If enabled, generic data, like zombies burning in daylight, won't be logged.
 skip-generic-data: true
@@ -54,7 +54,7 @@ natural-break: true
 block-movement: true
 
 # Properly track blocks moved by pistons.
-pistons: true
+pistons: false
 
 # Logs blocks that burn up in a fire.
 block-burn: true
@@ -69,19 +69,19 @@ explosions: true
 entity-change: true
 
 # Logs killed entities, such as killed cows and enderman.
-entity-kills: true
+entity-kills: false
 
 # Logs text on signs. If disabled, signs will be blank when rolled back.
-sign-text: true
+sign-text: false
 
 # Logs lava and water sources placed/removed by players who are using buckets.
-buckets: true
+buckets: false
 
 # Logs natural tree leaf decay.
 leaf-decay: true
 
 # Logs tree growth. Trees are linked to the player who planted the sappling.
-tree-growth: true
+tree-growth: false
 
 # Logs mushroom growth.
 mushroom-growth: true
@@ -90,40 +90,40 @@ mushroom-growth: true
 vine-growth: true
 
 # Logs when portals such as Nether portals generate naturally.
-portals: true
+portals: false
 
 # Logs water flow. If water destroys other blocks, such as torches,
 # this allows it to be properly rolled back.
-water-flow: true
+water-flow: false
 
 # Logs lava flow. If lava destroys other blocks, such as torches,
 # this allows it to be properly rolled back.
-lava-flow: true
+lava-flow: false
 
 # Allows liquid to be properly tracked and linked to players.
 # For example, if a player places water which flows and destroys torches,
 # it can all be properly restored by rolling back that single player.
-liquid-tracking: true
+liquid-tracking: false
 
 # Track item transactions, such as when a player takes items from a
 # chest, furnace, or dispenser. Necessary for any item based rollbacks.
-item-transactions: true
+item-transactions: false
 
 # Track player interactions, such as when a player opens a door, presses
 # a button, or opens a chest. Player interactions can't be rolled back.
-player-interactions: true
+player-interactions: false
 
 # Logs messages that players send in the chat.
-player-messages: true
+player-messages: false
 
 # Logs all commands used by players.
-player-commands: true
+player-commands: false
 
 # Logs the logins and logouts of players.
-player-sessions: true
+player-sessions: false
 
 # Logs when a player changes their Minecraft username.
-username-changes: true
+username-changes: false
 
 # Logs changes made via the plugin "WorldEdit" if it's in use on your server.
-worldedit: true
+worldedit: false
