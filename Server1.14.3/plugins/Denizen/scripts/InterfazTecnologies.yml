@@ -1,6 +1,6 @@
+# ------------------------------------------------------ Inventarios Caantero -------------------------------------------------------------------------------------
 InvMesCNT:
   type: inventory
-  # title: '<gold>Puntos: <yellow><player.flag[mineriapoints]>'
   title: '<red>Canteria'
   size: 9
   slots:
@@ -42,6 +42,56 @@ InvMesCNT_Granite:
   - "[i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot]"
   - "[i@cancelslot] [i@cancelslot] [i@cancelslot] [i@granite_stairs] [i@granite_slab] [i@granite_wall] [i@cancelslot] [i@cancelslot] [i@cancelslot]"
 
+# ------------------------------------------------------ Inventarios Herrero -------------------------------------------------------------------------------------
+InvMesHER:
+  type: inventory
+  title: '<red>Herreria'
+  size: 9
+  slots:
+  - "[i@cancelslot] [i@cancelslot] [i@cancelslot] [i@btn_her_mesfurnace] [i@cancelslot] [i@btn_her_mestools1] [i@cancelslot] [i@cancelslot] [i@cancelslot]"
+
+InvMesHER_Furnace:
+  type: inventory
+  title: 'Puntos: <yellow><player.flag[mineriapoints]>'
+  size: 27
+  slots:
+  - "[i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@btnup_her_furnace] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@btn_regresar]"
+  - "[i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot]"
+  - "[i@cancelslot] [i@cancelslot] [i@cancelslot] [i@furnace] [i@cancelslot] [i@smoker] [i@cancelslot] [i@cancelslot] [i@cancelslot]"
+
+InvMesHER_Tools1:
+  type: inventory
+  title: 'Puntos: <yellow><player.flag[mineriapoints]>'
+  size: 27
+  slots:
+  - "[i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@btnup_her_tools1] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@btn_regresar]"
+  - "[i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot]"
+  - "[i@cancelslot] [i@stone_axe] [i@cancelslot] [i@stone_pickaxe] [i@cancelslot] [i@stone_shovel] [i@cancelslot] [i@stone_hoe] [i@cancelslot]"
+# ------------------------------------------------------ Inventarios Armero -------------------------------------------------------------------------------------
+InvMesARM:
+  type: inventory
+  title: '<red>Armeria'
+  size: 9
+  slots:
+  - "[i@cancelslot] [i@cancelslot] [i@cancelslot] [i@btn_arm_mesweapon1] [i@cancelslot] [i@btn_arm_mesarmaduras1] [i@cancelslot] [i@cancelslot] [i@cancelslot]"
+
+InvMesARM_Weapon1:
+  type: inventory
+  title: 'Puntos: <yellow><player.flag[mineriapoints]>'
+  size: 27
+  slots:
+  - "[i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@btnup_arm_weapon1] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@btn_regresar]"
+  - "[i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot]"
+  - "[i@cancelslot] [i@cancelslot] [i@fletching_table] [i@cancelslot] [i@arrow] [i@cancelslot] [i@stone_sword] [i@cancelslot] [i@cancelslot]"
+InvMesARM_Armadruas1:
+  type: inventory
+  title: 'Puntos: <yellow><player.flag[mineriapoints]>'
+  size: 27
+  slots:
+  - "[i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@btnup_arm_armaduras1] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@btn_regresar]"
+  - "[i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot]"
+  - "[i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@turtle_helmet] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot]"
+# ------------------------------------------------------ Items Cantero -------------------------------------------------------------------------------------
 btn_ctn_mescobblestone:
   type: item
   material: cobblestone
@@ -73,7 +123,38 @@ btn_ctn_mesgranite:
   no_id: false
   lore:
   - '<dark_green>Investigacion: <yellow><server.flag[meslajho_granite]><gold>%'
+# ------------------------------------------------------ Items Herrero -------------------------------------------------------------------------------------
+btn_her_mesfurnace:
+  type: item
+  material: furnace
+  display name: '<gold>fundicion'
+  no_id: false
+  lore:
+  - '<dark_green>Investigacion: <yellow><server.flag[meslajho_furnace]><gold>%'
+btn_her_mestools1:
+  type: item
+  material: stone_pickaxe
+  display name: '<gold>Herramientas'
+  no_id: false
+  lore:
+  - '<dark_green>Investigacion: <yellow><server.flag[meslajho_tools1]><gold>%'
+# ------------------------------------------------------ Items Armero -------------------------------------------------------------------------------------
+btn_arm_mesweapon1:
+  type: item
+  material: arrow
+  display name: '<gold>Armas'
+  no_id: false
+  lore:
+  - '<dark_green>Investigacion: <yellow><server.flag[meslajho_weapon1]><gold>%'
+btn_arm_mesarmaduras1:
+  type: item
+  material: turtle_helmet
+  display name: '<gold>Armaduras'
+  no_id: false
+  lore:
+  - '<dark_green>Investigacion: <yellow><server.flag[meslajho_armaduras1]><gold>%'
 # -------------- INFO TECNOLOGIES ----------------
+# ---------------- CANTERIA ----------------------
 btnup_ctn_cobblestone:
   type: item
   material: cobblestone
@@ -122,6 +203,56 @@ btnup_ctn_granite:
   - '<dark_green>Investigacion actual: <yellow><server.flag[meslajho_granite]><gold>%'
   - ''
   - '<gold>Tienes: <green><player.flag[canteriapoints]> <green>puntos'
+# ---------------- HERRERIA ----------------------
+btnup_her_furnace:
+  type: item
+  material: Furnace
+  display name: '<gold>Fundicion'
+  lore:
+  - '<white>Tecnologia para fundir'
+  - ''
+  - '<white>Usa <green>5 puntos <white>de mineria'
+  - '<white>Para investigar <green>1%'
+  - '<dark_green>Investigacion actual: <yellow><server.flag[meslajho_furnace]><gold>%'
+  - ''
+  - '<gold>Tienes: <green><player.flag[mineriapoints]> <green>puntos'
+btnup_her_tools1:
+  type: item
+  material: stone_pickaxe
+  display name: '<gold>Herramientas'
+  lore:
+  - '<white>Tecnologia para crear herramientas'
+  - ''
+  - '<white>Usa <green>5 puntos <white>de mineria'
+  - '<white>Para investigar <green>1%'
+  - '<dark_green>Investigacion actual: <yellow><server.flag[meslajho_tools1]><gold>%'
+  - ''
+  - '<gold>Tienes: <green><player.flag[mineriapoints]> <green>puntos'
+# ---------------- ARMERIA ----------------------
+btnup_arm_weapon1:
+  type: item
+  material: arrow
+  display name: '<gold>Armas'
+  lore:
+  - '<white>Tecnologia para Armas'
+  - ''
+  - '<white>Usa <green>5 puntos <white>de mineria'
+  - '<white>Para investigar <green>1%'
+  - '<dark_green>Investigacion actual: <yellow><server.flag[meslajho_weapon1]><gold>%'
+  - ''
+  - '<gold>Tienes: <green><player.flag[mineriapoints]> <green>puntos'
+btnup_arm_armaduras1:
+  type: item
+  material: turtle_helmet
+  display name: '<gold>Armaduras'
+  lore:
+  - '<white>Tecnologia para Armaduras'
+  - ''
+  - '<white>Usa <green>5 puntos <white>de mineria'
+  - '<white>Para investigar <green>1%'
+  - '<dark_green>Investigacion actual: <yellow><server.flag[meslajho_armaduras1]><gold>%'
+  - ''
+  - '<gold>Tienes: <green><player.flag[mineriapoints]> <green>puntos'
 
 Tecno_openinterfaz:
   type: world
@@ -129,6 +260,14 @@ Tecno_openinterfaz:
 # ------- Abrir inventarios desde Lactersn
     on player clicks lectern in canterameslajho:
     - ^inventory open d:in@InvMesCNT
+    - ^determine cancelled
+    - ^queue clear
+    on player clicks lectern in herreriameslajho:
+    - ^inventory open d:in@InvMesHER
+    - ^determine cancelled
+    - ^queue clear
+    on player clicks lectern in armeriameslajho:
+    - ^inventory open d:in@InvMesARM
     - ^determine cancelled
     - ^queue clear
 # ------- Cancel Clicks
@@ -141,6 +280,18 @@ Tecno_openinterfaz:
     on player clicks in InvMesCNT_Granite:
     - determine cancelled
     on player clicks in InvMesCNT_Diorite:
+    - determine cancelled
+    on player clicks in InvMesHER:
+    - determine cancelled
+    on player clicks in InvMesHER_Furnace:
+    - determine cancelled
+    on player clicks in InvMesHER_Tools1:
+    - determine cancelled
+    on player clicks in InvMesARM:
+    - determine cancelled
+    on player clicks in InvMesARM_Weapon1:
+    - determine cancelled
+    on player clicks in InvMesARM_Armadruas1:
     - determine cancelled
 
 Tecnologievents:
@@ -155,14 +306,23 @@ Tecnologievents:
     - ^inventory open d:in@InvMesCNT_Diorite
     on player clicks btn_ctn_mesgranite in InvMesCNT:
     - ^inventory open d:in@InvMesCNT_Granite
+    on player clicks btn_her_mesfurnace in InvMesHER:
+    - ^inventory open d:in@InvMesHER_Furnace
+    on player clicks btn_her_mestools1 in InvMesHER:
+    - ^inventory open d:in@InvMesHER_Tools1
+    on player clicks btn_arm_mesweapon1 in InvMesARM:
+    - ^inventory open d:in@InvMesARM_Weapon1
+    on player clicks btn_arm_mesarmaduras1 in InvMesARM:
+    - ^inventory open d:in@InvMesARM_Armadruas1
 #                            ----- TECNOLOGIES ------
 # ---------------------------------- Puntos --------------------------------------------
+#                            ----- TECNOLOGIES ------
     on player clicks btnup_ctn_cobblestone in InvMesCNT_Cobblestone:
     - ^if <player.flag[canteriapoints]> >= 5 && <server.flag[meslajho_cobblestone]> < 100 {
       - ^flag <player> canteriapoints:-:5
       - ^flag <server> meslajho_cobblestone:+:1
       - ^if <server.flag[meslajho_cobblestone]> >= 100 {
-        - ^flag <player> tecnologysok:+:canteriacobblestone
+        - ^flag <server> tecnologysok:+:canteriacobblestone
         }
       }
     - ^inventory open d:in@InvMesCNT_Cobblestone
@@ -172,7 +332,7 @@ Tecnologievents:
       - ^flag <player> canteriapoints:-:5
       - ^flag <server> meslajho_andesite:+:1
       - ^if <server.flag[meslajho_andesite]> >= 100 {
-        - ^flag <player> tecnologysok:+:canteriaandesite
+        - ^flag <server> tecnologysok:+:canteriaandesite
         }
       }
     - ^inventory open d:in@InvMesCNT_Andesite
@@ -182,7 +342,7 @@ Tecnologievents:
       - ^flag <player> canteriapoints:-:5
       - ^flag <server> meslajho_diorite:+:1
       - ^if <server.flag[meslajho_diorite]> >= 100 {
-        - ^flag <player> tecnologysok:+:canteriadiorite
+        - ^flag <server> tecnologysok:+:canteriadiorite
         }
       }
     - ^inventory open d:in@InvMesCNT_Diorite
@@ -192,10 +352,52 @@ Tecnologievents:
       - ^flag <player> canteriapoints:-:5
       - ^flag <server> meslajho_granite:+:1
       - ^if <server.flag[meslajho_granite]> >= 100 {
-        - ^flag <player> tecnologysok:+:canteriagranite
+        - ^flag <server> tecnologysok:+:canteriagranite
         }
       }
     - ^inventory open d:in@InvMesCNT_Granite
+    - ^queue clear
+#                            ----- Herreria ------
+    on player clicks btnup_her_furnace in InvMesHER_Furnace:
+    - ^if <player.flag[mineriapoints]> >= 5 && <server.flag[meslajho_furnace]> < 100 {
+      - ^flag <player> mineriapoints:-:5
+      - ^flag <server> meslajho_furnace:+:1
+      - ^if <server.flag[meslajho_furnace]> >= 100 {
+        - ^flag <server> tecnologysok:+:mineriafurnace
+        }
+      }
+    - ^inventory open d:in@InvMesHER_Furnace
+    - ^queue clear
+    on player clicks btnup_her_tools1 in InvMesHER_Tools1:
+    - ^if <player.flag[mineriapoints]> >= 5 && <server.flag[meslajho_tools1]> < 100 {
+      - ^flag <player> mineriapoints:-:5
+      - ^flag <server> meslajho_tools1:+:1
+      - ^if <server.flag[meslajho_tools1]> >= 100 {
+        - ^flag <server> tecnologysok:+:mineriatools1
+        }
+      }
+    - ^inventory open d:in@InvMesHER_Tools1
+    - ^queue clear
+#                            ----- Armeria ------
+    on player clicks btnup_arm_weapon1 in InvMesARM_Weapon1:
+    - ^if <player.flag[mineriapoints]> >= 5 && <server.flag[meslajho_weapon1]> < 100 {
+      - ^flag <player> mineriapoints:-:5
+      - ^flag <server> meslajho_weapon1:+:1
+      - ^if <server.flag[meslajho_weapon1]> >= 100 {
+        - ^flag <server> tecnologysok:+:mineriaweapon1
+        }
+      }
+    - ^inventory open d:in@InvMesARM_Weapon1
+    - ^queue clear
+    on player clicks btnup_arm_armaduras1 in InvMesARM_Armadruas1:
+    - ^if <player.flag[mineriapoints]> >= 5 && <server.flag[meslajho_armaduras1]> < 100 {
+      - ^flag <player> mineriapoints:-:5
+      - ^flag <server> meslajho_armaduras1:+:1
+      - ^if <server.flag[meslajho_armaduras1]> >= 100 {
+        - ^flag <server> tecnologysok:+:mineriaarmaduras1
+        }
+      }
+    - ^inventory open d:in@InvMesARM_Armadruas1
     - ^queue clear
 # ------------------------ Boton btn_regresar ---------------------------------
     on player clicks btn_regresar in InvMesCNT_Andesite:
@@ -206,3 +408,11 @@ Tecnologievents:
     - ^inventory open d:in@InvMesCNT
     on player clicks btn_regresar in InvMesCNT_Granite:
     - ^inventory open d:in@InvMesCNT
+    on player clicks btn_regresar in InvMesHER_Furnace:
+    - ^inventory open d:in@InvMesHER
+    on player clicks btn_regresar in InvMesHER_Tools1:
+    - ^inventory open d:in@InvMesHER
+    on player clicks btn_regresar in InvMesARM_Weapon1:
+    - ^inventory open d:in@InvMesARM
+    on player clicks btn_regresar in InvMesARM_Armadruas1:
+    - ^inventory open d:in@InvMesARM

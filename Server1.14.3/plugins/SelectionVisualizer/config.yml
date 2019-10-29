@@ -4,11 +4,18 @@ Language: EN
 ShowNewVersion: true
 # Enable or disable world border compatability. In case you dont want world border visualization, just set this to false and restart server
 WorldBorder: true
+PlotSquared:
+  Enter:
+    # Will show plot boundaries when entering player owned area
+    # This doesnt require player to have /svis plot command permission to be able to see those particles
+    Show: true
+    # Time in milliseconds for a particle duration when entering plot
+    Duration: 2000
 # Posible particle effect names: 
-Particles:
+Types:
   WE:
     Paste:
-      Frame:
+      Effect1:
         Effect: reddust
         # Minimum spacing in blocks between particle effects for rows
         # Minal value 0.1
@@ -16,12 +23,10 @@ Particles:
         # Minimum spacing in blocks between particle effects for collums
         # Minimal value 0.1
         CollumnSpacing: 1.0
-        Red: 255
-        Green: 255
-        Blue: 180
+        Color: 255;255;180
         # Max amount of particles allow to show for one player
-        Cap: 500
-      Sides:
+        Cap: 200
+      Effect2:
         Effect: reddust
         # Minimum spacing in blocks between particle effects for rows
         # Minal value 0.1
@@ -29,12 +34,10 @@ Particles:
         # Minimum spacing in blocks between particle effects for collums
         # Minimal value 0.1
         CollumnSpacing: 1.0
-        Red: 255
-        Green: 1
-        Blue: 255
+        Color: 255;1;255
         # Max amount of particles allow to show for one player
-        Cap: 500
-      Extra:
+        Cap: 200
+      Effect3:
         Effect: reddust
         # Minimum spacing in blocks between particle effects for rows
         # Minal value 0.1
@@ -42,13 +45,11 @@ Particles:
         # Minimum spacing in blocks between particle effects for collums
         # Minimal value 0.1
         CollumnSpacing: 1.0
-        Red: 255
-        Green: 1
-        Blue: 1
+        Color: 255;1;1
         # Max amount of particles allow to show for one player
-        Cap: 500
+        Cap: 200
       # How often update particles for player. 20 = 1sec
-      Interval: 10
+      Interval: 3
       # How many particles to skip. By increasing this will lower update interval but decrese particle count. Can create nice looking moving partile effects
       SkipBy: 10
       # Maximum range in blocks to draw particle effects for player
@@ -59,201 +60,178 @@ Particles:
       ShowFor: 30000
       ByDefaultIsEnabled: true
     Cuboid:
-      Frame:
+      Effect1:
         Effect: reddust
         RowSpacing: 1.0
         CollumnSpacing: 1.0
-        Red: 1
-        Green: 255
-        Blue: 1
-        Cap: 500
-      Sides:
+        Color: 119;136;153
+        Cap: 200
+      Effect2:
         Effect: reddust
         RowSpacing: 1.0
         CollumnSpacing: 1.0
-        Red: 255
-        Green: 1
-        Blue: 1
-        Cap: 500
-      Interval: 10
+        Color: 168;19;84
+        Cap: 200
+      Interval: 3
       SkipBy: 10
       Range: 32
       ShowFor: 30000
       ByDefaultIsEnabled: true
     Sphere:
-      Frame:
+      Effect1:
         Effect: reddust
         RowSpacing: 1.0
         CollumnSpacing: 1.0
-        Red: 1
-        Green: 255
-        Blue: 1
-        Cap: 500
-      Interval: 10
+        Color: 119;136;153
+        Cap: 200
+      Interval: 3
       SkipBy: 10
       Range: 32
       ShowFor: 30000
       ByDefaultIsEnabled: true
     Cylinder:
-      Frame:
+      Effect1:
         Effect: reddust
         RowSpacing: 1.0
         CollumnSpacing: 1.0
-        Red: 1
-        Green: 255
-        Blue: 1
-        Cap: 500
-      Sides:
+        Color: 119;136;153
+        Cap: 200
+      Effect2:
         Effect: reddust
         RowSpacing: 1.0
         CollumnSpacing: 1.0
-        Red: 255
-        Green: 1
-        Blue: 1
-        Cap: 500
-      Interval: 10
+        Color: 168;19;84
+        Cap: 200
+      Effect3:
+        Effect: reddust
+        RowSpacing: 1.0
+        CollumnSpacing: 1.0
+        Color: 190;1;255
+        Cap: 200
+      Interval: 3
       SkipBy: 10
       Range: 32
       ShowFor: 30000
       ByDefaultIsEnabled: true
     Poly:
-      Frame:
+      Effect1:
         Effect: reddust
         RowSpacing: 1.0
         CollumnSpacing: 1.0
-        Red: 1
-        Green: 255
-        Blue: 1
-        Cap: 500
-      Sides:
+        Color: 119;136;153
+        Cap: 200
+      Effect2:
         Effect: reddust
         RowSpacing: 1.0
         CollumnSpacing: 1.0
-        Red: 255
-        Green: 1
-        Blue: 1
-        Cap: 500
-      Interval: 10
+        Color: 168;19;84
+        Cap: 200
+      Interval: 3
       SkipBy: 10
       Range: 32
       ShowFor: 30000
       ByDefaultIsEnabled: true
     Convex:
-      Frame:
+      Effect1:
         Effect: reddust
         RowSpacing: 1.0
         CollumnSpacing: 1.0
-        Red: 1
-        Green: 255
-        Blue: 1
-        Cap: 500
-      Sides:
+        Color: 119;136;153
+        Cap: 200
+      Effect2:
         Effect: reddust
         RowSpacing: 1.0
         CollumnSpacing: 1.0
-        Red: 255
-        Green: 1
-        Blue: 1
-        Cap: 500
-      Interval: 10
+        Color: 168;19;84
+        Cap: 200
+      Interval: 3
       SkipBy: 10
       Range: 32
       ShowFor: 30000
       ByDefaultIsEnabled: true
   CommandBlock:
     Cuboid:
-      Frame:
+      Effect1:
         Effect: reddust
         RowSpacing: 1.0
         CollumnSpacing: 1.0
-        Red: 1
-        Green: 255
-        Blue: 1
-        Cap: 500
-      Sides:
+        Color: 1;255;1
+        Cap: 200
+      Effect2:
         Effect: reddust
         RowSpacing: 1.0
         CollumnSpacing: 1.0
-        Red: 255
-        Green: 1
-        Blue: 1
-        Cap: 500
-      Extra:
+        Color: 255;1;1
+        Cap: 200
+      Effect3:
         Effect: reddust
         RowSpacing: 1.0
         CollumnSpacing: 1.0
-        Red: 190
-        Green: 1
-        Blue: 255
-        Cap: 500
-      Interval: 10
+        Color: 190;1;255
+        Cap: 200
+      Interval: 3
       SkipBy: 10
       Range: 32
       ShowFor: 30000
       ByDefaultIsEnabled: true
   Custom:
     Point:
-      Frame:
+      Effect1:
         Effect: reddust
         RowSpacing: 1.0
         CollumnSpacing: 1.0
-        Red: 1
-        Green: 255
-        Blue: 1
-        Cap: 500
-      Sides:
+        Color: 255;182;193
+        Cap: 200
+      Effect2:
         Effect: reddust
         RowSpacing: 1.0
         CollumnSpacing: 1.0
-        Red: 255
-        Green: 1
-        Blue: 1
-        Cap: 500
-      Interval: 10
+        Color: 255;250;205
+        Cap: 200
+      Interval: 3
       SkipBy: 10
       Range: 32
       ShowFor: 30000
       ByDefaultIsEnabled: true
     Chunk:
-      Frame:
+      Effect1:
         Effect: reddust
         RowSpacing: 1.0
         CollumnSpacing: 1.0
-        Red: 1
-        Green: 255
-        Blue: 1
-        Cap: 500
-      Sides:
+        Color: 1;255;1
+        Cap: 200
+      Effect2:
         Effect: reddust
         RowSpacing: 1.0
         CollumnSpacing: 1.0
-        Red: 255
-        Green: 1
-        Blue: 1
-        Cap: 500
-      Interval: 10
+        Color: 255;1;1
+        Cap: 200
+      Interval: 3
       SkipBy: 10
       Range: 32
       ShowFor: 30000
       ByDefaultIsEnabled: true
     Grid:
-      Frame:
+      Effect1:
         Effect: reddust
         RowSpacing: 1.0
         CollumnSpacing: 1.0
-        Red: 1
-        Green: 255
-        Blue: 1
-        Cap: 500
-      Sides:
+        Color: 244;164;96
+        Cap: 200
+      Effect2:
         Effect: reddust
         RowSpacing: 1.0
         CollumnSpacing: 1.0
-        Red: 255
-        Green: 1
-        Blue: 1
-        Cap: 500
-      Interval: 10
+        Color: 255;218;185
+        Cap: 200
+      Interval: 3
+      SkipBy: 10
+      Range: 32
+      ShowFor: 30000
+      ByDefaultIsEnabled: true
+      Climbing: false
+    Biome:
+      Interval: 3
       SkipBy: 10
       Range: 32
       ShowFor: 30000
@@ -261,76 +239,62 @@ Particles:
       Climbing: false
   Spawner:
     Sphere:
-      Frame:
+      Effect1:
         Effect: reddust
         RowSpacing: 1.0
         CollumnSpacing: 1.0
-        Red: 1
-        Green: 255
-        Blue: 1
-        Cap: 500
-      Sides:
+        Color: 1;255;1
+        Cap: 200
+      Effect2:
         Effect: reddust
         RowSpacing: 1.0
         CollumnSpacing: 1.0
-        Red: 255
-        Green: 1
-        Blue: 1
-        Cap: 500
-      Interval: 10
+        Color: 255;1;1
+        Cap: 200
+      Interval: 3
       SkipBy: 10
       Range: 32
       ShowFor: 30000
       ByDefaultIsEnabled: true
   Beacon:
-    Frame:
+    Effect1:
       Effect: reddust
       RowSpacing: 1.0
       CollumnSpacing: 1.0
-      Red: 1
-      Green: 255
-      Blue: 1
-      Cap: 500
-    Sides:
+      Color: 1;255;1
+      Cap: 200
+    Effect2:
       Effect: reddust
       RowSpacing: 1.0
       CollumnSpacing: 1.0
-      Red: 255
-      Green: 1
-      Blue: 1
-      Cap: 500
-    Interval: 10
+      Color: 255;1;1
+      Cap: 200
+    Interval: 3
     SkipBy: 10
     Range: 32
     ShowFor: 30000
     ByDefaultIsEnabled: true
   Kingdoms:
     Area:
-      Frame:
+      Effect1:
         Effect: reddust
         RowSpacing: 1.0
         CollumnSpacing: 1.0
-        Red: 1
-        Green: 255
-        Blue: 1
-        Cap: 500
-      Sides:
+        Color: 21;175;21
+        Cap: 200
+      Effect2:
         Effect: reddust
         RowSpacing: 1.0
         CollumnSpacing: 1.0
-        Red: 255
-        Green: 1
-        Blue: 1
-        Cap: 500
-      Extra:
+        Color: 255;41;1
+        Cap: 200
+      Effect3:
         Effect: reddust
         RowSpacing: 1.0
         CollumnSpacing: 1.0
-        Red: 190
-        Green: 1
-        Blue: 255
-        Cap: 500
-      Interval: 10
+        Color: 1;206;209
+        Cap: 200
+      Interval: 3
       SkipBy: 10
       Range: 32
       ShowFor: 30000
@@ -338,31 +302,37 @@ Particles:
       Climbing: false
   Factions:
     Area:
-      Frame:
+      Effect1:
         Effect: reddust
         RowSpacing: 1.0
         CollumnSpacing: 1.0
-        Red: 1
-        Green: 255
-        Blue: 1
-        Cap: 500
-      Sides:
+        Color: 21;175;21
+        Cap: 200
+      Effect2:
         Effect: reddust
         RowSpacing: 1.0
         CollumnSpacing: 1.0
-        Red: 255
-        Green: 1
-        Blue: 1
-        Cap: 500
-      Extra:
+        Color: 255;41;1
+        Cap: 200
+      Effect3:
         Effect: reddust
         RowSpacing: 1.0
         CollumnSpacing: 1.0
-        Red: 190
-        Green: 1
-        Blue: 255
-        Cap: 500
-      Interval: 10
+        Color: 1;206;209
+        Cap: 200
+      Effect4:
+        Effect: reddust
+        RowSpacing: 1.0
+        CollumnSpacing: 1.0
+        Color: 245;222;179
+        Cap: 200
+      Effect5:
+        Effect: reddust
+        RowSpacing: 1.0
+        CollumnSpacing: 1.0
+        Color: 152;251;152
+        Cap: 200
+      Interval: 3
       SkipBy: 10
       Range: 32
       ShowFor: 30000
@@ -370,139 +340,132 @@ Particles:
       Climbing: false
   GriefPrevention:
     Area:
-      Frame:
+      Effect1:
         Effect: reddust
         RowSpacing: 1.0
         CollumnSpacing: 1.0
-        Red: 1
-        Green: 255
-        Blue: 1
-        Cap: 500
-      Sides:
-        Effect: reddust
-        RowSpacing: 1.0
-        CollumnSpacing: 1.0
-        Red: 255
-        Green: 1
-        Blue: 1
-        Cap: 500
-      Extra:
-        Effect: reddust
-        RowSpacing: 1.0
-        CollumnSpacing: 1.0
-        Red: 0
-        Green: 0
-        Blue: 0
+        Color: 1;255;1
         Cap: 200
-      Interval: 10
+      Effect2:
+        Effect: reddust
+        RowSpacing: 1.0
+        CollumnSpacing: 1.0
+        Color: 255;1;1
+        Cap: 200
+      Effect3:
+        Effect: reddust
+        RowSpacing: 1.0
+        CollumnSpacing: 1.0
+        Color: 1;1;1
+        Cap: 200
+      Interval: 3
+      SkipBy: 10
+      Range: 32
+      ShowFor: 30000
+      ByDefaultIsEnabled: true
+  PlotSquared:
+    Area:
+      Effect1:
+        Effect: reddust
+        RowSpacing: 1.0
+        CollumnSpacing: 1.0
+        Color: 253;245;230
+        Cap: 200
+      Effect2:
+        Effect: reddust
+        RowSpacing: 1.0
+        CollumnSpacing: 1.0
+        Color: 123;104;238
+        Cap: 200
+      Effect3:
+        Effect: reddust
+        RowSpacing: 1.0
+        CollumnSpacing: 1.0
+        Color: 1;255;255
+        Cap: 200
+      Interval: 3
       SkipBy: 10
       Range: 32
       ShowFor: 30000
       ByDefaultIsEnabled: true
   WG:
     Cuboid:
-      Frame:
+      Effect1:
         Effect: reddust
         RowSpacing: 1.0
         CollumnSpacing: 1.0
-        Red: 1
-        Green: 255
-        Blue: 1
-        Cap: 500
-      Sides:
+        Color: 1;255;1
+        Cap: 200
+      Effect2:
         Effect: reddust
         RowSpacing: 1.0
         CollumnSpacing: 1.0
-        Red: 255
-        Green: 1
-        Blue: 1
-        Cap: 500
-      Interval: 10
-      SkipBy: 10
-      Range: 32
-      ShowFor: 30000
-      ByDefaultIsEnabled: true
-  iZone:
-    Cuboid:
-      Frame:
-        Effect: reddust
-        RowSpacing: 1.0
-        CollumnSpacing: 1.0
-        Red: 1
-        Green: 255
-        Blue: 1
-        Cap: 500
-      Sides:
-        Effect: reddust
-        RowSpacing: 1.0
-        CollumnSpacing: 1.0
-        Red: 255
-        Green: 1
-        Blue: 1
-        Cap: 500
-      Interval: 10
+        Color: 255;1;1
+        Cap: 200
+      Interval: 3
       SkipBy: 10
       Range: 32
       ShowFor: 30000
       ByDefaultIsEnabled: true
   Res:
     Cuboid:
-      Frame:
+      Effect1:
         Effect: reddust
         RowSpacing: 1.0
         CollumnSpacing: 1.0
-        Red: 1
-        Green: 255
-        Blue: 1
-        Cap: 500
-      Sides:
+        Color: 173;255;47
+        Cap: 200
+      Effect2:
         Effect: reddust
         RowSpacing: 1.0
         CollumnSpacing: 1.0
-        Red: 255
-        Green: 1
-        Blue: 1
-        Cap: 500
-      Extra:
+        Color: 255;250;205
+        Cap: 200
+      Interval: 3
+      SkipBy: 10
+      Range: 32
+      ShowFor: 30000
+      ByDefaultIsEnabled: true
+  ResSub:
+    Cuboid:
+      Effect1:
         Effect: reddust
         RowSpacing: 1.0
         CollumnSpacing: 1.0
-        Red: 1
-        Green: 1
-        Blue: 1
-        Cap: 500
-      Interval: 10
+        Color: 233;150;122
+        Cap: 200
+      Effect2:
+        Effect: reddust
+        RowSpacing: 1.0
+        CollumnSpacing: 1.0
+        Color: 1;1;1
+        Cap: 200
+      Interval: 3
       SkipBy: 10
       Range: 32
       ShowFor: 30000
       ByDefaultIsEnabled: true
   Towny:
     Area:
-      Frame:
+      Effect1:
         Effect: reddust
         RowSpacing: 1.0
         CollumnSpacing: 1.0
-        Red: 1
-        Green: 255
-        Blue: 1
-        Cap: 500
-      Sides:
-        Effect: reddust
-        RowSpacing: 1.0
-        CollumnSpacing: 1.0
-        Red: 255
-        Green: 1
-        Blue: 1
-        Cap: 500
-      Extra:
-        Effect: reddust
-        RowSpacing: 1.0
-        CollumnSpacing: 1.0
-        Red: 170
-        Green: 255
-        Blue: 170
+        Color: 1;255;1
         Cap: 200
-      Interval: 10
+      Effect2:
+        Effect: reddust
+        RowSpacing: 1.0
+        CollumnSpacing: 1.0
+        Color: 255;1;1
+        Cap: 200
+      Effect3:
+        Effect: reddust
+        RowSpacing: 1.0
+        CollumnSpacing: 1.0
+        Color: 170;255;170
+        Cap: 200
+      Interval: 3
       SkipBy: 10
       Range: 32
       ShowFor: 30000
@@ -510,77 +473,63 @@ Particles:
       Climbing: false
   DiceFurniture:
     Area:
-      Frame:
+      Effect1:
         Effect: reddust
         RowSpacing: 1.0
         CollumnSpacing: 1.0
-        Red: 1
-        Green: 255
-        Blue: 1
-        Cap: 500
-      Sides:
+        Color: 1;255;1
+        Cap: 200
+      Effect2:
         Effect: reddust
         RowSpacing: 1.0
         CollumnSpacing: 1.0
-        Red: 255
-        Green: 1
-        Blue: 1
-        Cap: 500
-      Interval: 10
+        Color: 255;1;1
+        Cap: 200
+      Interval: 3
       SkipBy: 10
       Range: 32
       ShowFor: 30000
       ByDefaultIsEnabled: true
   WorldBorder:
     Area:
-      Frame:
+      Effect1:
         Effect: reddust
         RowSpacing: 1.0
         CollumnSpacing: 1.0
-        Red: 1
-        Green: 255
-        Blue: 1
-        Cap: 500
-      Sides:
+        Color: 1;255;1
+        Cap: 200
+      Effect2:
         Effect: reddust
         RowSpacing: 1.0
         CollumnSpacing: 1.0
-        Red: 255
-        Green: 1
-        Blue: 1
-        Cap: 500
-      Interval: 10
+        Color: 255;1;1
+        Cap: 200
+      Interval: 3
       SkipBy: 10
       Range: 32
       ShowFor: 30000
       ByDefaultIsEnabled: true
   Jobs:
     Area:
-      Frame:
+      Effect1:
         Effect: reddust
         RowSpacing: 1.0
         CollumnSpacing: 1.0
-        Red: 1
-        Green: 255
-        Blue: 1
-        Cap: 500
-      Sides:
+        Color: 1;255;1
+        Cap: 200
+      Effect2:
         Effect: reddust
         RowSpacing: 1.0
         CollumnSpacing: 1.0
-        Red: 255
-        Green: 1
-        Blue: 1
-        Cap: 500
-      Extra:
+        Color: 255;1;1
+        Cap: 200
+      Effect3:
         Effect: reddust
         RowSpacing: 1.0
         CollumnSpacing: 1.0
-        Red: 190
-        Green: 1
-        Blue: 255
-        Cap: 500
-      Interval: 10
+        Color: 190;1;255
+        Cap: 200
+      Interval: 3
       SkipBy: 10
       Range: 32
       ShowFor: 30000

@@ -4,7 +4,7 @@ GlobalCrafting:
     on player crafts item:
     - ^if <player.is_op||<context.server>> queue clear
 #--------------- CRAFTEO INICIAL ------------------------
-    - ^if li@stick|crafting_table|oak_planks|wooden_pickaxe|wooden_hoe|wooden_axe|torch contains <context.item.simple.replace[regex:i@]> {
+    - ^if li@stick|crafting_table|oak_planks|wooden_pickaxe|wooden_hoe|wooden_axe|wooden_sword|torch contains <context.item.simple.replace[regex:i@]> {
       - ^queue clear
       }
     - ^narrate "<red>No puedes craftear aun eso"
