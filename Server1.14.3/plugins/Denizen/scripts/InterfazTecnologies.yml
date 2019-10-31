@@ -91,6 +91,81 @@ InvMesARM_Armadruas1:
   - "[i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@btnup_arm_armaduras1] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@btn_regresar]"
   - "[i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot]"
   - "[i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@turtle_helmet] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot]"
+# ------------------------------------------------------ Inventarios Mecanico -------------------------------------------------------------------------------------
+InvMesMEC:
+  type: inventory
+  title: '<red>Mecanica'
+  size: 9
+  slots:
+  - "[i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@btn_mec_mecanismos1] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot]"
+
+InvMesMEC_Mecanismos1:
+  type: inventory
+  title: 'Puntos: <yellow><player.flag[mineriapoints]>'
+  size: 27
+  slots:
+  - "[i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@btnup_mec_mecanismos1] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@btn_regresar]"
+  - "[i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot]"
+  - "[i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@lever] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot]"
+# ------------------------------------------------------ Inventarios Carpintero -------------------------------------------------------------------------------------
+InvMesCRP:
+  type: inventory
+  title: '<red>Carpinteria'
+  size: 9
+  slots:
+  - "[i@cancelslot] [i@btn_crp_basicoak] [i@cancelslot] [i@btn_crp_oakfence] [i@cancelslot] [i@btn_crp_mecanismos1] [i@cancelslot] [i@btn_crp_contenedores1] [i@cancelslot]"
+
+InvMesCRP_Basicoak:
+  type: inventory
+  title: 'Puntos: <yellow><player.flag[carpinteriapoints]>'
+  size: 27
+  slots:
+  - "[i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@btnup_crp_basicoak] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@btn_regresar]"
+  - "[i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot]"
+  - "[i@oak_stairs] [i@stick] [i@cancelslot] [i@oak_planks] [i@cancelslot] [i@ladder] [i@cancelslot] [i@oak_sign] [i@oak_slab]"
+
+InvMesCRP_Contenedores1:
+  type: inventory
+  title: 'Puntos: <yellow><player.flag[carpinteriapoints]>'
+  size: 27
+  slots:
+  - "[i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@btnup_crp_contenedores1] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@btn_regresar]"
+  - "[i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot]"
+  - "[i@cancelslot] [i@cancelslot] [i@barrel] [i@cancelslot] [i@composter] [i@cancelslot] [i@chest] [i@cancelslot] [i@cancelslot]"
+
+InvMesCRP_Vallasoak:
+  type: inventory
+  title: 'Puntos: <yellow><player.flag[carpinteriapoints]>'
+  size: 27
+  slots:
+  - "[i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@btnup_crp_oakfence] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@btn_regresar]"
+  - "[i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot]"
+  - "[i@cancelslot] [i@cancelslot] [i@cancelslot] [i@oak_fence] [i@cancelslot] [i@oak_fence_gate] [i@cancelslot] [i@cancelslot] [i@cancelslot]"
+
+InvMesCRP_Mecanismos1:
+  type: inventory
+  title: 'Puntos: <yellow><player.flag[carpinteriapoints]>'
+  size: 27
+  slots:
+  - "[i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@btnup_crp_mecanismos1] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@btn_regresar]"
+  - "[i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot]"
+  - "[i@cancelslot] [i@oak_pressure_plate] [i@cancelslot] [i@oak_button] [i@cancelslot] [i@oak_door] [i@cancelslot] [i@oak_trapdoor] [i@cancelslot]"
+# ------------------------------------------------------ Inventarios Pigmentero -------------------------------------------------------------------------------------
+InvMesPGM:
+  type: inventory
+  title: '<red>Pigmenteria'
+  size: 9
+  slots:
+  - "[i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@btn_pgm_tintes1] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot]"
+
+InvMesPGM_Tintes1:
+  type: inventory
+  title: 'Puntos: <yellow><player.flag[herboristeriapoints]>'
+  size: 27
+  slots:
+  - "[i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@btnup_pgm_tintes] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@btn_regresar]"
+  - "[i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot]"
+  - "[i@red_dye] [i@light_gray_dye] [i@cancelslot] [i@magenta_dye] [i@cancelslot] [i@orange_dye] [i@cancelslot] [i@pink_dye] [i@yellow_dye]"
 # ------------------------------------------------------ Items Cantero -------------------------------------------------------------------------------------
 btn_ctn_mescobblestone:
   type: item
@@ -153,6 +228,51 @@ btn_arm_mesarmaduras1:
   no_id: false
   lore:
   - '<dark_green>Investigacion: <yellow><server.flag[meslajho_armaduras1]><gold>%'
+# ------------------------------------------------------ Items Mecanico -------------------------------------------------------------------------------------
+btn_mec_mecanismos1:
+  type: item
+  material: lever
+  display name: '<gold>Mecanismos'
+  no_id: false
+  lore:
+  - '<dark_green>Investigacion: <yellow><server.flag[meslajho_mecanismos1]><gold>%'
+# ------------------------------------------------------ Items Carpintero -------------------------------------------------------------------------------------
+btn_crp_contenedores1:
+  type: item
+  material: chest
+  display name: '<gold>Contenedores'
+  no_id: false
+  lore:
+  - '<dark_green>Investigacion: <yellow><server.flag[meslajho_crpcontenedores]><gold>%'
+btn_crp_basicoak:
+  type: item
+  material: stick
+  display name: '<gold>Basicos'
+  no_id: false
+  lore:
+  - '<dark_green>Investigacion: <yellow><server.flag[meslajho_crpbasicos]><gold>%'
+btn_crp_oakfence:
+  type: item
+  material: oak_fence
+  display name: '<gold>Vallas'
+  no_id: false
+  lore:
+  - '<dark_green>Investigacion: <yellow><server.flag[meslajho_crpvallas]><gold>%'
+btn_crp_mecanismos1:
+  type: item
+  material: oak_button
+  display name: '<gold>Mecanismos'
+  no_id: false
+  lore:
+  - '<dark_green>Investigacion: <yellow><server.flag[meslajho_crpmecanismos]><gold>%'
+# ------------------------------------------------------ Items Teñidor -------------------------------------------------------------------------------------
+btn_pgm_tintes1:
+  type: item
+  material: orange_dye
+  display name: '<gold>Tintes'
+  no_id: false
+  lore:
+  - '<dark_green>Investigacion: <yellow><server.flag[meslajho_pgmtintes1]><gold>%'
 # -------------- INFO TECNOLOGIES ----------------
 # ---------------- CANTERIA ----------------------
 btnup_ctn_cobblestone:
@@ -160,7 +280,7 @@ btnup_ctn_cobblestone:
   material: cobblestone
   display name: '<gold>Piedra Labrada'
   lore:
-  - '<white>Tecnologia para labrar piedra'
+  - '<white>Tecnologia en labrar piedra'
   - ''
   - '<white>Usa <green>5 puntos <white>de canteria'
   - '<white>Para investigar <green>1%'
@@ -172,7 +292,7 @@ btnup_ctn_andesite:
   material: andesite
   display name: '<gold>Andesita'
   lore:
-  - '<white>Tecnologia para Andesita'
+  - '<white>Tecnologia en Andesita'
   - ''
   - '<white>Usa <green>5 puntos <white>de canteria'
   - '<white>Para investigar <green>1%'
@@ -184,7 +304,7 @@ btnup_ctn_diorite:
   material: diorite
   display name: '<gold>Diorita'
   lore:
-  - '<white>Tecnologia para Diorita'
+  - '<white>Tecnologia en Diorita'
   - ''
   - '<white>Usa <green>5 puntos <white>de canteria'
   - '<white>Para investigar <green>1%'
@@ -196,7 +316,7 @@ btnup_ctn_granite:
   material: granite
   display name: '<gold>Granito'
   lore:
-  - '<white>Tecnologia para Granito'
+  - '<white>Tecnologia en Granito'
   - ''
   - '<white>Usa <green>5 puntos <white>de canteria'
   - '<white>Para investigar <green>1%'
@@ -209,7 +329,7 @@ btnup_her_furnace:
   material: Furnace
   display name: '<gold>Fundicion'
   lore:
-  - '<white>Tecnologia para fundir'
+  - '<white>Tecnologia en fundicion'
   - ''
   - '<white>Usa <green>5 puntos <white>de mineria'
   - '<white>Para investigar <green>1%'
@@ -221,7 +341,7 @@ btnup_her_tools1:
   material: stone_pickaxe
   display name: '<gold>Herramientas'
   lore:
-  - '<white>Tecnologia para crear herramientas'
+  - '<white>Tecnologia en herramientas'
   - ''
   - '<white>Usa <green>5 puntos <white>de mineria'
   - '<white>Para investigar <green>1%'
@@ -234,7 +354,7 @@ btnup_arm_weapon1:
   material: arrow
   display name: '<gold>Armas'
   lore:
-  - '<white>Tecnologia para Armas'
+  - '<white>Tecnologia en Armas'
   - ''
   - '<white>Usa <green>5 puntos <white>de mineria'
   - '<white>Para investigar <green>1%'
@@ -246,14 +366,88 @@ btnup_arm_armaduras1:
   material: turtle_helmet
   display name: '<gold>Armaduras'
   lore:
-  - '<white>Tecnologia para Armaduras'
+  - '<white>Tecnologia en Armaduras'
   - ''
   - '<white>Usa <green>5 puntos <white>de mineria'
   - '<white>Para investigar <green>1%'
   - '<dark_green>Investigacion actual: <yellow><server.flag[meslajho_armaduras1]><gold>%'
   - ''
   - '<gold>Tienes: <green><player.flag[mineriapoints]> <green>puntos'
-
+# ---------------- MECANICA ----------------------
+btnup_mec_mecanismos1:
+  type: item
+  material: lever
+  display name: '<gold>Mecanismos'
+  lore:
+  - '<white>Tecnologia en Palancas'
+  - ''
+  - '<white>Usa <green>5 puntos <white>de mineria'
+  - '<white>Para investigar <green>1%'
+  - '<dark_green>Investigacion actual: <yellow><server.flag[meslajho_mecanismos1]><gold>%'
+  - ''
+  - '<gold>Tienes: <green><player.flag[mineriapoints]> <green>puntos'
+# ---------------- Carpinteria ----------------------
+btnup_crp_basicoak:
+  type: item
+  material: stick
+  display name: '<gold>Basico'
+  lore:
+  - '<white>Tecnologia en Articulos de madera'
+  - ''
+  - '<white>Usa <green>5 puntos <white>de carpinteria'
+  - '<white>Para investigar <green>1%'
+  - '<dark_green>Investigacion actual: <yellow><server.flag[meslajho_crpbasicos]><gold>%'
+  - ''
+  - '<gold>Tienes: <green><player.flag[carpinteriapoints]> <green>puntos'
+btnup_crp_oakfence:
+  type: item
+  material: oak_fence
+  display name: '<gold>Vallas'
+  lore:
+  - '<white>Tecnologia en Vallas de madera'
+  - ''
+  - '<white>Usa <green>5 puntos <white>de carpinteria'
+  - '<white>Para investigar <green>1%'
+  - '<dark_green>Investigacion actual: <yellow><server.flag[meslajho_crpvallas]><gold>%'
+  - ''
+  - '<gold>Tienes: <green><player.flag[carpinteriapoints]> <green>puntos'
+btnup_crp_mecanismos1:
+  type: item
+  material: oak_button
+  display name: '<gold>Mecanismos'
+  lore:
+  - '<white>Tecnologia en Mecanismos de madera'
+  - ''
+  - '<white>Usa <green>5 puntos <white>de carpinteria'
+  - '<white>Para investigar <green>1%'
+  - '<dark_green>Investigacion actual: <yellow><server.flag[meslajho_crpmecanismos]><gold>%'
+  - ''
+  - '<gold>Tienes: <green><player.flag[carpinteriapoints]> <green>puntos'
+btnup_crp_contenedores1:
+  type: item
+  material: chest
+  display name: '<gold>Contenedores'
+  lore:
+  - '<white>Tecnologia en Contenedores de madera'
+  - ''
+  - '<white>Usa <green>5 puntos <white>de carpinteria'
+  - '<white>Para investigar <green>1%'
+  - '<dark_green>Investigacion actual: <yellow><server.flag[meslajho_crpcontenedores]><gold>%'
+  - ''
+  - '<gold>Tienes: <green><player.flag[carpinteriapoints]> <green>puntos'
+# ---------------- Pigmenteria ----------------------
+btnup_pgm_tintes:
+  type: item
+  material: orange_dye
+  display name: '<gold>Tintes'
+  lore:
+  - '<white>Tecnologia en Tintes'
+  - ''
+  - '<white>Usa <green>5 puntos <white>de herboristeria'
+  - '<white>Para investigar <green>1%'
+  - '<dark_green>Investigacion actual: <yellow><server.flag[meslajho_pgmtintes1]><gold>%'
+  - ''
+  - '<gold>Tienes: <green><player.flag[herboristeriapoints]> <green>puntos'
 Tecno_openinterfaz:
   type: world
   events:
@@ -268,6 +462,18 @@ Tecno_openinterfaz:
     - ^queue clear
     on player clicks lectern in armeriameslajho:
     - ^inventory open d:in@InvMesARM
+    - ^determine cancelled
+    - ^queue clear
+    on player clicks lectern in mecanicameslajho:
+    - ^inventory open d:in@InvMesMEC
+    - ^determine cancelled
+    - ^queue clear
+    on player clicks lectern in carpinteriameslajho:
+    - ^inventory open d:in@InvMesCRP
+    - ^determine cancelled
+    - ^queue clear
+    on player clicks lectern in pigmenteriameslajho:
+    - ^inventory open d:in@InvMesPGM
     - ^determine cancelled
     - ^queue clear
 # ------- Cancel Clicks
@@ -293,6 +499,24 @@ Tecno_openinterfaz:
     - determine cancelled
     on player clicks in InvMesARM_Armadruas1:
     - determine cancelled
+    on player clicks in InvMesMEC:
+    - determine cancelled
+    on player clicks in InvMesMEC_Mecanismos1:
+    - determine cancelled
+    on player clicks in InvMesCRP:
+    - determine cancelled
+    on player clicks in InvMesCRP_Basicoak:
+    - determine cancelled
+    on player clicks in InvMesCRP_Vallasoak:
+    - determine cancelled
+    on player clicks in InvMesCRP_Mecanismos1:
+    - determine cancelled
+    on player clicks in InvMesCRP_Contenedores1:
+    - determine cancelled
+    on player clicks in InvMesPGM:
+    - determine cancelled
+    on player clicks in InvMesPGM_Tintes1:
+    - determine cancelled
 
 Tecnologievents:
   type: world
@@ -314,6 +538,18 @@ Tecnologievents:
     - ^inventory open d:in@InvMesARM_Weapon1
     on player clicks btn_arm_mesarmaduras1 in InvMesARM:
     - ^inventory open d:in@InvMesARM_Armadruas1
+    on player clicks btn_mec_mecanismos1 in InvMesMEC:
+    - ^inventory open d:in@InvMesMEC_Mecanismos1
+    on player clicks btn_crp_basicoak in InvMesCRP:
+    - ^inventory open d:in@InvMesCRP_Basicoak
+    on player clicks btn_crp_oakfence in InvMesCRP:
+    - ^inventory open d:in@InvMesCRP_Vallasoak
+    on player clicks btn_crp_mecanismos1 in InvMesCRP:
+    - ^inventory open d:in@InvMesCRP_Mecanismos1
+    on player clicks btn_crp_contenedores1 in InvMesCRP:
+    - ^inventory open d:in@InvMesCRP_Contenedores1
+    on player clicks btn_pgm_tintes1 in InvMesPGM:
+    - ^inventory open d:in@InvMesPGM_Tintes1
 #                            ----- TECNOLOGIES ------
 # ---------------------------------- Puntos --------------------------------------------
 #                            ----- TECNOLOGIES ------
@@ -321,9 +557,6 @@ Tecnologievents:
     - ^if <player.flag[canteriapoints]> >= 5 && <server.flag[meslajho_cobblestone]> < 100 {
       - ^flag <player> canteriapoints:-:5
       - ^flag <server> meslajho_cobblestone:+:1
-      - ^if <server.flag[meslajho_cobblestone]> >= 100 {
-        - ^flag <server> tecnologysok:+:canteriacobblestone
-        }
       }
     - ^inventory open d:in@InvMesCNT_Cobblestone
     - ^queue clear
@@ -331,9 +564,6 @@ Tecnologievents:
     - ^if <player.flag[canteriapoints]> >= 5 && <server.flag[meslajho_andesite]> < 100 {
       - ^flag <player> canteriapoints:-:5
       - ^flag <server> meslajho_andesite:+:1
-      - ^if <server.flag[meslajho_andesite]> >= 100 {
-        - ^flag <server> tecnologysok:+:canteriaandesite
-        }
       }
     - ^inventory open d:in@InvMesCNT_Andesite
     - ^queue clear
@@ -341,9 +571,6 @@ Tecnologievents:
     - ^if <player.flag[canteriapoints]> >= 5 && <server.flag[meslajho_diorite]> < 100 {
       - ^flag <player> canteriapoints:-:5
       - ^flag <server> meslajho_diorite:+:1
-      - ^if <server.flag[meslajho_diorite]> >= 100 {
-        - ^flag <server> tecnologysok:+:canteriadiorite
-        }
       }
     - ^inventory open d:in@InvMesCNT_Diorite
     - ^queue clear
@@ -351,9 +578,6 @@ Tecnologievents:
     - ^if <player.flag[canteriapoints]> >= 5 && <server.flag[meslajho_granite]> < 100 {
       - ^flag <player> canteriapoints:-:5
       - ^flag <server> meslajho_granite:+:1
-      - ^if <server.flag[meslajho_granite]> >= 100 {
-        - ^flag <server> tecnologysok:+:canteriagranite
-        }
       }
     - ^inventory open d:in@InvMesCNT_Granite
     - ^queue clear
@@ -362,9 +586,6 @@ Tecnologievents:
     - ^if <player.flag[mineriapoints]> >= 5 && <server.flag[meslajho_furnace]> < 100 {
       - ^flag <player> mineriapoints:-:5
       - ^flag <server> meslajho_furnace:+:1
-      - ^if <server.flag[meslajho_furnace]> >= 100 {
-        - ^flag <server> tecnologysok:+:mineriafurnace
-        }
       }
     - ^inventory open d:in@InvMesHER_Furnace
     - ^queue clear
@@ -372,9 +593,6 @@ Tecnologievents:
     - ^if <player.flag[mineriapoints]> >= 5 && <server.flag[meslajho_tools1]> < 100 {
       - ^flag <player> mineriapoints:-:5
       - ^flag <server> meslajho_tools1:+:1
-      - ^if <server.flag[meslajho_tools1]> >= 100 {
-        - ^flag <server> tecnologysok:+:mineriatools1
-        }
       }
     - ^inventory open d:in@InvMesHER_Tools1
     - ^queue clear
@@ -383,9 +601,6 @@ Tecnologievents:
     - ^if <player.flag[mineriapoints]> >= 5 && <server.flag[meslajho_weapon1]> < 100 {
       - ^flag <player> mineriapoints:-:5
       - ^flag <server> meslajho_weapon1:+:1
-      - ^if <server.flag[meslajho_weapon1]> >= 100 {
-        - ^flag <server> tecnologysok:+:mineriaweapon1
-        }
       }
     - ^inventory open d:in@InvMesARM_Weapon1
     - ^queue clear
@@ -393,11 +608,53 @@ Tecnologievents:
     - ^if <player.flag[mineriapoints]> >= 5 && <server.flag[meslajho_armaduras1]> < 100 {
       - ^flag <player> mineriapoints:-:5
       - ^flag <server> meslajho_armaduras1:+:1
-      - ^if <server.flag[meslajho_armaduras1]> >= 100 {
-        - ^flag <server> tecnologysok:+:mineriaarmaduras1
-        }
       }
     - ^inventory open d:in@InvMesARM_Armadruas1
+    - ^queue clear
+#                            ----- Mecanica ------
+    on player clicks btnup_mec_mecanismos1 in InvMesMEC_Mecanismos1:
+    - ^if <player.flag[mineriapoints]> >= 5 && <server.flag[meslajho_mecanismos1]> < 100 {
+      - ^flag <player> mineriapoints:-:5
+      - ^flag <server> meslajho_mecanismos1:+:1
+      }
+    - ^inventory open d:in@InvMesMEC_Mecanismos1
+    - ^queue clear
+#                            ----- CARPINTERIA ------
+    on player clicks btnup_crp_basicoak in InvMesCRP_Basicoak:
+    - ^if <player.flag[carpinteriapoints]> >= 5 && <server.flag[meslajho_crpbasicos]> < 100 {
+      - ^flag <player> carpinteriapoints:-:5
+      - ^flag <server> meslajho_crpbasicos:+:1
+      }
+    - ^inventory open d:in@InvMesCRP_Basicoak
+    - ^queue clear
+    on player clicks btnup_crp_oakfence in InvMesCRP_Vallasoak:
+    - ^if <player.flag[carpinteriapoints]> >= 5 && <server.flag[meslajho_crpvallas]> < 100 {
+      - ^flag <player> carpinteriapoints:-:5
+      - ^flag <server> meslajho_crpvallas:+:1
+      }
+    - ^inventory open d:in@InvMesCRP_Vallasoak
+    - ^queue clear
+    on player clicks btnup_crp_mecanismos1 in InvMesCRP_Mecanismos1:
+    - ^if <player.flag[carpinteriapoints]> >= 5 && <server.flag[meslajho_crpmecanismos]> < 100 {
+      - ^flag <player> carpinteriapoints:-:5
+      - ^flag <server> meslajho_crpmecanismos:+:1
+      }
+    - ^inventory open d:in@InvMesCRP_Mecanismos1
+    - ^queue clear
+    on player clicks btnup_crp_contenedores1 in InvMesCRP_Contenedores1:
+    - ^if <player.flag[carpinteriapoints]> >= 5 && <server.flag[meslajho_crpcontenedores]> < 100 {
+      - ^flag <player> carpinteriapoints:-:5
+      - ^flag <server> meslajho_crpcontenedores:+:1
+      }
+    - ^inventory open d:in@InvMesCRP_Contenedores1
+    - ^queue clear
+#                            ----- Pigmenteria ------
+    on player clicks btnup_pgm_tintes in InvMesPGM_Tintes1:
+    - ^if <player.flag[herboristeriapoints]> >= 5 && <server.flag[meslajho_pgmtintes1]> < 100 {
+      - ^flag <player> herboristeriapoints:-:5
+      - ^flag <server> meslajho_pgmtintes1:+:1
+      }
+    - ^inventory open d:in@InvMesPGM_Tintes1
     - ^queue clear
 # ------------------------ Boton btn_regresar ---------------------------------
     on player clicks btn_regresar in InvMesCNT_Andesite:
@@ -416,3 +673,15 @@ Tecnologievents:
     - ^inventory open d:in@InvMesARM
     on player clicks btn_regresar in InvMesARM_Armadruas1:
     - ^inventory open d:in@InvMesARM
+    on player clicks btn_regresar in InvMesMEC_Mecanismos1:
+    - ^inventory open d:in@InvMesMEC
+    on player clicks btn_regresar in InvMesCRP_Basicoak:
+    - ^inventory open d:in@InvMesCRP
+    on player clicks btn_regresar in InvMesCRP_Vallasoak:
+    - ^inventory open d:in@InvMesCRP
+    on player clicks btn_regresar in InvMesCRP_Contenedores1:
+    - ^inventory open d:in@InvMesCRP
+    on player clicks btn_regresar in InvMesCRP_Mecanismos1:
+    - ^inventory open d:in@InvMesCRP
+    on player clicks btn_regresar in InvMesPGM_Tintes1:
+    - ^inventory open d:in@InvMesPGM

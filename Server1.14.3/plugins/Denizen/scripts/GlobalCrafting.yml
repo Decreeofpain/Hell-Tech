@@ -2,12 +2,39 @@ GlobalCrafting:
   type: world
   events:
     on player crafts item:
-    - ^if <player.is_op||<context.server>> queue clear
+    # - ^if <player.is_op||<context.server>> queue clear
 #--------------- CRAFTEO INICIAL ------------------------
     - ^if li@stick|crafting_table|oak_planks|wooden_pickaxe|wooden_hoe|wooden_axe|wooden_sword|torch contains <context.item.simple.replace[regex:i@]> {
       - ^queue clear
+      } else if li@cobblestone_stairs|cobblestone_slab|cobblestone_wall contains <context.item.simple.replace[regex:i@]> && <server.flag[meslajho_cobblestone]> >= 100 {
+      - ^queue clear
+      } else if li@andesite_stairs|andesite_slab|andesite_wall contains <context.item.simple.replace[regex:i@]> && <server.flag[meslajho_andesite]> >= 100 {
+      - ^queue clear
+      } else if li@diorite_stairs|diorite_slab|diorite_wall contains <context.item.simple.replace[regex:i@]> && <server.flag[meslajho_diorite]> >= 100 {
+      - ^queue clear
+      } else if li@granite_stairs|granite_slab|granite_wall contains <context.item.simple.replace[regex:i@]> && <server.flag[meslajho_granite]> >= 100 {
+      - ^queue clear
+      } else if li@furnace|smoker contains <context.item.simple.replace[regex:i@]> && <server.flag[meslajho_furnace]> >= 100 {
+      - ^queue clear
+      } else if li@stone_axe|stone_pickaxe|stone_shovel|stone_hoe contains <context.item.simple.replace[regex:i@]> && <server.flag[meslajho_tools1]> >= 100 {
+      - ^queue clear
+      } else if li@fletching_table|arrow|stone_sword contains <context.item.simple.replace[regex:i@]> && <server.flag[meslajho_weapon1]> >= 100 {
+      - ^queue clear
+      } else if li@turtle_helmet|turtle_helmet1 contains <context.item.simple.replace[regex:i@]> && <server.flag[meslajho_armaduras1]> >= 100 {
+      - ^queue clear
+      } else if li@lever|lever1 contains <context.item.simple.replace[regex:i@]> && <server.flag[meslajho_mecanismos1]> >= 100 {
+      - ^queue clear
+      } else if li@oak_stairs|stick|oak_planks|ladder|oak_sign|oak_slab contains <context.item.simple.replace[regex:i@]> && <server.flag[meslajho_crpbasicos]> >= 100 {
+      - ^queue clear
+      } else if li@barrel|composter|chest contains <context.item.simple.replace[regex:i@]> && <server.flag[meslajho_crpcontenedores]> >= 100 {
+      - ^queue clear
+      } else if li@oak_fence|oak_fence_gate contains <context.item.simple.replace[regex:i@]> && <server.flag[meslajho_crpvallas]> >= 100 {
+      - ^queue clear
+      } else if li@oak_pressure_plate|oak_button|oak_door|oak_trapdoor contains <context.item.simple.replace[regex:i@]> && <server.flag[meslajho_crpmecanismos]> >= 100 {
+      - ^queue clear
+      } else if li@red_dye|light_gray_dye|magenta_dye|orange_dye|pink_dye|yellow_dye contains <context.item.simple.replace[regex:i@]> && <server.flag[meslajho_pgmtintes1]> >= 100 {
+      - ^queue clear
       }
-    - ^narrate "<red>No puedes craftear aun eso"
-    - ^narrate "<context.item.simple.replace[regex:i@]>"
+    - ^narrate "<red>Aun no esta la tecologia desarollada."
     - ^determine cancelled
     - ^queue clear
