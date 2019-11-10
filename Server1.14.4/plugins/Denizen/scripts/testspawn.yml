@@ -541,10 +541,32 @@ summons:
     - ^narrate End
 
     on robospawn4 command:
-    - ^narrate "hi"
-    - ^schematic load name:crematorio
-    - ^schematic paste name:crematorio location:<cu@crematorio.min>
-    - ^schematic unload name:crematorio
+    - ^flag <player> questcarpinteria:->:crpbasicos2
+    - define test:rolex
+    - narrate <def[test]>
+    - define test:->:pro
+    - narrate <def[test]>
+    # - ^yaml load:profesiones/data.yml id:<player.name>profcarp
+    # - ^yaml savefile:profesiones/data.yml id:<player.name>profcarp
+    # - ^if <server.flag[meslajho_crpbasicos]> >= 100 {
+    #   - ^flag <player> questcarpinteria:+:crpbasicos
+    #   } else if <server.flag[meslajho_crpcontenedores]> >= 100 {
+    #   - ^flag <player> questcarpinteria:+:crpcontenedores
+    #   } else if <server.flag[meslajho_crpvallas]> >= 100 {
+    #   - ^flag <player> questcarpinteria:+:crpvallas
+    #   } else if <server.flag[meslajho_crpmecanismos]> >= 100 {
+    #   - ^flag <player> questcarpinteria:+:crpmecanismos
+    #   } else {
+    #   - ^narrate "Ninguno"
+    #   }
+    # - ^narrate <player.flag[questcarpinteria]>
+    # # - ^flag <player> <player.flag[questcarpinteria]>:!
+    #
+    # - ^define questprofcant <yaml[<player.name>profcarp].list_keys[carpinteria.meslajho].random[1].formatted>
+    # - narrate "<yaml[<player.name>profcarp].read[carpinteria.meslajho.<def[questprofcant]>].random[1].formatted> <red><def[questprofcant]>"
+    # - ^yaml unload id:<player.name>profcarp
+
+
     # - ^yaml load:personal/<player.name>.yml id:<player.name>
     # - sql id:GlobalSQL "update:UPDATE phpbb_profile_fields_data SET pf_pb_wow_race='1' WHERE user_id=<yaml[<player.name>].read[UserID]>;"
     # - sql id:GlobalSQL "update:UPDATE phpbb_profile_fields_data SET pf_pb_wow_class='1' WHERE user_id=<yaml[<player.name>].read[UserID]>;"
