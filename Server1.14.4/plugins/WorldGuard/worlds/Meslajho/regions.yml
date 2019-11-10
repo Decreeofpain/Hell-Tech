@@ -22,7 +22,8 @@ regions:
         min: {x: 2165, y: 38, z: 1980}
         max: {x: 2185, y: 68, z: 2003}
         members: {}
-        flags: {entry: allow, build: deny, use: deny, build-group: NON_MEMBERS, greeting: ploxe,
+        flags: {entry: allow, build: deny, use: deny, greeting: §aRenta§2 la §ecasa1
+                §2por §6$1000 Almakos §2durante §a7 dias., build-group: NON_MEMBERS,
             block-break: deny, interact: deny, entry-group: ALL, block-place: deny}
         owners: {}
         type: cuboid
@@ -31,9 +32,10 @@ regions:
         min: {x: 2141, y: 37, z: 1983}
         max: {x: 2164, y: 67, z: 2003}
         members: {}
-        flags: {entry: allow, ride-group: NON_MEMBERS, build: deny, use: deny, greeting: ploxe,
-            build-group: NON_MEMBERS, block-break: deny, interact: deny, entry-group: ALL,
-            ride: deny, block-place: deny}
+        flags: {entry: allow, ride-group: NON_MEMBERS, build: deny, use: deny, build-group: NON_MEMBERS,
+            greeting: §aRenta§2 la §ecasa2 §2por §6$1000 Almakos §2durante §a7 dias.,
+            block-break: deny, interact: deny, entry-group: ALL, block-place: deny,
+            ride: deny}
         owners: {}
         type: cuboid
         priority: 5
@@ -41,9 +43,10 @@ regions:
         min: {x: 2128, y: 35, z: 1983}
         max: {x: 2138, y: 64, z: 1997}
         members: {}
-        flags: {entry: allow, ride-group: NON_MEMBERS, build: deny, use: deny, greeting: ploxe,
-            build-group: NON_MEMBERS, block-break: deny, interact: deny, entry-group: ALL,
-            ride: deny, block-place: deny}
+        flags: {entry: allow, ride-group: NON_MEMBERS, build: deny, use: deny, build-group: NON_MEMBERS,
+            greeting: §aRenta§2 la §ecasa3 §2por §6$1000 Almakos §2durante §a7 dias.,
+            block-break: deny, interact: deny, entry-group: ALL, block-place: deny,
+            ride: deny}
         owners: {}
         type: cuboid
         priority: 5
@@ -51,18 +54,23 @@ regions:
         min: {x: 2116, y: 37, z: 1979}
         max: {x: 2126, y: 66, z: 1993}
         members: {}
-        flags: {entry: allow, ride-group: NON_MEMBERS, build: deny, use: deny, greeting: ploxe,
-            build-group: NON_MEMBERS, block-break: deny, interact: deny, entry-group: ALL,
-            ride: deny, block-place: deny}
+        flags: {entry: allow, ride-group: NON_MEMBERS, build: deny, use: deny, build-group: NON_MEMBERS,
+            greeting: §aRenta§2 la §ecasa4 §2por §6$1000 Almakos §2durante §a7 dias.,
+            block-break: deny, interact: deny, entry-group: ALL, block-place: deny,
+            ride: deny}
         owners: {}
         type: cuboid
         priority: 5
     casa5:
         min: {x: 2100, y: 37, z: 1979}
         max: {x: 2113, y: 60, z: 1992}
-        members: {}
-        flags: {entry: allow, build: deny, use: deny, build-group: NON_MEMBERS, greeting: ploxe,
-            block-break: deny, interact: deny, entry-group: ALL, block-place: deny}
+        members:
+            unique-ids: [63d45060-8177-31f5-939e-7685b85bffe3]
+        flags: {use: deny, build-group: NON_MEMBERS, greeting: '§2La §acasa5 §2se
+                rento por §edrAkeNess§2, termina: §507-12 11:02', interact: deny,
+            block-place: allow, ride: deny, entry: deny, ride-group: NON_MEMBERS,
+            build: deny, use-group: NON_MEMBERS, block-break: allow, interact-group: NON_MEMBERS,
+            block-place-group: MEMBERS, block-break-group: MEMBERS}
         owners: {}
         type: cuboid
         priority: 5
@@ -70,7 +78,8 @@ regions:
         min: {x: 2084, y: 38, z: 1981}
         max: {x: 2097, y: 61, z: 1994}
         members: {}
-        flags: {entry: allow, build: deny, use: deny, build-group: NON_MEMBERS, greeting: ploxe,
+        flags: {entry: allow, build: deny, use: deny, greeting: §aRenta§2 la §ecasa6
+                §2por §6$1000 Almakos §2durante §a7 dias., build-group: NON_MEMBERS,
             block-break: deny, interact: deny, entry-group: ALL, block-place: deny}
         owners: {}
         type: cuboid
@@ -79,7 +88,8 @@ regions:
         min: {x: 2136, y: 37, z: 1965}
         max: {x: 2149, y: 60, z: 1978}
         members: {}
-        flags: {entry: allow, build: deny, use: deny, build-group: NON_MEMBERS, greeting: ploxe,
+        flags: {entry: allow, build: deny, use: deny, greeting: §aRenta§2 la §ecasa7
+                §2por §6$1000 Almakos §2durante §a7 dias., build-group: NON_MEMBERS,
             block-break: deny, interact: deny, entry-group: ALL, block-place: deny}
         owners: {}
         type: cuboid
@@ -88,14 +98,15 @@ regions:
         min: {x: 2121, y: 37, z: 1960}
         max: {x: 2134, y: 60, z: 1973}
         members: {}
-        flags: {entry: allow, build: deny, use: deny, build-group: NON_MEMBERS, greeting: ploxe,
+        flags: {entry: allow, build: deny, use: deny, greeting: §aRenta§2 la §ecasa8
+                §2por §6$1000 Almakos §2durante §a7 dias., build-group: NON_MEMBERS,
             block-break: deny, interact: deny, entry-group: ALL, block-place: deny}
         owners: {}
         type: cuboid
         priority: 5
     circulomeslajho:
         members: {}
-        flags: {block-break: deny, snow-fall: deny, snow-melt: deny, block-place: deny}
+        flags: {snow-fall: deny, block-break: deny, snow-melt: deny, block-place: deny}
         owners: {}
         type: poly2d
         priority: 0
