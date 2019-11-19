@@ -411,7 +411,7 @@ GlobalExperience:
     - ^actionbar "<green>+11"
     - ^run 's@checkpesca'
     - ^queue clear
-# -------------Pesca-------------------------
+# -------------Asesino-------------------------
     on blaze dies by player:
     - ^flag <player> asesinoexp:+:5
     - ^actionbar "<green>+5"
@@ -561,7 +561,7 @@ checkasesino:
     script:
     - ^if <player.flag[asesinoexp]> >= 20 {
       - ^flag <player> asesinoexp:-:20
-      - ^flag <player> pescapoints:+:1
+      - ^flag <player> asesinopoints:+:1
       - ^run 's@checkasesino'
       } else {
       - ^queue clear
@@ -572,7 +572,7 @@ checkganaderia:
     - ^if <player.flag[ganaderiaexp]> >= 20 {
       - ^flag <player> ganaderiaexp:-:20
       - ^flag <player> ganaderiapoints:+:1
-      - ^run 's@checkasesino'
+      - ^run 's@checkganaderia'
       } else {
       - ^queue clear
       }

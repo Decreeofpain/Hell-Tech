@@ -90,76 +90,76 @@ yorickevents:
     - ^determine cancelled
     - ^queue clear
 
-aserraderoend:
-    type: task
-    script:
-    - ^schematic load name:aserradero
-    - ^schematic paste name:aserradero location:<cu@aserradero.min>
-    - ^schematic unload name:aserradero
-    - ^foreach <server.list_online_players> {
-      - ^title "title:<aqua>Yorick" "subtitle:<yellow>Aserradero reconstruido" stay:5s targets:%value%
-      }
-    - ^flag <server> tempmeslajho:->:aserradero
-    - ^if <server.flag[tempmeslajho].as_list.contains[taberna|herreria|armeria|establo|cocina|arcano|fragua|deshuesadero|libreria|aserradero|cantera|molino]> {
-      - ^foreach li@n@1|n@2|n@3|n@5|n@6|n@7|n@8|n@9|n@10|n@27|n@35|n@66|n@85|n@91|n@94|n@96|n@99|n@100 {
-        - ^define npctarget %value%
-        - ^teleport <def[npctarget]> <def[npctarget].anchor[construct]>
-        }
-      }
-
-meslajhocountwood:
-    type: task
-    script:
-    - ^yaml load:capitulos/capitulo1.yml id:capitulo<player.name>
-    - ^if <player.flag[cursorid]> == 17 && <player.flag[cursordata]> == 0 {
-      - ^if <yaml[capitulo<player.name>].read[meslajho.materiales.wood.cantidad]> >= 0 {
-        - ^if <yaml[capitulo<player.name>].list_keys[meslajho.materiales.wood.recolectores]> !contains <player.name> {
-          - ^yaml id:capitulo<player.name> set meslajho.materiales.wood.recolectores.<player.name>:+:<player.flag[cursoridqty]>
-          } else {
-          - ^yaml id:capitulo<player.name> set meslajho.materiales.wood.recolectores.<player.name>:+:<player.flag[cursoridqty]>
-          }
-        - ^adjust <player> item_on_cursor:i@air
-        - ^yaml id:capitulo<player.name> set meslajho.materiales.wood.cantidad:-:<player.flag[cursoridqty]>
-        - ^yaml savefile:capitulos/capitulo1.yml id:capitulo<player.name>
-        - ^inventory open d:in@inv_yorick_meslajho
-        - ^title "subtitle:<aqua>Yorick: <gray>Entregaste: <gold><player.flag[cursoridqty]> <dark_green>de madera"
-        - if <player.flag[cursoridqty]> == 64 {
-          - ^give 271
-          - ^give 297
-          }
-        - if <yaml[capitulo<player.name>].read[meslajho.materiales.wood.cantidad]> <= 0 {
-          - ^inventory close
-          - ^yaml load:capitulos/global.yml id:global<player.name>
-          - ^define page '<dark_aqua>Yorick:<black>Al fin despues de tanto estos mugrosos logaron recoectar la madera.<p>Ahora solo fata reconstruir el pueblo y salir de esta maldita calamidad.<p>Ahora a esperar...'
-          - ^yaml id:global<player.name> set libros.global:%page%
-          - ^yaml savefile:capitulos/global.yml id:global<player.name>
-          - ^yaml unload id:global<player.name>
-          - ^flag <server> capitulos:->:mdrmesok
-          - ^execute as_op "region flag meslajho mobspawning deny"
-          - ^foreach li@n@27|n@5|n@7|n@100|n@35|n@96|n@6|n@8|n@94|n@9|n@10|n@99 {
-            - ^define npctarget %value%
-            - ^execute as_npc "builder <def[npctarget].replace[regex:n@]> build groupall layers:20" npc:<def[npctarget].replace[regex:n@]>
-            }
-          - ^foreach <yaml[capitulo<player.name>].list_keys[meslajho.materiales.wood.recolectores]> {
-            - ^define value %value%
-            - ^execute as_server "money give <def[value]> <yaml[capitulo<player.name>].read[meslajho.materiales.wood.recolectores.<def[value]>]>"
-            }
-          - ^foreach <server.list_online_players> {
-            - ^title "title:<aqua>Yorick" "subtitle:<yellow>Mision de madera completada!" stay:5s targets:%value%
-            - ^wait 4s
-            - ^title "title:<aqua>Alvar" "subtitle:<yellow>Ahora espera a que reconstruyamos el pueblo!" stay:5s targets:%value%
-            - ^run updateobjwoodmes2 player:%value%
-            }
-          }
-        }
-      } else {
-      - ^title "subtitle:<aqua>Yorick: <red>Eso no es la madera que ocupamos"
-      }
-    - ^flag <player> cursorid:!
-    - ^flag <player> cursoridqty:!
-    - ^flag <player> cursordata:!
-    - ^yaml unload id:capitulo<player.name>
-    - ^queue clear
+# aserraderoend:
+#     type: task
+#     script:
+#     - ^schematic load name:aserradero
+#     - ^schematic paste name:aserradero location:<cu@aserradero.min>
+#     - ^schematic unload name:aserradero
+#     - ^foreach <server.list_online_players> {
+#       - ^title "title:<aqua>Yorick" "subtitle:<yellow>Aserradero reconstruido" stay:5s targets:%value%
+#       }
+#     - ^flag <server> tempmeslajho:->:aserradero
+#     - ^if <server.flag[tempmeslajho].as_list.contains[taberna|herreria|armeria|establo|cocina|arcano|fragua|deshuesadero|libreria|aserradero|cantera|molino]> {
+#       - ^foreach li@n@1|n@2|n@3|n@5|n@6|n@7|n@8|n@9|n@10|n@27|n@35|n@66|n@85|n@91|n@94|n@96|n@99|n@100 {
+#         - ^define npctarget %value%
+#         - ^teleport <def[npctarget]> <def[npctarget].anchor[construct]>
+#         }
+#       }
+#
+# meslajhocountwood:
+#     type: task
+#     script:
+#     - ^yaml load:capitulos/capitulo1.yml id:capitulo<player.name>
+#     - ^if <player.flag[cursorid]> == 17 && <player.flag[cursordata]> == 0 {
+#       - ^if <yaml[capitulo<player.name>].read[meslajho.materiales.wood.cantidad]> >= 0 {
+#         - ^if <yaml[capitulo<player.name>].list_keys[meslajho.materiales.wood.recolectores]> !contains <player.name> {
+#           - ^yaml id:capitulo<player.name> set meslajho.materiales.wood.recolectores.<player.name>:+:<player.flag[cursoridqty]>
+#           } else {
+#           - ^yaml id:capitulo<player.name> set meslajho.materiales.wood.recolectores.<player.name>:+:<player.flag[cursoridqty]>
+#           }
+#         - ^adjust <player> item_on_cursor:i@air
+#         - ^yaml id:capitulo<player.name> set meslajho.materiales.wood.cantidad:-:<player.flag[cursoridqty]>
+#         - ^yaml savefile:capitulos/capitulo1.yml id:capitulo<player.name>
+#         - ^inventory open d:in@inv_yorick_meslajho
+#         - ^title "subtitle:<aqua>Yorick: <gray>Entregaste: <gold><player.flag[cursoridqty]> <dark_green>de madera"
+#         - if <player.flag[cursoridqty]> == 64 {
+#           - ^give 271
+#           - ^give 297
+#           }
+#         - if <yaml[capitulo<player.name>].read[meslajho.materiales.wood.cantidad]> <= 0 {
+#           - ^inventory close
+#           - ^yaml load:capitulos/global.yml id:global<player.name>
+#           - ^define page '<dark_aqua>Yorick:<black>Al fin despues de tanto estos mugrosos logaron recoectar la madera.<p>Ahora solo fata reconstruir el pueblo y salir de esta maldita calamidad.<p>Ahora a esperar...'
+#           - ^yaml id:global<player.name> set libros.global:%page%
+#           - ^yaml savefile:capitulos/global.yml id:global<player.name>
+#           - ^yaml unload id:global<player.name>
+#           - ^flag <server> capitulos:->:mdrmesok
+#           - ^execute as_op "region flag meslajho mobspawning deny"
+#           - ^foreach li@n@27|n@5|n@7|n@100|n@35|n@96|n@6|n@8|n@94|n@9|n@10|n@99 {
+#             - ^define npctarget %value%
+#             - ^execute as_npc "builder <def[npctarget].replace[regex:n@]> build groupall layers:20" npc:<def[npctarget].replace[regex:n@]>
+#             }
+#           - ^foreach <yaml[capitulo<player.name>].list_keys[meslajho.materiales.wood.recolectores]> {
+#             - ^define value %value%
+#             - ^execute as_server "money give <def[value]> <yaml[capitulo<player.name>].read[meslajho.materiales.wood.recolectores.<def[value]>]>"
+#             }
+#           - ^foreach <server.list_online_players> {
+#             - ^title "title:<aqua>Yorick" "subtitle:<yellow>Mision de madera completada!" stay:5s targets:%value%
+#             - ^wait 4s
+#             - ^title "title:<aqua>Alvar" "subtitle:<yellow>Ahora espera a que reconstruyamos el pueblo!" stay:5s targets:%value%
+#             - ^run updateobjwoodmes2 player:%value%
+#             }
+#           }
+#         }
+#       } else {
+#       - ^title "subtitle:<aqua>Yorick: <red>Eso no es la madera que ocupamos"
+#       }
+#     - ^flag <player> cursorid:!
+#     - ^flag <player> cursoridqty:!
+#     - ^flag <player> cursordata:!
+#     - ^yaml unload id:capitulo<player.name>
+#     - ^queue clear
 
 
 

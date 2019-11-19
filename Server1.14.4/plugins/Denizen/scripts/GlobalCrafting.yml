@@ -34,6 +34,10 @@ GlobalCrafting:
       - ^queue clear
       } else if li@red_dye|light_gray_dye|magenta_dye|orange_dye|pink_dye|yellow_dye contains <context.item.simple.replace[regex:i@]> && <server.flag[meslajho_pgmtintes1]> >= 100 {
       - ^queue clear
+      } else if li@scute|scutes contains <context.item.simple.replace[regex:i@]> && <server.flag[meslajho_alqscute]> >= 100 {
+      - ^queue clear
+      } else if li@leather_leggings|leather_boots|leather_chestplate|leather_helmet contains <context.item.simple.replace[regex:i@]> && <server.flag[meslajho_pltleather]> >= 100 {
+      - ^queue clear
       }
     - ^narrate "<red>Aun no esta la tecologia desarollada."
     - ^determine cancelled
