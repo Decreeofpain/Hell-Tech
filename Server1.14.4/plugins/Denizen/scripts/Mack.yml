@@ -5,315 +5,107 @@
       - trigger name:CHAT toggle:false
       - trigger name:click toggle:true
       - trigger name:proximity toggle:true radius:3
+
       on Build Complete:
-      - ^run 's@armeriaend'
+      - ^run 's@aserraderoend'
 
     interact scripts:
-    - 18 Mackinicio
-    - 16 Mackarmero
-'Mackinicio':
-  Type: Interact
-  Requirements:
-    Mode: all
-    List:
-    - valueof <global.flag[capitulos].contains[INICIO]>
-    - -valueof <global.flag[capitulos].contains[mesreconstruido]>
-    - -valueof <global.flag[capitulos].contains[ONINTRO]>
-  Steps:
-    '1':
-      proximity trigger:
-        entry:
-          radius: 4
-          Script:
-#======================= Si el pueblo esta destruido
-          - ^if <server.flag[capitulos].as_list> contains destroy && <server.flag[capitulos].as_list> !contains pdamesok {
-          - ^random 5
-          - ^title 'subtitle:<green>Mack:<yellow> La mina esta enfrente!'
-          - ^title 'subtitle:<green>Mack:<yellow> Carajo ve a la mina'
-          - ^title 'subtitle:<green>Mack:<yellow> Las escaleras estan enfrente'
-          - ^title 'subtitle:<green>Mack:<yellow> Busca un letrero de la mina'
-          - ^title 'subtitle:<green>Mack:<yellow> Ayuda a la mision'
-          - ^queue clear
-          } else if <server.flag[capitulos].as_list> contains destroy && <server.flag[capitulos].as_list> contains pdamesok {
-          - ^random 5
-          - ^title 'subtitle:<green>Mack:<yellow> Yorick esta al frente'
-          - ^title 'subtitle:<green>Mack:<yellow> Consigue madera'
-          - ^title 'subtitle:<green>Mack:<yellow> Hay que ir por madera'
-          - ^title 'subtitle:<green>Mack:<yellow> Vamos ve con Yorick'
-          - ^title 'subtitle:<green>Mack:<yellow> Busca el aserradero'
-          - ^queue clear
-          }
+    - 1 mackscript
 
-'Mackarmero':
+'mackscript':
   Type: Interact
-  Requirements:
-    Mode: all
-    List:
-    - valueof <global.flag[capitulos].contains[mesreconstruido]>
+  # Requirements:
+  #   Mode: all
+  #   List:
+  #   - valueof <global.flag[capitulos].contains[mesreconstruido]>
   Steps:
     '1':
       proximity trigger:
         entry:
           radius: 4
           Script:
-          - ^if <player.flag[especialidad].contains[Fraguador].not> && <player.flag[profesion].contains[Minero].not> {
-            - ^title "subtitle:<green>Mack: <yellow>Largo de aqui"
+          - ^if <player.has_flag[armeon1].not> {
+            - ^title "subtitle:<yellow>Mack: <white>Quieres ayudar?"
+            - ^wait
+            - ^title "subtitle:<white>Hay que hacer flechas"
+            - ^wait
+            - ^title "subtitle:<white>para los guardias"
             - ^queue clear
-            } else if <player.has_flag[especialidad].not> && <player.has_flag[profesion].not> {
-              - ^title "subtitle:<green>Mack: <yellow>deja de quitarme el tiempo!"
-              - ^queue clear
-            } else if <player.flag[especialidad].contains[Fraguador].not> && <player.flag[especialidad].contains[Armero].not> && <player.flag[profesion].contains[Minero]> {
-            - ^if <player.jobs[Minero].xp.level> >= 50 {
-              - ^title "subtitle:<green>Mack: <yellow>Listo <player.name>?"
-              - ^wait 1s
-              - ^title "subtitle:<yellow>Ahora podras crear Armas"
-              - ^wait 1s
-              - ^title "subtitle:<yellow>Solo acepta el contrato!"
-              - ^queue clear
-              } else {
-              - ^title "subtitle:<green>Mack: <gold><player.name> <yellow>..."
-              - ^wait 1s
-              - ^title "subtitle:<yellow>Necesitas ser nivel 50 de Minero"
-              - ^wait 1s
-              - ^title "subtitle:<yellow>Para poder ser Armero..."
-              - ^queue clear
-              }
-            } else if <player.flag[especialidad].contains[Fraguador]> && <player.flag[especialidad].contains[Armero].not> {
-            - ^if <player.jobs[Fraguador].xp.level> >= 100 {
-              - ^title "subtitle:<green>Mack: <gold><player.name> <yellow>ya era hora!"
-              - ^wait 1s
-              - ^title "subtitle:<yellow>Ya estas listo para la Armero?"
-              - ^queue clear
-              } else {
-              - ^title "subtitle:<green>Mack: <yellow>Hmm... manco, MANCO!!!"
-              - ^wait 1s
-              - ^title "subtitle:<yellow>Necesitas ser nivel 100 de Fraguador"
-              - ^wait 1s
-              - ^title "subtitle:<yellow>vete y reflecciona sobre lo malo que eres"
-              - ^queue clear
-              }
-            } else if <player.flag[especialidad].contains[Fraguador]> && <player.flag[especialidad].contains[Armero]> {
-            - ^title "subtitle:<green>Mack: <gold><player.name> <yellow>Bienvenido!"
+            } else if <player.flag[armeon1]> == oncd {
+            - ^title "title:<yellow>Mack:" "subtitle:<white>Ahorita tenemos todo" stay:2s
+            - ^wait
+            - ^title "subtitle:<white>Vuelve despues" stay:2s
             - ^queue clear
-            } else if <player.flag[especialidad].contains[Fraguador].not> && <player.flag[especialidad].contains[Armero]> {
-            - ^title "subtitle:<green>Mack: <gold><player.name> <yellow>Bienvenido!"
+            } else if <player.flag[armeon1]> >= 0 {
+            - ^title "title:<yellow>Mack:" "subtitle:<white>Hola <player.name>!" stay:2s
+            - ^wait
+            - ^title "subtitle:<white>Tienes plumas?" stay:2s
+            - ^wait
+            - ^random 3
+            - ^title "subtitle:<white>Tenemos que hacer flechas"
+            - ^title "subtitle:<white>Los guardias se quedan sin flechas"
+            - ^title "subtitle:<white>Necesitamos flechas"
             - ^queue clear
             }
       click trigger:
         Script:
-          - ^if <player.flag[especialidad].contains[Fraguador].not> && <player.flag[profesion].contains[Minero]> {
-            - ^if <player.flag[especialidad].contains[Armero].not> && <player.jobs[Minero].xp.level> >= 50 {
-              - ^inventory open d:in@inv_mack
-              - ^queue clear
-              } else if <player.flag[especialidad].contains[Armero]> {
-              - ^inventory open d:in@inv_mack_ok
-              - ^queue clear
-              }
-            } else if <player.flag[especialidad].contains[Fraguador]> && <player.flag[especialidad].contains[Armero].not> {
-            - ^if <player.jobs[Fraguador].xp.level> >= 100 {
-              - ^inventory open d:in@inv_mack
-              - ^queue clear
-              }
-            } else if <player.flag[especialidad].contains[Armero]> {
-            - ^inventory open d:in@inv_mack_ok
+          - ^if <player.has_flag[armeon1].not> {
+            - ^flag <player> armeon1:64
+            - ^inventory open d:in@inv_mackarm
+            - ^queue clear
+            } else if <player.flag[armeon1]> == oncd {
+            - ^title "title:<yellow>Mack:" "subtitle:<white>De momento no necesito nada" stay:2s
+            - ^queue clear
+            } else if <player.flag[armeon1]> >= 0 {
+            - ^inventory open d:in@inv_mackarm
             - ^queue clear
             }
-mack_craft1task:
-    type: task
-    script:
-    - ^foreach li@i@pedruzcollameante|i@cortezaroble {
-      - ^flag <player> <def[value].replace[regex:i@]>:<player.inventory.quantity[%value%]> duration:1s
-      }
-    - ^queue clear
-mack_craft2task:
-    type: task
-    script:
-    - ^foreach li@i@cobblestone_slab|i@furnace {
-      - ^flag <player> <def[value].replace[regex:i@]>:<player.inventory.quantity[%value%]> duration:1s
-      }
-    - ^queue clear
+
 mackevents:
   type: world
   events:
-    on player clicks in inv_mack:
+    on player clicks cancelslot in inv_mackarm:
     - DETERMINE cancelled
-    on player drags in inv_mack:
+    on player clicks infoarme1 in inv_mackarm:
     - DETERMINE cancelled
-    on player clicks in inv_mack_ok:
-    - DETERMINE cancelled
-    on player drags in inv_mack_ok:
-    - DETERMINE cancelled
-    on player clicks in inv_mack_craft1:
-    - DETERMINE cancelled
-    on player drags in inv_mack_craft1:
-    - DETERMINE cancelled
-    on player clicks in inv_mack_craft2:
-    - DETERMINE cancelled
-    on player drags in inv_mack_craft2:
-    - DETERMINE cancelled
-#
-    on player clicks rechazarprof in inv_mack:
-    - ^inventory close d:in@inv_mack
-    on player clicks aceptarprof in inv_mack:
-    - ^inventory close d:in@inv_mack
-    - ^execute as_op "jobs employ <player.name> Armero" silent
-    - ^flag <player> especialidad:->:Armero
-    - ^title "subtitle:<green>Aloys: <yellow>Ahora eres <gold>Armero!"
-    - ^queue clear
-#  Listas de Crafteo
-    on player clicks espadasmaderalist in inv_mack_ok:
-    - ^run 's@mack_craft1task'
-    - ^inventory open d:in@inv_mack_craft1
-    - ^queue clear
-    on player clicks pedruzcoslist in inv_mack_ok:
-    - ^run 's@mack_craft2task'
-    - ^inventory open d:in@inv_mack_craft2
-    - ^queue clear
-#  Crafteo de Items
-#  -- Espadas
-#  --- Madera
-#  ---- Comun
-    on player right clicks espmdrcomuninfo in inv_mack_craft1:
-    - ^if <player.inventory.quantity[i@pedruzcollameante]> >= 2 && <player.inventory.quantity[i@cortezaroble]> >= 2 {
-      - ^inventory close d:in@inv_mack_craft1
-      - ^actionbar "<gold>Mack: <yellow>Creando... <player.name>"
-      - ^wait 2
-      - ^actionbar "<gold>Mack: <yellow>Ya casi!"
-      - ^wait 1
-      - ^execute as_op "md give <player.name> -t ewc"
-      - ^take i@pedruzcollameante quantity:2
-      - ^take i@cortezaroble quantity:2
-      - ^run 's@mack_craft1task'
-      - ^inventory open d:in@inv_mack_craft1
-      - ^execute as_server "jobs grantxp <player.name> Armero 10" silent
-      }
-    - ^queue clear
-#  -- Pedruzcos
-    on player right clicks pedruzcollameanteinfo in inv_mack_craft2:
-    - ^if <player.inventory.quantity[i@cobblestone_slab]> >= 64 && <player.inventory.quantity[i@furnace]> >= 2 {
-      - ^inventory close d:in@inv_mack_craft2
-      - ^actionbar "<gold>Mack: <yellow>Creando... <player.name>"
-      - ^wait 2
-      - ^actionbar "<gold>Mack: <yellow>Ya casi!"
-      - ^wait 1
-      - ^take i@cobblestone_slab quantity:64
-      - ^take i@furnace quantity:2
-      - ^give i@pedruzcollameante quantity:1
-      - ^run 's@mack_craft2task'
-      - ^inventory open d:in@inv_mack_craft2
-      - ^execute as_server "jobs grantxp <player.name> Armero 10" silent
-      }
-    - ^queue clear
-
-  ## Atras
-    on player clicks Atras in inv_mack_craft1:
-    - ^inventory open d:in@inv_mack_ok
-    on player clicks Atras in inv_mack_craft2:
-    - ^inventory open d:in@inv_mack_ok
-# =====================================================================
-    on player clicks rechazarprof in inv_mack_ok:
-    - ^inventory close d:in@inv_mack_ok
-    - ^DETERMINE cancelled
-
-
-# = INVENTARIOS
-inv_mack:
-  type: inventory
-  inventory: dispenser
-  title: <gold>Armeria
-  size: 9
-  slots:
-  - "[i@cancelslot] [i@mackinfo1] [i@cancelslot]"
-  - "[i@cancelslot] [i@cancelslot] [i@cancelslot]"
-  - "[i@aceptarprof] [i@cancelslot] [i@rechazarprof]"
-inv_mack_ok:
-  type: inventory
-  title: '<dark_purple><magic>0<reset><gold>Armeria<dark_purple><magic>0'
-  size: 9
-  slots:
-  - "[i@espadasmaderalist] [i@pedruzcoslist] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot]"
-inv_mack_craft1:
-  type: inventory
-  title: '<dark_purple><magic>0<reset><gold>Espadas de Madera<dark_purple><magic>0'
-  size: 9
-  slots:
-  - "[i@espmdrcomuninfo] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@Atras]"
-inv_mack_craft2:
-  type: inventory
-  title: '<dark_purple><magic>0<reset><gold>Pedruzcos<dark_purple><magic>0'
-  size: 9
-  slots:
-  - "[i@pedruzcollameanteinfo] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@Atras]"
-
-
-########### - mack - #########
-mackinfo1:
-  type: item
-  material: paper
-  display name: '<blue>Armero'
-  lore:
-  - ''
-  - '<gray>Los <yellow>Armeros <gray>crean Armas'
-  - '<gray>que permiten estar mejor preparado'
-  - '<gray>para la batalla.'
-#---------------------------------------------ITEMS----------------------------------------------------
-#----Espadas
-espadasmaderalist:
-  type: item
-  material: 268
-  display name: '<gold>Lista de Espadas de madera'
-#----Pedruzcos
-pedruzcoslist:
-  type: item
-  material: 1
-  display name: '<gold>Lista de Pedruzcos'
-#
-#
-#----Espadas
-espmdrcomuninfo:
-  type: item
-  material: 268
-  display name: '<dark_green>Espada de madera comun'
-  lore:
-  - '<yellow>Requiere:'
-  - '<gray>Nivel para craftear: <yellow>1'
-  - '<gray>Pedruzco llameante: <yellow>2'
-  - '<gray>Corteza de roble: <yellow>2'
-  - ''
-  - '<gold>Materiales actuales:'
-  - '<yellow><player.flag[pedruzcollameante].asint><&pipe>2<gray> Pedruzco llameante <dark_gray>(Armero)'
-  - '<yellow><player.flag[cortezaroble].asint><&pipe>2<gray> Corteza de roble <dark_gray>(Artesano)'
-  - ''
-  - '<green>Click <dark_green>derecho<green> para crear'
-#----Pedruzcos
-pedruzcollameanteinfo:
-  type: item
-  material: 1
-  display name: '<dark_green>Pedruzco llameante'
-  lore:
-  - '<yellow>Requiere:'
-  - '<gray>Nivel para craftear: <yellow>1'
-  - '<gray>Losa de piedra labrada: <yellow>64'
-  - '<gray>Horno: <yellow>2'
-  - ''
-  - '<gold>Materiales actuales:'
-  - '<yellow><player.flag[cobblestone_slab].asint><&pipe>64<gray> Losa de piedra labrada <dark_gray>(Minero)'
-  - '<yellow><player.flag[furnace].asint><&pipe>1<gray> Horno <dark_gray>(Minero)'
-  - ''
-  - '<green>Click <dark_green>derecho<green> para crear'
-armeriaend:
-    type: task
-    script:
-    - ^schematic load name:armeria
-    - ^schematic paste name:armeria location:<cu@armeria.min>
-    - ^schematic unload name:armeria
-    - ^foreach <server.list_online_players> {
-      - ^title "title:<aqua>Mack" "subtitle:<yellow>armeria reconstruida" stay:5s targets:%value%
-      }
-    - ^flag <server> tempmeslajho:->:armeria
-    - ^if <server.flag[tempmeslajho].as_list.contains[taberna|herreria|armeria|establo|cocina|arcano|fragua|deshuesadero|libreria|aserradero|armeria|molino]> {
-      - ^foreach li@n@1|n@2|n@3|n@5|n@6|n@7|n@8|n@9|n@10|n@35|n@66|n@85|n@91|n@94|n@96|n@99|n@100|n@27 {
-        - ^define npctarget %value%
-        - ^teleport <def[npctarget]> <def[npctarget].anchor[construct]>
+# Entregar Materiales
+    on player clicks Entregar in inv_mackarm:
+    - ^if li@feather|feathers contains <context.cursor_item.simple.replace[regex:i@]> {
+      - ^flag <player> armeon1:-:<context.cursor_item.quantity>
+      - ^narrate "<yellow>Mack: <white>Gracias por las plumas!"
+      - ^adjust <player> item_on_cursor:i@air
+      - ^if <player.flag[armeon1]> <= 0 {
+        - ^flag <player> armeon1:oncd duration:<util.random.int[5].to[15]>m
+        - ^give money quantity:64
+        - ^inventory close d:in@inv_mackarm
+        - ^title "title:<yellow>Mack:" "subtitle:<white>Gracias!" stay:2s
+        } else {
+        - ^inventory open d:in@inv_mackarm
         }
       }
+    - ^run 's@animeaserradero'
+    - ^determine cancelled
+    - ^queue clear
+
+# = INVENTARIOS
+inv_mackarm:
+  type: inventory
+  inventory: dispenser
+  title: <gold>Depositar
+  size: 9
+  slots:
+  - "[i@cancelslot] [i@infoarme1] [i@cancelslot]"
+  - "[i@cancelslot] [i@Entregar] [i@cancelslot]"
+  - "[i@cancelslot] [i@cancelslot] [i@cancelslot]"
+
+########### - mack - #########
+infoarme1:
+  type: item
+  material: feather
+  lore:
+  - ''
+  - '<dark_green>Entregar <gold><player.flag[armeon1]>'
+  - '<yellow>Plumas'
+  - ''
+  - '<green>Recompensas:'
+  - '<yellow>64 <dark_purple>Almakos'

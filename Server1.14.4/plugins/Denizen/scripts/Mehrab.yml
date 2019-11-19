@@ -1,78 +1,111 @@
 "Mehrab":
     type: assignment
-
     actions:
       on assignment:
       - trigger name:CHAT toggle:false
       - trigger name:click toggle:true
       - trigger name:proximity toggle:true radius:3
 
-    interact scripts:
-    - 16 Mehrabscript
+      on Build Complete:
+      - ^run 's@aserraderoend'
 
-'Mehrabscript':
+    interact scripts:
+    - 1 mehrabscript
+
+'mehrabscript':
   Type: Interact
-  Requirements:
-    Mode: all
-    List:
-    - valueof <player.flag[progreso].contains[profesiones_ok]>
-    - valueof <global.flag[capitulos].contains[CAPITULO1P2OK]>
+  # Requirements:
+  #   Mode: all
+  #   List:
+  #   - valueof <global.flag[capitulos].contains[mesreconstruido]>
   Steps:
     '1':
       proximity trigger:
         entry:
           radius: 4
           Script:
-          - ^if <player.has_flag[profesion].not> {
-            - ^narrate "<blue>Mehrab: <yellow>Te interesa crear armas <gold><player.name>?"
+          - ^if <player.has_flag[curton1].not> {
+            - ^title "subtitle:<yellow>Mehrab: <white>Quieres curtir pieles?"
+            - ^wait
+            - ^title "subtitle:<white>Hay que traer algo de pollo"
+            - ^wait
+            - ^title "subtitle:<white>trae muchos"
             - ^queue clear
-            } else if <player.jobs[Armero].xp.level||> >= 100 && <player.flag[profesion].as_list> !contains Artillero {
-            - ^narrate "<blue>Mehrab: <yellow>Estas listo para ser Artillero <gold><player.name>"
+            } else if <player.flag[curton1]> == oncd {
+            - ^title "title:<yellow>Mehrab:" "subtitle:<white>Ya tenemos muchas pieles" stay:2s
+            - ^wait
+            - ^title "subtitle:<white>Regresa despues" stay:2s
             - ^queue clear
-            } else if <player.jobs[Alumno].xp.level||> >= 50 && <player.flag[profesion].as_list> !contains Armero {
-            - ^narrate "<blue>Mehrab: <yellow>Estas listo para ser Armero <gold><player.name>"
-            - ^queue clear
-            } else if <player.flag[profesion].as_list> !contains Alumno && <player.has_flag[profesion]> {
-            - ^narrate "<blue>Mehrab: <yellow>Te gustaria crear armas <gold><player.name>?"
-            - ^queue clear
-#Mencion de profesiones
-            } else if <player.flag[profesion].as_list> contains Alumno && <player.flag[qprofStatus]> != oncd {
-            - ^narrate "<blue>Mehrab: <yellow>Tienes una mision <gold><player.name>"
-            - ^run 's@profcheckcount'
-            - ^queue clear
-            } else if <player.flag[profesion].as_list> contains Alumno && <player.flag[qprofStatus]> == oncd {
-            - ^narrate "<blue>Mehrab: <yellow>Bienvenido a la armeria <gold><player.name>"
+            } else if <player.flag[curton1]> >= 0 {
+            - ^title "title:<yellow>Mehrab:" "subtitle:<white>Ja! <player.name>" stay:2s
+            - ^wait
+            - ^title "subtitle:<white>Busca trae algo de pollo!" stay:2s
+            - ^wait
+            - ^random 3
+            - ^title "subtitle:<white>Ocupo curtir pieles"
+            - ^title "subtitle:<white>necesitamos pieles"
+            - ^title "subtitle:<white>hay que trabajar pieles"
             - ^queue clear
             }
       click trigger:
         Script:
-          - ^if <player.has_flag[profesion].not> {
+          - ^if <player.has_flag[curton1].not> {
+            - ^flag <player> curton1:64
             - ^inventory open d:in@inv_mehrab
             - ^queue clear
-            } else if <player.jobs[Armero].xp.level||> >= 100 && <player.flag[profesion].as_list> !contains Artillero {
-            - ^inventory open d:in@inv_mehrab_up2
+            } else if <player.flag[curton1]> == oncd {
+            - ^title "title:<yellow>Mehrab:" "subtitle:<white>Ya hay muchas pieles" stay:2s
             - ^queue clear
-            } else if <player.jobs[Alumno].xp.level||> >= 50 && <player.flag[profesion].as_list> !contains Armero {
-            - ^inventory open d:in@inv_mehrab_up2
-            - ^queue clear
-            } else if <player.flag[profesion].as_list> !contains Alumno && <player.has_flag[profesion]> {
+            } else if <player.flag[curton1]> >= 0 {
             - ^inventory open d:in@inv_mehrab
             - ^queue clear
-            } else if <player.flag[profesion].as_list> contains Alumno {
-            - ^if <player.has_flag[qprofStatus].not> {
-              - ^run 's@profquestsrandommehrab'
-              - ^queue clear
-              } else if <player.flag[qprofStatus]> != oncd {
-              - ^yaml load:personal/<player.name>.yml id:<player.name>
-              - ^flag <player> questprofcant:<yaml[<player.name>].read[misionprofcant]>
-              - ^flag <player> questproftarjet:<yaml[<player.name>].read[misionproftarjet]>
-              - ^inventory open d:in@inv_mehrab_ok
-              - ^flag <player> questprofcant:!
-              - ^flag <player> questproftarjet:!
-              - ^yaml unload id:<player.name>
-              - ^queue clear
-              } else if <player.flag[qprofStatus]> == oncd {
-              - ^title "title:<yellow><player.name>" "subtitle:<green>Regresa en <player.flag[qprofStatus].expiration.in_seconds.asint> segundos por otra mision!" stay:5s
-              - ^queue clear
-              }
             }
+
+mehrabevents:
+  type: world
+  events:
+    on player clicks cancelslot in inv_mehrab:
+    - DETERMINE cancelled
+    on player clicks infocurt1 in inv_mehrab:
+    - DETERMINE cancelled
+
+# Entregar Materiales
+    on player clicks Entregar in inv_mehrab:
+    - ^if li@chicken|chickens contains <context.cursor_item.simple.replace[regex:i@]> {
+      - ^flag <player> curton1:-:<context.cursor_item.quantity>
+      - ^narrate "<yellow>Mehrab: <white>Gracias por el pollo!"
+      - ^adjust <player> item_on_cursor:i@air
+      - ^if <player.flag[curton1]> <= 0 {
+        - ^flag <player> curton1:oncd duration:<util.random.int[5].to[15]>m
+        - ^give money quantity:64
+        - ^inventory close d:in@inv_mehrab
+        - ^title "title:<yellow>Mehrab:" "subtitle:<white>Gracias <player.name>!" stay:2s
+        } else {
+        - ^inventory open d:in@inv_mehrab
+        }
+      }
+    # - ^run 's@animeaserradero'
+    - ^determine cancelled
+    - ^queue clear
+# = INVENTARIOS
+inv_mehrab:
+  type: inventory
+  inventory: dispenser
+  title: <gold>Depositar
+  size: 9
+  slots:
+  - "[i@cancelslot] [i@infocurt1] [i@cancelslot]"
+  - "[i@cancelslot] [i@Entregar] [i@cancelslot]"
+  - "[i@cancelslot] [i@cancelslot] [i@cancelslot]"
+
+########### - mehrab - #########
+infocurt1:
+  type: item
+  material: chicken
+  lore:
+  - ''
+  - '<dark_green>Entregar <gold><player.flag[curton1]>'
+  - '<yellow>De pollo'
+  - ''
+  - '<green>Recompensas:'
+  - '<yellow>64 <dark_purple>Almakos'

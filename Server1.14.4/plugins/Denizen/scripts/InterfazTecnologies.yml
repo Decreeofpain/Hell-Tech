@@ -42,29 +42,29 @@ InvMesCNT_Granite:
   - "[i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot]"
   - "[i@cancelslot] [i@cancelslot] [i@cancelslot] [i@granite_stairs] [i@granite_slab] [i@granite_wall] [i@cancelslot] [i@cancelslot] [i@cancelslot]"
 
-# ------------------------------------------------------ Inventarios Herrero -------------------------------------------------------------------------------------
-InvMesHER:
+# ------------------------------------------------------ Inventarios Fragua -------------------------------------------------------------------------------------
+InvMesFRA:
   type: inventory
-  title: '<red>Herreria'
+  title: '<red>Fragua'
   size: 9
   slots:
-  - "[i@cancelslot] [i@cancelslot] [i@cancelslot] [i@btn_her_mesfurnace] [i@cancelslot] [i@btn_her_mestools1] [i@cancelslot] [i@cancelslot] [i@cancelslot]"
+  - "[i@cancelslot] [i@cancelslot] [i@cancelslot] [i@btn_fra_mesfurnace] [i@cancelslot] [i@btn_fra_mestools1] [i@cancelslot] [i@cancelslot] [i@cancelslot]"
 
-InvMesHER_Furnace:
+InvMesFRA_Furnace:
   type: inventory
   title: 'Puntos: <yellow><player.flag[mineriapoints]>'
   size: 27
   slots:
-  - "[i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@btnup_her_furnace] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@btn_regresar]"
+  - "[i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@btnup_fra_furnace] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@btn_regresar]"
   - "[i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot]"
   - "[i@cancelslot] [i@cancelslot] [i@cancelslot] [i@furnace] [i@cancelslot] [i@smoker] [i@cancelslot] [i@cancelslot] [i@cancelslot]"
 
-InvMesHER_Tools1:
+InvMesFRA_Tools1:
   type: inventory
   title: 'Puntos: <yellow><player.flag[mineriapoints]>'
   size: 27
   slots:
-  - "[i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@btnup_her_tools1] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@btn_regresar]"
+  - "[i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@btnup_fra_tools1] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@btn_regresar]"
   - "[i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot]"
   - "[i@cancelslot] [i@stone_axe] [i@cancelslot] [i@stone_pickaxe] [i@cancelslot] [i@stone_shovel] [i@cancelslot] [i@stone_hoe] [i@cancelslot]"
 # ------------------------------------------------------ Inventarios Armero -------------------------------------------------------------------------------------
@@ -166,6 +166,46 @@ InvMesPGM_Tintes1:
   - "[i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@btnup_pgm_tintes] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@btn_regresar]"
   - "[i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot]"
   - "[i@red_dye] [i@light_gray_dye] [i@cancelslot] [i@magenta_dye] [i@cancelslot] [i@orange_dye] [i@cancelslot] [i@pink_dye] [i@yellow_dye]"
+# ------------------------------------------------------ Inventarios Alquimista -------------------------------------------------------------------------------------
+InvMesALQ:
+  type: inventory
+  title: '<red>Alquimia'
+  size: 9
+  slots:
+  - "[i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@btn_alq_scute] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot]"
+
+InvMesALQ_scute:
+  type: inventory
+  title: 'Puntos: <yellow><player.flag[herboristeriapoints]>'
+  size: 27
+  slots:
+  - "[i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@btnup_alq_scute] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@btn_regresar]"
+  - "[i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot]"
+  - "[i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@scute] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot]"
+# ------------------------------------------------------ Inventarios Peletero -------------------------------------------------------------------------------------
+InvMesPLT:
+  type: inventory
+  title: '<red>Peleteria'
+  size: 9
+  slots:
+  - "[i@cancelslot] [i@cancelslot] [i@cancelslot] [i@btn_plt_leather] [i@cancelslot] [i@btn_plt_sea] [i@cancelslot] [i@cancelslot] [i@cancelslot]"
+
+InvMesPLT_Leather:
+  type: inventory
+  title: 'Puntos: <yellow><player.flag[asesinopoints]>'
+  size: 27
+  slots:
+  - "[i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@btnup_plt_leather] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@btn_regresar]"
+  - "[i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot]"
+  - "[i@cancelslot] [i@leather_helmet] [i@cancelslot] [i@leather_chestplate] [i@cancelslot] [i@leather_leggings] [i@cancelslot] [i@leather_boots] [i@cancelslot]"
+InvMesPLT_Sea:
+  type: inventory
+  title: 'Puntos: <yellow><player.flag[asesinopoints]>'
+  size: 27
+  slots:
+  - "[i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@btnup_plt_sea] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@btn_regresar]"
+  - "[i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot]"
+  - "[i@cancelslot] [i@cancelslot] [i@cancelslot] [i@nautilus_shell] [i@cancelslot] [i@conduit] [i@cancelslot] [i@cancelslot] [i@cancelslot]"
 # ------------------------------------------------------ Items Cantero -------------------------------------------------------------------------------------
 btn_ctn_mescobblestone:
   type: item
@@ -198,15 +238,15 @@ btn_ctn_mesgranite:
   no_id: false
   lore:
   - '<dark_green>Investigacion: <yellow><server.flag[meslajho_granite]><gold>%'
-# ------------------------------------------------------ Items Herrero -------------------------------------------------------------------------------------
-btn_her_mesfurnace:
+# ------------------------------------------------------ Items Fragua -------------------------------------------------------------------------------------
+btn_fra_mesfurnace:
   type: item
   material: furnace
-  display name: '<gold>fundicion'
+  display name: '<gold>Fundicion'
   no_id: false
   lore:
   - '<dark_green>Investigacion: <yellow><server.flag[meslajho_furnace]><gold>%'
-btn_her_mestools1:
+btn_fra_mestools1:
   type: item
   material: stone_pickaxe
   display name: '<gold>Herramientas'
@@ -273,6 +313,29 @@ btn_pgm_tintes1:
   no_id: false
   lore:
   - '<dark_green>Investigacion: <yellow><server.flag[meslajho_pgmtintes1]><gold>%'
+# ------------------------------------------------------ Items Alquimia -------------------------------------------------------------------------------------
+btn_alq_scute:
+  type: item
+  material: scute
+  display name: '<gold>Scute'
+  no_id: false
+  lore:
+  - '<dark_green>Investigacion: <yellow><server.flag[meslajho_alqscute]><gold>%'
+# ------------------------------------------------------ Items Peleteria -------------------------------------------------------------------------------------
+btn_plt_leather:
+  type: item
+  material: leather_helmet
+  display name: '<gold>Armaduras de piel'
+  no_id: false
+  lore:
+  - '<dark_green>Investigacion: <yellow><server.flag[meslajho_pltleather]><gold>%'
+btn_plt_sea:
+  type: item
+  material: nautilus_shell
+  display name: '<gold>Profundidades del oceano'
+  no_id: false
+  lore:
+  - '<dark_green>Investigacion: <yellow><server.flag[meslajho_pltsea]><gold>%'
 # -------------- INFO TECNOLOGIES ----------------
 # ---------------- CANTERIA ----------------------
 btnup_ctn_cobblestone:
@@ -323,8 +386,8 @@ btnup_ctn_granite:
   - '<dark_green>Investigacion actual: <yellow><server.flag[meslajho_granite]><gold>%'
   - ''
   - '<gold>Tienes: <green><player.flag[canteriapoints]> <green>puntos'
-# ---------------- HERRERIA ----------------------
-btnup_her_furnace:
+# ---------------- Fragua ----------------------
+btnup_fra_furnace:
   type: item
   material: Furnace
   display name: '<gold>Fundicion'
@@ -336,7 +399,7 @@ btnup_her_furnace:
   - '<dark_green>Investigacion actual: <yellow><server.flag[meslajho_furnace]><gold>%'
   - ''
   - '<gold>Tienes: <green><player.flag[mineriapoints]> <green>puntos'
-btnup_her_tools1:
+btnup_fra_tools1:
   type: item
   material: stone_pickaxe
   display name: '<gold>Herramientas'
@@ -448,6 +511,45 @@ btnup_pgm_tintes:
   - '<dark_green>Investigacion actual: <yellow><server.flag[meslajho_pgmtintes1]><gold>%'
   - ''
   - '<gold>Tienes: <green><player.flag[herboristeriapoints]> <green>puntos'
+# ---------------- Alquimia ----------------------
+btnup_alq_scute:
+  type: item
+  material: scute
+  display name: '<gold>Scute'
+  lore:
+  - '<white>Tecnologia en scute'
+  - ''
+  - '<white>Usa <green>5 puntos <white>de herboristeria'
+  - '<white>Para investigar <green>1%'
+  - '<dark_green>Investigacion actual: <yellow><server.flag[meslajho_alqscute]><gold>%'
+  - ''
+  - '<gold>Tienes: <green><player.flag[herboristeriapoints]> <green>puntos'
+# ---------------- Peleteria ----------------------
+btnup_plt_leather:
+  type: item
+  material: leather_chestplate
+  display name: '<gold>Armaduras'
+  lore:
+  - '<white>Tecnologia en Armaduras'
+  - ''
+  - '<white>Usa <green>5 puntos <white>de Asesino'
+  - '<white>Para investigar <green>1%'
+  - '<dark_green>Investigacion actual: <yellow><server.flag[meslajho_pltleather]><gold>%'
+  - ''
+  - '<gold>Tienes: <green><player.flag[asesinopoints]> <green>puntos'
+btnup_plt_sea:
+  type: item
+  material: nautilus_shell
+  display name: '<gold>Profundidades del oceano'
+  lore:
+  - '<white>Tecnologia en items raros'
+  - ''
+  - '<white>Usa <green>5 puntos <white>de Asesino'
+  - '<white>Para investigar <green>1%'
+  - '<dark_green>Investigacion actual: <yellow><server.flag[meslajho_pltsea]><gold>%'
+  - ''
+  - '<gold>Tienes: <green><player.flag[asesinopoints]> <green>puntos'
+# ---------------- EVENTOS-------------------------------------------------- ----------------------
 Tecno_openinterfaz:
   type: world
   events:
@@ -456,8 +558,8 @@ Tecno_openinterfaz:
     - ^inventory open d:in@InvMesCNT
     - ^determine cancelled
     - ^queue clear
-    on player clicks lectern in herreriameslajho:
-    - ^inventory open d:in@InvMesHER
+    on player clicks lectern in fraguameslajho:
+    - ^inventory open d:in@InvMesFRA
     - ^determine cancelled
     - ^queue clear
     on player clicks lectern in armeriameslajho:
@@ -476,6 +578,14 @@ Tecno_openinterfaz:
     - ^inventory open d:in@InvMesPGM
     - ^determine cancelled
     - ^queue clear
+    on player clicks lectern in alquimiameslajho:
+    - ^inventory open d:in@InvMesALQ
+    - ^determine cancelled
+    - ^queue clear
+    on player clicks lectern in peleteriameslajho:
+    - ^inventory open d:in@InvMesPLT
+    - ^determine cancelled
+    - ^queue clear
 # ------- Cancel Clicks
     on player clicks in InvMesCNT:
     - determine cancelled
@@ -487,11 +597,11 @@ Tecno_openinterfaz:
     - determine cancelled
     on player clicks in InvMesCNT_Diorite:
     - determine cancelled
-    on player clicks in InvMesHER:
+    on player clicks in InvMesFRA:
     - determine cancelled
-    on player clicks in InvMesHER_Furnace:
+    on player clicks in InvMesFRA_Furnace:
     - determine cancelled
-    on player clicks in InvMesHER_Tools1:
+    on player clicks in InvMesFRA_Tools1:
     - determine cancelled
     on player clicks in InvMesARM:
     - determine cancelled
@@ -517,11 +627,21 @@ Tecno_openinterfaz:
     - determine cancelled
     on player clicks in InvMesPGM_Tintes1:
     - determine cancelled
+    on player clicks in InvMesALQ:
+    - determine cancelled
+    on player clicks in InvMesALQ_scute:
+    - determine cancelled
+    on player clicks in InvMesPLT:
+    - determine cancelled
+    on player clicks in InvMesPLT_Leather:
+    - determine cancelled
+    on player clicks in InvMesPLT_Sea:
+    - determine cancelled
 
 Tecnologievents:
   type: world
   events:
-# ------------------------ Canteria Principal ---------------------------------
+# ------------------------ Principal ---------------------------------
     on player clicks btn_ctn_mescobblestone in InvMesCNT:
     - ^inventory open d:in@InvMesCNT_Cobblestone
     on player clicks btn_ctn_mesandesite in InvMesCNT:
@@ -530,10 +650,10 @@ Tecnologievents:
     - ^inventory open d:in@InvMesCNT_Diorite
     on player clicks btn_ctn_mesgranite in InvMesCNT:
     - ^inventory open d:in@InvMesCNT_Granite
-    on player clicks btn_her_mesfurnace in InvMesHER:
-    - ^inventory open d:in@InvMesHER_Furnace
-    on player clicks btn_her_mestools1 in InvMesHER:
-    - ^inventory open d:in@InvMesHER_Tools1
+    on player clicks btn_fra_mesfurnace in InvMesFRA:
+    - ^inventory open d:in@InvMesFRA_Furnace
+    on player clicks btn_fra_mestools1 in InvMesFRA:
+    - ^inventory open d:in@InvMesFRA_Tools1
     on player clicks btn_arm_mesweapon1 in InvMesARM:
     - ^inventory open d:in@InvMesARM_Weapon1
     on player clicks btn_arm_mesarmaduras1 in InvMesARM:
@@ -550,9 +670,14 @@ Tecnologievents:
     - ^inventory open d:in@InvMesCRP_Contenedores1
     on player clicks btn_pgm_tintes1 in InvMesPGM:
     - ^inventory open d:in@InvMesPGM_Tintes1
+    on player clicks btn_alq_scute in InvMesALQ:
+    - ^inventory open d:in@InvMesALQ_scute
+    on player clicks btn_plt_leather in InvMesPLT:
+    - ^inventory open d:in@InvMesPLT_Leather
+    on player clicks btn_plt_sea in InvMesPLT:
+    - ^inventory open d:in@InvMesPLT_Sea
 #                            ----- TECNOLOGIES ------
 # ---------------------------------- Puntos --------------------------------------------
-#                            ----- TECNOLOGIES ------
     on player clicks btnup_ctn_cobblestone in InvMesCNT_Cobblestone:
     - ^if <player.flag[canteriapoints]> >= 5 && <server.flag[meslajho_cobblestone]> < 100 {
       - ^flag <player> canteriapoints:-:5
@@ -581,20 +706,20 @@ Tecnologievents:
       }
     - ^inventory open d:in@InvMesCNT_Granite
     - ^queue clear
-#                            ----- Herreria ------
-    on player clicks btnup_her_furnace in InvMesHER_Furnace:
+#                            ----- Fragua ------
+    on player clicks btnup_fra_furnace in InvMesFRA_Furnace:
     - ^if <player.flag[mineriapoints]> >= 5 && <server.flag[meslajho_furnace]> < 100 {
       - ^flag <player> mineriapoints:-:5
       - ^flag <server> meslajho_furnace:+:1
       }
-    - ^inventory open d:in@InvMesHER_Furnace
+    - ^inventory open d:in@InvMesFRA_Furnace
     - ^queue clear
-    on player clicks btnup_her_tools1 in InvMesHER_Tools1:
+    on player clicks btnup_fra_tools1 in InvMesFRA_Tools1:
     - ^if <player.flag[mineriapoints]> >= 5 && <server.flag[meslajho_tools1]> < 100 {
       - ^flag <player> mineriapoints:-:5
       - ^flag <server> meslajho_tools1:+:1
       }
-    - ^inventory open d:in@InvMesHER_Tools1
+    - ^inventory open d:in@InvMesFRA_Tools1
     - ^queue clear
 #                            ----- Armeria ------
     on player clicks btnup_arm_weapon1 in InvMesARM_Weapon1:
@@ -656,6 +781,29 @@ Tecnologievents:
       }
     - ^inventory open d:in@InvMesPGM_Tintes1
     - ^queue clear
+#                            ----- Alquimia ------
+    on player clicks btnup_alq_scute in InvMesALQ_scute:
+    - ^if <player.flag[herboristeriapoints]> >= 5 && <server.flag[meslajho_alqscute]> < 100 {
+      - ^flag <player> herboristeriapoints:-:5
+      - ^flag <server> meslajho_alqscute:+:1
+      }
+    - ^inventory open d:in@InvMesALQ_scute
+    - ^queue clear
+#                            ----- Peleteria ------
+    on player clicks btnup_plt_leather in InvMesPLT_Leather:
+    - ^if <player.flag[asesinopoints]> >= 5 && <server.flag[meslajho_pltleather]> < 100 {
+      - ^flag <player> asesinopoints:-:5
+      - ^flag <server> meslajho_pltleather:+:1
+      }
+    - ^inventory open d:in@InvMesPLT_Leather
+    - ^queue clear
+    on player clicks btnup_plt_sea in InvMesPLT_Leather:
+    - ^if <player.flag[asesinopoints]> >= 5 && <server.flag[meslajho_pltsea]> < 100 {
+      - ^flag <player> asesinopoints:-:5
+      - ^flag <server> meslajho_pltsea:+:1
+      }
+    - ^inventory open d:in@InvMesPLT_Sea
+    - ^queue clear
 # ------------------------ Boton btn_regresar ---------------------------------
     on player clicks btn_regresar in InvMesCNT_Andesite:
     - ^inventory open d:in@InvMesCNT
@@ -665,10 +813,10 @@ Tecnologievents:
     - ^inventory open d:in@InvMesCNT
     on player clicks btn_regresar in InvMesCNT_Granite:
     - ^inventory open d:in@InvMesCNT
-    on player clicks btn_regresar in InvMesHER_Furnace:
-    - ^inventory open d:in@InvMesHER
-    on player clicks btn_regresar in InvMesHER_Tools1:
-    - ^inventory open d:in@InvMesHER
+    on player clicks btn_regresar in InvMesFRA_Furnace:
+    - ^inventory open d:in@InvMesFRA
+    on player clicks btn_regresar in InvMesFRA_Tools1:
+    - ^inventory open d:in@InvMesFRA
     on player clicks btn_regresar in InvMesARM_Weapon1:
     - ^inventory open d:in@InvMesARM
     on player clicks btn_regresar in InvMesARM_Armadruas1:
@@ -685,3 +833,5 @@ Tecnologievents:
     - ^inventory open d:in@InvMesCRP
     on player clicks btn_regresar in InvMesPGM_Tintes1:
     - ^inventory open d:in@InvMesPGM
+    on player clicks btn_regresar in InvMesALQ_scute:
+    - ^inventory open d:in@InvMesALQ

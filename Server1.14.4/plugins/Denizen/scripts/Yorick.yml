@@ -24,410 +24,144 @@
         entry:
           radius: 4
           Script:
-          - ^if <player.flag[profesion].size> == 1 && <player.flag[profesion].as_list> !contains Carpintero {
-            - ^if <player.jobs[<player.flag[profesion].get[1]>].xp.level> >= 25 {
-              - ^title "subtitle:<blue>Yorick: <yellow>Quieres talar arboles?"
-              - ^wait
-              - ^title "subtitle:<yellow>Tenemos una plaga de arboles"
-              - ^wait
-              - ^title "subtitle:<yellow>tienes que talarlos todos hahaha"
-              - ^queue clear
-              } else {
-              - ^title "subtitle:<blue>Yorick: <yellow>Que quieres <gold><player.name>..."
-              - ^wait
-              - ^title "subtitle:<yellow>No eres Nivel 25 de <player.flag[profesion].get[1]>"
-              - ^wait
-              - ^title "subtitle:<yellow>Shuu Shu... ensucias el lugar!"
-              - ^queue clear
-              }
-            } else if <player.flag[profesion].size> == 1 && <player.flag[profesion].as_list> contains Carpintero {
-            - ^if <player.has_flag[qprofStatuscarpinteria].not> {
-              - ^if <player.has_flag[CarpinteriaON]> {
-                - ^title "subtitle:<blue>Yorick: <yellow>Ya traes lo de la mision <gold><player.name>?"
-                - ^flag <player> checkprof:carpinteria
-                - ^run 's@profcheckcount'
-                - ^flag <player> checkprof:!
-                - ^queue clear
-                } else {
-                - ^run 's@profquestsrandomyorick'
-                - ^queue clear
-                }
-              } else if <player.has_flag[qprofStatuscarpinteria]> {
-              - ^title "subtitle:<green>Regresa en <player.flag[qprofStatuscarpinteria].expiration.in_seconds.asint> segundos por otra mision!" stay:5s
-              - ^queue clear
-              }
-            } else if <player.flag[profesion].size> == 2 && <player.flag[profesion].as_list> !contains Carpintero {
-            - ^if <player.jobs[<player.flag[profesion].get[1]>].xp.level> >= 50 && <player.jobs[<player.flag[profesion].get[2]>].xp.level> >= 50 {
-              - ^title "subtitle:<blue>Yorick: <yellow>Ahora si <gold><player.name>?"
-              - ^wait
-              - ^title "subtitle:<yellow>Ya seras Carpintero..."
-              - ^queue clear
-              } else {
-              - ^title "subtitle:<blue>Yorick: <yellow>Caray <gold><player.name>!"
-              - ^wait
-              - ^title "subtitle:<yellow>Nivel 50 de tus profesiones maldita sea..."
-              - ^wait
-              - ^title "subtitle:<yellow><player.flag[profesion].get[1]> y <player.flag[profesion].get[2]>"
-              - ^wait
-              - ^title "subtitle:<yellow>Ahora largate de aqui."
-              - ^queue clear
-              }
-            } else if <player.flag[profesion].size> == 2 && <player.flag[profesion].as_list> contains Carpintero {
-            - ^if <player.has_flag[qprofStatuscarpinteria].not> {
-              - ^if <player.has_flag[CarpinteriaON]> {
-                - ^title "subtitle:<blue>Yorick: <yellow>Ya vienes a completar la mison?"
-                - ^flag <player> checkprof:carpinteria
-                - ^run 's@profcheckcount'
-                - ^flag <player> checkprof:!
-                - ^queue clear
-                } else {
-                - ^run 's@profquestsrandomyorick'
-                - ^queue clear
-                }
-              } else if <player.has_flag[qprofStatuscarpinteria]> {
-              - ^title "subtitle:<green>Regresa en <player.flag[qprofStatuscarpinteria].expiration.in_seconds.asint> segundos por otra mision!" stay:5s
-              - ^queue clear
-              }
-            } else if <player.flag[profesion].size> == 3 && <player.flag[profesion].as_list> !contains Carpintero {
-            - ^if <player.jobs[<player.flag[profesion].get[1]>].xp.level> >= 100 && <player.jobs[<player.flag[profesion].get[2]>].xp.level> >= 100 && <player.jobs[<player.flag[profesion].get[3]>].xp.level> >= 100 {
-              - ^title "subtitle:<blue>Yorick: <yellow>Bienvenido <gold><player.name>!"
-              - ^wait
-              - ^title "subtitle:<yellow>Ya puedes unirte a esta profesion"
-              - ^queue clear
-              } else {
-              - ^title "subtitle:<blue>Yorick: <yellow>No! <gold><player.name><yellow> no..."
-              - ^wait
-              - ^title "subtitle:<yellow>debes ser nivel 100 en todo!"
-              - ^wait
-              - ^title "subtitle:<yellow><player.flag[profesion].get[1]>, <player.flag[profesion].get[2]> y <player.flag[profesion].get[3]>"
-              - ^wait
-              - ^title "subtitle:<yellow>Cuando lo seas te contrato."
-              - ^queue clear
-              }
-            } else if <player.flag[profesion].size> == 3 && <player.flag[profesion].as_list> contains Carpintero {
-            - ^if <player.has_flag[qprofStatuscarpinteria].not> {
-              - ^if <player.has_flag[CarpinteriaON]> {
-                - ^title "subtitle:<blue>Yorick: <yellow>Venga <gold><player.name><yellow> tienes mision"
-                - ^flag <player> checkprof:carpinteria
-                - ^run 's@profcheckcount'
-                - ^flag <player> checkprof:!
-                - ^queue clear
-                } else {
-                - ^run 's@profquestsrandomyorick'
-                - ^queue clear
-                }
-              } else if <player.has_flag[qprofStatuscarpinteria]> {
-              - ^title "subtitle:<green>Regresa en <player.flag[qprofStatuscarpinteria].expiration.in_seconds.asint> segundos por otra mision!" stay:5s
-              - ^queue clear
-              }
-            } else if <player.flag[profesion].size> == 4 && <player.flag[profesion].as_list> contains Carpintero {
-            - ^if <player.has_flag[qprofStatuscarpinteria].not> {
-              - ^if <player.has_flag[CarpinteriaON]> {
-                - ^title "subtitle:<blue>Yorick: <yellow>Trae lo de la mision <gold><player.name>!"
-                - ^flag <player> checkprof:carpinteria
-                - ^run 's@profcheckcount'
-                - ^flag <player> checkprof:!
-                - ^queue clear
-                } else {
-                - ^run 's@profquestsrandomyorick'
-                - ^queue clear
-                }
-              } else if <player.has_flag[qprofStatuscarpinteria]> {
-              - ^title "title:<yellow><player.name>" "subtitle:<green>Regresa en <player.flag[qprofStatuscarpinteria].expiration.in_seconds.asint> segundos por otra mision!" stay:5s
-              - ^queue clear
-              }
+          - ^if <player.has_flag[carpon1].not> {
+            - ^title "subtitle:<yellow>Yorick: <white>Quieres talar arboles?"
+            - ^wait
+            - ^title "subtitle:<white>Tenemos una plaga de arboles"
+            - ^wait
+            - ^title "subtitle:<white>tienes que talarlos todos hahaha"
+            - ^queue clear
+            } else if <player.flag[carpon1]> == oncd {
+            - ^title "title:<yellow>Yorick:" "subtitle:<white>De momento no necesito materiales" stay:2s
+            - ^wait
+            - ^title "subtitle:<white>Regresa despues" stay:2s
+            - ^wait
+            - ^title "subtitle:<white>Shuu Shu... ensucias el lugar!"
+            - ^queue clear
+            } else if <player.flag[carpon1]> >= 0 {
+            - ^title "title:<yellow>Yorick:" "subtitle:<white>Hey <player.name>" stay:2s
+            - ^wait
+            - ^title "subtitle:<white>Traes madera de casualidad?" stay:2s
+            - ^wait
+            - ^random 3
+            - ^title "subtitle:<white>Ocupo para hacer sillas"
+            - ^title "subtitle:<white>Ocupo para hacer mesas"
+            - ^title "subtitle:<white>Ocupo para hacer tablones"
+            - ^queue clear
             }
       click trigger:
         Script:
-          - ^if <player.has_flag[profesion].not> {
+          - ^if <player.has_flag[carpon1].not> {
+            - ^flag <player> carpon1:64
             - ^inventory open d:in@inv_yorick
             - ^queue clear
-            } else if <player.flag[profesion].as_list> !contains Carpintero && <player.has_flag[profesion]> && <player.flag[profesion].size> == 1 {
-            - ^if <player.jobs[<player.flag[profesion].get[1]>].xp.level> >= 25 {
-              - ^inventory open d:in@inv_yorick
-              - ^queue clear
-              }
+            } else if <player.flag[carpon1]> == oncd {
+            - ^title "title:<yellow>Yorick:" "subtitle:<white>De momento no necesito materiales" stay:2s
             - ^queue clear
-            } else if <player.flag[profesion].as_list> contains Carpintero && <player.has_flag[profesion]> && <player.flag[profesion].size> == 1 {
-            - ^if <player.has_flag[qprofStatuscarpinteria].not> && <player.has_flag[CarpinteriaON].not> {
-              - ^run 's@profquestsrandomyorick'
-              - ^queue clear
-              } else if <player.has_flag[qprofStatuscarpinteria].not> && <player.has_flag[CarpinteriaON]> {
-              - ^run 's@profquestscheckyorick'
-              - ^queue clear
-              } else {
-              - ^title "title:<yellow><player.name>" "subtitle:<green>Regresa en <player.flag[qprofStatuscarpinteria].expiration.in_seconds.asint> segundos por otra mision!" stay:5s
-              - ^queue clear
-              }
-            } else if <player.flag[profesion].as_list> !contains Carpintero && <player.has_flag[profesion]> && <player.flag[profesion].size> == 2 {
-            - ^if <player.jobs[<player.flag[profesion].get[1]>].xp.level> >= 50 && <player.jobs[<player.flag[profesion].get[2]>].xp.level> >= 50 {
-              - ^inventory open d:in@inv_yorick
-              - ^queue clear
-              }
-            } else if <player.flag[profesion].as_list> contains Carpintero && <player.has_flag[profesion]> && <player.flag[profesion].size> == 2 {
-            - ^if <player.has_flag[qprofStatuscarpinteria].not> && <player.has_flag[CarpinteriaON].not> {
-              - ^run 's@profquestsrandomyorick'
-              - ^queue clear
-              } else if <player.has_flag[qprofStatuscarpinteria].not> && <player.has_flag[CarpinteriaON]> {
-              - ^run 's@profquestscheckyorick'
-              - ^queue clear
-              } else {
-              - ^title "title:<yellow><player.name>" "subtitle:<green>Regresa en <player.flag[qprofStatuscarpinteria].expiration.in_seconds.asint> segundos por otra mision!" stay:5s
-              - ^queue clear
-              }
-            } else if <player.flag[profesion].as_list> !contains Carpintero && <player.has_flag[profesion]> && <player.flag[profesion].size> == 3 {
-            - ^if <player.jobs[<player.flag[profesion].get[1]>].xp.level> >= 100 && <player.jobs[<player.flag[profesion].get[2]>].xp.level> >= 100 && <player.jobs[<player.flag[profesion].get[3]>].xp.level> >= 100 {
-              - ^inventory open d:in@inv_yorick
-              - ^queue clear
-              }
-            } else if <player.flag[profesion].as_list> contains Carpintero && <player.has_flag[profesion]> && <player.flag[profesion].size> == 3 {
-            - ^if <player.has_flag[qprofStatuscarpinteria].not> && <player.has_flag[CarpinteriaON].not> {
-              - ^run 's@profquestsrandomyorick'
-              - ^queue clear
-              } else if <player.has_flag[qprofStatuscarpinteria].not> && <player.has_flag[CarpinteriaON]> {
-              - ^run 's@profquestscheckyorick'
-              - ^queue clear
-              } else {
-              - ^title "title:<yellow><player.name>" "subtitle:<green>Regresa en <player.flag[qprofStatuscarpinteria].expiration.in_seconds.asint> segundos por otra mision!" stay:5s
-              - ^queue clear
-              }
-            } else if <player.flag[profesion].as_list> contains Carpintero && <player.has_flag[profesion]> && <player.flag[profesion].size> == 4 {
-            - ^if <player.has_flag[qprofStatuscarpinteria].not> && <player.has_flag[CarpinteriaON].not> {
-              - ^run 's@profquestsrandomyorick'
-              - ^queue clear
-              } else if <player.has_flag[qprofStatuscarpinteria].not> && <player.has_flag[CarpinteriaON]> {
-              - ^run 's@profquestscheckyorick'
-              - ^queue clear
-              } else {
-              - ^title "title:<yellow><player.name>" "subtitle:<green>Regresa en <player.flag[qprofStatuscarpinteria].expiration.in_seconds.asint> segundos por otra mision!" stay:5s
-              - ^queue clear
-              }
+            } else if <player.flag[carpon1]> >= 0 {
+            - ^inventory open d:in@inv_yorick
+            - ^queue clear
             }
 
 yorickevents:
   type: world
   events:
-    on player clicks in inv_yorick:
+    on player clicks cancelslot in inv_yorick:
     - DETERMINE cancelled
-    on player drags in inv_yorick:
+    on player clicks infocarp1 in inv_yorick:
     - DETERMINE cancelled
-    on player clicks infoquestprof in inv_yorick_ok:
-    - DETERMINE cancelled
-    on player drags infoquestprof in inv_yorick_ok:
-    - DETERMINE cancelled
-    on player clicks infoquestmeswood in inv_yorick_meslajho:
-    - DETERMINE cancelled
-    on player drags infoquestmeswood in inv_yorick_meslajho:
-    - DETERMINE cancelled
-
-#
-    on player clicks rechazarprof in inv_yorick:
-    - ^inventory close d:in@inv_yorick
-    on player clicks aceptarprof in inv_yorick:
-    - ^inventory close
-    - ^run 's@profquestsrandomyorick'
-    - ^queue clear
-
-  ## Siguiente
-    on player clicks Siguiente in inv_profesionyorickcraftcarp:
-    - ^inventory open d:in@inv_profesionyorickcraftcarp2
-
-    on player clicks Siguiente in inv_profesionyorickplacecarp:
-    - ^inventory open d:in@inv_profesionyorickplacecarp2
-
-  ## Atras
-    on player clicks Atras in inv_profesionyorickcraftcarp2:
-    - ^inventory open d:in@inv_profesionyorickcraftcarp
-
-    on player clicks Atras in inv_profesionyorickplacecarp2:
-    - ^inventory open d:in@inv_profesionyorickplacecarp
-
-  ## Regresar
-    on player clicks Regresar in inv_profesionyorickcraftcarp:
-    - ^inventory open d:in@inv_profesionyorick
-    on player clicks Regresar in inv_profesionyorickcraftcarp2:
-    - ^inventory open d:in@inv_profesionyorick
-
-    on player clicks Regresar in inv_profesionyorickplacecarp:
-    - ^inventory open d:in@inv_profesionyorick
-    on player clicks Regresar in inv_profesionyorickplacecarp2:
-    - ^inventory open d:in@inv_profesionyorick
-
-    on player clicks Regresar in inv_profesionyorickbreackcarp:
-    - ^inventory open d:in@inv_profesionyorick
-
-    on player clicks Regresar in inv_profesionyorickusecarp:
-    - ^inventory open d:in@inv_profesionyorick
-# =====================================================================
-    on player clicks rechazarprof in inv_yorick_ok:
-    - ^inventory close d:in@inv_yorick_ok
-    - ^DETERMINE cancelled
 
 # Entregar Materiales
-    on player clicks Entregar in inv_yorick_ok:
-    - ^flag <player> cursorid:<context.cursor_item.material.id>
-    - ^flag <player> cursordata:<context.cursor_item.material.data>
-    - ^flag <player> cursoridqty:<context.cursor_item.quantity>
-    - ^flag <player> profinv:inv_yorick_ok
-    - ^flag <player> proforigin:carpinteria
+    on player clicks Entregar in inv_yorick:
+    - ^if li@oak_log|oak_wood contains <context.cursor_item.simple.replace[regex:i@]> {
+      - ^flag <player> carpon1:-:<context.cursor_item.quantity>
+      - ^narrate "<yellow>Yorick: <white>Gracias por la madera!"
+      - ^adjust <player> item_on_cursor:i@air
+      - ^if <player.flag[carpon1]> <= 0 {
+        - ^flag <player> carpon1:oncd duration:<util.random.int[5].to[15]>m
+        - ^give money quantity:64
+        - ^inventory close d:in@inv_yorick
+        - ^title "title:<yellow>Yorick:" "subtitle:<white>Gracias por la Madera!" stay:2s
+        } else {
+        - ^inventory open d:in@inv_yorick
+        }
+      }
     - ^run 's@animeaserradero'
-    - ^run 's@countprofq'
-    - ^DETERMINE cancelled
-    - ^queue clear
-# Entregar Materiales Meslajho
-    on player clicks Entregar in inv_yorick_meslajho:
-    - ^flag <player> cursorid:<context.cursor_item.material.id>
-    - ^flag <player> cursordata:<context.cursor_item.material.data>
-    - ^flag <player> cursoridqty:<context.cursor_item.quantity>
-    - ^run 's@animedesase'
-    - ^run 's@meslajhocountwood'
-    - ^DETERMINE cancelled
+    - ^determine cancelled
     - ^queue clear
 
-aserraderoend:
-    type: task
-    script:
-    - ^schematic load name:aserradero
-    - ^schematic paste name:aserradero location:<cu@aserradero.min>
-    - ^schematic unload name:aserradero
-    - ^foreach <server.list_online_players> {
-      - ^title "title:<aqua>Yorick" "subtitle:<yellow>Aserradero reconstruido" stay:5s targets:%value%
-      }
-    - ^flag <server> tempmeslajho:->:aserradero
-    - ^if <server.flag[tempmeslajho].as_list.contains[taberna|herreria|armeria|establo|cocina|arcano|fragua|deshuesadero|libreria|aserradero|cantera|molino]> {
-      - ^foreach li@n@1|n@2|n@3|n@5|n@6|n@7|n@8|n@9|n@10|n@27|n@35|n@66|n@85|n@91|n@94|n@96|n@99|n@100 {
-        - ^define npctarget %value%
-        - ^teleport <def[npctarget]> <def[npctarget].anchor[construct]>
-        }
-      }
+# aserraderoend:
+#     type: task
+#     script:
+#     - ^schematic load name:aserradero
+#     - ^schematic paste name:aserradero location:<cu@aserradero.min>
+#     - ^schematic unload name:aserradero
+#     - ^foreach <server.list_online_players> {
+#       - ^title "title:<aqua>Yorick" "subtitle:<yellow>Aserradero reconstruido" stay:5s targets:%value%
+#       }
+#     - ^flag <server> tempmeslajho:->:aserradero
+#     - ^if <server.flag[tempmeslajho].as_list.contains[taberna|herreria|armeria|establo|cocina|arcano|fragua|deshuesadero|libreria|aserradero|cantera|molino]> {
+#       - ^foreach li@n@1|n@2|n@3|n@5|n@6|n@7|n@8|n@9|n@10|n@27|n@35|n@66|n@85|n@91|n@94|n@96|n@99|n@100 {
+#         - ^define npctarget %value%
+#         - ^teleport <def[npctarget]> <def[npctarget].anchor[construct]>
+#         }
+#       }
+#
+# meslajhocountwood:
+#     type: task
+#     script:
+#     - ^yaml load:capitulos/capitulo1.yml id:capitulo<player.name>
+#     - ^if <player.flag[cursorid]> == 17 && <player.flag[cursordata]> == 0 {
+#       - ^if <yaml[capitulo<player.name>].read[meslajho.materiales.wood.cantidad]> >= 0 {
+#         - ^if <yaml[capitulo<player.name>].list_keys[meslajho.materiales.wood.recolectores]> !contains <player.name> {
+#           - ^yaml id:capitulo<player.name> set meslajho.materiales.wood.recolectores.<player.name>:+:<player.flag[cursoridqty]>
+#           } else {
+#           - ^yaml id:capitulo<player.name> set meslajho.materiales.wood.recolectores.<player.name>:+:<player.flag[cursoridqty]>
+#           }
+#         - ^adjust <player> item_on_cursor:i@air
+#         - ^yaml id:capitulo<player.name> set meslajho.materiales.wood.cantidad:-:<player.flag[cursoridqty]>
+#         - ^yaml savefile:capitulos/capitulo1.yml id:capitulo<player.name>
+#         - ^inventory open d:in@inv_yorick_meslajho
+#         - ^title "subtitle:<aqua>Yorick: <gray>Entregaste: <gold><player.flag[cursoridqty]> <dark_green>de madera"
+#         - if <player.flag[cursoridqty]> == 64 {
+#           - ^give 271
+#           - ^give 297
+#           }
+#         - if <yaml[capitulo<player.name>].read[meslajho.materiales.wood.cantidad]> <= 0 {
+#           - ^inventory close
+#           - ^yaml load:capitulos/global.yml id:global<player.name>
+#           - ^define page '<dark_aqua>Yorick:<black>Al fin despues de tanto estos mugrosos logaron recoectar la madera.<p>Ahora solo fata reconstruir el pueblo y salir de esta maldita calamidad.<p>Ahora a esperar...'
+#           - ^yaml id:global<player.name> set libros.global:%page%
+#           - ^yaml savefile:capitulos/global.yml id:global<player.name>
+#           - ^yaml unload id:global<player.name>
+#           - ^flag <server> capitulos:->:mdrmesok
+#           - ^execute as_op "region flag meslajho mobspawning deny"
+#           - ^foreach li@n@27|n@5|n@7|n@100|n@35|n@96|n@6|n@8|n@94|n@9|n@10|n@99 {
+#             - ^define npctarget %value%
+#             - ^execute as_npc "builder <def[npctarget].replace[regex:n@]> build groupall layers:20" npc:<def[npctarget].replace[regex:n@]>
+#             }
+#           - ^foreach <yaml[capitulo<player.name>].list_keys[meslajho.materiales.wood.recolectores]> {
+#             - ^define value %value%
+#             - ^execute as_server "money give <def[value]> <yaml[capitulo<player.name>].read[meslajho.materiales.wood.recolectores.<def[value]>]>"
+#             }
+#           - ^foreach <server.list_online_players> {
+#             - ^title "title:<aqua>Yorick" "subtitle:<yellow>Mision de madera completada!" stay:5s targets:%value%
+#             - ^wait 4s
+#             - ^title "title:<aqua>Alvar" "subtitle:<yellow>Ahora espera a que reconstruyamos el pueblo!" stay:5s targets:%value%
+#             - ^run updateobjwoodmes2 player:%value%
+#             }
+#           }
+#         }
+#       } else {
+#       - ^title "subtitle:<aqua>Yorick: <red>Eso no es la madera que ocupamos"
+#       }
+#     - ^flag <player> cursorid:!
+#     - ^flag <player> cursoridqty:!
+#     - ^flag <player> cursordata:!
+#     - ^yaml unload id:capitulo<player.name>
+#     - ^queue clear
 
-meslajhocountwood:
-    type: task
-    script:
-    - ^yaml load:capitulos/capitulo1.yml id:capitulo<player.name>
-    - ^if <player.flag[cursorid]> == 17 && <player.flag[cursordata]> == 0 {
-      - ^if <yaml[capitulo<player.name>].read[meslajho.materiales.wood.cantidad]> >= 0 {
-        - ^if <yaml[capitulo<player.name>].list_keys[meslajho.materiales.wood.recolectores]> !contains <player.name> {
-          - ^yaml id:capitulo<player.name> set meslajho.materiales.wood.recolectores.<player.name>:+:<player.flag[cursoridqty]>
-          } else {
-          - ^yaml id:capitulo<player.name> set meslajho.materiales.wood.recolectores.<player.name>:+:<player.flag[cursoridqty]>
-          }
-        - ^adjust <player> item_on_cursor:i@air
-        - ^yaml id:capitulo<player.name> set meslajho.materiales.wood.cantidad:-:<player.flag[cursoridqty]>
-        - ^yaml savefile:capitulos/capitulo1.yml id:capitulo<player.name>
-        - ^inventory open d:in@inv_yorick_meslajho
-        - ^title "subtitle:<aqua>Yorick: <gray>Entregaste: <gold><player.flag[cursoridqty]> <dark_green>de madera"
-        - if <player.flag[cursoridqty]> == 64 {
-          - ^give 271
-          - ^give 297
-          }
-        - if <yaml[capitulo<player.name>].read[meslajho.materiales.wood.cantidad]> <= 0 {
-          - ^inventory close
-          - ^yaml load:capitulos/global.yml id:global<player.name>
-          - ^define page '<dark_aqua>Yorick:<black>Al fin despues de tanto estos mugrosos logaron recoectar la madera.<p>Ahora solo fata reconstruir el pueblo y salir de esta maldita calamidad.<p>Ahora a esperar...'
-          - ^yaml id:global<player.name> set libros.global:%page%
-          - ^yaml savefile:capitulos/global.yml id:global<player.name>
-          - ^yaml unload id:global<player.name>
-          - ^flag <server> capitulos:->:mdrmesok
-          - ^execute as_op "region flag meslajho mobspawning deny"
-          - ^foreach li@n@27|n@5|n@7|n@100|n@35|n@96|n@6|n@8|n@94|n@9|n@10|n@99 {
-            - ^define npctarget %value%
-            - ^execute as_npc "builder <def[npctarget].replace[regex:n@]> build groupall layers:20" npc:<def[npctarget].replace[regex:n@]>
-            }
-          - ^foreach <yaml[capitulo<player.name>].list_keys[meslajho.materiales.wood.recolectores]> {
-            - ^define value %value%
-            - ^execute as_server "money give <def[value]> <yaml[capitulo<player.name>].read[meslajho.materiales.wood.recolectores.<def[value]>]>"
-            }
-          - ^foreach <server.list_online_players> {
-            - ^title "title:<aqua>Yorick" "subtitle:<yellow>Mision de madera completada!" stay:5s targets:%value%
-            - ^wait 4s
-            - ^title "title:<aqua>Alvar" "subtitle:<yellow>Ahora espera a que reconstruyamos el pueblo!" stay:5s targets:%value%
-            - ^run updateobjwoodmes2 player:%value%
-            }
-          }
-        }
-      } else {
-      - ^title "subtitle:<aqua>Yorick: <red>Eso no es la madera que ocupamos"
-      }
-    - ^flag <player> cursorid:!
-    - ^flag <player> cursoridqty:!
-    - ^flag <player> cursordata:!
-    - ^yaml unload id:capitulo<player.name>
-    - ^queue clear
 
-updateobjwoodmes2:
-    type: task
-    script:
-    - ^bossbar remove obj<player.name>
-    - ^define objetivo "<gold><green>Busca a <red>Alvar <green>cuando los ciudadanos restauren el pueblo"
-    - ^flag <player> objetivo:<def[objetivo]>
-    - ^bossbar obj<player.name> players:<player> "title:<player.flag[objetivo]>" color:BLUE
-    - ^compass <npc.location.simple> npc:27
-    - ^define objloc "<npc.location.simple>" npc:27
-    - ^flag <player> objloc:<def[objloc]>
-
-profquestsrandomyorick:
-    type: task
-    script:
-    - ^yaml load:profesiones/data.yml id:<player.name>profcarp
-    - ^define questalmakos <math.asint:<player.jobs[Carpintero].xp.level||>*50>
-    - ^define questprof <yaml[<player.name>profcarp].list_keys[carpinteria].filter[is[LESS].than[<player.jobs[Carpintero].xp.level||>]].random[1].formatted>
-    - ^define questidname <yaml[<player.name>profcarp].read[carpinteria.<def[questprof]>.name]>
-    - ^define questidmaterial <yaml[<player.name>profcarp].read[carpinteria.<def[questprof]>.material]>
-    - ^define questidexp <math:<yaml[<player.name>profcarp].read[carpinteria.<def[questprof]>.exp]>*2>
-    - ^define questidalmakos "<math:<def[questidexp]>*8>"
-    - ^define questconteo "<math.asint:<def[questalmakos]>/<def[questidalmakos]>>"
-    - ^if <def[questconteo]> <= 0 {
-      - ^define questprofcant 1
-      } else {
-      - ^define questprofcant <def[questconteo]>
-      }
-    - ^yaml load:personal/<player.name>.yml id:<player.name>
-    - ^yaml id:<player.name> set carpinteria.misionprof.cant:<def[questprofcant]>
-    - ^yaml id:<player.name> set carpinteria.misionprof.reward:<math.asint:<def[questprofcant]>*<def[questidalmakos]>>
-    - ^yaml id:<player.name> set carpinteria.misionprof.xpreward:<math.asint:<def[questprofcant]>*<def[questidexp]>>
-    - ^yaml id:<player.name> set carpinteria.misionprof.xpid:<def[questidexp]>
-    - ^yaml id:<player.name> set carpinteria.misionprof.obj:<def[questidmaterial]>
-    - ^yaml id:<player.name> set carpinteria.misionprof.name:<def[questidname]>
-    - ^yaml id:<player.name> set carpinteria.misionprof.data:<yaml[<player.name>profcarp].read[carpinteria.<def[questprof]>.data]>
-    - ^flag <player> questprofcant:<yaml[<player.name>].read[carpinteria.misionprof.cant]>
-    - ^flag <player> questproftarjet:<yaml[<player.name>].read[carpinteria.misionprof.obj]>
-    - ^flag <player> questprofname:<yaml[<player.name>].read[carpinteria.misionprof.name]>
-    - ^flag <player> questprofdata:<yaml[<player.name>].read[carpinteria.misionprof.data]>
-    - ^flag <player> profreward:<yaml[<player.name>].read[carpinteria.misionprof.reward]>
-    - ^flag <player> profrewardxp:<yaml[<player.name>].read[carpinteria.misionprof.xpreward]>
-    - ^flag <player> CarpinteriaON:ok
-    - ^inventory open d:in@inv_yorick_ok
-    - ^flag <player> questprofcant:!
-    - ^flag <player> questproftarjet:!
-    - ^flag <player> questprofname:!
-    - ^flag <player> questprofdata:!
-    - ^flag <player> profreward:!
-    - ^flag <player> profrewardxp:!
-    - ^yaml savefile:personal/<player.name>.yml id:<player.name>
-    - ^yaml unload id:<player.name>
-    - ^yaml unload id:<player.name>profcarp
-    - ^queue clear
-
-profquestscheckyorick:
-    type: task
-    script:
-    - ^yaml load:personal/<player.name>.yml id:<player.name>
-    - ^flag <player> questprofcant:<yaml[<player.name>].read[carpinteria.misionprof.cant]>
-    - ^flag <player> questproftarjet:<yaml[<player.name>].read[carpinteria.misionprof.obj]>
-    - ^flag <player> questprofname:<yaml[<player.name>].read[carpinteria.misionprof.name]>
-    - ^flag <player> questprofdata:<yaml[<player.name>].read[carpinteria.misionprof.data]>
-    - ^flag <player> profreward:<yaml[<player.name>].read[carpinteria.misionprof.reward]>
-    - ^flag <player> profrewardxp:<yaml[<player.name>].read[carpinteria.misionprof.xpreward]>
-    - ^inventory open d:in@inv_yorick_ok
-    - ^flag <player> questprofcant:!
-    - ^flag <player> questproftarjet:!
-    - ^flag <player> questprofname:!
-    - ^flag <player> questprofdata:!
-    - ^flag <player> profreward:!
-    - ^flag <player> profrewardxp:!
-    - ^yaml unload id:<player.name>
-    - ^queue clear
 
 # -----------              ANIMACIONES Y COMPROBACIONES DE ASERRADERO
 # Aserradero destruido Cap 1
@@ -602,41 +336,21 @@ profquestscheckyorick:
 inv_yorick:
   type: inventory
   inventory: dispenser
-  title: <gold>Carpinteria
-  size: 9
-  slots:
-  - "[i@cancelslot] [i@yorickinfo1] [i@cancelslot]"
-  - "[i@cancelslot] [i@cancelslot] [i@cancelslot]"
-  - "[i@aceptarprof] [i@cancelslot] [i@rechazarprof]"
-inv_yorick_ok:
-  type: inventory
-  inventory: dispenser
   title: <gold>Depositar
   size: 9
   slots:
-  - "[i@cancelslot] [i@infoquestprof] [i@cancelslot]"
-  - "[i@cancelslot] [i@Entregar] [i@cancelslot]"
-  - "[i@cancelslot] [i@cancelslot] [i@cancelslot]"
-
-# = Reconstruir Meslajho
-inv_yorick_meslajho:
-  type: inventory
-  inventory: dispenser
-  title: <gold>Entregar
-  size: 9
-  slots:
-  - "[i@cancelslot] [i@infoquestmeswood] [i@cancelslot]"
+  - "[i@cancelslot] [i@infocarp1] [i@cancelslot]"
   - "[i@cancelslot] [i@Entregar] [i@cancelslot]"
   - "[i@cancelslot] [i@cancelslot] [i@cancelslot]"
 
 ########### - yorick - #########
-yorickinfo1:
+infocarp1:
   type: item
-  material: paper
-  display name: '<blue>Carpinteria'
+  material: oak_log
   lore:
   - ''
-  - '<gray>Los <yellow>Carpinteros <gray>buscan madera'
-  - '<gray>para extraerlos con sus hachas'
-  - '<gray>usan la madera para encantarlas'
-  - '<gray>y crear cosas mas valiosas.'
+  - '<dark_green>Entregar <gold><player.flag[carpon1]>'
+  - '<yellow>Troncos de Roble'
+  - ''
+  - '<green>Recompensas:'
+  - '<yellow>64 <dark_purple>Almakos'

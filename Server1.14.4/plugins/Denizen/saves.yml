@@ -8,14 +8,17 @@ Global:
     MESLAJHO_ANDESITE: '0'
     MESLAJHO_DIORITE: '0'
     MESLAJHO_GRANITE: '0'
-    MESLAJHO_WEAPON1: '0'
+    MESLAJHO_WEAPON1: '1'
     MESLAJHO_ARMADURAS1: '0'
     MESLAJHO_MECANISMOS1: '0'
-    MESLAJHO_CRPVALLAS: '99'
-    MESLAJHO_CRPBASICOS: '100'
-    MESLAJHO_CRPMECANISMOS: '99'
-    MESLAJHO_CRPCONTENEDORES: '99'
-    MESLAJHO_PGMTINTES1: '0'
+    MESLAJHO_CRPVALLAS: '0'
+    MESLAJHO_CRPBASICOS: '0'
+    MESLAJHO_CRPMECANISMOS: '0'
+    MESLAJHO_CRPCONTENEDORES: '0'
+    MESLAJHO_PGMTINTES1: '1'
+    MESLAJHO_ALQSCUTE: '5'
+    MESLAJHO_PLTLEATHER: '5'
+    MESLAJHO_PLTSEA: '5'
     CAPITULOACTIVO:
     - CAPITULO1P3
     MATERIA_CARP:
@@ -87,6 +90,8 @@ Global:
     - aserradero
     - establo
     NACIONVAMPIRE: START
+    ECONOMIAP1: '-3400.0'
+    ECONOMIAP1-expiration: 1573713060697
 Players:
   '63':
     63D45060817731F5939E7685B85BFFE3:
@@ -98,10 +103,10 @@ Players:
         - destroy
         - mescobble
         - mesmadera
-        MINERIAEXP: '11.200000000000045'
-        MINERIAPOINTS: '15060'
-        CARPINTERIAEXP: '0'
-        CARPINTERIAPOINTS: '120'
+        MINERIAEXP: '13.200000000000045'
+        MINERIAPOINTS: '15056'
+        CARPINTERIAEXP: '19'
+        CARPINTERIAPOINTS: '96'
         AGRICULTURAEXP:
         - '75'
         PIEDRASDELALMA:
@@ -124,16 +129,24 @@ Players:
           \ maldita calamidad.\n §r \nAhora a esperar..."
         ALQUIMIAEXP: '1'
         ALQUIMIAPOINTS: '6'
-        CANTERIAEXP: '1215'
-        HERBORISTERIAEXP: '16'
-        CANTERIAPOINTS: '85'
-        HERBORISTERIAPOINTS: '485'
-        QUESTCARPINTERIA:
-        - crpbasicos2
-        - crpbasicos2
-        - crpbasicos2
+        CANTERIAEXP: '1'
+        HERBORISTERIAEXP: '17'
+        CANTERIAPOINTS: '178'
+        HERBORISTERIAPOINTS: '460'
+        CANTON1: oncd
+        CANTON1-expiration: 1573686306999
+        ARMEON1: oncd
+        CARPON1: oncd
+        CARPON1-expiration: 1573712543896
+        ARMEON1-expiration: 1573712631996
+        FRAGON1: '64'
+        ALQMON1: oncd
+        ALQMON1-expiration: 1573780657237
+        MECAON1: '64'
       Scripts:
         BUILDNATIONVAMPIRE:
+          Current Step: '2'
+        BUILDEBONTH:
           Current Step: '2'
   B0:
     B01F638286223DA196F55A807636752D:
