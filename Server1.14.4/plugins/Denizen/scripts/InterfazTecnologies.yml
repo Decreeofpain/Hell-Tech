@@ -206,6 +206,22 @@ InvMesPLT_Sea:
   - "[i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@btnup_plt_sea] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@btn_regresar]"
   - "[i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot]"
   - "[i@cancelslot] [i@cancelslot] [i@cancelslot] [i@nautilus_shell] [i@cancelslot] [i@conduit] [i@cancelslot] [i@cancelslot] [i@cancelslot]"
+# ------------------------------------------------------ Inventarios Cocinero -------------------------------------------------------------------------------------
+InvMesCCN:
+  type: inventory
+  title: '<red>Cocinero'
+  size: 9
+  slots:
+  - "[i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@btn_ccn_bowl] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot]"
+
+InvMesCCN_Bowl:
+  type: inventory
+  title: 'Puntos: <yellow><player.flag[ganaderiapoints]>'
+  size: 27
+  slots:
+  - "[i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@btnup_ccn_bowl] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@btn_regresar]"
+  - "[i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot]"
+  - "[i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@bowl] [i@cancelslot] [i@cancelslot] [i@cancelslot] [i@cancelslot]"
 # ------------------------------------------------------ Items Cantero -------------------------------------------------------------------------------------
 btn_ctn_mescobblestone:
   type: item
@@ -336,6 +352,14 @@ btn_plt_sea:
   no_id: false
   lore:
   - '<dark_green>Investigacion: <yellow><server.flag[meslajho_pltsea]><gold>%'
+# ------------------------------------------------------ Items Cocinero -------------------------------------------------------------------------------------
+btn_ccn_bowl:
+  type: item
+  material: bowl
+  display name: '<gold>Tazon'
+  no_id: false
+  lore:
+  - '<dark_green>Investigacion: <yellow><server.flag[meslajho_ccnbowl]><gold>%'
 # -------------- INFO TECNOLOGIES ----------------
 # ---------------- CANTERIA ----------------------
 btnup_ctn_cobblestone:
@@ -549,6 +573,19 @@ btnup_plt_sea:
   - '<dark_green>Investigacion actual: <yellow><server.flag[meslajho_pltsea]><gold>%'
   - ''
   - '<gold>Tienes: <green><player.flag[asesinopoints]> <green>puntos'
+# ---------------- Cocinero ----------------------
+btnup_ccn_bowl:
+  type: item
+  material: bowl
+  display name: '<gold>Tazon'
+  lore:
+  - '<white>Tecnologia en tazones'
+  - ''
+  - '<white>Usa <green>5 puntos <white>de Ganaderia'
+  - '<white>Para investigar <green>1%'
+  - '<dark_green>Investigacion actual: <yellow><server.flag[meslajho_ccnbowl]><gold>%'
+  - ''
+  - '<gold>Tienes: <green><player.flag[ganaderiapoints]> <green>puntos'
 # ---------------- EVENTOS-------------------------------------------------- ----------------------
 Tecno_openinterfaz:
   type: world
@@ -584,6 +621,10 @@ Tecno_openinterfaz:
     - ^queue clear
     on player clicks lectern in peleteriameslajho:
     - ^inventory open d:in@InvMesPLT
+    - ^determine cancelled
+    - ^queue clear
+    on player clicks lectern in cocinameslajho:
+    - ^inventory open d:in@InvMesCCN
     - ^determine cancelled
     - ^queue clear
 # ------- Cancel Clicks
@@ -637,6 +678,10 @@ Tecno_openinterfaz:
     - determine cancelled
     on player clicks in InvMesPLT_Sea:
     - determine cancelled
+    on player clicks in InvMesCCN:
+    - determine cancelled
+    on player clicks in InvMesCCN_Bowl:
+    - determine cancelled
 
 Tecnologievents:
   type: world
@@ -676,6 +721,8 @@ Tecnologievents:
     - ^inventory open d:in@InvMesPLT_Leather
     on player clicks btn_plt_sea in InvMesPLT:
     - ^inventory open d:in@InvMesPLT_Sea
+    on player clicks btn_ccn_bowl in InvMesCCN:
+    - ^inventory open d:in@InvMesCCN_Bowl
 #                            ----- TECNOLOGIES ------
 # ---------------------------------- Puntos --------------------------------------------
     on player clicks btnup_ctn_cobblestone in InvMesCNT_Cobblestone:
@@ -797,12 +844,20 @@ Tecnologievents:
       }
     - ^inventory open d:in@InvMesPLT_Leather
     - ^queue clear
-    on player clicks btnup_plt_sea in InvMesPLT_Leather:
+    on player clicks btnup_plt_sea in InvMesPLT_Sea:
     - ^if <player.flag[asesinopoints]> >= 5 && <server.flag[meslajho_pltsea]> < 100 {
       - ^flag <player> asesinopoints:-:5
       - ^flag <server> meslajho_pltsea:+:1
       }
     - ^inventory open d:in@InvMesPLT_Sea
+    - ^queue clear
+#                            ----- Cocinero ------
+    on player clicks btnup_ccn_bowl in InvMesCCN_Bowl:
+    - ^if <player.flag[ganaderiapoints]> >= 5 && <server.flag[meslajho_ccnbowl]> < 100 {
+      - ^flag <player> ganaderiapoints:-:5
+      - ^flag <server> meslajho_ccnbowl:+:1
+      }
+    - ^inventory open d:in@InvMesCCN_Bowl
     - ^queue clear
 # ------------------------ Boton btn_regresar ---------------------------------
     on player clicks btn_regresar in InvMesCNT_Andesite:
@@ -835,3 +890,9 @@ Tecnologievents:
     - ^inventory open d:in@InvMesPGM
     on player clicks btn_regresar in InvMesALQ_scute:
     - ^inventory open d:in@InvMesALQ
+    on player clicks btn_regresar in InvMesPLT_Leather:
+    - ^inventory open d:in@InvMesPLT
+    on player clicks btn_regresar in InvMesPLT_Sea:
+    - ^inventory open d:in@InvMesPLT
+    on player clicks btn_regresar in InvMesCCN_Bowl:
+    - ^inventory open d:in@InvMesCCN
